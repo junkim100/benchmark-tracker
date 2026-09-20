@@ -1,0 +1,572 @@
+[
+  {
+    "id": "xai-grok-1-2023-11-03",
+    "lab": "xai",
+    "model": "Grok-1",
+    "date": "2023-11-03",
+    "kind": "blog_post",
+    "title": "Announcing Grok",
+    "source_url": "https://x.ai/news/grok",
+    "benchmarks_raw": [
+      "GSM8k",
+      "MMLU",
+      "HumanEval",
+      "MATH",
+      "Hungarian National High School Math Exam (May 2023)"
+    ]
+  },
+  {
+    "id": "xai-grok-1-model-card-2023-11-03",
+    "lab": "xai",
+    "model": "Grok-1",
+    "date": "2023-11-03",
+    "kind": "system_card",
+    "title": "Grok-1 Model Card",
+    "source_url": "https://x.ai/news/grok/model-card",
+    "benchmarks_raw": []
+  },
+  {
+    "id": "xai-grok-1-open-release-2024-03-17",
+    "lab": "xai",
+    "model": "Grok-1",
+    "date": "2024-03-17",
+    "kind": "model_release",
+    "title": "Open Release of Grok-1",
+    "source_url": "https://x.ai/news/grok-os",
+    "benchmarks_raw": []
+  },
+  {
+    "id": "xai-grok-1-5-2024-03-28",
+    "lab": "xai",
+    "model": "Grok-1.5",
+    "date": "2024-03-28",
+    "kind": "blog_post",
+    "title": "Announcing Grok-1.5",
+    "source_url": "https://x.ai/news/grok-1.5",
+    "benchmarks_raw": [
+      "MMLU",
+      "MATH",
+      "GSM8K",
+      "HumanEval",
+      "Needle In A Haystack"
+    ]
+  },
+  {
+    "id": "xai-grok-1-5v-2024-04-12",
+    "lab": "xai",
+    "model": "Grok-1.5V",
+    "date": "2024-04-12",
+    "kind": "blog_post",
+    "title": "Grok-1.5 Vision Preview",
+    "source_url": "https://x.ai/news/grok-1.5v",
+    "benchmarks_raw": [
+      "MMMU",
+      "Mathvista",
+      "AI2D",
+      "TextVQA",
+      "ChartQA",
+      "DocVQA",
+      "RealWorldQA"
+    ]
+  },
+  {
+    "id": "xai-grok-2-2024-08-13",
+    "lab": "xai",
+    "model": "Grok-2",
+    "date": "2024-08-13",
+    "kind": "blog_post",
+    "title": "Grok-2 Beta Release",
+    "source_url": "https://x.ai/news/grok-2",
+    "benchmarks_raw": [
+      "Chatbot Arena",
+      "GPQA",
+      "MMLU",
+      "MMLU-Pro",
+      "MATH",
+      "HumanEval",
+      "MMMU",
+      "MathVista",
+      "DocVQA"
+    ]
+  },
+  {
+    "id": "xai-aurora-2024-12-09",
+    "lab": "xai",
+    "model": "Aurora",
+    "date": "2024-12-09",
+    "kind": "blog_post",
+    "title": "Grok Image Generation Release",
+    "source_url": "https://x.ai/news/grok-image-generation-release",
+    "benchmarks_raw": []
+  },
+  {
+    "id": "xai-grok-2-1212-2024-12-12",
+    "lab": "xai",
+    "model": "Grok-2-1212",
+    "date": "2024-12-12",
+    "kind": "blog_post",
+    "title": "Bringing Grok to Everyone",
+    "source_url": "https://x.ai/news/grok-1212",
+    "benchmarks_raw": [
+      "Multi-IFEval"
+    ]
+  },
+  {
+    "id": "xai-grok-3-2025-02-19",
+    "lab": "xai",
+    "model": "Grok 3",
+    "date": "2025-02-19",
+    "kind": "blog_post",
+    "title": "Grok 3 Beta — The Age of Reasoning Agents",
+    "source_url": "https://x.ai/news/grok-3",
+    "benchmarks_raw": [
+      "AIME'25",
+      "AIME'24",
+      "GPQA",
+      "LCB",
+      "MMMU",
+      "Chatbot Arena",
+      "MMLU-pro",
+      "LOFT",
+      "SimpleQA",
+      "EgoSchema"
+    ]
+  },
+  {
+    "id": "xai-grok-4-2025-07-09",
+    "lab": "xai",
+    "model": "Grok 4",
+    "date": "2025-07-09",
+    "kind": "blog_post",
+    "title": "Grok 4",
+    "source_url": "https://x.ai/news/grok-4",
+    "benchmarks_raw": [
+      "Humanity's Last Exam",
+      "GPQA",
+      "LiveCodeBench",
+      "USAMO 2025",
+      "HMMT 2025",
+      "AIME'25",
+      "ARC-AGI-2",
+      "Vending-Bench"
+    ]
+  },
+  {
+    "id": "xai-grok-4-model-card-2025-08-20",
+    "lab": "xai",
+    "model": "Grok 4",
+    "date": "2025-08-20",
+    "kind": "system_card",
+    "title": "Grok 4 Model Card",
+    "source_url": "https://data.x.ai/2025-08-20-grok-4-model-card.pdf",
+    "benchmarks_raw": [
+      "AgentHarm",
+      "AgentDojo",
+      "MASK",
+      "Soft Bias (Internal)",
+      "Sycophancy",
+      "BioLP-Bench",
+      "VCT",
+      "WMDP Bio",
+      "WMDP Chem",
+      "WMDP Cyber",
+      "CyBench"
+    ]
+  },
+  {
+    "id": "xai-grok-2-open-weights-2025-08-22",
+    "lab": "xai",
+    "model": "Grok 2",
+    "date": "2025-08-22",
+    "kind": "model_release",
+    "title": "xai-org/grok-2",
+    "source_url": "https://huggingface.co/xai-org/grok-2",
+    "benchmarks_raw": []
+  },
+  {
+    "id": "xai-grok-code-fast-1-model-card-2025-08-26",
+    "lab": "xai",
+    "model": "Grok Code Fast 1",
+    "date": "2025-08-26",
+    "kind": "system_card",
+    "title": "Grok Code Fast 1 Model Card",
+    "source_url": "https://data.x.ai/2025-08-26-grok-code-fast-1-model-card.pdf",
+    "benchmarks_raw": [
+      "AgentHarm",
+      "AgentDojo",
+      "MASK",
+      "BioLP-Bench",
+      "VCT",
+      "WMDP Bio",
+      "WMDP Chem",
+      "CyBench",
+      "WMDP Cyber"
+    ]
+  },
+  {
+    "id": "xai-grok-code-fast-1-2025-08-28",
+    "lab": "xai",
+    "model": "Grok Code Fast 1",
+    "date": "2025-08-28",
+    "kind": "blog_post",
+    "title": "Grok Code Fast 1",
+    "source_url": "https://x.ai/news/grok-code-fast-1",
+    "benchmarks_raw": [
+      "SWE-Bench-Verified"
+    ]
+  },
+  {
+    "id": "xai-grok-4-fast-2025-09-19",
+    "lab": "xai",
+    "model": "Grok 4 Fast",
+    "date": "2025-09-19",
+    "kind": "blog_post",
+    "title": "Grok 4 Fast",
+    "source_url": "https://x.ai/news/grok-4-fast",
+    "benchmarks_raw": [
+      "GPQA Diamond",
+      "AIME 2025",
+      "HMMT 2025",
+      "HLE",
+      "LiveCodeBench",
+      "AIME 2024",
+      "Artificial Analysis Intelligence Index",
+      "BrowseComp",
+      "SimpleQA",
+      "Reka Research Eval",
+      "BrowseComp (zh)",
+      "X Bench Deepsearch (zh)",
+      "X Browse",
+      "Search Arena",
+      "Text Arena"
+    ]
+  },
+  {
+    "id": "xai-grok-4-fast-model-card-2025-09-19",
+    "lab": "xai",
+    "model": "Grok 4 Fast",
+    "date": "2025-09-19",
+    "kind": "system_card",
+    "title": "Grok 4 Fast Model Card",
+    "source_url": "https://data.x.ai/2025-09-19-grok-4-fast-model-card.pdf",
+    "benchmarks_raw": [
+      "AgentHarm",
+      "AgentDojo",
+      "MASK",
+      "Soft Bias (Internal)",
+      "Sycophancy",
+      "BioLP-Bench",
+      "VCT",
+      "WMDP Bio",
+      "WMDP Chem",
+      "WMDP Cyber",
+      "CyBench"
+    ]
+  },
+  {
+    "id": "xai-grok-4-1-2025-11-17",
+    "lab": "xai",
+    "model": "Grok 4.1",
+    "date": "2025-11-17",
+    "kind": "blog_post",
+    "title": "Grok 4.1",
+    "source_url": "https://x.ai/news/grok-4-1",
+    "benchmarks_raw": [
+      "LMArena Text Leaderboard",
+      "EQ-Bench",
+      "Creative Writing v3",
+      "FActScore"
+    ]
+  },
+  {
+    "id": "xai-grok-4-1-model-card-2025-11-17",
+    "lab": "xai",
+    "model": "Grok 4.1",
+    "date": "2025-11-17",
+    "kind": "system_card",
+    "title": "Grok 4.1 Model Card",
+    "source_url": "https://data.x.ai/2025-11-17-grok-4-1-model-card.pdf",
+    "benchmarks_raw": [
+      "AgentHarm",
+      "AgentDojo",
+      "MASK",
+      "Sycophancy",
+      "WMDP Bio",
+      "VCT",
+      "BioLP-Bench",
+      "ProtocolQA",
+      "FigQA",
+      "CloningScenarios",
+      "WMDP Chem",
+      "WMDP Cyber",
+      "CyBench",
+      "MakeMeSay"
+    ]
+  },
+  {
+    "id": "xai-grok-4-1-fast-2025-11-19",
+    "lab": "xai",
+    "model": "Grok 4.1 Fast",
+    "date": "2025-11-19",
+    "kind": "blog_post",
+    "title": "Grok 4.1 Fast and Agent Tools API",
+    "source_url": "https://x.ai/news/grok-4-1-fast",
+    "benchmarks_raw": [
+      "τ²-bench Telecom",
+      "Berkeley Function Calling v4 Benchmark",
+      "Research-Eval Reka",
+      "FRAMES",
+      "X Browse"
+    ]
+  },
+  {
+    "id": "xai-grok-voice-agent-api-2025-12-17",
+    "lab": "xai",
+    "model": "Grok Voice Agent",
+    "date": "2025-12-17",
+    "kind": "blog_post",
+    "title": "Grok Voice Agent API",
+    "source_url": "https://x.ai/news/grok-voice-agent-api",
+    "benchmarks_raw": [
+      "Big Bench Audio"
+    ]
+  },
+  {
+    "id": "xai-grok-imagine-api-2026-01-28",
+    "lab": "xai",
+    "model": "Grok Imagine",
+    "date": "2026-01-28",
+    "kind": "blog_post",
+    "title": "Grok Imagine API",
+    "source_url": "https://x.ai/news/grok-imagine-api",
+    "benchmarks_raw": [
+      "Artificial Analysis: Text-to-Video Rankings",
+      "LMArena",
+      "IVEBench"
+    ]
+  },
+  {
+    "id": "xai-grok-4-20-system-card-2026-04-07",
+    "lab": "xai",
+    "model": "Grok 4.20",
+    "date": "2026-04-07",
+    "kind": "system_card",
+    "title": "Grok 4.20 System Card",
+    "source_url": "https://data.x.ai/2026-04-07-grok-4-20-model-card.pdf",
+    "benchmarks_raw": [
+      "AgentHarm",
+      "AgentDojo",
+      "MASK",
+      "HLE",
+      "WMDP Bio",
+      "VCT",
+      "ProtocolQA",
+      "FigQA",
+      "CloningScenarios",
+      "WMDP Chem",
+      "WMDP Cyber",
+      "CyBench",
+      "MakeMeSay"
+    ]
+  },
+  {
+    "id": "xai-grok-voice-think-fast-1-2026-04-23",
+    "lab": "xai",
+    "model": "Grok Voice Think Fast 1.0",
+    "date": "2026-04-23",
+    "kind": "blog_post",
+    "title": "Grok Voice Think Fast 1.0",
+    "source_url": "https://x.ai/news/grok-voice-think-fast-1",
+    "benchmarks_raw": [
+      "τ-voice Leaderboard"
+    ]
+  },
+  {
+    "id": "xai-grok-imagine-1-5-preview-2026-06-03",
+    "lab": "xai",
+    "model": "Grok Imagine Video 1.5 Preview",
+    "date": "2026-06-03",
+    "kind": "blog_post",
+    "title": "Grok Imagine 1.5 Preview",
+    "source_url": "https://x.ai/news/grok-imagine-1-5",
+    "benchmarks_raw": []
+  },
+  {
+    "id": "xai-grok-imagine-video-1-5-2026-06-16",
+    "lab": "xai",
+    "model": "Grok Imagine Video 1.5",
+    "date": "2026-06-16",
+    "kind": "blog_post",
+    "title": "Grok Imagine Video 1.5",
+    "source_url": "https://x.ai/news/grok-imagine-video-1-5",
+    "benchmarks_raw": []
+  },
+  {
+    "id": "xai-grok-4-5-model-card-2026-07-14",
+    "lab": "xai",
+    "model": "Grok 4.5",
+    "date": "2026-07-14",
+    "kind": "system_card",
+    "title": "Model Card: Grok 4.5",
+    "source_url": "https://media.x.ai/v1/website/4p5-5184fdf9.pdf",
+    "benchmarks_raw": [
+      "DeepSWE (v1.0)",
+      "DeepSWE (v1.1)",
+      "APEX-SWE",
+      "SWE-Bench Pro",
+      "SWE-Bench Multilingual",
+      "SWE-Marathon",
+      "FrontierSWE",
+      "ProgramBench",
+      "Terminal-Bench (2.1)",
+      "SWE-Atlas-QnA",
+      "FalseClaimBench",
+      "EEBench",
+      "3DCodeBench",
+      "CAD-Bench",
+      "GDPval-AA v2",
+      "τ-bench",
+      "SpaceXAI MTS Eval",
+      "RelBench",
+      "DeepSearchQA",
+      "CyberGym",
+      "HackerBench (v0.2)",
+      "Virology Capabilities Test (VCT)",
+      "WMDP-Bio",
+      "WMDP-Chem",
+      "LAB-Bench",
+      "ProtocolQA Open-Ended",
+      "BixBench",
+      "Autointent-Bio",
+      "Autointent-Chem",
+      "FORTRESS-RN",
+      "Epistemic Bias",
+      "MASK-Rectified",
+      "Sycophancy"
+    ]
+  },
+  {
+    "id": "xai-grok-4-5-2026-07-16",
+    "lab": "xai",
+    "model": "Grok 4.5",
+    "date": "2026-07-16",
+    "kind": "blog_post",
+    "title": "Introducing Grok 4.5",
+    "source_url": "https://x.ai/news/grok-4-5",
+    "benchmarks_raw": [
+      "DeepSWE (1.0)",
+      "DeepSWE (1.1)",
+      "SWE Marathon",
+      "Terminal Bench (2.1)",
+      "SWE Bench Pro"
+    ]
+  },
+  {
+    "id": "xai-grok-voice-think-fast-2-2026-07-29",
+    "lab": "xai",
+    "model": "Grok Voice Think Fast 2.0",
+    "date": "2026-07-29",
+    "kind": "blog_post",
+    "title": "Introducing Grok Voice Think Fast 2.0",
+    "source_url": "https://x.ai/news/grok-voice-think-fast-2",
+    "benchmarks_raw": [
+      "AA Speech-to-Speech Quality Index",
+      "Big Bench Audio",
+      "Full Duplex Bench",
+      "τ-voice Bench"
+    ]
+  },
+  {
+    "id": "xai-grok-imagine-image-2-2026-08-07",
+    "lab": "xai",
+    "model": "Imagine Image 2.0",
+    "date": "2026-08-07",
+    "kind": "blog_post",
+    "title": "Imagine Image 2.0",
+    "source_url": "https://x.ai/news/grok-imagine-image-2",
+    "benchmarks_raw": [
+      "Image Edit Arena",
+      "Text-to-Image Arena"
+    ]
+  },
+  {
+    "id": "xai-grok-4-6-2026-08-12",
+    "lab": "xai",
+    "model": "Grok 4.6",
+    "date": "2026-08-12",
+    "kind": "blog_post",
+    "title": "Introducing Grok 4.6",
+    "source_url": "https://x.ai/news/grok-4-6",
+    "benchmarks_raw": [
+      "AA Intelligence Index",
+      "GDPVal-AA v2",
+      "CursorBench (v3.2)",
+      "DeepSWE (v1.1)",
+      "FrontierCode v1.1 (Extended)",
+      "APEX-Agents",
+      "Terminal-Bench (v3.0)",
+      "APEX-SWE",
+      "AA-Briefcase",
+      "Harvey LAB (Vals)"
+    ]
+  },
+  {
+    "id": "xai-grok-4-6-model-card-2026-08-12",
+    "lab": "xai",
+    "model": "Grok 4.6",
+    "date": "2026-08-12",
+    "kind": "system_card",
+    "title": "Model Card: Grok 4.6",
+    "source_url": "https://media.x.ai/v1/website/card-4p6-4cd2dc57.pdf",
+    "benchmarks_raw": [
+      "CursorBench (3.2)",
+      "APEX-SWE",
+      "FrontierCode (v1.1)",
+      "DeepSWE (v1.1)",
+      "SWE-Marathon (v1.1)",
+      "Terminal-Bench (3.0)",
+      "AA GDPVal",
+      "AA-Briefcase",
+      "APEX-Agents",
+      "OfficeQA Pro",
+      "Legal Agent Benchmark",
+      "EEBench",
+      "3DCodeBench",
+      "PartBench",
+      "CADGenBench",
+      "CADBench",
+      "SpaceXAI MTS Eval",
+      "InferenceEval",
+      "KernelBenchInternal (v1.1)",
+      "Factuality (Hallucination)",
+      "DeepSearchQA",
+      "CyberGym",
+      "CVE-Bench",
+      "SecureCodeReview",
+      "HackerBench (v0.2)",
+      "Virology Capabilities Test (VCT)",
+      "Biosecurity VCT",
+      "BioUseBench",
+      "WMDP-Bio",
+      "WMDP-Chem",
+      "LAB-Bench",
+      "ProtocolQA Open-Ended",
+      "BixBench",
+      "FORTRESS-RN",
+      "MASK-Rectified",
+      "Sycophancy"
+    ]
+  },
+  {
+    "id": "xai-grok-voice-transcribe-2-2026-09-18",
+    "lab": "xai",
+    "model": "Grok Voice Transcribe 2.0",
+    "date": "2026-09-18",
+    "kind": "blog_post",
+    "title": "Introducing Grok Voice Transcribe 2.0",
+    "source_url": "https://x.ai/news/grok-voice-transcribe-2",
+    "benchmarks_raw": [
+      "Artificial Analysis leaderboard"
+    ]
+  }
+]
