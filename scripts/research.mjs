@@ -27,11 +27,20 @@ const today = new Date().toISOString().slice(0, 10);
 
 // Domains come from the lab's own source list. arXiv is allowed for every lab
 // because a lab's own paper is a primary source; news domains never appear.
+// huggingface.co and github.com host every lab, so a bare hostname there would
+// let anyone's upload count as official. web search accepts a path suffix, so
+// those two stay scoped to the lab's own org while everything else is a host.
+const SHARED_HOSTS = new Set(["huggingface.co", "github.com"]);
 const domainsFor = (lab) => {
-  const hosts = lab.sources
+  const entries = lab.sources
     .filter((s) => s.startsWith("http"))
-    .map((s) => new URL(s).hostname.replace(/^www\./, ""));
-  return [...new Set([...hosts, "arxiv.org"])];
+    .map((s) => {
+      const u = new URL(s);
+      const host = u.hostname.replace(/^www\./, "");
+      const org = u.pathname.split("/").filter(Boolean)[0];
+      return SHARED_HOSTS.has(host) && org ? `${host}/${org}` : host;
+    });
+  return [...new Set([...entries, "arxiv.org"])];
 };
 
 const RECORD_SCHEMA = {
