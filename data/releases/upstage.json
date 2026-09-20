@@ -1,0 +1,438 @@
+[
+  {
+    "id": "upstage-70b-llm-2023-08-01",
+    "lab": "upstage",
+    "model": "Upstage 70B LLM",
+    "date": "2023-08-01",
+    "kind": "blog_post",
+    "title": "Upstage's 70B Language Model Outperforms GPT-3.5, Becomes Global No.1",
+    "source_url": "https://www.upstage.ai/news/upstage-huggingface-llm-no1",
+    "benchmarks_raw": [
+      "HuggingFace Open LLM Leaderboard"
+    ]
+  },
+  {
+    "id": "upstage-solar-10-7b-2023-12-14",
+    "lab": "upstage",
+    "model": "SOLAR 10.7B",
+    "date": "2023-12-14",
+    "kind": "blog_post",
+    "title": "Upstage's Solar 10.7B Emerges as World's Top Pre-trained LLM",
+    "source_url": "https://www.upstage.ai/news/solar-10-7b-emerges-as-worlds-top-pre-trained-llm",
+    "benchmarks_raw": [
+      "Huggingface Open LLM Leaderboard"
+    ]
+  },
+  {
+    "id": "upstage-solar-10-7b-technical-report-2023-12-23",
+    "lab": "upstage",
+    "model": "SOLAR 10.7B / SOLAR 10.7B-Instruct",
+    "date": "2023-12-23",
+    "kind": "technical_report",
+    "title": "SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling",
+    "source_url": "https://arxiv.org/abs/2312.15166",
+    "benchmarks_raw": [
+      "Open LLM Leaderboard",
+      "H6",
+      "ARC",
+      "HellaSwag",
+      "MMLU",
+      "TruthfulQA",
+      "Winogrande",
+      "GSM8K"
+    ]
+  },
+  {
+    "id": "upstage-solar-mini-2024-01-25",
+    "lab": "upstage",
+    "model": "Solar Mini",
+    "date": "2024-01-25",
+    "kind": "model_release",
+    "title": "Introducing Solar Mini: Compact yet Powerful",
+    "source_url": "https://www.upstage.ai/blog/en/introducing-solar-mini-compact-yet-powerful",
+    "benchmarks_raw": [
+      "Open LLM Leaderboard"
+    ]
+  },
+  {
+    "id": "upstage-solar-embedding-1-large-2024-05-16",
+    "lab": "upstage",
+    "model": "solar-embedding-1-large",
+    "date": "2024-05-16",
+    "kind": "model_release",
+    "title": "Breaking barriers: Revolutionize your work with our next-level embedding model",
+    "source_url": "https://www.upstage.ai/blog/en/solar-embedding-1-large",
+    "benchmarks_raw": [
+      "MTEB",
+      "MTEB Retrieval",
+      "MIRACL",
+      "Ko-miracl"
+    ]
+  },
+  {
+    "id": "upstage-solar-mini-chat-ja-2024-05-22",
+    "lab": "upstage",
+    "model": "Solar Mini Chat ja",
+    "date": "2024-05-22",
+    "kind": "model_release",
+    "title": "Introducing Solar Mini Chat ja: Expanding language support to Japanese",
+    "source_url": "https://www.upstage.ai/blog/en/solar-mini-chat-ja",
+    "benchmarks_raw": [
+      "JCS",
+      "JNLI",
+      "MARC-ja",
+      "JSQuAD",
+      "JAQKET v2",
+      "MGSM"
+    ]
+  },
+  {
+    "id": "upstage-writeup-2024-06-05",
+    "lab": "upstage",
+    "model": "WriteUp (on-device LLM)",
+    "date": "2024-06-05",
+    "kind": "model_release",
+    "title": "Next generation for AGI: Upstage's on-device LLM, WriteUp",
+    "source_url": "https://www.upstage.ai/blog/en/on-device-writeup",
+    "benchmarks_raw": []
+  },
+  {
+    "id": "upstage-solar-pro-preview-model-card-2024-09-08",
+    "lab": "upstage",
+    "model": "Solar Pro Preview (solar-pro-preview-instruct)",
+    "date": "2024-09-08",
+    "kind": "model_release",
+    "title": "Solar Pro Preview: The most intelligent LLM on a single GPU (model card)",
+    "source_url": "https://huggingface.co/upstage/solar-pro-preview-instruct",
+    "benchmarks_raw": [
+      "MMLU",
+      "MMLU Pro",
+      "IFEval",
+      "ARC-C",
+      "GPQA",
+      "HellaSwag",
+      "EQBench",
+      "BigBench Hard",
+      "MUSR",
+      "GSM8K",
+      "MBPP"
+    ]
+  },
+  {
+    "id": "upstage-solar-pro-preview-2024-09-10",
+    "lab": "upstage",
+    "model": "Solar Pro Preview",
+    "date": "2024-09-10",
+    "kind": "model_release",
+    "title": "Solar Pro Preview: The most intelligent LLM on a single GPU",
+    "source_url": "https://www.upstage.ai/blog/en/solar-pro-preview-the-most-intelligent-llm-on-a-single-gpu",
+    "benchmarks_raw": [
+      "MMLU-Pro",
+      "IFEval"
+    ]
+  },
+  {
+    "id": "upstage-solar-proofread-2024-09-10",
+    "lab": "upstage",
+    "model": "Solar-Proofread",
+    "date": "2024-09-10",
+    "kind": "blog_post",
+    "title": "Small models, big impact: How Upstage built a highly accurate SLM for proofreading",
+    "source_url": "https://www.upstage.ai/blog/en/small-models-big-impact-how-upstage-built-a-highly-accurate-slm-for-proofreading",
+    "benchmarks_raw": []
+  },
+  {
+    "id": "upstage-document-parse-2024-10-15",
+    "lab": "upstage",
+    "model": "Document Parse",
+    "date": "2024-10-15",
+    "kind": "model_release",
+    "title": "Upstage Document Parse: Let LLMs read your documents with speed and accuracy",
+    "source_url": "https://www.upstage.ai/blog/en/let-llms-read-your-documents-with-speed-and-accuracy",
+    "benchmarks_raw": [
+      "DP-Bench"
+    ]
+  },
+  {
+    "id": "upstage-solar-pro-2024-12-05",
+    "lab": "upstage",
+    "model": "Solar Pro",
+    "date": "2024-12-05",
+    "kind": "model_release",
+    "title": "Solar Pro: The most intelligent LLM on a single GPU—supporting more tasks, languages, and domains",
+    "source_url": "https://www.upstage.ai/blog/en/solar-pro",
+    "benchmarks_raw": [
+      "DocVQA-html",
+      "MP-DocVQA-html",
+      "WikiTableQuestions",
+      "IFEval",
+      "MMLU",
+      "KMMLU",
+      "HAERAE",
+      "Ko-IFEval",
+      "KorMedMCQA",
+      "KBL",
+      "Ko-Finance-Bench"
+    ]
+  },
+  {
+    "id": "upstage-document-parse-chart-recognition-2025-01-23",
+    "lab": "upstage",
+    "model": "Document Parse (chart recognition)",
+    "date": "2025-01-23",
+    "kind": "model_release",
+    "title": "Turn Charts into LLM-Actionable Data: Introducing Chart Recognition in Upstage Document Parse",
+    "source_url": "https://www.upstage.ai/blog/en/introducing-chart-recognition-in-upstage-document-parse",
+    "benchmarks_raw": []
+  },
+  {
+    "id": "upstage-document-parse-250404-2025-04-15",
+    "lab": "upstage",
+    "model": "Document Parse (document-parse-250404)",
+    "date": "2025-04-15",
+    "kind": "model_release",
+    "title": "Document Parse got stronger: Better at forms, rotation, and complex tables",
+    "source_url": "https://www.upstage.ai/blog/en/upstage-document-parse-now-supports-rotated-docs-multi-page-tables-and-long-image-processing",
+    "benchmarks_raw": []
+  },
+  {
+    "id": "upstage-solar-pro-mini-korean-update-2025-04-28",
+    "lab": "upstage",
+    "model": "Solar Pro / Solar Mini (April 2025 update)",
+    "date": "2025-04-28",
+    "kind": "model_release",
+    "title": "Experience stronger Korean fluency in the new Solar Pro & Mini",
+    "source_url": "https://www.upstage.ai/blog/en/experience-stronger-korean-fluency-in-the-new-solar-llms",
+    "benchmarks_raw": [
+      "ko-fluency",
+      "Ko-MT-Bench",
+      "Ko-MMLU",
+      "Open Ko-LLM Leaderboard"
+    ]
+  },
+  {
+    "id": "upstage-solar-pro-2-preview-2025-05-20",
+    "lab": "upstage",
+    "model": "Solar Pro 2 Preview",
+    "date": "2025-05-20",
+    "kind": "model_release",
+    "title": "Solar Pro 2 Preview: Small. Powerful. Now with reasoning.",
+    "source_url": "https://www.upstage.ai/blog/en/solar-pro-2-preview-small-powerful-now-with-reasoning",
+    "benchmarks_raw": []
+  },
+  {
+    "id": "upstage-information-extract-2025-05-29",
+    "lab": "upstage",
+    "model": "Information Extract",
+    "date": "2025-05-29",
+    "kind": "model_release",
+    "title": "Extract structured data from any document—Information Extract API is live",
+    "source_url": "https://www.upstage.ai/blog/en/extract-structured-data-from-any-document--information-extract-api-is-live",
+    "benchmarks_raw": []
+  },
+  {
+    "id": "upstage-solar-pro-2-2025-07-10",
+    "lab": "upstage",
+    "model": "Solar Pro 2",
+    "date": "2025-07-10",
+    "kind": "model_release",
+    "title": "Solar Pro 2: Fluent. Reasoning. Frontier.",
+    "source_url": "https://www.upstage.ai/blog/en/solar-pro-2-launch",
+    "benchmarks_raw": [
+      "Ko-Arena-Hard-Auto",
+      "Ko-MMLU",
+      "Hae-Rae",
+      "Ko-IFEval",
+      "MMLU",
+      "MMLU-Pro",
+      "HumanEval",
+      "Math500",
+      "AIME",
+      "SWE-Bench Agentless"
+    ]
+  },
+  {
+    "id": "upstage-solar-pro-2-frontier-2025-07-21",
+    "lab": "upstage",
+    "model": "Solar Pro 2",
+    "date": "2025-07-21",
+    "kind": "blog_post",
+    "title": "Solar Pro 2 Breaks Into Global Frontier AI",
+    "source_url": "https://www.upstage.ai/news/solar-pro-2-frontier",
+    "benchmarks_raw": [
+      "Artificial Analysis' Intelligence Index"
+    ]
+  },
+  {
+    "id": "upstage-syn-pro-2025-10-23",
+    "lab": "upstage",
+    "model": "Syn Pro",
+    "date": "2025-10-23",
+    "kind": "model_release",
+    "title": "Introducing Syn Pro",
+    "source_url": "https://www.upstage.ai/blog/en/upstage-ai-jp-syn-pro",
+    "benchmarks_raw": [
+      "Nejumi Leaderboard"
+    ]
+  },
+  {
+    "id": "upstage-document-classify-2025-12-05",
+    "lab": "upstage",
+    "model": "Document Classify",
+    "date": "2025-12-05",
+    "kind": "model_release",
+    "title": "Introducing Document Classify: Universal, semantic classification for any document",
+    "source_url": "https://www.upstage.ai/blog/en/introducing-document-classify-universal-semantic-classification-for-any-document",
+    "benchmarks_raw": []
+  },
+  {
+    "id": "upstage-document-parse-enhanced-2025-12-17",
+    "lab": "upstage",
+    "model": "Document Parse Enhanced mode (document-parse-nightly)",
+    "date": "2025-12-17",
+    "kind": "model_release",
+    "title": "Introducing Document Parse: Enhanced mode",
+    "source_url": "https://www.upstage.ai/blog/en/document-parse-enhanced",
+    "benchmarks_raw": [
+      "dpp-bench-v1.4.0/table",
+      "dpp-bench-v1.4.0/checkbox",
+      "dpp-bench-v1.4.0/chart,figure"
+    ]
+  },
+  {
+    "id": "upstage-solar-open-technical-report-2026-01-11",
+    "lab": "upstage",
+    "model": "Solar Open (Solar-Open-100B)",
+    "date": "2026-01-11",
+    "kind": "technical_report",
+    "title": "Solar Open Technical Report",
+    "source_url": "https://arxiv.org/abs/2601.07022",
+    "benchmarks_raw": [
+      "KMMLU",
+      "KMMLU-Pro",
+      "CLIcK",
+      "HAE-RAE (v1.1)",
+      "KoBALT",
+      "KBankMMLU",
+      "KBL",
+      "KorMedMCQA",
+      "Ko-AIME 2024",
+      "Ko-AIME 2025",
+      "HRM8K",
+      "Ko-IFEval",
+      "Ko Arena Hard v2",
+      "MMLU",
+      "MMLU-Pro",
+      "GPQA-Diamond",
+      "HLE",
+      "AIME 2024",
+      "AIME 2025",
+      "HMMT 2025 (Feb)",
+      "HMMT 2025 (Nov)",
+      "LiveCodeBench",
+      "IFBench",
+      "IFEval",
+      "Arena Hard v2",
+      "Writing Bench",
+      "Tau 2 Airline",
+      "Tau2 Telecom",
+      "Tau2 Retail",
+      "AA-LCR",
+      "HellaSwag"
+    ]
+  },
+  {
+    "id": "upstage-solar-pro-3-2026-01-26",
+    "lab": "upstage",
+    "model": "Solar Pro 3",
+    "date": "2026-01-26",
+    "kind": "model_release",
+    "title": "Solar Pro 3: Better reasoning at production scale",
+    "source_url": "https://www.upstage.ai/blog/en/solar-pro-3-0127",
+    "benchmarks_raw": [
+      "IFBench",
+      "Arena Hard v2"
+    ]
+  },
+  {
+    "id": "upstage-solar-pro-3-0323-2026-03-24",
+    "lab": "upstage",
+    "model": "Solar Pro 3 (March 2026 update)",
+    "date": "2026-03-24",
+    "kind": "model_release",
+    "title": "Solar Pro 3: 2× Agentic Performance — What Changed",
+    "source_url": "https://www.upstage.ai/blog/en/solar-pro-3-0323",
+    "benchmarks_raw": [
+      "Tau2-all",
+      "SWE Bench",
+      "Terminal Bench 2",
+      "Ko-Arena-hard-v2"
+    ]
+  },
+  {
+    "id": "upstage-solar-open-2-technical-report-2026-07-22",
+    "lab": "upstage",
+    "model": "Solar Open 2 (Solar-Open2-250B)",
+    "date": "2026-07-22",
+    "kind": "technical_report",
+    "title": "Solar Open 2 Technical Report",
+    "source_url": "https://arxiv.org/abs/2607.20062",
+    "benchmarks_raw": [
+      "MMLU-Pro",
+      "GPQA-Diamond",
+      "HLE",
+      "LiveCodeBench",
+      "ArtifactsBench",
+      "HMMT2602",
+      "AIME2026",
+      "Multi-Challenge",
+      "IFBench",
+      "AA-LCR",
+      "SWE-Bench Verified",
+      "Terminal Bench Hard",
+      "APEX-Agents",
+      "MCP-Atlas",
+      "τ³ (banking)",
+      "GDPval-AA v2",
+      "KMMLU-Pro",
+      "CLIcK",
+      "HAE-RAE (v1.1)",
+      "Ko-AIME'25",
+      "HRM8K",
+      "KBank-MMLU",
+      "KBL",
+      "KorMedMCQA",
+      "Ko-GDPval"
+    ]
+  },
+  {
+    "id": "upstage-solar-pro-4-2026-08-11",
+    "lab": "upstage",
+    "model": "Solar Pro 4",
+    "date": "2026-08-11",
+    "kind": "model_release",
+    "title": "Solar Pro 4: The Agentic Model That Finishes the Job",
+    "source_url": "https://www.upstage.ai/blog/en/solar-pro-4",
+    "benchmarks_raw": [
+      "Terminal-Bench (v2.1)",
+      "GDPval-AA v2",
+      "BrowseComp",
+      "SWE-Bench Verified",
+      "MCP-Atlas",
+      "APEX-Agents",
+      "τ³-Banking",
+      "AA-LCR",
+      "GPQA Diamond",
+      "MMLU-Pro",
+      "LiveCodeBench",
+      "AIME 2026",
+      "KMMLU-Pro",
+      "KBL",
+      "KorMedMCQA",
+      "Ko-GDPval",
+      "Arena-Hard v2 (Japanese)",
+      "MMLU (Japanese)",
+      "IFEval (Japanese)"
+    ]
+  }
+]
