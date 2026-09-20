@@ -1,0 +1,58 @@
+name: Daily research
+
+on:
+  schedule:
+    # 13:00 UTC is early morning in the Americas and after the working day in
+    # Asia, so a release published anywhere is usually up by the time this runs.
+    - cron: "0 13 * * *"
+  workflow_dispatch:
+    inputs:
+      lookback_days:
+        description: "How many days back to search"
+        default: "14"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Research each lab
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          LOOKBACK_DAYS: ${{ inputs.lookback_days || '14' }}
+        run: node scripts/research.mjs
+
+      # The same validation the site build runs. A malformed or score-bearing
+      # record fails here, before it can reach a pull request.
+      - name: Validate against the data contract
+        run: npm run normalize
+
+      - name: Open a pull request if anything changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -z "$(git status --porcelain data/releases)" ]; then
+            echo "No new releases. Nothing to open."
+            exit 0
+          fi
+          BRANCH="research/$(date -u +%Y-%m-%d)"
+          git config user.name "benchmark-tracker bot"
+          git config user.email "noreply@github.com"
+          git checkout -b "$BRANCH"
+          git add data/releases
+          git commit -m "Daily research: $(date -u +%Y-%m-%d)
+
+          $(cat research-summary.txt)"
+          git push -u origin "$BRANCH"
+          gh pr create --title "Daily research: $(date -u +%Y-%m-%d)" \
+            --body "$(printf 'Found by the daily research pass. Every source is on the lab own domain or its arXiv paper; web search was restricted to those domains, so a third-party write-up cannot appear here.\n\n%s\n\nReview the cited benchmark names before merging. Names the build did not recognise are listed in the normalize step output and may need an entry in data/aliases.json.' "$(cat research-summary.txt)")"
