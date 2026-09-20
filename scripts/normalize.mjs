@@ -63,7 +63,11 @@ for (const file of files) {
     // Scores are out of scope by design, so a stray number is a contract breach.
     for (const b of r.benchmarks_raw) {
       if (typeof b !== "string") problems.push(`${where}: benchmark entries must be strings`);
-      else if (/\d+\.\d+\s*%?$|\b\d{1,3}\s*%/.test(b)) problems.push(`${where}: "${b}" looks like a score`);
+      // Only a percentage or an explicit "name: 88.7" reads as a score. An
+      // earlier version also rejected any trailing decimal, which flagged every
+      // versioned benchmark ("Terminal-Bench 2.0") and pushed a researcher into
+      // rewriting real names to get past it. Versions never carry % or a colon.
+      else if (/\d\s*%|[:=]\s*\d/.test(b)) problems.push(`${where}: "${b}" looks like a score`);
     }
 
     const canonical = [...new Set(r.benchmarks_raw.map((raw) => {

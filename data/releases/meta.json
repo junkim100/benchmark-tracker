@@ -663,11 +663,11 @@
       "TVBench",
       "How2QA",
       "PLM-VideoBench",
-      "PLM–FGQA",
-      "PLM–SGQA",
-      "PLM–RCap",
-      "PLM–RTLoc",
-      "PLM–RDCap"
+      "PLM\u2013FGQA",
+      "PLM\u2013SGQA",
+      "PLM\u2013RCap",
+      "PLM\u2013RTLoc",
+      "PLM\u2013RDCap"
     ]
   },
   {
@@ -930,9 +930,9 @@
       "OSWorld-Verified",
       "Humanity's Last Exam",
       "Finance Agent v2",
-      "Terminal-Bench (2.1)",
+      "Terminal-Bench 2.1",
       "SWE-Bench Pro",
-      "DeepSWE (1.1)",
+      "DeepSWE 1.1",
       "CharXiv Reasoning",
       "BabyVision",
       "DeepSearchQA",

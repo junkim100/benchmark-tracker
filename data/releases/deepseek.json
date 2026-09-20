@@ -237,7 +237,7 @@
       "CRUXEval-O-COT",
       "LiveCodeBench",
       "MT-Bench",
-      "AlpacaEval (2.0)",
+      "AlpacaEval 2.0",
       "AlignBench"
     ]
   },
@@ -308,7 +308,7 @@
       "C-Eval",
       "CMMLU",
       "Arena-Hard",
-      "AlpacaEval (2.0)",
+      "AlpacaEval 2.0",
       "MT-Bench",
       "Alignbench"
     ]
@@ -375,7 +375,7 @@
     "title": "deepseek-ai/DeepSeek-V2.5",
     "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V2.5",
     "benchmarks_raw": [
-      "AlpacaEval (2.0)",
+      "AlpacaEval 2.0",
       "ArenaHard",
       "AlignBench",
       "MT-Bench",
@@ -551,7 +551,7 @@
       "CNMO 2024",
       "C-SimpleQA",
       "Arena-Hard",
-      "AlpacaEval (2.0)",
+      "AlpacaEval 2.0",
       "RewardBench"
     ]
   },
@@ -572,7 +572,7 @@
       "GPQA Diamond",
       "SimpleQA",
       "FRAMES",
-      "AlpacaEval (2.0)",
+      "AlpacaEval 2.0",
       "ArenaHard",
       "LiveCodeBench",
       "Codeforces",
@@ -831,12 +831,12 @@
       "HMMT Feb 2025",
       "HMMT Nov 2025",
       "IMOAnswerBench",
-      "Terminal Bench (2.0)",
+      "Terminal Bench 2.0",
       "SWE Verified",
       "SWE Multilingual",
       "BrowseComp",
       "BrowseCompZh",
-      "τ²-Bench",
+      "\u03c4\u00b2-Bench",
       "MCP-Universe",
       "MCP-Mark",
       "Tool-Decathlon",
@@ -904,7 +904,7 @@
       "Apex Shortlist",
       "MRCR 1M",
       "CorpusQA 1M",
-      "Terminal Bench (2.0)",
+      "Terminal Bench 2.0",
       "SWE Verified",
       "SWE Pro",
       "SWE Multilingual",
@@ -925,7 +925,7 @@
     "title": "deepseek-ai/DeepSeek-V4-Flash-0731",
     "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
     "benchmarks_raw": [
-      "Terminal Bench (2.1)",
+      "Terminal Bench 2.1",
       "NL2Repo",
       "Cybergym",
       "DeepSWE",
@@ -946,7 +946,7 @@
     "source_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813",
     "benchmarks_raw": [
       "HLE",
-      "Terminal Bench (2.1)",
+      "Terminal Bench 2.1",
       "NL2Repo",
       "Cybergym",
       "DeepSWE",
@@ -966,7 +966,7 @@
     "title": "DeepSeek-V4-Flash-Vision-Exp Release: Multimodal API Now Live",
     "source_url": "https://api-docs.deepseek.com/news/news260821",
     "benchmarks_raw": [
-      "Terminal Bench (2.1)",
+      "Terminal Bench 2.1",
       "NL2Repo",
       "Cybergym",
       "DeepSWE",
@@ -1012,9 +1012,9 @@
       "HLE",
       "Codeforces",
       "MathArena Apex",
-      "Terminal-Bench (2.1)",
-      "Terminal-Bench (3.0)",
-      "Terminal-Bench (4.0)",
+      "Terminal-Bench 2.1",
+      "Terminal-Bench 3.0",
+      "Terminal-Bench 4.0",
       "DeepSWE (v1.1)",
       "ProgramBench",
       "NL2Repo-Bench",

@@ -71,7 +71,7 @@
     "model": "CodeGeeX2-6B",
     "date": "2023-07-25",
     "kind": "model_release",
-    "title": "CodeGeeX2: 更强大的多语言代码生成模型",
+    "title": "CodeGeeX2: \u66f4\u5f3a\u5927\u7684\u591a\u8bed\u8a00\u4ee3\u7801\u751f\u6210\u6a21\u578b",
     "source_url": "https://github.com/zai-org/CodeGeeX2",
     "benchmarks_raw": [
       "HumanEval",
@@ -505,7 +505,7 @@
     "model": "GLM-4-Plus",
     "date": "2024-09-12",
     "kind": "blog_post",
-    "title": "智谱携基座大模型 GLM-4-Plus 亮相 KDD，清言全新升级视频通话功能",
+    "title": "\u667a\u8c31\u643a\u57fa\u5ea7\u5927\u6a21\u578b GLM-4-Plus \u4eae\u76f8 KDD\uff0c\u6e05\u8a00\u5168\u65b0\u5347\u7ea7\u89c6\u9891\u901a\u8bdd\u529f\u80fd",
     "source_url": "https://www.zhipuai.cn/zh/news/69",
     "benchmarks_raw": [
       "AlignBench",
@@ -589,7 +589,7 @@
     "model": "GLM-PC",
     "date": "2024-11-29",
     "kind": "blog_post",
-    "title": "Agent 新进展：跨 app、跨设备、更多玩法｜智谱 Agent OpenDay",
+    "title": "Agent \u65b0\u8fdb\u5c55\uff1a\u8de8 app\u3001\u8de8\u8bbe\u5907\u3001\u66f4\u591a\u73a9\u6cd5\uff5c\u667a\u8c31 Agent OpenDay",
     "source_url": "https://www.zhipuai.cn/zh/news/68",
     "benchmarks_raw": []
   },
@@ -854,7 +854,7 @@
       "BrowseComp",
       "SWE-bench Verified",
       "Terminal-Bench",
-      "τ²-Bench",
+      "\u03c4\u00b2-Bench",
       "CC-Bench"
     ]
   },
@@ -1013,10 +1013,10 @@
       "SWE-bench Verified",
       "SWE-bench Multilingual",
       "Terminal Bench Hard",
-      "Terminal Bench (2.0)",
+      "Terminal Bench 2.0",
       "BrowseComp",
       "BrowseComp-ZH",
-      "τ²-Bench"
+      "\u03c4\u00b2-Bench"
     ]
   },
   {
@@ -1050,7 +1050,7 @@
       "LCB v6",
       "HLE",
       "SWE-bench Verified",
-      "τ²-Bench",
+      "\u03c4\u00b2-Bench",
       "BrowseComp"
     ]
   },
@@ -1088,11 +1088,11 @@
       "GPQA-Diamond",
       "SWE-bench Verified",
       "SWE-bench Multilingual",
-      "Terminal-Bench (2.0)",
+      "Terminal-Bench 2.0",
       "CyberGym",
       "BrowseComp",
       "BrowseComp-Zh",
-      "τ²-Bench",
+      "\u03c4\u00b2-Bench",
       "MCP-Atlas",
       "Tool-Decathlon",
       "Vending Bench 2",
@@ -1117,11 +1117,11 @@
       "LongBench v2",
       "SWE-bench Verified",
       "SWE-bench Multilingual",
-      "Terminal-Bench (2.0)",
+      "Terminal-Bench 2.0",
       "CyberGym",
       "BrowseComp",
       "BrowseComp-ZH",
-      "τ²-Bench",
+      "\u03c4\u00b2-Bench",
       "MCP-Atlas",
       "Tool-Decathlon",
       "Vending-Bench 2",
@@ -1157,7 +1157,7 @@
     "model": "GLM-5-Turbo",
     "date": "2026-03-15",
     "kind": "blog_post",
-    "title": "GLM-5-Turbo：龙虾增强的基座模型",
+    "title": "GLM-5-Turbo\uff1a\u9f99\u867e\u589e\u5f3a\u7684\u57fa\u5ea7\u6a21\u578b",
     "source_url": "https://www.zhipuai.cn/zh/research/155",
     "benchmarks_raw": [
       "ZClawBench"
@@ -1169,7 +1169,7 @@
     "model": "GLM-5V-Turbo",
     "date": "2026-04-01",
     "kind": "blog_post",
-    "title": "GLM-5V-Turbo发布：多模态Coding基座模型",
+    "title": "GLM-5V-Turbo\u53d1\u5e03\uff1a\u591a\u6a21\u6001Coding\u57fa\u5ea7\u6a21\u578b",
     "source_url": "https://www.zhipuai.cn/zh/research/156",
     "benchmarks_raw": [
       "CC-Bench-V2",
@@ -1197,10 +1197,10 @@
       "GPQA-Diamond",
       "SWE-Bench Pro",
       "NL2Repo",
-      "Terminal-Bench (2.0)",
+      "Terminal-Bench 2.0",
       "CyberGym",
       "BrowseComp",
-      "τ³-Bench",
+      "\u03c4\u00b3-Bench",
       "MCP-Atlas",
       "Tool-Decathlon",
       "Vending Bench 2",
@@ -1258,7 +1258,7 @@
       "NL2Repo",
       "DeepSWE",
       "ProgramBench",
-      "Terminal Bench (2.1)",
+      "Terminal Bench 2.1",
       "FrontierSWE",
       "PostTrainBench",
       "SWE-Marathon",
@@ -1275,8 +1275,8 @@
     "title": "GLM-5.3: Frontier Coding with Emergent Cyber Capabilities",
     "source_url": "https://z.ai/blog/glm-5.3",
     "benchmarks_raw": [
-      "Terminal Bench (2.1)",
-      "Terminal Bench (3.0)",
+      "Terminal Bench 2.1",
+      "Terminal Bench 3.0",
       "DeepSWE",
       "NL2Repo",
       "ProgramBench",
@@ -1308,7 +1308,7 @@
       "HellaSwag",
       "LiveCodeBench-Base",
       "SimpleQA",
-      "Terminal Bench (2.1)",
+      "Terminal Bench 2.1",
       "DeepSWE",
       "NL2Repo",
       "Toolathlon Verified",
@@ -1322,7 +1322,7 @@
       "BabyVision",
       "MVbench",
       "MMVU",
-      "OSWorld (2.0)",
+      "OSWorld 2.0",
       "Vision2Web",
       "Artificial Analysis Intelligence Index (v4.1.1)",
       "Z.ai Code Bench (v1.0)"

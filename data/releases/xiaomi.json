@@ -252,9 +252,9 @@
       "SWE-Bench Verified",
       "SWE-Bench Multilingual",
       "Terminal Bench Hard",
-      "Terminal Bench (2.0)",
+      "Terminal Bench 2.0",
       "BrowseComp",
-      "τ²-Bench"
+      "\u03c4\u00b2-Bench"
     ]
   },
   {
@@ -345,8 +345,8 @@
       "MRCR",
       "SWE-Bench Multilingual",
       "Terminal-Bench Hard",
-      "Terminal Bench (2.0)",
-      "τ²-Bench"
+      "Terminal Bench 2.0",
+      "\u03c4\u00b2-Bench"
     ]
   },
   {
@@ -384,12 +384,12 @@
       "Artificial Analysis Intelligence Index",
       "PinchBench (avg.)",
       "ClawEval",
-      "τ2-bench (Telecom)",
+      "\u03c42-bench (Telecom)",
       "DeepSearch QA-F1",
       "GDPVal-AA",
       "SWE-bench Multilingual",
       "SWE-bench Verified",
-      "Terminal-Bench (2.0)"
+      "Terminal-Bench 2.0"
     ]
   },
   {
@@ -413,7 +413,7 @@
     "benchmarks_raw": [
       "MiMo Coding Bench",
       "Claw-Eval Text",
-      "Terminal-Bench (2.0)",
+      "Terminal-Bench 2.0",
       "SWE-Bench Pro",
       "CharXiv RQ",
       "MMMU-Pro",
@@ -457,7 +457,7 @@
       "VideoHolmes",
       "MiMo Coding Bench",
       "Claw-Eval Text",
-      "Terminal-Bench (2.0)",
+      "Terminal-Bench 2.0",
       "SWE-Bench Pro",
       "GraphWalks BFS",
       "GraphWalks Parents"
@@ -475,10 +475,10 @@
       "MiMo Coding Bench",
       "ClawEval",
       "SWE-Bench Pro",
-      "Terminal-Bench (2.0)",
+      "Terminal-Bench 2.0",
       "FrontierSWE (Impl., rank)",
       "GDPVal-AA",
-      "τ3-bench",
+      "\u03c43-bench",
       "Claw-Eval (pass^3)",
       "Humanity's Last Exam",
       "SWE-bench Verified"
@@ -514,12 +514,12 @@
       "CMMLU",
       "GlobalMMLU",
       "GDPVal-AA (Elo)",
-      "τ³-bench",
+      "\u03c4\u00b3-bench",
       "ClawEval (pass^3)",
       "Humanity's Last Exam",
       "SWE-bench Pro",
       "SWE-bench Verified",
-      "Terminal-Bench (2.0)",
+      "Terminal-Bench 2.0",
       "FrontierSWE (Impl.)",
       "GraphWalks BFS",
       "GraphWalks Parents"

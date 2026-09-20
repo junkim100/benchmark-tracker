@@ -117,7 +117,7 @@
     "model": "Grok 3",
     "date": "2025-02-19",
     "kind": "blog_post",
-    "title": "Grok 3 Beta — The Age of Reasoning Agents",
+    "title": "Grok 3 Beta \u2014 The Age of Reasoning Agents",
     "source_url": "https://x.ai/news/grok-3",
     "benchmarks_raw": [
       "AIME'25",
@@ -312,7 +312,7 @@
     "title": "Grok 4.1 Fast and Agent Tools API",
     "source_url": "https://x.ai/news/grok-4-1-fast",
     "benchmarks_raw": [
-      "τ²-bench Telecom",
+      "\u03c4\u00b2-bench Telecom",
       "Berkeley Function Calling v4 Benchmark",
       "Research-Eval Reka",
       "FRAMES",
@@ -378,7 +378,7 @@
     "title": "Grok Voice Think Fast 1.0",
     "source_url": "https://x.ai/news/grok-voice-think-fast-1",
     "benchmarks_raw": [
-      "τ-voice Leaderboard"
+      "\u03c4-voice Leaderboard"
     ]
   },
   {
@@ -418,14 +418,14 @@
       "SWE-Marathon",
       "FrontierSWE",
       "ProgramBench",
-      "Terminal-Bench (2.1)",
+      "Terminal-Bench 2.1",
       "SWE-Atlas-QnA",
       "FalseClaimBench",
       "EEBench",
       "3DCodeBench",
       "CAD-Bench",
       "GDPval-AA v2",
-      "τ-bench",
+      "\u03c4-bench",
       "SpaceXAI MTS Eval",
       "RelBench",
       "DeepSearchQA",
@@ -454,10 +454,10 @@
     "title": "Introducing Grok 4.5",
     "source_url": "https://x.ai/news/grok-4-5",
     "benchmarks_raw": [
-      "DeepSWE (1.0)",
-      "DeepSWE (1.1)",
+      "DeepSWE 1.0",
+      "DeepSWE 1.1",
       "SWE Marathon",
-      "Terminal Bench (2.1)",
+      "Terminal Bench 2.1",
       "SWE Bench Pro"
     ]
   },
@@ -473,7 +473,7 @@
       "AA Speech-to-Speech Quality Index",
       "Big Bench Audio",
       "Full Duplex Bench",
-      "τ-voice Bench"
+      "\u03c4-voice Bench"
     ]
   },
   {
@@ -519,12 +519,12 @@
     "title": "Model Card: Grok 4.6",
     "source_url": "https://media.x.ai/v1/website/card-4p6-4cd2dc57.pdf",
     "benchmarks_raw": [
-      "CursorBench (3.2)",
+      "CursorBench 3.2",
       "APEX-SWE",
       "FrontierCode (v1.1)",
       "DeepSWE (v1.1)",
       "SWE-Marathon (v1.1)",
-      "Terminal-Bench (3.0)",
+      "Terminal-Bench 3.0",
       "AA GDPVal",
       "AA-Briefcase",
       "APEX-Agents",
