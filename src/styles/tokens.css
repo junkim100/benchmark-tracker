@@ -1,0 +1,74 @@
+/* Design tokens.
+ *
+ * The categorical slots below are the validated eight-hue palette, checked in
+ * both modes with the data-viz validator: lightness band, chroma floor, CVD
+ * separation, normal-vision floor, contrast. Do not substitute hexes without
+ * re-running that validator.
+ *
+ * The eight slots encode TRACKED BENCHMARKS, not labs. Twelve labs cannot be
+ * told apart by colour, so a lab row is identified by its position, its logo
+ * and its name, and colour is spent where it does real work: on the handful of
+ * benchmarks a reader has chosen to follow. Selection is capped at eight, and
+ * slots are assigned in fixed order so deselecting one never repaints the rest.
+ */
+.viz-root {
+  color-scheme: light;
+  --surface-1: #fcfcfb;
+  --surface-2: #f2f2f0;
+  --border: #dcdcd7;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #86857e;
+  --mark-neutral: #9a998f;
+
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --series-6: #008300;
+  --series-7: #4a3aa7;
+  --series-8: #e34948;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) .viz-root {
+    color-scheme: dark;
+    --surface-1: #1a1a19;
+    --surface-2: #232322;
+    --border: #3a3a37;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #8e8d84;
+    --mark-neutral: #6f6e66;
+
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+    --series-5: #d55181;
+    --series-6: #008300;
+    --series-7: #9085e9;
+    --series-8: #e66767;
+  }
+}
+
+:root[data-theme="dark"] .viz-root {
+  color-scheme: dark;
+  --surface-1: #1a1a19;
+  --surface-2: #232322;
+  --border: #3a3a37;
+  --text-primary: #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted: #8e8d84;
+  --mark-neutral: #6f6e66;
+
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-4: #c98500;
+  --series-5: #d55181;
+  --series-6: #008300;
+  --series-7: #9085e9;
+  --series-8: #e66767;
+}

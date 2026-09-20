@@ -1,0 +1,122 @@
+{
+  "generated_at": "2026-09-20T15:07:34.506Z",
+  "labs": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "homepage": "https://openai.com",
+      "sources": [
+        "https://openai.com/news/",
+        "https://openai.com/index/",
+        "arxiv:OpenAI"
+      ]
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "homepage": "https://www.anthropic.com",
+      "sources": [
+        "https://www.anthropic.com/news",
+        "https://www.anthropic.com/research"
+      ]
+    },
+    {
+      "id": "google",
+      "name": "Google DeepMind",
+      "homepage": "https://deepmind.google",
+      "sources": [
+        "https://deepmind.google/discover/blog/",
+        "https://blog.google/technology/google-deepmind/",
+        "arxiv:Google DeepMind"
+      ]
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "homepage": "https://www.deepseek.com",
+      "sources": [
+        "https://api-docs.deepseek.com/news/",
+        "https://github.com/deepseek-ai",
+        "arxiv:DeepSeek"
+      ]
+    },
+    {
+      "id": "qwen",
+      "name": "Qwen",
+      "homepage": "https://qwenlm.github.io",
+      "sources": [
+        "https://qwenlm.github.io/blog/",
+        "https://github.com/QwenLM",
+        "arxiv:Qwen"
+      ]
+    },
+    {
+      "id": "moonshot",
+      "name": "Moonshot AI",
+      "homepage": "https://www.moonshot.ai",
+      "sources": [
+        "https://moonshotai.github.io/",
+        "https://github.com/MoonshotAI",
+        "arxiv:Kimi"
+      ]
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral AI",
+      "homepage": "https://mistral.ai",
+      "sources": [
+        "https://mistral.ai/news/",
+        "arxiv:Mistral"
+      ]
+    },
+    {
+      "id": "meta",
+      "name": "Meta AI",
+      "homepage": "https://ai.meta.com",
+      "sources": [
+        "https://ai.meta.com/blog/",
+        "https://llama.com",
+        "arxiv:Llama"
+      ]
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "homepage": "https://x.ai",
+      "sources": [
+        "https://x.ai/news",
+        "https://x.ai/blog"
+      ]
+    },
+    {
+      "id": "zai",
+      "name": "Z.ai",
+      "homepage": "https://z.ai",
+      "sources": [
+        "https://z.ai/blog",
+        "https://github.com/zai-org",
+        "arxiv:GLM"
+      ]
+    },
+    {
+      "id": "xiaomi",
+      "name": "Xiaomi",
+      "homepage": "https://www.mi.com",
+      "sources": [
+        "https://github.com/XiaomiMiMo",
+        "arxiv:MiMo Xiaomi"
+      ]
+    },
+    {
+      "id": "upstage",
+      "name": "Upstage",
+      "homepage": "https://www.upstage.ai",
+      "sources": [
+        "https://www.upstage.ai/blog",
+        "arxiv:Solar Upstage"
+      ]
+    }
+  ],
+  "releases": [],
+  "benchmarks": []
+}

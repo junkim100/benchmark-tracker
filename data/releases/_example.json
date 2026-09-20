@@ -1,0 +1,22 @@
+[
+  {
+    "id": "example-model-1-2025-01-15",
+    "lab": "openai",
+    "model": "Example Model 1",
+    "date": "2025-01-15",
+    "kind": "model_release",
+    "title": "Introducing Example Model 1",
+    "source_url": "https://openai.com/index/example/",
+    "benchmarks_raw": ["AIME 2025", "SWE-bench Verified", "GPQA Diamond"]
+  },
+  {
+    "id": "example-model-2-2025-03-02",
+    "lab": "openai",
+    "model": "Example Model 2",
+    "date": "2025-03-02",
+    "kind": "technical_report",
+    "title": "Example Model 2 Technical Report",
+    "source_url": "https://arxiv.org/abs/0000.00000",
+    "benchmarks_raw": []
+  }
+]
