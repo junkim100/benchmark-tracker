@@ -37,7 +37,11 @@ if (data.releases.length === 0) {
   const byId = new Map(data.benchmarks.map((b) => [b.id, b]));
   const top = data.benchmarks[0];
 
-  let tracked: string[] = [];
+  // Open with the four most-cited benchmarks already tracked. An empty chart
+  // was the first thing a reader saw, in the largest space on the page, and it
+  // could only explain in words what one glance would have shown. Four is
+  // enough to read as a comparison and leaves half the eight slots free.
+  let tracked: string[] = data.benchmarks.slice(0, 4).map((b) => b.id);
   let view: TrendView = "chart";
 
   app.innerHTML = `
@@ -56,9 +60,29 @@ if (data.releases.length === 0) {
       <p>Every benchmark named in <b>${data.releases.length.toLocaleString()}</b> official releases from <b>${labs.length}</b> frontier labs since ${years[0]}. ${esc(names.get(top.id) ?? top.id)} is the most widely cited, reported by all ${top.lab_count}.</p>
     </section>
 
-    <section class="controls" aria-label="Track benchmarks"></section>
-    <section class="trendwrap" aria-label="Adoption trend"></section>
-    <section class="tlwrap" aria-label="Release timeline"></section>
+    <div class="sec">
+      <div class="sec__head">
+        <h2>Track a benchmark</h2>
+        <p>Pick up to eight and compare how widely each one is cited.</p>
+      </div>
+      <section class="controls" aria-label="Track benchmarks"></section>
+    </div>
+
+    <div class="sec">
+      <div class="sec__head">
+        <h2>Adoption over time</h2>
+        <p>How many labs cited each tracked benchmark, by quarter.</p>
+      </div>
+      <section class="trendwrap" aria-label="Adoption trend"></section>
+    </div>
+
+    <div class="sec">
+      <div class="sec__head">
+        <h2>Every release</h2>
+        <p>One row per lab. Each mark is a release; open one to read the source.</p>
+      </div>
+      <section class="tlwrap" aria-label="Release timeline"></section>
+    </div>
 
     <footer class="ft">
       <p>Sources are each lab's own site, model card, system card, or arXiv paper. Nothing is taken from news coverage or third-party leaderboards, and no score is recorded anywhere.</p>

@@ -12,6 +12,20 @@
  * Those eight encode TRACKED BENCHMARKS, never labs. Twelve labs cannot be told
  * apart by hue and the palette caps at eight, so lab identity is carried by row
  * position, logo and name, and colour is spent where it does real work.
+ *
+ * The accent is the one hue the data never uses. Measured in OKLCH, the eight
+ * slots leave a single wide vacancy: a 93-degree gap centred on 209, the teal
+ * band between the green slot at 162 and the blue at 256. The interface takes
+ * that band and nothing else, so a reader never has to work out whether a
+ * colour means "you can act on this" or "this is benchmark three".
+ *
+ * That separation was not true before. --accent was #2a78d6, byte-identical to
+ * --series-1, so the click signal and the first tracked benchmark were the
+ * same colour on the same screen.
+ *
+ * Both accents clear WCAG AA as text on their own surface (6.04:1 light,
+ * 8.73:1 dark) and sit at least 14.8 OKLab units from every slot in their
+ * mode. Do not move them without re-checking both numbers.
  */
 :root {
   color-scheme: light;
@@ -28,7 +42,10 @@
   --text-muted: #6e6d67;
   --mark-neutral: #8a897f;
 
-  --accent: #2a78d6;
+  --accent: #046b7a;
+  --accent-strong: #02545f;
+  --accent-soft: #e4f1f3;
+  --accent-line: #b6d8dd;
   --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.07);
 
   --series-1: #2a78d6;
@@ -64,7 +81,10 @@
     --text-muted: #8e8d84;
     --mark-neutral: #6f6e66;
 
-    --accent: #3987e5;
+    --accent: #3ec8de;
+    --accent-strong: #6fdcee;
+    --accent-soft: #10312f;
+    --accent-line: #2a5a60;
     --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 28px rgb(0 0 0 / 0.45);
 
     --series-1: #3987e5;
@@ -93,7 +113,10 @@
   --text-muted: #8e8d84;
   --mark-neutral: #6f6e66;
 
-  --accent: #3987e5;
+  --accent: #3ec8de;
+  --accent-strong: #6fdcee;
+  --accent-soft: #10312f;
+  --accent-line: #2a5a60;
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 28px rgb(0 0 0 / 0.45);
 
   --series-1: #3987e5;

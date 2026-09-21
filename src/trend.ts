@@ -131,7 +131,7 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
   host.innerHTML = `
     <figure class="trend">
       <div class="trend__bar">
-        <figcaption>Labs citing each tracked benchmark, by quarter${a.partialQuarter ? `. ${quarterLabel(a.partialQuarter)} is still in progress and reads low.` : ""}</figcaption>
+        <figcaption>${a.partialQuarter ? `${quarterLabel(a.partialQuarter)} is still in progress and reads low.` : ""}</figcaption>
         <div class="seg" role="group" aria-label="Trend view">
           <button type="button" data-view="chart" aria-pressed="${a.view === "chart"}">Chart</button>
           <button type="button" data-view="table" aria-pressed="${a.view === "table"}">Table</button>
