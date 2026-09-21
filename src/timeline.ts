@@ -74,21 +74,32 @@ let lastPxPerDay = 0;
 // days from where they started, at a width where the original date was
 // perfectly reachable.
 let pendingRestore = false;
+// Whether the reader has scrolled since the last redraw. Without this the
+// guard above was dead: it preserved the intent through the outbound leg, and
+// then the return leg read the DOM and copied the clamped position back over
+// it. A width the reader never chose is not a position to inherit, so the DOM
+// is consulted only when they actually moved.
+let userScrolled = false;
 
 export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const { pxPerDay: PX_PER_DAY, markScale: MARK_SCALE } = metrics();
 
-  // Prefer the outgoing DOM offset, which is a frame fresher than the
-  // recorder. Unless it is sitting exactly on the scroller's maximum, which is
-  // the signature of a reflow having clamped it rather than of the reader
-  // having scrolled there. A reader genuinely parked at the end lands on the
-  // same date either way, so the test costs nothing when it guesses wrong.
+  // Where the reader is, resolved from two sources that each corrupt in a
+  // different way. The DOM is a frame fresher, because a scroll in flight is
+  // applied before resize steps while this recorder is only updated in scroll
+  // steps. But a reflow also clamps the DOM against content the scroller no
+  // longer has. A clamp is recognisable: it leaves the offset sitting on the
+  // maximum. When it fires the DOM still bounds the answer from below, since
+  // the offset was clamped down to get there, so the later of the two is never
+  // worse than either alone.
   const keep = host.querySelector<HTMLDivElement>(".tl__scroll");
-  if (keep && lastPxPerDay) {
-    const maxNow = keep.scrollWidth - keep.clientWidth;
-    if (keep.scrollLeft < maxNow - 0.5) lastScroll = keep.scrollLeft / lastPxPerDay;
+  if (keep && lastPxPerDay && userScrolled) {
+    const dom = keep.scrollLeft / lastPxPerDay;
+    const clamped = keep.scrollLeft >= keep.scrollWidth - keep.clientWidth - 0.5;
+    lastScroll = clamped && lastScroll != null ? Math.max(lastScroll, dom) : dom;
   }
   lastPxPerDay = PX_PER_DAY;
+  userScrolled = false;
   const days = a.releases.map((r) => dayNumber(r.date));
   const lo = Math.min(...days) - PAD_DAYS;
   const hi = Math.max(...days) + PAD_DAYS;
@@ -188,6 +199,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   scroller.addEventListener("scroll", () => {
     paintRange();
     if (pendingRestore) { pendingRestore = false; return; }
+    userScrolled = true;
     lastScroll = scroller.scrollLeft / PX_PER_DAY;
   }, { passive: true });
   paintRange();
