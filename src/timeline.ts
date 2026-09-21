@@ -64,8 +64,15 @@ export interface TimelineArgs {
 // offset carrying no evidence yet, and the comparison rejected it forever.
 //
 // The evidence is therefore a latch, not a timestamp. It is set by input and
-// cleared only when it is used, so it still applies to the scroll event that
-// arrives a frame after the input that caused it.
+// cleared only by the scroll event that spends it, so it still applies to the
+// event arriving a frame after the input that caused it.
+//
+// Only the scroll event may spend it. A resize landing in the same frame as a
+// wheel also calls adopt, on a scroller whose offset the compositor has not
+// updated yet: it would read the pre-wheel value, clear the latch on it, and
+// leave the reader's real offset to arrive a frame later with no evidence
+// left to admit it. That cost the reader their last wheel in 16 of 20 trials.
+// A scroll event is the only proof the delta has actually landed.
 let lastScroll: number | null = null;
 let lastPxPerDay = 0;
 let ourValue = -1;
@@ -86,11 +93,11 @@ export function noteTimelineResize(): void {
 // Take the scroller's offset as the reader's place, unless it is still exactly
 // what we last wrote, or unless a reflow just happened with no reader input to
 // account for it.
-function adopt(s: HTMLElement, ppd: number): void {
+function adopt(s: HTMLElement, ppd: number, fromScroll: boolean): void {
   if (!ppd || s.scrollLeft === ourValue) return;
   if (!inputSince && performance.now() - resizeAt < RESIZE_ECHO_MS) return;
   lastScroll = s.scrollLeft / ppd;
-  inputSince = false;
+  if (fromScroll) inputSince = false;
   ourValue = -1;
 }
 
@@ -111,7 +118,7 @@ function restore(s: HTMLElement, ppd: number, fallback: number): void {
 export function restoreTimelineScroll(host: HTMLElement): void {
   const s = host.querySelector<HTMLDivElement>(".tl__scroll");
   if (!s || !lastPxPerDay) return;
-  adopt(s, lastPxPerDay);
+  adopt(s, lastPxPerDay, false);
   restore(s, lastPxPerDay, s.scrollLeft);
   repaintRange?.();
 }
@@ -120,7 +127,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const { pxPerDay: PX_PER_DAY, markScale: MARK_SCALE } = metrics();
 
   const keep = host.querySelector<HTMLDivElement>(".tl__scroll");
-  if (keep) adopt(keep, lastPxPerDay);
+  if (keep) adopt(keep, lastPxPerDay, false);
   lastPxPerDay = PX_PER_DAY;
   const days = a.releases.map((r) => dayNumber(r.date));
   const lo = Math.min(...days) - PAD_DAYS;
@@ -222,7 +229,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   repaintRange = paintRange;
   scroller.addEventListener("scroll", () => {
     paintRange();
-    adopt(scroller, PX_PER_DAY);
+    adopt(scroller, PX_PER_DAY, true);
   }, { passive: true });
   paintRange();
 
