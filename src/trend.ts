@@ -22,6 +22,7 @@ export interface TrendArgs {
   view: TrendView;
   onView: (v: TrendView) => void;
   onHover: (html: string | null, x: number, y: number) => void;
+  onHoverFitted: (build: (n: number) => string, max: number, x: number, y: number) => void;
 }
 
 const W = 900, H = 330, M = { t: 22, r: 152, b: 52, l: 44 };
@@ -75,7 +76,7 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
           const fits = Math.max(6, Math.floor((M.r - 26) / 7.8));
           const shown = full.length > fits ? `${full.slice(0, fits - 1)}\u2026` : full;
           return `<circle class="s-labeldot s${slot}" cx="${(px(last.i) + 11).toFixed(1)}" cy="${ly.toFixed(1)}" r="3.5"/>` +
-                 `<text class="s-label" x="${(px(last.i) + 20).toFixed(1)}" y="${(ly + 4).toFixed(1)}"><title>${esc(full)}</title>${esc(shown)}</text>`;
+                 `<text class="s-label" x="${(px(last.i) + 20).toFixed(1)}" y="${ly.toFixed(1)}"><title>${esc(full)}</title>${esc(shown)}</text>`;
         })()
       : "";
     const dots = pts.map((p) => `
@@ -97,13 +98,13 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
   const chart = `
       <div class="trendscroll"><svg viewBox="0 0 ${W} ${H}" class="trend__svg" role="img" aria-label="Number of labs citing each tracked benchmark per quarter">
         ${gridY.map((n) => `<g class="grid"><line x1="${M.l}" y1="${py(n)}" x2="${W - M.r}" y2="${py(n)}"/><text x="${M.l - 11}" y="${py(n) + 4}">${n}</text></g>`).join("")}
-        ${partialIdx >= 0 ? `<rect class="partial" x="${px(partialIdx) - iw / (a.quarters.length - 1) / 2}" y="${M.t}" width="${iw / (a.quarters.length - 1) / 2 + M.r / 3}" height="${ih}"/>` : ""}
+        ${partialIdx >= 0 ? `<rect class="partial" x="${px(partialIdx) - iw / (a.quarters.length - 1) / 2}" y="${M.t}" width="${iw / (a.quarters.length - 1) / 2}" height="${ih}"/>` : ""}
         ${yearMarks.map((y) => `<line class="yearline" x1="${px(y.i)}" y1="${M.t}" x2="${px(y.i)}" y2="${M.t + ih}"/>`).join("")}
         ${qLabels.map((x) => `<text class="xq${x.i === partialIdx ? " xq--partial" : ""}" x="${px(x.i)}" y="${H - 28}">Q${x.q.slice(6)}</text>`).join("")}
         ${qLabels.map((x) => `<text class="xy${x.q.endsWith("Q1") ? " xy--first" : ""}" x="${px(x.i)}" y="${H - 10}">${x.q.slice(0, 4)}</text>`).join("")}
         ${series}
       </svg></div>
-      ${a.tracked.length >= 5 ? `<ul class="legend">${a.tracked.map((b, i) => `<li><span class="sw s${i + 1}"></span>${esc(a.names.get(b.id) ?? b.id)}</li>`).join("")}</ul>` : ""}`;
+      ${a.tracked.length >= 5 ? `<ul class="legend">${a.tracked.map((b, i) => `<li class="s${i + 1}"><svg class="sw" viewBox="0 0 22 10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5"/></svg>${esc(a.names.get(b.id) ?? b.id)}</li>`).join("")}</ul>` : ""}`;
 
   const years = [...new Set(a.quarters.map((q) => q.slice(0, 4)))];
   const table = `
@@ -154,21 +155,17 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
     // The tooltip cannot scroll, because it ignores pointer events so it never
     // swallows a hover. So it must never promise more rows than it draws: at
     // ten labs the old fixed height showed four and silently ate six.
-    // Same budgeting as the timeline tooltip: this one clipped its own
-    // "and N more" note at a short viewport, which is the single line that
-    // has to survive because the tooltip can never be scrolled.
-    const SHOWN = Math.max(2, Math.min(7, Math.floor((window.innerHeight - 150) / 40)));
+    const build = (SHOWN: number) => {
     const shown = d?.labs.slice(0, SHOWN) ?? [];
     const rows = n
       ? shown.map((l) => `<li><span class="tt__lab">${esc(labName.get(l.lab) ?? l.lab)}</span><span class="tt__models">${esc(l.models.slice(0, 3).join(", "))}${l.models.length > 3 ? ` and ${l.models.length - 3} more` : ""}</span></li>`).join("")
         + (n > SHOWN ? `<li class="tt__rest">and ${n - SHOWN} more ${n - SHOWN === 1 ? "lab" : "labs"}</li>` : "")
       : `<li class="muted">No lab cited it this quarter</li>`;
-    a.onHover(
-      `<div class="tt__h">${esc(a.names.get(bid) ?? bid)}</div>
+    return `<div class="tt__h">${esc(a.names.get(bid) ?? bid)}</div>
        <div class="tt__m">${n} lab${n === 1 ? "" : "s"} in ${quarterLabel(q)}</div>
-       <ul class="tt__labs">${rows}</ul>`,
-      e.clientX, e.clientY,
-    );
+       <ul class="tt__labs">${rows}</ul>`;
+    };
+    a.onHoverFitted(build, 7, e.clientX, e.clientY);
   });
   svg.addEventListener("mouseleave", () => a.onHover(null, 0, 0));
 }

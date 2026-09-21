@@ -61,12 +61,11 @@ a:hover { text-decoration-color: var(--text-primary); }
   border-radius: 10px; box-shadow: var(--shadow); padding-bottom: 6px; overscroll-behavior: contain;
 }
 .pick__list[hidden] { display: none; }
-.pick__list button {
+.pick__list li[role="option"] {
   display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
-  width: 100%; padding: 7px 10px; font: inherit; text-align: left;
-  background: none; border: 0; border-radius: 6px; color: var(--text-primary); cursor: pointer;
+  padding: 7px 10px; border-radius: 6px; color: var(--text-primary); cursor: pointer;
 }
-.pick__list li.on button, .pick__list button:hover { background: var(--surface-3); }
+.pick__list li.on, .pick__list li[role="option"]:hover { background: var(--surface-3); }
 .pick__name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pick__meta { flex: none; font-size: 12.5px; color: var(--text-muted); }
 .pick__reach { font-variant-numeric: tabular-nums; color: var(--text-secondary); }
@@ -108,20 +107,20 @@ a:hover { text-decoration-color: var(--text-primary); }
 .xq--partial { fill: var(--text-secondary); }
 .xy { fill: var(--text-muted); font-size: 11px; text-anchor: middle; font-variant-numeric: tabular-nums; }
 .xy--first { fill: var(--text-primary); font-weight: 600; font-size: 12px; }
-.grid text, .grid text { text-anchor: end; }
+.grid text { fill: var(--text-muted); font-size: 11.5px; font-variant-numeric: tabular-nums; text-anchor: end; }
 .partial { fill: var(--text-muted); opacity: .06; }
 .s-line { fill: none; stroke-width: 2.25; stroke-linecap: round; stroke-linejoin: round; stroke: var(--slot, var(--text-secondary)); }
 /* Secondary encoding. The eight slots clear the CVD floor on adjacent pairs
    but not on all pairs, and pink against green measures dE 1.6 under
    deuteranopia, so a reader who cannot separate two hues still has the dash
    pattern, the direct label or legend, and the table view. */
-.s2 .s-line, .s-line.s2 { stroke-dasharray: 9 4; }
-.s3 .s-line, .s-line.s3 { stroke-dasharray: 2 4; }
-.s4 .s-line, .s-line.s4 { stroke-dasharray: 14 4; }
-.s5 .s-line, .s-line.s5 { stroke-dasharray: 9 4 2 4; }
-.s6 .s-line, .s-line.s6 { stroke-dasharray: 5 3; }
-.s7 .s-line, .s-line.s7 { stroke-dasharray: 14 3 2 3; }
-.s8 .s-line, .s-line.s8 { stroke-dasharray: 2 3 9 3; }
+.s2 .s-line, .s-line.s2, .s2 .sw line { stroke-dasharray: 9 4; }
+.s3 .s-line, .s-line.s3, .s3 .sw line { stroke-dasharray: 2 4; }
+.s4 .s-line, .s-line.s4, .s4 .sw line { stroke-dasharray: 14 4; }
+.s5 .s-line, .s-line.s5, .s5 .sw line { stroke-dasharray: 9 4 2 4; }
+.s6 .s-line, .s-line.s6, .s6 .sw line { stroke-dasharray: 5 3; }
+.s7 .s-line, .s-line.s7, .s7 .sw line { stroke-dasharray: 14 3 2 3; }
+.s8 .s-line, .s-line.s8, .s8 .sw line { stroke-dasharray: 2 3 9 3; }
 .s-dot { fill: var(--slot, var(--text-secondary)); stroke: var(--surface-1); stroke-width: 2; pointer-events: none; }
 .s-labeldot { fill: var(--slot, var(--text-secondary)); stroke: var(--surface-1); stroke-width: 1.5; }
 .s-halo { fill: transparent; }
@@ -129,8 +128,11 @@ a:hover { text-decoration-color: var(--text-primary); }
 .s-hit:hover .s-dot { r: 6; }
 .s-label { font-size: 12.5px; dominant-baseline: middle; fill: var(--text-secondary); }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 20px; list-style: none; margin: 14px 0 0; padding: 0; font-size: 13px; color: var(--text-secondary); }
-.legend li { display: flex; align-items: center; gap: 7px; }
-.sw { width: 10px; height: 10px; border-radius: 2px; background: var(--slot, var(--text-muted)); }
+.legend li { display: flex; align-items: center; gap: 8px; }
+/* A line sample, not a colour chip. Above four series the direct labels are
+   gone and the legend is the only place a pattern can be matched to a name. */
+.sw { width: 22px; height: 10px; flex: none; }
+.sw line { stroke: var(--slot, var(--text-muted)); stroke-width: 2.25; stroke-linecap: round; }
 
 /* Data table: rules only where they separate meaning, numbers aligned on the
    decimal, the peak year emphasised so the arc is legible without the chart. */

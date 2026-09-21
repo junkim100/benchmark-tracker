@@ -100,7 +100,12 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   // Open scrolled to the present. The most recent quarter is what a reader came
   // for, and starting at 2023 makes them drag through three years to reach it.
   const scroller = host.querySelector<HTMLDivElement>(".tl__scroll")!;
-  scroller.scrollLeft = lastScroll ?? scroller.scrollWidth;
+  // Open on content, not on the end gutter. PAD_DAYS puts 270px of empty space
+  // past the last mark, which is wider than a phone's scroller, so scrolling to
+  // scrollWidth landed on a strip containing no marks at all.
+  const rightmost = Math.max(...a.releases.map((r) => x(r.date)));
+  const openAt = Math.max(0, rightmost - scroller.clientWidth * 0.75);
+  scroller.scrollLeft = lastScroll ?? openAt;
 
   const svg = host.querySelector<SVGSVGElement>(".tl__svg")!;
   const index = new Map<string, Release[]>();
@@ -120,21 +125,13 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   });
 }
 
-export function tooltipHTML(rs: Release[], names: Map<string, string>, budgetPx = 800): string {
+export function tooltipHTML(rs: Release[], names: Map<string, string>, shown = 8): string {
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
-  // A release can cite 95 benchmarks. The tooltip ignores pointer events so it
-  // can never be scrolled, which means it must say how many it left out rather
-  // than stopping mid-list as though that were the end.
-  // Budget measured from the rendered element rather than guessed: a row is
-  // 20.6px, each separator between releases costs 21px, and the tooltip's own
-  // padding plus the footer cost about 46px once. The previous formula omitted
-  // the separators and the padding, multiplied the once-only footer by the
-  // release count, and divided by that count even when drawing a single
-  // release, which starved a 95-benchmark release of the space it had.
-  const ROW = 21, PER_RELEASE_CHROME = 70, SEPARATOR = 21, BOX_CHROME = 46;
+  // `shown` is a row cap, not a pixel budget. The caller renders, measures and
+  // reduces it until the box fits, which is the only approach that survives
+  // content that wraps unpredictably.
+  const SHOWN = shown;
   const releases = Math.max(1, Math.min(3, rs.length));
-  const fixed = BOX_CHROME + releases * PER_RELEASE_CHROME + (releases - 1) * SEPARATOR;
-  const SHOWN = Math.max(2, Math.min(8, Math.floor((budgetPx - fixed) / (ROW * releases))));
 
   const one = (r: Release) => {
     const rest = r.benchmarks.length - SHOWN;

@@ -68,6 +68,24 @@ if (data.releases.length === 0) {
   const $ = <T extends Element>(s: string) => app.querySelector<T>(s)!;
   const tt = $<HTMLDivElement>(".tt");
 
+  /** Render, measure, trim, repeat. Every previous version computed the height
+   *  from assumed row sizes and was wrong, because rows wrap. Asking the
+   *  browser how tall it actually is cannot be wrong. `build(n)` returns the
+   *  markup for at most n detail rows; we reduce n until it fits. */
+  const showFitted = (build: (n: number) => string, max: number, x: number, y: number) => {
+    const room = window.innerHeight - 24;
+    for (let n = max; n >= 0; n--) {
+      tt.innerHTML = build(n);
+      tt.hidden = false;
+      tt.style.left = "0px";
+      tt.style.top = "0px";
+      if (tt.scrollHeight <= room || n === 0) break;
+    }
+    const b = tt.getBoundingClientRect();
+    tt.style.left = `${Math.max(8, Math.min(x + 16, window.innerWidth - b.width - 12))}px`;
+    tt.style.top = `${Math.max(8, Math.min(y + 16, window.innerHeight - b.height - 12))}px`;
+  };
+
   const showTip = (html: string | null, x: number, y: number) => {
     if (!html) { tt.hidden = true; return; }
     tt.innerHTML = html;
@@ -108,11 +126,14 @@ if (data.releases.length === 0) {
     renderTrend($(".trendwrap"), {
       tracked: tracked.map((id) => byId.get(id)!).filter(Boolean) as Benchmark[],
       releases: data.releases, labs, names, quarters: data.quarters, partialQuarter,
-      view, onView: (v) => { view = v; draw(); }, onHover: showTip,
+      view, onView: (v) => { view = v; draw(); }, onHover: showTip, onHoverFitted: showFitted,
     });
     renderTimeline($(".tlwrap"), {
       labs, releases: data.releases, tracked, names, quarters: data.quarters,
-      onHover: (rs, x, y) => showTip(rs && rs.length ? tooltipHTML(rs, names, window.innerHeight - 48) : null, x, y),
+      onHover: (rs, x, y) => {
+        if (!rs || !rs.length) { showTip(null, 0, 0); return; }
+        showFitted((n) => tooltipHTML(rs, names, n), 8, x, y);
+      },
     });
     paintTheme();
   };

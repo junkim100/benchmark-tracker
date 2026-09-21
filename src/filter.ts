@@ -29,7 +29,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
         <svg class="pick__icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>
         <input class="pick__input" type="text" role="combobox" aria-expanded="false" aria-controls="pick-list"
                placeholder="${full ? `Tracking ${MAX_TRACKED}, the maximum` : "Track a benchmark"}"
-               autocomplete="off" ${full ? "disabled" : ""} />
+               aria-activedescendant="" autocomplete="off" ${full ? "disabled" : ""} />
         <kbd class="pick__hint">${a.benchmarks.length.toLocaleString()}</kbd>
       </div>
       <ul class="pick__list" id="pick-list" role="listbox" hidden></ul>
@@ -53,13 +53,12 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     active = hits.length ? Math.min(Math.max(active, 0), hits.length - 1) : -1;
     list.innerHTML = hits.length
       ? hits.map((b, i) => `
-          <li role="option" aria-selected="${i === active}" class="${i === active ? "on" : ""}">
-            <button type="button" data-id="${esc(b.id)}">
-              <span class="pick__name">${esc(a.names.get(b.id) ?? b.id)}</span>
-              <span class="pick__meta"><span class="pick__reach">${b.lab_count}</span> lab${b.lab_count === 1 ? "" : "s"}, ${b.first_seen.slice(0, 4)} to ${b.last_seen.slice(0, 4)}</span>
-            </button>
+          <li id="pick-opt-${i}" role="option" aria-selected="${i === active}" class="${i === active ? "on" : ""}" data-id="${esc(b.id)}">
+            <span class="pick__name">${esc(a.names.get(b.id) ?? b.id)}</span>
+            <span class="pick__meta"><span class="pick__reach">${b.lab_count}</span> lab${b.lab_count === 1 ? "" : "s"}, ${b.first_seen.slice(0, 4)} to ${b.last_seen.slice(0, 4)}</span>
           </li>`).join("")
       : `<li class="pick__none">No benchmark matches that.</li>`;
+    input.setAttribute("aria-activedescendant", active >= 0 ? `pick-opt-${active}` : "");
     if (active >= 0) list.children[active]?.scrollIntoView({ block: "nearest" });
   };
 
@@ -75,13 +74,13 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     else if (e.key === "ArrowUp") { e.preventDefault(); active = n ? (active - 1 + n) % n : -1; paint(); }
     else if (e.key === "Enter" && active >= 0) {
       e.preventDefault();
-      const id = list.children[active]?.querySelector("button")?.getAttribute("data-id");
+      const id = list.children[active]?.getAttribute("data-id");
       if (id) { input.value = ""; a.onToggle(id); }
     } else if (e.key === "Escape") { close(); input.blur(); }
   });
 
   list.addEventListener("mousedown", (e) => {
-    const id = (e.target as Element).closest("button")?.getAttribute("data-id");
+    const id = (e.target as Element).closest("li")?.getAttribute("data-id");
     if (!id) return;
     e.preventDefault();
     // The document-level handler fires after this one, by which point the
