@@ -1617,24 +1617,6 @@
     }
   },
   {
-    "id": "artificial-analysis-intelligence-index",
-    "name": "artificial-analysis-intelligence-index",
-    "lab_count": 5,
-    "labs": [
-      "google",
-      "openai",
-      "upstage",
-      "xai",
-      "xiaomi"
-    ],
-    "first_seen": "2025-07-21",
-    "last_seen": "2026-08-13",
-    "labs_by_year": {
-      "2025": 2,
-      "2026": 3
-    }
-  },
-  {
     "id": "automationbench",
     "name": "automationbench",
     "lab_count": 5,
@@ -4847,20 +4829,6 @@
     "last_seen": "2025-11-26",
     "labs_by_year": {
       "2025": 2
-    }
-  },
-  {
-    "id": "artificial-analysis-intelligence-index-v4-1-1",
-    "name": "artificial-analysis-intelligence-index-v4-1-1",
-    "lab_count": 2,
-    "labs": [
-      "openai",
-      "zai"
-    ],
-    "first_seen": "2026-08-26",
-    "last_seen": "2026-09-03",
-    "labs_by_year": {
-      "2026": 2
     }
   },
   {
@@ -8810,32 +8778,6 @@
     }
   },
   {
-    "id": "aa-index",
-    "name": "aa-index",
-    "lab_count": 1,
-    "labs": [
-      "zai"
-    ],
-    "first_seen": "2025-07-28",
-    "last_seen": "2025-08-08",
-    "labs_by_year": {
-      "2025": 1
-    }
-  },
-  {
-    "id": "aa-intelligence-index",
-    "name": "aa-intelligence-index",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2026-08-12",
-    "last_seen": "2026-08-12",
-    "labs_by_year": {
-      "2026": 1
-    }
-  },
-  {
     "id": "aa-omniscience-index",
     "name": "aa-omniscience-index",
     "lab_count": 1,
@@ -10518,136 +10460,6 @@
     ],
     "first_seen": "2026-07-22",
     "last_seen": "2026-07-22",
-    "labs_by_year": {
-      "2026": 1
-    }
-  },
-  {
-    "id": "artificial-analysis",
-    "name": "artificial-analysis",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2025-04-17",
-    "last_seen": "2025-12-17",
-    "labs_by_year": {
-      "2025": 1
-    }
-  },
-  {
-    "id": "artificial-analysis-coding-agent-index",
-    "name": "artificial-analysis-coding-agent-index",
-    "lab_count": 1,
-    "labs": [
-      "anthropic"
-    ],
-    "first_seen": "2026-07-24",
-    "last_seen": "2026-07-24",
-    "labs_by_year": {
-      "2026": 1
-    }
-  },
-  {
-    "id": "artificial-analysis-coding-agent-index-v1-1",
-    "name": "artificial-analysis-coding-agent-index-v1-1",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2026-07-09",
-    "last_seen": "2026-07-09",
-    "labs_by_year": {
-      "2026": 1
-    }
-  },
-  {
-    "id": "artificial-analysis-coding-agent-index-v1-4",
-    "name": "artificial-analysis-coding-agent-index-v1-4",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2026-09-03",
-    "last_seen": "2026-09-03",
-    "labs_by_year": {
-      "2026": 1
-    }
-  },
-  {
-    "id": "artificial-analysis-conversational-dynamics",
-    "name": "artificial-analysis-conversational-dynamics",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2026-09-10",
-    "last_seen": "2026-09-10",
-    "labs_by_year": {
-      "2026": 1
-    }
-  },
-  {
-    "id": "artificial-analysis-intelligence-index-v4-1",
-    "name": "artificial-analysis-intelligence-index-v4-1",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2026-07-09",
-    "last_seen": "2026-07-09",
-    "labs_by_year": {
-      "2026": 1
-    }
-  },
-  {
-    "id": "artificial-analysis-leaderboard",
-    "name": "artificial-analysis-leaderboard",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2026-09-18",
-    "last_seen": "2026-09-18",
-    "labs_by_year": {
-      "2026": 1
-    }
-  },
-  {
-    "id": "artificial-analysis-speech-to-speech-index",
-    "name": "artificial-analysis-speech-to-speech-index",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2026-09-15",
-    "last_seen": "2026-09-15",
-    "labs_by_year": {
-      "2026": 1
-    }
-  },
-  {
-    "id": "artificial-analysis-text-to-video-rankings",
-    "name": "artificial-analysis-text-to-video-rankings",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2026-01-28",
-    "last_seen": "2026-01-28",
-    "labs_by_year": {
-      "2026": 1
-    }
-  },
-  {
-    "id": "artificial-analysis-tts-leaderboard",
-    "name": "artificial-analysis-tts-leaderboard",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2026-04-15",
-    "last_seen": "2026-04-15",
     "labs_by_year": {
       "2026": 1
     }
@@ -19165,19 +18977,6 @@
     "last_seen": "2025-12-23",
     "labs_by_year": {
       "2025": 1
-    }
-  },
-  {
-    "id": "intelligence-index-v4-1",
-    "name": "intelligence-index-v4-1",
-    "lab_count": 1,
-    "labs": [
-      "moonshot"
-    ],
-    "first_seen": "2026-07-27",
-    "last_seen": "2026-07-27",
-    "labs_by_year": {
-      "2026": 1
     }
   },
   {

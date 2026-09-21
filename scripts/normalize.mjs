@@ -15,6 +15,7 @@ const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 
 const labs = read(join(DATA, "labs.json"));
 const aliases = read(join(DATA, "aliases.json"));
+const excluded = read(join(DATA, "excluded.json"));
 const labIds = new Set(labs.map((l) => l.id));
 
 // Lookup key: lowercase, punctuation to spaces, collapse runs. "SWE-bench
@@ -22,12 +23,18 @@ const labIds = new Set(labs.map((l) => l.id));
 const key = (s) =>
   s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ");
 
+// Third-party composite indices are dropped rather than tracked: a lab citing
+// one is not reporting a benchmark, it is citing somebody else's ranking.
+const excludePatterns = excluded.patterns.map((p) => p.match);
+const isExcluded = (k) => excludePatterns.some((pat) => k.includes(pat));
+
 const aliasByKey = new Map(
   Object.entries(aliases)
     .filter(([k]) => !k.startsWith("_"))
     .map(([k, v]) => [key(k), v]),
 );
 
+let dropped = 0;
 const problems = [];
 const unknown = new Map();
 const releases = [];
@@ -70,13 +77,19 @@ for (const file of files) {
       else if (/\d\s*%|[:=]\s*\d/.test(b)) problems.push(`${where}: "${b}" looks like a score`);
     }
 
-    const canonical = [...new Set(r.benchmarks_raw.map((raw) => {
-      const k = key(raw);
-      const hit = aliasByKey.get(k);
-      if (hit) return hit;
-      unknown.set(k, (unknown.get(k) ?? 0) + 1);
-      return k.replace(/\s+/g, "-");   // provisional id until an alias is added
-    }))];
+    const canonical = [...new Set(r.benchmarks_raw
+      .filter((raw) => {
+        if (!isExcluded(key(raw))) return true;
+        dropped += 1;
+        return false;
+      })
+      .map((raw) => {
+        const k = key(raw);
+        const hit = aliasByKey.get(k);
+        if (hit) return hit;
+        unknown.set(k, (unknown.get(k) ?? 0) + 1);
+        return k.replace(/\s+/g, "-");   // provisional id until an alias is added
+      }))];
 
     releases.push({ ...r, benchmarks: canonical });
   }
@@ -121,7 +134,7 @@ writeFileSync(
   JSON.stringify({ generated_at: new Date().toISOString(), labs, releases, benchmarks }, null, 2) + "\n",
 );
 
-console.log(`releases ${releases.length} · benchmarks ${benchmarks.length} · labs with data ${new Set(releases.map((r) => r.lab)).size}/${labs.length}`);
+console.log(`releases ${releases.length} · benchmarks ${benchmarks.length} · labs with data ${new Set(releases.map((r) => r.lab)).size}/${labs.length} · excluded citations ${dropped}`);
 
 if (unknown.size) {
   console.log(`\nBenchmark names with no alias entry (${unknown.size}). Add the real ones to data/aliases.json:`);

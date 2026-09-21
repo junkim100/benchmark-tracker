@@ -56,3 +56,26 @@ export const dayNumber = (iso: string): number => Date.parse(iso + "T00:00:00Z")
 /** Releases for one lab, oldest first. */
 export const byLab = (releases: Release[], labId: string): Release[] =>
   releases.filter((r) => r.lab === labId);
+
+/** Which labs cited a benchmark in a given year, and what they shipped. */
+export interface YearDetail { year: number; labs: { lab: string; models: string[] }[] }
+
+export function detailFor(releases: Release[], benchmarkId: string, years: number[]): Map<number, YearDetail> {
+  const out = new Map<number, YearDetail>();
+  for (const y of years) out.set(y, { year: y, labs: [] });
+  const acc = new Map<number, Map<string, Set<string>>>();
+  for (const r of releases) {
+    if (!r.benchmarks.includes(benchmarkId)) continue;
+    const y = Number(r.date.slice(0, 4));
+    const byLab = acc.get(y) ?? new Map<string, Set<string>>();
+    byLab.set(r.lab, (byLab.get(r.lab) ?? new Set()).add(r.model));
+    acc.set(y, byLab);
+  }
+  for (const [y, byLab] of acc) {
+    out.set(y, {
+      year: y,
+      labs: [...byLab].map(([lab, models]) => ({ lab, models: [...models].sort() })).sort((a, b) => a.lab.localeCompare(b.lab)),
+    });
+  }
+  return out;
+}
