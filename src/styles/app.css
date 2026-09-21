@@ -81,7 +81,7 @@ a:hover { text-decoration-color: var(--text-primary); }
   border: 1px solid var(--border-strong); border-radius: 999px; cursor: pointer;
 }
 .chip:hover { background: var(--surface-2); }
-.chip__dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; flex: none; }
+.chip__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--slot, var(--text-muted)); flex: none; }
 .chip__x { color: var(--text-muted); font-size: 15px; line-height: 1; }
 .chip:hover .chip__x { color: var(--text-primary); }
 
@@ -113,16 +113,16 @@ a:hover { text-decoration-color: var(--text-primary); }
 .xt { text-anchor: middle; }
 .xt--partial { fill: var(--text-secondary); }
 .partial { fill: var(--text-muted); opacity: .06; }
-.s-line { fill: none; stroke-width: 2.25; stroke-linecap: round; stroke-linejoin: round; }
-.s-dot { stroke: var(--surface-1); stroke-width: 2; pointer-events: none; }
-.s-labeldot { stroke: var(--surface-1); stroke-width: 1.5; }
+.s-line { fill: none; stroke-width: 2.25; stroke-linecap: round; stroke-linejoin: round; stroke: var(--slot, var(--text-secondary)); }
+.s-dot { fill: var(--slot, var(--text-secondary)); stroke: var(--surface-1); stroke-width: 2; pointer-events: none; }
+.s-labeldot { fill: var(--slot, var(--text-secondary)); stroke: var(--surface-1); stroke-width: 1.5; }
 .s-halo { fill: transparent; }
 .s-hit { cursor: pointer; }
 .s-hit:hover .s-dot { r: 6; }
 .s-label { font-size: 12.5px; dominant-baseline: middle; fill: var(--text-secondary); }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 20px; list-style: none; margin: 14px 0 0; padding: 0; font-size: 13px; color: var(--text-secondary); }
 .legend li { display: flex; align-items: center; gap: 7px; }
-.sw { width: 10px; height: 10px; border-radius: 2px; }
+.sw { width: 10px; height: 10px; border-radius: 2px; background: var(--slot, var(--text-muted)); }
 
 /* Data table: rules only where they separate meaning, numbers aligned on the
    decimal, the peak year emphasised so the arc is legible without the chart. */
@@ -137,7 +137,7 @@ a:hover { text-decoration-color: var(--text-primary); }
 .dt tbody th { padding: 11px 18px 11px 0; font-weight: 450; text-align: left; white-space: nowrap; border-bottom: 1px solid var(--border); }
 .dt tbody td { padding: 11px 5px; text-align: right; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
 .dt tbody tr:last-child th, .dt tbody tr:last-child td { border-bottom: 0; }
-.dt__dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 9px; vertical-align: 1px; }
+.dt__dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 9px; vertical-align: 1px; background: var(--slot, var(--text-muted)); }
 .dt__peak { color: var(--text-primary); font-weight: 600; }
 .dt__tot { color: var(--text-muted); }
 .dt th:last-child, .dt td:last-child { padding-left: 22px; }
@@ -163,7 +163,7 @@ a:hover { text-decoration-color: var(--text-primary); }
 .mark { fill: var(--mark-neutral); stroke: var(--surface-2); stroke-width: 2; cursor: pointer; }
 .mark:hover { fill: var(--text-primary); }
 .mark--many { stroke-width: 2.5; }
-circle.mark[class*="mark--s"] { fill: currentColor; }
+circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 
 .s1 { --slot: var(--series-1); } .s2 { --slot: var(--series-2); }
 .s3 { --slot: var(--series-3); } .s4 { --slot: var(--series-4); }
