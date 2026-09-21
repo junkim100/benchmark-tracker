@@ -101,8 +101,12 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
         ${qLabels.map((x) => `<text class="xq${x.i === partialIdx ? " xq--partial" : ""}" x="${px(x.i)}" y="${H - 28}">Q${x.q.slice(6)}</text>`).join("")}
         ${qLabels.map((x) => `<text class="xy${x.q.endsWith("Q1") ? " xy--first" : ""}" x="${px(x.i)}" y="${H - 10}">${x.q.slice(0, 4)}</text>`).join("")}
         ${series}
+        <g class="qbands">${a.quarters.map((q, i) => {
+          const half = a.quarters.length > 1 ? iw / (a.quarters.length - 1) / 2 : iw / 2;
+          return `<rect class="qband" data-q="${q}" x="${(px(i) - half).toFixed(1)}" y="${M.t}" width="${(half * 2).toFixed(1)}" height="${ih}"/>`;
+        }).join("")}</g>
       </svg></div>
-      ${true ? `<ul class="legend">${a.tracked.map((b, i) => `<li class="s${i + 1}"><svg class="sw" viewBox="0 0 22 10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5"/></svg>${esc(a.names.get(b.id) ?? b.id)}</li>`).join("")}</ul>` : ""}`;
+      ${a.tracked.length ? `<ul class="legend">${a.tracked.map((b, i) => `<li class="s${i + 1}"><svg class="sw" viewBox="0 0 22 10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5"/></svg>${esc(a.names.get(b.id) ?? b.id)}</li>`).join("")}</ul>` : ""}`;
 
   const years = [...new Set(a.quarters.map((q) => q.slice(0, 4)))];
   const table = `
