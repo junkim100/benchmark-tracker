@@ -8,7 +8,6 @@ import { renderTrend, type TrendView } from "./trend";
 
 const data = raw as unknown as Timeline;
 const app = document.querySelector<HTMLDivElement>("#app")!;
-const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
 
 /* Theme: an explicit choice wins over the OS, and it persists. Storing nothing
    until the user chooses keeps "follow the system" as the real default. */
@@ -42,7 +41,6 @@ if (data.releases.length === 0) {
   // not support, and a reader looking for one lab should not have to hunt.
   const labs = [...data.labs].sort((a, b) => a.name.localeCompare(b.name, "en"));
   const trackables = buildTrackables(data);
-  const top = data.benchmarks[0];
 
   // Open on four that already say something, rather than on an empty chart in
   // the largest space on the page.
@@ -70,7 +68,7 @@ if (data.releases.length === 0) {
     <header class="hd">
       <div class="hd__title">
         <h1>Benchmark Tracker</h1>
-        <p class="hd__sub">Which benchmarks frontier labs cite when they ship. Not how they scored.</p>
+        <p class="hd__sub">Which benchmarks frontier labs cite when they ship, not how they scored, across ${data.releases.length.toLocaleString()} official releases from ${labs.length} labs since ${years[0]}.</p>
       </div>
       <button class="iconbtn" type="button" data-act="theme">
         <span class="vh"></span>
@@ -78,15 +76,10 @@ if (data.releases.length === 0) {
       </button>
     </header>
 
-    <section class="scope" aria-label="What is covered">
-      <p>Every benchmark named in <b>${data.releases.length.toLocaleString()}</b> official releases from <b>${labs.length}</b> frontier labs since ${years[0]}. ${esc(names.get(top.id) ?? top.id)} is the most widely cited, reported by all ${top.lab_count}.</p>
-    </section>
-
     <div class="sec">
       <div class="sec__head">
         <h2>Choose what to track</h2>
         <p>Up to eight. A suite covers every version of an evaluation at once; a category covers a whole subject. Search ignores spelling, so "tau bench" finds &tau;&sup2;-Bench.</p>
-        <p class="sec__note"><b>Labs</b> counts every lab that has cited it since ${fmtMonth(data.releases[0].date)}, so it never falls. <b>Recent releases</b> is the share still citing it across the last ${recentMonths} months, ${fmtMonth(win.from)} to ${fmtMonth(win.to)}, covering ${win.releases.toLocaleString()} releases. That is how a benchmark can be universal and finished at once. Cards are ordered by labs.</p>
       </div>
       <section class="controls" aria-label="Track benchmarks"></section>
     </div>
@@ -184,7 +177,8 @@ if (data.releases.length === 0) {
   const draw = () => {
     renderFilter($(".controls"), {
       trackables, categories: data.categories, tracked,
-      recentLabel: `${fmtMonth(win.from)} to ${fmtMonth(win.to)}`,
+      recentLabel: `the last ${recentMonths} months, ${fmtMonth(win.from)} to ${fmtMonth(win.to)}, covering ${win.releases.toLocaleString()} releases`,
+      sinceLabel: fmtMonth(data.releases[0].date),
       onToggle: (id) => {
         const adding = !tracked.includes(id);
         tracked = adding

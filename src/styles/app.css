@@ -39,20 +39,17 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
 .iconbtn__i { width: 17px; height: 17px; display: block; }
 .iconbtn:hover { color: var(--accent); border-color: var(--accent-line); }
 
-/* The scope note is a sentence, not a rack of tiles. Numbers sit inside the
-   prose where they can be read as a claim rather than as decoration. */
-.scope { margin: 0 0 8px; padding-bottom: 30px; border-bottom: 1px solid var(--border); }
+/* The masthead line carries the whole premise and the scale of the data, so it
+   is allowed the full width rather than a reading cap. */
+.hd__sub { max-width: none; }
 
 /* Section rhythm. The three panels used to carry an aria-label and nothing a
-   sighted reader could see, so the page arrived as one undifferentiated stack
-   and the chart and the timeline had to explain themselves. A heading and a
-   line of standfirst cost little and tell the reader what they are looking at
-   before they look.
+   sighted reader could see, so the page arrived as one undifferentiated stack.
    The accent rule is the interface's own signature, not decoration: it marks
    structure the same way the accent marks action, and it is the one place the
    hue appears without something to click. */
-.sec { margin: 38px 0 0; }
-.sec__head { margin: 0 0 16px; }
+.sec { margin: 34px 0 0; }
+.sec__head { margin: 0 0 14px; }
 .sec__head h2 {
   position: relative; margin: 0; padding-left: 15px;
   font-size: 19px; font-weight: 600; letter-spacing: -0.017em; line-height: 1.25;
@@ -61,22 +58,29 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
   content: ""; position: absolute; left: 0; top: .18em; bottom: .18em;
   width: 3px; border-radius: 2px; background: var(--accent);
 }
-/* The second standfirst line defines the two numbers on every card, so it is
-   quieter than the first but has to stay readable. */
-.sec__head .sec__note { margin-top: 7px; font-size: 13.5px; color: var(--text-muted); max-width: 92ch; }
-.sec__head .sec__note b { color: var(--text-secondary); font-weight: 600; }
-.sec__head p { text-wrap: pretty; margin: 5px 0 0 15px; font-size: 14.5px; line-height: 1.5; color: var(--text-muted); max-width: 64ch; }
-/* No reading-width cap. At 84ch this sentence broke onto a second line
-   holding four words, in a container 350px wider than the cap, so the rule
-   meant to aid reading was producing an orphan instead. It is one standfirst
-   line, not a block of prose, and it wraps on its own at narrow widths. */
-.scope p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--text-secondary); text-wrap: pretty; }
-.scope b { font-weight: 600; color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.sec__head p { text-wrap: pretty; margin: 5px 0 0 15px; font-size: 14.5px; line-height: 1.5; color: var(--text-muted); max-width: 78ch; }
+
+/* The list folds away, so a first load shows the chart and the timeline rather
+   than a wall of cards. The chips stay outside it: what you are tracking has to
+   remain visible and removable when the list is shut. */
+.fold {
+  display: inline-flex; align-items: center; gap: 7px; margin: 10px 0 0;
+  padding: 8px 14px 8px 11px; font: inherit; font-size: 13.5px; cursor: pointer;
+  background: var(--surface-2); color: var(--text-secondary);
+  border: 1px solid var(--border); border-radius: 999px;
+  transition: color .12s, border-color .12s;
+}
+.fold:hover { color: var(--accent); border-color: var(--accent-line); }
+.fold__chevron { width: 12px; height: 12px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .15s; }
+.fold[aria-expanded="true"] .fold__chevron { transform: rotate(180deg); }
+.browse__note { margin: 16px 0 0; font-size: 13.5px; line-height: 1.5; color: var(--text-muted); max-width: 92ch; text-wrap: pretty; }
+.browse__note b { color: var(--text-secondary); font-weight: 600; }
 
 /* Browse and search.
    Open by default and grouped, because most readers arrive wanting to know
    which benchmarks exist rather than to look one up by name. */
 .browse { margin: 0 0 4px; }
+.controls .chips { margin-bottom: 2px; }
 .browse__field {
   display: flex; align-items: center; gap: 10px; max-width: 520px;
   padding: 0 14px; background: var(--surface-2);

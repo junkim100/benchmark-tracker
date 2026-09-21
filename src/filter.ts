@@ -18,9 +18,15 @@ export interface FilterArgs {
   trackables: Map<string, Trackable>;
   categories: { id: string; name: string }[];
   recentLabel: string;           // the window the share is measured over
+  sinceLabel: string;            // when the all-time count starts
   tracked: string[];
   onToggle: (id: string) => void;
 }
+
+// Folded shut on arrival, so the chart and the timeline are the first things
+// on the page rather than a wall of cards. Held outside the render because
+// tracking something redraws this and must not close what the reader opened.
+let open = false;
 
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
 
@@ -78,7 +84,13 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   const catName = new Map(a.categories.map((c) => [c.id, c.name]));
 
   host.innerHTML = `
-    <div class="browse">
+    <div class="chips" aria-live="polite"></div>
+    <button class="fold" type="button" aria-expanded="${open}" aria-controls="browse-panel">
+      <svg class="fold__chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg>
+      ${open ? "Hide the list" : `Browse and search ${all.length.toLocaleString()} benchmarks, suites and categories`}
+    </button>
+    <div class="browse" id="browse-panel" ${open ? "" : "hidden"}>
+      <p class="browse__note"><b>Labs</b> counts every lab that has cited it since ${esc(a.sinceLabel)}, so it never falls. <b>Recent releases</b> is the share still citing it across ${esc(a.recentLabel)}. That is how a benchmark can be universal and finished at once. Cards are ordered by labs.</p>
       <div class="browse__field">
         <svg class="browse__icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>
         <input class="browse__input" type="search" autocomplete="off" spellcheck="false"
@@ -89,8 +101,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
       <div class="browse__tabs" role="tablist" aria-label="Browse by category"></div>
       <div class="browse__results" role="listbox" aria-label="Benchmarks"></div>
       <p class="browse__none" hidden></p>
-    </div>
-    <div class="chips" aria-live="polite"></div>`;
+    </div>`;
 
   const input = host.querySelector<HTMLInputElement>(".browse__input")!;
   const clear = host.querySelector<HTMLButtonElement>(".browse__clear")!;
@@ -160,6 +171,17 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   };
 
   paintTabs(); paint(); paintChips();
+
+  // Not `fold`: that name is the string normaliser at the top of this file.
+  const foldBtn = host.querySelector<HTMLButtonElement>(".fold")!;
+  const panel = host.querySelector<HTMLDivElement>(".browse")!;
+  foldBtn.addEventListener("click", () => {
+    open = !open;
+    panel.hidden = !open;
+    foldBtn.setAttribute("aria-expanded", String(open));
+    foldBtn.lastChild!.textContent = open ? "Hide the list" : ` Browse and search ${all.length.toLocaleString()} benchmarks, suites and categories`;
+    if (open) input.focus();
+  });
 
   input.addEventListener("input", () => {
     const had = !!q;
