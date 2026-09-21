@@ -177,9 +177,13 @@ a:hover { text-decoration-color: var(--text-primary); }
 .axis__q--first { fill: var(--text-secondary); }
 .axis__y { fill: var(--text-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
 .axis__y--first { fill: var(--text-primary); font-weight: 600; }
-.mark { fill: var(--mark-neutral); stroke: var(--surface-2); stroke-width: 2; cursor: pointer; }
+/* The stroke scales with the mark. Leaving it at a fixed 2px meant a phone's
+   3.2px dot was painted 5.2px wide against a 2.4px day, so in painted pixels
+   70 of 620 marks had their centre covered by a neighbour, against 14 on
+   desktop. Scaling it makes the narrow view a true 0.4 of the wide one. */
+.mark { fill: var(--mark-neutral); stroke: var(--surface-2); stroke-width: var(--mark-stroke, 2); cursor: pointer; }
 circle.mark:hover, circle.mark[class*="mark--s"]:hover { fill: var(--text-primary); }
-.mark--many { stroke-width: 2.5; }
+.mark--many { stroke-width: var(--mark-stroke-many, 2.5); }
 circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 
 .s1, .mark--s1 { --slot: var(--series-1); } .s2, .mark--s2 { --slot: var(--series-2); }

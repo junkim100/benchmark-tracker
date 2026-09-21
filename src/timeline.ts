@@ -47,12 +47,18 @@ export interface TimelineArgs {
 
 // Survives re-renders. Tracking a benchmark redraws the timeline, and a reader
 // who had scrolled to mid-2024 should not be thrown back to the present.
+// Held in days, not pixels. The pixel scale changes with the viewport bucket,
+// so a pixel offset captured at 2.4px/day outran the old content box once the
+// scroller grew to 6px/day: the browser clamped it to 3415 - 1054, and a phone
+// rotated to landscape landed on Q1 2025 instead of today.
 let lastScroll: number | null = null;
+let lastPxPerDay = 0;
 
 export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const { pxPerDay: PX_PER_DAY, markScale: MARK_SCALE } = metrics();
   const keep = host.querySelector<HTMLDivElement>(".tl__scroll");
-  if (keep) lastScroll = keep.scrollLeft;
+  if (keep) lastScroll = keep.scrollLeft / (lastPxPerDay || PX_PER_DAY);
+  lastPxPerDay = PX_PER_DAY;
   const days = a.releases.map((r) => dayNumber(r.date));
   const lo = Math.min(...days) - PAD_DAYS;
   const hi = Math.max(...days) + PAD_DAYS;
@@ -103,7 +109,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
       <div class="tl__body">
       <div class="tl__range" aria-live="off"></div>
       <div class="tl__scroll" tabindex="0" role="group" aria-label="Release timeline, scroll sideways through time">
-        <svg class="tl__svg" width="${width}" height="${height + 38}" role="img" aria-label="Releases per lab over time">
+        <svg class="tl__svg" style="--mark-stroke: ${(2 * MARK_SCALE).toFixed(2)}; --mark-stroke-many: ${(2.5 * MARK_SCALE).toFixed(2)}" width="${width}" height="${height + 38}" role="img" aria-label="Releases per lab over time">
           <g class="ticks">${ticks.map((t) => {
             const first = t.q.endsWith("Q1");
             return `<line class="${first ? "tick tick--year" : "tick"}" x1="${t.px.toFixed(1)}" y1="0" x2="${t.px.toFixed(1)}" y2="${height}"/>`;
@@ -129,7 +135,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   // landed on a strip containing no marks at all.
   const rightmost = Math.max(...a.releases.map((r) => x(r.date)));
   const openAt = Math.max(0, rightmost - scroller.clientWidth * 0.75);
-  scroller.scrollLeft = lastScroll ?? openAt;
+  scroller.scrollLeft = lastScroll != null ? lastScroll * PX_PER_DAY : openAt;
 
   // A readout of the visible range, updated on scroll. Labels drawn into the
   // canvas sit a whole quarter apart and vanish at any width where the
