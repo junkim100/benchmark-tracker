@@ -87,8 +87,10 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
           }).join("")}</g>
           <g class="axis">${ticks.map((t) => {
             const first = t.q.endsWith("Q1");
-            return `<text class="axis__q" x="${(t.px + 5).toFixed(1)}" y="${height + 15}">Q${t.q.slice(6)}</text>` +
-              (first ? `<text class="axis__y" x="${(t.px + 5).toFixed(1)}" y="${height + 31}">${t.q.slice(0, 4)}</text>` : "");
+            // Both parts on every tick. Labelling the year only on Q1 meant
+            // that scrolling anywhere else left no year on screen at all.
+            return `<text class="axis__q${first ? " axis__q--first" : ""}" x="${(t.px + 6).toFixed(1)}" y="${height + 16}">Q${t.q.slice(6)}</text>` +
+              `<text class="axis__y${first ? " axis__y--first" : ""}" x="${(t.px + 6).toFixed(1)}" y="${height + 32}">${t.q.slice(0, 4)}</text>`;
           }).join("")}</g>
           ${marks}
         </svg>
