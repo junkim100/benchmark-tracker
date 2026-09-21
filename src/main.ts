@@ -27,7 +27,7 @@ if (data.releases.length === 0) {
     <p>Which benchmarks frontier labs cite when they ship a model. No scores, only what each lab chose to report.</p>
     <p class="muted">Tracking ${data.labs.length} labs. No releases recorded yet.</p></main>`;
 } else {
-  const names = displayNames(data.releases);
+  const names = displayNames(data.benchmarks);
   const years = yearsSpanned(data.releases);
   const partialYear = years.includes(new Date().getUTCFullYear()) ? new Date().getUTCFullYear() : null;
   const byId = new Map(data.benchmarks.map((b) => [b.id, b]));

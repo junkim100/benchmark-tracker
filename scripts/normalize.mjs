@@ -35,6 +35,10 @@ const aliasByKey = new Map(
 );
 
 let dropped = 0;
+// Raw spelling counts per canonical id. Done here because this is the only
+// place the pairing is exact: the canonical list is deduped and filtered, so
+// zipping it against benchmarks_raw by index downstream is simply wrong.
+const spellings = new Map();
 const problems = [];
 const unknown = new Map();
 const releases = [];
@@ -85,10 +89,12 @@ for (const file of files) {
       })
       .map((raw) => {
         const k = key(raw);
-        const hit = aliasByKey.get(k);
-        if (hit) return hit;
-        unknown.set(k, (unknown.get(k) ?? 0) + 1);
-        return k.replace(/\s+/g, "-");   // provisional id until an alias is added
+        const id = aliasByKey.get(k) ?? k.replace(/\s+/g, "-");   // provisional id until an alias is added
+        if (!aliasByKey.has(k)) unknown.set(k, (unknown.get(k) ?? 0) + 1);
+        const tally = spellings.get(id) ?? new Map();
+        tally.set(raw, (tally.get(raw) ?? 0) + 1);
+        spellings.set(id, tally);
+        return id;
       }))];
 
     releases.push({ ...r, benchmarks: canonical });
@@ -117,7 +123,9 @@ for (const r of releases) {
 const benchmarks = [...registry.values()]
   .map((e) => ({
     id: e.id,
-    name: e.name,
+    // The spelling labs used most often, which reads better than a slug.
+    name: [...(spellings.get(e.id) ?? new Map([[e.id, 1]]))]
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0][0],
     lab_count: e.labs.size,
     labs: [...e.labs].sort(),
     first_seen: e.first_seen,

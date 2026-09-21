@@ -27,23 +27,9 @@ export const KIND_LABEL: Record<ReleaseKind, string> = {
   blog_post: "Blog post",
 };
 
-/** A raw name is nicer to read than a slug, so show the most common spelling. */
-export function displayNames(releases: Release[]): Map<string, string> {
-  const tally = new Map<string, Map<string, number>>();
-  for (const r of releases) {
-    r.benchmarks.forEach((id, i) => {
-      const raw = r.benchmarks_raw[i] ?? id;
-      const inner = tally.get(id) ?? new Map<string, number>();
-      inner.set(raw, (inner.get(raw) ?? 0) + 1);
-      tally.set(id, inner);
-    });
-  }
-  const out = new Map<string, string>();
-  for (const [id, inner] of tally) {
-    out.set(id, [...inner].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0][0]);
-  }
-  return out;
-}
+/** Display names come from the build, which is the only place the raw-to-canonical pairing is exact. */
+export const displayNames = (benchmarks: Benchmark[]): Map<string, string> =>
+  new Map(benchmarks.map((b) => [b.id, b.name]));
 
 export const yearsSpanned = (releases: Release[]): number[] => {
   const ys = releases.map((r) => Number(r.date.slice(0, 4)));
