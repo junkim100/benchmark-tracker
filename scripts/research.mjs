@@ -9,9 +9,19 @@
 // Writes only data/releases/<lab>.json, and only records whose source_url is
 // not already present. It never edits an existing record, so a human correction
 // is never silently reverted.
+//
+// It also maintains data/aliases.json, so a second lab spelling an existing
+// benchmark a new way is folded on the run that finds it. Suggestions used to
+// be printed into the commit message and nothing else, which on an unattended
+// cron means nobody ever saw them and duplicates accumulated by default. An
+// alias is safe to apply automatically because it is only a build-time
+// mapping: benchmarks_raw keeps the lab's exact wording forever, so a wrong
+// merge is undone by deleting one line and rebuilding. Every automatic entry
+// is recorded in data/alias-log.jsonl with the reason and the release it came
+// from, so it can be audited without reading git history.
 
 import Anthropic from "@anthropic-ai/sdk";
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, appendFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -23,17 +33,22 @@ const labs = JSON.parse(readFileSync(join(DATA, "labs.json"), "utf8"));
 const client = new Anthropic();
 
 // The benchmarks already tracked, so the agent can tell a genuinely new one
-// from a new spelling of an old one. Only those cited by two or more labs: the
-// long tail of single-citation names is mostly noise and would crowd the prompt.
+// from a new spelling of an old one.
+//
+// Every one of them, not just the well-cited. An earlier version sent only
+// those cited by two or more labs, on the theory that the long tail was noise
+// and would crowd the prompt. That had it backwards: a benchmark one lab has
+// cited is exactly the one a second lab is about to spell differently, and
+// there is no way to catch that if the agent cannot see it. The filter hid
+// 1665 of 2194 names. The full list is about 8k tokens, which is not a
+// constraint worth trading correctness for.
 //
 // This judgement cannot be delegated to a string metric. Edit distance pairs
 // MMLU-Pro with MMMU-Pro and IFEval with C-Eval, which are different
 // benchmarks, while missing AIME 2024 against AIME24, which are the same.
 // Knowing which is which is a semantic question.
 const known = existsSync(join(DATA, "benchmarks.json"))
-  ? JSON.parse(readFileSync(join(DATA, "benchmarks.json"), "utf8"))
-      .filter((b) => b.lab_count >= 2)
-      .map((b) => b.name)
+  ? JSON.parse(readFileSync(join(DATA, "benchmarks.json"), "utf8")).map((b) => b.name)
   : [];
 
 const since = new Date(Date.now() - LOOKBACK_DAYS * 864e5).toISOString().slice(0, 10);
@@ -126,7 +141,7 @@ async function researchLab(lab) {
         `("SWE-bench Verified", not a normalised slug). Search is restricted to ${allowed.join(", ")}, which is deliberate: ` +
         `only the lab's own publications count.\n\n` +
         `Return an empty releases array if there is nothing in that window. That is the normal result on most days.\n\n` +
-        `Benchmarks already tracked, for the alias check (${known.length} cited by two or more labs):\n${known.join(", ")}`,
+        `Benchmarks already tracked, for the alias check (all ${known.length}):\n${known.join(", ")}`,
     }],
   });
 
@@ -138,7 +153,7 @@ async function researchLab(lab) {
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 let added = 0;
 const summary = [];
-const aliasNotes = [];
+const aliasSuggestions = [];
 
 const results = await Promise.allSettled(labs.map(async (lab) => {
   const found = await researchLab(lab);
@@ -161,7 +176,7 @@ const results = await Promise.allSettled(labs.map(async (lab) => {
 
   for (const r of found) {
     for (const sug of r.alias_suggestions ?? []) {
-      aliasNotes.push(`${lab.name}: "${sug.raw}" looks like the tracked "${sug.tracked}" (${sug.reason})`);
+      aliasSuggestions.push({ raw: sug.raw, tracked: sug.tracked, reason: sug.reason, lab: lab.name });
     }
   }
 
@@ -177,9 +192,41 @@ for (const [i, r] of results.entries()) {
   if (r.status === "rejected") summary.push(`${labs[i].name}: FAILED ${r.reason?.message ?? r.reason}`);
 }
 
+// Fold the accepted suggestions into the alias map. Same key rule as the
+// build: lowercase, drop separators, collapse a trailing four-digit year.
+const aliasKey = (x) => x.toLowerCase().replace(/[^a-z0-9]/g, "").replace(/20(\d\d)$/, "$1");
+const aliasPath = join(DATA, "aliases.json");
+const aliasMap = JSON.parse(readFileSync(aliasPath, "utf8"));
+const canonical = new Map(
+  Object.entries(aliasMap).filter(([k]) => !k.startsWith("_")).map(([k, v]) => [aliasKey(k), v]),
+);
+const applied = [];
+const skipped = [];
+for (const sug of aliasSuggestions) {
+  const rawK = aliasKey(sug.raw);
+  const trackedK = aliasKey(sug.tracked);
+  // A name that already resolves needs nothing, and must not be overwritten:
+  // a hand-made entry outranks anything decided here.
+  if (rawK === trackedK || canonical.has(rawK)) { skipped.push(sug); continue; }
+  const target = canonical.get(trackedK) ?? trackedK;
+  aliasMap[sug.raw] = target;
+  canonical.set(rawK, target);
+  applied.push({ ...sug, target });
+  appendFileSync(
+    join(DATA, "alias-log.jsonl"),
+    JSON.stringify({ at: new Date().toISOString(), ...sug, target }) + "\n",
+  );
+}
+if (applied.length) writeFileSync(aliasPath, JSON.stringify(aliasMap, null, 2) + "\n");
+
 const lines = [...summary];
-if (aliasNotes.length) {
-  lines.push("", `Possible duplicate spellings (${aliasNotes.length}), add to data/aliases.json if correct:`, ...aliasNotes.map((n) => `  ${n}`));
+if (applied.length) {
+  lines.push("", `Merged ${applied.length} duplicate spelling(s) into data/aliases.json:`,
+    ...applied.map((x) => `  "${x.raw}" -> ${x.target} (${x.lab}: ${x.reason})`));
+}
+if (skipped.length) {
+  lines.push("", `Already covered, no change (${skipped.length}):`,
+    ...skipped.map((x) => `  "${x.raw}" ~ "${x.tracked}"`));
 }
 const report = lines.join("\n") || "No new releases found.";
 console.log(report);

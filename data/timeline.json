@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T11:54:25.833Z",
+  "generated_at": "2026-09-21T13:13:34.657Z",
   "labs": [
     {
       "id": "openai",
@@ -362,7 +362,7 @@
         "leetcodehard",
         "mmlu",
         "hellaswag",
-        "ai2reasoningchallengearc",
+        "arc",
         "winogrande",
         "humaneval",
         "drop",
@@ -466,7 +466,7 @@
         "leetcodehard",
         "mmlu",
         "hellaswag",
-        "ai2reasoningchallengearc",
+        "arc",
         "winogrande",
         "humaneval",
         "drop",
@@ -954,7 +954,7 @@
         "triviaqa",
         "raceh",
         "gregeneraltest",
-        "multistatebarexaminationmbe",
+        "mbe",
         "usmle"
       ]
     },
@@ -1019,7 +1019,7 @@
         "gsm8k",
         "math",
         "mmlu",
-        "bigbenchhardbbh",
+        "bbh",
         "agieval",
         "truthfulqa",
         "toxigen",
@@ -2940,7 +2940,7 @@
       ],
       "benchmarks": [
         "needleinahaystack",
-        "machinetranslationfromonebookmtob"
+        "mtob"
       ]
     },
     {
@@ -13098,7 +13098,7 @@
         "neptune",
         "securebiovmqa",
         "futurehouselabbench",
-        "weaponsofmassdestructionproxywmdp",
+        "wmdp",
         "intercodectf",
         "hackthebox",
         "rebench"
@@ -14841,7 +14841,7 @@
         "mmlu",
         "bbq",
         "attackplanningredteaming",
-        "agentredteamingart",
+        "art",
         "cotmonitorability",
         "cotcontrollability",
         "longformbioriskquestions",
@@ -29443,14 +29443,14 @@
       "first_seen": "2023-05-17",
       "last_seen": "2026-09-17",
       "labs_by_year": {
-        "2023": 5,
+        "2023": 6,
         "2024": 8,
         "2025": 5,
         "2026": 5
       },
       "labs_by_quarter": {
         "2023-Q2": 2,
-        "2023-Q3": 2,
+        "2023-Q3": 3,
         "2023-Q4": 5,
         "2024-Q1": 5,
         "2024-Q2": 6,
@@ -32191,6 +32191,29 @@
       }
     },
     {
+      "id": "arc",
+      "name": "ARC",
+      "lab_count": 4,
+      "labs": [
+        "deepseek",
+        "openai",
+        "upstage",
+        "zai"
+      ],
+      "first_seen": "2023-03-14",
+      "last_seen": "2024-07-02",
+      "labs_by_year": {
+        "2023": 2,
+        "2024": 2
+      },
+      "labs_by_quarter": {
+        "2023-Q1": 1,
+        "2023-Q4": 1,
+        "2024-Q1": 1,
+        "2024-Q3": 1
+      }
+    },
+    {
       "id": "arc-agi-2",
       "name": "ARC-AGI-2",
       "lab_count": 4,
@@ -33354,27 +33377,6 @@
         "2026-Q1": 1,
         "2026-Q2": 2,
         "2026-Q3": 1
-      }
-    },
-    {
-      "id": "arc",
-      "name": "ARC",
-      "lab_count": 3,
-      "labs": [
-        "deepseek",
-        "upstage",
-        "zai"
-      ],
-      "first_seen": "2023-12-23",
-      "last_seen": "2024-07-02",
-      "labs_by_year": {
-        "2023": 1,
-        "2024": 2
-      },
-      "labs_by_quarter": {
-        "2023-Q4": 1,
-        "2024-Q1": 1,
-        "2024-Q3": 1
       }
     },
     {
@@ -35736,6 +35738,25 @@
         "2025-Q2": 1,
         "2025-Q3": 1,
         "2025-Q4": 1
+      }
+    },
+    {
+      "id": "art",
+      "name": "Agent Red Teaming (ART)",
+      "lab_count": 2,
+      "labs": [
+        "meta",
+        "openai"
+      ],
+      "first_seen": "2025-08-07",
+      "last_seen": "2026-05-14",
+      "labs_by_year": {
+        "2025": 1,
+        "2026": 1
+      },
+      "labs_by_quarter": {
+        "2025-Q3": 1,
+        "2026-Q2": 1
       }
     },
     {
@@ -40557,6 +40578,24 @@
       }
     },
     {
+      "id": "wmdp",
+      "name": "WMDP",
+      "lab_count": 2,
+      "labs": [
+        "google",
+        "openai"
+      ],
+      "first_seen": "2025-02-25",
+      "last_seen": "2025-07-07",
+      "labs_by_year": {
+        "2025": 2
+      },
+      "labs_by_quarter": {
+        "2025-Q1": 1,
+        "2025-Q3": 1
+      }
+    },
+    {
       "id": "wmdpbio",
       "name": "WMDP Bio",
       "lab_count": 2,
@@ -41336,22 +41375,6 @@
       }
     },
     {
-      "id": "agentredteamingart",
-      "name": "Agent Red Teaming (ART)",
-      "lab_count": 1,
-      "labs": [
-        "openai"
-      ],
-      "first_seen": "2025-08-07",
-      "last_seen": "2025-08-07",
-      "labs_by_year": {
-        "2025": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q3": 1
-      }
-    },
-    {
       "id": "agentworldbench",
       "name": "AgentWorldBench",
       "lab_count": 1,
@@ -41399,22 +41422,6 @@
       "labs_by_quarter": {
         "2026-Q1": 1,
         "2026-Q2": 1
-      }
-    },
-    {
-      "id": "ai2reasoningchallengearc",
-      "name": "AI2 Reasoning Challenge (ARC)",
-      "lab_count": 1,
-      "labs": [
-        "openai"
-      ],
-      "first_seen": "2023-03-14",
-      "last_seen": "2023-03-15",
-      "labs_by_year": {
-        "2023": 1
-      },
-      "labs_by_quarter": {
-        "2023-Q1": 1
       }
     },
     {
@@ -42641,22 +42648,6 @@
       }
     },
     {
-      "id": "art",
-      "name": "ART",
-      "lab_count": 1,
-      "labs": [
-        "meta"
-      ],
-      "first_seen": "2026-05-14",
-      "last_seen": "2026-05-14",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q2": 1
-      }
-    },
-    {
       "id": "artcap",
       "name": "ArtCap",
       "lab_count": 1,
@@ -43622,22 +43613,6 @@
       },
       "labs_by_quarter": {
         "2026-Q3": 1
-      }
-    },
-    {
-      "id": "bigbenchhardbbh",
-      "name": "Big Bench Hard (BBH)",
-      "lab_count": 1,
-      "labs": [
-        "meta"
-      ],
-      "first_seen": "2023-07-18",
-      "last_seen": "2023-07-18",
-      "labs_by_year": {
-        "2023": 1
-      },
-      "labs_by_quarter": {
-        "2023-Q3": 1
       }
     },
     {
@@ -54871,22 +54846,6 @@
       }
     },
     {
-      "id": "machinetranslationfromonebookmtob",
-      "name": "Machine Translation from One Book (MTOB)",
-      "lab_count": 1,
-      "labs": [
-        "google"
-      ],
-      "first_seen": "2024-02-15",
-      "last_seen": "2024-02-15",
-      "labs_by_year": {
-        "2024": 1
-      },
-      "labs_by_quarter": {
-        "2024-Q1": 1
-      }
-    },
-    {
       "id": "madqa",
       "name": "MADQA",
       "lab_count": 1,
@@ -55271,12 +55230,14 @@
       "labs": [
         "anthropic"
       ],
-      "first_seen": "2024-03-04",
+      "first_seen": "2023-07-11",
       "last_seen": "2024-03-04",
       "labs_by_year": {
+        "2023": 1,
         "2024": 1
       },
       "labs_by_quarter": {
+        "2023-Q3": 1,
         "2024-Q1": 1
       }
     },
@@ -57543,7 +57504,7 @@
       "labs": [
         "google"
       ],
-      "first_seen": "2024-03-08",
+      "first_seen": "2024-02-15",
       "last_seen": "2026-07-02",
       "labs_by_year": {
         "2024": 1,
@@ -58004,22 +57965,6 @@
       },
       "labs_by_quarter": {
         "2026-Q2": 1
-      }
-    },
-    {
-      "id": "multistatebarexaminationmbe",
-      "name": "Multistate Bar Examination (MBE)",
-      "lab_count": 1,
-      "labs": [
-        "anthropic"
-      ],
-      "first_seen": "2023-07-11",
-      "last_seen": "2023-07-11",
-      "labs_by_year": {
-        "2023": 1
-      },
-      "labs_by_quarter": {
-        "2023-Q3": 1
       }
     },
     {
@@ -66859,22 +66804,6 @@
       }
     },
     {
-      "id": "weaponsofmassdestructionproxywmdp",
-      "name": "Weapons of Mass Destruction Proxy (WMDP)",
-      "lab_count": 1,
-      "labs": [
-        "google"
-      ],
-      "first_seen": "2025-07-07",
-      "last_seen": "2025-07-07",
-      "labs_by_year": {
-        "2025": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q3": 1
-      }
-    },
-    {
       "id": "webarenalite",
       "name": "WebArena-Lite",
       "lab_count": 1,
@@ -67432,22 +67361,6 @@
       },
       "labs_by_quarter": {
         "2026-Q2": 1
-      }
-    },
-    {
-      "id": "wmdp",
-      "name": "WMDP",
-      "lab_count": 1,
-      "labs": [
-        "openai"
-      ],
-      "first_seen": "2025-02-25",
-      "last_seen": "2025-02-27",
-      "labs_by_year": {
-        "2025": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q1": 1
       }
     },
     {

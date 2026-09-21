@@ -98,5 +98,11 @@
   "m3exams": "m3exams",
   "naturalq": "naturalquestions",
   "naturalqs": "naturalquestions",
-  "natural questions": "naturalquestions"
+  "natural questions": "naturalquestions",
+  "AI2 Reasoning Challenge (ARC)": "arc",
+  "Agent Red Teaming (ART)": "art",
+  "Big Bench Hard (BBH)": "bbh",
+  "Machine Translation from One Book (MTOB)": "mtob",
+  "Multistate Bar Examination (MBE)": "mbe",
+  "Weapons of Mass Destruction Proxy (WMDP)": "wmdp"
 }
