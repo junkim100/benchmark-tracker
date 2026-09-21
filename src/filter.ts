@@ -104,10 +104,15 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
 
   const TABS = [{ id: "top", name: "Most cited, all time" }, { id: "suites", name: "Suites" }, ...a.categories.filter((c) => c.id !== "other").map((c) => ({ id: `cat:${c.id}`, name: c.name }))];
 
+  // While a search is running no tab is selected, because none is being applied.
+  // Search is deliberately global: scoping it to the open tab would have meant
+  // typing "terminal bench" inside Speech & audio and being told there is no
+  // such thing. But leaving a tab lit while ignoring it said the opposite of
+  // what was happening, so the tabs go quiet and say why.
   const paintTabs = () => {
     tabs.innerHTML = TABS.map((t) =>
-      `<button type="button" role="tab" data-tab="${esc(t.id)}" aria-selected="${t.id === tab}">${esc(t.name)}</button>`
-    ).join("");
+      `<button type="button" role="tab" data-tab="${esc(t.id)}" aria-selected="${!q && t.id === tab}">${esc(t.name)}</button>`
+    ).join("") + (q ? `<span class="browse__scope">Searching every category</span>` : "");
   };
 
   const pool = (): Trackable[] => {
@@ -157,15 +162,22 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   paintTabs(); paint(); paintChips();
 
   input.addEventListener("input", () => {
+    const had = !!q;
     q = fold(input.value);
     clear.hidden = !input.value;
+    if (had !== !!q) paintTabs();
     paint();
   });
-  clear.addEventListener("click", () => { input.value = ""; q = ""; clear.hidden = true; paint(); input.focus(); });
+  // Clearing returns to whichever tab was open before the search started.
+  clear.addEventListener("click", () => { input.value = ""; q = ""; clear.hidden = true; paintTabs(); paint(); input.focus(); });
   tabs.addEventListener("click", (e) => {
     const t = (e.target as Element).closest("[data-tab]")?.getAttribute("data-tab");
     if (!t) return;
-    tab = t; paintTabs(); paint();
+    // Picking a category is a request to browse it, so it ends the search
+    // rather than sitting behind one that ignores it.
+    tab = t;
+    if (q) { q = ""; input.value = ""; clear.hidden = true; }
+    paintTabs(); paint();
   });
   results.addEventListener("click", (e) => {
     const id = (e.target as Element).closest("[data-id]")?.getAttribute("data-id");

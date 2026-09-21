@@ -27,6 +27,10 @@ export interface TrendArgs {
 }
 
 
+// Survives re-renders, per scroller. Null means "never scrolled", which opens
+// at the most recent end rather than at 2023.
+const lastScroll: Record<string, number | null> = { ".dtwrap": null, ".trendscroll": null };
+
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
 
 export function renderTrend(host: HTMLElement, a: TrendArgs): void {
@@ -168,6 +172,24 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
       </div>
       ${a.view === "chart" ? chart : table}
     </figure>`;
+
+  // Both scrollers open on the present. The table is 18 columns wide and a
+  // phone shows five of them, so starting at the left put the reader in Q1 2023
+  // and asked them to drag through three years to reach what they came for.
+  //
+  // The position is remembered so that tracking a benchmark does not throw the
+  // reader back. It is a horizontal offset, which this project has learned to
+  // be careful with, but the scale here never changes: the columns are quarters
+  // and a quarter is a quarter at every width.
+  for (const sel of [".dtwrap", ".trendscroll"] as const) {
+    const el = host.querySelector<HTMLElement>(sel);
+    if (!el) continue;
+    const max = el.scrollWidth - el.clientWidth;
+    if (max <= 0) continue;
+    const kept = lastScroll[sel];
+    el.scrollLeft = kept == null ? max : Math.min(kept, max);
+    el.addEventListener("scroll", () => { lastScroll[sel] = el.scrollLeft; }, { passive: true });
+  }
 
   host.querySelector(".seg")!.addEventListener("click", (e) => {
     const v = (e.target as Element).closest("button")?.getAttribute("data-view") as TrendView | undefined;
