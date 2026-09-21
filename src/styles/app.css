@@ -61,6 +61,10 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
   content: ""; position: absolute; left: 0; top: .18em; bottom: .18em;
   width: 3px; border-radius: 2px; background: var(--accent);
 }
+/* The second standfirst line defines the two numbers on every card, so it is
+   quieter than the first but has to stay readable. */
+.sec__head .sec__note { margin-top: 7px; font-size: 13.5px; color: var(--text-muted); max-width: 92ch; }
+.sec__head .sec__note b { color: var(--text-secondary); font-weight: 600; }
 .sec__head p { text-wrap: pretty; margin: 5px 0 0 15px; font-size: 14.5px; line-height: 1.5; color: var(--text-muted); max-width: 64ch; }
 /* No reading-width cap. At 84ch this sentence broke onto a second line
    holding four words, in a container 350px wider than the cap, so the rule

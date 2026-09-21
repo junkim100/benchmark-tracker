@@ -184,6 +184,19 @@ for (const r of releases) {
 /** Mean over labs that shipped in the window of the share of their releases
  *  citing any of `ids`. A lab that shipped and never cited it contributes zero,
  *  which is the point: silence is data. */
+// Published with the numbers it produces. A share of "recent" releases means
+// nothing without the window, and the window moves every time this runs, so it
+// is emitted rather than written into the copy by hand.
+const recentQuarters = [...recentWindow].sort();
+const inWindow = releases.filter((r) => recentWindow.has(quarterOf(r.date)));
+const recent_window = {
+  quarters: recentQuarters,
+  months: recentQuarters.length * 3,
+  from: inWindow.length ? inWindow.reduce((a, r) => (r.date < a ? r.date : a), inWindow[0].date) : null,
+  to: inWindow.length ? inWindow.reduce((a, r) => (r.date > a ? r.date : a), inWindow[0].date) : null,
+  releases: inWindow.length,
+};
+
 const recentShare = (ids) => {
   if (!shipped.size) return 0;
   let total = 0;
@@ -272,7 +285,7 @@ if (releases.length) {
 
 writeFileSync(
   join(DATA, "timeline.json"),
-  JSON.stringify({ generated_at: new Date().toISOString(), labs, releases, benchmarks, quarters, categories, suites }, null, 2) + "\n",
+  JSON.stringify({ generated_at: new Date().toISOString(), labs, releases, benchmarks, quarters, categories, suites, recent_window }, null, 2) + "\n",
 );
 
 console.log(`releases ${releases.length} · benchmarks ${benchmarks.length} · labs with data ${new Set(releases.map((r) => r.lab)).size}/${labs.length} · excluded citations ${dropped}`);

@@ -31,6 +31,13 @@ if (data.releases.length === 0) {
   const years = yearsSpanned(data.releases);
   const nowQ = quarterOf(new Date().toISOString().slice(0, 10));
   const partialQuarter = data.quarters.includes(nowQ) ? nowQ : null;
+  // The window the recent share is measured over. Read from the build, not
+  // written into the copy, because it moves every time the data is rebuilt and
+  // a stated window that has quietly gone stale is worse than none.
+  const win = data.recent_window;
+  const recentMonths = win.months;
+  const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const fmtMonth = (d: string | null) => (d ? `${MONTHS[Number(d.slice(5, 7)) - 1]} ${d.slice(0, 4)}` : "");
   // Rows read alphabetically. Any other order implies a ranking the data does
   // not support, and a reader looking for one lab should not have to hunt.
   const labs = [...data.labs].sort((a, b) => a.name.localeCompare(b.name, "en"));
@@ -78,7 +85,8 @@ if (data.releases.length === 0) {
     <div class="sec">
       <div class="sec__head">
         <h2>Choose what to track</h2>
-        <p>Up to eight. A suite covers every version of an evaluation at once; a category covers a whole subject. Search ignores spelling, so "tau bench" finds &tau;&sup2;-Bench. <b>Labs</b> is how many of the twelve have ever cited it; <b>recent releases</b> is the share that still do, which is how a benchmark can be universal and finished at the same time.</p>
+        <p>Up to eight. A suite covers every version of an evaluation at once; a category covers a whole subject. Search ignores spelling, so "tau bench" finds &tau;&sup2;-Bench.</p>
+        <p class="sec__note"><b>Labs</b> counts every lab that has cited it since ${fmtMonth(data.releases[0].date)}, so it never falls. <b>Recent releases</b> is the share still citing it across the last ${recentMonths} months, ${fmtMonth(win.from)} to ${fmtMonth(win.to)}, covering ${win.releases.toLocaleString()} releases. That is how a benchmark can be universal and finished at once. Cards are ordered by labs.</p>
       </div>
       <section class="controls" aria-label="Track benchmarks"></section>
     </div>
@@ -176,6 +184,7 @@ if (data.releases.length === 0) {
   const draw = () => {
     renderFilter($(".controls"), {
       trackables, categories: data.categories, tracked,
+      recentLabel: `${fmtMonth(win.from)} to ${fmtMonth(win.to)}`,
       onToggle: (id) => {
         const adding = !tracked.includes(id);
         tracked = adding

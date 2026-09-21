@@ -30,6 +30,9 @@ export interface Group {
 export interface Timeline {
   generated_at: string; labs: Lab[]; releases: Release[]; benchmarks: Benchmark[];
   quarters: string[]; categories: Group[]; suites: Group[];
+  /** The window recent_share is measured over. Emitted by the build because it
+   *  moves every time the data is rebuilt, so copy cannot hard-code it. */
+  recent_window: { quarters: string[]; months: number; from: string | null; to: string | null; releases: number };
 }
 
 /** What a series on the chart can be. Benchmarks, the suites that gather their

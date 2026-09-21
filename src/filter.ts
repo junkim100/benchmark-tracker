@@ -17,6 +17,7 @@ import { MAX_TRACKED, type Trackable } from "./model";
 export interface FilterArgs {
   trackables: Map<string, Trackable>;
   categories: { id: string; name: string }[];
+  recentLabel: string;           // the window the share is measured over
   tracked: string[];
   onToggle: (id: string) => void;
 }
@@ -101,7 +102,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   let tab = "top";
   let q = "";
 
-  const TABS = [{ id: "top", name: "Most cited" }, { id: "suites", name: "Suites" }, ...a.categories.filter((c) => c.id !== "other").map((c) => ({ id: `cat:${c.id}`, name: c.name }))];
+  const TABS = [{ id: "top", name: "Most cited, all time" }, { id: "suites", name: "Suites" }, ...a.categories.filter((c) => c.id !== "other").map((c) => ({ id: `cat:${c.id}`, name: c.name }))];
 
   const paintTabs = () => {
     tabs.innerHTML = TABS.map((t) =>
@@ -132,8 +133,9 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
       const meta = t.kind === "suite" ? `Suite · ${t.members} versions`
         : t.kind === "category" ? `Category · ${t.members} benchmarks`
         : (t.categories ?? []).map((c) => catName.get(c) ?? c).join(" · ");
+      const title = `${t.lab_count} of 12 labs have cited this. ${t.recent_share}% of releases in ${a.recentLabel} cite it.`;
       return `<button type="button" role="option" class="bcard bcard--${t.kind}" data-id="${esc(t.id)}"
-               aria-selected="${on}" ${!on && full ? "disabled" : ""}>
+               title="${esc(title)}" aria-selected="${on}" ${!on && full ? "disabled" : ""}>
         <span class="bcard__name">${esc(t.name)}</span>
         <span class="bcard__meta">${esc(meta)}</span>
         <span class="bcard__n"><b>${t.lab_count}</b> lab${t.lab_count === 1 ? "" : "s"}<span class="bcard__sep"> · </span><b>${t.recent_share}%</b> of recent releases</span>
