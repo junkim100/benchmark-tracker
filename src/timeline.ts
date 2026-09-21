@@ -47,18 +47,18 @@ export interface TimelineArgs {
 
 // Survives re-renders. Tracking a benchmark redraws the timeline, and a reader
 // who had scrolled to mid-2024 should not be thrown back to the present.
-// Held in days, not pixels. The pixel scale changes with the viewport bucket,
-// so a pixel offset captured at 2.4px/day outran the old content box once the
-// scroller grew to 6px/day: the browser clamped it to 3415 - 1054, and a phone
-// rotated to landscape landed on Q1 2025 instead of today.
+// Held in days, not pixels, because the pixel scale changes with the viewport
+// bucket. Recorded on every scroll rather than read at redraw time: a resize
+// reflows the scroller and clamps scrollLeft to the OLD content width before
+// the resize event fires, so by redraw the DOM value is already corrupt. The
+// width guard drops exactly that clamp, which arrives as a scroll event at a
+// viewport width the position was never taken in.
 let lastScroll: number | null = null;
-let lastPxPerDay = 0;
+let lastWidth = 0;
 
 export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const { pxPerDay: PX_PER_DAY, markScale: MARK_SCALE } = metrics();
-  const keep = host.querySelector<HTMLDivElement>(".tl__scroll");
-  if (keep) lastScroll = keep.scrollLeft / (lastPxPerDay || PX_PER_DAY);
-  lastPxPerDay = PX_PER_DAY;
+  lastWidth = typeof window !== "undefined" ? window.innerWidth : 0;
   const days = a.releases.map((r) => dayNumber(r.date));
   const lo = Math.min(...days) - PAD_DAYS;
   const hi = Math.max(...days) + PAD_DAYS;
@@ -150,8 +150,12 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
     const b1 = atPx(scroller.scrollLeft + scroller.clientWidth);
     readout.textContent = a1 === b1 ? a1 : `${a1} to ${b1}`;
   };
-  scroller.addEventListener("scroll", paintRange, { passive: true });
+  scroller.addEventListener("scroll", () => {
+    paintRange();
+    if (window.innerWidth === lastWidth) lastScroll = scroller.scrollLeft / PX_PER_DAY;
+  }, { passive: true });
   paintRange();
+  if (lastScroll == null) lastScroll = scroller.scrollLeft / PX_PER_DAY;
 
   const svg = host.querySelector<SVGSVGElement>(".tl__svg")!;
   const index = new Map<string, Release[]>();
