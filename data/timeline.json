@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T04:44:58.266Z",
+  "generated_at": "2026-09-21T05:00:29.859Z",
   "labs": [
     {
       "id": "openai",
@@ -333,8 +333,8 @@
         "graduaterecordexaminationgrequantitative",
         "graduaterecordexaminationgreverbal",
         "graduaterecordexaminationgrewriting",
-        "usabosemifinalexam2020",
-        "usncolocalsectionexam2022",
+        "usabosemifinalexam20",
+        "usncolocalsectionexam22",
         "medicalknowledgeselfassessmentprogram",
         "codeforcesrating",
         "aparthistory",
@@ -437,8 +437,8 @@
         "graduaterecordexaminationgrequantitative",
         "graduaterecordexaminationgreverbal",
         "graduaterecordexaminationgrewriting",
-        "usabosemifinalexam2020",
-        "usncolocalsectionexam2022",
+        "usabosemifinalexam20",
+        "usncolocalsectionexam22",
         "medicalknowledgeselfassessmentprogram",
         "codeforcesrating",
         "aparthistory",
@@ -617,8 +617,8 @@
         "imageneta",
         "imagenetr",
         "imagenetc",
-        "inaturalist2018",
-        "inaturalist2021",
+        "inaturalist18",
+        "inaturalist21",
         "places205",
         "food101",
         "cifar10",
@@ -1723,7 +1723,7 @@
         "mmlu",
         "humaneval",
         "math",
-        "hungariannationalhighschoolmathexammay2023"
+        "hungariannationalhighschoolmathexammay23"
       ]
     },
     {
@@ -1848,7 +1848,7 @@
         "librispeech",
         "covost2",
         "clotho",
-        "tut2017",
+        "tut17",
         "meld",
         "clothoaqa",
         "vocalsound",
@@ -3762,7 +3762,7 @@
         "winogrande",
         "arc-challenge",
         "triviaqa",
-        "naturalqs",
+        "naturalquestions",
         "humaneval",
         "mbpp",
         "gsm8k",
@@ -4046,7 +4046,7 @@
         "mgsm",
         "drop",
         "covost2",
-        "m3exam",
+        "m3exams",
         "mmmu",
         "mathvista",
         "chartqa"
@@ -4456,7 +4456,7 @@
         "xwinograd",
         "xstorycloze",
         "xcopa",
-        "berkeleyfunctioncallingleaderboard",
+        "bfcl",
         "mmbenchentest",
         "mmbenchcntest",
         "seedbenchimg",
@@ -4767,7 +4767,7 @@
         "alignbench",
         "longbenchchat",
         "naturalcodebench",
-        "berkeleyfunctioncallleaderboard",
+        "bfcl",
         "agentbench",
         "math23k",
         "safetybench"
@@ -5278,7 +5278,7 @@
         "gsm8k",
         "mathodyssey",
         "gremath",
-        "amc2023",
+        "amc23",
         "aime-2024"
       ]
     },
@@ -5333,7 +5333,7 @@
       "benchmarks": [
         "hellaswag",
         "winogrande",
-        "naturalq",
+        "naturalquestions",
         "triviaqa",
         "mmlu",
         "openbookqa",
@@ -5854,7 +5854,7 @@
         "SA-V"
       ],
       "benchmarks": [
-        "davis2017",
+        "davis17",
         "youtubevos",
         "uvodense",
         "vost",
@@ -5978,7 +5978,7 @@
         "collegemath",
         "gaokao",
         "cnmiddleschool24",
-        "aime24",
+        "aime-2024",
         "amc23"
       ]
     },
@@ -6610,7 +6610,7 @@
         "gaokao2023en",
         "olympiadbench",
         "collegemath",
-        "aime24"
+        "aime-2024"
       ]
     },
     {
@@ -6650,7 +6650,7 @@
         "gaokao2023en",
         "olympiadbench",
         "collegemath",
-        "aime24",
+        "aime-2024",
         "amc23"
       ]
     },
@@ -6847,7 +6847,7 @@
         "gaokao2023en",
         "olympiadbench",
         "collegemath",
-        "aime24",
+        "aime-2024",
         "amc23",
         "mmlu-pro",
         "ifeval",
@@ -6977,7 +6977,7 @@
         "collegemath",
         "gaokao",
         "cnmiddleschool24",
-        "aime24",
+        "aime-2024",
         "amc23"
       ]
     },
@@ -7988,7 +7988,7 @@
         "simpleqa",
         "personqa",
         "bbq",
-        "instructionhierarchyevaluation",
+        "instructionhierarchyevaluations",
         "highschoolctfs",
         "collegiatectfs",
         "professionalctfs",
@@ -8573,7 +8573,7 @@
         "aiderpolyglot",
         "aime-2024",
         "math-500",
-        "cnmo2024",
+        "cnmo24",
         "csimpleqa",
         "arenahard",
         "alpacaeval20",
@@ -8738,7 +8738,7 @@
         "aiderpolyglot",
         "aime-2024",
         "math-500",
-        "cnmo2024",
+        "cnmo24",
         "cluewsc",
         "c-eval",
         "csimpleqa"
@@ -9138,7 +9138,7 @@
         "humansourcedjailbreaks",
         "personqa",
         "bbq",
-        "instructionhierarchyevaluation",
+        "instructionhierarchyevaluations",
         "highschoolctfs",
         "collegiatectfs",
         "professionalctfs",
@@ -9193,7 +9193,7 @@
       ],
       "benchmarks": [
         "codeforces",
-        "ioi2024",
+        "ioi24",
         "hackerrankastra",
         "swe-bench-verified"
       ]
@@ -9485,8 +9485,8 @@
         "EgoSchema"
       ],
       "benchmarks": [
-        "aime25",
-        "aime24",
+        "aime-2025",
+        "aime-2024",
         "gpqa",
         "lcb",
         "mmmu",
@@ -9742,7 +9742,7 @@
       "benchmarks": [
         "simpleqa",
         "gpqa",
-        "aime24",
+        "aime-2024",
         "mmmlu",
         "mmmu",
         "swelancerdiamond",
@@ -9800,7 +9800,7 @@
         "strongreject",
         "personqa",
         "bbq",
-        "instructionhierarchyevaluation",
+        "instructionhierarchyevaluations",
         "challengingredteamingevaluation1",
         "challengingredteamingevaluation2",
         "highschoolctfs",
@@ -9870,7 +9870,7 @@
         "BFCL"
       ],
       "benchmarks": [
-        "aime24",
+        "aime-2024",
         "livecodebench",
         "livebench",
         "ifeval",
@@ -10299,7 +10299,7 @@
         "floresindic",
         "ruler",
         "mrcr",
-        "cococaption",
+        "cococaptions",
         "docvqa",
         "infographicvqa",
         "infovqa",
@@ -10905,7 +10905,7 @@
         "mmmu",
         "mathvista",
         "charxivreasoning",
-        "aime24",
+        "aime-2024",
         "gpqa-diamond",
         "multilingualmmlu",
         "swelancer",
@@ -10958,8 +10958,8 @@
         "hotpotqa",
         "swe-bench-verified",
         "swebenchverifiedmini",
-        "aime24",
-        "aime25",
+        "aime-2024",
+        "aime-2025",
         "omnimath",
         "lcb",
         "sysbench",
@@ -11099,7 +11099,7 @@
         "personidentificationandungroundedinferenceevaluations",
         "bbq",
         "firstpersonfairnessevaluation",
-        "instructionhierarchyevaluation",
+        "instructionhierarchyevaluations",
         "imagegenerationrefusals",
         "cotmonitorability",
         "cotcontrollability",
@@ -11393,7 +11393,7 @@
         "vocalsound",
         "nonspeech7k",
         "meld",
-        "tut2017",
+        "tut17",
         "cochlscene",
         "openaudiobench",
         "alpacaeval",
@@ -11456,7 +11456,7 @@
         "vocalsound",
         "nonspeech7k",
         "meld",
-        "tut2017",
+        "tut17",
         "cochlscene",
         "openaudiobench",
         "alpacaeval",
@@ -11530,8 +11530,8 @@
       ],
       "benchmarks": [
         "arenahard",
-        "aime24",
-        "aime25",
+        "aime-2024",
+        "aime-2025",
         "livecodebench",
         "codeforces",
         "aider",
@@ -11717,8 +11717,6 @@
         "ifeval",
         "math-500",
         "livecodebenchv6",
-        "aime24",
-        "aime25",
         "alignbenchv11"
       ]
     },
@@ -11783,8 +11781,8 @@
         "mmmlu",
         "include",
         "multiif",
-        "aime24",
-        "aime25",
+        "aime-2024",
+        "aime-2025",
         "math-500",
         "livecodebench",
         "gpqa-diamond",
@@ -11800,7 +11798,7 @@
         "ifeval",
         "c-eval",
         "livebench",
-        "mtaime2024"
+        "mtaime24"
       ]
     },
     {
@@ -11893,7 +11891,7 @@
         "vibeeval",
         "mrcrv2",
         "globalmmlulite",
-        "usamo2025",
+        "usamo25",
         "livecodebenchv6"
       ]
     },
@@ -11926,7 +11924,7 @@
         "mbpp",
         "gpqa-diamond",
         "aime-2025",
-        "bigbenchextrahard",
+        "bbeh",
         "globalmmlulite"
       ]
     },
@@ -12155,12 +12153,10 @@
         "aiderpolyglot",
         "aime-2024",
         "aime-2025",
-        "hmmt2025",
-        "cnmo2024",
+        "hmmt25",
+        "cnmo24",
         "bfclv3multiturn",
         "tau-bench",
-        "aime24",
-        "aime25",
         "hmmtfeb25"
       ]
     },
@@ -12364,8 +12360,8 @@
         "logicvista",
         "mathvista",
         "math-500",
-        "aime24",
-        "aime25"
+        "aime-2024",
+        "aime-2025"
       ]
     },
     {
@@ -12483,8 +12479,7 @@
       ],
       "benchmarks": [
         "aime-2024",
-        "aime24",
-        "aime25",
+        "aime-2025",
         "gpqa-diamond",
         "livecodebenchv5",
         "aiderpolyglot"
@@ -12579,8 +12574,8 @@
         "IFEval"
       ],
       "benchmarks": [
-        "aime24",
-        "aime25",
+        "aime-2024",
+        "aime-2025",
         "math-500",
         "livecodebenchv5",
         "livecodebenchv6",
@@ -13226,9 +13221,9 @@
         "hle",
         "gpqa",
         "livecodebench",
-        "usamo2025",
-        "hmmt2025",
-        "aime25",
+        "usamo25",
+        "hmmt25",
+        "aime-2025",
         "arc-agi-2",
         "vendingbench"
       ]
@@ -13346,8 +13341,8 @@
         "tau2telecom",
         "aime-2024",
         "math-500",
-        "hmmt2025",
-        "cnmo2024",
+        "hmmt25",
+        "cnmo24",
         "polymathen",
         "zebralogic",
         "autologi",
@@ -13567,7 +13562,7 @@
         "imageinputevaluations",
         "bbq",
         "firstpersonfairness",
-        "instructionhierarchyevaluation",
+        "instructionhierarchyevaluations",
         "longformbioriskquestions",
         "multimodaltroubleshootingvirology",
         "protocolqaopenended",
@@ -13594,8 +13589,8 @@
         "Livecodebench (v5)"
       ],
       "benchmarks": [
-        "aime24",
-        "aime25",
+        "aime-2024",
+        "aime-2025",
         "gpqa-diamond",
         "livecodebenchv5"
       ]
@@ -13612,7 +13607,7 @@
         "IMO 2025"
       ],
       "benchmarks": [
-        "imo2025"
+        "imo25"
       ]
     },
     {
@@ -13661,7 +13656,7 @@
         "supergpqa",
         "simpleqa",
         "csimpleqa",
-        "aime25",
+        "aime-2025",
         "hmmt25",
         "arc-agi",
         "zebralogic",
@@ -13813,7 +13808,7 @@
         "mmlu-redux",
         "gpqa",
         "supergpqa",
-        "aime25",
+        "aime-2025",
         "hmmt25",
         "livebench20241125",
         "hle",
@@ -13919,8 +13914,8 @@
         "aime-2024",
         "aime-2025",
         "math-500",
-        "hmmt2025",
-        "cnmo2024",
+        "hmmt25",
+        "cnmo24",
         "polymathen",
         "zebralogic",
         "autologi",
@@ -13998,7 +13993,7 @@
         "mmlu-redux",
         "gpqa",
         "supergpqa",
-        "aime25",
+        "aime-2025",
         "hmmt25",
         "zebralogic",
         "livebench20241125",
@@ -14052,7 +14047,7 @@
         "bfclv3",
         "browsecomp",
         "mmlu-pro",
-        "aime24",
+        "aime-2024",
         "math-500",
         "scicode",
         "gpqa",
@@ -14102,7 +14097,7 @@
         "mmlu-redux",
         "gpqa",
         "supergpqa",
-        "aime25",
+        "aime-2025",
         "hmmt25",
         "livebench20241125",
         "livecodebenchv625022505",
@@ -14231,7 +14226,7 @@
       "benchmarks": [
         "hle",
         "livecodebenchv6",
-        "imo2025",
+        "imo25",
         "aime-2025"
       ]
     },
@@ -14255,7 +14250,7 @@
       ],
       "benchmarks": [
         "hle",
-        "imo2025",
+        "imo25",
         "aime-2025",
         "livecodebenchv6",
         "securebiovmqa",
@@ -14563,7 +14558,7 @@
         "mmlu-redux",
         "gpqa",
         "supergpqa",
-        "aime25",
+        "aime-2025",
         "hmmt25",
         "zebralogic",
         "livebench20241125",
@@ -14625,7 +14620,7 @@
         "mmlu-redux",
         "gpqa",
         "supergpqa",
-        "aime25",
+        "aime-2025",
         "hmmt25",
         "livebench20241125",
         "livecodebenchv625022505",
@@ -14760,11 +14755,11 @@
         "longfactconcepts",
         "longfactobjects",
         "charxivreasoning",
-        "aime25",
+        "aime-2025",
         "frontiermath",
         "gpqa-diamond",
         "hle",
-        "hmmt2025",
+        "hmmt25",
         "mmmu",
         "mmmupro",
         "videommmu",
@@ -14855,8 +14850,8 @@
         "tacitknowledgeandtroubleshooting",
         "troubleshootingbench",
         "virologycapabilitiestest",
-        "humanpathogencapabilitiestest",
-        "molecularbiologycapabilitiestest",
+        "hpct",
+        "mbct",
         "worldclassbiology",
         "capturetheflagctfchallenges",
         "cyberrange",
@@ -14923,8 +14918,8 @@
         "physreason",
         "supergpqa",
         "drop",
-        "aime24",
-        "aime25"
+        "aime-2024",
+        "aime-2025"
       ]
     },
     {
@@ -15004,7 +14999,7 @@
         "bfclv3",
         "browsecomp",
         "mmlu-pro",
-        "aime24",
+        "aime-2024",
         "math-500",
         "scicode",
         "gpqa",
@@ -15140,11 +15135,11 @@
         "imagenet1k",
         "imagenet22k",
         "objectnet",
-        "inaturalist2021",
+        "inaturalist21",
         "parisretrieval",
         "ade20k",
         "cityscapes",
-        "pascalvoc2012",
+        "pascalvoc12",
         "nyuv2",
         "kitti",
         "navi",
@@ -15239,7 +15234,7 @@
         "simpleqa",
         "factsgrounding",
         "bbh",
-        "bigbenchextrahard",
+        "bbeh",
         "ifeval",
         "hellaswag",
         "boolq",
@@ -15389,7 +15384,7 @@
         "terminal-bench",
         "aime-2024",
         "aime-2025",
-        "hmmt2025"
+        "hmmt25"
       ]
     },
     {
@@ -15643,7 +15638,7 @@
         "mmlu-redux",
         "gpqa",
         "supergpqa",
-        "aime25",
+        "aime-2025",
         "hmmt25",
         "livebench20241125",
         "livecodebenchv625022505",
@@ -15704,7 +15699,7 @@
         "mmlu-redux",
         "gpqa",
         "supergpqa",
-        "aime25",
+        "aime-2025",
         "hmmt25",
         "livebench241125",
         "livecodebenchv625022505",
@@ -15767,7 +15762,7 @@
         "mgsm",
         "mmmlu",
         "include",
-        "aime25",
+        "aime-2025",
         "livecodebenchv6",
         "arenahardv2",
         "livebench",
@@ -15816,8 +15811,8 @@
         "Livecodebench (v5)"
       ],
       "benchmarks": [
-        "aime24",
-        "aime25",
+        "aime-2024",
+        "aime-2025",
         "gpqa-diamond",
         "livecodebenchv5"
       ]
@@ -15888,7 +15883,7 @@
       "benchmarks": [
         "gpqa-diamond",
         "aime-2025",
-        "hmmt2025",
+        "hmmt25",
         "hle",
         "livecodebench",
         "aime-2024",
@@ -16010,7 +16005,7 @@
       ],
       "benchmarks": [
         "worldsense",
-        "aime25",
+        "aime-2025",
         "zebralogic",
         "writingbench",
         "wenetspeechnetmeeting",
@@ -16188,7 +16183,7 @@
       "benchmarks": [
         "mmlu-redux",
         "gpqa",
-        "aime25",
+        "aime-2025",
         "zebralogic",
         "multipl-e",
         "ifeval",
@@ -16390,7 +16385,7 @@
         "supergpqa",
         "simpleqa",
         "csimpleqa",
-        "aime25",
+        "aime-2025",
         "hmmt25",
         "livebench1125",
         "lcbv5",
@@ -16469,7 +16464,7 @@
       "benchmarks": [
         "textarena",
         "supergpqa",
-        "aime25",
+        "aime-2025",
         "livecodebenchv6",
         "2bench",
         "swe-bench-verified",
@@ -16533,7 +16528,7 @@
         "robospatialvqa",
         "sat",
         "cosmosreason1",
-        "minvideopairs",
+        "mvp",
         "openeqa",
         "vsibench",
         "asimov"
@@ -16697,7 +16692,7 @@
         "hle",
         "livecodebench",
         "aime-2025",
-        "hmmt2025",
+        "hmmt25",
         "codeforces",
         "aiderpolyglot",
         "browsecomp",
@@ -16790,7 +16785,7 @@
         "CC-Bench"
       ],
       "benchmarks": [
-        "aime25",
+        "aime-2025",
         "gpqa",
         "livecodebenchv6",
         "hle",
@@ -16856,7 +16851,7 @@
         "robospatialvqa",
         "sat",
         "cosmosreason1",
-        "minvideopairs",
+        "mvp",
         "openeqa",
         "vsibench",
         "mmmu",
@@ -17055,7 +17050,7 @@
         "polyguardresponse",
         "wildguardtest",
         "arenahardv2",
-        "aime25",
+        "aime-2025",
         "lcbv6",
         "gpqa"
       ]
@@ -17168,7 +17163,7 @@
       ],
       "benchmarks": [
         "internalmoderationeval",
-        "openaimod2022",
+        "openaimod22",
         "toxicchat"
       ]
     },
@@ -17201,7 +17196,7 @@
         "standarddisallowedcontentevaluation",
         "productionbenchmarks",
         "strongreject",
-        "instructionhierarchyevaluation",
+        "instructionhierarchyevaluations",
         "simpleqa",
         "personqa",
         "bbq"
@@ -17268,7 +17263,7 @@
         "gpqa-diamond",
         "livebench",
         "math-500",
-        "hmmt2025",
+        "hmmt25",
         "polymathen",
         "livecodebenchv6",
         "simpleqa",
@@ -17328,7 +17323,7 @@
         "livecodebenchv6",
         "terminal-bench",
         "aime-2025",
-        "hmmt2025",
+        "hmmt25",
         "imoanswerbench",
         "gpqa-diamond",
         "mmlu-pro",
@@ -18135,9 +18130,9 @@
       ],
       "benchmarks": [
         "imoproofbench",
-        "imo2025",
-        "cmo2024",
-        "putnam2024"
+        "imo25",
+        "cmo24",
+        "putnam24"
       ]
     },
     {
@@ -18180,8 +18175,8 @@
         "livecodebench",
         "codeforces",
         "aime-2025",
-        "hmmtfeb2025",
-        "hmmtnov2025",
+        "hmmtfeb25",
+        "hmmtnov25",
         "imoanswerbench",
         "terminalbench20",
         "sweverified",
@@ -18192,10 +18187,10 @@
         "mcpuniverse",
         "mcpmark",
         "tooldecathlon",
-        "imo2025",
-        "cmo2025",
-        "ioi2025",
-        "icpcwf2025"
+        "imo25",
+        "cmo25",
+        "ioi25",
+        "icpcwf25"
       ]
     },
     {
@@ -18223,7 +18218,7 @@
         "amc",
         "livecodebench",
         "lmarena",
-        "aime25"
+        "aime-2025"
       ]
     },
     {
@@ -18423,7 +18418,7 @@
         "VoiceBench"
       ],
       "benchmarks": [
-        "aime25",
+        "aime-2025",
         "zebralogic",
         "livebench20241125",
         "livecodebenchv625022505",
@@ -18557,7 +18552,7 @@
         "toolathlon",
         "hle",
         "mmmlu",
-        "hmmtfeb2025"
+        "hmmtfeb25"
       ]
     },
     {
@@ -18697,7 +18692,7 @@
         "winogrande",
         "bbh",
         "drop",
-        "bigbenchextrahard",
+        "bbeh",
         "mmluprocot",
         "agieval",
         "math",
@@ -18786,7 +18781,7 @@
         "gpqa-diamond",
         "mmlu-pro",
         "hle",
-        "hmmtfeb2025",
+        "hmmtfeb25",
         "livecodebenchv6",
         "arenahardhardprompt",
         "arenahardcreativewriting",
@@ -19112,8 +19107,8 @@
         "gpqa-diamond",
         "hle",
         "aime-2025",
-        "hmmtfeb2025",
-        "hmmtnov2025",
+        "hmmtfeb25",
+        "hmmtnov25",
         "imoanswerbench",
         "livecodebenchv6",
         "swe-bench-verified",
@@ -19256,7 +19251,7 @@
         "ruler32k",
         "livecodebench",
         "aime-2025",
-        "hmmtfeb2025",
+        "hmmtfeb25",
         "hle",
         "arenahardhardprompt",
         "arenahardcreativewriting",
@@ -19371,8 +19366,8 @@
         "kbankmmlu",
         "kbl",
         "kormedmcqa",
-        "koaime2024",
-        "koaime2025",
+        "koaime24",
+        "koaime25",
         "hrm8k",
         "koifeval",
         "koarenahardv2",
@@ -19486,7 +19481,7 @@
         "arc-challenge",
         "racehigh",
         "triviaqa",
-        "naturalqs",
+        "naturalquestions",
         "agieval",
         "multilingualmmlu",
         "math",
@@ -19494,7 +19489,7 @@
         "mbpp",
         "aime-2024",
         "aime-2025",
-        "hmmt2025",
+        "hmmt25",
         "livecodebench",
         "mmmu",
         "mathvista",
@@ -19564,7 +19559,7 @@
         "BrowseComp"
       ],
       "benchmarks": [
-        "aime25",
+        "aime-2025",
         "gpqa",
         "lcbv6",
         "hle",
@@ -19641,7 +19636,7 @@
         "hmmtnov25",
         "imoanswerbench",
         "sweverified",
-        "hlewtools",
+        "hlewithtools",
         "ifbench",
         "multichallenge",
         "arenahardv2",
@@ -20061,8 +20056,8 @@
         "lvbench",
         "osworldverified",
         "webarena",
-        "hmmtfeb2025",
-        "hmmtnov2025",
+        "hmmtfeb25",
+        "hmmtnov25",
         "livecodebench",
         "hletext",
         "swe-bench-verified",
@@ -20400,11 +20395,11 @@
         "arc-agi-2",
         "hle",
         "mmmupro",
-        "internationalmatholympiad2025",
+        "internationalmatholympiad25",
         "codeforces",
-        "internationalphysicsolympiad2025",
+        "internationalphysicsolympiad25",
         "cmtbenchmark",
-        "internationalchemistryolympiad2025"
+        "internationalchemistryolympiad25"
       ]
     },
     {
@@ -20453,7 +20448,7 @@
       "benchmarks": [
         "hle",
         "aime2026i",
-        "hmmtnov2025",
+        "hmmtnov25",
         "imoanswerbench",
         "gpqa-diamond",
         "swe-bench-verified",
@@ -20616,7 +20611,7 @@
         "deepplanning",
         "tooldecathlon",
         "mcpmark",
-        "hlewtool",
+        "hlewithtools",
         "browsecomp",
         "browsecompzh",
         "widesearch",
@@ -20876,8 +20871,8 @@
       "benchmarks": [
         "hle",
         "aime2026i",
-        "hmmtfeb2025",
-        "hmmtnov2025",
+        "hmmtfeb25",
+        "hmmtnov25",
         "imoanswerbench",
         "gpqa-diamond",
         "longbenchv2",
@@ -21115,8 +21110,8 @@
         "supergpqa",
         "hmmt25feb",
         "hmmt25nov",
-        "aime24",
-        "aime25",
+        "aime-2024",
+        "aime-2025",
         "seccodebench",
         "cweval"
       ]
@@ -21469,7 +21464,7 @@
         "mmmupro",
         "lcr",
         "aalcr",
-        "aime25",
+        "aime-2025",
         "collie",
         "livecodebench"
       ]
@@ -21752,7 +21747,7 @@
         "arenaaitext",
         "mmmlu",
         "mmmupro",
-        "aime2026",
+        "aime26",
         "livecodebenchv6",
         "gpqa-diamond",
         "2bench"
@@ -21786,13 +21781,13 @@
       ],
       "benchmarks": [
         "mmlu-pro",
-        "aime2026",
+        "aime26",
         "livecodebenchv6",
         "codeforces",
         "gpqa-diamond",
         "tau2",
         "hle",
-        "bigbenchextrahard",
+        "bbeh",
         "mmmlu",
         "mmmupro",
         "omnidocbench15",
@@ -21897,7 +21892,7 @@
         "tooldecathlon",
         "mcpmark",
         "mcpatlas",
-        "hlewtool",
+        "hlewithtools",
         "widesearch",
         "mmlu-pro",
         "mmlu-redux",
@@ -22067,7 +22062,7 @@
         "terminalbench20",
         "gpqa-diamond",
         "mmmlu",
-        "usamo2026",
+        "usamo26",
         "graphwalks",
         "hle",
         "browsecomp",
@@ -22159,9 +22154,9 @@
       ],
       "benchmarks": [
         "hle",
-        "aime2026",
-        "hmmtnov2025",
-        "hmmtfeb2026",
+        "aime26",
+        "hmmtnov25",
+        "hmmtfeb26",
         "imoanswerbench",
         "gpqa-diamond",
         "swebenchpro",
@@ -22456,7 +22451,7 @@
         "terminalbench20",
         "gpqa-diamond",
         "mmmlu",
-        "usamo2026",
+        "usamo26",
         "graphwalks",
         "mrcrv2",
         "hle",
@@ -22763,7 +22758,7 @@
         "ojbench",
         "livecodebench",
         "hlefull",
-        "aime2026",
+        "aime26",
         "hmmt2026feb",
         "imoanswerbench",
         "gpqa-diamond",
@@ -23230,7 +23225,7 @@
         "swepro",
         "swemultilingual",
         "browsecomp",
-        "hlewtools",
+        "hlewithtools",
         "gdpvalaa",
         "mcpatlaspublic",
         "toolathlon",
@@ -23718,7 +23713,7 @@
         "vitabench",
         "spreadsheetbenchv1",
         "kernelbenchl3",
-        "hlewtools",
+        "hlewithtools",
         "qwenworldbench",
         "gpqa-diamond",
         "hle",
@@ -24043,7 +24038,7 @@
         "retail",
         "banking",
         "browsecomp",
-        "aime25",
+        "aime-2025",
         "allenaiifbench",
         "collie",
         "beyondaime"
@@ -24207,7 +24202,7 @@
         "frontierswe",
         "programbench",
         "gpqa-diamond",
-        "usamo2026",
+        "usamo26",
         "arxivmath",
         "graphwalks",
         "hle",
@@ -24586,7 +24581,7 @@
         "cursorbench",
         "gpqa-diamond",
         "riemannbench",
-        "usamo2026",
+        "usamo26",
         "arxivmath",
         "critpt",
         "graphwalks",
@@ -24670,7 +24665,7 @@
       "benchmarks": [
         "mmmlu",
         "mmlu-pro",
-        "aime2026",
+        "aime26",
         "livecodebenchv6",
         "gpqa-diamond",
         "2bench"
@@ -24702,13 +24697,13 @@
       ],
       "benchmarks": [
         "mmlu-pro",
-        "aime2026",
+        "aime26",
         "livecodebenchv6",
         "codeforces",
         "gpqa-diamond",
         "tau2",
         "hle",
-        "bigbenchextrahard",
+        "bbeh",
         "mmmlu",
         "mmmupro",
         "omnidocbench15",
@@ -24974,9 +24969,9 @@
       "benchmarks": [
         "hle",
         "critpt",
-        "aime2026",
-        "hmmtnov2025",
-        "hmmtfeb2026",
+        "aime26",
+        "hmmtnov25",
+        "hmmtfeb26",
         "imoanswerbench",
         "gpqa-diamond",
         "swebenchpro",
@@ -25316,7 +25311,7 @@
         "terminalbench21",
         "frontiercode",
         "cursorbench",
-        "usamo2026",
+        "usamo26",
         "arxivmath",
         "programbench",
         "hle",
@@ -25406,12 +25401,12 @@
       ],
       "benchmarks": [
         "mmlu-pro",
-        "aime2026",
+        "aime26",
         "livecodebenchv6",
         "codeforceselo",
         "scicode",
         "gpqa-diamond",
-        "bigbenchextrahard",
+        "bbeh",
         "hle",
         "ifbench",
         "ifeval",
@@ -25947,7 +25942,7 @@
         "mathvision",
         "zerobench",
         "hle",
-        "aime2026",
+        "aime26",
         "swebenchpro",
         "terminalbench20"
       ]
@@ -26166,7 +26161,7 @@
         "livecodebench",
         "artifactsbench",
         "hmmt2602",
-        "aime2026",
+        "aime26",
         "multichallenge",
         "ifbench",
         "aalcr",
@@ -26298,7 +26293,7 @@
         "deepswev11",
         "frontiercode",
         "frontierbenchv01",
-        "imo2026",
+        "imo26",
         "riemannbench",
         "arxivmath",
         "programbench",
@@ -26744,7 +26739,7 @@
         "PubMedQA"
       ],
       "benchmarks": [
-        "aime2026",
+        "aime26",
         "gsm8k",
         "mgsm",
         "putnam",
@@ -27000,7 +26995,7 @@
         "automationbench",
         "toolathlonverified",
         "widesearch",
-        "hlewtools",
+        "hlewithtools",
         "gpqa-diamond",
         "hle",
         "ifbench",
@@ -27066,7 +27061,7 @@
         "lvbenchwmem",
         "egolifewmem",
         "videodrwsearch",
-        "aime24",
+        "aime-2024",
         "ecommercebench"
       ]
     },
@@ -27206,7 +27201,7 @@
         "gpqa-diamond",
         "mmlu-pro",
         "livecodebench",
-        "aime2026",
+        "aime26",
         "kmmlupro",
         "kbl",
         "kormedmcqa",
@@ -27516,7 +27511,7 @@
         "toolathlonverified",
         "automationbench",
         "agentslastexam",
-        "hlewtools",
+        "hlewithtools",
         "gdpvalaav2",
         "zaicodebench"
       ]
@@ -27616,7 +27611,7 @@
         "toolathlonverified",
         "automationbench",
         "agentslastexam",
-        "hlewtools",
+        "hlewithtools",
         "gdpvalaav2",
         "officeqapro",
         "charxivreasoning",
@@ -28154,7 +28149,7 @@
         "lifescibench",
         "healthbenchprofessional",
         "exploitbench",
-        "exploitbenchjuneaug2026",
+        "exploitbenchjuneaug26",
         "srebench",
         "secbenchpro",
         "internalcomputerusesafetybenchmark",
@@ -28234,7 +28229,7 @@
         "troubleshootingbench",
         "nucleobench",
         "exploitbench",
-        "exploitbenchinternalportjuneaugust2026",
+        "exploitbenchinternalportjuneaugust26",
         "srebench",
         "sandboxbench",
         "cyscenariobench",
@@ -28676,7 +28671,7 @@
         "cybergym",
         "secbenchpro",
         "exploitgym",
-        "hlewtools",
+        "hlewithtools",
         "automationbench",
         "agentslastexam",
         "chartographywtools",
@@ -28776,6 +28771,42 @@
     }
   ],
   "benchmarks": [
+    {
+      "id": "aime-2024",
+      "name": "AIME 2024",
+      "lab_count": 12,
+      "labs": [
+        "anthropic",
+        "deepseek",
+        "google",
+        "meta",
+        "mistral",
+        "moonshot",
+        "openai",
+        "qwen",
+        "upstage",
+        "xai",
+        "xiaomi",
+        "zai"
+      ],
+      "first_seen": "2024-06-17",
+      "last_seen": "2026-08-03",
+      "labs_by_year": {
+        "2024": 5,
+        "2025": 11,
+        "2026": 3
+      },
+      "labs_by_quarter": {
+        "2024-Q2": 1,
+        "2024-Q3": 3,
+        "2024-Q4": 3,
+        "2025-Q1": 7,
+        "2025-Q2": 6,
+        "2025-Q3": 8,
+        "2026-Q1": 3,
+        "2026-Q3": 1
+      }
+    },
     {
       "id": "gpqa-diamond",
       "name": "GPQA Diamond",
@@ -29054,6 +29085,38 @@
         "2025-Q2": 4,
         "2025-Q3": 3,
         "2025-Q4": 3
+      }
+    },
+    {
+      "id": "aime-2025",
+      "name": "AIME 2025",
+      "lab_count": 11,
+      "labs": [
+        "anthropic",
+        "deepseek",
+        "google",
+        "mistral",
+        "moonshot",
+        "openai",
+        "qwen",
+        "upstage",
+        "xai",
+        "xiaomi",
+        "zai"
+      ],
+      "first_seen": "2025-02-19",
+      "last_seen": "2026-05-22",
+      "labs_by_year": {
+        "2025": 10,
+        "2026": 8
+      },
+      "labs_by_quarter": {
+        "2025-Q1": 2,
+        "2025-Q2": 7,
+        "2025-Q3": 10,
+        "2025-Q4": 9,
+        "2026-Q1": 7,
+        "2026-Q2": 2
       }
     },
     {
@@ -29359,70 +29422,6 @@
         "2026-Q1": 2,
         "2026-Q2": 1,
         "2026-Q3": 1
-      }
-    },
-    {
-      "id": "aime-2024",
-      "name": "AIME 2024",
-      "lab_count": 10,
-      "labs": [
-        "anthropic",
-        "deepseek",
-        "google",
-        "meta",
-        "mistral",
-        "moonshot",
-        "openai",
-        "upstage",
-        "xai",
-        "xiaomi"
-      ],
-      "first_seen": "2024-06-17",
-      "last_seen": "2026-01-13",
-      "labs_by_year": {
-        "2024": 4,
-        "2025": 9,
-        "2026": 2
-      },
-      "labs_by_quarter": {
-        "2024-Q2": 1,
-        "2024-Q3": 2,
-        "2024-Q4": 3,
-        "2025-Q1": 5,
-        "2025-Q2": 4,
-        "2025-Q3": 5,
-        "2026-Q1": 2
-      }
-    },
-    {
-      "id": "aime-2025",
-      "name": "AIME 2025",
-      "lab_count": 10,
-      "labs": [
-        "anthropic",
-        "deepseek",
-        "google",
-        "mistral",
-        "moonshot",
-        "openai",
-        "upstage",
-        "xai",
-        "xiaomi",
-        "zai"
-      ],
-      "first_seen": "2025-03-25",
-      "last_seen": "2026-05-05",
-      "labs_by_year": {
-        "2025": 8,
-        "2026": 6
-      },
-      "labs_by_quarter": {
-        "2025-Q1": 1,
-        "2025-Q2": 4,
-        "2025-Q3": 6,
-        "2025-Q4": 7,
-        "2026-Q1": 5,
-        "2026-Q2": 1
       }
     },
     {
@@ -30183,63 +30182,6 @@
       }
     },
     {
-      "id": "aime24",
-      "name": "AIME24",
-      "lab_count": 7,
-      "labs": [
-        "deepseek",
-        "mistral",
-        "openai",
-        "qwen",
-        "xai",
-        "xiaomi",
-        "zai"
-      ],
-      "first_seen": "2024-08-08",
-      "last_seen": "2026-08-03",
-      "labs_by_year": {
-        "2024": 1,
-        "2025": 7,
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2024-Q3": 1,
-        "2025-Q1": 3,
-        "2025-Q2": 6,
-        "2025-Q3": 3,
-        "2026-Q1": 1,
-        "2026-Q3": 1
-      }
-    },
-    {
-      "id": "aime25",
-      "name": "AIME25",
-      "lab_count": 7,
-      "labs": [
-        "deepseek",
-        "mistral",
-        "openai",
-        "qwen",
-        "xai",
-        "xiaomi",
-        "zai"
-      ],
-      "first_seen": "2025-02-19",
-      "last_seen": "2026-05-22",
-      "labs_by_year": {
-        "2025": 7,
-        "2026": 3
-      },
-      "labs_by_quarter": {
-        "2025-Q1": 1,
-        "2025-Q2": 5,
-        "2025-Q3": 6,
-        "2025-Q4": 2,
-        "2026-Q1": 3,
-        "2026-Q2": 1
-      }
-    },
-    {
       "id": "automationbench",
       "name": "AutomationBench",
       "lab_count": 7,
@@ -30330,11 +30272,12 @@
         "zai"
       ],
       "first_seen": "2023-02-27",
-      "last_seen": "2025-12-16",
+      "last_seen": "2026-01-13",
       "labs_by_year": {
         "2023": 5,
         "2024": 4,
-        "2025": 2
+        "2025": 2,
+        "2026": 1
       },
       "labs_by_quarter": {
         "2023-Q1": 1,
@@ -30342,13 +30285,14 @@
         "2023-Q3": 3,
         "2023-Q4": 2,
         "2024-Q1": 2,
-        "2024-Q2": 2,
-        "2024-Q3": 2,
+        "2024-Q2": 3,
+        "2024-Q3": 3,
         "2024-Q4": 1,
         "2025-Q1": 1,
         "2025-Q2": 2,
         "2025-Q3": 1,
-        "2025-Q4": 1
+        "2025-Q4": 1,
+        "2026-Q1": 1
       }
     },
     {
@@ -30676,6 +30620,56 @@
         "2026-Q1": 4,
         "2026-Q2": 5,
         "2026-Q3": 1
+      }
+    },
+    {
+      "id": "hmmt25",
+      "name": "HMMT 2025",
+      "lab_count": 6,
+      "labs": [
+        "deepseek",
+        "mistral",
+        "moonshot",
+        "openai",
+        "qwen",
+        "xai"
+      ],
+      "first_seen": "2025-05-28",
+      "last_seen": "2026-01-13",
+      "labs_by_year": {
+        "2025": 5,
+        "2026": 1
+      },
+      "labs_by_quarter": {
+        "2025-Q2": 1,
+        "2025-Q3": 5,
+        "2025-Q4": 1,
+        "2026-Q1": 1
+      }
+    },
+    {
+      "id": "hmmtfeb25",
+      "name": "HMMT Feb 25",
+      "lab_count": 6,
+      "labs": [
+        "deepseek",
+        "moonshot",
+        "openai",
+        "qwen",
+        "xiaomi",
+        "zai"
+      ],
+      "first_seen": "2025-05-28",
+      "last_seen": "2026-04-22",
+      "labs_by_year": {
+        "2025": 4,
+        "2026": 4
+      },
+      "labs_by_quarter": {
+        "2025-Q2": 1,
+        "2025-Q4": 4,
+        "2026-Q1": 4,
+        "2026-Q2": 1
       }
     },
     {
@@ -31178,6 +31172,28 @@
       }
     },
     {
+      "id": "aime26",
+      "name": "AIME 2026",
+      "lab_count": 5,
+      "labs": [
+        "google",
+        "moonshot",
+        "qwen",
+        "upstage",
+        "zai"
+      ],
+      "first_seen": "2026-02-14",
+      "last_seen": "2026-08-11",
+      "labs_by_year": {
+        "2026": 5
+      },
+      "labs_by_quarter": {
+        "2026-Q1": 1,
+        "2026-Q2": 4,
+        "2026-Q3": 3
+      }
+    },
+    {
       "id": "arceasy",
       "name": "ARC-Easy",
       "lab_count": 5,
@@ -31628,52 +31644,6 @@
       "labs_by_quarter": {
         "2026-Q2": 2,
         "2026-Q3": 4
-      }
-    },
-    {
-      "id": "hmmt2025",
-      "name": "HMMT 2025",
-      "lab_count": 5,
-      "labs": [
-        "deepseek",
-        "mistral",
-        "moonshot",
-        "openai",
-        "xai"
-      ],
-      "first_seen": "2025-05-28",
-      "last_seen": "2026-01-13",
-      "labs_by_year": {
-        "2025": 4,
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q2": 1,
-        "2025-Q3": 4,
-        "2025-Q4": 1,
-        "2026-Q1": 1
-      }
-    },
-    {
-      "id": "hmmtfeb2025",
-      "name": "HMMT Feb. 2025",
-      "lab_count": 5,
-      "labs": [
-        "deepseek",
-        "moonshot",
-        "openai",
-        "xiaomi",
-        "zai"
-      ],
-      "first_seen": "2025-12-02",
-      "last_seen": "2026-02-17",
-      "labs_by_year": {
-        "2025": 4,
-        "2026": 3
-      },
-      "labs_by_quarter": {
-        "2025-Q4": 4,
-        "2026-Q1": 3
       }
     },
     {
@@ -32149,26 +32119,6 @@
       }
     },
     {
-      "id": "aime2026",
-      "name": "AIME 2026",
-      "lab_count": 4,
-      "labs": [
-        "google",
-        "moonshot",
-        "upstage",
-        "zai"
-      ],
-      "first_seen": "2026-04-02",
-      "last_seen": "2026-08-11",
-      "labs_by_year": {
-        "2026": 4
-      },
-      "labs_by_quarter": {
-        "2026-Q2": 3,
-        "2026-Q3": 3
-      }
-    },
-    {
       "id": "aishell1",
       "name": "AISHELL-1",
       "lab_count": 4,
@@ -32608,6 +32558,28 @@
         "2026-Q1": 1,
         "2026-Q2": 2,
         "2026-Q3": 3
+      }
+    },
+    {
+      "id": "hmmtnov25",
+      "name": "HMMT Nov 25",
+      "lab_count": 4,
+      "labs": [
+        "deepseek",
+        "moonshot",
+        "qwen",
+        "zai"
+      ],
+      "first_seen": "2025-12-02",
+      "last_seen": "2026-06-16",
+      "labs_by_year": {
+        "2025": 2,
+        "2026": 3
+      },
+      "labs_by_quarter": {
+        "2025-Q4": 2,
+        "2026-Q1": 3,
+        "2026-Q2": 2
       }
     },
     {
@@ -33455,14 +33427,15 @@
         "qwen",
         "zai"
       ],
-      "first_seen": "2024-07-23",
+      "first_seen": "2024-06-05",
       "last_seen": "2026-06-23",
       "labs_by_year": {
-        "2024": 1,
+        "2024": 2,
         "2025": 2,
         "2026": 1
       },
       "labs_by_quarter": {
+        "2024-Q2": 1,
         "2024-Q3": 1,
         "2025-Q1": 1,
         "2025-Q2": 2,
@@ -34049,7 +34022,7 @@
       }
     },
     {
-      "id": "hlewtools",
+      "id": "hlewithtools",
       "name": "HLE w/ tools",
       "lab_count": 3,
       "labs": [
@@ -34084,27 +34057,6 @@
       },
       "labs_by_quarter": {
         "2026-Q2": 3
-      }
-    },
-    {
-      "id": "hmmtnov2025",
-      "name": "HMMT Nov. 2025",
-      "lab_count": 3,
-      "labs": [
-        "deepseek",
-        "moonshot",
-        "zai"
-      ],
-      "first_seen": "2025-12-02",
-      "last_seen": "2026-06-16",
-      "labs_by_year": {
-        "2025": 2,
-        "2026": 2
-      },
-      "labs_by_quarter": {
-        "2025-Q4": 2,
-        "2026-Q1": 2,
-        "2026-Q2": 1
       }
     },
     {
@@ -35639,6 +35591,23 @@
       }
     },
     {
+      "id": "amc23",
+      "name": "AMC23",
+      "lab_count": 2,
+      "labs": [
+        "mistral",
+        "qwen"
+      ],
+      "first_seen": "2024-07-16",
+      "last_seen": "2024-09-19",
+      "labs_by_year": {
+        "2024": 2
+      },
+      "labs_by_quarter": {
+        "2024-Q3": 2
+      }
+    },
+    {
       "id": "androidcontrol",
       "name": "Android Control",
       "lab_count": 2,
@@ -35821,8 +35790,11 @@
       },
       "labs_by_quarter": {
         "2025-Q1": 1,
+        "2025-Q2": 1,
+        "2025-Q3": 1,
+        "2025-Q4": 1,
         "2026-Q2": 1,
-        "2026-Q3": 1
+        "2026-Q3": 2
       }
     },
     {
@@ -36139,7 +36111,7 @@
       }
     },
     {
-      "id": "cnmo2024",
+      "id": "cnmo24",
       "name": "CNMO 2024",
       "lab_count": 2,
       "labs": [
@@ -37146,22 +37118,38 @@
       }
     },
     {
-      "id": "hmmtfeb25",
-      "name": "HMMT Feb 25",
+      "id": "hmmtfeb26",
+      "name": "HMMT Feb 26",
       "lab_count": 2,
       "labs": [
-        "deepseek",
-        "qwen"
+        "qwen",
+        "zai"
       ],
-      "first_seen": "2025-05-28",
-      "last_seen": "2026-04-22",
+      "first_seen": "2026-04-02",
+      "last_seen": "2026-06-16",
+      "labs_by_year": {
+        "2026": 2
+      },
+      "labs_by_quarter": {
+        "2026-Q2": 2
+      }
+    },
+    {
+      "id": "hpct",
+      "name": "HPCT",
+      "lab_count": 2,
+      "labs": [
+        "meta",
+        "openai"
+      ],
+      "first_seen": "2025-08-07",
+      "last_seen": "2026-05-14",
       "labs_by_year": {
         "2025": 1,
         "2026": 1
       },
       "labs_by_quarter": {
-        "2025-Q2": 1,
-        "2026-Q1": 1,
+        "2025-Q3": 1,
         "2026-Q2": 1
       }
     },
@@ -37361,7 +37349,7 @@
       }
     },
     {
-      "id": "imo2025",
+      "id": "imo25",
       "name": "IMO 2025",
       "lab_count": 2,
       "labs": [
@@ -37794,6 +37782,24 @@
       }
     },
     {
+      "id": "m3exams",
+      "name": "M3Exam",
+      "lab_count": 2,
+      "labs": [
+        "openai",
+        "qwen"
+      ],
+      "first_seen": "2024-02-04",
+      "last_seen": "2024-05-13",
+      "labs_by_year": {
+        "2024": 2
+      },
+      "labs_by_quarter": {
+        "2024-Q1": 1,
+        "2024-Q2": 1
+      }
+    },
+    {
       "id": "makemesay",
       "name": "MakeMeSay",
       "lab_count": 2,
@@ -37910,6 +37916,25 @@
         "2025-Q2": 1,
         "2025-Q3": 1,
         "2026-Q1": 2,
+        "2026-Q2": 1
+      }
+    },
+    {
+      "id": "mbct",
+      "name": "MBCT",
+      "lab_count": 2,
+      "labs": [
+        "meta",
+        "openai"
+      ],
+      "first_seen": "2025-08-07",
+      "last_seen": "2026-05-14",
+      "labs_by_year": {
+        "2025": 1,
+        "2026": 1
+      },
+      "labs_by_quarter": {
+        "2025-Q3": 1,
         "2026-Q2": 1
       }
     },
@@ -38757,6 +38782,25 @@
       "labs_by_quarter": {
         "2023-Q1": 1,
         "2025-Q1": 1
+      }
+    },
+    {
+      "id": "mvp",
+      "name": "Min Video Pairs",
+      "lab_count": 2,
+      "labs": [
+        "google",
+        "meta"
+      ],
+      "first_seen": "2025-06-11",
+      "last_seen": "2025-10-02",
+      "labs_by_year": {
+        "2025": 2
+      },
+      "labs_by_quarter": {
+        "2025-Q2": 1,
+        "2025-Q3": 1,
+        "2025-Q4": 1
       }
     },
     {
@@ -40012,7 +40056,7 @@
       }
     },
     {
-      "id": "tut2017",
+      "id": "tut17",
       "name": "TUT2017",
       "lab_count": 2,
       "labs": [
@@ -40128,7 +40172,7 @@
       }
     },
     {
-      "id": "usamo2025",
+      "id": "usamo25",
       "name": "USAMO 2025",
       "lab_count": 2,
       "labs": [
@@ -41475,23 +41519,6 @@
       }
     },
     {
-      "id": "aime26",
-      "name": "AIME26",
-      "lab_count": 1,
-      "labs": [
-        "qwen"
-      ],
-      "first_seen": "2026-02-14",
-      "last_seen": "2026-04-22",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q1": 1,
-        "2026-Q2": 1
-      }
-    },
-    {
       "id": "aiofficebenchmark",
       "name": "AI Office Benchmark",
       "lab_count": 1,
@@ -41764,38 +41791,6 @@
       },
       "labs_by_quarter": {
         "2024-Q1": 1
-      }
-    },
-    {
-      "id": "amc2023",
-      "name": "AMC 2023",
-      "lab_count": 1,
-      "labs": [
-        "mistral"
-      ],
-      "first_seen": "2024-07-16",
-      "last_seen": "2024-07-16",
-      "labs_by_year": {
-        "2024": 1
-      },
-      "labs_by_quarter": {
-        "2024-Q3": 1
-      }
-    },
-    {
-      "id": "amc23",
-      "name": "AMC23",
-      "lab_count": 1,
-      "labs": [
-        "qwen"
-      ],
-      "first_seen": "2024-08-08",
-      "last_seen": "2024-09-19",
-      "labs_by_year": {
-        "2024": 1
-      },
-      "labs_by_quarter": {
-        "2024-Q3": 1
       }
     },
     {
@@ -43457,22 +43452,6 @@
       }
     },
     {
-      "id": "berkeleyfunctioncallingleaderboard",
-      "name": "Berkeley Function Calling Leaderboard",
-      "lab_count": 1,
-      "labs": [
-        "zai"
-      ],
-      "first_seen": "2024-06-05",
-      "last_seen": "2024-06-05",
-      "labs_by_year": {
-        "2024": 1
-      },
-      "labs_by_quarter": {
-        "2024-Q2": 1
-      }
-    },
-    {
       "id": "berkeleyfunctioncallingv4benchmark",
       "name": "Berkeley Function Calling v4 Benchmark",
       "lab_count": 1,
@@ -43486,22 +43465,6 @@
       },
       "labs_by_quarter": {
         "2025-Q4": 1
-      }
-    },
-    {
-      "id": "berkeleyfunctioncallleaderboard",
-      "name": "Berkeley Function Call Leaderboard",
-      "lab_count": 1,
-      "labs": [
-        "zai"
-      ],
-      "first_seen": "2024-06-18",
-      "last_seen": "2024-06-18",
-      "labs_by_year": {
-        "2024": 1
-      },
-      "labs_by_quarter": {
-        "2024-Q2": 1
       }
     },
     {
@@ -43658,27 +43621,6 @@
         "2026": 1
       },
       "labs_by_quarter": {
-        "2026-Q3": 1
-      }
-    },
-    {
-      "id": "bigbenchextrahard",
-      "name": "BIG-Bench Extra Hard",
-      "lab_count": 1,
-      "labs": [
-        "google"
-      ],
-      "first_seen": "2025-05-20",
-      "last_seen": "2026-07-02",
-      "labs_by_year": {
-        "2025": 1,
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q2": 1,
-        "2025-Q3": 1,
-        "2025-Q4": 1,
-        "2026-Q2": 1,
         "2026-Q3": 1
       }
     },
@@ -45222,7 +45164,7 @@
       }
     },
     {
-      "id": "cmo2024",
+      "id": "cmo24",
       "name": "CMO 2024",
       "lab_count": 1,
       "labs": [
@@ -45238,7 +45180,7 @@
       }
     },
     {
-      "id": "cmo2025",
+      "id": "cmo25",
       "name": "CMO 2025",
       "lab_count": 1,
       "labs": [
@@ -45469,35 +45411,21 @@
       }
     },
     {
-      "id": "cococaption",
+      "id": "cococaptions",
       "name": "COCO Caption",
       "lab_count": 1,
       "labs": [
         "google"
       ],
-      "first_seen": "2025-03-25",
+      "first_seen": "2024-05-14",
       "last_seen": "2025-03-25",
       "labs_by_year": {
+        "2024": 1,
         "2025": 1
       },
       "labs_by_quarter": {
+        "2024-Q2": 1,
         "2025-Q1": 1
-      }
-    },
-    {
-      "id": "cococaptions",
-      "name": "COCO captions",
-      "lab_count": 1,
-      "labs": [
-        "google"
-      ],
-      "first_seen": "2024-05-14",
-      "last_seen": "2024-05-14",
-      "labs_by_year": {
-        "2024": 1
-      },
-      "labs_by_quarter": {
-        "2024-Q2": 1
       }
     },
     {
@@ -46844,34 +46772,20 @@
     },
     {
       "id": "davis17",
-      "name": "DAVIS17",
-      "lab_count": 1,
-      "labs": [
-        "meta"
-      ],
-      "first_seen": "2025-11-20",
-      "last_seen": "2025-11-20",
-      "labs_by_year": {
-        "2025": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q4": 1
-      }
-    },
-    {
-      "id": "davis2017",
       "name": "DAVIS 2017",
       "lab_count": 1,
       "labs": [
         "meta"
       ],
       "first_seen": "2024-08-01",
-      "last_seen": "2024-08-01",
+      "last_seen": "2025-11-20",
       "labs_by_year": {
-        "2024": 1
+        "2024": 1,
+        "2025": 1
       },
       "labs_by_quarter": {
-        "2024-Q3": 1
+        "2024-Q3": 1,
+        "2025-Q4": 1
       }
     },
     {
@@ -48349,7 +48263,7 @@
       }
     },
     {
-      "id": "exploitbenchinternalportjuneaugust2026",
+      "id": "exploitbenchinternalportjuneaugust26",
       "name": "ExploitBench - Internal Port (June–August 2026)",
       "lab_count": 1,
       "labs": [
@@ -48365,7 +48279,7 @@
       }
     },
     {
-      "id": "exploitbenchjuneaug2026",
+      "id": "exploitbenchjuneaug26",
       "name": "ExploitBench (June-Aug 2026)",
       "lab_count": 1,
       "labs": [
@@ -51201,23 +51115,6 @@
       }
     },
     {
-      "id": "hlewtool",
-      "name": "HLE w/ tool",
-      "lab_count": 1,
-      "labs": [
-        "qwen"
-      ],
-      "first_seen": "2026-02-14",
-      "last_seen": "2026-04-02",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q1": 1,
-        "2026-Q2": 1
-      }
-    },
-    {
       "id": "hm3d",
       "name": "HM3D",
       "lab_count": 1,
@@ -51263,22 +51160,6 @@
       },
       "labs_by_quarter": {
         "2026-Q1": 1
-      }
-    },
-    {
-      "id": "hmmt25",
-      "name": "HMMT25",
-      "lab_count": 1,
-      "labs": [
-        "qwen"
-      ],
-      "first_seen": "2025-07-21",
-      "last_seen": "2025-09-24",
-      "labs_by_year": {
-        "2025": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q3": 1
       }
     },
     {
@@ -51330,55 +51211,6 @@
       }
     },
     {
-      "id": "hmmtfeb2026",
-      "name": "HMMT Feb. 2026",
-      "lab_count": 1,
-      "labs": [
-        "zai"
-      ],
-      "first_seen": "2026-04-07",
-      "last_seen": "2026-06-16",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q2": 1
-      }
-    },
-    {
-      "id": "hmmtfeb26",
-      "name": "HMMT Feb 26",
-      "lab_count": 1,
-      "labs": [
-        "qwen"
-      ],
-      "first_seen": "2026-04-02",
-      "last_seen": "2026-04-22",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q2": 1
-      }
-    },
-    {
-      "id": "hmmtnov25",
-      "name": "HMMT Nov 25",
-      "lab_count": 1,
-      "labs": [
-        "qwen"
-      ],
-      "first_seen": "2026-01-23",
-      "last_seen": "2026-04-22",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q1": 1,
-        "2026-Q2": 1
-      }
-    },
-    {
       "id": "hotpotqa",
       "name": "HotpotQA",
       "lab_count": 1,
@@ -51410,22 +51242,6 @@
       },
       "labs_by_quarter": {
         "2025-Q2": 1
-      }
-    },
-    {
-      "id": "hpct",
-      "name": "HPCT",
-      "lab_count": 1,
-      "labs": [
-        "meta"
-      ],
-      "first_seen": "2026-05-14",
-      "last_seen": "2026-05-14",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q2": 1
       }
     },
     {
@@ -51818,22 +51634,6 @@
       }
     },
     {
-      "id": "humanpathogencapabilitiestest",
-      "name": "Human Pathogen Capabilities Test",
-      "lab_count": 1,
-      "labs": [
-        "openai"
-      ],
-      "first_seen": "2025-08-07",
-      "last_seen": "2025-08-07",
-      "labs_by_year": {
-        "2025": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q3": 1
-      }
-    },
-    {
       "id": "humansourcedjailbreaks",
       "name": "Human Sourced Jailbreaks",
       "lab_count": 1,
@@ -51901,7 +51701,7 @@
       }
     },
     {
-      "id": "hungariannationalhighschoolmathexammay2023",
+      "id": "hungariannationalhighschoolmathexammay23",
       "name": "Hungarian National High School Math Exam (May 2023)",
       "lab_count": 1,
       "labs": [
@@ -51965,7 +51765,7 @@
       }
     },
     {
-      "id": "icpcwf2025",
+      "id": "icpcwf25",
       "name": "ICPC WF 2025",
       "lab_count": 1,
       "labs": [
@@ -52278,7 +52078,7 @@
       }
     },
     {
-      "id": "imo2026",
+      "id": "imo26",
       "name": "IMO 2026",
       "lab_count": 1,
       "labs": [
@@ -52374,7 +52174,7 @@
       }
     },
     {
-      "id": "inaturalist2018",
+      "id": "inaturalist18",
       "name": "iNaturalist 2018",
       "lab_count": 1,
       "labs": [
@@ -52390,7 +52190,7 @@
       }
     },
     {
-      "id": "inaturalist2021",
+      "id": "inaturalist21",
       "name": "iNaturalist 2021",
       "lab_count": 1,
       "labs": [
@@ -52634,7 +52434,7 @@
       }
     },
     {
-      "id": "instructionhierarchyevaluation",
+      "id": "instructionhierarchyevaluations",
       "name": "Instruction Hierarchy Evaluation",
       "lab_count": 1,
       "labs": [
@@ -52652,22 +52452,6 @@
         "2025-Q2": 1,
         "2025-Q3": 1,
         "2025-Q4": 1
-      }
-    },
-    {
-      "id": "instructionhierarchyevaluations",
-      "name": "Instruction Hierarchy Evaluations",
-      "lab_count": 1,
-      "labs": [
-        "openai"
-      ],
-      "first_seen": "2025-08-07",
-      "last_seen": "2025-08-07",
-      "labs_by_year": {
-        "2025": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q3": 1
       }
     },
     {
@@ -52914,7 +52698,7 @@
       }
     },
     {
-      "id": "internationalchemistryolympiad2025",
+      "id": "internationalchemistryolympiad25",
       "name": "International Chemistry Olympiad 2025",
       "lab_count": 1,
       "labs": [
@@ -52930,7 +52714,7 @@
       }
     },
     {
-      "id": "internationalmatholympiad2025",
+      "id": "internationalmatholympiad25",
       "name": "International Math Olympiad 2025",
       "lab_count": 1,
       "labs": [
@@ -52962,7 +52746,7 @@
       }
     },
     {
-      "id": "internationalphysicsolympiad2025",
+      "id": "internationalphysicsolympiad25",
       "name": "International Physics Olympiad 2025",
       "lab_count": 1,
       "labs": [
@@ -53059,7 +52843,7 @@
       }
     },
     {
-      "id": "ioi2024",
+      "id": "ioi24",
       "name": "IOI 2024",
       "lab_count": 1,
       "labs": [
@@ -53075,7 +52859,7 @@
       }
     },
     {
-      "id": "ioi2025",
+      "id": "ioi25",
       "name": "IOI 2025",
       "lab_count": 1,
       "labs": [
@@ -53639,7 +53423,7 @@
       }
     },
     {
-      "id": "koaime2024",
+      "id": "koaime24",
       "name": "Ko-AIME 2024",
       "lab_count": 1,
       "labs": [
@@ -53655,34 +53439,19 @@
       }
     },
     {
-      "id": "koaime2025",
+      "id": "koaime25",
       "name": "Ko-AIME 2025",
       "lab_count": 1,
       "labs": [
         "upstage"
       ],
       "first_seen": "2026-01-11",
-      "last_seen": "2026-01-11",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q1": 1
-      }
-    },
-    {
-      "id": "koaime25",
-      "name": "Ko-AIME'25",
-      "lab_count": 1,
-      "labs": [
-        "upstage"
-      ],
-      "first_seen": "2026-07-22",
       "last_seen": "2026-07-22",
       "labs_by_year": {
         "2026": 1
       },
       "labs_by_quarter": {
+        "2026-Q1": 1,
         "2026-Q3": 1
       }
     },
@@ -55052,38 +54821,6 @@
       }
     },
     {
-      "id": "m3exam",
-      "name": "M3Exam",
-      "lab_count": 1,
-      "labs": [
-        "openai"
-      ],
-      "first_seen": "2024-05-13",
-      "last_seen": "2024-05-13",
-      "labs_by_year": {
-        "2024": 1
-      },
-      "labs_by_quarter": {
-        "2024-Q2": 1
-      }
-    },
-    {
-      "id": "m3exams",
-      "name": "M3Exams",
-      "lab_count": 1,
-      "labs": [
-        "qwen"
-      ],
-      "first_seen": "2024-02-04",
-      "last_seen": "2024-02-04",
-      "labs_by_year": {
-        "2024": 1
-      },
-      "labs_by_quarter": {
-        "2024-Q1": 1
-      }
-    },
-    {
       "id": "m4singer",
       "name": "M4Singer",
       "lab_count": 1,
@@ -55524,22 +55261,6 @@
       },
       "labs_by_quarter": {
         "2026-Q1": 1,
-        "2026-Q2": 1
-      }
-    },
-    {
-      "id": "mbct",
-      "name": "MBCT",
-      "lab_count": 1,
-      "labs": [
-        "meta"
-      ],
-      "first_seen": "2026-05-14",
-      "last_seen": "2026-05-14",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
         "2026-Q2": 1
       }
     },
@@ -56375,23 +56096,6 @@
       ],
       "first_seen": "2025-09-21",
       "last_seen": "2025-12-09",
-      "labs_by_year": {
-        "2025": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q3": 1,
-        "2025-Q4": 1
-      }
-    },
-    {
-      "id": "minvideopairs",
-      "name": "Min Video Pairs",
-      "lab_count": 1,
-      "labs": [
-        "google"
-      ],
-      "first_seen": "2025-09-25",
-      "last_seen": "2025-10-02",
       "labs_by_year": {
         "2025": 1
       },
@@ -57273,22 +56977,6 @@
       }
     },
     {
-      "id": "molecularbiologycapabilitiestest",
-      "name": "Molecular Biology Capabilities Test",
-      "lab_count": 1,
-      "labs": [
-        "openai"
-      ],
-      "first_seen": "2025-08-07",
-      "last_seen": "2025-08-07",
-      "labs_by_year": {
-        "2025": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q3": 1
-      }
-    },
-    {
       "id": "monashforecastingarchive",
       "name": "Monash Forecasting Archive",
       "lab_count": 1,
@@ -57671,7 +57359,7 @@
       }
     },
     {
-      "id": "mtaime2024",
+      "id": "mtaime24",
       "name": "MT-AIME2024",
       "lab_count": 1,
       "labs": [
@@ -58484,22 +58172,6 @@
       }
     },
     {
-      "id": "mvp",
-      "name": "MVP",
-      "lab_count": 1,
-      "labs": [
-        "meta"
-      ],
-      "first_seen": "2025-06-11",
-      "last_seen": "2025-06-11",
-      "labs_by_year": {
-        "2025": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q2": 1
-      }
-    },
-    {
       "id": "mypcbench",
       "name": "MyPCBench",
       "lab_count": 1,
@@ -58606,22 +58278,6 @@
       }
     },
     {
-      "id": "naturalq",
-      "name": "NaturalQ",
-      "lab_count": 1,
-      "labs": [
-        "mistral"
-      ],
-      "first_seen": "2024-07-18",
-      "last_seen": "2024-07-18",
-      "labs_by_year": {
-        "2024": 1
-      },
-      "labs_by_quarter": {
-        "2024-Q3": 1
-      }
-    },
-    {
       "id": "naturalqa",
       "name": "Natural QA",
       "lab_count": 1,
@@ -58635,24 +58291,6 @@
       },
       "labs_by_quarter": {
         "2025-Q3": 1
-      }
-    },
-    {
-      "id": "naturalqs",
-      "name": "NaturalQS",
-      "lab_count": 1,
-      "labs": [
-        "mistral"
-      ],
-      "first_seen": "2024-04-17",
-      "last_seen": "2026-01-13",
-      "labs_by_year": {
-        "2024": 1,
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2024-Q2": 1,
-        "2026-Q1": 1
       }
     },
     {
@@ -59610,7 +59248,7 @@
       }
     },
     {
-      "id": "openaimod2022",
+      "id": "openaimod22",
       "name": "OpenAI Mod (2022)",
       "lab_count": 1,
       "labs": [
@@ -60270,7 +59908,7 @@
       }
     },
     {
-      "id": "pascalvoc2012",
+      "id": "pascalvoc12",
       "name": "PASCAL VOC 2012",
       "lab_count": 1,
       "labs": [
@@ -61395,7 +61033,7 @@
       }
     },
     {
-      "id": "putnam2024",
+      "id": "putnam24",
       "name": "Putnam 2024",
       "lab_count": 1,
       "labs": [
@@ -66210,7 +65848,7 @@
       }
     },
     {
-      "id": "usabosemifinalexam2020",
+      "id": "usabosemifinalexam20",
       "name": "USABO Semifinal Exam 2020",
       "lab_count": 1,
       "labs": [
@@ -66242,7 +65880,7 @@
       }
     },
     {
-      "id": "usamo2026",
+      "id": "usamo26",
       "name": "USAMO 2026",
       "lab_count": 1,
       "labs": [
@@ -66308,7 +65946,7 @@
       }
     },
     {
-      "id": "usncolocalsectionexam2022",
+      "id": "usncolocalsectionexam22",
       "name": "USNCO Local Section Exam 2022",
       "lab_count": 1,
       "labs": [

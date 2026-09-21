@@ -28,7 +28,15 @@ const labIds = new Set(labs.map((l) => l.id));
 // It does not fold semantic variants: AIME 2024 and AIME24 are distinct keys
 // and need an entry in aliases.json to merge, which is the right place for a
 // judgement call about whether they are the same thing.
-const key = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+const key = (s) => {
+  const flat = s.toLowerCase().replace(/[^a-z0-9]/g, "");
+  // A trailing four-digit year folds to its two-digit form, so AIME 2026 and
+  // AIME26, HMMT Feb. 2025 and HMMT Feb 25, meet. Anchored to 20xx and to the
+  // end of the name, so a benchmark numbered 1000 or 500 is untouched. This is
+  // a rule rather than eight alias entries because the pattern recurs every
+  // January, and an alias file would need a new line each time.
+  return flat.replace(/20(\d\d)$/, "$1");
+};
 
 // Third-party composite indices are dropped rather than tracked: a lab citing
 // one is not reporting a benchmark, it is citing somebody else's ranking.

@@ -1,5 +1,41 @@
 [
   {
+    "id": "aime-2024",
+    "name": "AIME 2024",
+    "lab_count": 12,
+    "labs": [
+      "anthropic",
+      "deepseek",
+      "google",
+      "meta",
+      "mistral",
+      "moonshot",
+      "openai",
+      "qwen",
+      "upstage",
+      "xai",
+      "xiaomi",
+      "zai"
+    ],
+    "first_seen": "2024-06-17",
+    "last_seen": "2026-08-03",
+    "labs_by_year": {
+      "2024": 5,
+      "2025": 11,
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2024-Q2": 1,
+      "2024-Q3": 3,
+      "2024-Q4": 3,
+      "2025-Q1": 7,
+      "2025-Q2": 6,
+      "2025-Q3": 8,
+      "2026-Q1": 3,
+      "2026-Q3": 1
+    }
+  },
+  {
     "id": "gpqa-diamond",
     "name": "GPQA Diamond",
     "lab_count": 12,
@@ -277,6 +313,38 @@
       "2025-Q2": 4,
       "2025-Q3": 3,
       "2025-Q4": 3
+    }
+  },
+  {
+    "id": "aime-2025",
+    "name": "AIME 2025",
+    "lab_count": 11,
+    "labs": [
+      "anthropic",
+      "deepseek",
+      "google",
+      "mistral",
+      "moonshot",
+      "openai",
+      "qwen",
+      "upstage",
+      "xai",
+      "xiaomi",
+      "zai"
+    ],
+    "first_seen": "2025-02-19",
+    "last_seen": "2026-05-22",
+    "labs_by_year": {
+      "2025": 10,
+      "2026": 8
+    },
+    "labs_by_quarter": {
+      "2025-Q1": 2,
+      "2025-Q2": 7,
+      "2025-Q3": 10,
+      "2025-Q4": 9,
+      "2026-Q1": 7,
+      "2026-Q2": 2
     }
   },
   {
@@ -582,70 +650,6 @@
       "2026-Q1": 2,
       "2026-Q2": 1,
       "2026-Q3": 1
-    }
-  },
-  {
-    "id": "aime-2024",
-    "name": "AIME 2024",
-    "lab_count": 10,
-    "labs": [
-      "anthropic",
-      "deepseek",
-      "google",
-      "meta",
-      "mistral",
-      "moonshot",
-      "openai",
-      "upstage",
-      "xai",
-      "xiaomi"
-    ],
-    "first_seen": "2024-06-17",
-    "last_seen": "2026-01-13",
-    "labs_by_year": {
-      "2024": 4,
-      "2025": 9,
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2024-Q2": 1,
-      "2024-Q3": 2,
-      "2024-Q4": 3,
-      "2025-Q1": 5,
-      "2025-Q2": 4,
-      "2025-Q3": 5,
-      "2026-Q1": 2
-    }
-  },
-  {
-    "id": "aime-2025",
-    "name": "AIME 2025",
-    "lab_count": 10,
-    "labs": [
-      "anthropic",
-      "deepseek",
-      "google",
-      "mistral",
-      "moonshot",
-      "openai",
-      "upstage",
-      "xai",
-      "xiaomi",
-      "zai"
-    ],
-    "first_seen": "2025-03-25",
-    "last_seen": "2026-05-05",
-    "labs_by_year": {
-      "2025": 8,
-      "2026": 6
-    },
-    "labs_by_quarter": {
-      "2025-Q1": 1,
-      "2025-Q2": 4,
-      "2025-Q3": 6,
-      "2025-Q4": 7,
-      "2026-Q1": 5,
-      "2026-Q2": 1
     }
   },
   {
@@ -1406,63 +1410,6 @@
     }
   },
   {
-    "id": "aime24",
-    "name": "AIME24",
-    "lab_count": 7,
-    "labs": [
-      "deepseek",
-      "mistral",
-      "openai",
-      "qwen",
-      "xai",
-      "xiaomi",
-      "zai"
-    ],
-    "first_seen": "2024-08-08",
-    "last_seen": "2026-08-03",
-    "labs_by_year": {
-      "2024": 1,
-      "2025": 7,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1,
-      "2025-Q1": 3,
-      "2025-Q2": 6,
-      "2025-Q3": 3,
-      "2026-Q1": 1,
-      "2026-Q3": 1
-    }
-  },
-  {
-    "id": "aime25",
-    "name": "AIME25",
-    "lab_count": 7,
-    "labs": [
-      "deepseek",
-      "mistral",
-      "openai",
-      "qwen",
-      "xai",
-      "xiaomi",
-      "zai"
-    ],
-    "first_seen": "2025-02-19",
-    "last_seen": "2026-05-22",
-    "labs_by_year": {
-      "2025": 7,
-      "2026": 3
-    },
-    "labs_by_quarter": {
-      "2025-Q1": 1,
-      "2025-Q2": 5,
-      "2025-Q3": 6,
-      "2025-Q4": 2,
-      "2026-Q1": 3,
-      "2026-Q2": 1
-    }
-  },
-  {
     "id": "automationbench",
     "name": "AutomationBench",
     "lab_count": 7,
@@ -1553,11 +1500,12 @@
       "zai"
     ],
     "first_seen": "2023-02-27",
-    "last_seen": "2025-12-16",
+    "last_seen": "2026-01-13",
     "labs_by_year": {
       "2023": 5,
       "2024": 4,
-      "2025": 2
+      "2025": 2,
+      "2026": 1
     },
     "labs_by_quarter": {
       "2023-Q1": 1,
@@ -1565,13 +1513,14 @@
       "2023-Q3": 3,
       "2023-Q4": 2,
       "2024-Q1": 2,
-      "2024-Q2": 2,
-      "2024-Q3": 2,
+      "2024-Q2": 3,
+      "2024-Q3": 3,
       "2024-Q4": 1,
       "2025-Q1": 1,
       "2025-Q2": 2,
       "2025-Q3": 1,
-      "2025-Q4": 1
+      "2025-Q4": 1,
+      "2026-Q1": 1
     }
   },
   {
@@ -1899,6 +1848,56 @@
       "2026-Q1": 4,
       "2026-Q2": 5,
       "2026-Q3": 1
+    }
+  },
+  {
+    "id": "hmmt25",
+    "name": "HMMT 2025",
+    "lab_count": 6,
+    "labs": [
+      "deepseek",
+      "mistral",
+      "moonshot",
+      "openai",
+      "qwen",
+      "xai"
+    ],
+    "first_seen": "2025-05-28",
+    "last_seen": "2026-01-13",
+    "labs_by_year": {
+      "2025": 5,
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q2": 1,
+      "2025-Q3": 5,
+      "2025-Q4": 1,
+      "2026-Q1": 1
+    }
+  },
+  {
+    "id": "hmmtfeb25",
+    "name": "HMMT Feb 25",
+    "lab_count": 6,
+    "labs": [
+      "deepseek",
+      "moonshot",
+      "openai",
+      "qwen",
+      "xiaomi",
+      "zai"
+    ],
+    "first_seen": "2025-05-28",
+    "last_seen": "2026-04-22",
+    "labs_by_year": {
+      "2025": 4,
+      "2026": 4
+    },
+    "labs_by_quarter": {
+      "2025-Q2": 1,
+      "2025-Q4": 4,
+      "2026-Q1": 4,
+      "2026-Q2": 1
     }
   },
   {
@@ -2401,6 +2400,28 @@
     }
   },
   {
+    "id": "aime26",
+    "name": "AIME 2026",
+    "lab_count": 5,
+    "labs": [
+      "google",
+      "moonshot",
+      "qwen",
+      "upstage",
+      "zai"
+    ],
+    "first_seen": "2026-02-14",
+    "last_seen": "2026-08-11",
+    "labs_by_year": {
+      "2026": 5
+    },
+    "labs_by_quarter": {
+      "2026-Q1": 1,
+      "2026-Q2": 4,
+      "2026-Q3": 3
+    }
+  },
+  {
     "id": "arceasy",
     "name": "ARC-Easy",
     "lab_count": 5,
@@ -2851,52 +2872,6 @@
     "labs_by_quarter": {
       "2026-Q2": 2,
       "2026-Q3": 4
-    }
-  },
-  {
-    "id": "hmmt2025",
-    "name": "HMMT 2025",
-    "lab_count": 5,
-    "labs": [
-      "deepseek",
-      "mistral",
-      "moonshot",
-      "openai",
-      "xai"
-    ],
-    "first_seen": "2025-05-28",
-    "last_seen": "2026-01-13",
-    "labs_by_year": {
-      "2025": 4,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1,
-      "2025-Q3": 4,
-      "2025-Q4": 1,
-      "2026-Q1": 1
-    }
-  },
-  {
-    "id": "hmmtfeb2025",
-    "name": "HMMT Feb. 2025",
-    "lab_count": 5,
-    "labs": [
-      "deepseek",
-      "moonshot",
-      "openai",
-      "xiaomi",
-      "zai"
-    ],
-    "first_seen": "2025-12-02",
-    "last_seen": "2026-02-17",
-    "labs_by_year": {
-      "2025": 4,
-      "2026": 3
-    },
-    "labs_by_quarter": {
-      "2025-Q4": 4,
-      "2026-Q1": 3
     }
   },
   {
@@ -3372,26 +3347,6 @@
     }
   },
   {
-    "id": "aime2026",
-    "name": "AIME 2026",
-    "lab_count": 4,
-    "labs": [
-      "google",
-      "moonshot",
-      "upstage",
-      "zai"
-    ],
-    "first_seen": "2026-04-02",
-    "last_seen": "2026-08-11",
-    "labs_by_year": {
-      "2026": 4
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 3,
-      "2026-Q3": 3
-    }
-  },
-  {
     "id": "aishell1",
     "name": "AISHELL-1",
     "lab_count": 4,
@@ -3831,6 +3786,28 @@
       "2026-Q1": 1,
       "2026-Q2": 2,
       "2026-Q3": 3
+    }
+  },
+  {
+    "id": "hmmtnov25",
+    "name": "HMMT Nov 25",
+    "lab_count": 4,
+    "labs": [
+      "deepseek",
+      "moonshot",
+      "qwen",
+      "zai"
+    ],
+    "first_seen": "2025-12-02",
+    "last_seen": "2026-06-16",
+    "labs_by_year": {
+      "2025": 2,
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2025-Q4": 2,
+      "2026-Q1": 3,
+      "2026-Q2": 2
     }
   },
   {
@@ -4678,14 +4655,15 @@
       "qwen",
       "zai"
     ],
-    "first_seen": "2024-07-23",
+    "first_seen": "2024-06-05",
     "last_seen": "2026-06-23",
     "labs_by_year": {
-      "2024": 1,
+      "2024": 2,
       "2025": 2,
       "2026": 1
     },
     "labs_by_quarter": {
+      "2024-Q2": 1,
       "2024-Q3": 1,
       "2025-Q1": 1,
       "2025-Q2": 2,
@@ -5272,7 +5250,7 @@
     }
   },
   {
-    "id": "hlewtools",
+    "id": "hlewithtools",
     "name": "HLE w/ tools",
     "lab_count": 3,
     "labs": [
@@ -5307,27 +5285,6 @@
     },
     "labs_by_quarter": {
       "2026-Q2": 3
-    }
-  },
-  {
-    "id": "hmmtnov2025",
-    "name": "HMMT Nov. 2025",
-    "lab_count": 3,
-    "labs": [
-      "deepseek",
-      "moonshot",
-      "zai"
-    ],
-    "first_seen": "2025-12-02",
-    "last_seen": "2026-06-16",
-    "labs_by_year": {
-      "2025": 2,
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2025-Q4": 2,
-      "2026-Q1": 2,
-      "2026-Q2": 1
     }
   },
   {
@@ -6862,6 +6819,23 @@
     }
   },
   {
+    "id": "amc23",
+    "name": "AMC23",
+    "lab_count": 2,
+    "labs": [
+      "mistral",
+      "qwen"
+    ],
+    "first_seen": "2024-07-16",
+    "last_seen": "2024-09-19",
+    "labs_by_year": {
+      "2024": 2
+    },
+    "labs_by_quarter": {
+      "2024-Q3": 2
+    }
+  },
+  {
     "id": "androidcontrol",
     "name": "Android Control",
     "lab_count": 2,
@@ -7044,8 +7018,11 @@
     },
     "labs_by_quarter": {
       "2025-Q1": 1,
+      "2025-Q2": 1,
+      "2025-Q3": 1,
+      "2025-Q4": 1,
       "2026-Q2": 1,
-      "2026-Q3": 1
+      "2026-Q3": 2
     }
   },
   {
@@ -7362,7 +7339,7 @@
     }
   },
   {
-    "id": "cnmo2024",
+    "id": "cnmo24",
     "name": "CNMO 2024",
     "lab_count": 2,
     "labs": [
@@ -8369,22 +8346,38 @@
     }
   },
   {
-    "id": "hmmtfeb25",
-    "name": "HMMT Feb 25",
+    "id": "hmmtfeb26",
+    "name": "HMMT Feb 26",
     "lab_count": 2,
     "labs": [
-      "deepseek",
-      "qwen"
+      "qwen",
+      "zai"
     ],
-    "first_seen": "2025-05-28",
-    "last_seen": "2026-04-22",
+    "first_seen": "2026-04-02",
+    "last_seen": "2026-06-16",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 2
+    }
+  },
+  {
+    "id": "hpct",
+    "name": "HPCT",
+    "lab_count": 2,
+    "labs": [
+      "meta",
+      "openai"
+    ],
+    "first_seen": "2025-08-07",
+    "last_seen": "2026-05-14",
     "labs_by_year": {
       "2025": 1,
       "2026": 1
     },
     "labs_by_quarter": {
-      "2025-Q2": 1,
-      "2026-Q1": 1,
+      "2025-Q3": 1,
       "2026-Q2": 1
     }
   },
@@ -8584,7 +8577,7 @@
     }
   },
   {
-    "id": "imo2025",
+    "id": "imo25",
     "name": "IMO 2025",
     "lab_count": 2,
     "labs": [
@@ -9017,6 +9010,24 @@
     }
   },
   {
+    "id": "m3exams",
+    "name": "M3Exam",
+    "lab_count": 2,
+    "labs": [
+      "openai",
+      "qwen"
+    ],
+    "first_seen": "2024-02-04",
+    "last_seen": "2024-05-13",
+    "labs_by_year": {
+      "2024": 2
+    },
+    "labs_by_quarter": {
+      "2024-Q1": 1,
+      "2024-Q2": 1
+    }
+  },
+  {
     "id": "makemesay",
     "name": "MakeMeSay",
     "lab_count": 2,
@@ -9133,6 +9144,25 @@
       "2025-Q2": 1,
       "2025-Q3": 1,
       "2026-Q1": 2,
+      "2026-Q2": 1
+    }
+  },
+  {
+    "id": "mbct",
+    "name": "MBCT",
+    "lab_count": 2,
+    "labs": [
+      "meta",
+      "openai"
+    ],
+    "first_seen": "2025-08-07",
+    "last_seen": "2026-05-14",
+    "labs_by_year": {
+      "2025": 1,
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q3": 1,
       "2026-Q2": 1
     }
   },
@@ -9980,6 +10010,25 @@
     "labs_by_quarter": {
       "2023-Q1": 1,
       "2025-Q1": 1
+    }
+  },
+  {
+    "id": "mvp",
+    "name": "Min Video Pairs",
+    "lab_count": 2,
+    "labs": [
+      "google",
+      "meta"
+    ],
+    "first_seen": "2025-06-11",
+    "last_seen": "2025-10-02",
+    "labs_by_year": {
+      "2025": 2
+    },
+    "labs_by_quarter": {
+      "2025-Q2": 1,
+      "2025-Q3": 1,
+      "2025-Q4": 1
     }
   },
   {
@@ -11235,7 +11284,7 @@
     }
   },
   {
-    "id": "tut2017",
+    "id": "tut17",
     "name": "TUT2017",
     "lab_count": 2,
     "labs": [
@@ -11351,7 +11400,7 @@
     }
   },
   {
-    "id": "usamo2025",
+    "id": "usamo25",
     "name": "USAMO 2025",
     "lab_count": 2,
     "labs": [
@@ -12698,23 +12747,6 @@
     }
   },
   {
-    "id": "aime26",
-    "name": "AIME26",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-02-14",
-    "last_seen": "2026-04-22",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 1,
-      "2026-Q2": 1
-    }
-  },
-  {
     "id": "aiofficebenchmark",
     "name": "AI Office Benchmark",
     "lab_count": 1,
@@ -12987,38 +13019,6 @@
     },
     "labs_by_quarter": {
       "2024-Q1": 1
-    }
-  },
-  {
-    "id": "amc2023",
-    "name": "AMC 2023",
-    "lab_count": 1,
-    "labs": [
-      "mistral"
-    ],
-    "first_seen": "2024-07-16",
-    "last_seen": "2024-07-16",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1
-    }
-  },
-  {
-    "id": "amc23",
-    "name": "AMC23",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2024-08-08",
-    "last_seen": "2024-09-19",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1
     }
   },
   {
@@ -14680,22 +14680,6 @@
     }
   },
   {
-    "id": "berkeleyfunctioncallingleaderboard",
-    "name": "Berkeley Function Calling Leaderboard",
-    "lab_count": 1,
-    "labs": [
-      "zai"
-    ],
-    "first_seen": "2024-06-05",
-    "last_seen": "2024-06-05",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q2": 1
-    }
-  },
-  {
     "id": "berkeleyfunctioncallingv4benchmark",
     "name": "Berkeley Function Calling v4 Benchmark",
     "lab_count": 1,
@@ -14709,22 +14693,6 @@
     },
     "labs_by_quarter": {
       "2025-Q4": 1
-    }
-  },
-  {
-    "id": "berkeleyfunctioncallleaderboard",
-    "name": "Berkeley Function Call Leaderboard",
-    "lab_count": 1,
-    "labs": [
-      "zai"
-    ],
-    "first_seen": "2024-06-18",
-    "last_seen": "2024-06-18",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q2": 1
     }
   },
   {
@@ -14881,27 +14849,6 @@
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q3": 1
-    }
-  },
-  {
-    "id": "bigbenchextrahard",
-    "name": "BIG-Bench Extra Hard",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2025-05-20",
-    "last_seen": "2026-07-02",
-    "labs_by_year": {
-      "2025": 1,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1,
-      "2025-Q3": 1,
-      "2025-Q4": 1,
-      "2026-Q2": 1,
       "2026-Q3": 1
     }
   },
@@ -16445,7 +16392,7 @@
     }
   },
   {
-    "id": "cmo2024",
+    "id": "cmo24",
     "name": "CMO 2024",
     "lab_count": 1,
     "labs": [
@@ -16461,7 +16408,7 @@
     }
   },
   {
-    "id": "cmo2025",
+    "id": "cmo25",
     "name": "CMO 2025",
     "lab_count": 1,
     "labs": [
@@ -16692,35 +16639,21 @@
     }
   },
   {
-    "id": "cococaption",
+    "id": "cococaptions",
     "name": "COCO Caption",
     "lab_count": 1,
     "labs": [
       "google"
     ],
-    "first_seen": "2025-03-25",
+    "first_seen": "2024-05-14",
     "last_seen": "2025-03-25",
     "labs_by_year": {
+      "2024": 1,
       "2025": 1
     },
     "labs_by_quarter": {
+      "2024-Q2": 1,
       "2025-Q1": 1
-    }
-  },
-  {
-    "id": "cococaptions",
-    "name": "COCO captions",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2024-05-14",
-    "last_seen": "2024-05-14",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q2": 1
     }
   },
   {
@@ -18067,34 +18000,20 @@
   },
   {
     "id": "davis17",
-    "name": "DAVIS17",
-    "lab_count": 1,
-    "labs": [
-      "meta"
-    ],
-    "first_seen": "2025-11-20",
-    "last_seen": "2025-11-20",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q4": 1
-    }
-  },
-  {
-    "id": "davis2017",
     "name": "DAVIS 2017",
     "lab_count": 1,
     "labs": [
       "meta"
     ],
     "first_seen": "2024-08-01",
-    "last_seen": "2024-08-01",
+    "last_seen": "2025-11-20",
     "labs_by_year": {
-      "2024": 1
+      "2024": 1,
+      "2025": 1
     },
     "labs_by_quarter": {
-      "2024-Q3": 1
+      "2024-Q3": 1,
+      "2025-Q4": 1
     }
   },
   {
@@ -19572,7 +19491,7 @@
     }
   },
   {
-    "id": "exploitbenchinternalportjuneaugust2026",
+    "id": "exploitbenchinternalportjuneaugust26",
     "name": "ExploitBench - Internal Port (June–August 2026)",
     "lab_count": 1,
     "labs": [
@@ -19588,7 +19507,7 @@
     }
   },
   {
-    "id": "exploitbenchjuneaug2026",
+    "id": "exploitbenchjuneaug26",
     "name": "ExploitBench (June-Aug 2026)",
     "lab_count": 1,
     "labs": [
@@ -22424,23 +22343,6 @@
     }
   },
   {
-    "id": "hlewtool",
-    "name": "HLE w/ tool",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-02-14",
-    "last_seen": "2026-04-02",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 1,
-      "2026-Q2": 1
-    }
-  },
-  {
     "id": "hm3d",
     "name": "HM3D",
     "lab_count": 1,
@@ -22486,22 +22388,6 @@
     },
     "labs_by_quarter": {
       "2026-Q1": 1
-    }
-  },
-  {
-    "id": "hmmt25",
-    "name": "HMMT25",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2025-07-21",
-    "last_seen": "2025-09-24",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
     }
   },
   {
@@ -22553,55 +22439,6 @@
     }
   },
   {
-    "id": "hmmtfeb2026",
-    "name": "HMMT Feb. 2026",
-    "lab_count": 1,
-    "labs": [
-      "zai"
-    ],
-    "first_seen": "2026-04-07",
-    "last_seen": "2026-06-16",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1
-    }
-  },
-  {
-    "id": "hmmtfeb26",
-    "name": "HMMT Feb 26",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-04-02",
-    "last_seen": "2026-04-22",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1
-    }
-  },
-  {
-    "id": "hmmtnov25",
-    "name": "HMMT Nov 25",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-01-23",
-    "last_seen": "2026-04-22",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 1,
-      "2026-Q2": 1
-    }
-  },
-  {
     "id": "hotpotqa",
     "name": "HotpotQA",
     "lab_count": 1,
@@ -22633,22 +22470,6 @@
     },
     "labs_by_quarter": {
       "2025-Q2": 1
-    }
-  },
-  {
-    "id": "hpct",
-    "name": "HPCT",
-    "lab_count": 1,
-    "labs": [
-      "meta"
-    ],
-    "first_seen": "2026-05-14",
-    "last_seen": "2026-05-14",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1
     }
   },
   {
@@ -23041,22 +22862,6 @@
     }
   },
   {
-    "id": "humanpathogencapabilitiestest",
-    "name": "Human Pathogen Capabilities Test",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2025-08-07",
-    "last_seen": "2025-08-07",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    }
-  },
-  {
     "id": "humansourcedjailbreaks",
     "name": "Human Sourced Jailbreaks",
     "lab_count": 1,
@@ -23124,7 +22929,7 @@
     }
   },
   {
-    "id": "hungariannationalhighschoolmathexammay2023",
+    "id": "hungariannationalhighschoolmathexammay23",
     "name": "Hungarian National High School Math Exam (May 2023)",
     "lab_count": 1,
     "labs": [
@@ -23188,7 +22993,7 @@
     }
   },
   {
-    "id": "icpcwf2025",
+    "id": "icpcwf25",
     "name": "ICPC WF 2025",
     "lab_count": 1,
     "labs": [
@@ -23501,7 +23306,7 @@
     }
   },
   {
-    "id": "imo2026",
+    "id": "imo26",
     "name": "IMO 2026",
     "lab_count": 1,
     "labs": [
@@ -23597,7 +23402,7 @@
     }
   },
   {
-    "id": "inaturalist2018",
+    "id": "inaturalist18",
     "name": "iNaturalist 2018",
     "lab_count": 1,
     "labs": [
@@ -23613,7 +23418,7 @@
     }
   },
   {
-    "id": "inaturalist2021",
+    "id": "inaturalist21",
     "name": "iNaturalist 2021",
     "lab_count": 1,
     "labs": [
@@ -23857,7 +23662,7 @@
     }
   },
   {
-    "id": "instructionhierarchyevaluation",
+    "id": "instructionhierarchyevaluations",
     "name": "Instruction Hierarchy Evaluation",
     "lab_count": 1,
     "labs": [
@@ -23875,22 +23680,6 @@
       "2025-Q2": 1,
       "2025-Q3": 1,
       "2025-Q4": 1
-    }
-  },
-  {
-    "id": "instructionhierarchyevaluations",
-    "name": "Instruction Hierarchy Evaluations",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2025-08-07",
-    "last_seen": "2025-08-07",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
     }
   },
   {
@@ -24137,7 +23926,7 @@
     }
   },
   {
-    "id": "internationalchemistryolympiad2025",
+    "id": "internationalchemistryolympiad25",
     "name": "International Chemistry Olympiad 2025",
     "lab_count": 1,
     "labs": [
@@ -24153,7 +23942,7 @@
     }
   },
   {
-    "id": "internationalmatholympiad2025",
+    "id": "internationalmatholympiad25",
     "name": "International Math Olympiad 2025",
     "lab_count": 1,
     "labs": [
@@ -24185,7 +23974,7 @@
     }
   },
   {
-    "id": "internationalphysicsolympiad2025",
+    "id": "internationalphysicsolympiad25",
     "name": "International Physics Olympiad 2025",
     "lab_count": 1,
     "labs": [
@@ -24282,7 +24071,7 @@
     }
   },
   {
-    "id": "ioi2024",
+    "id": "ioi24",
     "name": "IOI 2024",
     "lab_count": 1,
     "labs": [
@@ -24298,7 +24087,7 @@
     }
   },
   {
-    "id": "ioi2025",
+    "id": "ioi25",
     "name": "IOI 2025",
     "lab_count": 1,
     "labs": [
@@ -24862,7 +24651,7 @@
     }
   },
   {
-    "id": "koaime2024",
+    "id": "koaime24",
     "name": "Ko-AIME 2024",
     "lab_count": 1,
     "labs": [
@@ -24878,34 +24667,19 @@
     }
   },
   {
-    "id": "koaime2025",
+    "id": "koaime25",
     "name": "Ko-AIME 2025",
     "lab_count": 1,
     "labs": [
       "upstage"
     ],
     "first_seen": "2026-01-11",
-    "last_seen": "2026-01-11",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 1
-    }
-  },
-  {
-    "id": "koaime25",
-    "name": "Ko-AIME'25",
-    "lab_count": 1,
-    "labs": [
-      "upstage"
-    ],
-    "first_seen": "2026-07-22",
     "last_seen": "2026-07-22",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
+      "2026-Q1": 1,
       "2026-Q3": 1
     }
   },
@@ -26275,38 +26049,6 @@
     }
   },
   {
-    "id": "m3exam",
-    "name": "M3Exam",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2024-05-13",
-    "last_seen": "2024-05-13",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q2": 1
-    }
-  },
-  {
-    "id": "m3exams",
-    "name": "M3Exams",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2024-02-04",
-    "last_seen": "2024-02-04",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q1": 1
-    }
-  },
-  {
     "id": "m4singer",
     "name": "M4Singer",
     "lab_count": 1,
@@ -26747,22 +26489,6 @@
     },
     "labs_by_quarter": {
       "2026-Q1": 1,
-      "2026-Q2": 1
-    }
-  },
-  {
-    "id": "mbct",
-    "name": "MBCT",
-    "lab_count": 1,
-    "labs": [
-      "meta"
-    ],
-    "first_seen": "2026-05-14",
-    "last_seen": "2026-05-14",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
       "2026-Q2": 1
     }
   },
@@ -27598,23 +27324,6 @@
     ],
     "first_seen": "2025-09-21",
     "last_seen": "2025-12-09",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1,
-      "2025-Q4": 1
-    }
-  },
-  {
-    "id": "minvideopairs",
-    "name": "Min Video Pairs",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2025-09-25",
-    "last_seen": "2025-10-02",
     "labs_by_year": {
       "2025": 1
     },
@@ -28496,22 +28205,6 @@
     }
   },
   {
-    "id": "molecularbiologycapabilitiestest",
-    "name": "Molecular Biology Capabilities Test",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2025-08-07",
-    "last_seen": "2025-08-07",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    }
-  },
-  {
     "id": "monashforecastingarchive",
     "name": "Monash Forecasting Archive",
     "lab_count": 1,
@@ -28894,7 +28587,7 @@
     }
   },
   {
-    "id": "mtaime2024",
+    "id": "mtaime24",
     "name": "MT-AIME2024",
     "lab_count": 1,
     "labs": [
@@ -29707,22 +29400,6 @@
     }
   },
   {
-    "id": "mvp",
-    "name": "MVP",
-    "lab_count": 1,
-    "labs": [
-      "meta"
-    ],
-    "first_seen": "2025-06-11",
-    "last_seen": "2025-06-11",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1
-    }
-  },
-  {
     "id": "mypcbench",
     "name": "MyPCBench",
     "lab_count": 1,
@@ -29829,22 +29506,6 @@
     }
   },
   {
-    "id": "naturalq",
-    "name": "NaturalQ",
-    "lab_count": 1,
-    "labs": [
-      "mistral"
-    ],
-    "first_seen": "2024-07-18",
-    "last_seen": "2024-07-18",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1
-    }
-  },
-  {
     "id": "naturalqa",
     "name": "Natural QA",
     "lab_count": 1,
@@ -29858,24 +29519,6 @@
     },
     "labs_by_quarter": {
       "2025-Q3": 1
-    }
-  },
-  {
-    "id": "naturalqs",
-    "name": "NaturalQS",
-    "lab_count": 1,
-    "labs": [
-      "mistral"
-    ],
-    "first_seen": "2024-04-17",
-    "last_seen": "2026-01-13",
-    "labs_by_year": {
-      "2024": 1,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q2": 1,
-      "2026-Q1": 1
     }
   },
   {
@@ -30833,7 +30476,7 @@
     }
   },
   {
-    "id": "openaimod2022",
+    "id": "openaimod22",
     "name": "OpenAI Mod (2022)",
     "lab_count": 1,
     "labs": [
@@ -31493,7 +31136,7 @@
     }
   },
   {
-    "id": "pascalvoc2012",
+    "id": "pascalvoc12",
     "name": "PASCAL VOC 2012",
     "lab_count": 1,
     "labs": [
@@ -32618,7 +32261,7 @@
     }
   },
   {
-    "id": "putnam2024",
+    "id": "putnam24",
     "name": "Putnam 2024",
     "lab_count": 1,
     "labs": [
@@ -37433,7 +37076,7 @@
     }
   },
   {
-    "id": "usabosemifinalexam2020",
+    "id": "usabosemifinalexam20",
     "name": "USABO Semifinal Exam 2020",
     "lab_count": 1,
     "labs": [
@@ -37465,7 +37108,7 @@
     }
   },
   {
-    "id": "usamo2026",
+    "id": "usamo26",
     "name": "USAMO 2026",
     "lab_count": 1,
     "labs": [
@@ -37531,7 +37174,7 @@
     }
   },
   {
-    "id": "usncolocalsectionexam2022",
+    "id": "usncolocalsectionexam22",
     "name": "USNCO Local Section Exam 2022",
     "lab_count": 1,
     "labs": [
