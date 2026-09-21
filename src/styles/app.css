@@ -165,10 +165,10 @@ a:hover { text-decoration-color: var(--text-primary); }
 .mark--many { stroke-width: 2.5; }
 circle.mark[class*="mark--s"] { fill: currentColor; }
 
-.s1,.mark--s1,.dt__dot.s1 { color: var(--series-1); } .s2,.mark--s2,.dt__dot.s2 { color: var(--series-2); }
-.s3,.mark--s3,.dt__dot.s3 { color: var(--series-3); } .s4,.mark--s4,.dt__dot.s4 { color: var(--series-4); }
-.s5,.mark--s5,.dt__dot.s5 { color: var(--series-5); } .s6,.mark--s6,.dt__dot.s6 { color: var(--series-6); }
-.s7,.mark--s7,.dt__dot.s7 { color: var(--series-7); } .s8,.mark--s8,.dt__dot.s8 { color: var(--series-8); }
+.s1 { --slot: var(--series-1); } .s2 { --slot: var(--series-2); }
+.s3 { --slot: var(--series-3); } .s4 { --slot: var(--series-4); }
+.s5 { --slot: var(--series-5); } .s6 { --slot: var(--series-6); }
+.s7 { --slot: var(--series-7); } .s8 { --slot: var(--series-8); }
 
 .tt {
   position: fixed; z-index: 60; max-width: 330px; pointer-events: none;
