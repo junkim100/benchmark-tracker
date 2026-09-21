@@ -143,8 +143,10 @@ a:hover { text-decoration-color: var(--text-primary); }
 .dt thead th:first-child { text-align: left; }
 .dt tbody th { padding: 11px 18px 11px 0; font-weight: 450; text-align: left; white-space: nowrap; border-bottom: 1px solid var(--border);
   /* max-width on a table cell is advisory: 42vw asked for 164px at 390 and the
-     cell rendered 226. An explicit width is honoured. */
+     cell rendered 226. An explicit width is honoured. It is honoured too well,
+     though, so it stays narrow only where the row is actually cramped. */
   max-width: 14ch; width: 14ch; overflow: hidden; text-overflow: ellipsis; }
+@media (min-width: 900px) { .dt tbody th { max-width: 34ch; width: 34ch; } }
 .dt tbody td { padding: 11px 5px; text-align: right; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
 .dt tbody tr:last-child th, .dt tbody tr:last-child td { border-bottom: 0; }
 .dt__dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 9px; vertical-align: 1px; background: var(--slot, var(--text-muted)); }
@@ -154,7 +156,12 @@ a:hover { text-decoration-color: var(--text-primary); }
 .dt thead tr:last-child th:not(:first-child) { text-align: right; padding-right: 5px; }
 
 /* Timeline */
-.tl { display: flex; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface-2); }
+/* clip, not hidden. Both clip to the rounded corners, but `hidden` makes this
+   a scroll container, and a scroll container is the scrollport its sticky
+   descendants resolve against. This box never scrolls, so `top: 0` on the date
+   readout was inert against the page scroll. `clip` is not a scroll container,
+   so the readout resolves against the viewport and actually sticks. */
+.tl { display: flex; border: 1px solid var(--border); border-radius: 10px; overflow: clip; background: var(--surface-2); }
 .tl__labs { flex: 0 0 auto; border-right: 1px solid var(--border); background: var(--surface-2); padding-top: 34px; }
 .tl__lab { display: flex; align-items: center; gap: 10px; padding: 0 18px 0 14px; white-space: nowrap; font-size: 13.5px; }
 .tl__logo {

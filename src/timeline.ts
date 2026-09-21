@@ -17,11 +17,24 @@ const PAD_DAYS = 45;
 // Narrow viewports get a tighter day scale. At 6px a quarter is 540px wide,
 // which is wider than a phone's 220px scroller, so most scroll positions
 // showed no date label at all.
-const NARROW = typeof window !== "undefined" && window.innerWidth < 760;
-const PX_PER_DAY = NARROW ? 2.4 : 6;
-// Marks must shrink with the day scale or a 10px dot spans four days and the
-// next day's mark covers it completely, which hid 19 of 620 on a phone.
-const MARK_SCALE = NARROW ? 0.6 : 1;
+//
+// Read per render rather than once at module load, so rotating a phone lands
+// in the right geometry instead of keeping whichever width happened to be in
+// effect when the bundle parsed.
+//
+// Marks shrink with the day scale, and they have to shrink by the same factor
+// or they grow relative to the date axis. The day scale drops 2.5x, so 0.6
+// left a 4.8px dot spanning two days where the desktop dot spans 1.33, and 49
+// of 620 marks had their own centre covered by a neighbour. 0.4 restores the
+// desktop profile.
+function metrics() {
+  const narrow = typeof window !== "undefined" && window.innerWidth < 760;
+  return { narrow, pxPerDay: narrow ? 2.4 : 6, markScale: narrow ? 0.4 : 1 };
+}
+
+export function timelineBucket(): boolean {
+  return metrics().narrow;
+}
 
 export interface TimelineArgs {
   labs: Lab[];
@@ -37,6 +50,7 @@ export interface TimelineArgs {
 let lastScroll: number | null = null;
 
 export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
+  const { pxPerDay: PX_PER_DAY, markScale: MARK_SCALE } = metrics();
   const keep = host.querySelector<HTMLDivElement>(".tl__scroll");
   if (keep) lastScroll = keep.scrollLeft;
   const days = a.releases.map((r) => dayNumber(r.date));

@@ -65,7 +65,14 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   const open = () => { if (input.disabled) return; list.hidden = false; input.setAttribute("aria-expanded", "true"); paint(); };
   const close = () => { list.hidden = true; input.setAttribute("aria-expanded", "false"); active = -1; };
 
-  input.addEventListener("focus", open);
+  input.addEventListener("focus", () => {
+    // Restoring focus after a pick should restore keyboard flow without
+    // reopening the list, which lands on top of the chart the pick was meant
+    // to reveal. Gating this on viewport width was the earlier attempt and it
+    // covered the chart at exactly the widths that have a chart worth seeing.
+    if (input.dataset.quiet) { delete input.dataset.quiet; return; }
+    open();
+  });
   input.addEventListener("click", open);
   input.addEventListener("input", () => { active = 0; open(); });
   input.addEventListener("keydown", (e) => {

@@ -3,7 +3,7 @@ import "./styles/app.css";
 import raw from "../data/timeline.json";
 import { MAX_TRACKED, displayNames, quarterOf, yearsSpanned, type Benchmark, type Timeline } from "./model";
 import { renderFilter } from "./filter";
-import { renderTimeline, tooltipHTML } from "./timeline";
+import { renderTimeline, timelineBucket, tooltipHTML } from "./timeline";
 import { renderTrend, type TrendView } from "./trend";
 
 const data = raw as unknown as Timeline;
@@ -128,11 +128,13 @@ if (data.releases.length === 0) {
           : tracked.filter((t) => t !== id);
         draw();
         // Re-rendering replaces the input, so focus has to be put back or
-        // picking a second benchmark means reaching for the mouse again.
-        // Only reopen where the list does not cover the result. On a phone the
-        // panel sits over the chart and the view toggle, so returning focus
-        // hides the very thing the pick was meant to show.
-        if (adding && window.innerWidth >= 760) app.querySelector<HTMLInputElement>(".pick__input")?.focus();
+        // picking a second benchmark means reaching for the mouse again. The
+        // quiet flag keeps the list shut on the way in, so focus returns
+        // without the panel covering the chart.
+        if (adding) {
+          const i = app.querySelector<HTMLInputElement>(".pick__input");
+          if (i) { i.dataset.quiet = "1"; i.focus(); }
+        }
       },
     });
     renderTrend($(".trendwrap"), {
@@ -155,6 +157,16 @@ if (data.releases.length === 0) {
     localStorage.setItem("bt-theme", effective() === "dark" ? "light" : "dark");
     applyTheme(readTheme());
     paintTheme();
+  });
+
+  // The timeline picks its day scale from the viewport, so a rotation has to
+  // redraw it. Only on a bucket change: resizing within one bucket changes
+  // nothing and a redraw would cost the reader their scroll position.
+  let narrow = timelineBucket();
+  window.addEventListener("resize", () => {
+    if (timelineBucket() === narrow) return;
+    narrow = !narrow;
+    draw();
   });
 
   draw();
