@@ -26,7 +26,7 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
 .hd { display: flex; align-items: flex-start; gap: 28px; margin-bottom: 14px; }
 .hd__title { flex: 1; min-width: 0; }
 .hd h1 { margin: 0; font-size: clamp(29px, 4.4vw, 41px); line-height: 1.06; letter-spacing: -0.032em; font-weight: 600; }
-.hd__sub { margin: 11px 0 0; max-width: 58ch; font-size: 17px; line-height: 1.45; color: var(--text-secondary); }
+.hd__sub { text-wrap: pretty; margin: 11px 0 0; max-width: 58ch; font-size: 17px; line-height: 1.45; color: var(--text-secondary); }
 /* Square now that it holds an icon rather than the words "Dark" and "Light".
    36px keeps it a comfortable pointer target without it competing with the
    heading beside it. */
@@ -61,8 +61,12 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
   content: ""; position: absolute; left: 0; top: .18em; bottom: .18em;
   width: 3px; border-radius: 2px; background: var(--accent);
 }
-.sec__head p { margin: 5px 0 0 15px; font-size: 14.5px; line-height: 1.5; color: var(--text-muted); max-width: 64ch; }
-.scope p { margin: 0; max-width: 84ch; font-size: 16px; line-height: 1.6; color: var(--text-secondary); }
+.sec__head p { text-wrap: pretty; margin: 5px 0 0 15px; font-size: 14.5px; line-height: 1.5; color: var(--text-muted); max-width: 64ch; }
+/* No reading-width cap. At 84ch this sentence broke onto a second line
+   holding four words, in a container 350px wider than the cap, so the rule
+   meant to aid reading was producing an orphan instead. It is one standfirst
+   line, not a block of prose, and it wraps on its own at narrow widths. */
+.scope p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--text-secondary); text-wrap: pretty; }
 .scope b { font-weight: 600; color: var(--text-primary); font-variant-numeric: tabular-nums; }
 
 /* Picker */
@@ -115,7 +119,9 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
 .trend__bar { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 14px; }
 .trend figcaption { font-size: 14px; color: var(--text-secondary); max-width: 76ch; }
 .trendscroll { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
-.trend__svg { width: 100%; min-width: 900px; max-width: 900px; height: auto; overflow: visible; }
+/* No fixed width any more: the script sizes the viewBox to this box, so the
+   svg fills it at 1:1 and the axis type keeps the size it was drawn at. */
+.trend__svg { width: 100%; height: auto; overflow: visible; }
 .lede { margin: 0 0 44px; }
 .lede p { margin: 0; max-width: 70ch; font-size: 16px; color: var(--text-muted); }
 
@@ -174,7 +180,14 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
      though, so it stays narrow only where the row is actually cramped. */
   max-width: 14ch; width: 14ch; overflow: hidden; text-overflow: ellipsis; }
 @media (min-width: 900px) { .dt tbody th { max-width: 34ch; width: 34ch; } }
-.dt tbody td { padding: 11px 5px; text-align: right; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+/* A wash scaled to the cell's own value, in the series' colour. Kept low
+   enough that the digit stays the thing being read: at the peak it is 22 per
+   cent of the hue, which registers as a tint rather than a block. */
+.dt tbody td {
+  padding: 11px 5px; text-align: right; color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in oklab, var(--slot, var(--text-muted)) calc(var(--v, 0) * 22%), transparent);
+}
 .dt tbody tr:last-child th, .dt tbody tr:last-child td { border-bottom: 0; }
 .dt__dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 9px; vertical-align: 1px; background: var(--slot, var(--text-muted)); }
 .dt tbody td.dt__peak { color: var(--text-primary); font-weight: 600; }
@@ -256,10 +269,15 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 
 /* The page ends on its own surface rather than trailing off. A colour change
    closes the document more cleanly than another hairline would. */
+/* Two notes side by side, then the meta line on its own row beneath a rule.
+   Three equal columns at 52ch left every note four lines deep and ragged; two
+   columns of half the row give each about two, and the short meta line no
+   longer has to pretend it is a third column. */
 .ft { margin-top: 52px; padding: 26px clamp(18px, 5vw, 44px) 30px; border-top: 1px solid var(--border);
-  background: var(--surface-2); border-radius: var(--radius);
-  display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
-.ft p { margin: 0; max-width: 52ch; font-size: 13px; line-height: 1.55; color: var(--text-muted); }
+  background: var(--surface-2); border-radius: var(--radius); }
+.ft__notes { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 40px; }
+.ft__meta { margin: 20px 0 0; padding-top: 18px; border-top: 1px solid var(--border); }
+.ft p { margin: 0; font-size: 13px; line-height: 1.55; color: var(--text-muted); text-wrap: pretty; }
 .empty { max-width: 56ch; }
 
 @media (max-width: 720px) {
@@ -271,6 +289,10 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
   .tl__lab { padding: 0 8px; font-size: 12px; gap: 7px; max-width: 128px; }
   .tl__name { overflow: hidden; text-overflow: ellipsis; }
   .dt { font-size: 13px; }
+  /* One column. Two of them in a 350px row left each note twelve lines deep. */
+  .ft__notes { grid-template-columns: 1fr; gap: 18px; }
+  /* A comfortable target rather than the 31px the pair sat at. */
+  .seg button { padding: 10px 16px; }
 }
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }

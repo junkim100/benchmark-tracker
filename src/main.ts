@@ -85,9 +85,11 @@ if (data.releases.length === 0) {
     </div>
 
     <footer class="ft">
-      <p>Sources are each lab's own site, model card, system card, or arXiv paper. Nothing is taken from news coverage or third-party leaderboards, and no score is recorded anywhere.</p>
-      <p>Lab names and marks are the trademarks of their respective owners, shown to identify whose releases each row lists. This site reports on these companies and is neither endorsed by nor affiliated with any of them.</p>
-      <p>Updated ${data.generated_at.slice(0, 10)}. <a href="https://github.com/junkim100/benchmark-tracker">Data and code on GitHub</a></p>
+      <div class="ft__notes">
+        <p>Sources are each lab's own site, model card, system card, or arXiv paper. Nothing is taken from news coverage or third-party leaderboards, and no score is recorded anywhere.</p>
+        <p>Lab names and marks are the trademarks of their respective owners, shown to identify whose releases each row lists. This site reports on these companies and is neither endorsed by nor affiliated with any of them.</p>
+      </div>
+      <p class="ft__meta">Updated ${data.generated_at.slice(0, 10)}. <a href="https://github.com/junkim100/benchmark-tracker">Data and code on GitHub</a></p>
     </footer>
     <div class="tt" role="tooltip" hidden></div>`;
 
@@ -201,8 +203,14 @@ if (data.releases.length === 0) {
   // redraw it. Only on a bucket change: resizing within one bucket changes
   // nothing and a redraw would cost the reader their scroll position.
   let narrow = timelineBucket();
+  // The chart measures its container when it draws, so a width change has to
+  // redraw it or the canvas keeps the size the last draw found. Only past a
+  // few pixels: a scrollbar appearing is not a resize worth a repaint.
+  let chartW = $(".trendwrap").getBoundingClientRect().width;
   window.addEventListener("resize", () => {
     noteTimelineResize();
+    const w = $(".trendwrap").getBoundingClientRect().width;
+    if (Math.abs(w - chartW) > 8) { chartW = w; draw(); return; }
     if (timelineBucket() !== narrow) { narrow = !narrow; draw(); return; }
     // Same bucket, so no redraw, but a widened viewport still clamps the
     // scroller and no redraw is coming to undo it.

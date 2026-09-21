@@ -25,7 +25,7 @@ export interface TrendArgs {
   onHoverFitted: (build: (n: number) => string, max: number, x: number, y: number) => void;
 }
 
-const W = 900, H = 330, M = { t: 22, r: 152, b: 52, l: 44 };
+
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
 
 export function renderTrend(host: HTMLElement, a: TrendArgs): void {
@@ -33,6 +33,24 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
     host.innerHTML = `<div class="lede"><p>Pick a benchmark above. You will see how many labs cited it each quarter, and which ones stopped.</p></div>`;
     return;
   }
+
+  // The canvas is the container, not a fixed 900. It used to be pinned to 900
+  // in both min and max width, so a 351px phone got a third of the chart and a
+  // scrollbar, and scaling it down instead would have taken the axis text with
+  // it. Measuring means one pixel of viewBox is one pixel on screen at every
+  // size, so the type stays the size it was drawn at.
+  const avail = Math.round(host.getBoundingClientRect().width) || 900;
+  const narrow = avail < 640;
+  const W = Math.max(300, avail);
+  // Height follows width so the plot keeps its proportions instead of flattening
+  // into a strip on a wide screen and squaring up on a phone. Bounded at both
+  // ends: below 300 the gridlines crowd, above 430 the chart starts asking for
+  // more of the fold than it earns.
+  const H = Math.round(Math.min(430, Math.max(300, W * 0.36)));
+  // The right margin exists only to hold the direct end labels. Below 640 there
+  // is no room for them, so the margin goes and the legend underneath does that
+  // work instead.
+  const M = { t: 22, r: narrow ? 16 : 152, b: 52, l: narrow ? 32 : 44 };
 
   const labName = new Map(a.labs.map((l) => [l.id, l.name]));
   const maxY = Math.max(1, ...a.tracked.flatMap((b) => Object.values(b.labs_by_quarter)));
@@ -63,7 +81,7 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
     const pts = a.quarters.map((q, i) => ({ q, i, n: b.labs_by_quarter[q] ?? 0 }));
     const d = pts.map((p, j) => `${j ? "L" : "M"}${px(p.i).toFixed(1)},${py(p.n).toFixed(1)}`).join(" ");
     const last = pts[pts.length - 1];
-    const label = a.tracked.length <= 4
+    const label = !narrow && a.tracked.length <= 4
       ? (() => {
           const ly = labelY(py(last.n));
           // The right margin is the whole width budget. A name that would run
@@ -90,7 +108,10 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
   // Year boundaries carry the axis; quarters are ticked but only Q1 and Q3 are
   // labelled, because fifteen labels in that width collide.
   const yearMarks = a.quarters.map((q, i) => ({ q, i })).filter((x) => x.q.endsWith("Q1"));
-  const qLabels = a.quarters.map((q, i) => ({ q, i })).filter((x) => x.q.endsWith("Q1") || x.q.endsWith("Q3"));
+  // Q1 and Q3 at full width; Q1 alone when narrow, where eight labels across
+  // 300-odd pixels would touch.
+  const qLabels = a.quarters.map((q, i) => ({ q, i }))
+    .filter((x) => x.q.endsWith("Q1") || (!narrow && x.q.endsWith("Q3")));
   const partialIdx = a.partialQuarter ? a.quarters.indexOf(a.partialQuarter) : -1;
 
   const chart = `
@@ -120,9 +141,13 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
         <tbody>${a.tracked.map((b, i) => {
           const vals = a.quarters.map((q) => b.labs_by_quarter[q] ?? 0);
           const peak = Math.max(...vals);
-          return `<tr>
-            <th scope="row"><span class="dt__dot s${i + 1}"></span>${esc(a.names.get(b.id) ?? b.id)}</th>
-            ${vals.map((v) => `<td${v === peak && peak > 0 ? ' class="dt__peak"' : ""}>${v || "–"}</td>`).join("")}
+          // The row carries the slot so each cell can tint itself by value.
+          // Sixteen columns of bare digits are read one at a time; a wash in
+          // the series' own colour lets the shape of a row be seen at once,
+          // and ties the table to the chart it replaces.
+          return `<tr class="s${i + 1}">
+            <th scope="row"><span class="dt__dot"></span>${esc(a.names.get(b.id) ?? b.id)}</th>
+            ${vals.map((v) => `<td style="--v:${(v / maxY).toFixed(3)}"${v === peak && peak > 0 ? ' class="dt__peak"' : ""}>${v || "–"}</td>`).join("")}
             <td class="dt__tot">${peak}</td>
           </tr>`;
         }).join("")}</tbody>
