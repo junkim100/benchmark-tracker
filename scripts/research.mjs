@@ -22,6 +22,20 @@ const LOOKBACK_DAYS = Number(process.env.LOOKBACK_DAYS ?? 14);
 const labs = JSON.parse(readFileSync(join(DATA, "labs.json"), "utf8"));
 const client = new Anthropic();
 
+// The benchmarks already tracked, so the agent can tell a genuinely new one
+// from a new spelling of an old one. Only those cited by two or more labs: the
+// long tail of single-citation names is mostly noise and would crowd the prompt.
+//
+// This judgement cannot be delegated to a string metric. Edit distance pairs
+// MMLU-Pro with MMMU-Pro and IFEval with C-Eval, which are different
+// benchmarks, while missing AIME 2024 against AIME24, which are the same.
+// Knowing which is which is a semantic question.
+const known = existsSync(join(DATA, "benchmarks.json"))
+  ? JSON.parse(readFileSync(join(DATA, "benchmarks.json"), "utf8"))
+      .filter((b) => b.lab_count >= 2)
+      .map((b) => b.name)
+  : [];
+
 const since = new Date(Date.now() - LOOKBACK_DAYS * 864e5).toISOString().slice(0, 10);
 const today = new Date().toISOString().slice(0, 10);
 
@@ -61,8 +75,22 @@ const RECORD_SCHEMA = {
             items: { type: "string" },
             description: "Benchmark names exactly as the lab printed them. Never a score. Empty array is valid and means the lab cited no benchmark.",
           },
+          alias_suggestions: {
+            type: "array",
+            description: "For any benchmark you recorded that is an already-tracked benchmark under a different name, pair your spelling with the tracked one. Leave empty when everything you found is either already spelled the same way or genuinely new.",
+            items: {
+              type: "object",
+              properties: {
+                raw: { type: "string", description: "The spelling you recorded, exactly as the lab wrote it." },
+                tracked: { type: "string", description: "The already-tracked benchmark it is the same as, copied exactly from the tracked list." },
+                reason: { type: "string", description: "Why they are the same benchmark, in one short clause." },
+              },
+              required: ["raw", "tracked", "reason"],
+              additionalProperties: false,
+            },
+          },
         },
-        required: ["model", "date", "kind", "title", "source_url", "benchmarks_raw"],
+        required: ["model", "date", "kind", "title", "source_url", "benchmarks_raw", "alias_suggestions"],
         additionalProperties: false,
       },
     },
@@ -81,7 +109,14 @@ async function researchLab(lab) {
     system:
       "You catalogue which benchmarks AI labs cite when they ship a model. You record the citation and never the score. " +
       "A number anywhere in your output is an error. If a release cites no benchmark, that is a real and useful finding: " +
-      "record it with an empty benchmarks_raw. Never guess a date or a URL; omit anything you cannot confirm from the source itself.",
+      "record it with an empty benchmarks_raw. Never guess a date or a URL; omit anything you cannot confirm from the source itself.\n\n" +
+      "You also guard against the same benchmark entering the dataset twice under two names. Always record the lab's exact " +
+      "wording in benchmarks_raw; that fidelity is not negotiable. Separately, check each name against the tracked list you " +
+      "are given, and when your spelling is the same benchmark under a different name, pair them in alias_suggestions.\n\n" +
+      "Be precise about what counts as the same. AIME24 and AIME 2024 are one benchmark. MMLU-Pro and MMMU-Pro are two, and " +
+      "so are IFEval and C-Eval, despite looking alike. A language or difficulty split is its own benchmark: IFEval " +
+      "(Japanese) is not IFEval, and Leetcode (hard) is not Leetcode. Spelling, punctuation and capitalisation differences " +
+      "are handled downstream, so do not pair names that differ only that way.",
     messages: [{
       role: "user",
       content:
@@ -90,7 +125,8 @@ async function researchLab(lab) {
         `For each one, record which benchmarks the lab cited, using the exact wording on the page ` +
         `("SWE-bench Verified", not a normalised slug). Search is restricted to ${allowed.join(", ")}, which is deliberate: ` +
         `only the lab's own publications count.\n\n` +
-        `Return an empty releases array if there is nothing in that window. That is the normal result on most days.`,
+        `Return an empty releases array if there is nothing in that window. That is the normal result on most days.\n\n` +
+        `Benchmarks already tracked, for the alias check (${known.length} cited by two or more labs):\n${known.join(", ")}`,
     }],
   });
 
@@ -102,6 +138,7 @@ async function researchLab(lab) {
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 let added = 0;
 const summary = [];
+const aliasNotes = [];
 
 const results = await Promise.allSettled(labs.map(async (lab) => {
   const found = await researchLab(lab);
@@ -122,6 +159,12 @@ const results = await Promise.allSettled(labs.map(async (lab) => {
       benchmarks_raw: r.benchmarks_raw,
     }));
 
+  for (const r of found) {
+    for (const sug of r.alias_suggestions ?? []) {
+      aliasNotes.push(`${lab.name}: "${sug.raw}" looks like the tracked "${sug.tracked}" (${sug.reason})`);
+    }
+  }
+
   if (fresh.length) {
     const merged = [...existing, ...fresh].sort((a, b) => a.date.localeCompare(b.date));
     writeFileSync(path, JSON.stringify(merged, null, 2) + "\n");
@@ -134,6 +177,11 @@ for (const [i, r] of results.entries()) {
   if (r.status === "rejected") summary.push(`${labs[i].name}: FAILED ${r.reason?.message ?? r.reason}`);
 }
 
-console.log(summary.length ? summary.join("\n") : "No new releases found.");
-writeFileSync(join(ROOT, "research-summary.txt"), summary.join("\n") || "No new releases found.");
+const lines = [...summary];
+if (aliasNotes.length) {
+  lines.push("", `Possible duplicate spellings (${aliasNotes.length}), add to data/aliases.json if correct:`, ...aliasNotes.map((n) => `  ${n}`));
+}
+const report = lines.join("\n") || "No new releases found.";
+console.log(report);
+writeFileSync(join(ROOT, "research-summary.txt"), report);
 process.exit(0);
