@@ -8,12 +8,13 @@
 // Hovering a point names the labs and the models behind the count, because
 // "six labs" is a number and "which six, and what did they ship" is the answer.
 
-import { detailFor, quarterLabel, type Benchmark, type Lab, type Release } from "./model";
+import { detailFor, memberIds, quarterLabel, type Benchmark, type Lab, type Release, type Trackable } from "./model";
 
 export type TrendView = "chart" | "table";
 
 export interface TrendArgs {
-  tracked: Benchmark[];
+  tracked: Trackable[];
+  benchmarks: Benchmark[];
   releases: Release[];
   labs: Lab[];
   names: Map<string, string>;
@@ -53,11 +54,11 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
   const M = { t: 22, r: narrow ? 16 : 152, b: 52, l: narrow ? 32 : 44 };
 
   const labName = new Map(a.labs.map((l) => [l.id, l.name]));
-  const maxY = Math.max(1, ...a.tracked.flatMap((b) => Object.values(b.labs_by_quarter)));
+  const maxY = Math.max(1, ...a.tracked.flatMap((b) => Object.values(b.labs_by_quarter) as number[]));
   const iw = W - M.l - M.r, ih = H - M.t - M.b;
   const px = (i: number) => M.l + (a.quarters.length < 2 ? iw / 2 : (i / (a.quarters.length - 1)) * iw);
   const py = (n: number) => M.t + ih - (n / maxY) * ih;
-  const detail = new Map(a.tracked.map((b) => [b.id, detailFor(a.releases, b.id)]));
+  const detail = new Map(a.tracked.map((b) => [b.id, detailFor(a.releases, memberIds(b, a.benchmarks))]));
 
   // Series that finish on the same value would otherwise print their end labels
   // at identical coordinates and render as one unreadable overlap.

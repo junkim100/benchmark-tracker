@@ -38,7 +38,7 @@ export interface TimelineArgs {
   labs: Lab[];
   quarters: string[];
   releases: Release[];
-  tracked: string[];               // benchmark ids, in slot order
+  trackedMembers: Set<string>[];   // one set of benchmark ids per slot, in slot order
   names: Map<string, string>;
   onHover: (rs: Release[] | null, x: number, y: number) => void;
 }
@@ -74,7 +74,15 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const y = (iso: string) => (hi - dayNumber(iso)) * PX_PER_DAY;
   const cx = (i: number) => GUT + colW * i + colW / 2;
 
-  const slotOf = new Map(a.tracked.map((id, i) => [id, i + 1]));
+  // Slot by membership, not by identity. A tracked suite covers many benchmark
+  // ids, so the lookup is the other way round: given what a release cites, find
+  // the first slot that claims any of it.
+  const slotOfRelease = (ids: string[]): number | undefined => {
+    for (let i = 0; i < a.trackedMembers.length; i++) {
+      if (ids.some((id) => a.trackedMembers[i].has(id))) return i + 1;
+    }
+    return undefined;
+  };
 
   // Month rules across the plot, labelled in the gutter. January takes the ink
   // and carries the year; the rest stay quiet.
@@ -95,7 +103,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
     const byDate = new Map<string, Release[]>();
     for (const r of a.releases) if (r.lab === lab.id) byDate.set(r.date, [...(byDate.get(r.date) ?? []), r]);
     const dots = [...byDate.entries()].map(([date, rs]) => {
-      const slot = rs.flatMap((r) => r.benchmarks.map((b) => slotOf.get(b))).find((s) => s);
+      const slot = slotOfRelease(rs.flatMap((r) => r.benchmarks));
       const many = rs.length > 1;
       const cls = `mark${slot ? ` mark--s${slot}` : ""}${many ? " mark--many" : ""}`;
       const r0 = (slot ? 5.5 : 4) * scale;

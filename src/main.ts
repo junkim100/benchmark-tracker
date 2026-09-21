@@ -1,7 +1,7 @@
 import "./styles/tokens.css";
 import "./styles/app.css";
 import raw from "../data/timeline.json";
-import { MAX_TRACKED, displayNames, quarterOf, yearsSpanned, type Benchmark, type Timeline } from "./model";
+import { MAX_TRACKED, buildTrackables, displayNames, memberIds, quarterOf, yearsSpanned, type Timeline } from "./model";
 import { renderFilter } from "./filter";
 import { renderTimeline, tooltipHTML } from "./timeline";
 import { renderTrend, type TrendView } from "./trend";
@@ -34,7 +34,7 @@ if (data.releases.length === 0) {
   // Rows read alphabetically. Any other order implies a ranking the data does
   // not support, and a reader looking for one lab should not have to hunt.
   const labs = [...data.labs].sort((a, b) => a.name.localeCompare(b.name, "en"));
-  const byId = new Map(data.benchmarks.map((b) => [b.id, b]));
+  const trackables = buildTrackables(data);
   const top = data.benchmarks[0];
 
   // Open with the four most-cited benchmarks already tracked. An empty chart
@@ -62,8 +62,8 @@ if (data.releases.length === 0) {
 
     <div class="sec">
       <div class="sec__head">
-        <h2>Track a benchmark</h2>
-        <p>Pick up to eight and compare how widely each one is cited.</p>
+        <h2>Choose what to track</h2>
+        <p>Up to eight. A suite covers every version of an evaluation at once; a category covers a whole subject. Search ignores spelling, so "tau bench" finds &tau;&sup2;-Bench.</p>
       </div>
       <section class="controls" aria-label="Track benchmarks"></section>
     </div>
@@ -160,30 +160,37 @@ if (data.releases.length === 0) {
 
   const draw = () => {
     renderFilter($(".controls"), {
-      benchmarks: data.benchmarks, names, tracked,
+      trackables, categories: data.categories, tracked,
       onToggle: (id) => {
         const adding = !tracked.includes(id);
         tracked = adding
           ? tracked.length < MAX_TRACKED ? [...tracked, id] : tracked
           : tracked.filter((t) => t !== id);
+        // Keep the browser where it was. Re-rendering replaces the field and
+        // the tab strip, so without this a second pick means retyping the
+        // search and finding the category again.
+        const before = app.querySelector<HTMLInputElement>(".browse__input")?.value ?? "";
+        const activeTab = app.querySelector('.browse__tabs [aria-selected="true"]')?.getAttribute("data-tab") ?? "";
         draw();
-        // Re-rendering replaces the input, so focus has to be put back or
-        // picking a second benchmark means reaching for the mouse again. The
-        // quiet flag keeps the list shut on the way in, so focus returns
-        // without the panel covering the chart.
-        if (adding) {
-          const i = app.querySelector<HTMLInputElement>(".pick__input");
-          if (i) { i.dataset.quiet = "1"; i.focus(); }
-        }
+        const after = app.querySelector<HTMLInputElement>(".browse__input");
+        if (after && before) { after.value = before; after.dispatchEvent(new Event("input")); }
+        if (activeTab) app.querySelector<HTMLButtonElement>(`.browse__tabs [data-tab="${activeTab}"]`)?.click();
       },
     });
     renderTrend($(".trendwrap"), {
-      tracked: tracked.map((id) => byId.get(id)!).filter(Boolean) as Benchmark[],
+      tracked: tracked.map((id) => trackables.get(id)!).filter(Boolean),
+      benchmarks: data.benchmarks,
       releases: data.releases, labs, names, quarters: data.quarters, partialQuarter,
       view, onView: (v) => { view = v; draw(); }, onHover: showTip, onHoverFitted: showFitted,
     });
     renderTimeline($(".tlwrap"), {
-      labs, releases: data.releases, tracked, names, quarters: data.quarters,
+      labs, releases: data.releases, names, quarters: data.quarters,
+      // A mark is coloured by the slot of whatever it cites, so a tracked suite
+      // has to hand the timeline every version it covers, not its own id.
+      trackedMembers: tracked.map((id) => {
+        const t = trackables.get(id);
+        return t ? memberIds(t, data.benchmarks) : new Set<string>();
+      }),
       onHover: (rs, x, y) => {
         if (!rs || !rs.length) { showTip(null, 0, 0); return; }
         showFitted((n, blocks) => tooltipHTML(rs, names, n, blocks), 8, x, y);

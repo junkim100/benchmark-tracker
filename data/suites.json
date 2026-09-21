@@ -1,0 +1,26 @@
+{
+  "_comment": "Benchmark suites. A suite groups versions and variants of one evaluation so its total adoption can be read at once, while every version stays separately visible. Matching is on the same flattened key the alias map uses: lowercased, punctuation removed, a trailing four-digit year folded. `starts` matches the head of that key, `has` matches anywhere, `not` excludes. Order matters only in that a benchmark joins the first suite it matches, so put the narrower suite first where two could both claim a name.",
+  "_review": "These are curated, not derived. An automatic pass over shared prefixes put Math23K and Math Odyssey inside MATH, and MMLU Professional medicine inside MMLU-Pro, which are different benchmarks that happen to share a stem. Adding a suite is a judgement about whether two names are versions of one evaluation, the same judgement the alias map exists to record.",
+  "suites": [
+    { "id": "mmlu-pro",      "name": "MMLU-Pro",      "starts": ["mmlupro", "mmluprox"] },
+    { "id": "mmlu",          "name": "MMLU",          "starts": ["mmlu"], "not": ["mmlupro", "mmluprox"] },
+    { "id": "mmmu",          "name": "MMMU",          "starts": ["mmmu"] },
+    { "id": "terminal-bench","name": "Terminal-Bench","has": ["terminalbench"] },
+    { "id": "swe-bench",     "name": "SWE-bench",     "has": ["swebench"] },
+    { "id": "livecodebench", "name": "LiveCodeBench", "starts": ["livecodebench"] },
+    { "id": "humaneval",     "name": "HumanEval",     "starts": ["humaneval"] },
+    { "id": "mbpp",          "name": "MBPP",          "starts": ["mbpp"] },
+    { "id": "aime",          "name": "AIME",          "starts": ["aime"] },
+    { "id": "math",          "name": "MATH",          "starts": ["math500", "math"], "not": ["mathvista", "mathvision", "matharena", "math23k", "mathodyssey", "mathqa", "mathbench"] },
+    { "id": "gpqa",          "name": "GPQA",          "starts": ["gpqa"], "not": ["supergpqa"] },
+    { "id": "osworld",       "name": "OSWorld",       "starts": ["osworld"] },
+    { "id": "tau-bench",     "name": "tau-bench",     "starts": ["taubench", "tau2", "tau3", "t2bench", "taubanking", "tauretail", "tauairline", "tautelecom", "tauvoice"] },
+    { "id": "browsecomp",    "name": "BrowseComp",    "starts": ["browsecomp"] },
+    { "id": "gdpval",        "name": "GDPval",        "starts": ["gdpval"] },
+    { "id": "simpleqa",      "name": "SimpleQA",      "starts": ["simpleqa"] },
+    { "id": "arc-agi",       "name": "ARC-AGI",       "starts": ["arcagi"] },
+    { "id": "bfcl",          "name": "BFCL",          "starts": ["bfcl"] },
+    { "id": "refcoco",       "name": "RefCOCO",       "starts": ["refcoco"] },
+    { "id": "video-mme",     "name": "Video-MME",     "starts": ["videomme"] }
+  ]
+}

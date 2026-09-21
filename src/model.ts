@@ -15,9 +15,58 @@ export interface Benchmark {
   first_seen: string; last_seen: string;
   labs_by_year: Record<string, number>;
   labs_by_quarter: Record<string, number>;
+  categories: string[];          // one primary, optionally one secondary, never three
+  suite: string | null;
 }
 
-export interface Timeline { generated_at: string; labs: Lab[]; releases: Release[]; benchmarks: Benchmark[]; quarters: string[] }
+export interface Group {
+  id: string; name: string; blurb?: string; members: number;
+  lab_count: number; labs: string[];
+  labs_by_quarter: Record<string, number>;
+}
+
+export interface Timeline {
+  generated_at: string; labs: Lab[]; releases: Release[]; benchmarks: Benchmark[];
+  quarters: string[]; categories: Group[]; suites: Group[];
+}
+
+/** What a series on the chart can be. Benchmarks, the suites that gather their
+ *  versions, and the categories that gather their subject. All three are counted
+ *  the same way, as distinct labs per quarter, so they share one axis. */
+export type TrackKind = "benchmark" | "suite" | "category";
+
+export interface Trackable {
+  id: string;                    // "gpqa", "suite:terminal-bench", "cat:coding"
+  kind: TrackKind;
+  name: string;
+  lab_count: number;
+  labs_by_quarter: Record<string, number>;
+  members?: number;              // versions in a suite, benchmarks in a category
+  categories?: string[];
+  suite?: string | null;
+}
+
+export const trackId = (kind: TrackKind, id: string): string =>
+  kind === "benchmark" ? id : `${kind === "suite" ? "suite" : "cat"}:${id}`;
+
+/** One lookup over all three kinds, so the rest of the interface never has to
+ *  ask which sort of thing it is holding. */
+export function buildTrackables(t: Timeline): Map<string, Trackable> {
+  const m = new Map<string, Trackable>();
+  for (const c of t.categories) {
+    m.set(trackId("category", c.id), { id: trackId("category", c.id), kind: "category", name: c.name, lab_count: c.lab_count, labs_by_quarter: c.labs_by_quarter, members: c.members });
+  }
+  for (const s of t.suites) {
+    // A suite and its headline version often share a name, so the suite says
+    // so. Without this the browser showed "GPQA" twice and a chip for each was
+    // indistinguishable from the other.
+    m.set(trackId("suite", s.id), { id: trackId("suite", s.id), kind: "suite", name: `${s.name}, all versions`, lab_count: s.lab_count, labs_by_quarter: s.labs_by_quarter, members: s.members });
+  }
+  for (const b of t.benchmarks) {
+    m.set(b.id, { id: b.id, kind: "benchmark", name: b.name, lab_count: b.lab_count, labs_by_quarter: b.labs_by_quarter, categories: b.categories, suite: b.suite });
+  }
+  return m;
+}
 
 /** Colour is the scarce resource: eight validated slots, so tracking caps at eight. */
 export const MAX_TRACKED = 8;
@@ -54,10 +103,10 @@ export const quarterLabel = (q: string): string => `Q${q.slice(6)} ${q.slice(0, 
 /** Which labs cited a benchmark in a given quarter, and what they shipped. */
 export interface PeriodDetail { labs: { lab: string; models: string[] }[] }
 
-export function detailFor(releases: Release[], benchmarkId: string): Map<string, PeriodDetail> {
+export function detailFor(releases: Release[], members: Set<string>): Map<string, PeriodDetail> {
   const acc = new Map<string, Map<string, Set<string>>>();
   for (const r of releases) {
-    if (!r.benchmarks.includes(benchmarkId)) continue;
+    if (!r.benchmarks.some((b) => members.has(b))) continue;
     const q = quarterOf(r.date);
     const byLab = acc.get(q) ?? new Map<string, Set<string>>();
     byLab.set(r.lab, (byLab.get(r.lab) ?? new Set()).add(r.model));
@@ -68,4 +117,19 @@ export function detailFor(releases: Release[], benchmarkId: string): Map<string,
     out.set(q, { labs: [...byLab].map(([lab, models]) => ({ lab, models: [...models].sort() })).sort((a, b) => a.lab.localeCompare(b.lab)) });
   }
   return out;
+}
+
+
+/** The benchmark ids a trackable covers: itself for a benchmark, its versions
+ *  for a suite, its members for a category. The timeline colours a release mark
+ *  when it cites any of them, and the chart's hover detail reads the same set,
+ *  so tracking a suite lights up every version of it. */
+export function memberIds(t: Trackable, benchmarks: Benchmark[]): Set<string> {
+  if (t.kind === "benchmark") return new Set([t.id]);
+  if (t.kind === "suite") {
+    const sid = t.id.slice("suite:".length);
+    return new Set(benchmarks.filter((b) => b.suite === sid).map((b) => b.id));
+  }
+  const cid = t.id.slice("cat:".length);
+  return new Set(benchmarks.filter((b) => b.categories.includes(cid)).map((b) => b.id));
 }

@@ -22,6 +22,7 @@
 
 import Anthropic from "@anthropic-ai/sdk";
 import { readFileSync, writeFileSync, appendFileSync, existsSync } from "node:fs";
+import { CATEGORIES } from "./classify.mjs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -30,6 +31,7 @@ const DATA = join(ROOT, "data");
 const LOOKBACK_DAYS = Number(process.env.LOOKBACK_DAYS ?? 14);
 
 const labs = JSON.parse(readFileSync(join(DATA, "labs.json"), "utf8"));
+const CATEGORY_IDS = CATEGORIES.map((c) => c.id);
 const client = new Anthropic();
 
 // The benchmarks already tracked, so the agent can tell a genuinely new one
@@ -90,6 +92,20 @@ const RECORD_SCHEMA = {
             items: { type: "string" },
             description: "Benchmark names exactly as the lab printed them. Never a score. Empty array is valid and means the lab cited no benchmark.",
           },
+          category_suggestions: {
+            type: "array",
+            description: "For any benchmark you recorded that is NOT already in the tracked list, give its subject. One primary category, and a second only when the benchmark genuinely sits in two. Never three.",
+            items: {
+              type: "object",
+              properties: {
+                raw: { type: "string", description: "The benchmark name, exactly as you recorded it." },
+                primary: { type: "string", enum: CATEGORY_IDS, description: "What the benchmark tests, not the medium it arrives in. Maths delivered as diagrams is math, not vision." },
+                secondary: { type: "string", enum: CATEGORY_IDS, description: "Optional. Only when a second subject is genuinely present, as in SWE-bench Multilingual." },
+              },
+              required: ["raw", "primary"],
+              additionalProperties: false,
+            },
+          },
           alias_suggestions: {
             type: "array",
             description: "For any benchmark you recorded that is an already-tracked benchmark under a different name, pair your spelling with the tracked one. Leave empty when everything you found is either already spelled the same way or genuinely new.",
@@ -105,7 +121,7 @@ const RECORD_SCHEMA = {
             },
           },
         },
-        required: ["model", "date", "kind", "title", "source_url", "benchmarks_raw", "alias_suggestions"],
+        required: ["model", "date", "kind", "title", "source_url", "benchmarks_raw", "alias_suggestions", "category_suggestions"],
         additionalProperties: false,
       },
     },
@@ -154,6 +170,7 @@ const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g
 let added = 0;
 const summary = [];
 const aliasSuggestions = [];
+const catSuggestions = [];
 
 const results = await Promise.allSettled(labs.map(async (lab) => {
   const found = await researchLab(lab);
@@ -177,6 +194,9 @@ const results = await Promise.allSettled(labs.map(async (lab) => {
   for (const r of found) {
     for (const sug of r.alias_suggestions ?? []) {
       aliasSuggestions.push({ raw: sug.raw, tracked: sug.tracked, reason: sug.reason, lab: lab.name });
+    }
+    for (const c of r.category_suggestions ?? []) {
+      catSuggestions.push({ raw: c.raw, cats: c.secondary ? [c.primary, c.secondary] : [c.primary], lab: lab.name });
     }
   }
 
@@ -219,10 +239,33 @@ for (const sug of aliasSuggestions) {
 }
 if (applied.length) writeFileSync(aliasPath, JSON.stringify(aliasMap, null, 2) + "\n");
 
+// Categories the rules could not have known. The rules in classify.mjs cover
+// the well-cited middle by pattern, but a name like Seal-0 carries no word any
+// pattern could match, and the agent that just read the release page knows what
+// it tests. Recorded as an override, which is exactly where a human correction
+// would go, so the two are interchangeable and either can be edited out.
+const catPath = join(DATA, "categories.json");
+const catFile = JSON.parse(readFileSync(catPath, "utf8"));
+const catApplied = [];
+for (const c of catSuggestions) {
+  const k = aliasKey(c.raw);
+  if (catFile.overrides[k]) continue;
+  const cats = c.cats.filter((x) => CATEGORY_IDS.includes(x)).slice(0, 2);
+  if (!cats.length) continue;
+  catFile.overrides[k] = cats;
+  catApplied.push({ ...c, cats });
+  appendFileSync(join(DATA, "category-log.jsonl"), JSON.stringify({ at: new Date().toISOString(), ...c, cats }) + "\n");
+}
+if (catApplied.length) writeFileSync(catPath, JSON.stringify(catFile, null, 2) + "\n");
+
 const lines = [...summary];
 if (applied.length) {
   lines.push("", `Merged ${applied.length} duplicate spelling(s) into data/aliases.json:`,
     ...applied.map((x) => `  "${x.raw}" -> ${x.target} (${x.lab}: ${x.reason})`));
+}
+if (catApplied.length) {
+  lines.push("", `Categorised ${catApplied.length} new benchmark(s):`,
+    ...catApplied.map((x) => `  "${x.raw}" -> ${x.cats.join(" + ")} (${x.lab})`));
 }
 if (skipped.length) {
   lines.push("", `Already covered, no change (${skipped.length}):`,

@@ -7,6 +7,7 @@
 
 import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
+import { CATEGORIES, classify, suiteOf } from "./classify.mjs";
 import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -15,6 +16,8 @@ const read = (p) => JSON.parse(readFileSync(p, "utf8"));
 
 const labs = read(join(DATA, "labs.json"));
 const aliases = read(join(DATA, "aliases.json"));
+const suiteDefs = read(join(DATA, "suites.json")).suites;
+const catOverrides = read(join(DATA, "categories.json")).overrides;
 const excluded = read(join(DATA, "excluded.json"));
 const labIds = new Set(labs.map((l) => l.id));
 
@@ -160,9 +163,54 @@ const benchmarks = [...registry.values()]
       Object.entries(e.by_quarter).sort().map(([q, s]) => [q, s.size]),
     ),
   }))
+  .map((b) => ({ ...b, categories: classify(b.name, catOverrides), suite: suiteOf(b.name, suiteDefs) }))
   .sort((a, b) => b.lab_count - a.lab_count || a.id.localeCompare(b.id));
 
 writeFileSync(join(DATA, "benchmarks.json"), JSON.stringify(benchmarks, null, 2) + "\n");
+
+// A suite is only worth showing if more than one benchmark joined it: a suite
+// of one is the benchmark, and a row for it would double the same line.
+const suites = suiteDefs
+  .map((s) => {
+    const members = benchmarks.filter((b) => b.suite === s.id);
+    const labs = new Set(members.flatMap((m) => m.labs));
+    // Union the lab sets, do not combine the counts. A suite's quarter is the
+    // number of DISTINCT labs that cited any of its members, so two labs on two
+    // different versions is two. Taking the maximum across members would have
+    // called that one, which is the number nobody wanted.
+    const sets = {};
+    for (const m of members) {
+      const e = registry.get(m.id);
+      for (const [q, labSet] of Object.entries(e.by_quarter)) {
+        sets[q] ??= new Set();
+        for (const l of labSet) sets[q].add(l);
+      }
+    }
+    const by_quarter = Object.fromEntries(Object.entries(sets).sort().map(([q, v]) => [q, v.size]));
+    return { id: s.id, name: s.name, members: members.length, lab_count: labs.size, labs: [...labs].sort(), labs_by_quarter: by_quarter };
+  })
+  .filter((s) => s.members > 1)
+  .sort((a, b) => b.lab_count - a.lab_count);
+
+// Category aggregates, on the same distinct-lab footing. A benchmark may carry
+// two categories and a lab is counted once in each, which is why these do not
+// sum to the citation total and were never meant to.
+const categories = CATEGORIES.map((c) => {
+  const members = benchmarks.filter((b) => b.categories.includes(c.id));
+  const labs = new Set(members.flatMap((m) => m.labs));
+  const sets = {};
+  for (const m of members) {
+    for (const [q, labSet] of Object.entries(registry.get(m.id).by_quarter)) {
+      sets[q] ??= new Set();
+      for (const l of labSet) sets[q].add(l);
+    }
+  }
+  return {
+    id: c.id, name: c.name, blurb: c.blurb, members: members.length,
+    lab_count: labs.size, labs: [...labs].sort(),
+    labs_by_quarter: Object.fromEntries(Object.entries(sets).sort().map(([q, v]) => [q, v.size])),
+  };
+}).filter((c) => c.members > 0);
 const quarters = [];
 if (releases.length) {
   const [lo, hi] = [quarterOf(releases[0].date), quarterOf(releases[releases.length - 1].date)];
@@ -174,7 +222,7 @@ if (releases.length) {
 
 writeFileSync(
   join(DATA, "timeline.json"),
-  JSON.stringify({ generated_at: new Date().toISOString(), labs, releases, benchmarks, quarters }, null, 2) + "\n",
+  JSON.stringify({ generated_at: new Date().toISOString(), labs, releases, benchmarks, quarters, categories, suites }, null, 2) + "\n",
 );
 
 console.log(`releases ${releases.length} · benchmarks ${benchmarks.length} · labs with data ${new Set(releases.map((r) => r.lab)).size}/${labs.length} · excluded citations ${dropped}`);
