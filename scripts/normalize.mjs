@@ -18,14 +18,25 @@ const aliases = read(join(DATA, "aliases.json"));
 const excluded = read(join(DATA, "excluded.json"));
 const labIds = new Set(labs.map((l) => l.id));
 
-// Lookup key: lowercase, punctuation to spaces, collapse runs. "SWE-bench
-// Verified" and "SWE bench verified" therefore need only one alias entry.
-const key = (s) =>
-  s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ");
+// Lookup key: lowercase and drop every separator. Labs spell the same
+// benchmark as IFEval, IF-Eval and IF Eval, so anything that merely collapses
+// punctuation to a space still treats those as three benchmarks and splits the
+// adoption count three ways. Removing separators entirely folds all 130 such
+// groups in this dataset, and no two genuinely different benchmarks in it
+// differ only by where the spaces fall.
+//
+// It does not fold semantic variants: AIME 2024 and AIME24 are distinct keys
+// and need an entry in aliases.json to merge, which is the right place for a
+// judgement call about whether they are the same thing.
+const key = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 
 // Third-party composite indices are dropped rather than tracked: a lab citing
 // one is not reporting a benchmark, it is citing somebody else's ranking.
-const excludePatterns = excluded.patterns.map((p) => p.match);
+// Patterns are written readably with spaces in the data file, so they go
+// through the same key function as the names they are matched against.
+// Skipping that is what silently switched the exclusions off when the key
+// stopped preserving word breaks.
+const excludePatterns = excluded.patterns.map((p) => key(p.match));
 const isExcluded = (k) => excludePatterns.some((pat) => k.includes(pat));
 
 const aliasByKey = new Map(
@@ -89,7 +100,7 @@ for (const file of files) {
       })
       .map((raw) => {
         const k = key(raw);
-        const id = aliasByKey.get(k) ?? k.replace(/\s+/g, "-");   // provisional id until an alias is added
+        const id = aliasByKey.get(k) ?? k;   // provisional id until an alias is added
         if (!aliasByKey.has(k)) unknown.set(k, (unknown.get(k) ?? 0) + 1);
         const tally = spellings.get(id) ?? new Map();
         tally.set(raw, (tally.get(raw) ?? 0) + 1);
