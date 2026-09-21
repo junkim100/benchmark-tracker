@@ -195,48 +195,41 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
 .dt th:last-child, .dt td:last-child { padding-left: 22px; }
 .dt thead tr:last-child th:not(:first-child) { text-align: right; padding-right: 5px; }
 
-/* Timeline */
-/* clip, not hidden. Both clip to the rounded corners, but `hidden` makes this
-   a scroll container, and a scroll container is the scrollport its sticky
-   descendants resolve against. This box never scrolls, so `top: 0` on the date
-   readout was inert against the page scroll. `clip` is not a scroll container,
-   so the readout resolves against the viewport and actually sticks. */
-.tl { display: flex; border: 1px solid var(--border); border-radius: 10px; overflow: clip; background: var(--surface-2); }
-.tl__labs { flex: 0 0 auto; border-right: 1px solid var(--border); background: var(--surface-2); padding-top: 34px; }
-.tl__lab { display: flex; align-items: center; gap: 10px; padding: 0 18px 0 14px; white-space: nowrap; font-size: 13.5px; }
-.tl__logo {
-  display: grid; place-items: center; width: 21px; height: 21px; border-radius: 6px; flex: none;
-  background: var(--surface-3); color: var(--text-secondary); font-size: 10.5px; font-weight: 600;
+/* Timeline, running down the page.
+   No scroller: the section is as tall as the span it covers and the page
+   scroll is the time axis, newest at the top. The header sticks so the reader
+   always knows which column is which lab. */
+.tlv { position: relative; }
+.tlv__head {
+  position: sticky; top: 0; z-index: 4;
+  display: grid; grid-template-columns: var(--gut) repeat(var(--cols), 1fr);
+  align-items: end; gap: 0;
+  padding: 10px 0 9px; margin-bottom: 2px;
+  background: var(--surface-1); border-bottom: 1px solid var(--border-strong);
 }
-/* The mark inherits the column's ink rather than carrying brand colour, which
-   keeps the eight palette slots for tracked benchmarks and keeps a row from
-   reading as a logo wall. */
-/* The mark wears its brand colour, chosen per theme against the tile it sits
-   on. Two custom properties travel with each mark and the theme picks one, the
-   same shape as every other token here. */
-/* Set on the tile as `color`, not on the svg as `fill`, so a mark that needs a
-   stroke as well as a fill can ask for currentColor and get the same ink. */
-.tl__logo { color: var(--lg); }
+.tlv__lab { display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 0; padding: 0 2px; }
+.tl__logo {
+  display: grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; flex: none;
+  background: var(--surface-3); color: var(--lg); font-size: 10.5px; font-weight: 600;
+}
 :root[data-theme="dark"] .tl__logo { color: var(--lgd); }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .tl__logo { color: var(--lgd); }
 }
-.tl__logo svg { width: 14px; height: 14px; display: block; fill: currentColor; }
-.tl__scroll { overflow-x: auto; overflow-y: hidden; flex: 1; scrollbar-width: thin; }
-.tl__scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-.rowline { stroke: var(--border); stroke-width: 1; }
-/* Three times as many gridlines as when these were quarters, so the ordinary
-   month steps back to roughly half weight. Kept as opacity on the same token
-   rather than a new colour, so it follows the theme. January stays full
-   strength: it is the one line that means something on its own. */
-.tick { stroke: var(--border); stroke-width: 1; opacity: .5; }
-.tick--year { stroke: var(--border-strong); opacity: 1; }
-/* Months read as a run, so they stay quiet and even. January is the one that
-   carries information the others do not, being where the year turns, so it
-   takes the ink and the year sits under it. */
-.axis__m { fill: var(--text-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+/* The mark wears its brand colour, chosen per theme against the tile it sits
+   on. Ink travels as `color` so a mark needing a stroke as well as a fill gets
+   the same value for both. */
+.tl__logo svg { width: 15px; height: 15px; display: block; fill: currentColor; }
+.tlv__name {
+  font-size: 10.5px; line-height: 1.2; color: var(--text-muted); text-align: center;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.tlv__svg { display: block; width: 100%; height: auto; }
+.collline { stroke: var(--border); stroke-width: 1; opacity: .4; }
+
+.axis__m { fill: var(--text-muted); font-size: 11px; font-variant-numeric: tabular-nums; text-anchor: end; }
 .axis__m--first { fill: var(--text-primary); font-weight: 600; }
-.axis__y { fill: var(--text-secondary); font-size: 10.5px; font-variant-numeric: tabular-nums; }
+.axis__y { fill: var(--text-secondary); font-size: 10.5px; font-variant-numeric: tabular-nums; text-anchor: end; }
 /* The stroke scales with the mark. Leaving it at a fixed 2px meant a phone's
    3.2px dot was painted 5.2px wide against a 2.4px day, so in painted pixels
    70 of 620 marks had their centre covered by a neighbour, against 14 on
@@ -284,10 +277,6 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
   .axis__m { font-size: 10px; }
   .axis__y { font-size: 10px; }
   #app { padding-top: 36px; }
-  /* Names stay. Hiding them left three consecutive rows reading "M" for Meta,
-     Mistral and Moonshot, and two reading x and X. */
-  .tl__lab { padding: 0 8px; font-size: 12px; gap: 7px; max-width: 128px; }
-  .tl__name { overflow: hidden; text-overflow: ellipsis; }
   .dt { font-size: 13px; }
   /* One column. Two of them in a 350px row left each note twelve lines deep. */
   .ft__notes { grid-template-columns: 1fr; gap: 18px; }
@@ -323,20 +312,6 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 /* DEFECT F: the placeholder is the field's only visible label and also carries
    the maximum-tracked message, so it needs label contrast, not hint contrast. */
 .pick__input::placeholder { color: var(--text-secondary); opacity: 1; }
-
-/* A date readout that cannot be scrolled away. Labels drawn into the canvas sit
-   a whole quarter apart and vanish at any width where the scroller is narrower
-   than that, which was every width below about 1010px. */
-.tl__body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-.tl__range {
-  /* Sticky vertically too. It survived horizontal scrolling, which was its
-     job, but left the viewport on a vertical scroll, so a landscape phone was
-     back to having no date reference. */
-  position: sticky; top: 0; z-index: 3;
-  padding: 7px 14px; font-size: 12px; font-variant-numeric: tabular-nums;
-  color: var(--text-secondary); background: var(--surface-3);
-  border-bottom: 1px solid var(--border);
-}
 
 /* The figure caption carries only the partial-quarter warning now; the section
    standfirst says what the chart is. Empty means empty, not a blank line. */

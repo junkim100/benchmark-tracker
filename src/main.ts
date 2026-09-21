@@ -3,7 +3,7 @@ import "./styles/app.css";
 import raw from "../data/timeline.json";
 import { MAX_TRACKED, displayNames, quarterOf, yearsSpanned, type Benchmark, type Timeline } from "./model";
 import { renderFilter } from "./filter";
-import { noteTimelineResize, renderTimeline, restoreTimelineScroll, timelineBucket, tooltipHTML } from "./timeline";
+import { renderTimeline, tooltipHTML } from "./timeline";
 import { renderTrend, type TrendView } from "./trend";
 
 const data = raw as unknown as Timeline;
@@ -199,22 +199,18 @@ if (data.releases.length === 0) {
     paintTheme();
   });
 
-  // The timeline picks its day scale from the viewport, so a rotation has to
-  // redraw it. Only on a bucket change: resizing within one bucket changes
-  // nothing and a redraw would cost the reader their scroll position.
-  let narrow = timelineBucket();
-  // The chart measures its container when it draws, so a width change has to
-  // redraw it or the canvas keeps the size the last draw found. Only past a
-  // few pixels: a scrollbar appearing is not a resize worth a repaint.
+  // Both the chart and the timeline measure their container when they draw, so
+  // a width change has to redraw them or each keeps the size the last draw
+  // found. Only past a few pixels: a scrollbar appearing is not a resize worth
+  // a repaint.
+  //
+  // There is nothing to restore afterwards. The timeline runs down the page
+  // now, so the reader's place in it is the page's scroll position, which the
+  // browser keeps on its own.
   let chartW = $(".trendwrap").getBoundingClientRect().width;
   window.addEventListener("resize", () => {
-    noteTimelineResize();
     const w = $(".trendwrap").getBoundingClientRect().width;
-    if (Math.abs(w - chartW) > 8) { chartW = w; draw(); return; }
-    if (timelineBucket() !== narrow) { narrow = !narrow; draw(); return; }
-    // Same bucket, so no redraw, but a widened viewport still clamps the
-    // scroller and no redraw is coming to undo it.
-    restoreTimelineScroll($(".tlwrap"));
+    if (Math.abs(w - chartW) > 8) { chartW = w; draw(); }
   });
 
   draw();
