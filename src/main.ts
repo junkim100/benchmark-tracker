@@ -3,7 +3,7 @@ import "./styles/app.css";
 import raw from "../data/timeline.json";
 import { MAX_TRACKED, displayNames, quarterOf, yearsSpanned, type Benchmark, type Timeline } from "./model";
 import { renderFilter } from "./filter";
-import { renderTimeline, restoreTimelineScroll, timelineBucket, tooltipHTML } from "./timeline";
+import { noteTimelineResize, renderTimeline, restoreTimelineScroll, timelineBucket, tooltipHTML } from "./timeline";
 import { renderTrend, type TrendView } from "./trend";
 
 const data = raw as unknown as Timeline;
@@ -164,6 +164,7 @@ if (data.releases.length === 0) {
   // nothing and a redraw would cost the reader their scroll position.
   let narrow = timelineBucket();
   window.addEventListener("resize", () => {
+    noteTimelineResize();
     if (timelineBucket() !== narrow) { narrow = !narrow; draw(); return; }
     // Same bucket, so no redraw, but a widened viewport still clamps the
     // scroller and no redraw is coming to undo it.

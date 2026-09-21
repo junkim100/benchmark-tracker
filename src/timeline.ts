@@ -50,41 +50,44 @@ export interface TimelineArgs {
 // The reader's place in the timeline, held in days because the pixel scale
 // changes with the viewport bucket.
 //
-// Seven earlier versions tried to work out, from the scroller's state at
-// redraw time, whether an offset was one the reader chose or one a reflow
-// forced on them. The DOM cannot answer that. What it can answer is whether
-// the offset is still exactly the one we last wrote, and anything else is by
-// definition new information, whoever produced it.
+// Eight earlier versions tried to work out, from the scroller's state, whether
+// an offset was one the reader chose or one a reflow forced on them. The DOM
+// cannot answer that. Worse, it cannot even be asked: two size changes inside
+// one frame produce a single resize event carrying only the final width, so a
+// clamp that happened at the intermediate width leaves no trace at all. Every
+// rule inferred from widths and maxima failed on that case.
+//
+// So the question is answered from the other side. A scroll the reader caused
+// is preceded by an input event from the reader. One the browser caused is
+// not. That is evidence rather than inference, and it does not care how many
+// reflows were coalesced into the frame.
 let lastScroll: number | null = null;
 let lastPxPerDay = 0;
-let lastClientWidth = 0;
 let ourValue = -1;
+let inputAt = 0;
+let resizeAt = 0;
 
-// Take the scroller's offset as the reader's place. A reflow can only clamp
-// when the scroller's own width GROWS, because only then does its maximum
-// shrink below where the reader was standing; on a shrink the offset is always
-// theirs. Growing while sitting on the maximum is either that clamp or a
-// reader parked at the end, and both want the same answer, so take whichever
-// candidate is further along. The recorder can be a frame stale, since a
-// scroll in flight reaches the DOM before resize steps and this listener only
-// runs in scroll steps, which is why the DOM is preferred everywhere else.
+// Called before any resize is acted on, so the scroll events the reflow
+// provokes can be told apart from the reader's own.
+export function noteTimelineResize(): void {
+  resizeAt = performance.now();
+}
+
+// Take the scroller's offset as the reader's place, unless it is still exactly
+// what we last wrote, or unless nothing the reader did has happened since the
+// last resize, in which case the offset can only be the reflow's.
 function adopt(s: HTMLElement, ppd: number): void {
-  if (!ppd || s.scrollLeft === ourValue) return;
-  const grew = s.clientWidth > lastClientWidth;
-  const atMax = s.scrollLeft >= s.scrollWidth - s.clientWidth - 0.5;
-  const dom = s.scrollLeft / ppd;
-  lastScroll = grew && atMax && lastScroll != null ? Math.max(lastScroll, dom) : dom;
-  lastClientWidth = s.clientWidth;
+  if (!ppd || s.scrollLeft === ourValue || resizeAt > inputAt) return;
+  lastScroll = s.scrollLeft / ppd;
   ourValue = -1;
 }
 
 // Put the reader back, at whatever scale is now in effect. Recording what the
 // scroller actually took, rather than what was asked for, is what lets the
-// clamp's own scroll event be recognised and ignored.
+// clamp of our own restore be recognised and ignored.
 function restore(s: HTMLElement, ppd: number, fallback: number): void {
   s.scrollLeft = lastScroll != null ? lastScroll * ppd : fallback;
   ourValue = s.scrollLeft;
-  lastClientWidth = s.clientWidth;
   if (lastScroll == null) lastScroll = s.scrollLeft / ppd;
 }
 
@@ -194,6 +197,12 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
     const b1 = atPx(scroller.scrollLeft + scroller.clientWidth);
     readout.textContent = a1 === b1 ? a1 : `${a1} to ${b1}`;
   };
+  // Evidence that the reader, not a reflow, moved the scroller. Registered on
+  // the scroller rather than the window so that resizing the page cannot be
+  // mistaken for scrolling it.
+  for (const ev of ["wheel", "touchstart", "touchmove", "pointerdown", "keydown"]) {
+    scroller.addEventListener(ev, () => { inputAt = performance.now(); }, { passive: true });
+  }
   scroller.addEventListener("scroll", () => {
     paintRange();
     adopt(scroller, PX_PER_DAY);
