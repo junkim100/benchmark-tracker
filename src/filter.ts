@@ -136,7 +136,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
                aria-selected="${on}" ${!on && full ? "disabled" : ""}>
         <span class="bcard__name">${esc(t.name)}</span>
         <span class="bcard__meta">${esc(meta)}</span>
-        <span class="bcard__n"><b>${t.lab_count}</b> lab${t.lab_count === 1 ? "" : "s"}</span>
+        <span class="bcard__n"><b>${t.lab_count}</b> lab${t.lab_count === 1 ? "" : "s"}<span class="bcard__sep"> · </span><b>${t.recent_share}%</b> of recent releases</span>
       </button>`;
     }).join("");
   };

@@ -109,8 +109,12 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
 .bcard:disabled { opacity: .45; cursor: not-allowed; }
 .bcard__name { font-size: 14px; font-weight: 550; line-height: 1.3; }
 .bcard__meta { font-size: 11.5px; color: var(--text-muted); line-height: 1.3; }
-.bcard__n { font-size: 11.5px; color: var(--text-muted); }
-.bcard__n b { color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+.bcard__n { font-size: 11.5px; color: var(--text-muted); line-height: 1.35; }
+.bcard__n b { color: var(--text-secondary); font-variant-numeric: tabular-nums; font-weight: 600; }
+/* The two numbers sit on one line where the card is wide enough and stack when
+   it is not, rather than hyphenating "releases" down the middle of a phone. */
+.bcard__sep { display: inline; }
+@media (max-width: 460px) { .bcard__sep { display: block; height: 0; overflow: hidden; } }
 /* A suite and a category gather other things, so they read as containers. */
 .bcard--suite, .bcard--category { border-style: dashed; }
 .browse__none { margin: 4px 0 0; font-size: 14px; color: var(--text-muted); }

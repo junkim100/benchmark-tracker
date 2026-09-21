@@ -78,7 +78,7 @@ if (data.releases.length === 0) {
     <div class="sec">
       <div class="sec__head">
         <h2>Choose what to track</h2>
-        <p>Up to eight. A suite covers every version of an evaluation at once; a category covers a whole subject. Search ignores spelling, so "tau bench" finds &tau;&sup2;-Bench.</p>
+        <p>Up to eight. A suite covers every version of an evaluation at once; a category covers a whole subject. Search ignores spelling, so "tau bench" finds &tau;&sup2;-Bench. <b>Labs</b> is how many of the twelve have ever cited it; <b>recent releases</b> is the share that still do, which is how a benchmark can be universal and finished at the same time.</p>
       </div>
       <section class="controls" aria-label="Track benchmarks"></section>
     </div>

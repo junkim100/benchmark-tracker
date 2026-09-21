@@ -17,12 +17,14 @@ export interface Benchmark {
   labs_by_quarter: Record<string, number>;
   categories: string[];          // one primary, optionally one secondary, never three
   suite: string | null;
+  recent_share: number;          // % of recent releases citing it, mean over labs
 }
 
 export interface Group {
   id: string; name: string; blurb?: string; members: number;
   lab_count: number; labs: string[];
   labs_by_quarter: Record<string, number>;
+  recent_share: number;
 }
 
 export interface Timeline {
@@ -40,6 +42,9 @@ export interface Trackable {
   kind: TrackKind;
   name: string;
   lab_count: number;
+  /** How many of the twelve have ever cited it answers breadth. This answers
+   *  whether it is still current: the share of recent releases that name it. */
+  recent_share: number;
   labs_by_quarter: Record<string, number>;
   members?: number;              // versions in a suite, benchmarks in a category
   categories?: string[];
@@ -54,16 +59,16 @@ export const trackId = (kind: TrackKind, id: string): string =>
 export function buildTrackables(t: Timeline): Map<string, Trackable> {
   const m = new Map<string, Trackable>();
   for (const c of t.categories) {
-    m.set(trackId("category", c.id), { id: trackId("category", c.id), kind: "category", name: c.name, lab_count: c.lab_count, labs_by_quarter: c.labs_by_quarter, members: c.members });
+    m.set(trackId("category", c.id), { id: trackId("category", c.id), kind: "category", name: c.name, lab_count: c.lab_count, recent_share: c.recent_share, labs_by_quarter: c.labs_by_quarter, members: c.members });
   }
   for (const s of t.suites) {
     // A suite and its headline version often share a name, so the suite says
     // so. Without this the browser showed "GPQA" twice and a chip for each was
     // indistinguishable from the other.
-    m.set(trackId("suite", s.id), { id: trackId("suite", s.id), kind: "suite", name: `${s.name}, all versions`, lab_count: s.lab_count, labs_by_quarter: s.labs_by_quarter, members: s.members });
+    m.set(trackId("suite", s.id), { id: trackId("suite", s.id), kind: "suite", name: `${s.name}, all versions`, lab_count: s.lab_count, recent_share: s.recent_share, labs_by_quarter: s.labs_by_quarter, members: s.members });
   }
   for (const b of t.benchmarks) {
-    m.set(b.id, { id: b.id, kind: "benchmark", name: b.name, lab_count: b.lab_count, labs_by_quarter: b.labs_by_quarter, categories: b.categories, suite: b.suite });
+    m.set(b.id, { id: b.id, kind: "benchmark", name: b.name, lab_count: b.lab_count, recent_share: b.recent_share, labs_by_quarter: b.labs_by_quarter, categories: b.categories, suite: b.suite });
   }
   return m;
 }

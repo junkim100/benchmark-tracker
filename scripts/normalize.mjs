@@ -146,6 +146,55 @@ for (const r of releases) {
   }
 }
 
+// How central a benchmark is to a recent release, as opposed to how many labs
+// have ever mentioned it.
+//
+// The lab count answers breadth and nothing else: AIME 2024 has all twelve, yet
+// it appears in 8 per cent of their releases because everyone named it once
+// when it was new. MATH has eleven labs and 18 per cent, because labs cite it
+// out of habit. Those are different facts and the first number cannot carry the
+// second.
+//
+// It is a share and not a count, deliberately. Releases per quarter grew 4.5x
+// across this dataset, so a raw model count would show a benchmark with
+// perfectly flat adoption rising ninefold, and every line on the page would
+// trend upward for no reason but the industry shipping more. A share is immune
+// to that, and to one lab publishing ten times as often as another: it is the
+// mean over labs that shipped, of the fraction of that lab's releases citing
+// the benchmark, so a prolific lab cannot outvote a quiet one.
+//
+// The window is the last four COMPLETE quarters. The current one is still
+// filling and would read low for everything.
+const RECENT_Q = 4;
+const nowQuarter = quarterOf(new Date().toISOString().slice(0, 10));
+const completeQuarters = [...new Set(releases.map((r) => quarterOf(r.date)))]
+  .filter((q) => q !== nowQuarter).sort();
+const recentWindow = new Set(completeQuarters.slice(-RECENT_Q));
+const shipped = new Map();   // lab -> releases in the window
+const cited = new Map();     // benchmark id -> Map(lab -> releases citing it)
+for (const r of releases) {
+  if (!recentWindow.has(quarterOf(r.date))) continue;
+  shipped.set(r.lab, (shipped.get(r.lab) ?? 0) + 1);
+  for (const b of new Set(r.benchmarks)) {
+    const m = cited.get(b) ?? new Map();
+    m.set(r.lab, (m.get(r.lab) ?? 0) + 1);
+    cited.set(b, m);
+  }
+}
+/** Mean over labs that shipped in the window of the share of their releases
+ *  citing any of `ids`. A lab that shipped and never cited it contributes zero,
+ *  which is the point: silence is data. */
+const recentShare = (ids) => {
+  if (!shipped.size) return 0;
+  let total = 0;
+  for (const [lab, n] of shipped) {
+    let hits = 0;
+    for (const id of ids) hits += cited.get(id)?.get(lab) ?? 0;
+    total += Math.min(1, hits / n);
+  }
+  return Math.round((total / shipped.size) * 100);
+};
+
 const benchmarks = [...registry.values()]
   .map((e) => ({
     id: e.id,
@@ -163,7 +212,7 @@ const benchmarks = [...registry.values()]
       Object.entries(e.by_quarter).sort().map(([q, s]) => [q, s.size]),
     ),
   }))
-  .map((b) => ({ ...b, categories: classify(b.name, catOverrides), suite: suiteOf(b.name, suiteDefs) }))
+  .map((b) => ({ ...b, categories: classify(b.name, catOverrides), suite: suiteOf(b.name, suiteDefs), recent_share: recentShare([b.id]) }))
   .sort((a, b) => b.lab_count - a.lab_count || a.id.localeCompare(b.id));
 
 writeFileSync(join(DATA, "benchmarks.json"), JSON.stringify(benchmarks, null, 2) + "\n");
@@ -187,7 +236,7 @@ const suites = suiteDefs
       }
     }
     const by_quarter = Object.fromEntries(Object.entries(sets).sort().map(([q, v]) => [q, v.size]));
-    return { id: s.id, name: s.name, members: members.length, lab_count: labs.size, labs: [...labs].sort(), labs_by_quarter: by_quarter };
+    return { id: s.id, name: s.name, members: members.length, lab_count: labs.size, labs: [...labs].sort(), labs_by_quarter: by_quarter, recent_share: recentShare(members.map((m) => m.id)) };
   })
   .filter((s) => s.members > 1)
   .sort((a, b) => b.lab_count - a.lab_count);
@@ -209,6 +258,7 @@ const categories = CATEGORIES.map((c) => {
     id: c.id, name: c.name, blurb: c.blurb, members: members.length,
     lab_count: labs.size, labs: [...labs].sort(),
     labs_by_quarter: Object.fromEntries(Object.entries(sets).sort().map(([q, v]) => [q, v.size])),
+    recent_share: recentShare(members.map((m) => m.id)),
   };
 }).filter((c) => c.members > 0);
 const quarters = [];
