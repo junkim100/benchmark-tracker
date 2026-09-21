@@ -82,6 +82,13 @@ if (data.releases.length === 0) {
     tt.style.top = `${Math.max(8, Math.min(y + 16, window.innerHeight - b.height - 12))}px`;
   };
 
+  // A wheel scroll emits no mousemove, so neither the chart's mousemove nor its
+  // mouseleave fires and the tooltip stayed pinned to the viewport over
+  // whatever scrolled underneath it.
+  const hideTip = () => { tt.hidden = true; };
+  window.addEventListener("scroll", hideTip, { passive: true, capture: true });
+  window.addEventListener("wheel", hideTip, { passive: true });
+
   const paintTheme = () => { $(".iconbtn__l").textContent = effective() === "dark" ? "Dark" : "Light"; };
 
   const draw = () => {

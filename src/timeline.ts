@@ -125,12 +125,17 @@ export function tooltipHTML(rs: Release[], names: Map<string, string>, budgetPx 
   // A release can cite 95 benchmarks. The tooltip ignores pointer events so it
   // can never be scrolled, which means it must say how many it left out rather
   // than stopping mid-list as though that were the end.
-  // Rows are budgeted against the space actually available. Clipping instead
-  // of budgeting loses the "and N more" note first, which is the one line that
-  // has to survive: the tooltip ignores pointer events and can never scroll.
-  const perRow = 19, chrome = 96;
-  const releases = Math.max(1, Math.min(3, Math.floor(budgetPx / 150)));
-  const SHOWN = Math.max(2, Math.min(8, Math.floor((budgetPx - chrome * releases) / (perRow * releases))));
+  // Budget measured from the rendered element rather than guessed: a row is
+  // 20.6px, each separator between releases costs 21px, and the tooltip's own
+  // padding plus the footer cost about 46px once. The previous formula omitted
+  // the separators and the padding, multiplied the once-only footer by the
+  // release count, and divided by that count even when drawing a single
+  // release, which starved a 95-benchmark release of the space it had.
+  const ROW = 21, PER_RELEASE_CHROME = 70, SEPARATOR = 21, BOX_CHROME = 46;
+  const releases = Math.max(1, Math.min(3, rs.length));
+  const fixed = BOX_CHROME + releases * PER_RELEASE_CHROME + (releases - 1) * SEPARATOR;
+  const SHOWN = Math.max(2, Math.min(8, Math.floor((budgetPx - fixed) / (ROW * releases))));
+
   const one = (r: Release) => {
     const rest = r.benchmarks.length - SHOWN;
     const bs = r.benchmarks.length
@@ -146,6 +151,6 @@ export function tooltipHTML(rs: Release[], names: Map<string, string>, budgetPx 
   const body = rs.slice(0, MAX_RELEASES).map(one).join(`<hr class="tt__hr"/>`);
   const foot = rs.length === 1
     ? "Click to open the source"
-    : `${rs.length} releases that day${rs.length > MAX_RELEASES ? `, showing ${MAX_RELEASES}` : ""}. Click a row's own mark to open it.`;
+    : `${rs.length} releases that day${rs.length > MAX_RELEASES ? `, showing ${MAX_RELEASES}` : ""}. Sources are listed above.`;
   return `${body}<div class="tt__f">${foot}</div>`;
 }

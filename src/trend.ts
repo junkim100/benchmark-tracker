@@ -69,7 +69,10 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
           // past it is truncated here rather than clipped by the scroller,
           // which produced a half-word with no ellipsis and no way to reach it.
           const full = a.names.get(b.id) ?? b.id;
-          const fits = Math.max(6, Math.floor((M.r - 24) / 6.1));
+          // 7.8px per character, measured against this face at 12.5px. The
+          // earlier 6.1 under-counted and let 91 of 254 labels overrun the
+          // margin, where the scroller clipped them without the ellipsis.
+          const fits = Math.max(6, Math.floor((M.r - 26) / 7.8));
           const shown = full.length > fits ? `${full.slice(0, fits - 1)}\u2026` : full;
           return `<circle class="s-labeldot s${slot}" cx="${(px(last.i) + 11).toFixed(1)}" cy="${ly.toFixed(1)}" r="3.5"/>` +
                  `<text class="s-label" x="${(px(last.i) + 20).toFixed(1)}" y="${(ly + 4).toFixed(1)}"><title>${esc(full)}</title>${esc(shown)}</text>`;
@@ -151,7 +154,10 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
     // The tooltip cannot scroll, because it ignores pointer events so it never
     // swallows a hover. So it must never promise more rows than it draws: at
     // ten labs the old fixed height showed four and silently ate six.
-    const SHOWN = 7;
+    // Same budgeting as the timeline tooltip: this one clipped its own
+    // "and N more" note at a short viewport, which is the single line that
+    // has to survive because the tooltip can never be scrolled.
+    const SHOWN = Math.max(2, Math.min(7, Math.floor((window.innerHeight - 150) / 40)));
     const shown = d?.labs.slice(0, SHOWN) ?? [];
     const rows = n
       ? shown.map((l) => `<li><span class="tt__lab">${esc(labName.get(l.lab) ?? l.lab)}</span><span class="tt__models">${esc(l.models.slice(0, 3).join(", "))}${l.models.length > 3 ? ` and ${l.models.length - 3} more` : ""}</span></li>`).join("")

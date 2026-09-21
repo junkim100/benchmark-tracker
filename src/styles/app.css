@@ -108,12 +108,20 @@ a:hover { text-decoration-color: var(--text-primary); }
 .xq--partial { fill: var(--text-secondary); }
 .xy { fill: var(--text-muted); font-size: 11px; text-anchor: middle; font-variant-numeric: tabular-nums; }
 .xy--first { fill: var(--text-primary); font-weight: 600; font-size: 12px; }
-.grid text, .xt { fill: var(--text-muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
-.grid text { text-anchor: end; }
-.xt { text-anchor: middle; }
-.xt--partial { fill: var(--text-secondary); }
+.grid text, .grid text { text-anchor: end; }
 .partial { fill: var(--text-muted); opacity: .06; }
 .s-line { fill: none; stroke-width: 2.25; stroke-linecap: round; stroke-linejoin: round; stroke: var(--slot, var(--text-secondary)); }
+/* Secondary encoding. The eight slots clear the CVD floor on adjacent pairs
+   but not on all pairs, and pink against green measures dE 1.6 under
+   deuteranopia, so a reader who cannot separate two hues still has the dash
+   pattern, the direct label or legend, and the table view. */
+.s2 .s-line, .s-line.s2 { stroke-dasharray: 9 4; }
+.s3 .s-line, .s-line.s3 { stroke-dasharray: 2 4; }
+.s4 .s-line, .s-line.s4 { stroke-dasharray: 14 4; }
+.s5 .s-line, .s-line.s5 { stroke-dasharray: 9 4 2 4; }
+.s6 .s-line, .s-line.s6 { stroke-dasharray: 5 3; }
+.s7 .s-line, .s-line.s7 { stroke-dasharray: 14 3 2 3; }
+.s8 .s-line, .s-line.s8 { stroke-dasharray: 2 3 9 3; }
 .s-dot { fill: var(--slot, var(--text-secondary)); stroke: var(--surface-1); stroke-width: 2; pointer-events: none; }
 .s-labeldot { fill: var(--slot, var(--text-secondary)); stroke: var(--surface-1); stroke-width: 1.5; }
 .s-halo { fill: transparent; }
@@ -161,7 +169,7 @@ a:hover { text-decoration-color: var(--text-primary); }
 .axis__y { fill: var(--text-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
 .axis__y--first { fill: var(--text-primary); font-weight: 600; }
 .mark { fill: var(--mark-neutral); stroke: var(--surface-2); stroke-width: 2; cursor: pointer; }
-.mark:hover { fill: var(--text-primary); }
+circle.mark:hover, circle.mark[class*="mark--s"]:hover { fill: var(--text-primary); }
 .mark--many { stroke-width: 2.5; }
 circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 
