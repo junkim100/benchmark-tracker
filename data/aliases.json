@@ -70,5 +70,8 @@
   "ai2 diagram": "ai2d",
   "commonvoice cv": "commonvoice",
   "common voice": "commonvoice",
-  "vibe eval reka": "vibeeval"
+  "vibe eval reka": "vibeeval",
+  "gmmlu": "globalmmlu",
+  "global mmlu": "globalmmlu",
+  "globalmmlu": "globalmmlu"
 }

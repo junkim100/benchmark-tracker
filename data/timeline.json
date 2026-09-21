@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T04:28:46.484Z",
+  "generated_at": "2026-09-21T04:44:58.266Z",
   "labs": [
     {
       "id": "openai",
@@ -20807,7 +20807,7 @@
         "charxivreasoning",
         "webarena",
         "webarenaverified",
-        "gmmlu",
+        "globalmmlu",
         "milu",
         "browsecomp",
         "hle",
@@ -22474,7 +22474,7 @@
         "gdpvalaa",
         "arcagi1",
         "arc-agi-2",
-        "gmmlu",
+        "globalmmlu",
         "milu",
         "include",
         "eclektic",
@@ -24229,7 +24229,7 @@
         "toolathlon",
         "automationbench",
         "healthbenchprofessional",
-        "gmmlu",
+        "globalmmlu",
         "milu",
         "include",
         "eclektic",
@@ -24618,7 +24618,7 @@
         "healthbench",
         "healthbenchprofessional",
         "healthadminbench",
-        "gmmlu",
+        "globalmmlu",
         "milu",
         "include",
         "eclektic",
@@ -25335,7 +25335,7 @@
         "aabriefcase",
         "healthbench",
         "healthbenchprofessional",
-        "gmmlu",
+        "globalmmlu",
         "milu",
         "include",
         "biomysterybench",
@@ -26322,7 +26322,7 @@
         "arcagi3",
         "healthbench",
         "healthbenchprofessional",
-        "gmmlu",
+        "globalmmlu",
         "milu",
         "include",
         "biomysterybench",
@@ -27892,7 +27892,7 @@
         "arc-agi-2",
         "healthbench",
         "healthbenchprofessional",
-        "gmmlu",
+        "globalmmlu",
         "milu",
         "biomysterybench",
         "latchbiobioinformatics",
@@ -27909,6 +27909,63 @@
         "biasbenchmarkforquestionanswering",
         "virologycapabilitiestest",
         "matharena"
+      ]
+    },
+    {
+      "id": "anthropic-claude-fable-5-1-and-claude-mythos-5-1-2026-09-01",
+      "lab": "anthropic",
+      "model": "Claude Fable 5.1 and Claude Mythos 5.1",
+      "date": "2026-09-01",
+      "kind": "system_card",
+      "title": "System Card: Claude Fable 5.1 & Claude Mythos 5.1",
+      "source_url": "https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20&%20Claude%20Mythos%205.1%20System%20Card.pdf",
+      "benchmarks_raw": [
+        "Legal Agent Benchmark",
+        "GDPval-AA v2",
+        "AA-Briefcase",
+        "Toolathlon Verified",
+        "AutomationBench",
+        "ARC-AGI",
+        "HealthBench",
+        "HealthBench Professional",
+        "GMMLU",
+        "MILU",
+        "BioMysteryBench",
+        "LatchBio Bioinformatics",
+        "ProteinGym Hard",
+        "Protein Design",
+        "Organic chemistry, V2",
+        "Protocols",
+        "Humanity's Last Exam",
+        "ExploitBench",
+        "ExploitGym",
+        "OSS-Fuzz",
+        "Firefox 147",
+        "CritPt-Corrected"
+      ],
+      "benchmarks": [
+        "legalagentbenchmark",
+        "gdpvalaav2",
+        "aabriefcase",
+        "toolathlonverified",
+        "automationbench",
+        "arc-agi",
+        "healthbench",
+        "healthbenchprofessional",
+        "globalmmlu",
+        "milu",
+        "biomysterybench",
+        "latchbiobioinformatics",
+        "proteingymhard",
+        "proteindesign",
+        "organicchemistryv2",
+        "protocols",
+        "hle",
+        "exploitbench",
+        "exploitgym",
+        "ossfuzz",
+        "firefox147",
+        "critptcorrected"
       ]
     },
     {
@@ -28313,6 +28370,39 @@
       "benchmarks": []
     },
     {
+      "id": "openai-gpt-6-astra-2026-09-09",
+      "lab": "openai",
+      "model": "GPT-6 Astra",
+      "date": "2026-09-09",
+      "kind": "blog_post",
+      "title": "GPT-6 Astra: The next generation in intelligence for work",
+      "source_url": "https://openai.com/index/gpt-6-astra-next-generation-work/",
+      "benchmarks_raw": [
+        "OfficeQA Pro",
+        "OfficeQA Pro V2",
+        "Terminal-Bench 4.0",
+        "Artificial Analysis Intelligence Index",
+        "DeepSWE v1.1"
+      ],
+      "benchmarks": [
+        "officeqapro",
+        "officeqaprov2",
+        "terminalbench40",
+        "deepswev11"
+      ]
+    },
+    {
+      "id": "deepseek-deepseek-v4-1-flash-2026-09-10",
+      "lab": "deepseek",
+      "model": "DeepSeek-V4.1-Flash",
+      "date": "2026-09-10",
+      "kind": "model_release",
+      "title": "DeepSeek-V4.1-Flash: Smarter, Faster, More Efficient",
+      "source_url": "https://api-docs.deepseek.com/news/news260910/",
+      "benchmarks_raw": [],
+      "benchmarks": []
+    },
+    {
       "id": "openai-gpt-live-1-api-2026-09-10",
       "lab": "openai",
       "model": "GPT-Live-1 (API)",
@@ -28336,6 +28426,31 @@
         "fullduplexbenchv15",
         "fullduplexbenchv1",
         "fullduplexbenchv3"
+      ]
+    },
+    {
+      "id": "moonshot-kimi-k2-7-code-2026-09-14",
+      "lab": "moonshot",
+      "model": "Kimi K2.7 Code",
+      "date": "2026-09-14",
+      "kind": "blog_post",
+      "title": "Kimi K2.7 Code: Open-Source Agentic Coding Model",
+      "source_url": "https://www.kimi.ai/resources/kimi-k2-7-code",
+      "benchmarks_raw": [
+        "Kimi Code Bench v2",
+        "Program Bench",
+        "MLS Bench Lite",
+        "Kimi Claw 24/7 Bench",
+        "MCP Atlas",
+        "MCP Mark Verified"
+      ],
+      "benchmarks": [
+        "kimicodebenchv2",
+        "programbench",
+        "mlsbenchlite",
+        "kimiclaw247bench",
+        "mcpatlas",
+        "mcpmarkverified"
       ]
     },
     {
@@ -29900,7 +30015,7 @@
         "zai"
       ],
       "first_seen": "2025-11-24",
-      "last_seen": "2026-08-11",
+      "last_seen": "2026-09-14",
       "labs_by_year": {
         "2025": 2,
         "2026": 8
@@ -31802,13 +31917,13 @@
         "zai"
       ],
       "first_seen": "2026-04-16",
-      "last_seen": "2026-08-26",
+      "last_seen": "2026-09-09",
       "labs_by_year": {
         "2026": 5
       },
       "labs_by_quarter": {
         "2026-Q2": 2,
-        "2026-Q3": 3
+        "2026-Q3": 4
       }
     },
     {
@@ -33865,6 +33980,28 @@
       }
     },
     {
+      "id": "globalmmlu",
+      "name": "GMMLU",
+      "lab_count": 3,
+      "labs": [
+        "anthropic",
+        "google",
+        "xiaomi"
+      ],
+      "first_seen": "2025-06-17",
+      "last_seen": "2026-09-01",
+      "labs_by_year": {
+        "2025": 1,
+        "2026": 2
+      },
+      "labs_by_quarter": {
+        "2025-Q2": 1,
+        "2026-Q1": 2,
+        "2026-Q2": 2,
+        "2026-Q3": 1
+      }
+    },
+    {
       "id": "graphwalks",
       "name": "GraphWalks",
       "lab_count": 3,
@@ -35537,6 +35674,25 @@
       }
     },
     {
+      "id": "arc-agi",
+      "name": "ARC-AGI",
+      "lab_count": 2,
+      "labs": [
+        "anthropic",
+        "qwen"
+      ],
+      "first_seen": "2025-07-21",
+      "last_seen": "2026-09-01",
+      "labs_by_year": {
+        "2025": 1,
+        "2026": 1
+      },
+      "labs_by_quarter": {
+        "2025-Q3": 1,
+        "2026-Q3": 1
+      }
+    },
+    {
       "id": "arcagi1",
       "name": "ARC-AGI-1",
       "lab_count": 2,
@@ -36837,26 +36993,6 @@
       }
     },
     {
-      "id": "globalmmlu",
-      "name": "GlobalMMLU",
-      "lab_count": 2,
-      "labs": [
-        "google",
-        "xiaomi"
-      ],
-      "first_seen": "2025-06-17",
-      "last_seen": "2026-04-27",
-      "labs_by_year": {
-        "2025": 1,
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q2": 1,
-        "2026-Q1": 1,
-        "2026-Q2": 1
-      }
-    },
-    {
       "id": "globalpiqa",
       "name": "Global PIQA",
       "lab_count": 2,
@@ -37948,7 +38084,7 @@
         "qwen"
       ],
       "first_seen": "2026-06-11",
-      "last_seen": "2026-08-03",
+      "last_seen": "2026-09-14",
       "labs_by_year": {
         "2026": 2
       },
@@ -42324,22 +42460,6 @@
       }
     },
     {
-      "id": "arc-agi",
-      "name": "ARC-AGI",
-      "lab_count": 1,
-      "labs": [
-        "qwen"
-      ],
-      "first_seen": "2025-07-21",
-      "last_seen": "2025-07-21",
-      "labs_by_year": {
-        "2025": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q3": 1
-      }
-    },
-    {
       "id": "arcade",
       "name": "ARCADE",
       "lab_count": 1,
@@ -46164,7 +46284,7 @@
     },
     {
       "id": "critptcorrected",
-      "name": "CritPT-Corrected",
+      "name": "CritPt-Corrected",
       "lab_count": 1,
       "labs": [
         "anthropic"
@@ -50052,24 +50172,6 @@
       }
     },
     {
-      "id": "gmmlu",
-      "name": "GMMLU",
-      "lab_count": 1,
-      "labs": [
-        "anthropic"
-      ],
-      "first_seen": "2026-02-17",
-      "last_seen": "2026-09-01",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q1": 1,
-        "2026-Q2": 1,
-        "2026-Q3": 1
-      }
-    },
-    {
       "id": "gorillaapibench",
       "name": "Gorilla API-Bench",
       "lab_count": 1,
@@ -53407,12 +53509,13 @@
         "moonshot"
       ],
       "first_seen": "2026-06-11",
-      "last_seen": "2026-06-11",
+      "last_seen": "2026-09-14",
       "labs_by_year": {
         "2026": 1
       },
       "labs_by_quarter": {
-        "2026-Q2": 1
+        "2026-Q2": 1,
+        "2026-Q3": 1
       }
     },
     {
@@ -53457,12 +53560,13 @@
         "moonshot"
       ],
       "first_seen": "2026-06-11",
-      "last_seen": "2026-06-11",
+      "last_seen": "2026-09-14",
       "labs_by_year": {
         "2026": 1
       },
       "labs_by_quarter": {
-        "2026-Q2": 1
+        "2026-Q2": 1,
+        "2026-Q3": 1
       }
     },
     {
@@ -55571,13 +55675,13 @@
     },
     {
       "id": "mcpmarkverified",
-      "name": "MCPMark-Verified",
+      "name": "MCP Mark Verified",
       "lab_count": 1,
       "labs": [
         "moonshot"
       ],
       "first_seen": "2026-06-11",
-      "last_seen": "2026-07-27",
+      "last_seen": "2026-09-14",
       "labs_by_year": {
         "2026": 1
       },
@@ -59149,6 +59253,22 @@
       }
     },
     {
+      "id": "officeqaprov2",
+      "name": "OfficeQA Pro V2",
+      "lab_count": 1,
+      "labs": [
+        "openai"
+      ],
+      "first_seen": "2026-09-09",
+      "last_seen": "2026-09-09",
+      "labs_by_year": {
+        "2026": 1
+      },
+      "labs_by_quarter": {
+        "2026-Q3": 1
+      }
+    },
+    {
       "id": "ojbenchcpp",
       "name": "OJBench (cpp)",
       "lab_count": 1,
@@ -59788,6 +59908,22 @@
       },
       "labs_by_quarter": {
         "2026-Q2": 1
+      }
+    },
+    {
+      "id": "organicchemistryv2",
+      "name": "Organic chemistry, V2",
+      "lab_count": 1,
+      "labs": [
+        "anthropic"
+      ],
+      "first_seen": "2026-09-01",
+      "last_seen": "2026-09-01",
+      "labs_by_year": {
+        "2026": 1
+      },
+      "labs_by_quarter": {
+        "2026-Q3": 1
       }
     },
     {
@@ -61178,6 +61314,22 @@
       }
     },
     {
+      "id": "proteindesign",
+      "name": "Protein Design",
+      "lab_count": 1,
+      "labs": [
+        "anthropic"
+      ],
+      "first_seen": "2026-09-01",
+      "last_seen": "2026-09-01",
+      "labs_by_year": {
+        "2026": 1
+      },
+      "labs_by_quarter": {
+        "2026-Q3": 1
+      }
+    },
+    {
       "id": "proteingymhard",
       "name": "ProteinGym Hard",
       "lab_count": 1,
@@ -61191,6 +61343,22 @@
       },
       "labs_by_quarter": {
         "2026-Q2": 1,
+        "2026-Q3": 1
+      }
+    },
+    {
+      "id": "protocols",
+      "name": "Protocols",
+      "lab_count": 1,
+      "labs": [
+        "anthropic"
+      ],
+      "first_seen": "2026-09-01",
+      "last_seen": "2026-09-01",
+      "labs_by_year": {
+        "2026": 1
+      },
+      "labs_by_quarter": {
         "2026-Q3": 1
       }
     },

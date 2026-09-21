@@ -1238,7 +1238,7 @@
       "zai"
     ],
     "first_seen": "2025-11-24",
-    "last_seen": "2026-08-11",
+    "last_seen": "2026-09-14",
     "labs_by_year": {
       "2025": 2,
       "2026": 8
@@ -3140,13 +3140,13 @@
       "zai"
     ],
     "first_seen": "2026-04-16",
-    "last_seen": "2026-08-26",
+    "last_seen": "2026-09-09",
     "labs_by_year": {
       "2026": 5
     },
     "labs_by_quarter": {
       "2026-Q2": 2,
-      "2026-Q3": 3
+      "2026-Q3": 4
     }
   },
   {
@@ -5203,6 +5203,28 @@
     }
   },
   {
+    "id": "globalmmlu",
+    "name": "GMMLU",
+    "lab_count": 3,
+    "labs": [
+      "anthropic",
+      "google",
+      "xiaomi"
+    ],
+    "first_seen": "2025-06-17",
+    "last_seen": "2026-09-01",
+    "labs_by_year": {
+      "2025": 1,
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2025-Q2": 1,
+      "2026-Q1": 2,
+      "2026-Q2": 2,
+      "2026-Q3": 1
+    }
+  },
+  {
     "id": "graphwalks",
     "name": "GraphWalks",
     "lab_count": 3,
@@ -6875,6 +6897,25 @@
     }
   },
   {
+    "id": "arc-agi",
+    "name": "ARC-AGI",
+    "lab_count": 2,
+    "labs": [
+      "anthropic",
+      "qwen"
+    ],
+    "first_seen": "2025-07-21",
+    "last_seen": "2026-09-01",
+    "labs_by_year": {
+      "2025": 1,
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q3": 1,
+      "2026-Q3": 1
+    }
+  },
+  {
     "id": "arcagi1",
     "name": "ARC-AGI-1",
     "lab_count": 2,
@@ -8175,26 +8216,6 @@
     }
   },
   {
-    "id": "globalmmlu",
-    "name": "GlobalMMLU",
-    "lab_count": 2,
-    "labs": [
-      "google",
-      "xiaomi"
-    ],
-    "first_seen": "2025-06-17",
-    "last_seen": "2026-04-27",
-    "labs_by_year": {
-      "2025": 1,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1,
-      "2026-Q1": 1,
-      "2026-Q2": 1
-    }
-  },
-  {
     "id": "globalpiqa",
     "name": "Global PIQA",
     "lab_count": 2,
@@ -9286,7 +9307,7 @@
       "qwen"
     ],
     "first_seen": "2026-06-11",
-    "last_seen": "2026-08-03",
+    "last_seen": "2026-09-14",
     "labs_by_year": {
       "2026": 2
     },
@@ -13662,22 +13683,6 @@
     }
   },
   {
-    "id": "arc-agi",
-    "name": "ARC-AGI",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2025-07-21",
-    "last_seen": "2025-07-21",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    }
-  },
-  {
     "id": "arcade",
     "name": "ARCADE",
     "lab_count": 1,
@@ -17502,7 +17507,7 @@
   },
   {
     "id": "critptcorrected",
-    "name": "CritPT-Corrected",
+    "name": "CritPt-Corrected",
     "lab_count": 1,
     "labs": [
       "anthropic"
@@ -21390,24 +21395,6 @@
     }
   },
   {
-    "id": "gmmlu",
-    "name": "GMMLU",
-    "lab_count": 1,
-    "labs": [
-      "anthropic"
-    ],
-    "first_seen": "2026-02-17",
-    "last_seen": "2026-09-01",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 1,
-      "2026-Q2": 1,
-      "2026-Q3": 1
-    }
-  },
-  {
     "id": "gorillaapibench",
     "name": "Gorilla API-Bench",
     "lab_count": 1,
@@ -24745,12 +24732,13 @@
       "moonshot"
     ],
     "first_seen": "2026-06-11",
-    "last_seen": "2026-06-11",
+    "last_seen": "2026-09-14",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q2": 1
+      "2026-Q2": 1,
+      "2026-Q3": 1
     }
   },
   {
@@ -24795,12 +24783,13 @@
       "moonshot"
     ],
     "first_seen": "2026-06-11",
-    "last_seen": "2026-06-11",
+    "last_seen": "2026-09-14",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q2": 1
+      "2026-Q2": 1,
+      "2026-Q3": 1
     }
   },
   {
@@ -26909,13 +26898,13 @@
   },
   {
     "id": "mcpmarkverified",
-    "name": "MCPMark-Verified",
+    "name": "MCP Mark Verified",
     "lab_count": 1,
     "labs": [
       "moonshot"
     ],
     "first_seen": "2026-06-11",
-    "last_seen": "2026-07-27",
+    "last_seen": "2026-09-14",
     "labs_by_year": {
       "2026": 1
     },
@@ -30487,6 +30476,22 @@
     }
   },
   {
+    "id": "officeqaprov2",
+    "name": "OfficeQA Pro V2",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-09-09",
+    "last_seen": "2026-09-09",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    }
+  },
+  {
     "id": "ojbenchcpp",
     "name": "OJBench (cpp)",
     "lab_count": 1,
@@ -31126,6 +31131,22 @@
     },
     "labs_by_quarter": {
       "2026-Q2": 1
+    }
+  },
+  {
+    "id": "organicchemistryv2",
+    "name": "Organic chemistry, V2",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-09-01",
+    "last_seen": "2026-09-01",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
     }
   },
   {
@@ -32516,6 +32537,22 @@
     }
   },
   {
+    "id": "proteindesign",
+    "name": "Protein Design",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-09-01",
+    "last_seen": "2026-09-01",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    }
+  },
+  {
     "id": "proteingymhard",
     "name": "ProteinGym Hard",
     "lab_count": 1,
@@ -32529,6 +32566,22 @@
     },
     "labs_by_quarter": {
       "2026-Q2": 1,
+      "2026-Q3": 1
+    }
+  },
+  {
+    "id": "protocols",
+    "name": "Protocols",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-09-01",
+    "last_seen": "2026-09-01",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
       "2026-Q3": 1
     }
   },
