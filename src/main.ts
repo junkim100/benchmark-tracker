@@ -129,7 +129,10 @@ if (data.releases.length === 0) {
         draw();
         // Re-rendering replaces the input, so focus has to be put back or
         // picking a second benchmark means reaching for the mouse again.
-        if (adding) app.querySelector<HTMLInputElement>(".pick__input")?.focus();
+        // Only reopen where the list does not cover the result. On a phone the
+        // panel sits over the chart and the view toggle, so returning focus
+        // hides the very thing the pick was meant to show.
+        if (adding && window.innerWidth >= 760) app.querySelector<HTMLInputElement>(".pick__input")?.focus();
       },
     });
     renderTrend($(".trendwrap"), {

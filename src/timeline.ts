@@ -17,7 +17,11 @@ const PAD_DAYS = 45;
 // Narrow viewports get a tighter day scale. At 6px a quarter is 540px wide,
 // which is wider than a phone's 220px scroller, so most scroll positions
 // showed no date label at all.
-const PX_PER_DAY = typeof window !== "undefined" && window.innerWidth < 760 ? 2.4 : 6;
+const NARROW = typeof window !== "undefined" && window.innerWidth < 760;
+const PX_PER_DAY = NARROW ? 2.4 : 6;
+// Marks must shrink with the day scale or a 10px dot spans four days and the
+// next day's mark covers it completely, which hid 19 of 620 on a phone.
+const MARK_SCALE = NARROW ? 0.6 : 1;
 
 export interface TimelineArgs {
   labs: Lab[];
@@ -70,9 +74,9 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
       const slot = hit ? slotOf.get(hit)! : 0;
       const many = rs.length > 1;
       const cls = `mark${slot ? ` mark--s${slot}` : ""}${many ? " mark--many" : ""}`;
-      const r = slot ? 5.5 : 4;
+      const r = (slot ? 5.5 : 4) * MARK_SCALE;
       const label = many ? `${rs.length} releases on ${date}` : `${rs[0].model}, ${date}`;
-      return `<circle class="${cls}" cx="${x(date).toFixed(1)}" cy="${cy}" r="${many ? r + 1.5 : r}" data-key="${esc(lab.id + "|" + date)}" aria-label="${esc(label)}"></circle>`;
+      return `<circle class="${cls}" cx="${x(date).toFixed(1)}" cy="${cy}" r="${(many ? r + 1.5 * MARK_SCALE : r).toFixed(2)}" data-key="${esc(lab.id + "|" + date)}" aria-label="${esc(label)}"></circle>`;
     }).join("");
     return `<g class="row" data-lab="${esc(lab.id)}"><line class="rowline" x1="0" y1="${cy}" x2="${width}" y2="${cy}"/>${dots}</g>`;
   }).join("");

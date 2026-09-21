@@ -142,7 +142,9 @@ a:hover { text-decoration-color: var(--text-primary); }
 .dt thead th { padding: 0 0 9px; font-weight: 500; font-size: 12.5px; color: var(--text-muted); text-align: right; border-bottom: 1px solid var(--border-strong); }
 .dt thead th:first-child { text-align: left; }
 .dt tbody th { padding: 11px 18px 11px 0; font-weight: 450; text-align: left; white-space: nowrap; border-bottom: 1px solid var(--border);
-  max-width: 42vw; overflow: hidden; text-overflow: ellipsis; }
+  /* max-width on a table cell is advisory: 42vw asked for 164px at 390 and the
+     cell rendered 226. An explicit width is honoured. */
+  max-width: 14ch; width: 14ch; overflow: hidden; text-overflow: ellipsis; }
 .dt tbody td { padding: 11px 5px; text-align: right; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
 .dt tbody tr:last-child th, .dt tbody tr:last-child td { border-bottom: 0; }
 .dt__dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 9px; vertical-align: 1px; background: var(--slot, var(--text-muted)); }
@@ -244,6 +246,10 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
    than that, which was every width below about 1010px. */
 .tl__body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .tl__range {
+  /* Sticky vertically too. It survived horizontal scrolling, which was its
+     job, but left the viewport on a vertical scroll, so a landscape phone was
+     back to having no date reference. */
+  position: sticky; top: 0; z-index: 3;
   padding: 7px 14px; font-size: 12px; font-variant-numeric: tabular-nums;
   color: var(--text-secondary); background: var(--surface-3);
   border-bottom: 1px solid var(--border);
