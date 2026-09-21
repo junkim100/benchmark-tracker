@@ -4,7 +4,7 @@ import raw from "../data/timeline.json";
 import { MAX_TRACKED, displayNames, yearsSpanned, type Benchmark, type Timeline } from "./model";
 import { renderFilter } from "./filter";
 import { renderTimeline, tooltipHTML } from "./timeline";
-import { renderTrend } from "./trend";
+import { renderTrend, type TrendView } from "./trend";
 
 const data = raw as unknown as Timeline;
 const app = document.querySelector<HTMLDivElement>("#app")!;
@@ -34,6 +34,7 @@ if (data.releases.length === 0) {
   const top = data.benchmarks[0];
 
   let tracked: string[] = [];
+  let view: TrendView = "chart";
 
   app.innerHTML = `
     <header class="hd">
@@ -46,11 +47,8 @@ if (data.releases.length === 0) {
       </button>
     </header>
 
-    <section class="stats" aria-label="Coverage">
-      <div class="stat"><span class="stat__n">${data.releases.length.toLocaleString()}</span><span class="stat__l">releases</span></div>
-      <div class="stat"><span class="stat__n">${data.labs.length}</span><span class="stat__l">labs</span></div>
-      <div class="stat"><span class="stat__n">${data.benchmarks.length.toLocaleString()}</span><span class="stat__l">benchmarks</span></div>
-      <div class="stat stat--wide"><span class="stat__n">${esc(names.get(top.id) ?? top.id)}</span><span class="stat__l">most widely cited, ${top.lab_count} labs</span></div>
+    <section class="scope" aria-label="What is covered">
+      <p>Every benchmark named in <b>${data.releases.length.toLocaleString()}</b> official releases from <b>${data.labs.length}</b> frontier labs since ${years[0]}. ${esc(names.get(top.id) ?? top.id)} is the most widely cited, reported by all ${top.lab_count}.</p>
     </section>
 
     <section class="controls" aria-label="Track benchmarks"></section>
@@ -58,8 +56,8 @@ if (data.releases.length === 0) {
     <section class="tlwrap" aria-label="Release timeline"></section>
 
     <footer class="ft">
-      <span>Official lab sources only. No scores, by design.</span>
-      <span>Generated ${data.generated_at.slice(0, 10)} · <a href="https://github.com/junkim100/benchmark-tracker">source</a></span>
+      <p>Sources are each lab's own site, model card, system card, or arXiv paper. Nothing is taken from news coverage or third-party leaderboards, and no score is recorded anywhere.</p>
+      <p>Updated ${data.generated_at.slice(0, 10)}. <a href="https://github.com/junkim100/benchmark-tracker">Data and code on GitHub</a></p>
     </footer>
     <div class="tt" role="tooltip" hidden></div>`;
 
@@ -81,15 +79,20 @@ if (data.releases.length === 0) {
     renderFilter($(".controls"), {
       benchmarks: data.benchmarks, names, tracked,
       onToggle: (id) => {
-        tracked = tracked.includes(id)
-          ? tracked.filter((t) => t !== id)
-          : tracked.length < MAX_TRACKED ? [...tracked, id] : tracked;
+        const adding = !tracked.includes(id);
+        tracked = adding
+          ? tracked.length < MAX_TRACKED ? [...tracked, id] : tracked
+          : tracked.filter((t) => t !== id);
         draw();
+        // Re-rendering replaces the input, so focus has to be put back or
+        // picking a second benchmark means reaching for the mouse again.
+        if (adding) app.querySelector<HTMLInputElement>(".pick__input")?.focus();
       },
     });
     renderTrend($(".trendwrap"), {
       tracked: tracked.map((id) => byId.get(id)!).filter(Boolean) as Benchmark[],
-      releases: data.releases, labs: data.labs, names, years, partialYear, onHover: showTip,
+      releases: data.releases, labs: data.labs, names, years, partialYear,
+      view, onView: (v) => { view = v; draw(); }, onHover: showTip,
     });
     renderTimeline($(".tlwrap"), {
       labs: data.labs, releases: data.releases, tracked, names,
