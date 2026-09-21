@@ -37,11 +37,26 @@ if (data.releases.length === 0) {
   const trackables = buildTrackables(data);
   const top = data.benchmarks[0];
 
-  // Open with the four most-cited benchmarks already tracked. An empty chart
-  // was the first thing a reader saw, in the largest space on the page, and it
-  // could only explain in words what one glance would have shown. Four is
-  // enough to read as a comparison and leaves half the eight slots free.
-  let tracked: string[] = data.benchmarks.slice(0, 4).map((b) => b.id);
+  // Open on four that already say something, rather than on an empty chart in
+  // the largest space on the page.
+  //
+  // Three rising and one falling, because four lines all climbing from zero
+  // tell one story and the point of the chart is the contrast. HumanEval is the
+  // fourth for a reason: it falls from 8 to 2 while Terminal-Bench climbs from
+  // 0 to 10, crossing in Q1 2025, and both are coding, so it reads as a handoff
+  // from function completion to terminal agents rather than as four unrelated
+  // lines. Four leaves half the eight slots free.
+  //
+  // Suites, not their headline versions, so the line counts every version of
+  // the evaluation. Terminal-Bench reads 11 labs as a suite against 9 for its
+  // most-cited single version.
+  const DEFAULT_TRACKED = ["suite:terminal-bench", "suite:gdpval", "hle", "suite:humaneval"];
+  // A suite stops existing if its members ever drop below two, and the data is
+  // rebuilt every three days without anyone watching, so the default is
+  // filtered against what actually exists and falls back rather than opening
+  // empty.
+  let tracked: string[] = DEFAULT_TRACKED.filter((id) => trackables.has(id));
+  if (!tracked.length) tracked = data.benchmarks.slice(0, 4).map((b) => b.id);
   let view: TrendView = "chart";
 
   app.innerHTML = `
