@@ -77,7 +77,9 @@ let lastScroll: number | null = null;
 let lastPxPerDay = 0;
 let ourValue = -1;
 let inputSince = false;
+let inputAt = -1e9;
 let resizeAt = -1e9;
+let lastClientWidth = -1;
 let repaintRange: (() => void) | null = null;
 
 // How long after a resize a scroll may still be the reflow's echo. Outside
@@ -85,6 +87,12 @@ let repaintRange: (() => void) | null = null;
 // thumb drag and scrollIntoView all move the scroller without any input event
 // reaching it, and dropping those cost 764 days.
 const RESIZE_ECHO_MS = 120;
+
+// How long the reader's evidence stays good. A wheel tick against the end of
+// the timeline moves nothing and so fires no scroll event, leaving the latch
+// set with nothing to spend it. Five seconds later a resize was still cashing
+// it in to admit a clamp.
+const INPUT_TTL_MS = 1000;
 
 export function noteTimelineResize(): void {
   resizeAt = performance.now();
@@ -101,7 +109,9 @@ function adopt(s: HTMLElement, ppd: number, fromScroll: boolean): void {
   // wherever they actually were. It has no offset worth reading.
   if (!s.isConnected) return;
   if (!ppd || s.scrollLeft === ourValue) return;
-  if (!inputSince && performance.now() - resizeAt < RESIZE_ECHO_MS) return;
+  const now = performance.now();
+  const reader = inputSince && now - inputAt < INPUT_TTL_MS;
+  if (!reader && now - resizeAt < RESIZE_ECHO_MS) return;
   // Off the scroll path, the offset is being read during a reflow: the
   // scroller's content still belongs to the previous layout while its width is
   // already the new one. An offset sitting on the maximum of that mismatched
@@ -109,8 +119,15 @@ function adopt(s: HTMLElement, ppd: number, fromScroll: boolean): void {
   // own in-flight wheel is exactly what makes the guard above wave it through.
   // Refusing it costs nothing when the reader really is at the end, because
   // the recorded place is then the end too.
-  if (!fromScroll && s.scrollLeft >= s.scrollWidth - s.clientWidth - 0.5) return;
+  // Only while the width is actually changing, though. On a settled scroller
+  // the two are the same number, so refusing every read at the maximum also
+  // refuses the one that would correct a stale record, and the next restore
+  // then drags the reader back to it. That cost up to 1250 days with no
+  // viewport change involved at all.
+  const reflowing = s.clientWidth !== lastClientWidth;
+  if (!fromScroll && reflowing && s.scrollLeft >= s.scrollWidth - s.clientWidth - 0.5) return;
   lastScroll = s.scrollLeft / ppd;
+  lastClientWidth = s.clientWidth;
   if (fromScroll) inputSince = false;
   ourValue = -1;
 }
@@ -121,6 +138,7 @@ function adopt(s: HTMLElement, ppd: number, fromScroll: boolean): void {
 function restore(s: HTMLElement, ppd: number, fallback: number): void {
   s.scrollLeft = lastScroll != null ? lastScroll * ppd : fallback;
   ourValue = s.scrollLeft;
+  lastClientWidth = s.clientWidth;
   if (lastScroll == null) lastScroll = s.scrollLeft / ppd;
 }
 
@@ -238,7 +256,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   // the scroller rather than the window so that resizing the page cannot be
   // mistaken for scrolling it.
   for (const ev of ["wheel", "touchstart", "touchmove", "pointerdown", "keydown"]) {
-    scroller.addEventListener(ev, () => { inputSince = true; }, { passive: true });
+    scroller.addEventListener(ev, () => { inputSince = true; inputAt = performance.now(); }, { passive: true });
   }
   repaintRange = paintRange;
   scroller.addEventListener("scroll", () => {
