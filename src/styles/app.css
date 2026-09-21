@@ -201,11 +201,14 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
 /* The mark wears its brand colour, chosen per theme against the tile it sits
    on. Two custom properties travel with each mark and the theme picks one, the
    same shape as every other token here. */
-.tl__logo svg { width: 14px; height: 14px; display: block; fill: var(--lg, currentColor); }
-:root[data-theme="dark"] .tl__logo svg { fill: var(--lgd, currentColor); }
+/* Set on the tile as `color`, not on the svg as `fill`, so a mark that needs a
+   stroke as well as a fill can ask for currentColor and get the same ink. */
+.tl__logo { color: var(--lg); }
+:root[data-theme="dark"] .tl__logo { color: var(--lgd); }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .tl__logo svg { fill: var(--lgd, currentColor); }
+  :root:not([data-theme="light"]) .tl__logo { color: var(--lgd); }
 }
+.tl__logo svg { width: 14px; height: 14px; display: block; fill: currentColor; }
 .tl__scroll { overflow-x: auto; overflow-y: hidden; flex: 1; scrollbar-width: thin; }
 .tl__scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .rowline { stroke: var(--border); stroke-width: 1; }

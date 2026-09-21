@@ -28,7 +28,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
       <div class="pick__field">
         <svg class="pick__icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>
         <input class="pick__input" type="text" role="combobox" aria-expanded="false" aria-controls="pick-list"
-               placeholder="${full ? `Tracking ${MAX_TRACKED}, the maximum` : "Track a benchmark"}"
+               placeholder="${full ? `Tracking ${MAX_TRACKED}, the maximum` : "Search by name"}"
                aria-activedescendant="" autocomplete="off" ${full ? "disabled" : ""} />
         <kbd class="pick__hint">${a.benchmarks.length.toLocaleString()}</kbd>
       </div>
