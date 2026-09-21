@@ -50,35 +50,47 @@ export interface TimelineArgs {
 // The reader's place in the timeline, held in days because the pixel scale
 // changes with the viewport bucket.
 //
-// Eight earlier versions tried to work out, from the scroller's state, whether
+// Nine earlier versions tried to work out, from the scroller's state, whether
 // an offset was one the reader chose or one a reflow forced on them. The DOM
-// cannot answer that. Worse, it cannot even be asked: two size changes inside
-// one frame produce a single resize event carrying only the final width, so a
-// clamp that happened at the intermediate width leaves no trace at all. Every
-// rule inferred from widths and maxima failed on that case.
+// cannot answer that, and it cannot even be asked: two size changes inside one
+// frame produce a single resize event carrying only the final width, so a
+// clamp at the intermediate width leaves no trace.
 //
-// So the question is answered from the other side. A scroll the reader caused
-// is preceded by an input event from the reader. One the browser caused is
-// not. That is evidence rather than inference, and it does not care how many
-// reflows were coalesced into the frame.
+// Asking the reader instead was right, but the tenth version asked at the
+// wrong moment. It compared a resize timestamp against an input timestamp at
+// scroll-event time, by which point the resize handler had already written
+// over the offset. A wheel reaches scrollLeft a frame before its scroll event
+// is dispatched, so for one frame of every frame the scroller holds a reader
+// offset carrying no evidence yet, and the comparison rejected it forever.
+//
+// The evidence is therefore a latch, not a timestamp. It is set by input and
+// cleared only when it is used, so it still applies to the scroll event that
+// arrives a frame after the input that caused it.
 let lastScroll: number | null = null;
 let lastPxPerDay = 0;
 let ourValue = -1;
-let inputAt = 0;
-let resizeAt = 0;
+let inputSince = false;
+let resizeAt = -1e9;
+let repaintRange: (() => void) | null = null;
 
-// Called before any resize is acted on, so the scroll events the reflow
-// provokes can be told apart from the reader's own.
+// How long after a resize a scroll may still be the reflow's echo. Outside
+// this window an unexplained scroll is the reader's: find-in-page, a scrollbar
+// thumb drag and scrollIntoView all move the scroller without any input event
+// reaching it, and dropping those cost 764 days.
+const RESIZE_ECHO_MS = 120;
+
 export function noteTimelineResize(): void {
   resizeAt = performance.now();
 }
 
 // Take the scroller's offset as the reader's place, unless it is still exactly
-// what we last wrote, or unless nothing the reader did has happened since the
-// last resize, in which case the offset can only be the reflow's.
+// what we last wrote, or unless a reflow just happened with no reader input to
+// account for it.
 function adopt(s: HTMLElement, ppd: number): void {
-  if (!ppd || s.scrollLeft === ourValue || resizeAt > inputAt) return;
+  if (!ppd || s.scrollLeft === ourValue) return;
+  if (!inputSince && performance.now() - resizeAt < RESIZE_ECHO_MS) return;
   lastScroll = s.scrollLeft / ppd;
+  inputSince = false;
   ourValue = -1;
 }
 
@@ -92,12 +104,16 @@ function restore(s: HTMLElement, ppd: number, fallback: number): void {
 }
 
 // A resize inside one bucket redraws nothing, but a widened viewport still
-// clamps the scroller and nothing else runs to put the reader back.
+// clamps the scroller and nothing else runs to put the reader back. The
+// readout has to be repainted by hand here: the visible span depends on the
+// scroller's width, so it goes stale on a resize that leaves the offset alone
+// and fires no scroll event to trigger a repaint.
 export function restoreTimelineScroll(host: HTMLElement): void {
   const s = host.querySelector<HTMLDivElement>(".tl__scroll");
   if (!s || !lastPxPerDay) return;
   adopt(s, lastPxPerDay);
   restore(s, lastPxPerDay, s.scrollLeft);
+  repaintRange?.();
 }
 
 export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
@@ -201,8 +217,9 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   // the scroller rather than the window so that resizing the page cannot be
   // mistaken for scrolling it.
   for (const ev of ["wheel", "touchstart", "touchmove", "pointerdown", "keydown"]) {
-    scroller.addEventListener(ev, () => { inputAt = performance.now(); }, { passive: true });
+    scroller.addEventListener(ev, () => { inputSince = true; }, { passive: true });
   }
+  repaintRange = paintRange;
   scroller.addEventListener("scroll", () => {
     paintRange();
     adopt(scroller, PX_PER_DAY);
