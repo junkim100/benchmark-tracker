@@ -1,26 +1,26 @@
-name: Daily research
+name: Research
 
 on:
   schedule:
-    # 13:37 UTC: early morning in the Americas, after the working day in Asia,
-    # so a release published anywhere is usually up by the time this runs. The
-    # odd minute is deliberate. GitHub delays scheduled runs under load and the
-    # top of every hour is the busiest slot, where runs are most likely to slip
-    # or be dropped entirely.
-    - cron: "37 13 * * *"
+    # Every third day at 13:37 UTC. Early morning in the Americas and after the
+    # working day in Asia, so a release published anywhere is usually up. The
+    # odd minute is deliberate: GitHub delays scheduled runs under load and the
+    # top of every hour is the busiest slot.
+    - cron: "37 13 */3 * *"
   workflow_dispatch:
     inputs:
       lookback_days:
         description: "How many days back to search"
-        default: "14"
+        default: "7"
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   research:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -32,30 +32,44 @@ jobs:
       - name: Research each lab
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          LOOKBACK_DAYS: ${{ inputs.lookback_days || '14' }}
+          # The lookback is deliberately longer than the interval. If it only
+          # just covered the gap, one delayed or dropped run would leave a
+          # permanent hole, and GitHub drops scheduled runs often enough for
+          # that to happen. At seven days every release gets two or three
+          # chances to be found, and duplicates cost nothing because records
+          # are deduplicated by source URL.
+          LOOKBACK_DAYS: ${{ inputs.lookback_days || '7' }}
         run: node scripts/research.mjs
 
-      # The same validation the site build runs. A malformed or score-bearing
-      # record fails here, before it can reach a pull request.
+      # The same check the site build runs. A malformed or score-bearing record
+      # fails here, before it can reach main.
       - name: Validate against the data contract
         run: npm run normalize
 
-      - name: Open a pull request if anything changed
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit anything new
+        id: commit
         run: |
           if [ -z "$(git status --porcelain data/releases)" ]; then
-            echo "No new releases. Nothing to open."
+            echo "No new releases."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          BRANCH="research/$(date -u +%Y-%m-%d)"
           git config user.name "benchmark-tracker bot"
           git config user.email "noreply@github.com"
-          git checkout -b "$BRANCH"
           git add data/releases
-          git commit -m "Daily research: $(date -u +%Y-%m-%d)
+          git commit -m "Research: $(date -u +%Y-%m-%d)
 
           $(cat research-summary.txt)"
-          git push -u origin "$BRANCH"
-          gh pr create --title "Daily research: $(date -u +%Y-%m-%d)" \
-            --body "$(printf 'Found by the daily research pass. Every source is on the lab own domain or its arXiv paper; web search was restricted to those domains, so a third-party write-up cannot appear here.\n\n%s\n\nReview the cited benchmark names before merging. Names the build did not recognise are listed in the normalize step output and may need an entry in data/aliases.json.' "$(cat research-summary.txt)")"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+  # Only when something landed, and only as an explicit call: the bot's own push
+  # cannot trigger the deploy workflow on its own.
+  deploy:
+    needs: research
+    if: needs.research.outputs.changed == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy.yml

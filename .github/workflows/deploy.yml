@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # A commit pushed with GITHUB_TOKEN does not trigger other workflows, so the
+  # research run cannot rely on its own push firing this. It calls it instead.
+  workflow_call:
 
 permissions:
   contents: read
