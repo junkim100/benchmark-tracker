@@ -6,6 +6,7 @@
 // that cites nothing tracked stays neutral; one that cites a tracked benchmark
 // is drawn in that benchmark's fixed slot colour.
 
+import { LOGOS } from "./logos";
 import { KIND_LABEL, dayNumber, type Lab, type Release } from "./model";
 
 const ROW_H = 40;
@@ -166,6 +167,18 @@ export function restoreTimelineScroll(host: HTMLElement): void {
   repaintRange?.();
 }
 
+// The lab's own mark where one is available, otherwise its initial. The
+// fallback used to be the only option and it was ambiguous: Meta, Mistral and
+// Moonshot all rendered "M", and xAI and Xiaomi both rendered an X. Those five
+// are exactly the ones a mark now covers, so what is left falls back to O, x,
+// U and Z, which collide with nothing.
+function labMark(l: Lab, esc: (s: string) => string): string {
+  const d = LOGOS[l.id];
+  return d
+    ? `<span class="tl__logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="${d}"/></svg></span>`
+    : `<span class="tl__logo" aria-hidden="true">${esc(l.name.slice(0, 1))}</span>`;
+}
+
 export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const { pxPerDay: PX_PER_DAY, markScale: MARK_SCALE } = metrics();
 
@@ -217,7 +230,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   host.innerHTML = `
     <div class="tl">
       <div class="tl__labs" role="rowheader">
-        ${a.labs.map((l) => `<div class="tl__lab" style="height:${ROW_H}px"><span class="tl__logo" aria-hidden="true">${esc(l.name.slice(0, 1))}</span><span class="tl__name">${esc(l.name)}</span></div>`).join("")}
+        ${a.labs.map((l) => `<div class="tl__lab" style="height:${ROW_H}px">${labMark(l, esc)}<span class="tl__name">${esc(l.name)}</span></div>`).join("")}
       </div>
       <div class="tl__body">
       <div class="tl__range" aria-live="off"></div>
