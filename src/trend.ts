@@ -17,7 +17,6 @@ export interface TrendArgs {
   benchmarks: Benchmark[];
   releases: Release[];
   labs: Lab[];
-  names: Map<string, string>;
   quarters: string[];
   partialQuarter: string | null;
   view: TrendView;

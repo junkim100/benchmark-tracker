@@ -219,7 +219,7 @@ if (data.releases.length === 0) {
     renderTrend($(".trendwrap"), {
       tracked: tracked.map((id) => trackables.get(id)!).filter(Boolean),
       benchmarks: data.benchmarks,
-      releases: data.releases, labs, names, quarters: data.quarters, partialQuarter,
+      releases: data.releases, labs, quarters: data.quarters, partialQuarter,
       view, onView: (v) => { view = v; draw(); }, onHover: showTip, onHoverFitted: showFitted,
     });
     renderTimeline($(".tlwrap"), {

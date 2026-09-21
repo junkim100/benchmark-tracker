@@ -90,7 +90,6 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
 .browse__icon { width: 16px; height: 16px; flex: none; fill: none; stroke: var(--text-muted); stroke-width: 1.6; stroke-linecap: round; }
 .browse__input { flex: 1; min-width: 0; padding: 11px 0; font: inherit; background: none; border: 0; color: var(--text-primary); }
 .browse__input::-webkit-search-cancel-button { display: none; }
-.browse__input::placeholder { color: var(--text-muted); opacity: 1; }
 .browse__clear { flex: none; padding: 2px 6px; font-size: 18px; line-height: 1; background: none; border: 0; color: var(--text-muted); cursor: pointer; }
 .browse__clear:hover { color: var(--accent); }
 
@@ -360,9 +359,9 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
   position: sticky; left: 0; z-index: 1; background: var(--surface-1);
 }
 
-/* DEFECT F: the placeholder is the field's only visible label and also carries
-   the maximum-tracked message, so it needs label contrast, not hint contrast. */
-.pick__input::placeholder { color: var(--text-secondary); opacity: 1; }
+/* The placeholder is the field's only visible label, so it needs label
+   contrast rather than hint contrast. */
+.browse__input::placeholder { color: var(--text-secondary); opacity: 1; }
 
 /* The figure caption carries only the partial-quarter warning now; the section
    standfirst says what the chart is. Empty means empty, not a blank line. */
