@@ -62,8 +62,15 @@ function within(a: string, b: string, max: number): number {
 export function score(t: Trackable, q: string): number {
   if (!q) return 0;
   // A suite's display name carries ", all versions" so a chip can be told from
-  // its headline version. Searching should not have to know that.
-  const n = fold(t.name.replace(/, all versions$/, ""));
+  // its headline version. Searching should not have to know that, and equally
+  // should not fail for someone who read the card and typed what it says: both
+  // the bare name and the full one are matched, best score wins.
+  const bare = fold(t.name.replace(/, all versions$/, ""));
+  const full = fold(t.name);
+  return bare === full ? scoreOne(t, bare, q) : Math.max(scoreOne(t, bare, q), scoreOne(t, full, q));
+}
+
+function scoreOne(t: Trackable, n: string, q: string): number {
   if (n === q) return 1000;
   if (n.startsWith(q)) return 900 - n.length;
   const at = n.indexOf(q);

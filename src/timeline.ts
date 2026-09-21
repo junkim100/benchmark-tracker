@@ -77,9 +77,16 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   // Slot by membership, not by identity. A tracked suite covers many benchmark
   // ids, so the lookup is the other way round: given what a release cites, find
   // the first slot that claims any of it.
+  // Narrowest match wins. Scanning in slot order meant that tracking a suite
+  // and one of its versions coloured every mark with whichever was picked
+  // first, so the version's own colour could never appear on a release that
+  // only it covers. Preferring the smaller set gives the more specific answer.
+  const order = a.trackedMembers
+    .map((set, i) => ({ set, slot: i + 1 }))
+    .sort((x, y) => x.set.size - y.set.size);
   const slotOfRelease = (ids: string[]): number | undefined => {
-    for (let i = 0; i < a.trackedMembers.length; i++) {
-      if (ids.some((id) => a.trackedMembers[i].has(id))) return i + 1;
+    for (const { set, slot } of order) {
+      if (ids.some((id) => set.has(id))) return slot;
     }
     return undefined;
   };

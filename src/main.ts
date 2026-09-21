@@ -184,6 +184,27 @@ if (data.releases.length === 0) {
         tracked = adding
           ? tracked.length < MAX_TRACKED ? [...tracked, id] : tracked
           : tracked.filter((t) => t !== id);
+        // Taking a suite drops any of its versions that were already tracked.
+        // A suite counts every lab citing any version, so a version's line can
+        // only ever sit at or below it, and for some suites they coincide
+        // exactly: HumanEval and its headline version are identical in all
+        // eight recent quarters, which draws one line on top of another and
+        // spends two of the eight slots doing it.
+        //
+        // One direction only. Clicking a version while its suite is tracked is
+        // a deliberate ask for how much of the whole that version accounts for,
+        // which is a real question, so that pairing is left alone.
+        //
+        // Categories are not treated this way. A category is a subject rather
+        // than versions of one evaluation, so "SWE-bench against all of Coding"
+        // is a comparison worth keeping, and dropping every coding benchmark
+        // because someone opened the category would throw away four choices at
+        // once.
+        const t = adding ? trackables.get(id) : null;
+        if (t?.kind === "suite") {
+          const inside = memberIds(t, data.benchmarks);
+          tracked = tracked.filter((x) => x === id || !inside.has(x));
+        }
         // Keep the browser where it was. Re-rendering replaces the field and
         // the tab strip, so without this a second pick means retyping the
         // search and finding the category again.
