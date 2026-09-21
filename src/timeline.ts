@@ -167,15 +167,14 @@ export function restoreTimelineScroll(host: HTMLElement): void {
   repaintRange?.();
 }
 
-// The lab's own mark where one is available, otherwise its initial. The
-// fallback used to be the only option and it was ambiguous: Meta, Mistral and
-// Moonshot all rendered "M", and xAI and Xiaomi both rendered an X. Those five
-// are exactly the ones a mark now covers, so what is left falls back to O, x,
-// U and Z, which collide with nothing.
+// The lab's own mark. Every tracked lab has one, so the initial is only a
+// guard for a lab added to the data before its mark is added here. It was the
+// only option once and it was ambiguous: Meta, Mistral and Moonshot all
+// rendered a bare M, and xAI and Xiaomi both rendered an X.
 function labMark(l: Lab, esc: (s: string) => string): string {
-  const d = LOGOS[l.id];
-  return d
-    ? `<span class="tl__logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="${d}"/></svg></span>`
+  const m = LOGOS[l.id];
+  return m
+    ? `<span class="tl__logo" aria-hidden="true"><svg viewBox="${m.vb}">${m.d}</svg></span>`
     : `<span class="tl__logo" aria-hidden="true">${esc(l.name.slice(0, 1))}</span>`;
 }
 

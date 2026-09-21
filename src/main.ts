@@ -46,8 +46,9 @@ if (data.releases.length === 0) {
         <h1>Benchmark Tracker</h1>
         <p class="hd__sub">Which benchmarks frontier labs cite when they ship. Not how they scored.</p>
       </div>
-      <button class="iconbtn" type="button" data-act="theme" aria-label="Switch colour theme" title="Switch colour theme">
-        <span class="iconbtn__l" aria-hidden="true"></span>
+      <button class="iconbtn" type="button" data-act="theme">
+        <span class="vh"></span>
+        <svg class="iconbtn__i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></svg>
       </button>
     </header>
 
@@ -117,7 +118,19 @@ if (data.releases.length === 0) {
   window.addEventListener("scroll", hideTip, { passive: true, capture: true });
   window.addEventListener("wheel", hideTip, { passive: true });
 
-  const paintTheme = () => { $(".iconbtn__l").textContent = effective() === "dark" ? "Dark" : "Light"; };
+  // A sun and a moon, drawn as strokes so they inherit the button's colour and
+  // stay legible at 16px. The icon shows the theme the click will switch TO,
+  // and the label says so in words, because a lone sun is genuinely ambiguous
+  // about whether it reports the current state or the next one.
+  const SUN = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+  const MOON = '<path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2Z"/>';
+  const paintTheme = () => {
+    const toDark = effective() !== "dark";
+    const label = toDark ? "Switch to dark theme" : "Switch to light theme";
+    $(".iconbtn__i").innerHTML = toDark ? MOON : SUN;
+    $(".iconbtn .vh").textContent = label;
+    $(".iconbtn").setAttribute("title", label);
+  };
 
   const draw = () => {
     renderFilter($(".controls"), {

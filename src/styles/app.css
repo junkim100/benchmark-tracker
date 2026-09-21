@@ -25,12 +25,16 @@ a:hover { text-decoration-color: var(--text-primary); }
 .hd__title { flex: 1; min-width: 0; }
 .hd h1 { margin: 0; font-size: clamp(27px, 4vw, 36px); line-height: 1.1; letter-spacing: -0.028em; font-weight: 600; }
 .hd__sub { margin: 9px 0 0; max-width: 60ch; font-size: 16px; line-height: 1.5; color: var(--text-secondary); }
+/* Square now that it holds an icon rather than the words "Dark" and "Light".
+   36px keeps it a comfortable pointer target without it competing with the
+   heading beside it. */
 .iconbtn {
-  flex: none; padding: 7px 14px; font: inherit; font-size: 13px;
+  flex: none; display: grid; place-items: center; width: 36px; height: 36px; padding: 0;
   background: none; color: var(--text-secondary);
   border: 1px solid var(--border); border-radius: 999px; cursor: pointer;
   transition: color .12s, border-color .12s;
 }
+.iconbtn__i { width: 17px; height: 17px; display: block; }
 .iconbtn:hover { color: var(--text-primary); border-color: var(--border-strong); }
 
 /* The scope note is a sentence, not a rack of tiles. Numbers sit inside the
@@ -171,7 +175,7 @@ a:hover { text-decoration-color: var(--text-primary); }
 /* The mark inherits the column's ink rather than carrying brand colour, which
    keeps the eight palette slots for tracked benchmarks and keeps a row from
    reading as a logo wall. */
-.tl__logo svg { width: 13px; height: 13px; display: block; fill: currentColor; }
+.tl__logo svg { width: 14px; height: 14px; display: block; fill: currentColor; }
 .tl__scroll { overflow-x: auto; overflow-y: hidden; flex: 1; scrollbar-width: thin; }
 .tl__scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .rowline { stroke: var(--border); stroke-width: 1; }
