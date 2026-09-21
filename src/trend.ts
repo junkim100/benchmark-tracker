@@ -88,7 +88,10 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
           // The right margin is the whole width budget. A name that would run
           // past it is truncated here rather than clipped by the scroller,
           // which produced a half-word with no ellipsis and no way to reach it.
-          const full = a.names.get(b.id) ?? b.id;
+          // The trackable carries its own name. Reading it from the benchmark
+          // name map instead printed the raw id for anything that is not a
+          // benchmark, so a tracked suite was labelled "suite:gdpval".
+          const full = b.name;
           // 7.8px per character, measured against this face at 12.5px. The
           // earlier 6.1 under-counted and let 91 of 254 labels overrun the
           // margin, where the scroller clipped them without the ellipsis.
@@ -128,7 +131,7 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
           return `<rect class="qband" data-q="${q}" x="${(px(i) - half).toFixed(1)}" y="${M.t}" width="${(half * 2).toFixed(1)}" height="${ih}"/>`;
         }).join("")}</g>
       </svg></div>
-      ${a.tracked.length ? `<ul class="legend">${a.tracked.map((b, i) => `<li class="s${i + 1}"><svg class="sw" viewBox="0 0 22 10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5"/></svg>${esc(a.names.get(b.id) ?? b.id)}</li>`).join("")}</ul>` : ""}`;
+      ${a.tracked.length ? `<ul class="legend">${a.tracked.map((b, i) => `<li class="s${i + 1}"><svg class="sw" viewBox="0 0 22 10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5"/></svg>${esc(b.name)}</li>`).join("")}</ul>` : ""}`;
 
   const years = [...new Set(a.quarters.map((q) => q.slice(0, 4)))];
   const table = `
@@ -147,7 +150,7 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
           // the series' own colour lets the shape of a row be seen at once,
           // and ties the table to the chart it replaces.
           return `<tr class="s${i + 1}">
-            <th scope="row"><span class="dt__dot"></span>${esc(a.names.get(b.id) ?? b.id)}</th>
+            <th scope="row"><span class="dt__dot"></span>${esc(b.name)}</th>
             ${vals.map((v) => `<td style="--v:${(v / maxY).toFixed(3)}"${v === peak && peak > 0 ? ' class="dt__peak"' : ""}>${v || "–"}</td>`).join("")}
             <td class="dt__tot">${peak}</td>
           </tr>`;
@@ -190,7 +193,7 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
         const more = (det?.labs.length ?? 0) - labs.length;
         return `<li class="tt__row s${i + 1}">
             <span class="tt__swatch" aria-hidden="true"></span>
-            <span class="tt__name">${esc(a.names.get(b.id) ?? b.id)}</span>
+            <span class="tt__name">${esc(b.name)}</span>
             <span class="tt__n">${cnt}</span>
             ${labs.length ? `<span class="tt__who">${esc(labs.join(", "))}${more > 0 ? ` and ${more} more` : ""}</span>` : ""}
           </li>`;
