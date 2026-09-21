@@ -56,14 +56,39 @@ export interface TimelineArgs {
 // than the last render's, meaning to drop the clamp. It could not work: a
 // within-bucket resize does not redraw, so the recorded width went stale and
 // the guard then rejected every real scroll until the next redraw, losing 548
-// to 730 days on an ordinary window drag. It was also unnecessary. Resize
-// steps run before scroll steps, so by the time the clamp could be dispatched
-// the old scroller is already detached and the event goes nowhere; the only
-// scroll delivered is on the new scroller, holding the value we just set.
+// to 730 days on an ordinary window drag.
+//
+// Two things still have to be got right, and they pull in opposite
+// directions. A scroll in flight is applied to the DOM at the start of the
+// frame, before resize steps and long before scroll steps, so at redraw time
+// this recorder is one frame stale and the DOM is fresher: a resize landing
+// mid-flick lost 325 days. But a reflow also clamps the DOM value against
+// content the scroller no longer has, which is what made reading the DOM
+// wrong in the first place. Both are handled below, at the two points where
+// the value crosses between here and the DOM.
 let lastScroll: number | null = null;
+let lastPxPerDay = 0;
+// The restore's own scroll event must not be recorded. The browser clamps the
+// restore to the new geometry, and recording the clamped result over the
+// intent is a real loss: rotating to landscape and back left the reader 62
+// days from where they started, at a width where the original date was
+// perfectly reachable.
+let pendingRestore = false;
 
 export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const { pxPerDay: PX_PER_DAY, markScale: MARK_SCALE } = metrics();
+
+  // Prefer the outgoing DOM offset, which is a frame fresher than the
+  // recorder. Unless it is sitting exactly on the scroller's maximum, which is
+  // the signature of a reflow having clamped it rather than of the reader
+  // having scrolled there. A reader genuinely parked at the end lands on the
+  // same date either way, so the test costs nothing when it guesses wrong.
+  const keep = host.querySelector<HTMLDivElement>(".tl__scroll");
+  if (keep && lastPxPerDay) {
+    const maxNow = keep.scrollWidth - keep.clientWidth;
+    if (keep.scrollLeft < maxNow - 0.5) lastScroll = keep.scrollLeft / lastPxPerDay;
+  }
+  lastPxPerDay = PX_PER_DAY;
   const days = a.releases.map((r) => dayNumber(r.date));
   const lo = Math.min(...days) - PAD_DAYS;
   const hi = Math.max(...days) + PAD_DAYS;
@@ -140,7 +165,12 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   // landed on a strip containing no marks at all.
   const rightmost = Math.max(...a.releases.map((r) => x(r.date)));
   const openAt = Math.max(0, rightmost - scroller.clientWidth * 0.75);
+  const before = scroller.scrollLeft;
   scroller.scrollLeft = lastScroll != null ? lastScroll * PX_PER_DAY : openAt;
+  // Only arm the guard if the assignment actually moved the scroller. If it
+  // did not, no scroll event is coming and an armed guard would eat the
+  // reader's next real scroll instead.
+  pendingRestore = scroller.scrollLeft !== before;
 
   // A readout of the visible range, updated on scroll. Labels drawn into the
   // canvas sit a whole quarter apart and vanish at any width where the
@@ -157,6 +187,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   };
   scroller.addEventListener("scroll", () => {
     paintRange();
+    if (pendingRestore) { pendingRestore = false; return; }
     lastScroll = scroller.scrollLeft / PX_PER_DAY;
   }, { passive: true });
   paintRange();

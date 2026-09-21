@@ -6,6 +6,20 @@
     <link rel="icon" href="/benchmark-tracker/favicon.svg" type="image/svg+xml" />
     <title>Benchmark Tracker</title>
     <meta name="description" content="Which benchmarks frontier labs actually cite when they ship a model." />
+    <script>
+      // A deploy deletes the previous hashed bundles, but GitHub Pages serves
+      // this file with max-age=600, so for up to ten minutes a returning
+      // visitor requests an asset that is already gone and sees a blank page.
+      // Reload past the cache, once per session so a genuinely broken build
+      // cannot loop.
+      addEventListener("error", function (e) {
+        var el = e.target;
+        if (!el || (el.tagName !== "SCRIPT" && el.tagName !== "LINK")) return;
+        if (sessionStorage.getItem("bt-stale")) return;
+        sessionStorage.setItem("bt-stale", "1");
+        location.replace(location.pathname + "?v=" + Date.now());
+      }, true);
+    </script>
     <script type="module" src="/src/main.ts"></script>
   </head>
   <body>
