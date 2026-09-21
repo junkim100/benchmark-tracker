@@ -26,7 +26,13 @@ const PAD_DAYS = 30;
 // so at this scale its marks sit about 20px apart and stay separate.
 const PX_PER_DAY = 2;
 const GUTTER_WIDE = 58;
-const GUTTER_NARROW = 42;
+const GUTTER_NARROW = 38;
+// A column narrower than this cannot hold the 22px mark tile with room to
+// breathe, so below it the timeline stops shrinking and scrolls sideways
+// instead. Twelve of these plus the narrow gutter come to 350px, which a
+// 360px phone clears once the timeline is allowed the full viewport. Only a
+// genuinely small screen, 320px and under, ends up scrolling.
+const MIN_COL = 26;
 
 export interface TimelineArgs {
   labs: Lab[];
@@ -49,10 +55,14 @@ function labMark(l: Lab, esc: (s: string) => string): string {
 export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
 
-  const avail = Math.round(host.getBoundingClientRect().width) || 900;
-  const narrow = avail < 640;
-  const W = Math.max(300, avail);
+  const box = Math.round(host.getBoundingClientRect().width) || 900;
+  const narrow = box < 640;
+  // Narrow runs full width of the page, outside the body gutters, because
+  // twelve columns need every pixel there is on a phone.
+  const avail = narrow ? (document.documentElement.clientWidth || box) : box;
   const GUT = narrow ? GUTTER_NARROW : GUTTER_WIDE;
+  const floor = GUT + a.labs.length * MIN_COL;
+  const W = Math.max(floor, avail);
   const colW = (W - GUT) / a.labs.length;
   const scale = narrow ? 0.62 : 1;
 
@@ -96,7 +106,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   }).join("");
 
   host.innerHTML = `
-    <div class="tlv">
+    <div class="tlvwrap${narrow ? " tlvwrap--bleed" : ""}"><div class="tlv" style="min-width:${floor}px">
       <div class="tlv__head" style="--gut:${GUT}px;--cols:${a.labs.length}">
         <div class="tlv__gutcell" aria-hidden="true"></div>
         ${a.labs.map((l) => `<div class="tlv__lab" title="${esc(l.name)}">${labMark(l, esc)}${narrow ? "" : `<span class="tlv__name">${esc(l.name)}</span>`}</div>`).join("")}
@@ -114,7 +124,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
         ).join("")}</g>
         ${marks}
       </svg>
-    </div>`;
+    </div></div>`;
 
   const svg = host.querySelector<SVGSVGElement>(".tlv__svg")!;
   const index = new Map<string, Release[]>();
