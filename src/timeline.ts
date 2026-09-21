@@ -50,15 +50,20 @@ export interface TimelineArgs {
 // Held in days, not pixels, because the pixel scale changes with the viewport
 // bucket. Recorded on every scroll rather than read at redraw time: a resize
 // reflows the scroller and clamps scrollLeft to the OLD content width before
-// the resize event fires, so by redraw the DOM value is already corrupt. The
-// width guard drops exactly that clamp, which arrives as a scroll event at a
-// viewport width the position was never taken in.
+// the resize event fires, so the value read at redraw was already corrupt.
+//
+// No width guard. An earlier version rejected scrolls taken at a width other
+// than the last render's, meaning to drop the clamp. It could not work: a
+// within-bucket resize does not redraw, so the recorded width went stale and
+// the guard then rejected every real scroll until the next redraw, losing 548
+// to 730 days on an ordinary window drag. It was also unnecessary. Resize
+// steps run before scroll steps, so by the time the clamp could be dispatched
+// the old scroller is already detached and the event goes nowhere; the only
+// scroll delivered is on the new scroller, holding the value we just set.
 let lastScroll: number | null = null;
-let lastWidth = 0;
 
 export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const { pxPerDay: PX_PER_DAY, markScale: MARK_SCALE } = metrics();
-  lastWidth = typeof window !== "undefined" ? window.innerWidth : 0;
   const days = a.releases.map((r) => dayNumber(r.date));
   const lo = Math.min(...days) - PAD_DAYS;
   const hi = Math.max(...days) + PAD_DAYS;
@@ -152,7 +157,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   };
   scroller.addEventListener("scroll", () => {
     paintRange();
-    if (window.innerWidth === lastWidth) lastScroll = scroller.scrollLeft / PX_PER_DAY;
+    lastScroll = scroller.scrollLeft / PX_PER_DAY;
   }, { passive: true });
   paintRange();
   if (lastScroll == null) lastScroll = scroller.scrollLeft / PX_PER_DAY;
