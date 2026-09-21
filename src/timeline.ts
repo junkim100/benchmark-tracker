@@ -102,6 +102,14 @@ function adopt(s: HTMLElement, ppd: number, fromScroll: boolean): void {
   if (!s.isConnected) return;
   if (!ppd || s.scrollLeft === ourValue) return;
   if (!inputSince && performance.now() - resizeAt < RESIZE_ECHO_MS) return;
+  // Off the scroll path, the offset is being read during a reflow: the
+  // scroller's content still belongs to the previous layout while its width is
+  // already the new one. An offset sitting on the maximum of that mismatched
+  // pair is the browser's clamp, not a place the reader went, and the reader's
+  // own in-flight wheel is exactly what makes the guard above wave it through.
+  // Refusing it costs nothing when the reader really is at the end, because
+  // the recorded place is then the end too.
+  if (!fromScroll && s.scrollLeft >= s.scrollWidth - s.clientWidth - 0.5) return;
   lastScroll = s.scrollLeft / ppd;
   if (fromScroll) inputSince = false;
   ourValue = -1;
