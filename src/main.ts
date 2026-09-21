@@ -72,6 +72,11 @@ if (data.releases.length === 0) {
     if (!html) { tt.hidden = true; return; }
     tt.innerHTML = html;
     tt.hidden = false;
+    // Measure from a neutral origin. Measuring while the element still carries
+    // the previous hover's left made a 330px box report 154px, which inflated
+    // the wrapped height and pushed the clamp badly off.
+    tt.style.left = "0px";
+    tt.style.top = "0px";
     const b = tt.getBoundingClientRect();
     tt.style.left = `${Math.max(8, Math.min(x + 16, window.innerWidth - b.width - 12))}px`;
     tt.style.top = `${Math.max(8, Math.min(y + 16, window.innerHeight - b.height - 12))}px`;
@@ -100,7 +105,7 @@ if (data.releases.length === 0) {
     });
     renderTimeline($(".tlwrap"), {
       labs, releases: data.releases, tracked, names, quarters: data.quarters,
-      onHover: (rs, x, y) => showTip(rs && rs.length ? tooltipHTML(rs, names) : null, x, y),
+      onHover: (rs, x, y) => showTip(rs && rs.length ? tooltipHTML(rs, names, window.innerHeight - 48) : null, x, y),
     });
     paintTheme();
   };

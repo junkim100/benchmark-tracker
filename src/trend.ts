@@ -65,8 +65,14 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
     const label = a.tracked.length <= 4
       ? (() => {
           const ly = labelY(py(last.n));
+          // The right margin is the whole width budget. A name that would run
+          // past it is truncated here rather than clipped by the scroller,
+          // which produced a half-word with no ellipsis and no way to reach it.
+          const full = a.names.get(b.id) ?? b.id;
+          const fits = Math.max(6, Math.floor((M.r - 24) / 6.1));
+          const shown = full.length > fits ? `${full.slice(0, fits - 1)}\u2026` : full;
           return `<circle class="s-labeldot s${slot}" cx="${(px(last.i) + 11).toFixed(1)}" cy="${ly.toFixed(1)}" r="3.5"/>` +
-                 `<text class="s-label" x="${(px(last.i) + 20).toFixed(1)}" y="${(ly + 4).toFixed(1)}">${esc(a.names.get(b.id) ?? b.id)}</text>`;
+                 `<text class="s-label" x="${(px(last.i) + 20).toFixed(1)}" y="${(ly + 4).toFixed(1)}"><title>${esc(full)}</title>${esc(shown)}</text>`;
         })()
       : "";
     const dots = pts.map((p) => `

@@ -120,12 +120,17 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   });
 }
 
-export function tooltipHTML(rs: Release[], names: Map<string, string>): string {
+export function tooltipHTML(rs: Release[], names: Map<string, string>, budgetPx = 800): string {
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
   // A release can cite 95 benchmarks. The tooltip ignores pointer events so it
   // can never be scrolled, which means it must say how many it left out rather
   // than stopping mid-list as though that were the end.
-  const SHOWN = 8;
+  // Rows are budgeted against the space actually available. Clipping instead
+  // of budgeting loses the "and N more" note first, which is the one line that
+  // has to survive: the tooltip ignores pointer events and can never scroll.
+  const perRow = 19, chrome = 96;
+  const releases = Math.max(1, Math.min(3, Math.floor(budgetPx / 150)));
+  const SHOWN = Math.max(2, Math.min(8, Math.floor((budgetPx - chrome * releases) / (perRow * releases))));
   const one = (r: Release) => {
     const rest = r.benchmarks.length - SHOWN;
     const bs = r.benchmarks.length
@@ -134,12 +139,13 @@ export function tooltipHTML(rs: Release[], names: Map<string, string>): string {
       : `<li class="muted">No benchmark cited</li>`;
     return `<div class="tt__h">${esc(r.model)}</div>
       <div class="tt__m">${KIND_LABEL[r.kind]}, ${r.date}</div>
+      <div class="tt__src">${esc(new URL(r.source_url).hostname.replace(/^www\./, ""))}</div>
       <ul class="tt__l">${bs}</ul>`;
   };
-  const MAX_RELEASES = 3;
+  const MAX_RELEASES = releases;
   const body = rs.slice(0, MAX_RELEASES).map(one).join(`<hr class="tt__hr"/>`);
   const foot = rs.length === 1
     ? "Click to open the source"
-    : `${rs.length} releases that day${rs.length > MAX_RELEASES ? `, showing ${MAX_RELEASES}` : ""}`;
+    : `${rs.length} releases that day${rs.length > MAX_RELEASES ? `, showing ${MAX_RELEASES}` : ""}. Click a row's own mark to open it.`;
   return `${body}<div class="tt__f">${foot}</div>`;
 }

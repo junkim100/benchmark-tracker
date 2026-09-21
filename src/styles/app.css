@@ -90,7 +90,7 @@ a:hover { text-decoration-color: var(--text-primary); }
 .trend__bar { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 14px; }
 .trend figcaption { font-size: 14px; color: var(--text-secondary); max-width: 76ch; }
 .trendscroll { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
-.trend__svg { width: 100%; min-width: 620px; max-width: 900px; height: auto; overflow: visible; }
+.trend__svg { width: 100%; min-width: 900px; max-width: 900px; height: auto; overflow: visible; }
 .lede { margin: 0 0 44px; }
 .lede p { margin: 0; max-width: 70ch; font-size: 16px; color: var(--text-muted); }
 
@@ -165,10 +165,10 @@ a:hover { text-decoration-color: var(--text-primary); }
 .mark--many { stroke-width: 2.5; }
 circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 
-.s1 { --slot: var(--series-1); } .s2 { --slot: var(--series-2); }
-.s3 { --slot: var(--series-3); } .s4 { --slot: var(--series-4); }
-.s5 { --slot: var(--series-5); } .s6 { --slot: var(--series-6); }
-.s7 { --slot: var(--series-7); } .s8 { --slot: var(--series-8); }
+.s1, .mark--s1 { --slot: var(--series-1); } .s2, .mark--s2 { --slot: var(--series-2); }
+.s3, .mark--s3 { --slot: var(--series-3); } .s4, .mark--s4 { --slot: var(--series-4); }
+.s5, .mark--s5 { --slot: var(--series-5); } .s6, .mark--s6 { --slot: var(--series-6); }
+.s7, .mark--s7 { --slot: var(--series-7); } .s8, .mark--s8 { --slot: var(--series-8); }
 
 .tt {
   position: fixed; z-index: 60; max-width: 330px; pointer-events: none;
@@ -176,6 +176,7 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
   border: 1px solid var(--border-strong); border-radius: 10px;
   padding: 12px 14px; font-size: 13px; box-shadow: var(--shadow);
   max-height: calc(100vh - 24px); overflow: hidden;
+  /* Content is budgeted to the viewport in tooltipHTML; this only backstops. */
 }
 .tt[hidden] { display: none; }
 .tt__h { font-weight: 600; }
@@ -204,3 +205,6 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+/* Several releases on one day look identical without their source. */
+.tt__src { color: var(--text-muted); font-size: 11.5px; margin: -4px 0 6px; }
