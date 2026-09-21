@@ -47,52 +47,61 @@ export interface TimelineArgs {
 
 // Survives re-renders. Tracking a benchmark redraws the timeline, and a reader
 // who had scrolled to mid-2024 should not be thrown back to the present.
-// Held in days, not pixels, because the pixel scale changes with the viewport
-// bucket. Recorded on every scroll rather than read at redraw time: a resize
-// reflows the scroller and clamps scrollLeft to the OLD content width before
-// the resize event fires, so the value read at redraw was already corrupt.
+// The reader's place in the timeline, held in days because the pixel scale
+// changes with the viewport bucket.
 //
-// No width guard. An earlier version rejected scrolls taken at a width other
-// than the last render's, meaning to drop the clamp. It could not work: a
-// within-bucket resize does not redraw, so the recorded width went stale and
-// the guard then rejected every real scroll until the next redraw, losing 548
-// to 730 days on an ordinary window drag.
-//
-// Two things still have to be got right, and they pull in opposite
-// directions. A scroll in flight is applied to the DOM at the start of the
-// frame, before resize steps and long before scroll steps, so at redraw time
-// this recorder is one frame stale and the DOM is fresher: a resize landing
-// mid-flick lost 325 days. But a reflow also clamps the DOM value against
-// content the scroller no longer has, which is what made reading the DOM
-// wrong in the first place. Both are handled below, at the two points where
-// the value crosses between here and the DOM.
+// Seven earlier versions tried to work out, from the scroller's state at
+// redraw time, whether an offset was one the reader chose or one a reflow
+// forced on them. The DOM cannot answer that. What it can answer is whether
+// the offset is still exactly the one we last wrote, and anything else is by
+// definition new information, whoever produced it.
 let lastScroll: number | null = null;
 let lastPxPerDay = 0;
-// The restore's own scroll event must not be recorded, or the browser's clamp
-// of that restore overwrites the date the reader actually asked for.
-let pendingRestore = false;
-// The scroller's own width at the last position we trusted. A clamp can only
-// happen when this GROWS, because only then does the scroller's maximum shrink
-// below where the reader was standing. That is the whole discriminator, and it
-// is the piece three earlier versions got wrong: they compared the offset
-// against scrollWidth minus clientWidth read after the reflow, mixing the old
-// content width with the new viewport width, which reads as a clamp on every
-// grow and never reads as one on a shrink.
 let lastClientWidth = 0;
+let ourValue = -1;
+
+// Take the scroller's offset as the reader's place. A reflow can only clamp
+// when the scroller's own width GROWS, because only then does its maximum
+// shrink below where the reader was standing; on a shrink the offset is always
+// theirs. Growing while sitting on the maximum is either that clamp or a
+// reader parked at the end, and both want the same answer, so take whichever
+// candidate is further along. The recorder can be a frame stale, since a
+// scroll in flight reaches the DOM before resize steps and this listener only
+// runs in scroll steps, which is why the DOM is preferred everywhere else.
+function adopt(s: HTMLElement, ppd: number): void {
+  if (!ppd || s.scrollLeft === ourValue) return;
+  const grew = s.clientWidth > lastClientWidth;
+  const atMax = s.scrollLeft >= s.scrollWidth - s.clientWidth - 0.5;
+  const dom = s.scrollLeft / ppd;
+  lastScroll = grew && atMax && lastScroll != null ? Math.max(lastScroll, dom) : dom;
+  lastClientWidth = s.clientWidth;
+  ourValue = -1;
+}
+
+// Put the reader back, at whatever scale is now in effect. Recording what the
+// scroller actually took, rather than what was asked for, is what lets the
+// clamp's own scroll event be recognised and ignored.
+function restore(s: HTMLElement, ppd: number, fallback: number): void {
+  s.scrollLeft = lastScroll != null ? lastScroll * ppd : fallback;
+  ourValue = s.scrollLeft;
+  lastClientWidth = s.clientWidth;
+  if (lastScroll == null) lastScroll = s.scrollLeft / ppd;
+}
+
+// A resize inside one bucket redraws nothing, but a widened viewport still
+// clamps the scroller and nothing else runs to put the reader back.
+export function restoreTimelineScroll(host: HTMLElement): void {
+  const s = host.querySelector<HTMLDivElement>(".tl__scroll");
+  if (!s || !lastPxPerDay) return;
+  adopt(s, lastPxPerDay);
+  restore(s, lastPxPerDay, s.scrollLeft);
+}
 
 export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const { pxPerDay: PX_PER_DAY, markScale: MARK_SCALE } = metrics();
 
-  // Prefer the outgoing DOM offset: a scroll in flight is applied before resize
-  // steps while this recorder is only updated in scroll steps, so the DOM is a
-  // frame fresher. Skip it only on a genuine clamp, which needs the viewport to
-  // have grown.
   const keep = host.querySelector<HTMLDivElement>(".tl__scroll");
-  if (keep && lastPxPerDay) {
-    const grew = keep.clientWidth > lastClientWidth;
-    const atMax = keep.scrollLeft >= keep.scrollWidth - keep.clientWidth - 0.5;
-    if (!(grew && atMax)) lastScroll = keep.scrollLeft / lastPxPerDay;
-  }
+  if (keep) adopt(keep, lastPxPerDay);
   lastPxPerDay = PX_PER_DAY;
   const days = a.releases.map((r) => dayNumber(r.date));
   const lo = Math.min(...days) - PAD_DAYS;
@@ -170,13 +179,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   // landed on a strip containing no marks at all.
   const rightmost = Math.max(...a.releases.map((r) => x(r.date)));
   const openAt = Math.max(0, rightmost - scroller.clientWidth * 0.75);
-  const before = scroller.scrollLeft;
-  scroller.scrollLeft = lastScroll != null ? lastScroll * PX_PER_DAY : openAt;
-  // Only arm the guard if the assignment actually moved the scroller. If it
-  // did not, no scroll event is coming and an armed guard would eat the
-  // reader's next real scroll instead.
-  pendingRestore = scroller.scrollLeft !== before;
-  lastClientWidth = scroller.clientWidth;
+  restore(scroller, PX_PER_DAY, openAt);
 
   // A readout of the visible range, updated on scroll. Labels drawn into the
   // canvas sit a whole quarter apart and vanish at any width where the
@@ -193,18 +196,9 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   };
   scroller.addEventListener("scroll", () => {
     paintRange();
-    if (pendingRestore) { pendingRestore = false; return; }
-    const grew = scroller.clientWidth > lastClientWidth;
-    lastClientWidth = scroller.clientWidth;
-    // A reflow that shrinks the maximum below the reader's offset fires a
-    // scroll event of its own. Recording it treats a position the browser
-    // forced as one the reader chose, which cost up to 118 days on an ordinary
-    // window drag, in the bucket where nothing redraws to correct it.
-    if (grew && scroller.scrollLeft >= scroller.scrollWidth - scroller.clientWidth - 0.5) return;
-    lastScroll = scroller.scrollLeft / PX_PER_DAY;
+    adopt(scroller, PX_PER_DAY);
   }, { passive: true });
   paintRange();
-  if (lastScroll == null) lastScroll = scroller.scrollLeft / PX_PER_DAY;
 
   const svg = host.querySelector<SVGSVGElement>(".tl__svg")!;
   const index = new Map<string, Release[]>();
@@ -252,16 +246,4 @@ export function tooltipHTML(rs: Release[], names: Map<string, string>, shown = 8
     ? "Click to open the source"
     : `${rs.length} releases that day${rs.length > MAX_RELEASES ? `, showing ${MAX_RELEASES}` : ""}. Click to open the first.`;
   return `${body}<div class="tt__f">${foot}</div>`;
-}
-
-// Re-apply the reader's offset without redrawing. A resize inside one bucket
-// changes no geometry worth recomputing, but the reflow can still clamp the
-// scroller when the viewport grows, and nothing else runs to put it back.
-export function restoreTimelineScroll(host: HTMLElement): void {
-  const s = host.querySelector<HTMLDivElement>(".tl__scroll");
-  if (!s || lastScroll == null || !lastPxPerDay) return;
-  const before = s.scrollLeft;
-  s.scrollLeft = lastScroll * lastPxPerDay;
-  pendingRestore = s.scrollLeft !== before;
-  lastClientWidth = s.clientWidth;
 }
