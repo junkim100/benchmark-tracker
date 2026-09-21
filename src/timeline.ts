@@ -94,6 +94,12 @@ export function noteTimelineResize(): void {
 // what we last wrote, or unless a reflow just happened with no reader input to
 // account for it.
 function adopt(s: HTMLElement, ppd: number, fromScroll: boolean): void {
+  // A redraw replaces the scroller, but the old node's listener closure is
+  // still bound to it, and a wheel delta in flight makes Chrome fire a scroll
+  // event there. A detached scroller reports scrollLeft 0 and scrollWidth 0,
+  // so believing it put the reader at the very start of the timeline, from
+  // wherever they actually were. It has no offset worth reading.
+  if (!s.isConnected) return;
   if (!ppd || s.scrollLeft === ourValue) return;
   if (!inputSince && performance.now() - resizeAt < RESIZE_ECHO_MS) return;
   lastScroll = s.scrollLeft / ppd;
