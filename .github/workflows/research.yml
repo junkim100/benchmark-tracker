@@ -73,3 +73,6 @@ jobs:
       pages: write
       id-token: write
     uses: ./.github/workflows/deploy.yml
+    # main, not the caller's SHA: the bot's commit landed after this run started.
+    with:
+      ref: main

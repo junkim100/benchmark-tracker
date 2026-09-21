@@ -7,6 +7,11 @@ on:
   # A commit pushed with GITHUB_TOKEN does not trigger other workflows, so the
   # research run cannot rely on its own push firing this. It calls it instead.
   workflow_call:
+    inputs:
+      ref:
+        description: "Ref to build. A caller that just pushed must name it."
+        type: string
+        required: false
 
 permissions:
   contents: read
@@ -21,7 +26,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # A called workflow defaults to the caller's github.sha, which is the tree
+      # as it was when the run started. A caller that commits during its own run
+      # must therefore name the ref, or the deploy silently publishes the state
+      # from before its own findings.
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: 20
