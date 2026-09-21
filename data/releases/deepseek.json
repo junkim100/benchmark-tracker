@@ -836,7 +836,7 @@
       "SWE Multilingual",
       "BrowseComp",
       "BrowseCompZh",
-      "\u03c4\u00b2-Bench",
+      "τ²-Bench",
       "MCP-Universe",
       "MCP-Mark",
       "Tool-Decathlon",
@@ -978,6 +978,16 @@
       "Chartography",
       "ZeroBench"
     ]
+  },
+  {
+    "id": "deepseek-deepseek-v4-1-flash-2026-09-10",
+    "lab": "deepseek",
+    "model": "DeepSeek-V4.1-Flash",
+    "date": "2026-09-10",
+    "kind": "model_release",
+    "title": "DeepSeek-V4.1-Flash: Smarter, Faster, More Efficient",
+    "source_url": "https://api-docs.deepseek.com/news/news260910/",
+    "benchmarks_raw": []
   },
   {
     "id": "deepseek-deepseek-v4-1-flash-2026-09-17",
