@@ -68,7 +68,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
       const many = rs.length > 1;
       const cls = `mark${slot ? ` mark--s${slot}` : ""}${many ? " mark--many" : ""}`;
       const r = slot ? 5.5 : 4;
-      const label = many ? `${rs.length} releases · ${date}` : `${rs[0].model} · ${date}`;
+      const label = many ? `${rs.length} releases on ${date}` : `${rs[0].model}, ${date}`;
       return `<circle class="${cls}" cx="${x(date).toFixed(1)}" cy="${cy}" r="${many ? r + 1.5 : r}" data-key="${esc(lab.id + "|" + date)}"><title>${esc(label)}</title></circle>`;
     }).join("");
     return `<g class="row" data-lab="${esc(lab.id)}"><line class="rowline" x1="0" y1="${cy}" x2="${width}" y2="${cy}"/>${dots}</g>`;
@@ -127,7 +127,7 @@ export function tooltipHTML(rs: Release[], names: Map<string, string>): string {
       ? r.benchmarks.map((b) => `<li>${esc(names.get(b) ?? b)}</li>`).join("")
       : `<li class="muted">No benchmark cited</li>`;
     return `<div class="tt__h">${esc(r.model)}</div>
-      <div class="tt__m">${r.date} · ${KIND_LABEL[r.kind]}</div>
+      <div class="tt__m">${KIND_LABEL[r.kind]}, ${r.date}</div>
       <ul class="tt__l">${bs}</ul>`;
   };
   const body = rs.map(one).join(`<hr class="tt__hr"/>`);
