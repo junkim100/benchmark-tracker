@@ -82,6 +82,8 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
       <div class="tl__labs" role="rowheader">
         ${a.labs.map((l) => `<div class="tl__lab" style="height:${ROW_H}px"><span class="tl__logo" aria-hidden="true">${esc(l.name.slice(0, 1))}</span><span class="tl__name">${esc(l.name)}</span></div>`).join("")}
       </div>
+      <div class="tl__body">
+      <div class="tl__range" aria-live="off"></div>
       <div class="tl__scroll" tabindex="0" role="group" aria-label="Release timeline, scroll sideways through time">
         <svg class="tl__svg" width="${width}" height="${height + 38}" role="img" aria-label="Releases per lab over time">
           <g class="ticks">${ticks.map((t) => {
@@ -98,17 +100,34 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
           ${marks}
         </svg>
       </div>
+      </div>
     </div>`;
 
   // Open scrolled to the present. The most recent quarter is what a reader came
   // for, and starting at 2023 makes them drag through three years to reach it.
   const scroller = host.querySelector<HTMLDivElement>(".tl__scroll")!;
-  // Open on content, not on the end gutter. PAD_DAYS puts 270px of empty space
-  // past the last mark, which is wider than a phone's scroller, so scrolling to
-  // scrollWidth landed on a strip containing no marks at all.
+  // Open on content, not on the end gutter. PAD_DAYS puts empty space past the
+  // last mark, wider than a phone's scroller, so scrolling to scrollWidth
+  // landed on a strip containing no marks at all.
   const rightmost = Math.max(...a.releases.map((r) => x(r.date)));
   const openAt = Math.max(0, rightmost - scroller.clientWidth * 0.75);
   scroller.scrollLeft = lastScroll ?? openAt;
+
+  // A readout of the visible range, updated on scroll. Labels drawn into the
+  // canvas sit a whole quarter apart and vanish at any width where the
+  // scroller is narrower than that, which was every width below about 1010px.
+  const readout = host.querySelector<HTMLDivElement>(".tl__range")!;
+  const atPx = (p: number) => {
+    const d = new Date((lo + p / PX_PER_DAY) * 864e5);
+    return `Q${Math.floor(d.getUTCMonth() / 3) + 1} ${d.getUTCFullYear()}`;
+  };
+  const paintRange = () => {
+    const a1 = atPx(scroller.scrollLeft);
+    const b1 = atPx(scroller.scrollLeft + scroller.clientWidth);
+    readout.textContent = a1 === b1 ? a1 : `${a1} to ${b1}`;
+  };
+  scroller.addEventListener("scroll", paintRange, { passive: true });
+  paintRange();
 
   const svg = host.querySelector<SVGSVGElement>(".tl__svg")!;
   const index = new Map<string, Release[]>();
@@ -124,7 +143,10 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   svg.addEventListener("click", (e) => {
     const k = (e.target as Element).getAttribute?.("data-key");
     const rs = k ? index.get(k) : null;
-    if (rs?.length === 1) window.open(rs[0].source_url, "_blank", "noopener");
+    // Every mark opens something. Previously only single-release days did, so a
+    // fifth of the marks offered a pointer cursor and did nothing, leaving 286
+    // of 779 sources unreachable from the interface.
+    if (rs?.length) window.open(rs[0].source_url, "_blank", "noopener");
   });
 }
 
@@ -151,6 +173,6 @@ export function tooltipHTML(rs: Release[], names: Map<string, string>, shown = 8
   const body = rs.slice(0, MAX_RELEASES).map(one).join(`<hr class="tt__hr"/>`);
   const foot = rs.length === 1
     ? "Click to open the source"
-    : `${rs.length} releases that day${rs.length > MAX_RELEASES ? `, showing ${MAX_RELEASES}` : ""}. Sources are listed above.`;
+    : `${rs.length} releases that day${rs.length > MAX_RELEASES ? `, showing ${MAX_RELEASES}` : ""}. Click to open the first.`;
   return `${body}<div class="tt__f">${foot}</div>`;
 }

@@ -77,14 +77,17 @@ if (data.releases.length === 0) {
     // Two levers, tried in order. Reducing rows alone could not help once the
     // block count itself exceeded the window, which sliced the footer on a
     // short landscape phone.
-    outer: for (let blocks = 3; blocks >= 1; blocks--) {
+    // One pass when the builder ignores the second lever, so the trend tooltip
+    // does not re-render identical markup three times per hover.
+    const levers = build.length > 1 ? [3, 2, 1] : [1];
+    outer: for (const blocks of levers) {
       for (let n = max; n >= 0; n--) {
         tt.innerHTML = build(n, blocks);
         tt.hidden = false;
         tt.style.left = "0px";
         tt.style.top = "0px";
         if (tt.scrollHeight <= room) break outer;
-        if (n === 0 && blocks === 1) break outer;
+        if (n === 0 && blocks === levers[levers.length - 1]) break outer;
       }
     }
     const b = tt.getBoundingClientRect();
