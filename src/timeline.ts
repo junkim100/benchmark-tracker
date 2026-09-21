@@ -14,7 +14,10 @@ const PAD_DAYS = 45;
 // 140 distinct days across this span; at six pixels per day its marks sit a
 // median 36px apart and stay individually hoverable. Anything tighter collapses
 // them into a smear, which is the one thing a timeline must not do.
-const PX_PER_DAY = 6;
+// Narrow viewports get a tighter day scale. At 6px a quarter is 540px wide,
+// which is wider than a phone's 220px scroller, so most scroll positions
+// showed no date label at all.
+const PX_PER_DAY = typeof window !== "undefined" && window.innerWidth < 760 ? 2.4 : 6;
 
 export interface TimelineArgs {
   labs: Lab[];
@@ -69,7 +72,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
       const cls = `mark${slot ? ` mark--s${slot}` : ""}${many ? " mark--many" : ""}`;
       const r = slot ? 5.5 : 4;
       const label = many ? `${rs.length} releases on ${date}` : `${rs[0].model}, ${date}`;
-      return `<circle class="${cls}" cx="${x(date).toFixed(1)}" cy="${cy}" r="${many ? r + 1.5 : r}" data-key="${esc(lab.id + "|" + date)}"><title>${esc(label)}</title></circle>`;
+      return `<circle class="${cls}" cx="${x(date).toFixed(1)}" cy="${cy}" r="${many ? r + 1.5 : r}" data-key="${esc(lab.id + "|" + date)}" aria-label="${esc(label)}"></circle>`;
     }).join("");
     return `<g class="row" data-lab="${esc(lab.id)}"><line class="rowline" x1="0" y1="${cy}" x2="${width}" y2="${cy}"/>${dots}</g>`;
   }).join("");
@@ -125,13 +128,13 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   });
 }
 
-export function tooltipHTML(rs: Release[], names: Map<string, string>, shown = 8): string {
+export function tooltipHTML(rs: Release[], names: Map<string, string>, shown = 8, blocks = 3): string {
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
   // `shown` is a row cap, not a pixel budget. The caller renders, measures and
   // reduces it until the box fits, which is the only approach that survives
   // content that wraps unpredictably.
   const SHOWN = shown;
-  const releases = Math.max(1, Math.min(3, rs.length));
+  const releases = Math.max(1, Math.min(blocks, rs.length));
 
   const one = (r: Release) => {
     const rest = r.benchmarks.length - SHOWN;

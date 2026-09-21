@@ -72,14 +72,20 @@ if (data.releases.length === 0) {
    *  from assumed row sizes and was wrong, because rows wrap. Asking the
    *  browser how tall it actually is cannot be wrong. `build(n)` returns the
    *  markup for at most n detail rows; we reduce n until it fits. */
-  const showFitted = (build: (n: number) => string, max: number, x: number, y: number) => {
+  const showFitted = (build: (n: number, blocks?: number) => string, max: number, x: number, y: number) => {
     const room = window.innerHeight - 24;
-    for (let n = max; n >= 0; n--) {
-      tt.innerHTML = build(n);
-      tt.hidden = false;
-      tt.style.left = "0px";
-      tt.style.top = "0px";
-      if (tt.scrollHeight <= room || n === 0) break;
+    // Two levers, tried in order. Reducing rows alone could not help once the
+    // block count itself exceeded the window, which sliced the footer on a
+    // short landscape phone.
+    outer: for (let blocks = 3; blocks >= 1; blocks--) {
+      for (let n = max; n >= 0; n--) {
+        tt.innerHTML = build(n, blocks);
+        tt.hidden = false;
+        tt.style.left = "0px";
+        tt.style.top = "0px";
+        if (tt.scrollHeight <= room) break outer;
+        if (n === 0 && blocks === 1) break outer;
+      }
     }
     const b = tt.getBoundingClientRect();
     tt.style.left = `${Math.max(8, Math.min(x + 16, window.innerWidth - b.width - 12))}px`;
@@ -132,7 +138,7 @@ if (data.releases.length === 0) {
       labs, releases: data.releases, tracked, names, quarters: data.quarters,
       onHover: (rs, x, y) => {
         if (!rs || !rs.length) { showTip(null, 0, 0); return; }
-        showFitted((n) => tooltipHTML(rs, names, n), 8, x, y);
+        showFitted((n, blocks) => tooltipHTML(rs, names, n, blocks), 8, x, y);
       },
     });
     paintTheme();

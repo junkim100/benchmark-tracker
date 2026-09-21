@@ -98,7 +98,7 @@ a:hover { text-decoration-color: var(--text-primary); }
   padding: 5px 13px; font: inherit; font-size: 13px; color: var(--text-muted);
   background: none; border: 0; border-radius: 6px; cursor: pointer;
 }
-.seg button[aria-selected="true"] { background: var(--surface-0); color: var(--text-primary); box-shadow: 0 1px 2px rgb(0 0 0 / .07); }
+.seg button[aria-pressed="true"] { background: var(--surface-0); color: var(--text-primary); box-shadow: 0 1px 2px rgb(0 0 0 / .07); }
 .seg button:hover { color: var(--text-primary); }
 
 .grid line { stroke: var(--border); stroke-width: 1; }
@@ -205,6 +205,8 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 .empty { max-width: 56ch; }
 
 @media (max-width: 720px) {
+  .axis__q { font-size: 10px; }
+  .axis__y { font-size: 11px; }
   #app { padding-top: 36px; }
   /* Names stay. Hiding them left three consecutive rows reading "M" for Meta,
      Mistral and Moonshot, and two reading x and X. */
@@ -218,3 +220,26 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 
 /* Several releases on one day look identical without their source. */
 .tt__src { color: var(--text-muted); font-size: 11.5px; margin: -4px 0 6px; }
+
+/* Crosshair. A band per quarter reports every tracked series at once, so two
+   sharing a value are both reachable; per-point targets stacked and hid 36% of
+   them at eight tracked. */
+.qband { fill: transparent; cursor: crosshair; }
+.qband.on { fill: var(--text-muted); fill-opacity: .07; }
+.s-dot { pointer-events: none; }
+.tt__rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.tt__row { display: grid; grid-template-columns: 10px 1fr auto; gap: 4px 8px; align-items: baseline; }
+.tt__swatch { width: 9px; height: 9px; border-radius: 50%; background: var(--slot, var(--text-muted)); }
+.tt__name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12.5px; }
+.tt__n { font-variant-numeric: tabular-nums; font-weight: 600; font-size: 12.5px; }
+.tt__who { grid-column: 2 / -1; color: var(--text-muted); font-size: 11.5px; line-height: 1.4; }
+
+/* DEFECT B: row headers scrolled out of a phone-width table, leaving numbers
+   with nothing naming them. */
+.dt tbody th, .dt thead tr:last-child th:first-child {
+  position: sticky; left: 0; z-index: 1; background: var(--surface-1);
+}
+
+/* DEFECT F: the placeholder is the field's only visible label and also carries
+   the maximum-tracked message, so it needs label contrast, not hint contrast. */
+.pick__input::placeholder { color: var(--text-secondary); opacity: 1; }

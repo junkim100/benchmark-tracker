@@ -79,15 +79,13 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
                  `<text class="s-label" x="${(px(last.i) + 20).toFixed(1)}" y="${ly.toFixed(1)}"><title>${esc(full)}</title>${esc(shown)}</text>`;
         })()
       : "";
-    const dots = pts.map((p) => `
-      <g class="s-hit" data-b="${esc(b.id)}" data-q="${p.q}">
-        <circle class="s-halo" cx="${px(p.i).toFixed(1)}" cy="${py(p.n).toFixed(1)}" r="12"/>
-        <circle class="s-dot s${slot}" cx="${px(p.i).toFixed(1)}" cy="${py(p.n).toFixed(1)}" r="3.6"/>
-      </g>`).join("");
+    const dots = pts.map((p) => `<circle class="s-dot s${slot}" cx="${px(p.i).toFixed(1)}" cy="${py(p.n).toFixed(1)}" r="3.6"/>`).join("");
     return `<path class="s-line s${slot}" d="${d}"/>${dots}${label}`;
   }).join("");
 
-  const gridY = Array.from({ length: maxY + 1 }, (_, n) => n).filter((n) => maxY <= 6 || n % 2 === 0);
+  // Always label the peak. Filtering to even values left an odd maximum
+  // floating above the highest gridline, which 14 benchmarks hit.
+  const gridY = [...new Set([...Array.from({ length: maxY + 1 }, (_, n) => n).filter((n) => maxY <= 6 || n % 2 === 0), maxY])].sort((x, y) => x - y);
 
   // Year boundaries carry the axis; quarters are ticked but only Q1 and Q3 are
   // labelled, because fifteen labels in that width collide.
@@ -104,7 +102,7 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
         ${qLabels.map((x) => `<text class="xy${x.q.endsWith("Q1") ? " xy--first" : ""}" x="${px(x.i)}" y="${H - 10}">${x.q.slice(0, 4)}</text>`).join("")}
         ${series}
       </svg></div>
-      ${a.tracked.length >= 5 ? `<ul class="legend">${a.tracked.map((b, i) => `<li class="s${i + 1}"><svg class="sw" viewBox="0 0 22 10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5"/></svg>${esc(a.names.get(b.id) ?? b.id)}</li>`).join("")}</ul>` : ""}`;
+      ${true ? `<ul class="legend">${a.tracked.map((b, i) => `<li class="s${i + 1}"><svg class="sw" viewBox="0 0 22 10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5"/></svg>${esc(a.names.get(b.id) ?? b.id)}</li>`).join("")}</ul>` : ""}`;
 
   const years = [...new Set(a.quarters.map((q) => q.slice(0, 4)))];
   const table = `
@@ -130,9 +128,9 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
     <figure class="trend">
       <div class="trend__bar">
         <figcaption>Labs citing each tracked benchmark, by quarter${a.partialQuarter ? `. ${quarterLabel(a.partialQuarter)} is still in progress and reads low.` : ""}</figcaption>
-        <div class="seg" role="tablist" aria-label="Trend view">
-          <button role="tab" type="button" data-view="chart" aria-selected="${a.view === "chart"}">Chart</button>
-          <button role="tab" type="button" data-view="table" aria-selected="${a.view === "table"}">Table</button>
+        <div class="seg" role="group" aria-label="Trend view">
+          <button type="button" data-view="chart" aria-pressed="${a.view === "chart"}">Chart</button>
+          <button type="button" data-view="table" aria-pressed="${a.view === "table"}">Table</button>
         </div>
       </div>
       ${a.view === "chart" ? chart : table}
@@ -147,25 +145,34 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
 
   const svg = host.querySelector<SVGSVGElement>(".trend__svg")!;
   svg.addEventListener("mousemove", (e) => {
-    const g = (e.target as Element).closest?.(".s-hit");
-    if (!g) { a.onHover(null, 0, 0); return; }
-    const bid = g.getAttribute("data-b")!, q = g.getAttribute("data-q")!;
-    const d = detail.get(bid)?.get(q);
-    const n = d?.labs.length ?? 0;
-    // The tooltip cannot scroll, because it ignores pointer events so it never
-    // swallows a hover. So it must never promise more rows than it draws: at
-    // ten labs the old fixed height showed four and silently ate six.
-    const build = (SHOWN: number) => {
-    const shown = d?.labs.slice(0, SHOWN) ?? [];
-    const rows = n
-      ? shown.map((l) => `<li><span class="tt__lab">${esc(labName.get(l.lab) ?? l.lab)}</span><span class="tt__models">${esc(l.models.slice(0, 3).join(", "))}${l.models.length > 3 ? ` and ${l.models.length - 3} more` : ""}</span></li>`).join("")
-        + (n > SHOWN ? `<li class="tt__rest">and ${n - SHOWN} more ${n - SHOWN === 1 ? "lab" : "labs"}</li>` : "")
-      : `<li class="muted">No lab cited it this quarter</li>`;
-    return `<div class="tt__h">${esc(a.names.get(bid) ?? bid)}</div>
-       <div class="tt__m">${n} lab${n === 1 ? "" : "s"} in ${quarterLabel(q)}</div>
-       <ul class="tt__labs">${rows}</ul>`;
+    const band = (e.target as Element).closest?.(".qband");
+    if (!band) { a.onHover(null, 0, 0); return; }
+    const q = band.getAttribute("data-q")!;
+    svg.querySelectorAll(".qband").forEach((r) => r.classList.toggle("on", r === band));
+
+    // Every tracked series for this quarter, so two sharing a value are both
+    // reported rather than one hiding the other.
+    const build = (rows: number) => {
+      const parts = a.tracked.map((b, i) => {
+        const cnt = b.labs_by_quarter[q] ?? 0;
+        const det = detail.get(b.id)?.get(q);
+        const labs = det?.labs.slice(0, rows).map((l) => labName.get(l.lab) ?? l.lab) ?? [];
+        const more = (det?.labs.length ?? 0) - labs.length;
+        return `<li class="tt__row s${i + 1}">
+            <span class="tt__swatch" aria-hidden="true"></span>
+            <span class="tt__name">${esc(a.names.get(b.id) ?? b.id)}</span>
+            <span class="tt__n">${cnt}</span>
+            ${labs.length ? `<span class="tt__who">${esc(labs.join(", "))}${more > 0 ? ` and ${more} more` : ""}</span>` : ""}
+          </li>`;
+      }).join("");
+      return `<div class="tt__h">${quarterLabel(q)}</div>
+        <div class="tt__m">labs citing each tracked benchmark</div>
+        <ul class="tt__rows">${parts}</ul>`;
     };
-    a.onHoverFitted(build, 7, e.clientX, e.clientY);
+    a.onHoverFitted(build, 6, e.clientX, e.clientY);
   });
-  svg.addEventListener("mouseleave", () => a.onHover(null, 0, 0));
+  svg.addEventListener("mouseleave", () => {
+    svg.querySelectorAll(".qband").forEach((r) => r.classList.remove("on"));
+    a.onHover(null, 0, 0);
+  });
 }
