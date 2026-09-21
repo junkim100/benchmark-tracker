@@ -56,5 +56,19 @@
   "c eval": "c-eval",
   "cmmlu": "cmmlu",
   "kmmlu": "kmmlu",
-  "haerae": "haerae"
+  "haerae": "haerae",
+  "_acronyms": "Names that restate themselves as an acronym. Only added where the parenthetical is the same benchmark rather than a split: IFEval (Japanese) and Leetcode (hard) are variants and stay separate.",
+  "bias benchmark for question answering bbq": "biasbenchmarkforquestionanswering",
+  "bias benchmark for question answering": "biasbenchmarkforquestionanswering",
+  "needle in a haystack niah": "needleinahaystack",
+  "needle in a haystack": "needleinahaystack",
+  "niah": "needleinahaystack",
+  "virology capabilities test vct": "virologycapabilitiestest",
+  "virology capabilities test": "virologycapabilitiestest",
+  "vct": "virologycapabilitiestest",
+  "ai2 diagram ai2d": "ai2d",
+  "ai2 diagram": "ai2d",
+  "commonvoice cv": "commonvoice",
+  "common voice": "commonvoice",
+  "vibe eval reka": "vibeeval"
 }

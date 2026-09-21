@@ -242,6 +242,44 @@
     }
   },
   {
+    "id": "ai2d",
+    "name": "AI2D",
+    "lab_count": 11,
+    "labs": [
+      "anthropic",
+      "deepseek",
+      "google",
+      "meta",
+      "mistral",
+      "moonshot",
+      "openai",
+      "qwen",
+      "xai",
+      "xiaomi",
+      "zai"
+    ],
+    "first_seen": "2023-03-14",
+    "last_seen": "2025-12-16",
+    "labs_by_year": {
+      "2023": 3,
+      "2024": 8,
+      "2025": 7
+    },
+    "labs_by_quarter": {
+      "2023-Q1": 1,
+      "2023-Q3": 1,
+      "2023-Q4": 1,
+      "2024-Q1": 3,
+      "2024-Q2": 4,
+      "2024-Q3": 4,
+      "2024-Q4": 4,
+      "2025-Q1": 3,
+      "2025-Q2": 4,
+      "2025-Q3": 3,
+      "2025-Q4": 3
+    }
+  },
+  {
     "id": "browsecomp",
     "name": "BrowseComp",
     "lab_count": 11,
@@ -544,42 +582,6 @@
       "2026-Q1": 2,
       "2026-Q2": 1,
       "2026-Q3": 1
-    }
-  },
-  {
-    "id": "ai2d",
-    "name": "AI2D",
-    "lab_count": 10,
-    "labs": [
-      "anthropic",
-      "deepseek",
-      "google",
-      "meta",
-      "mistral",
-      "moonshot",
-      "qwen",
-      "xai",
-      "xiaomi",
-      "zai"
-    ],
-    "first_seen": "2023-08-18",
-    "last_seen": "2025-12-16",
-    "labs_by_year": {
-      "2023": 2,
-      "2024": 7,
-      "2025": 7
-    },
-    "labs_by_quarter": {
-      "2023-Q3": 1,
-      "2023-Q4": 1,
-      "2024-Q1": 3,
-      "2024-Q2": 4,
-      "2024-Q3": 3,
-      "2024-Q4": 4,
-      "2025-Q1": 3,
-      "2025-Q2": 4,
-      "2025-Q3": 3,
-      "2025-Q4": 3
     }
   },
   {
@@ -3115,7 +3117,7 @@
       "qwen",
       "xai"
     ],
-    "first_seen": "2024-03-04",
+    "first_seen": "2024-02-15",
     "last_seen": "2024-12-27",
     "labs_by_year": {
       "2024": 5
@@ -4443,6 +4445,32 @@
       "2024-Q3": 1,
       "2025-Q4": 1,
       "2026-Q3": 1
+    }
+  },
+  {
+    "id": "virologycapabilitiestest",
+    "name": "VCT",
+    "lab_count": 4,
+    "labs": [
+      "anthropic",
+      "meta",
+      "openai",
+      "xai"
+    ],
+    "first_seen": "2025-02-24",
+    "last_seen": "2026-09-01",
+    "labs_by_year": {
+      "2025": 3,
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2025-Q1": 1,
+      "2025-Q2": 1,
+      "2025-Q3": 3,
+      "2025-Q4": 2,
+      "2026-Q1": 1,
+      "2026-Q2": 3,
+      "2026-Q3": 2
     }
   },
   {
@@ -6356,31 +6384,6 @@
     }
   },
   {
-    "id": "vct",
-    "name": "VCT",
-    "lab_count": 3,
-    "labs": [
-      "anthropic",
-      "meta",
-      "xai"
-    ],
-    "first_seen": "2025-02-24",
-    "last_seen": "2026-09-01",
-    "labs_by_year": {
-      "2025": 2,
-      "2026": 3
-    },
-    "labs_by_quarter": {
-      "2025-Q1": 1,
-      "2025-Q2": 1,
-      "2025-Q3": 2,
-      "2025-Q4": 2,
-      "2026-Q1": 1,
-      "2026-Q2": 3,
-      "2026-Q3": 1
-    }
-  },
-  {
     "id": "vendingbench2",
     "name": "Vending-Bench 2",
     "lab_count": 3,
@@ -6690,25 +6693,6 @@
       "2025-Q3": 1,
       "2025-Q4": 1,
       "2026-Q2": 2
-    }
-  },
-  {
-    "id": "ai2diagram",
-    "name": "AI2 Diagram",
-    "lab_count": 2,
-    "labs": [
-      "meta",
-      "qwen"
-    ],
-    "first_seen": "2023-08-24",
-    "last_seen": "2024-09-25",
-    "labs_by_year": {
-      "2023": 1,
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q3": 1,
-      "2024-Q3": 1
     }
   },
   {
@@ -11451,6 +11435,28 @@
     }
   },
   {
+    "id": "vibeeval",
+    "name": "Vibe-Eval (Reka)",
+    "lab_count": 2,
+    "labs": [
+      "google",
+      "xiaomi"
+    ],
+    "first_seen": "2024-09-24",
+    "last_seen": "2025-09-26",
+    "labs_by_year": {
+      "2024": 1,
+      "2025": 2
+    },
+    "labs_by_quarter": {
+      "2024-Q3": 1,
+      "2024-Q4": 1,
+      "2025-Q1": 1,
+      "2025-Q2": 2,
+      "2025-Q3": 1
+    }
+  },
+  {
     "id": "videoholmes",
     "name": "VideoHolmes",
     "lab_count": 2,
@@ -12534,22 +12540,6 @@
     "labs_by_quarter": {
       "2024-Q2": 1,
       "2024-Q3": 1
-    }
-  },
-  {
-    "id": "ai2diagramai2d",
-    "name": "AI2 Diagram (AI2D)",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2023-03-14",
-    "last_seen": "2023-03-14",
-    "labs_by_year": {
-      "2023": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q1": 1
     }
   },
   {
@@ -14821,35 +14811,21 @@
     "labs": [
       "anthropic"
     ],
-    "first_seen": "2025-05-22",
+    "first_seen": "2024-03-04",
     "last_seen": "2026-09-01",
     "labs_by_year": {
+      "2024": 1,
       "2025": 1,
       "2026": 1
     },
     "labs_by_quarter": {
+      "2024-Q1": 1,
       "2025-Q2": 1,
       "2025-Q3": 1,
       "2025-Q4": 1,
       "2026-Q1": 1,
       "2026-Q2": 1,
       "2026-Q3": 1
-    }
-  },
-  {
-    "id": "biasbenchmarkforquestionansweringbbq",
-    "name": "Bias Benchmark for Question Answering (BBQ)",
-    "lab_count": 1,
-    "labs": [
-      "anthropic"
-    ],
-    "first_seen": "2024-03-04",
-    "last_seen": "2024-03-04",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q1": 1
     }
   },
   {
@@ -17199,22 +17175,6 @@
       "2025-Q3": 1,
       "2026-Q1": 1,
       "2026-Q3": 1
-    }
-  },
-  {
-    "id": "commonvoicecv",
-    "name": "CommonVoice (CV)",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-01-29",
-    "last_seen": "2026-01-29",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 1
     }
   },
   {
@@ -30043,22 +30003,6 @@
     }
   },
   {
-    "id": "needleinahaystackniah",
-    "name": "Needle In A Haystack (NIAH)",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2024-02-15",
-    "last_seen": "2024-02-15",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q1": 1
-    }
-  },
-  {
     "id": "needleinhaystack",
     "name": "Needle in Haystack",
     "lab_count": 1,
@@ -37747,43 +37691,6 @@
     }
   },
   {
-    "id": "vibeeval",
-    "name": "VibeEval",
-    "lab_count": 1,
-    "labs": [
-      "xiaomi"
-    ],
-    "first_seen": "2025-06-04",
-    "last_seen": "2025-06-04",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1
-    }
-  },
-  {
-    "id": "vibeevalreka",
-    "name": "Vibe-Eval (Reka)",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2024-09-24",
-    "last_seen": "2025-09-26",
-    "labs_by_year": {
-      "2024": 1,
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1,
-      "2024-Q4": 1,
-      "2025-Q1": 1,
-      "2025-Q2": 1,
-      "2025-Q3": 1
-    }
-  },
-  {
     "id": "vibench",
     "name": "ViBench",
     "lab_count": 1,
@@ -37960,38 +37867,6 @@
     },
     "labs_by_quarter": {
       "2023-Q3": 1
-    }
-  },
-  {
-    "id": "virologycapabilitiestest",
-    "name": "Virology Capabilities Test",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2025-08-07",
-    "last_seen": "2025-08-07",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    }
-  },
-  {
-    "id": "virologycapabilitiestestvct",
-    "name": "Virology Capabilities Test (VCT)",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2026-07-14",
-    "last_seen": "2026-08-12",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
     }
   },
   {

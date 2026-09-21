@@ -52,7 +52,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
           <li role="option" aria-selected="${i === active}" class="${i === active ? "on" : ""}">
             <button type="button" data-id="${esc(b.id)}">
               <span class="pick__name">${esc(a.names.get(b.id) ?? b.id)}</span>
-              <span class="pick__meta">${b.lab_count} lab${b.lab_count === 1 ? "" : "s"} · ${b.first_seen.slice(0, 4)}–${b.last_seen.slice(0, 4)}</span>
+              <span class="pick__meta"><span class="pick__reach">${b.lab_count}</span> lab${b.lab_count === 1 ? "" : "s"}, ${b.first_seen.slice(0, 4)} to ${b.last_seen.slice(0, 4)}</span>
             </button>
           </li>`).join("")
       : `<li class="pick__none">No benchmark matches that.</li>`;
