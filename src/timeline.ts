@@ -68,38 +68,32 @@ export interface TimelineArgs {
 // the value crosses between here and the DOM.
 let lastScroll: number | null = null;
 let lastPxPerDay = 0;
-// The restore's own scroll event must not be recorded. The browser clamps the
-// restore to the new geometry, and recording the clamped result over the
-// intent is a real loss: rotating to landscape and back left the reader 62
-// days from where they started, at a width where the original date was
-// perfectly reachable.
+// The restore's own scroll event must not be recorded, or the browser's clamp
+// of that restore overwrites the date the reader actually asked for.
 let pendingRestore = false;
-// Whether the reader has scrolled since the last redraw. Without this the
-// guard above was dead: it preserved the intent through the outbound leg, and
-// then the return leg read the DOM and copied the clamped position back over
-// it. A width the reader never chose is not a position to inherit, so the DOM
-// is consulted only when they actually moved.
-let userScrolled = false;
+// The scroller's own width at the last position we trusted. A clamp can only
+// happen when this GROWS, because only then does the scroller's maximum shrink
+// below where the reader was standing. That is the whole discriminator, and it
+// is the piece three earlier versions got wrong: they compared the offset
+// against scrollWidth minus clientWidth read after the reflow, mixing the old
+// content width with the new viewport width, which reads as a clamp on every
+// grow and never reads as one on a shrink.
+let lastClientWidth = 0;
 
 export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const { pxPerDay: PX_PER_DAY, markScale: MARK_SCALE } = metrics();
 
-  // Where the reader is, resolved from two sources that each corrupt in a
-  // different way. The DOM is a frame fresher, because a scroll in flight is
-  // applied before resize steps while this recorder is only updated in scroll
-  // steps. But a reflow also clamps the DOM against content the scroller no
-  // longer has. A clamp is recognisable: it leaves the offset sitting on the
-  // maximum. When it fires the DOM still bounds the answer from below, since
-  // the offset was clamped down to get there, so the later of the two is never
-  // worse than either alone.
+  // Prefer the outgoing DOM offset: a scroll in flight is applied before resize
+  // steps while this recorder is only updated in scroll steps, so the DOM is a
+  // frame fresher. Skip it only on a genuine clamp, which needs the viewport to
+  // have grown.
   const keep = host.querySelector<HTMLDivElement>(".tl__scroll");
-  if (keep && lastPxPerDay && userScrolled) {
-    const dom = keep.scrollLeft / lastPxPerDay;
-    const clamped = keep.scrollLeft >= keep.scrollWidth - keep.clientWidth - 0.5;
-    lastScroll = clamped && lastScroll != null ? Math.max(lastScroll, dom) : dom;
+  if (keep && lastPxPerDay) {
+    const grew = keep.clientWidth > lastClientWidth;
+    const atMax = keep.scrollLeft >= keep.scrollWidth - keep.clientWidth - 0.5;
+    if (!(grew && atMax)) lastScroll = keep.scrollLeft / lastPxPerDay;
   }
   lastPxPerDay = PX_PER_DAY;
-  userScrolled = false;
   const days = a.releases.map((r) => dayNumber(r.date));
   const lo = Math.min(...days) - PAD_DAYS;
   const hi = Math.max(...days) + PAD_DAYS;
@@ -182,6 +176,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   // did not, no scroll event is coming and an armed guard would eat the
   // reader's next real scroll instead.
   pendingRestore = scroller.scrollLeft !== before;
+  lastClientWidth = scroller.clientWidth;
 
   // A readout of the visible range, updated on scroll. Labels drawn into the
   // canvas sit a whole quarter apart and vanish at any width where the
@@ -199,7 +194,13 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   scroller.addEventListener("scroll", () => {
     paintRange();
     if (pendingRestore) { pendingRestore = false; return; }
-    userScrolled = true;
+    const grew = scroller.clientWidth > lastClientWidth;
+    lastClientWidth = scroller.clientWidth;
+    // A reflow that shrinks the maximum below the reader's offset fires a
+    // scroll event of its own. Recording it treats a position the browser
+    // forced as one the reader chose, which cost up to 118 days on an ordinary
+    // window drag, in the bucket where nothing redraws to correct it.
+    if (grew && scroller.scrollLeft >= scroller.scrollWidth - scroller.clientWidth - 0.5) return;
     lastScroll = scroller.scrollLeft / PX_PER_DAY;
   }, { passive: true });
   paintRange();
@@ -251,4 +252,16 @@ export function tooltipHTML(rs: Release[], names: Map<string, string>, shown = 8
     ? "Click to open the source"
     : `${rs.length} releases that day${rs.length > MAX_RELEASES ? `, showing ${MAX_RELEASES}` : ""}. Click to open the first.`;
   return `${body}<div class="tt__f">${foot}</div>`;
+}
+
+// Re-apply the reader's offset without redrawing. A resize inside one bucket
+// changes no geometry worth recomputing, but the reflow can still clamp the
+// scroller when the viewport grows, and nothing else runs to put it back.
+export function restoreTimelineScroll(host: HTMLElement): void {
+  const s = host.querySelector<HTMLDivElement>(".tl__scroll");
+  if (!s || lastScroll == null || !lastPxPerDay) return;
+  const before = s.scrollLeft;
+  s.scrollLeft = lastScroll * lastPxPerDay;
+  pendingRestore = s.scrollLeft !== before;
+  lastClientWidth = s.clientWidth;
 }
