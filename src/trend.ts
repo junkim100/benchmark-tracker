@@ -40,13 +40,23 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
   const py = (n: number) => M.t + ih - (n / maxY) * ih;
   const detail = new Map(a.tracked.map((b) => [b.id, detailFor(a.releases, b.id)]));
 
+  // Series that finish on the same value would otherwise print their end labels
+  // at identical coordinates and render as one unreadable overlap.
+  const usedLabelY: number[] = [];
+  const labelY = (want: number): number => {
+    let y = want;
+    while (usedLabelY.some((u) => Math.abs(u - y) < 15)) y += 15;
+    usedLabelY.push(y);
+    return y;
+  };
+
   const series = a.tracked.map((b, si) => {
     const slot = si + 1;
     const pts = a.quarters.map((q, i) => ({ q, i, n: b.labs_by_quarter[q] ?? 0 }));
     const d = pts.map((p, j) => `${j ? "L" : "M"}${px(p.i).toFixed(1)},${py(p.n).toFixed(1)}`).join(" ");
     const last = pts[pts.length - 1];
     const label = a.tracked.length <= 4
-      ? `<text class="s-label s${slot}" x="${(px(last.i) + 11).toFixed(1)}" y="${(py(last.n) + 4).toFixed(1)}">${esc(a.names.get(b.id) ?? b.id)}</text>`
+      ? `<text class="s-label s${slot}" x="${(px(last.i) + 11).toFixed(1)}" y="${(labelY(py(last.n)) + 4).toFixed(1)}">${esc(a.names.get(b.id) ?? b.id)}</text>`
       : "";
     const dots = pts.map((p) => `
       <g class="s-hit" data-b="${esc(b.id)}" data-q="${p.q}">
@@ -70,7 +80,7 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
         ${partialIdx >= 0 ? `<rect class="partial" x="${px(partialIdx) - iw / (a.quarters.length - 1) / 2}" y="${M.t}" width="${iw / (a.quarters.length - 1) / 2 + M.r / 3}" height="${ih}"/>` : ""}
         ${yearMarks.map((y) => `<line class="yearline" x1="${px(y.i)}" y1="${M.t}" x2="${px(y.i)}" y2="${M.t + ih}"/>`).join("")}
         ${qLabels.map((x) => `<text class="xq${x.i === partialIdx ? " xq--partial" : ""}" x="${px(x.i)}" y="${H - 28}">Q${x.q.slice(6)}</text>`).join("")}
-        ${yearMarks.map((y) => `<text class="xy" x="${px(y.i)}" y="${H - 10}">${y.q.slice(0, 4)}</text>`).join("")}
+        ${qLabels.map((x) => `<text class="xy${x.q.endsWith("Q1") ? " xy--first" : ""}" x="${px(x.i)}" y="${H - 10}">${x.q.slice(0, 4)}</text>`).join("")}
         ${series}
       </svg>
       ${a.tracked.length >= 5 ? `<ul class="legend">${a.tracked.map((b, i) => `<li><span class="sw s${i + 1}"></span>${esc(a.names.get(b.id) ?? b.id)}</li>`).join("")}</ul>` : ""}`;
@@ -98,7 +108,7 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
   host.innerHTML = `
     <figure class="trend">
       <div class="trend__bar">
-        <figcaption>Labs citing each tracked benchmark, by quarter${a.partialQuarter ? `. ${quarterLabel(a.partialQuarter)} is still in progress and reads low` : ""}</figcaption>
+        <figcaption>Labs citing each tracked benchmark, by quarter${a.partialQuarter ? `. ${quarterLabel(a.partialQuarter)} is still in progress and reads low.` : ""}</figcaption>
         <div class="seg" role="tablist" aria-label="Trend view">
           <button role="tab" type="button" data-view="chart" aria-selected="${a.view === "chart"}">Chart</button>
           <button role="tab" type="button" data-view="table" aria-selected="${a.view === "table"}">Table</button>
@@ -121,8 +131,14 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
     const bid = g.getAttribute("data-b")!, q = g.getAttribute("data-q")!;
     const d = detail.get(bid)?.get(q);
     const n = d?.labs.length ?? 0;
+    // The tooltip cannot scroll, because it ignores pointer events so it never
+    // swallows a hover. So it must never promise more rows than it draws: at
+    // ten labs the old fixed height showed four and silently ate six.
+    const SHOWN = 7;
+    const shown = d?.labs.slice(0, SHOWN) ?? [];
     const rows = n
-      ? d!.labs.map((l) => `<li><span class="tt__lab">${esc(labName.get(l.lab) ?? l.lab)}</span><span class="tt__models">${esc(l.models.slice(0, 4).join(", "))}${l.models.length > 4 ? ` and ${l.models.length - 4} more` : ""}</span></li>`).join("")
+      ? shown.map((l) => `<li><span class="tt__lab">${esc(labName.get(l.lab) ?? l.lab)}</span><span class="tt__models">${esc(l.models.slice(0, 3).join(", "))}${l.models.length > 3 ? ` and ${l.models.length - 3} more` : ""}</span></li>`).join("")
+        + (n > SHOWN ? `<li class="tt__rest">and ${n - SHOWN} more ${n - SHOWN === 1 ? "lab" : "labs"}</li>` : "")
       : `<li class="muted">No lab cited it this quarter</li>`;
     a.onHover(
       `<div class="tt__h">${esc(a.names.get(bid) ?? bid)}</div>

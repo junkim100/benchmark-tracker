@@ -58,7 +58,7 @@ a:hover { text-decoration-color: var(--text-primary); }
   position: absolute; z-index: 30; top: calc(100% + 5px); left: 0; right: 0;
   margin: 0; padding: 4px; list-style: none; max-height: 330px; overflow-y: auto;
   background: var(--surface-2); border: 1px solid var(--border-strong);
-  border-radius: 10px; box-shadow: var(--shadow);
+  border-radius: 10px; box-shadow: var(--shadow); padding-bottom: 6px; overscroll-behavior: contain;
 }
 .pick__list[hidden] { display: none; }
 .pick__list button {
@@ -105,7 +105,8 @@ a:hover { text-decoration-color: var(--text-primary); }
 .yearline { stroke: var(--border); stroke-width: 1; }
 .xq { fill: var(--text-muted); font-size: 10.5px; text-anchor: middle; font-variant-numeric: tabular-nums; }
 .xq--partial { fill: var(--text-secondary); }
-.xy { fill: var(--text-secondary); font-size: 12px; text-anchor: middle; font-weight: 550; font-variant-numeric: tabular-nums; }
+.xy { fill: var(--text-muted); font-size: 11px; text-anchor: middle; font-variant-numeric: tabular-nums; }
+.xy--first { fill: var(--text-primary); font-weight: 600; font-size: 12px; }
 .grid text, .xt { fill: var(--text-muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
 .grid text { text-anchor: end; }
 .xt { text-anchor: middle; }
@@ -177,9 +178,10 @@ circle.mark[class*="mark--s"] { fill: currentColor; }
 .tt__h { font-weight: 600; }
 .tt__m { color: var(--text-secondary); font-size: 12.5px; margin-bottom: 9px; font-variant-numeric: tabular-nums; }
 .tt__l { margin: 0; padding-left: 17px; max-height: 190px; overflow: hidden; }
-.tt__labs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; max-height: 268px; overflow: hidden; }
+.tt__labs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
 .tt__lab { font-weight: 550; font-size: 12.5px; display: block; }
 .tt__models { color: var(--text-muted); font-size: 12px; display: block; }
+.tt__rest { color: var(--text-muted); font-size: 12px; font-style: italic; }
 .tt__f { margin-top: 9px; color: var(--text-muted); font-size: 11.5px; }
 .tt__hr { border: 0; border-top: 1px solid var(--border); margin: 10px 0; }
 

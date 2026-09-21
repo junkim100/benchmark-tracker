@@ -14,6 +14,9 @@ export interface FilterArgs {
   onToggle: (id: string) => void;
 }
 
+let outsideBound = false;
+let outsideClose: (() => void) | null = null;
+
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
 
 export function renderFilter(host: HTMLElement, a: FilterArgs): void {
@@ -81,9 +84,17 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     if (id) { e.preventDefault(); input.value = ""; a.onToggle(id); }
   });
 
-  document.addEventListener("mousedown", (e) => {
-    if (!host.contains(e.target as Node)) close();
-  }, { once: true });
+  // Registered once for the lifetime of the page, not per render. The earlier
+  // version used { once: true }, which the very mousedown that opened the
+  // picker consumed, leaving it impossible to dismiss by clicking away.
+  outsideClose = () => close();
+  if (!outsideBound) {
+    document.addEventListener("mousedown", (e) => {
+      const panel = document.querySelector(".pick");
+      if (panel && !panel.contains(e.target as Node)) outsideClose?.();
+    });
+    outsideBound = true;
+  }
 
   chips.innerHTML = a.tracked.length
     ? a.tracked.map((id, i) => `
