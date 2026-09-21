@@ -109,9 +109,15 @@ function adopt(s: HTMLElement, ppd: number, fromScroll: boolean): void {
   // wherever they actually were. It has no offset worth reading.
   if (!s.isConnected) return;
   if (!ppd || s.scrollLeft === ourValue) return;
+  // The echo window belongs to scroll events only. It exists to drop the ones
+  // a reflow provokes, and off that path there is no event to drop: the resize
+  // handler stamps the time before it calls in here, so this always saw an
+  // elapsed zero and refused every read. That left restoreTimelineScroll able
+  // to write a stale record back but never to repair one, and any later resize
+  // then cashed it in for up to 1331 days.
   const now = performance.now();
   const reader = inputSince && now - inputAt < INPUT_TTL_MS;
-  if (!reader && now - resizeAt < RESIZE_ECHO_MS) return;
+  if (fromScroll && !reader && now - resizeAt < RESIZE_ECHO_MS) return;
   // Off the scroll path, the offset is being read during a reflow: the
   // scroller's content still belongs to the previous layout while its width is
   // already the new one. An offset sitting on the maximum of that mismatched
@@ -124,8 +130,13 @@ function adopt(s: HTMLElement, ppd: number, fromScroll: boolean): void {
   // refuses the one that would correct a stale record, and the next restore
   // then drags the reader back to it. That cost up to 1250 days with no
   // viewport change involved at all.
-  const reflowing = s.clientWidth !== lastClientWidth;
-  if (!fromScroll && reflowing && s.scrollLeft >= s.scrollWidth - s.clientWidth - 0.5) return;
+  // And only while the viewport is WIDENING. A clamp needs the scroller's
+  // maximum to shrink below where the reader was, which only a growing width
+  // can do. Narrowing or a height-only change cannot clamp, so an offset at
+  // the maximum there is simply a reader at the end, and refusing it was the
+  // other half of the same 1331-day hole.
+  const growing = s.clientWidth > lastClientWidth;
+  if (!fromScroll && growing && s.scrollLeft >= s.scrollWidth - s.clientWidth - 0.5) return;
   lastScroll = s.scrollLeft / ppd;
   lastClientWidth = s.clientWidth;
   if (fromScroll) inputSince = false;
