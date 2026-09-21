@@ -179,12 +179,18 @@ a:hover { text-decoration-color: var(--text-primary); }
 .tl__scroll { overflow-x: auto; overflow-y: hidden; flex: 1; scrollbar-width: thin; }
 .tl__scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .rowline { stroke: var(--border); stroke-width: 1; }
-.tick { stroke: var(--border); stroke-width: 1; }
-.tick--year { stroke: var(--border-strong); }
-.axis__q { fill: var(--text-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
-.axis__q--first { fill: var(--text-secondary); }
-.axis__y { fill: var(--text-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
-.axis__y--first { fill: var(--text-primary); font-weight: 600; }
+/* Three times as many gridlines as when these were quarters, so the ordinary
+   month steps back to roughly half weight. Kept as opacity on the same token
+   rather than a new colour, so it follows the theme. January stays full
+   strength: it is the one line that means something on its own. */
+.tick { stroke: var(--border); stroke-width: 1; opacity: .5; }
+.tick--year { stroke: var(--border-strong); opacity: 1; }
+/* Months read as a run, so they stay quiet and even. January is the one that
+   carries information the others do not, being where the year turns, so it
+   takes the ink and the year sits under it. */
+.axis__m { fill: var(--text-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.axis__m--first { fill: var(--text-primary); font-weight: 600; }
+.axis__y { fill: var(--text-secondary); font-size: 10.5px; font-variant-numeric: tabular-nums; }
 /* The stroke scales with the mark. Leaving it at a fixed 2px meant a phone's
    3.2px dot was painted 5.2px wide against a 2.4px day, so in painted pixels
    70 of 620 marks had their centre covered by a neighbour, against 14 on
@@ -221,8 +227,8 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 .empty { max-width: 56ch; }
 
 @media (max-width: 720px) {
-  .axis__q { font-size: 10px; }
-  .axis__y { font-size: 11px; }
+  .axis__m { font-size: 10px; }
+  .axis__y { font-size: 10px; }
   #app { padding-top: 36px; }
   /* Names stay. Hiding them left three consecutive rows reading "M" for Meta,
      Mistral and Moonshot, and two reading x and X. */

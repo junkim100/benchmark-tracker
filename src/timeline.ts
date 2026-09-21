@@ -196,10 +196,25 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   // A quarter grid rather than a year grid. Quarter boundaries are ticked and
   // labelled; the first quarter of each year gets a heavier rule and carries
   // the year, so the eye can find a date without counting.
-  const qStart = (q: string) => dayNumber(`${q.slice(0, 4)}-${String((Number(q.slice(6)) - 1) * 3 + 1).padStart(2, "0")}-01`);
-  const ticks = a.quarters
-    .map((q) => ({ q, px: (qStart(q) - lo) * PX_PER_DAY }))
-    .filter((t) => t.px >= 0 && t.px <= width);
+  // A month axis, not a quarter one. The quarter and the year are already on
+  // the sticky readout above the chart, so repeating "Q3" and "2026" every
+  // 547px along the bottom spent the axis on what the reader could already
+  // see, and left the finest label three months wide. Months are the smallest
+  // unit that still fits: 182px apart at the wide scale and 73px at the narrow
+  // one, against a label about 22px wide.
+  const MONTH = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const ticks: { px: number; label: string; year: string; first: boolean }[] = [];
+  {
+    const d0 = new Date(lo * 864e5);
+    let y = d0.getUTCFullYear();
+    let m = d0.getUTCMonth();
+    for (;;) {
+      const px = (dayNumber(`${y}-${String(m + 1).padStart(2, "0")}-01`) - lo) * PX_PER_DAY;
+      if (px > width) break;
+      if (px >= 0) ticks.push({ px, label: MONTH[m], year: String(y), first: m === 0 });
+      if (++m > 11) { m = 0; y++; }
+    }
+  }
 
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
 
@@ -235,17 +250,17 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
       <div class="tl__range" aria-live="off"></div>
       <div class="tl__scroll" tabindex="0" role="group" aria-label="Release timeline, scroll sideways through time">
         <svg class="tl__svg" style="--mark-stroke: ${(2 * MARK_SCALE).toFixed(2)}; --mark-stroke-many: ${(2.5 * MARK_SCALE).toFixed(2)}" width="${width}" height="${height + 38}" role="img" aria-label="Releases per lab over time">
-          <g class="ticks">${ticks.map((t) => {
-            const first = t.q.endsWith("Q1");
-            return `<line class="${first ? "tick tick--year" : "tick"}" x1="${t.px.toFixed(1)}" y1="0" x2="${t.px.toFixed(1)}" y2="${height}"/>`;
-          }).join("")}</g>
-          <g class="axis">${ticks.map((t) => {
-            const first = t.q.endsWith("Q1");
-            // Both parts on every tick. Labelling the year only on Q1 meant
-            // that scrolling anywhere else left no year on screen at all.
-            return `<text class="axis__q${first ? " axis__q--first" : ""}" x="${(t.px + 6).toFixed(1)}" y="${height + 16}">Q${t.q.slice(6)}</text>` +
-              `<text class="axis__y${first ? " axis__y--first" : ""}" x="${(t.px + 6).toFixed(1)}" y="${height + 32}">${t.q.slice(0, 4)}</text>`;
-          }).join("")}</g>
+          <g class="ticks">${ticks.map((t) =>
+            `<line class="${t.first ? "tick tick--year" : "tick"}" x1="${t.px.toFixed(1)}" y1="0" x2="${t.px.toFixed(1)}" y2="${height}"/>`
+          ).join("")}</g>
+          <g class="axis">${ticks.map((t) =>
+            // The year rides on January alone. Repeating it under all twelve
+            // months would be noise, and the reason the old axis repeated it
+            // on every tick was that nothing else on screen carried it. The
+            // readout above does now, at every scroll position.
+            `<text class="axis__m${t.first ? " axis__m--first" : ""}" x="${(t.px + 6).toFixed(1)}" y="${height + 16}">${t.label}</text>` +
+            (t.first ? `<text class="axis__y" x="${(t.px + 6).toFixed(1)}" y="${height + 31}">${t.year}</text>` : "")
+          ).join("")}</g>
           ${marks}
         </svg>
       </div>
