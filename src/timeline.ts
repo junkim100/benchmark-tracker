@@ -174,7 +174,7 @@ export function restoreTimelineScroll(host: HTMLElement): void {
 function labMark(l: Lab, esc: (s: string) => string): string {
   const m = LOGOS[l.id];
   return m
-    ? `<span class="tl__logo" aria-hidden="true"><svg viewBox="${m.vb}">${m.d}</svg></span>`
+    ? `<span class="tl__logo" style="--lg:${m.cl};--lgd:${m.cd}" aria-hidden="true"><svg viewBox="${m.vb}">${m.d}</svg></span>`
     : `<span class="tl__logo" aria-hidden="true">${esc(l.name.slice(0, 1))}</span>`;
 }
 

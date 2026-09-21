@@ -198,7 +198,14 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
 /* The mark inherits the column's ink rather than carrying brand colour, which
    keeps the eight palette slots for tracked benchmarks and keeps a row from
    reading as a logo wall. */
-.tl__logo svg { width: 14px; height: 14px; display: block; fill: currentColor; }
+/* The mark wears its brand colour, chosen per theme against the tile it sits
+   on. Two custom properties travel with each mark and the theme picks one, the
+   same shape as every other token here. */
+.tl__logo svg { width: 14px; height: 14px; display: block; fill: var(--lg, currentColor); }
+:root[data-theme="dark"] .tl__logo svg { fill: var(--lgd, currentColor); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tl__logo svg { fill: var(--lgd, currentColor); }
+}
 .tl__scroll { overflow-x: auto; overflow-y: hidden; flex: 1; scrollbar-width: thin; }
 .tl__scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .rowline { stroke: var(--border); stroke-width: 1; }
