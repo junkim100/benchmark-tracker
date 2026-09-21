@@ -1949,7 +1949,7 @@
     "model": "Qwen3-LiveTranslate-Flash",
     "date": "2025-09-22",
     "kind": "model_release",
-    "title": "Qwen3\u2011LiveTranslate: Real\u2011Time Multimodal Interpretation \u2014 See It, Hear It, Speak It\uff01",
+    "title": "Qwen3‑LiveTranslate: Real‑Time Multimodal Interpretation — See It, Hear It, Speak It！",
     "source_url": "https://qwen.ai/blog?id=b2de6ae8555599bf3b87eec55a285cdf496b78e4",
     "benchmarks_raw": [
       "FLEURS",
@@ -2137,7 +2137,7 @@
       "SuperGPQA",
       "AIME25",
       "LiveCodeBench v6",
-      "\u03c42-Bench",
+      "τ2-Bench",
       "SWE-Bench Verified",
       "HMMT25",
       "GPQA",
@@ -2301,7 +2301,7 @@
     "model": "Qwen3-Omni-Flash-2025-12-01",
     "date": "2025-12-09",
     "kind": "model_release",
-    "title": "Qwen3-Omni-Flash-2025-12-01\uff1aHear You. See You. Follow Smarter!",
+    "title": "Qwen3-Omni-Flash-2025-12-01：Hear You. See You. Follow Smarter!",
     "source_url": "https://qwen.ai/blog?id=qwen3-omni-flash-20251201",
     "benchmarks_raw": [
       "AIME25",
@@ -2455,7 +2455,7 @@
       "IFBench",
       "MultiChallenge",
       "Arena-Hard v2",
-      "Tau\u00b2 Bench",
+      "Tau² Bench",
       "BFCL-V4",
       "Vita Bench",
       "Deep Planning",
@@ -3910,5 +3910,35 @@
     "benchmarks_raw": [
       "Qwen-Image-Bench"
     ]
+  },
+  {
+    "id": "qwen-qwen-image-2-1-2026-09-20",
+    "lab": "qwen",
+    "model": "Qwen-Image-2.1",
+    "date": "2026-09-20",
+    "kind": "model_release",
+    "title": "QwenLM/Qwen-Image-2.1: Qwen's most powerful open-source image generation model",
+    "source_url": "https://github.com/QwenLM/Qwen-Image-2.1",
+    "benchmarks_raw": []
+  },
+  {
+    "id": "qwen-qwen-image-2-1-2026-09-20",
+    "lab": "qwen",
+    "model": "Qwen-Image-2.1",
+    "date": "2026-09-20",
+    "kind": "model_release",
+    "title": "Qwen/Qwen-Image-2.1 · Hugging Face",
+    "source_url": "https://huggingface.co/Qwen/Qwen-Image-2.1",
+    "benchmarks_raw": []
+  },
+  {
+    "id": "qwen-qwen-image-2-1-pe-t2i-2026-09-20",
+    "lab": "qwen",
+    "model": "Qwen-Image-2.1-PE-T2I",
+    "date": "2026-09-20",
+    "kind": "model_release",
+    "title": "Qwen/Qwen-Image-2.1-PE-T2I · Hugging Face",
+    "source_url": "https://huggingface.co/Qwen/Qwen-Image-2.1-PE-T2I",
+    "benchmarks_raw": []
   }
 ]

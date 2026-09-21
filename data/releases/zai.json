@@ -71,7 +71,7 @@
     "model": "CodeGeeX2-6B",
     "date": "2023-07-25",
     "kind": "model_release",
-    "title": "CodeGeeX2: \u66f4\u5f3a\u5927\u7684\u591a\u8bed\u8a00\u4ee3\u7801\u751f\u6210\u6a21\u578b",
+    "title": "CodeGeeX2: 更强大的多语言代码生成模型",
     "source_url": "https://github.com/zai-org/CodeGeeX2",
     "benchmarks_raw": [
       "HumanEval",
@@ -505,7 +505,7 @@
     "model": "GLM-4-Plus",
     "date": "2024-09-12",
     "kind": "blog_post",
-    "title": "\u667a\u8c31\u643a\u57fa\u5ea7\u5927\u6a21\u578b GLM-4-Plus \u4eae\u76f8 KDD\uff0c\u6e05\u8a00\u5168\u65b0\u5347\u7ea7\u89c6\u9891\u901a\u8bdd\u529f\u80fd",
+    "title": "智谱携基座大模型 GLM-4-Plus 亮相 KDD，清言全新升级视频通话功能",
     "source_url": "https://www.zhipuai.cn/zh/news/69",
     "benchmarks_raw": [
       "AlignBench",
@@ -589,7 +589,7 @@
     "model": "GLM-PC",
     "date": "2024-11-29",
     "kind": "blog_post",
-    "title": "Agent \u65b0\u8fdb\u5c55\uff1a\u8de8 app\u3001\u8de8\u8bbe\u5907\u3001\u66f4\u591a\u73a9\u6cd5\uff5c\u667a\u8c31 Agent OpenDay",
+    "title": "Agent 新进展：跨 app、跨设备、更多玩法｜智谱 Agent OpenDay",
     "source_url": "https://www.zhipuai.cn/zh/news/68",
     "benchmarks_raw": []
   },
@@ -854,7 +854,7 @@
       "BrowseComp",
       "SWE-bench Verified",
       "Terminal-Bench",
-      "\u03c4\u00b2-Bench",
+      "τ²-Bench",
       "CC-Bench"
     ]
   },
@@ -1016,7 +1016,7 @@
       "Terminal Bench 2.0",
       "BrowseComp",
       "BrowseComp-ZH",
-      "\u03c4\u00b2-Bench"
+      "τ²-Bench"
     ]
   },
   {
@@ -1050,7 +1050,7 @@
       "LCB v6",
       "HLE",
       "SWE-bench Verified",
-      "\u03c4\u00b2-Bench",
+      "τ²-Bench",
       "BrowseComp"
     ]
   },
@@ -1092,7 +1092,7 @@
       "CyberGym",
       "BrowseComp",
       "BrowseComp-Zh",
-      "\u03c4\u00b2-Bench",
+      "τ²-Bench",
       "MCP-Atlas",
       "Tool-Decathlon",
       "Vending Bench 2",
@@ -1121,7 +1121,7 @@
       "CyberGym",
       "BrowseComp",
       "BrowseComp-ZH",
-      "\u03c4\u00b2-Bench",
+      "τ²-Bench",
       "MCP-Atlas",
       "Tool-Decathlon",
       "Vending-Bench 2",
@@ -1157,7 +1157,7 @@
     "model": "GLM-5-Turbo",
     "date": "2026-03-15",
     "kind": "blog_post",
-    "title": "GLM-5-Turbo\uff1a\u9f99\u867e\u589e\u5f3a\u7684\u57fa\u5ea7\u6a21\u578b",
+    "title": "GLM-5-Turbo：龙虾增强的基座模型",
     "source_url": "https://www.zhipuai.cn/zh/research/155",
     "benchmarks_raw": [
       "ZClawBench"
@@ -1169,7 +1169,7 @@
     "model": "GLM-5V-Turbo",
     "date": "2026-04-01",
     "kind": "blog_post",
-    "title": "GLM-5V-Turbo\u53d1\u5e03\uff1a\u591a\u6a21\u6001Coding\u57fa\u5ea7\u6a21\u578b",
+    "title": "GLM-5V-Turbo发布：多模态Coding基座模型",
     "source_url": "https://www.zhipuai.cn/zh/research/156",
     "benchmarks_raw": [
       "CC-Bench-V2",
@@ -1200,7 +1200,7 @@
       "Terminal-Bench 2.0",
       "CyberGym",
       "BrowseComp",
-      "\u03c4\u00b3-Bench",
+      "τ³-Bench",
       "MCP-Atlas",
       "Tool-Decathlon",
       "Vending Bench 2",
@@ -1327,5 +1327,15 @@
       "Artificial Analysis Intelligence Index (v4.1.1)",
       "Z.ai Code Bench (v1.0)"
     ]
+  },
+  {
+    "id": "zai-glm-5-3-flash-2026-09-18",
+    "lab": "zai",
+    "model": "GLM-5.3-Flash",
+    "date": "2026-09-18",
+    "kind": "blog_post",
+    "title": "GLM-5.3-Flash: More Intelligence with Less Compute",
+    "source_url": "https://autoclaw.z.ai/blog/model/glm-5.3-flash/",
+    "benchmarks_raw": []
   }
 ]
