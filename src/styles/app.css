@@ -89,7 +89,8 @@ a:hover { text-decoration-color: var(--text-primary); }
 .trend { margin: 0 0 44px; }
 .trend__bar { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 14px; }
 .trend figcaption { font-size: 14px; color: var(--text-secondary); max-width: 76ch; }
-.trend__svg { width: 100%; max-width: 900px; height: auto; overflow: visible; }
+.trendscroll { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
+.trend__svg { width: 100%; min-width: 620px; max-width: 900px; height: auto; overflow: visible; }
 .lede { margin: 0 0 44px; }
 .lede p { margin: 0; max-width: 70ch; font-size: 16px; color: var(--text-muted); }
 
@@ -112,15 +113,16 @@ a:hover { text-decoration-color: var(--text-primary); }
 .xt { text-anchor: middle; }
 .xt--partial { fill: var(--text-secondary); }
 .partial { fill: var(--text-muted); opacity: .06; }
-.s-line { fill: none; stroke-width: 2.25; stroke-linecap: round; stroke-linejoin: round; stroke: currentColor; }
-.s-dot { fill: currentColor; stroke: var(--surface-1); stroke-width: 2; pointer-events: none; }
+.s-line { fill: none; stroke-width: 2.25; stroke-linecap: round; stroke-linejoin: round; }
+.s-dot { stroke: var(--surface-1); stroke-width: 2; pointer-events: none; }
+.s-labeldot { stroke: var(--surface-1); stroke-width: 1.5; }
 .s-halo { fill: transparent; }
 .s-hit { cursor: pointer; }
 .s-hit:hover .s-dot { r: 6; }
 .s-label { font-size: 12.5px; dominant-baseline: middle; fill: var(--text-secondary); }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 20px; list-style: none; margin: 14px 0 0; padding: 0; font-size: 13px; color: var(--text-secondary); }
 .legend li { display: flex; align-items: center; gap: 7px; }
-.sw { width: 10px; height: 10px; border-radius: 2px; background: currentColor; }
+.sw { width: 10px; height: 10px; border-radius: 2px; }
 
 /* Data table: rules only where they separate meaning, numbers aligned on the
    decimal, the peak year emphasised so the arc is legible without the chart. */
@@ -135,7 +137,7 @@ a:hover { text-decoration-color: var(--text-primary); }
 .dt tbody th { padding: 11px 18px 11px 0; font-weight: 450; text-align: left; white-space: nowrap; border-bottom: 1px solid var(--border); }
 .dt tbody td { padding: 11px 5px; text-align: right; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
 .dt tbody tr:last-child th, .dt tbody tr:last-child td { border-bottom: 0; }
-.dt__dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: currentColor; margin-right: 9px; vertical-align: 1px; }
+.dt__dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 9px; vertical-align: 1px; }
 .dt__peak { color: var(--text-primary); font-weight: 600; }
 .dt__tot { color: var(--text-muted); }
 .dt th:last-child, .dt td:last-child { padding-left: 22px; }
@@ -173,11 +175,12 @@ circle.mark[class*="mark--s"] { fill: currentColor; }
   background: var(--surface-0); color: var(--text-primary);
   border: 1px solid var(--border-strong); border-radius: 10px;
   padding: 12px 14px; font-size: 13px; box-shadow: var(--shadow);
+  max-height: calc(100vh - 24px); overflow: hidden;
 }
 .tt[hidden] { display: none; }
 .tt__h { font-weight: 600; }
 .tt__m { color: var(--text-secondary); font-size: 12.5px; margin-bottom: 9px; font-variant-numeric: tabular-nums; }
-.tt__l { margin: 0; padding-left: 17px; max-height: 190px; overflow: hidden; }
+.tt__l { margin: 0; padding-left: 17px; }
 .tt__labs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
 .tt__lab { font-weight: 550; font-size: 12.5px; display: block; }
 .tt__models { color: var(--text-muted); font-size: 12px; display: block; }
@@ -192,8 +195,10 @@ circle.mark[class*="mark--s"] { fill: currentColor; }
 
 @media (max-width: 720px) {
   #app { padding-top: 36px; }
-  .tl__name { display: none; }
-  .tl__lab { padding: 0 10px; }
+  /* Names stay. Hiding them left three consecutive rows reading "M" for Meta,
+     Mistral and Moonshot, and two reading x and X. */
+  .tl__lab { padding: 0 8px; font-size: 12px; gap: 7px; max-width: 128px; }
+  .tl__name { overflow: hidden; text-overflow: ellipsis; }
   .dt { font-size: 13px; }
 }
 @media (prefers-reduced-motion: reduce) {

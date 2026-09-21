@@ -44,10 +44,17 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
   // at identical coordinates and render as one unreadable overlap.
   const usedLabelY: number[] = [];
   const labelY = (want: number): number => {
-    let y = want;
-    while (usedLabelY.some((u) => Math.abs(u - y) < 15)) y += 15;
-    usedLabelY.push(y);
-    return y;
+    // Dodge alternately up and down, and stay inside the plot. An earlier
+    // version only pushed downward with no bound, which walked labels into the
+    // axis row and then out of the SVG entirely.
+    const lo = M.t + 6, hi = M.t + ih - 6;
+    const free = (y: number) => y >= lo && y <= hi && !usedLabelY.some((u) => Math.abs(u - y) < 15);
+    if (free(want)) { usedLabelY.push(want); return want; }
+    for (let step = 15; step <= ih; step += 15) {
+      for (const y of [want - step, want + step]) if (free(y)) { usedLabelY.push(y); return y; }
+    }
+    usedLabelY.push(want);
+    return Math.min(Math.max(want, lo), hi);
   };
 
   const series = a.tracked.map((b, si) => {
@@ -56,7 +63,11 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
     const d = pts.map((p, j) => `${j ? "L" : "M"}${px(p.i).toFixed(1)},${py(p.n).toFixed(1)}`).join(" ");
     const last = pts[pts.length - 1];
     const label = a.tracked.length <= 4
-      ? `<text class="s-label s${slot}" x="${(px(last.i) + 11).toFixed(1)}" y="${(labelY(py(last.n)) + 4).toFixed(1)}">${esc(a.names.get(b.id) ?? b.id)}</text>`
+      ? (() => {
+          const ly = labelY(py(last.n));
+          return `<circle class="s-labeldot s${slot}" cx="${(px(last.i) + 11).toFixed(1)}" cy="${ly.toFixed(1)}" r="3.5"/>` +
+                 `<text class="s-label" x="${(px(last.i) + 20).toFixed(1)}" y="${(ly + 4).toFixed(1)}">${esc(a.names.get(b.id) ?? b.id)}</text>`;
+        })()
       : "";
     const dots = pts.map((p) => `
       <g class="s-hit" data-b="${esc(b.id)}" data-q="${p.q}">
@@ -75,14 +86,14 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
   const partialIdx = a.partialQuarter ? a.quarters.indexOf(a.partialQuarter) : -1;
 
   const chart = `
-      <svg viewBox="0 0 ${W} ${H}" class="trend__svg" role="img" aria-label="Number of labs citing each tracked benchmark per quarter">
+      <div class="trendscroll"><svg viewBox="0 0 ${W} ${H}" class="trend__svg" role="img" aria-label="Number of labs citing each tracked benchmark per quarter">
         ${gridY.map((n) => `<g class="grid"><line x1="${M.l}" y1="${py(n)}" x2="${W - M.r}" y2="${py(n)}"/><text x="${M.l - 11}" y="${py(n) + 4}">${n}</text></g>`).join("")}
         ${partialIdx >= 0 ? `<rect class="partial" x="${px(partialIdx) - iw / (a.quarters.length - 1) / 2}" y="${M.t}" width="${iw / (a.quarters.length - 1) / 2 + M.r / 3}" height="${ih}"/>` : ""}
         ${yearMarks.map((y) => `<line class="yearline" x1="${px(y.i)}" y1="${M.t}" x2="${px(y.i)}" y2="${M.t + ih}"/>`).join("")}
         ${qLabels.map((x) => `<text class="xq${x.i === partialIdx ? " xq--partial" : ""}" x="${px(x.i)}" y="${H - 28}">Q${x.q.slice(6)}</text>`).join("")}
         ${qLabels.map((x) => `<text class="xy${x.q.endsWith("Q1") ? " xy--first" : ""}" x="${px(x.i)}" y="${H - 10}">${x.q.slice(0, 4)}</text>`).join("")}
         ${series}
-      </svg>
+      </svg></div>
       ${a.tracked.length >= 5 ? `<ul class="legend">${a.tracked.map((b, i) => `<li><span class="sw s${i + 1}"></span>${esc(a.names.get(b.id) ?? b.id)}</li>`).join("")}</ul>` : ""}`;
 
   const years = [...new Set(a.quarters.map((q) => q.slice(0, 4)))];

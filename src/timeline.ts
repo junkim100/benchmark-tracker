@@ -122,15 +122,24 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
 
 export function tooltipHTML(rs: Release[], names: Map<string, string>): string {
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
+  // A release can cite 95 benchmarks. The tooltip ignores pointer events so it
+  // can never be scrolled, which means it must say how many it left out rather
+  // than stopping mid-list as though that were the end.
+  const SHOWN = 8;
   const one = (r: Release) => {
+    const rest = r.benchmarks.length - SHOWN;
     const bs = r.benchmarks.length
-      ? r.benchmarks.map((b) => `<li>${esc(names.get(b) ?? b)}</li>`).join("")
+      ? r.benchmarks.slice(0, SHOWN).map((b) => `<li>${esc(names.get(b) ?? b)}</li>`).join("")
+        + (rest > 0 ? `<li class="tt__rest">and ${rest} more</li>` : "")
       : `<li class="muted">No benchmark cited</li>`;
     return `<div class="tt__h">${esc(r.model)}</div>
       <div class="tt__m">${KIND_LABEL[r.kind]}, ${r.date}</div>
       <ul class="tt__l">${bs}</ul>`;
   };
-  const body = rs.map(one).join(`<hr class="tt__hr"/>`);
-  const foot = rs.length === 1 ? "Click to open the source" : `${rs.length} releases that day`;
+  const MAX_RELEASES = 3;
+  const body = rs.slice(0, MAX_RELEASES).map(one).join(`<hr class="tt__hr"/>`);
+  const foot = rs.length === 1
+    ? "Click to open the source"
+    : `${rs.length} releases that day${rs.length > MAX_RELEASES ? `, showing ${MAX_RELEASES}` : ""}`;
   return `${body}<div class="tt__f">${foot}</div>`;
 }

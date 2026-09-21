@@ -15,6 +15,7 @@ export interface FilterArgs {
 }
 
 let outsideBound = false;
+let suppressNextOutside = false;
 let outsideClose: (() => void) | null = null;
 
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
@@ -81,7 +82,15 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
 
   list.addEventListener("mousedown", (e) => {
     const id = (e.target as Element).closest("button")?.getAttribute("data-id");
-    if (id) { e.preventDefault(); input.value = ""; a.onToggle(id); }
+    if (!id) return;
+    e.preventDefault();
+    // The document-level handler fires after this one, by which point the
+    // re-render has replaced .pick and the clicked button is detached, so it
+    // would read as an outside click and shut the list the re-focus just
+    // reopened. Skip exactly that one event.
+    suppressNextOutside = true;
+    input.value = "";
+    a.onToggle(id);
   });
 
   // Registered once for the lifetime of the page, not per render. The earlier
@@ -90,6 +99,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   outsideClose = () => close();
   if (!outsideBound) {
     document.addEventListener("mousedown", (e) => {
+      if (suppressNextOutside) { suppressNextOutside = false; return; }
       const panel = document.querySelector(".pick");
       if (panel && !panel.contains(e.target as Node)) outsideClose?.();
     });
