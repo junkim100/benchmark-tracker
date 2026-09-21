@@ -102,6 +102,10 @@ a:hover { text-decoration-color: var(--text-primary); }
 .seg button:hover { color: var(--text-primary); }
 
 .grid line { stroke: var(--border); stroke-width: 1; }
+.yearline { stroke: var(--border); stroke-width: 1; }
+.xq { fill: var(--text-muted); font-size: 10.5px; text-anchor: middle; font-variant-numeric: tabular-nums; }
+.xq--partial { fill: var(--text-secondary); }
+.xy { fill: var(--text-secondary); font-size: 12px; text-anchor: middle; font-weight: 550; font-variant-numeric: tabular-nums; }
 .grid text, .xt { fill: var(--text-muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
 .grid text { text-anchor: end; }
 .xt { text-anchor: middle; }
@@ -119,16 +123,22 @@ a:hover { text-decoration-color: var(--text-primary); }
 
 /* Data table: rules only where they separate meaning, numbers aligned on the
    decimal, the peak year emphasised so the arc is legible without the chart. */
-.dt { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums lining-nums; }
+.dtwrap { overflow-x: auto; scrollbar-width: thin; }
+.dt { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums lining-nums; }
+.dt__year { padding: 0 0 6px !important; font-size: 12px !important; font-weight: 600 !important; color: var(--text-secondary) !important; text-align: center !important; border-bottom: 1px solid var(--border) !important; }
+.dt__corner { border: 0; }
+.dt__part { color: var(--text-secondary) !important; }
+.dt thead tr:last-child th { padding: 7px 0 9px; }
 .dt thead th { padding: 0 0 9px; font-weight: 500; font-size: 12.5px; color: var(--text-muted); text-align: right; border-bottom: 1px solid var(--border-strong); }
 .dt thead th:first-child { text-align: left; }
-.dt tbody th { padding: 11px 20px 11px 0; font-weight: 450; text-align: left; white-space: nowrap; border-bottom: 1px solid var(--border); }
-.dt tbody td { padding: 11px 0; text-align: right; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+.dt tbody th { padding: 11px 18px 11px 0; font-weight: 450; text-align: left; white-space: nowrap; border-bottom: 1px solid var(--border); }
+.dt tbody td { padding: 11px 5px; text-align: right; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
 .dt tbody tr:last-child th, .dt tbody tr:last-child td { border-bottom: 0; }
 .dt__dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: currentColor; margin-right: 9px; vertical-align: 1px; }
 .dt__peak { color: var(--text-primary); font-weight: 600; }
 .dt__tot { color: var(--text-muted); }
-.dt th:last-child, .dt td:last-child { padding-left: 26px; }
+.dt th:last-child, .dt td:last-child { padding-left: 22px; }
+.dt thead tr:last-child th:not(:first-child) { text-align: right; padding-right: 5px; }
 
 /* Timeline */
 .tl { display: flex; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface-2); }
@@ -141,8 +151,10 @@ a:hover { text-decoration-color: var(--text-primary); }
 .tl__scroll { overflow-x: auto; overflow-y: hidden; flex: 1; scrollbar-width: thin; }
 .tl__scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .rowline { stroke: var(--border); stroke-width: 1; }
-.ticks line { stroke: var(--border); stroke-width: 1; stroke-dasharray: 2 5; }
-.ticks text { fill: var(--text-muted); font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.tick { stroke: var(--border); stroke-width: 1; }
+.tick--year { stroke: var(--border-strong); }
+.axis__q { fill: var(--text-muted); font-size: 10.5px; font-variant-numeric: tabular-nums; }
+.axis__y { fill: var(--text-primary); font-size: 12.5px; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
 .mark { fill: var(--mark-neutral); stroke: var(--surface-2); stroke-width: 2; cursor: pointer; }
 .mark:hover { fill: var(--text-primary); }
 .mark--many { stroke-width: 2.5; }

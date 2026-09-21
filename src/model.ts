@@ -12,10 +12,12 @@ export interface Release {
 
 export interface Benchmark {
   id: string; name: string; lab_count: number; labs: string[];
-  first_seen: string; last_seen: string; labs_by_year: Record<string, number>;
+  first_seen: string; last_seen: string;
+  labs_by_year: Record<string, number>;
+  labs_by_quarter: Record<string, number>;
 }
 
-export interface Timeline { generated_at: string; labs: Lab[]; releases: Release[]; benchmarks: Benchmark[] }
+export interface Timeline { generated_at: string; labs: Lab[]; releases: Release[]; benchmarks: Benchmark[]; quarters: string[] }
 
 /** Colour is the scarce resource: eight validated slots, so tracking caps at eight. */
 export const MAX_TRACKED = 8;
@@ -43,25 +45,27 @@ export const dayNumber = (iso: string): number => Date.parse(iso + "T00:00:00Z")
 export const byLab = (releases: Release[], labId: string): Release[] =>
   releases.filter((r) => r.lab === labId);
 
-/** Which labs cited a benchmark in a given year, and what they shipped. */
-export interface YearDetail { year: number; labs: { lab: string; models: string[] }[] }
+export const quarterOf = (iso: string): string =>
+  `${iso.slice(0, 4)}-Q${Math.floor((Number(iso.slice(5, 7)) - 1) / 3) + 1}`;
 
-export function detailFor(releases: Release[], benchmarkId: string, years: number[]): Map<number, YearDetail> {
-  const out = new Map<number, YearDetail>();
-  for (const y of years) out.set(y, { year: y, labs: [] });
-  const acc = new Map<number, Map<string, Set<string>>>();
+/** "2025-Q3" reads as "Q3 2025" to a person. */
+export const quarterLabel = (q: string): string => `Q${q.slice(6)} ${q.slice(0, 4)}`;
+
+/** Which labs cited a benchmark in a given quarter, and what they shipped. */
+export interface PeriodDetail { labs: { lab: string; models: string[] }[] }
+
+export function detailFor(releases: Release[], benchmarkId: string): Map<string, PeriodDetail> {
+  const acc = new Map<string, Map<string, Set<string>>>();
   for (const r of releases) {
     if (!r.benchmarks.includes(benchmarkId)) continue;
-    const y = Number(r.date.slice(0, 4));
-    const byLab = acc.get(y) ?? new Map<string, Set<string>>();
+    const q = quarterOf(r.date);
+    const byLab = acc.get(q) ?? new Map<string, Set<string>>();
     byLab.set(r.lab, (byLab.get(r.lab) ?? new Set()).add(r.model));
-    acc.set(y, byLab);
+    acc.set(q, byLab);
   }
-  for (const [y, byLab] of acc) {
-    out.set(y, {
-      year: y,
-      labs: [...byLab].map(([lab, models]) => ({ lab, models: [...models].sort() })).sort((a, b) => a.lab.localeCompare(b.lab)),
-    });
+  const out = new Map<string, PeriodDetail>();
+  for (const [q, byLab] of acc) {
+    out.set(q, { labs: [...byLab].map(([lab, models]) => ({ lab, models: [...models].sort() })).sort((a, b) => a.lab.localeCompare(b.lab)) });
   }
   return out;
 }

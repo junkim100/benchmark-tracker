@@ -1,7 +1,7 @@
 import "./styles/tokens.css";
 import "./styles/app.css";
 import raw from "../data/timeline.json";
-import { MAX_TRACKED, displayNames, yearsSpanned, type Benchmark, type Timeline } from "./model";
+import { MAX_TRACKED, displayNames, quarterOf, yearsSpanned, type Benchmark, type Timeline } from "./model";
 import { renderFilter } from "./filter";
 import { renderTimeline, tooltipHTML } from "./timeline";
 import { renderTrend, type TrendView } from "./trend";
@@ -29,7 +29,11 @@ if (data.releases.length === 0) {
 } else {
   const names = displayNames(data.benchmarks);
   const years = yearsSpanned(data.releases);
-  const partialYear = years.includes(new Date().getUTCFullYear()) ? new Date().getUTCFullYear() : null;
+  const nowQ = quarterOf(new Date().toISOString().slice(0, 10));
+  const partialQuarter = data.quarters.includes(nowQ) ? nowQ : null;
+  // Rows read alphabetically. Any other order implies a ranking the data does
+  // not support, and a reader looking for one lab should not have to hunt.
+  const labs = [...data.labs].sort((a, b) => a.name.localeCompare(b.name, "en"));
   const byId = new Map(data.benchmarks.map((b) => [b.id, b]));
   const top = data.benchmarks[0];
 
@@ -48,7 +52,7 @@ if (data.releases.length === 0) {
     </header>
 
     <section class="scope" aria-label="What is covered">
-      <p>Every benchmark named in <b>${data.releases.length.toLocaleString()}</b> official releases from <b>${data.labs.length}</b> frontier labs since ${years[0]}. ${esc(names.get(top.id) ?? top.id)} is the most widely cited, reported by all ${top.lab_count}.</p>
+      <p>Every benchmark named in <b>${data.releases.length.toLocaleString()}</b> official releases from <b>${labs.length}</b> frontier labs since ${years[0]}. ${esc(names.get(top.id) ?? top.id)} is the most widely cited, reported by all ${top.lab_count}.</p>
     </section>
 
     <section class="controls" aria-label="Track benchmarks"></section>
@@ -91,11 +95,11 @@ if (data.releases.length === 0) {
     });
     renderTrend($(".trendwrap"), {
       tracked: tracked.map((id) => byId.get(id)!).filter(Boolean) as Benchmark[],
-      releases: data.releases, labs: data.labs, names, years, partialYear,
+      releases: data.releases, labs, names, quarters: data.quarters, partialQuarter,
       view, onView: (v) => { view = v; draw(); }, onHover: showTip,
     });
     renderTimeline($(".tlwrap"), {
-      labs: data.labs, releases: data.releases, tracked, names,
+      labs, releases: data.releases, tracked, names, quarters: data.quarters,
       onHover: (rs, x, y) => showTip(rs && rs.length ? tooltipHTML(rs, names) : null, x, y),
     });
     paintTheme();

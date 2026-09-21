@@ -18,13 +18,20 @@ const PX_PER_DAY = 6;
 
 export interface TimelineArgs {
   labs: Lab[];
+  quarters: string[];
   releases: Release[];
   tracked: string[];               // benchmark ids, in slot order
   names: Map<string, string>;
   onHover: (rs: Release[] | null, x: number, y: number) => void;
 }
 
+// Survives re-renders. Tracking a benchmark redraws the timeline, and a reader
+// who had scrolled to mid-2024 should not be thrown back to the present.
+let lastScroll: number | null = null;
+
 export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
+  const keep = host.querySelector<HTMLDivElement>(".tl__scroll");
+  if (keep) lastScroll = keep.scrollLeft;
   const days = a.releases.map((r) => dayNumber(r.date));
   const lo = Math.min(...days) - PAD_DAYS;
   const hi = Math.max(...days) + PAD_DAYS;
@@ -34,14 +41,13 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
 
   const slotOf = new Map(a.tracked.map((id, i) => [id, i + 1]));
 
-  // Year gridlines, recessive by design: they orient without competing.
-  const y0 = new Date(Date.UTC(new Date((lo + PAD_DAYS) * 864e5).getUTCFullYear(), 0, 1));
-  const ticks: { label: string; px: number }[] = [];
-  for (let y = y0.getUTCFullYear(); ; y++) {
-    const d = Date.UTC(y, 0, 1) / 864e5;
-    if (d > hi) break;
-    if (d >= lo) ticks.push({ label: String(y), px: (d - lo) * PX_PER_DAY });
-  }
+  // A quarter grid rather than a year grid. Quarter boundaries are ticked and
+  // labelled; the first quarter of each year gets a heavier rule and carries
+  // the year, so the eye can find a date without counting.
+  const qStart = (q: string) => dayNumber(`${q.slice(0, 4)}-${String((Number(q.slice(6)) - 1) * 3 + 1).padStart(2, "0")}-01`);
+  const ticks = a.quarters
+    .map((q) => ({ q, px: (qStart(q) - lo) * PX_PER_DAY }))
+    .filter((t) => t.px >= 0 && t.px <= width);
 
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
 
@@ -74,12 +80,25 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
         ${a.labs.map((l) => `<div class="tl__lab" style="height:${ROW_H}px"><span class="tl__logo" aria-hidden="true">${esc(l.name.slice(0, 1))}</span><span class="tl__name">${esc(l.name)}</span></div>`).join("")}
       </div>
       <div class="tl__scroll" tabindex="0" role="group" aria-label="Release timeline, scroll sideways through time">
-        <svg class="tl__svg" width="${width}" height="${height + 22}" role="img" aria-label="Releases per lab over time">
-          <g class="ticks">${ticks.map((t) => `<line x1="${t.px}" y1="0" x2="${t.px}" y2="${height}"/><text x="${t.px + 4}" y="${height + 15}">${t.label}</text>`).join("")}</g>
+        <svg class="tl__svg" width="${width}" height="${height + 38}" role="img" aria-label="Releases per lab over time">
+          <g class="ticks">${ticks.map((t) => {
+            const first = t.q.endsWith("Q1");
+            return `<line class="${first ? "tick tick--year" : "tick"}" x1="${t.px.toFixed(1)}" y1="0" x2="${t.px.toFixed(1)}" y2="${height}"/>`;
+          }).join("")}</g>
+          <g class="axis">${ticks.map((t) => {
+            const first = t.q.endsWith("Q1");
+            return `<text class="axis__q" x="${(t.px + 5).toFixed(1)}" y="${height + 15}">Q${t.q.slice(6)}</text>` +
+              (first ? `<text class="axis__y" x="${(t.px + 5).toFixed(1)}" y="${height + 31}">${t.q.slice(0, 4)}</text>` : "");
+          }).join("")}</g>
           ${marks}
         </svg>
       </div>
     </div>`;
+
+  // Open scrolled to the present. The most recent quarter is what a reader came
+  // for, and starting at 2023 makes them drag through three years to reach it.
+  const scroller = host.querySelector<HTMLDivElement>(".tl__scroll")!;
+  scroller.scrollLeft = lastScroll ?? scroller.scrollWidth;
 
   const svg = host.querySelector<SVGSVGElement>(".tl__svg")!;
   const index = new Map<string, Release[]>();

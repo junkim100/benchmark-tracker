@@ -103,20 +103,24 @@ for (const file of files) {
 
 releases.sort((a, b) => a.date.localeCompare(b.date) || a.lab.localeCompare(b.lab));
 
+const quarterOf = (iso) => `${iso.slice(0, 4)}-Q${Math.floor(Number(iso.slice(5, 7) - 1) / 3) + 1}`;
+
 // Benchmark registry: who cited it, when it first and last appeared, and the
-// per-year lab count that drives the trend view.
+// per-quarter lab count that drives the trend view. Quarters rather than years
+// because four points is not an arc; fifteen shows the rise and the drop-off.
 const registry = new Map();
 for (const r of releases) {
   const year = r.date.slice(0, 4);
   for (const id of r.benchmarks) {
     if (!registry.has(id)) {
-      registry.set(id, { id, name: id, labs: new Set(), first_seen: r.date, last_seen: r.date, by_year: {} });
+      registry.set(id, { id, name: id, labs: new Set(), first_seen: r.date, last_seen: r.date, by_year: {}, by_quarter: {} });
     }
     const e = registry.get(id);
     e.labs.add(r.lab);
     if (r.date < e.first_seen) e.first_seen = r.date;
     if (r.date > e.last_seen) e.last_seen = r.date;
     (e.by_year[year] ??= new Set()).add(r.lab);
+    (e.by_quarter[quarterOf(r.date)] ??= new Set()).add(r.lab);
   }
 }
 
@@ -133,13 +137,25 @@ const benchmarks = [...registry.values()]
     labs_by_year: Object.fromEntries(
       Object.entries(e.by_year).sort().map(([y, s]) => [y, s.size]),
     ),
+    labs_by_quarter: Object.fromEntries(
+      Object.entries(e.by_quarter).sort().map(([q, s]) => [q, s.size]),
+    ),
   }))
   .sort((a, b) => b.lab_count - a.lab_count || a.id.localeCompare(b.id));
 
 writeFileSync(join(DATA, "benchmarks.json"), JSON.stringify(benchmarks, null, 2) + "\n");
+const quarters = [];
+if (releases.length) {
+  const [lo, hi] = [quarterOf(releases[0].date), quarterOf(releases[releases.length - 1].date)];
+  for (let y = Number(lo.slice(0, 4)), q = Number(lo.slice(6)); ; q === 4 ? ((q = 1), y++) : q++) {
+    quarters.push(`${y}-Q${q}`);
+    if (`${y}-Q${q}` === hi) break;
+  }
+}
+
 writeFileSync(
   join(DATA, "timeline.json"),
-  JSON.stringify({ generated_at: new Date().toISOString(), labs, releases, benchmarks }, null, 2) + "\n",
+  JSON.stringify({ generated_at: new Date().toISOString(), labs, releases, benchmarks, quarters }, null, 2) + "\n",
 );
 
 console.log(`releases ${releases.length} · benchmarks ${benchmarks.length} · labs with data ${new Set(releases.map((r) => r.lab)).size}/${labs.length} · excluded citations ${dropped}`);
