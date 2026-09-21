@@ -2,9 +2,12 @@ name: Daily research
 
 on:
   schedule:
-    # 13:00 UTC is early morning in the Americas and after the working day in
-    # Asia, so a release published anywhere is usually up by the time this runs.
-    - cron: "0 13 * * *"
+    # 13:37 UTC: early morning in the Americas, after the working day in Asia,
+    # so a release published anywhere is usually up by the time this runs. The
+    # odd minute is deliberate. GitHub delays scheduled runs under load and the
+    # top of every hour is the busiest slot, where runs are most likely to slip
+    # or be dropped entirely.
+    - cron: "37 13 * * *"
   workflow_dispatch:
     inputs:
       lookback_days:
