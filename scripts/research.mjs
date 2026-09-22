@@ -24,6 +24,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { readFileSync, writeFileSync, appendFileSync, existsSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { CATEGORIES } from "./classify.mjs";
+import { SHARED_HOSTS, isOfficialSource } from "./sources.mjs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -61,10 +62,14 @@ const today = new Date().toISOString().slice(0, 10);
 
 // Domains come from the lab's own source list. arXiv is allowed for every lab
 // because a lab's own paper is a primary source; news domains never appear.
-// huggingface.co and github.com host every lab, so a bare hostname there would
-// let anyone's upload count as official. web search accepts a path suffix, so
-// those two stay scoped to the lab's own org while everything else is a host.
-const SHARED_HOSTS = new Set(["huggingface.co", "github.com"]);
+// The shared hosts host every lab, so a bare hostname there would let anyone's
+// upload count as official. web search accepts a path suffix, so those stay
+// scoped to the lab's own org while everything else is a host.
+//
+// This is the allowlist for what the agent may READ. It is not a constraint on
+// the source_url it writes, which is free text and is checked separately by
+// isOfficialSource below. The shared-host set is imported rather than repeated
+// so the two rules cannot drift apart.
 const domainsFor = (lab) => {
   const entries = lab.sources
     .filter((s) => s.startsWith("http"))
@@ -191,6 +196,14 @@ async function researchLab(lab) {
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 let added = 0;
 const summary = [];
+// Records refused because their source_url is not the lab's to publish. Dropped
+// here rather than left for normalize.mjs so that one poisoned result costs one
+// record: normalize fails the whole run on a contract breach, which would throw
+// away the other eleven labs' findings and every alias and category decision
+// alongside the bad row. They are reported rather than swallowed, because a lab
+// that has genuinely started publishing somewhere new looks exactly like this
+// and the fix is one line in labs.json.
+const refused = [];
 const aliasSuggestions = [];
 const catSuggestions = [];
 
@@ -200,8 +213,21 @@ const results = await Promise.allSettled(labs.map(async (lab) => {
   const existing = existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : [];
   const seen = new Set(existing.map((r) => r.source_url));
 
-  const fresh = found
-    .filter((r) => r.source_url && !seen.has(r.source_url))
+  // Provenance is decided once, before anything is read off the record. A
+  // record whose source_url is not the lab's own is a record about a page this
+  // pipeline has no reason to trust, so its alias and category judgements go
+  // with it: the alias gate is a second opinion, but a category override is
+  // written with no gate at all, which would leave an injected page able to
+  // relabel a benchmark even once its URL had been refused.
+  const official = found.filter((r) => {
+    if (!r.source_url) return false;
+    if (isOfficialSource(lab, r.source_url)) return true;
+    refused.push(`  ${lab.name}: ${r.source_url} (${r.model})`);
+    return false;
+  });
+
+  const fresh = official
+    .filter((r) => !seen.has(r.source_url))
     .map((r) => ({
       id: `${lab.id}-${slug(r.model)}-${r.date}`,
       lab: lab.id,
@@ -213,7 +239,7 @@ const results = await Promise.allSettled(labs.map(async (lab) => {
       benchmarks_raw: r.benchmarks_raw,
     }));
 
-  for (const r of found) {
+  for (const r of official) {
     for (const sug of r.alias_suggestions ?? []) {
       aliasSuggestions.push({ raw: sug.raw, tracked: sug.tracked, reason: sug.reason, lab: lab.name });
     }
@@ -257,6 +283,15 @@ for (const sug of aliasSuggestions) {
   needGate.push(sug);
 }
 
+// A diagnostic from a failed gate call is untrusted text on its way to a public
+// place: it lands in data/alias-queue.json and in the commit message, both of
+// which are committed and permanent. GitHub masks secrets in the run log, which
+// is a different protection and does not cover either of those. An HTTP client
+// that puts the key in a query string or echoes the auth header would otherwise
+// turn one 401 into a disclosed credential nobody thought to rotate.
+const SECRETS = [process.env.TYPESAFE_API_KEY, process.env.ANTHROPIC_API_KEY].filter((s) => s && s.length >= 8);
+const scrub = (s) => SECRETS.reduce((acc, k) => acc.split(k).join("[redacted]"), String(s ?? ""));
+
 // A second opinion on what remains, from a differently-trained model.
 //
 // Applying a merge is the one automated judgement here that permanently
@@ -276,13 +311,15 @@ function gateAliases(candidates) {
     input: JSON.stringify(candidates), encoding: "utf8", timeout: 120000,
   });
   if (r.status !== 0 || !r.stdout) {
-    const why = r.error?.message ?? r.stderr?.slice(0, 200) ?? `exit ${r.status}`;
+    const why = scrub(r.error?.message ?? r.stderr?.slice(0, 200) ?? `exit ${r.status}`);
     return candidates.map((c) => ({ ...c, decision: "REVIEW", unavailable: `gate_failed: ${why}` }));
   }
   try {
-    return JSON.parse(r.stdout);
+    // The gate builds its own "call_failed: <exception>" strings, so its output
+    // is scrubbed too rather than only the text this side writes.
+    return JSON.parse(r.stdout).map((g) => (g.unavailable ? { ...g, unavailable: scrub(g.unavailable) } : g));
   } catch (e) {
-    return candidates.map((c) => ({ ...c, decision: "REVIEW", unavailable: `gate_unparseable: ${e.message}` }));
+    return candidates.map((c) => ({ ...c, decision: "REVIEW", unavailable: `gate_unparseable: ${scrub(e.message)}` }));
   }
 }
 
@@ -368,7 +405,13 @@ if (skipped.length) {
   lines.push("", `Already covered, no change (${skipped.length}):`,
     ...skipped.map((x) => `  "${x.raw}" ~ "${x.tracked}"`));
 }
-const report = lines.join("\n") || "No new releases found.";
+if (refused.length) {
+  lines.push("", `Refused ${refused.length} record(s) whose source is not the lab's own domain:`, ...refused,
+    "Either a page the agent read tried to redirect the citation, or the lab now publishes somewhere new. Add the host to data/labs.json if it is genuinely theirs.");
+}
+// Scrubbed once more at the end, because this string becomes a commit message
+// and a lab failure line carries whatever the SDK put in its error.
+const report = scrub(lines.join("\n")) || "No new releases found.";
 console.log(report);
 writeFileSync(join(ROOT, "research-summary.txt"), report);
 
