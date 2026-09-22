@@ -649,6 +649,9 @@ function render(data: Timeline) {
       years.map((y) => chip(y, y, per.get(y) ?? 0)).join("");
   };
 
+  /** Chart or table for the release timeline, the same pair the trend chart offers. */
+  let tlView: "chart" | "table" = "chart";
+
   const drawTimeline = () => {
     if (!timeline || !log) return;
     // Narrowed into locals, so the hover closure below does not have to
@@ -665,6 +668,7 @@ function render(data: Timeline) {
     paintYears();
     tl.renderTimeline($(".tlwrap"), {
       labs, releases: rows, names, range,
+      view: tlView, onView: (v) => { tlView = v; drawTimeline(); },
       // A mark is coloured by the slot of whatever it cites, so a tracked suite
       // has to hand the timeline every version it covers, not its own id.
       trackedMembers: tracked.map((id) => {

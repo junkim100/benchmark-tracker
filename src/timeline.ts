@@ -51,6 +51,9 @@ export interface TimelineArgs {
   onHover: (rs: Release[] | null, x: number, y: number) => void;
   /** A tap, on a pointer that cannot hover. Null closes whatever is open. */
   onPick: (r: SheetRequest | null) => void;
+  /** Which of the two views is showing. The chart is 476 marks in one SVG and a mark is not focusable, so without a table the releases behind them are reachable by mouse alone. The trend chart above this one has carried the same pair since it was built. */
+  view: "chart" | "table";
+  onView: (v: "chart" | "table") => void;
   /** Limit the axis to a span. Null means every release, which is the default
    *  and what the whole-history view has always been.
    *
@@ -202,8 +205,37 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
         .map((l) => `<li>${labMark(l, esc)}${esc(l.name)}</li>`).join("")}</ul>`
     : "";
 
+  // Every release the chart draws, newest first, as rows a keyboard can reach.
+  //
+  // The marks are circles in an SVG and nothing about them is focusable, so the only route to a release was a click or a tap on a 5px target. That is a 2.1.1 failure on its own, and the source link inside each panel was unreachable with it. The table carries the same four facts the tooltip does and puts the link in the row, so the keyboard route is shorter than the pointer one rather than an apology for it.
+  const table = `<div class="tlvtwrap"><table class="tlvt">
+      <caption class="vh">Every release, newest first</caption>
+      <thead><tr>
+        <th scope="col">Date</th><th scope="col">Lab</th><th scope="col">Release</th>
+        <th scope="col">Kind</th><th scope="col">Benchmarks</th><th scope="col">Source</th>
+      </tr></thead>
+      <tbody>${[...a.releases].sort((x, y) => y.date.localeCompare(x.date) || x.lab.localeCompare(y.lab)).map((r) => {
+        const lab = a.labs.find((l) => l.id === r.lab);
+        return `<tr>
+          <td class="tlvt__d">${esc(r.date)}</td>
+          <th scope="row">${esc(lab?.name ?? r.lab)}</th>
+          <td>${esc(r.model)}</td>
+          <td class="tlvt__k">${esc(KIND_LABEL[r.kind] ?? r.kind)}</td>
+          <td class="tlvt__n">${r.benchmarks.length}</td>
+          <td>${isHttpUrl(r.source_url) ? `<a href="${esc(r.source_url)}" target="_blank" rel="noopener">${esc(hostOf(r.source_url))}</a>` : ""}</td>
+        </tr>`;
+      }).join("")}</tbody>
+    </table></div>`;
+
   host.innerHTML = `${key}
-    <div class="tlvwrap${narrow ? " tlvwrap--bleed" : ""}"><div class="tlv" style="min-width:${floor}px">
+    <div class="tlv__bar">
+      <div class="seg" role="group" aria-label="Timeline view">
+        <button type="button" data-tlview="chart" aria-pressed="${a.view === "chart"}">Chart</button>
+        <button type="button" data-tlview="table" aria-pressed="${a.view === "table"}">Table</button>
+      </div>
+    </div>
+    ${a.view === "table" ? table : ""}
+    <div class="tlvwrap${narrow ? " tlvwrap--bleed" : ""}"${a.view === "table" ? ' hidden' : ""}><div class="tlv" style="min-width:${floor}px">
       <div class="tlv__head" style="--gut:${GUT}px;--cols:${a.labs.length}">
         <div class="tlv__gutcell" aria-hidden="true"></div>
         ${a.labs.map((l) => `<div class="tlv__lab"${narrow ? "" : ` title="${esc(l.name)}"`}>${labMark(l, esc)}${narrow ? "" : `<span class="tlv__name">${esc(l.name)}</span>`}</div>`).join("")}
@@ -229,6 +261,12 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
 
   const svg = host.querySelector<SVGSVGElement>(".tlv__svg")!;
   const cols = [...svg.querySelectorAll<SVGGElement>(".tlv__col")];
+  // The view toggle, bound before the chart-only wiring below so it still works when the chart is not rendered.
+  host.querySelector(".tlv__bar")?.addEventListener("click", (e) => {
+    const v = (e.target as Element).closest("[data-tlview]")?.getAttribute("data-tlview");
+    if (v === "chart" || v === "table") a.onView(v);
+  });
+
   const index = new Map<string, Release[]>();
   for (const [lab, dates] of byLab) for (const [date, rs] of dates) index.set(`${lab}|${date}`, rs);
 

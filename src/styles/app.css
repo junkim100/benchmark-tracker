@@ -482,6 +482,22 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
 /* Data table: rules only where they separate meaning, numbers aligned on the
    decimal, the peak year emphasised so the arc is legible without the chart. */
 /* overscroll-behavior-x, like the chart scroller next to it. Without it, dragging the table past its last column hands the gesture to the browser and iOS reads it as the back swipe, which leaves the page. */
+/* The release timeline's table alternative. Same type, rules and scroller as the trend chart's, because it is the same answer to the same question one section further down: 476 marks in an SVG that a keyboard cannot reach. */
+.tlv__bar { display: flex; justify-content: flex-end; margin: 0 0 var(--s-sm); }
+.tlvtwrap { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
+.tlvt { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 14px; letter-spacing: -0.016em; }
+.tlvt caption { text-align: left; }
+.tlvt thead th { padding: 0 var(--s-sm) 9px 0; font-weight: 400; font-size: 12px; color: var(--text-muted); text-align: left; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+.tlvt tbody th, .tlvt td { padding: 7px var(--s-sm) 7px 0; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); }
+.tlvt tbody th { font-weight: 400; color: var(--text-secondary); white-space: nowrap; }
+.tlvt__d, .tlvt__n { font-variant-numeric: tabular-nums lining-nums; white-space: nowrap; }
+.tlvt__n { text-align: right; padding-right: var(--s-md); }
+.tlvt__k { color: var(--text-secondary); white-space: nowrap; }
+.tlvt a { color: var(--accent); }
+/* Long at 777 rows, so it gets its own scroller rather than running the page to twenty screens. */
+.tlvtwrap { max-height: 70vh; max-height: 70dvh; overflow-y: auto; }
+.tlvt thead th { position: sticky; top: 0; z-index: 1; background: var(--tile-bg); }
+
 .dtwrap { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
 .dt { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 14px; letter-spacing: -0.016em; font-variant-numeric: tabular-nums lining-nums; }
 .dt__year { padding: 0 0 6px !important; font-size: 12px !important; font-weight: 600 !important; color: var(--text-secondary) !important; text-align: center !important; border-bottom: 1px solid var(--border) !important; }
