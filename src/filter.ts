@@ -221,7 +221,21 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
           </nav>
         </div>
       </div>
-      <div class="browse__results" role="listbox" aria-label="Benchmarks"></div>
+      <div class="browse__split">
+        <div class="browse__results" role="listbox" aria-label="Benchmarks"></div>
+        <aside class="detail" aria-label="Benchmark details">
+          <div class="detail__in">
+            <div class="detail__bar">
+              <p class="detail__t" aria-live="polite"></p>
+              <button class="detail__x" type="button" hidden aria-label="Clear the details">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8"/></svg>
+              </button>
+            </div>
+            <div class="detail__body"></div>
+            <p class="detail__empty">Press the information button on any card to read what that benchmark measures, which versions it counts together, and which labs have cited it.</p>
+          </div>
+        </aside>
+      </div>
       <p class="browse__none" hidden></p>
     </div>`;
 

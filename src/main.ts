@@ -10,7 +10,7 @@ import logUrl from "../data/release-log.json?url";
 import { MAX_TRACKED, buildTrackables, displayNames, memberIds, quarterOf, recount, type Release, type Timeline } from "./model";
 import { aboutHTML, descKey, infoSheet, loadDescriptions, type Description, type Descriptions } from "./describe";
 import { renderFilter } from "./filter";
-import { mountSheet } from "./sheet";
+import { mountSheet, clearPicked } from "./sheet";
 import { renderTrend, type TrendView } from "./trend";
 
 declare global {
@@ -459,6 +459,23 @@ function render(data: Timeline) {
   // Whether the file is worth a request at all, decided from two numbers the registry already carries rather than by fetching a few hundred kilobytes to find out. A registry with nothing described is the resting state of a research pass that has not been run yet, and it is a real state this site will be in for a while.
   const anyDescribed = (data.descriptions?.described ?? 0) > 0;
 
+  /** The detail column inside the browse panel, when this width has one.
+   *
+   *  Looked up each time rather than held, because renderFilter replaces the whole control block on every redraw and a held reference would point at a node no longer in the document. */
+  const detailEl = () => document.querySelector<HTMLElement>(".detail");
+  /** Whether that column is the surface in use. display:none leaves offsetParent null, so the breakpoint lives only in the stylesheet. */
+  const detailLive = () => { const d = detailEl(); return !!d && d.offsetParent !== null; };
+
+  /** Put a benchmark into the detail column, or empty it. */
+  const paintDetail = (title: string, html: string) => {
+    const d = detailEl();
+    if (!d) return;
+    d.querySelector<HTMLElement>(".detail__t")!.textContent = title;
+    d.querySelector<HTMLElement>(".detail__body")!.innerHTML = html;
+    d.querySelector<HTMLElement>(".detail__x")!.hidden = !title;
+  };
+  const clearDetail = () => { paintDetail("", ""); clearPicked(); };
+
   /** What a press on a card's info button opens.
    *
    *  Derived from inView() rather than from the whole log, so a panel can never report four labs under a card reading two. That is the same disagreement the suite rollup above exists to prevent, one screen further down the page.
@@ -468,28 +485,47 @@ function render(data: Timeline) {
     const t = trackables.get(id);
     if (!t) return;
     const key = descKey(t);
-    const open = (desc: Description | null) =>
-      sheet.show(infoSheet({ t, benchmarks: data.benchmarks, suites: data.suites, labs, releases: log && inView(log), desc }));
+    // The same content, into whichever surface this width offers.
+    //
+    // Above 1200px the browse panel carries a detail column beside the results and the bottom sheet is not used for this at all; below it there is no room for a column and the press opens the sheet, which is what every other touch interaction on the page opens. Which one is live is read off the element rather than from a second copy of the breakpoint here: the column is display:none below it, so offsetParent is null, and the CSS stays the only place the number appears.
+    const open = (desc: Description | null) => {
+      const r = infoSheet({ t, benchmarks: data.benchmarks, suites: data.suites, labs, releases: log && inView(log), desc });
+      if (detailLive()) { paintDetail(r.title, r.html); return; }
+      sheet.show(r);
+    };
     if (descs) { open(descs[key] ?? null); return; }
     open(null);
     if (!anyDescribed) { descs = {}; return; }
     loadDescriptions().then((all) => {
       descs = all;
       if (!all[key]) return;
-      const slot = sheetEl.querySelector<HTMLElement>("[data-about]");
-      // Only if the panel is still the one that asked. A slow fetch can land after the reader has closed it or opened another card's.
-      if (sheetEl.hidden || slot?.getAttribute("data-about") !== t.id) return;
+      // Whichever surface is showing it. Only if that surface is still the one that asked: a slow fetch can land after the reader has closed it or opened another card's.
+      const host = detailLive() ? detailEl() : (sheetEl.hidden ? null : sheetEl);
+      const slot = host?.querySelector<HTMLElement>("[data-about]");
+      if (slot?.getAttribute("data-about") !== t.id) return;
       slot.innerHTML = aboutHTML(all[key]);
     });
   };
+
+  // Delegated, because renderFilter replaces both of these on every redraw.
+  document.addEventListener("click", (e) => {
+    const t = e.target as Element;
+    if (t.closest(".detail__x")) { clearDetail(); return; }
+    // Folding the list away clears what was being read about it. The fold only
+    // toggles the panel's hidden attribute, so without this the detail survived
+    // a close and a reopen while the highlight on its card did not, and the
+    // panel came back naming a benchmark nothing on screen pointed at.
+    if (t.closest(".fold")) clearDetail();
+  });
 
   const draw = () => {
     if (scopeOffered) {
       $<HTMLElement>(".scope").hidden = false;
       paintScope();
     }
-    // A redraw replaces every mark and every band, so anything the panel is describing is about to stop existing. Closing it first also puts focus back before the filter hands it to the card that was just pressed.
+    // A redraw replaces every mark and every band, so anything the panel is describing is about to stop existing. Closing it first also puts focus back before the filter hands it to the card that was just pressed. The detail column is rebuilt empty by the same redraw, so it needs no separate clearing, but the highlight it left behind is on a card that is about to be replaced and the next render would otherwise carry it.
     sheet.hide();
+    clearPicked();
     renderFilter($(".controls"), {
       trackables, categories: data.categories, tracked,
       recentLabel: `the last ${recentMonths} months`,

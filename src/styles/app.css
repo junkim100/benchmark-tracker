@@ -272,6 +272,46 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
    8px radius, the compact-utility rung: a grid of thirty cards at the spec's
    18px card radius reads as a bag of lozenges rather than a list. */
 .browse__results { display: grid; grid-template-columns: repeat(auto-fill, minmax(224px, 1fr)); gap: var(--s-sm); }
+
+/* The results and a detail panel beside them.
+   One column below 1200px, where the panel is not rendered and a press on a card's info button opens the bottom sheet instead. That sheet is the shape a finger needs and it is what every other touch interaction on this page already opens; above 1200 there is room to stop putting it across the cards it describes. The panel lives inside #browse-panel, so the fold button hides and shows it along with everything else. */
+.browse__split { display: grid; gap: var(--s-md); }
+.detail { display: none; }
+
+@media (min-width: 1200px) {
+  /* minmax(0, 1fr), not 1fr: a 1fr track will not go below the width of its own content, and the results are themselves a grid of 224px cards, so the pair would push past the page instead of letting the cards reflow. */
+  .browse__split { grid-template-columns: minmax(0, 1fr) 360px; align-items: start; }
+  .detail { display: block; }
+  /* Sticky, because the results run to thirty cards and the panel is worth reading against any of them. Bounded by the viewport so a long version list scrolls inside the panel rather than pushing its own foot off the screen. */
+  .detail__in {
+    position: sticky; top: calc(var(--nav-h) + var(--s-md));
+    max-height: calc(100dvh - var(--nav-h) - var(--s-md) * 2);
+    display: flex; flex-direction: column;
+    background: var(--surface-0);
+    border: 1px solid var(--border); border-radius: var(--r-lg);
+  }
+  .detail__bar {
+    flex: none; display: flex; align-items: center; justify-content: space-between; gap: var(--s-xs);
+    min-height: 44px; padding: 0 2px 0 var(--s-md); border-bottom: 1px solid var(--border);
+  }
+  /* No bar at all until there is something to name, so the empty panel is one block of text and not a blank strip above it. */
+  .detail__bar:not(:has(.detail__t:not(:empty))) { display: none; }
+  .detail__t {
+    margin: 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    font-size: 17px; font-weight: 600; letter-spacing: -0.022em;
+  }
+  .detail__x {
+    flex: none; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; cursor: pointer;
+    background: none; border: 0; border-radius: var(--r-pill); color: var(--text-muted);
+  }
+  .detail__x[hidden] { display: none; }
+  .detail__x svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+  @media (hover: hover) { .detail__x:hover { color: var(--text-primary); background: var(--surface-3); } }
+  .detail__body { overflow-y: auto; overscroll-behavior: contain; padding: var(--s-sm) var(--s-md) var(--s-md); }
+  .detail__body:empty { display: none; }
+  .detail__empty { margin: 0; padding: var(--s-md); font-size: 14px; line-height: 1.43; letter-spacing: -0.016em; color: var(--text-muted); text-wrap: pretty; }
+  .detail__body:not(:empty) + .detail__empty { display: none; }
+}
 .bcard {
   display: grid; gap: 3px; padding: var(--s-sm) var(--s-md); text-align: left; cursor: pointer;
   background: var(--canvas); border: 1px solid var(--border); border-radius: var(--r-sm);
@@ -639,34 +679,6 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
   .sheet { background: var(--surface-0); }
 }
 
-/* On a desktop the same panel docks to the right instead.
-   The bottom sheet is the shape a finger needs: thumb-reachable, edge-anchored, wide enough to read on a phone. It is here because a finger cannot hover, so every touch interaction on this page lands in one panel rather than in a second copy of each hover surface. The info button is the one thing that opens it on a mouse too, and inheriting a phone's bottom sheet put a 560px slab across the middle of the card grid, covering the cards it was describing.
-
-   Docked, not reflowed. Giving the grid a right margin while the panel is open would move the card that was just clicked, and with auto-fill columns it can move to another row, so the one thing the reader is looking at is the one thing that jumps. Floating above the grid costs the rightmost column while the panel is open and costs nothing when it is closed. The card that opened it already carries .is-picked, which is what says which one this is about.
-
-   1200px, not the 900px used elsewhere: the panel and its gap take 376px, and below this the grid is left with two columns, at which point a bottom sheet over a full-width grid reads better than a narrow panel beside a narrow one. */
-@media (min-width: 1200px) {
-  .sheet {
-    left: auto; bottom: auto; margin: 0;
-    /* Against the content column's right edge rather than the window's, so it stays with the grid when the viewport is wider than --wide. */
-    right: max(var(--gutter), calc((100vw - var(--wide)) / 2 + var(--gutter)));
-    top: calc(var(--nav-h) + var(--s-md));
-    width: 360px; max-width: none;
-    /* Stops above the corner buttons rather than beside them. The panel sits at z-index 70 and the back-to-top button at 20, so a full-height panel drew over the top 18px of a control that is fixed to that corner and cannot move out of the way. 44px of button plus its own bottom offset, plus a gap. */
-    max-height: calc(100dvh - var(--nav-h) - var(--s-md) * 2 - 44px - clamp(16px, 4vw, 32px));
-    /* Off every edge now, so all four corners are rounded and the hairline goes all the way round. */
-    border: 1px solid var(--border-strong);
-    border-radius: var(--r-lg);
-  }
-  /* The bottom inset is for a phone's home indicator and there is none here. */
-  .sheet__body { padding-bottom: var(--s-md); }
-
-  /* And the grid ends where the panel starts, rather than running under it.
-     Floating above the cards was the first attempt and it looked like a bug: the rightmost column was sliced down its middle, so four cards were half a card each. Reserving the width instead costs one column and leaves every visible card whole.
-
-     Keyed on the grid's own picked card, not on the panel being open, so that a tap on a timeline mark or a chart band, which opens the same panel from elsewhere on the page, does not reflow a grid the reader is not looking at. */
-  .browse__results:has(.is-picked) { padding-right: calc(360px + var(--s-md)); }
-}
 /* The panel takes focus when it opens so a screen reader is put inside it, but it is tabindex -1 and no Tab ever reaches it, so the page's focus ring would only ever be drawn around something nobody had focused on purpose. The close button and the links inside keep theirs. */
 .sheet:focus, .sheet:focus-visible { outline: none; }
 /* The bar does not scroll with the body, so the way out stays under the thumb however long the list of benchmarks is. */
