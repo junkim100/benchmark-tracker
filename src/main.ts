@@ -78,7 +78,6 @@ if (data.releases.length === 0) {
     <div class="sec">
       <div class="sec__head">
         <h2>Choose what to track</h2>
-        <p>Up to eight. A suite covers every version of an evaluation at once; a category covers a whole subject. Search ignores spelling, so "tau bench" finds &tau;&sup2;-Bench.</p>
       </div>
       <section class="controls" aria-label="Track benchmarks"></section>
     </div>
@@ -86,15 +85,14 @@ if (data.releases.length === 0) {
     <div class="sec">
       <div class="sec__head">
         <h2>Adoption over time</h2>
-        <p>How many labs cited each tracked benchmark, by quarter.</p>
       </div>
       <section class="trendwrap" aria-label="Adoption trend"></section>
     </div>
 
     <div class="sec">
       <div class="sec__head">
-        <h2>Every release</h2>
-        <p>One row per lab. Each mark is a release; open one to read the source.</p>
+        <h2>Timeline View</h2>
+        <p>Each mark is a model release. Hover to view details, click to read the source.</p>
       </div>
       <section class="tlwrap" aria-label="Release timeline"></section>
     </div>

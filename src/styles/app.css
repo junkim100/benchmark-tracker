@@ -49,7 +49,10 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
    structure the same way the accent marks action, and it is the one place the
    hue appears without something to click. */
 .sec { margin: 34px 0 0; }
+/* Two of the three headings now stand alone, so the gap below has to come from
+   the head itself rather than from a standfirst that is no longer there. */
 .sec__head { margin: 0 0 14px; }
+.sec__head:not(:has(p)) { margin-bottom: 16px; }
 .sec__head h2 {
   position: relative; margin: 0; padding-left: 15px;
   font-size: 19px; font-weight: 600; letter-spacing: -0.017em; line-height: 1.25;
