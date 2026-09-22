@@ -196,7 +196,7 @@ function render(data: Timeline) {
       <div class="tile__in">
         <p>Sources are each lab's own site, model card, system card, or arXiv paper. Nothing is taken from news coverage or third-party leaderboards, and no score is recorded anywhere.</p>
         <p>Lab names and marks are the trademarks of their respective owners, shown to identify whose releases each row lists. This site reports on these companies and is neither endorsed by nor affiliated with any of them.</p>
-        <p>Updated ${data.generated_at.slice(0, 10)}. <a href="https://github.com/junkim100/benchmark-tracker">Data and code on GitHub</a></p>
+        <p>Updated ${data.generated_at.slice(0, 10)}.</p>
         <p class="ft__legal">&copy; ${new Date().getUTCFullYear()} Jun Kim. Code under the MIT licence, data under CC BY 4.0. Lab marks are excluded from both.</p>
       </div>
     </footer>
