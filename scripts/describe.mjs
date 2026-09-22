@@ -174,6 +174,9 @@ const client = new Anthropic({ maxRetries: 4 });
 
 async function describeOne(b) {
   const messages = [{ role: "user", content: prompt(b) }];
+  // Counted across every turn of this benchmark, not per reply.
+  let searches = 0;
+  const seenUrls = new Set();
   // A web search turn can stop at the server loop's iteration limit with stop_reason "pause_turn" and no final message. research.mjs treats that as a failure, which is right when a lab is one of twelve and a seven-day lookback gives it two more chances. Here it is one benchmark of 2,176, the searches have already been paid for, and the next attempt would start from nothing, so the turn is resumed instead. Resuming is only re-sending what came back: the API sees the trailing server tool block and continues, and adding a "carry on" message of our own would derail it.
   for (let resumed = 0; resumed <= 2; resumed++) {
     const res = await client.messages.create({
@@ -188,10 +191,29 @@ async function describeOne(b) {
     if (res.stop_reason === "max_tokens") throw new Error(`hit max_tokens (${MAX_TOKENS}): the answer is truncated`);
     if (res.stop_reason === "pause_turn") { messages.push({ role: "assistant", content: res.content }); continue; }
 
+    // Evidence that a page was actually read, kept rather than discarded.
+    //
+    // The reply was being filtered down to its text and everything else thrown
+    // away, which included the search blocks. That left found: true resting on
+    // the model's word: it could name a plausible URL it never opened, and the
+    // only check was that the string parsed as https. This project has already
+    // learned this once, in sources.mjs: restricting what the agent may SEARCH
+    // is not the same as restricting what it writes down. Here there was not
+    // even a search restriction.
+    //
+    // Counted across turns, because a paused turn's final content holds only
+    // the last one, and a run that searched on turn one and answered on turn
+    // three would otherwise look like it never searched at all.
+    for (const block of res.content) {
+      if (block.type === "server_tool_use" && block.name === "web_search") searches++;
+      if (block.type === "web_search_tool_result") {
+        for (const r of block.content ?? []) if (r?.url) seenUrls.add(String(r.url));
+      }
+    }
     const text = res.content.filter((x) => x.type === "text").map((x) => x.text).join("").trim();
     if (!text) throw new Error(`no text in the reply (stop_reason: ${res.stop_reason})`);
     try {
-      return JSON.parse(text);
+      return { ...JSON.parse(text), _searches: searches, _seenUrls: seenUrls };
     } catch (e) {
       // Say what could not be parsed, as research.mjs does. A bare SyntaxError names a column in a string nobody can see.
       throw new Error(`reply was not JSON (${e.message}); first 200 chars: ${text.slice(0, 200)}`);
@@ -204,6 +226,9 @@ let researched = 0;
 let refused = 0;
 // Answers that claimed a description and did not survive checkEntry, and requests that never produced one. Both are held apart from a refusal because a refusal is a finding about the benchmark and these are faults in the run: neither writes an entry, so the next pass tries the id again rather than recording "looked, found nothing" on this pass's behalf.
 const rejected = [];
+// Answers that claimed a source without having searched, or cited a URL the search never returned. Counted apart from ordinary refusals because they say something about the run rather than about the benchmark.
+const unsearched = [];
+const uncited = [];
 const failed = [];
 
 for (let i = 0; i < todo.length; i += BATCH) {
@@ -217,6 +242,33 @@ for (let i = 0; i < todo.length; i += BATCH) {
     if (!r.value?.found) {
       descriptions[b.id] = { source: "none", checked: TODAY };
       refused++; batchNo++;
+      continue;
+    }
+    // Two claims have to be true before a description counts as researched,
+    // and neither was checked before.
+    //
+    // It must have searched. max_uses: 5 is a ceiling with no floor, so a turn
+    // that searched nothing and answered from memory was indistinguishable
+    // from one that read a page. A found: true with zero searches is an
+    // invention by definition.
+    //
+    // And the URL it cites must be one the search actually returned. Otherwise
+    // the model can name a plausible page it never opened, which is the exact
+    // failure sources.mjs exists to stop on the other pipeline: constraining
+    // what may be READ is not constraining what gets WRITTEN DOWN. The
+    // evidence was already in the reply and was being thrown away.
+    //
+    // Both refuse rather than reject, because an answer with no search behind
+    // it is a finding about the model, not a malformed reply, and retrying it
+    // unchanged would produce the same thing.
+    if (!r.value._searches) {
+      descriptions[b.id] = { source: "none", checked: TODAY };
+      refused++; batchNo++; unsearched.push(b.name);
+      continue;
+    }
+    if (r.value.source_url && !r.value._seenUrls?.has(r.value.source_url)) {
+      descriptions[b.id] = { source: "none", checked: TODAY };
+      refused++; batchNo++; uncited.push(`${b.name}: ${r.value.source_url}`);
       continue;
     }
     const entry = { text: tidy(r.value.text), source_url: r.value.source_url, source: "researched", checked: TODAY };
@@ -242,6 +294,12 @@ const lines = [
 if (attempted && pct(refused, attempted) < 10) {
   lines.push("A refusal rate this low is suspicious rather than good: three quarters of the registry is single-lab long tail and much of it has no page. Check a sample against its source_url before trusting the batch.");
 }
+if (unsearched.length) {
+  lines.push("", `Refused ${unsearched.length} answer(s) that claimed a description without searching at all:`, ...unsearched.slice(0, 20).map((x) => `  ${x}`));
+}
+if (uncited.length) {
+  lines.push("", `Refused ${uncited.length} answer(s) citing a URL the search never returned:`, ...uncited.slice(0, 20).map((x) => `  ${x}`));
+}
 if (rejected.length) {
   lines.push("", `Dropped ${rejected.length} answer(s) that failed the description contract:`, ...rejected.slice(0, 20).map((x) => `  ${x}`));
 }
@@ -259,4 +317,30 @@ writeFileSync(join(ROOT, "descriptions-summary.txt"), report + "\n");
 if (todo.length && !attempted) {
   console.error(`\nEvery one of the ${todo.length} attempted failed. Treating this as an outage, not a result.`);
   process.exit(1);
+}
+
+// A suspicious result has to fail, not just print.
+//
+// The low-refusal warning above was a line of text on a script that exits 0.
+// This pass is hours long and runs unattended in Actions, so the only thing
+// anyone sees is the tick, and a run that invented 2,176 descriptions looked
+// exactly like a run that read 2,176 pages. research.mjs already recorded this
+// lesson in its own words: a wrong key once produced twelve FAILED lines, a
+// green tick, and a commit that changed only a timestamp.
+//
+// The bar is the refusal rate, and it is deliberately low. Three quarters of
+// this registry is single-lab long tail and over half of it postdates most
+// training data, so a pass describing more than nine in ten of what it
+// attempted did not find pages, it wrote sentences. The work is still on disk
+// either way, because save() runs every batch; what a non-zero exit stops is
+// the workflow committing it without anyone looking.
+const MIN_REFUSAL_PCT = 10;
+const SAMPLE_FOR_A_VERDICT = 40;
+if (attempted >= SAMPLE_FOR_A_VERDICT && pct(refused, attempted) < MIN_REFUSAL_PCT) {
+  console.error(
+    `\nRefused ${pct(refused, attempted)}% of ${attempted}, under the ${MIN_REFUSAL_PCT}% floor. ` +
+    `Failing rather than committing: at this rate the pass is describing what it cannot have found. ` +
+    `Run node scripts/audit-descriptions.mjs and check a sample against its source_url before overriding.`,
+  );
+  process.exit(2);
 }

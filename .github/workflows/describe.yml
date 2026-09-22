@@ -37,10 +37,13 @@ jobs:
         run: npm run normalize
 
       - name: Describe
+        id: describe
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           # The input reaches the shell as an environment variable rather than as an expression interpolated into the script. Both are equivalent for the numbers this field is for, but an expression is substituted into the script text before bash sees it, so a value carrying a quote and a semicolon runs as commands in a job that holds the API key and can write to the repository. Dispatching already requires write access, so this is depth rather than a hole being closed, and it costs one line.
           LIMIT: ${{ inputs.limit }}
+        # continue-on-error, so a non-zero exit still reaches Verify and still reports what is on disk. Commit reads this step's outcome below, which is what turns a suspicious result into a blocked commit rather than a printed warning.
+        continue-on-error: true
         run: |
           if [ -n "$LIMIT" ]; then
             node scripts/describe.mjs --limit "$LIMIT"
@@ -56,9 +59,13 @@ jobs:
         if: always()
         run: npm run build
 
-      # The gate, stated rather than implied. Not `success()`, which is false whenever any earlier step failed, and that is exactly the case this has to cover: what must hold is that the build passed, not that the pass ran to the end.
+      # Two conditions, and the second was missing.
+      #
+      # The build passing says every entry is well formed. It says nothing about whether the entries are true, so a pass that invented 2,176 fluent descriptions verified clean and committed with a green tick. describe.mjs now exits non-zero when it describes more than nine in ten of what it attempted, which on this registry means it stopped finding pages and started writing sentences, and that exit has to reach the commit or it is a warning again.
+      #
+      # Still not success(), for the reason below: a run cut off partway has real work on disk and should land it. What is being excluded is the specific case of a completed pass whose own result is suspect.
       - name: Commit
-        if: ${{ always() && steps.verify.outcome == 'success' }}
+        if: ${{ always() && steps.verify.outcome == 'success' && steps.describe.outcome != 'failure' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
