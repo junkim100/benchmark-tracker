@@ -97,7 +97,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
       ${open ? "Hide the list" : `Browse and search ${all.length.toLocaleString()} benchmarks, suites and categories`}
     </button>
     <div class="browse" id="browse-panel" ${open ? "" : "hidden"}>
-      <p class="browse__note"><b>Labs</b> counts every lab that has cited it since ${esc(a.sinceLabel)}, so it never falls. <b>Recent releases</b> is the share still citing it across ${esc(a.recentLabel)}. That is how a benchmark can be universal and finished at once. Cards are ordered by labs.</p>
+      <p class="browse__note"><b>Labs</b> counts every lab that has cited it since ${esc(a.sinceLabel)}, so it never falls. <b>Recent releases</b> is the share still citing it across ${esc(a.recentLabel)}.</p>
       <div class="browse__field">
         <svg class="browse__icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>
         <input class="browse__input" type="search" autocomplete="off" spellcheck="false"
