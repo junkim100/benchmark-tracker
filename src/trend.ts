@@ -74,7 +74,38 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
   // The right margin exists only to hold the direct end labels. Below 640 there
   // is no room for them, so the margin goes and the legend underneath does that
   // work instead.
-  const M = { t: 22, r: showEndLabels ? 152 : 16, b: 52, l: narrow ? 32 : 44 };
+  /** Width of a string in the face the end labels are actually drawn in.
+   *
+   *  This used to be a constant, 5.9px per character, measured once on one
+   *  name. Characters are not one width, so the estimate was wrong in both
+   *  directions depending on the name, and the only way to find out was to read
+   *  a truncated label. The canvas knows, and the family is read off the host
+   *  rather than restated, so a change to the page font cannot leave this
+   *  measuring the old one. */
+  const measure = (() => {
+    const ctx = document.createElement("canvas").getContext("2d");
+    const family = getComputedStyle(host).fontFamily || "sans-serif";
+    if (ctx) ctx.font = `13px ${family}`;
+    return (t: string) => (ctx ? ctx.measureText(t).width : t.length * 5.9);
+  })();
+
+  // The right margin holds the end labels, so it is sized to the labels rather
+  // than fixed. At 152 it was a 21-character budget at every width, so
+  // "Terminal-Bench, all versions" came out as "Terminal-Bench, all…" on a
+  // 1280px screen with 400px of empty gutter to its right.
+  //
+  // Still bounded. The margin comes out of the plot, so a very long name may
+  // not take more than a quarter of the chart; past that the label truncates
+  // and keeps its full text in a title. LABEL_GAP is the dot, its gap and a
+  // little air at the end.
+  const LABEL_GAP = 26;
+  const labelRoom = showEndLabels
+    ? Math.min(
+        Math.max(152, Math.ceil(Math.max(0, ...a.tracked.map((b) => measure(b.name)))) + LABEL_GAP),
+        Math.round(W * 0.25),
+      )
+    : 16;
+  const M = { t: 22, r: labelRoom, b: 52, l: narrow ? 32 : 44 };
 
   const labName = new Map(a.labs.map((l) => [l.id, l.name]));
   const maxY = Math.max(1, ...a.tracked.flatMap((b) => Object.values(b.labs_by_quarter) as number[]));
@@ -131,15 +162,17 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
           // name map instead printed the raw id for anything that is not a
           // benchmark, so a tracked suite was labelled "suite:gdpval".
           const full = b.name;
-          // 5.9px per character, measured on the rendered face at 12.5px. The
-          // previous 7.8 over-counted and cut names that fitted: "GDPval, all
-          // versions" needs 115.6px against a 126px budget and was still
-          // truncated, and the cuts landed mid-punctuation, giving
-          // "Terminal-Bench,…" and "HumanEval, all …".
-          const fits = Math.max(6, Math.floor((M.r - 26) / 5.9));
-          // Never end on a comma or a space before the ellipsis.
-          const cut = full.slice(0, fits - 1).replace(/[\s,]+$/, "");
-          const shown = full.length > fits ? `${cut}\u2026` : full;
+          // Trimmed against the measured width rather than a character count,
+          // so a name fits exactly when it fits. Only reached when the margin
+          // was capped, since it is otherwise sized to hold the longest name.
+          const budget = M.r - LABEL_GAP;
+          let shown = full;
+          if (measure(full) > budget) {
+            let cut = full;
+            while (cut.length > 1 && measure(`${cut}\u2026`) > budget) cut = cut.slice(0, -1);
+            // Never end on a comma or a space before the ellipsis.
+            shown = `${cut.replace(/[\s,]+$/, "")}\u2026`;
+          }
           return `<circle class="s-labeldot s${slot}" cx="${(px(last.i) + 11).toFixed(1)}" cy="${ly.toFixed(1)}" r="3.5"/>` +
                  `<text class="s-label" x="${(px(last.i) + 20).toFixed(1)}" y="${ly.toFixed(1)}"><title>${esc(full)}</title>${esc(shown)}</text>`;
         })()

@@ -55,6 +55,9 @@ export interface Timeline {
   /** The kinds of model present in this dataset, commonest first, with how many
    *  releases each covers. Only classes with something behind them. */
   modalities: { id: string; name: string; short: string; blurb: string; releases: number }[];
+  /** Share of releases carrying a modality, so the scope control can be offered
+   *  or withheld at first paint rather than after the log arrives. */
+  modality_coverage: number;
 }
 
 /** Recount every figure on the page over a subset of the releases.

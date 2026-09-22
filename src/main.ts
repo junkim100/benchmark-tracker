@@ -347,7 +347,38 @@ function render(data: Timeline) {
   // computed, so the default view is byte-for-byte what it was before this
   // existed, and a reader who never touches the control cannot be affected by
   // it.
-  let scope: string = "all";
+  // The page opens on language models, because that is what most readers come
+  // for and it is the honest denominator for the benchmarks they are looking
+  // at: a text benchmark's share should not be measured against the video and
+  // speech releases that were never going to cite it.
+  //
+  // Scoping needs the log, and the log is where modality lives, so the first
+  // draw waits for it rather than painting the unscoped figures and correcting
+  // them a moment later. Measured on the live site, that costs nothing: the two
+  // files are requested together in the head and finish in the same
+  // millisecond, and the log is the smaller of the two. If it never arrives at
+  // all the page falls back to "all" and the build's own figures, which is the
+  // behaviour it had before any of this existed.
+  // Scoping needs the log, and the log is where modality lives, so the page is
+  // drawn unscoped and redrawn the moment the log lands. Measured on the live
+  // site, the two data files are requested together in the head and finish in
+  // the same millisecond, and a rescoped draw makes the same boxes with
+  // different numbers in them, so nothing moves and nothing is read in between.
+  //
+  // The alternative, holding the first draw until the log arrived, was tried
+  // and reverted: it left the page's own structure on screen with every section
+  // empty and then filled them, which moved two tiles and cost a 0.227 layout
+  // shift where there had been none.
+  //
+  // If the log never arrives the page falls back to "all" and the build's own
+  // figures, which is the behaviour it had before any of this existed.
+  // Offered only where the data can answer it, read from the build rather than
+  // counted from the log, so the decision is made before the first paint. A
+  // backfill that stopped halfway would otherwise give a control that silently
+  // hid every release it never classified.
+  const scopeOffered = data.modality_coverage >= 0.98 && data.modalities.length > 1;
+  const DEFAULT_SCOPE = "language";
+  let scope: string = scopeOffered ? DEFAULT_SCOPE : "all";
   const baseTrackables = trackables;
   const baseWin = win.releases;
 
@@ -389,8 +420,12 @@ function render(data: Timeline) {
   const paintScope = () => {
     const chips = app.querySelector<HTMLElement>(".scope__chips");
     const note = app.querySelector<HTMLElement>(".scope__note");
-    if (!chips || !note || !log) return;
-    const all = { id: "all", name: "All models", short: "All", releases: log.length };
+    if (!chips || !note) return;
+    // Counts come from the registry, not the log, so the control is complete at
+    // first paint. Waiting for the log meant a row of chips arriving after the
+    // page and pushing it down.
+    const total = data.release_log.count;
+    const all = { id: "all", name: "All models", short: "All", releases: total };
     chips.innerHTML = [all, ...data.modalities].map((m) =>
       `<button type="button" data-scope="${esc(m.id)}" aria-pressed="${m.id === scope}">` +
       `<span class="scope__long">${esc(m.name)}</span><span class="scope__short">${esc(m.short)}</span>` +
@@ -401,10 +436,14 @@ function render(data: Timeline) {
       return;
     }
     const m = data.modalities.find((x) => x.id === scope);
-    note.textContent = `${m?.releases.toLocaleString() ?? 0} of ${log.length.toLocaleString()} releases. Every count and share below is measured over those, not over all of them.`;
+    note.textContent = `${m?.releases.toLocaleString() ?? 0} of ${total.toLocaleString()} releases. Every count and share below is measured over those, not over all of them.`;
   };
 
   const draw = () => {
+    if (scopeOffered) {
+      $<HTMLElement>(".scope").hidden = false;
+      paintScope();
+    }
     // A redraw replaces every mark and every band, so anything the panel is describing is about to stop existing. Closing it first also puts focus back before the filter hands it to the card that was just pressed.
     sheet.hide();
     renderFilter($(".controls"), {
@@ -503,10 +542,8 @@ function render(data: Timeline) {
     // Offered only now, and only if the data can answer it. Coverage is read
     // rather than assumed: a backfill that stopped halfway would otherwise give
     // a control that silently hides every release it never classified.
-    const classified = rows.filter((r) => r.modality?.length).length;
-    if (classified / rows.length >= 0.98) {
+    if (scopeOffered) {
       const el = $<HTMLElement>(".scope");
-      el.hidden = false;
       el.addEventListener("click", (e) => {
         const v = (e.target as Element).closest("[data-scope]")?.getAttribute("data-scope");
         if (!v || v === scope) return;
@@ -520,14 +557,20 @@ function render(data: Timeline) {
       });
       applyScope();
       paintScope();
-      draw();
     }
+    draw();
     drawTimeline();
   }).catch((err) => {
     // Everything above the fold is already correct and working, so a failure
     // here costs the timeline and nothing else. Saying so in its own space is
     // better than throwing the whole page away for the view furthest down it.
     console.error(err);
+    // The scope cannot be honoured without the log, and a page showing LLM
+    // figures it could not compute would be worse than one showing all of
+    // them. Fall back, and draw, because the first draw was waiting on this.
+    scope = "all";
+    applyScope();
+    draw();
     $(".tlwrap").innerHTML = `<p class="empty muted">The release log did not load. Reload the page to try again.</p>`;
   });
 

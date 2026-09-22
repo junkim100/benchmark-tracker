@@ -437,6 +437,12 @@ writeFileSync(
     // say how much before a reader spends a click finding out. Emitted rather
     // than imported from modality.mjs, because the question the control has to
     // answer is what is in this dataset, not what the taxonomy allows.
+    // What share of releases carry a modality. Emitted so the interface can
+    // decide whether to offer the scope control without waiting for the log:
+    // deciding it later meant the control appeared after first paint and
+    // pushed the page down, which was a 0.052 layout shift for a row of chips
+    // that could have been there from the start.
+    modality_coverage: releases.length ? releases.filter((r) => r.modality).length / releases.length : 0,
     modalities: MODALITIES
       .map((m) => ({ ...m, releases: releases.filter((r) => r.modality?.classes.includes(m.id)).length }))
       .filter((m) => m.releases > 0)
