@@ -114,8 +114,12 @@ export const flatKey = (s) =>
   s.toLowerCase()
     .replace(/τ/g, "tau")
     .replace(/[¹₁]/g, "1").replace(/[²₂]/g, "2").replace(/[³₃]/g, "3")
-    // Labs write the same version three ways, and two of them survived the strip as different keys: "DeepSWE 1.1", "DeepSWE v1.1" and "DeepSWE (v1.1)" became deepswe11, deepswe11 and deepswev11, so one benchmark was a three-lab row and a five-lab row side by side. The "v" goes only where a word starts and a digit follows, which is why this runs before the strip takes the boundary away: NLVR2 keeps its v because the v is inside the word. Across all 2,773 spellings in the release files this merges eight groups and every one is a version of itself.
-    .replace(/\bv(?=\d)/g, "")
+    // Labs write the same version four ways and the strip kept them apart: "DeepSWE 1.1", "DeepSWE v1.1" and "DeepSWE (v1.1)" became deepswe11, deepswe11 and deepswev11, so one benchmark sat in the registry as a three-lab row beside a five-lab row.
+    //
+    // The first attempt at this asked for a word boundary before the v, and that was checked only for the merges it caused. It also caused splits, which nobody looked for: "VQAv2" keeps its v because the v is glued to the A, while "VQA v2" and "VQA-v2" lose theirs, so a benchmark seven labs cite was torn into vqav2 and vqa2. Six groups went that way. A key function has to be checked in both directions, because a split is as silent as a merge and neither one announces itself.
+    //
+    // So: drop the v wherever a digit follows it, and also across a space, but only when the v does not continue a word. "HMMT Nov 25" needs that last clause or November becomes "no". NLVR2 is safe without it, since its v is followed by an r. Over all 2,773 spellings in the release files this merges eight groups, every one a version of itself, and splits nothing.
+    .replace(/(?<![a-z])v\s+(?=\d)|v(?=\d)/g, "")
     .replace(/[^a-z0-9]/g, "")
     .replace(/20(\d\d)$/, "$1");
 

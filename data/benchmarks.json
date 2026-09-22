@@ -818,14 +818,14 @@
       "2024-Q4": 4,
       "2025-Q1": 3,
       "2025-Q2": 3,
-      "2025-Q3": 2,
+      "2025-Q3": 3,
       "2025-Q4": 3
     },
     "categories": [
       "vision"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "docvqa",
@@ -1960,7 +1960,7 @@
     "recent_share": 6
   },
   {
-    "id": "vqav2",
+    "id": "vqa2",
     "name": "VQAv2",
     "lab_count": 7,
     "labs": [
@@ -1984,9 +1984,10 @@
       "2023-Q3": 1,
       "2023-Q4": 2,
       "2024-Q1": 1,
-      "2024-Q2": 1,
+      "2024-Q2": 2,
       "2024-Q3": 3,
       "2024-Q4": 3,
+      "2025-Q1": 1,
       "2025-Q2": 1,
       "2025-Q3": 1,
       "2025-Q4": 1
@@ -2364,7 +2365,7 @@
       "xiaomi",
       "zai"
     ],
-    "first_seen": "2024-05-20",
+    "first_seen": "2024-03-08",
     "last_seen": "2026-09-03",
     "labs_by_year": {
       "2024": 3,
@@ -2372,6 +2373,7 @@
       "2026": 3
     },
     "labs_by_quarter": {
+      "2024-Q1": 1,
       "2024-Q2": 1,
       "2024-Q3": 2,
       "2024-Q4": 1,
@@ -6192,12 +6194,14 @@
     "first_seen": "2024-06-05",
     "last_seen": "2026-04-15",
     "labs_by_year": {
-      "2024": 1,
+      "2024": 2,
       "2025": 3,
       "2026": 1
     },
     "labs_by_quarter": {
       "2024-Q2": 1,
+      "2024-Q3": 1,
+      "2025-Q1": 1,
       "2025-Q2": 1,
       "2025-Q3": 2,
       "2025-Q4": 1,
@@ -8930,16 +8934,18 @@
       "qwen"
     ],
     "first_seen": "2023-11-06",
-    "last_seen": "2025-03-26",
+    "last_seen": "2026-04-17",
     "labs_by_year": {
       "2023": 1,
       "2024": 1,
-      "2025": 1
+      "2025": 1,
+      "2026": 1
     },
     "labs_by_quarter": {
       "2023-Q4": 1,
       "2024-Q3": 1,
-      "2025-Q1": 1
+      "2025-Q1": 1,
+      "2026-Q2": 1
     },
     "categories": [
       "speech"
@@ -10562,13 +10568,14 @@
       "qwen",
       "zai"
     ],
-    "first_seen": "2025-10-16",
+    "first_seen": "2025-09-22",
     "last_seen": "2026-01-19",
     "labs_by_year": {
       "2025": 1,
       "2026": 1
     },
     "labs_by_quarter": {
+      "2025-Q3": 1,
       "2025-Q4": 1,
       "2026-Q1": 1
     },
@@ -10576,7 +10583,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "legalagentbenchmark",
@@ -11445,6 +11452,29 @@
     "recent_share": 0
   },
   {
+    "id": "mmbenchen11",
+    "name": "MMBench-EN (v1.1)",
+    "lab_count": 2,
+    "labs": [
+      "moonshot",
+      "qwen"
+    ],
+    "first_seen": "2025-04-09",
+    "last_seen": "2025-09-22",
+    "labs_by_year": {
+      "2025": 2
+    },
+    "labs_by_quarter": {
+      "2025-Q2": 1,
+      "2025-Q3": 1
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": "mmbench",
+    "recent_share": 0
+  },
+  {
     "id": "mmerealworld",
     "name": "MME-RealWorld",
     "lab_count": 2,
@@ -12259,7 +12289,7 @@
     "recent_share": 0
   },
   {
-    "id": "nyuv2",
+    "id": "nyu2",
     "name": "NYUv2",
     "lab_count": 2,
     "labs": [
@@ -12329,7 +12359,7 @@
     "recent_share": 0
   },
   {
-    "id": "ocrbenchv2",
+    "id": "ocrbench2",
     "name": "OCRBench_v2",
     "lab_count": 2,
     "labs": [
@@ -13326,6 +13356,30 @@
     "recent_share": 1
   },
   {
+    "id": "ss2",
+    "name": "SS-V2",
+    "lab_count": 2,
+    "labs": [
+      "google",
+      "qwen"
+    ],
+    "first_seen": "2023-12-21",
+    "last_seen": "2026-07-30",
+    "labs_by_year": {
+      "2023": 1,
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2023-Q4": 1,
+      "2026-Q3": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "storycloze",
     "name": "StoryCloze",
     "lab_count": 2,
@@ -14048,30 +14102,6 @@
     },
     "categories": [
       "speech"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "vqa2",
-    "name": "VQA v2",
-    "lab_count": 2,
-    "labs": [
-      "google",
-      "meta"
-    ],
-    "first_seen": "2024-05-16",
-    "last_seen": "2025-03-25",
-    "labs_by_year": {
-      "2024": 1,
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q2": 1,
-      "2025-Q1": 1
-    },
-    "categories": [
-      "vision"
     ],
     "suite": null,
     "recent_share": 0
@@ -17476,7 +17506,7 @@
     "recent_share": 0
   },
   {
-    "id": "bbbc038v1",
+    "id": "bbbc0381",
     "name": "BBBC038v1",
     "lab_count": 1,
     "labs": [
@@ -17484,27 +17514,6 @@
     ],
     "first_seen": "2023-04-05",
     "last_seen": "2023-04-05",
-    "labs_by_year": {
-      "2023": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q2": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "bbhard",
-    "name": "BB Hard",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2023-05-17",
-    "last_seen": "2023-05-17",
     "labs_by_year": {
       "2023": 1
     },
@@ -18027,6 +18036,27 @@
     "recent_share": 0
   },
   {
+    "id": "bfcl3multiturn",
+    "name": "BFCL_v3_MultiTurn",
+    "lab_count": 1,
+    "labs": [
+      "deepseek"
+    ],
+    "first_seen": "2025-05-28",
+    "last_seen": "2025-05-28",
+    "labs_by_year": {
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q2": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "bfcl",
+    "recent_share": 0
+  },
+  {
     "id": "bfcl4",
     "name": "BFCL-V4",
     "lab_count": 1,
@@ -18047,27 +18077,6 @@
     ],
     "suite": "bfcl",
     "recent_share": 1
-  },
-  {
-    "id": "bfclv3multiturn",
-    "name": "BFCL_v3_MultiTurn",
-    "lab_count": 1,
-    "labs": [
-      "deepseek"
-    ],
-    "first_seen": "2025-05-28",
-    "last_seen": "2025-05-28",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": "bfcl",
-    "recent_share": 0
   },
   {
     "id": "biasbenchmarkforquestionanswering",
@@ -18139,27 +18148,6 @@
     },
     "categories": [
       "math"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "bigbencheh",
-    "name": "BigBench EH",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "reasoning"
     ],
     "suite": null,
     "recent_share": 0
@@ -18610,6 +18598,69 @@
     ],
     "suite": null,
     "recent_share": 1
+  },
+  {
+    "id": "c15en",
+    "name": "CV15-en",
+    "lab_count": 1,
+    "labs": [
+      "qwen"
+    ],
+    "first_seen": "2025-09-22",
+    "last_seen": "2025-09-22",
+    "labs_by_year": {
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q3": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "c15zh",
+    "name": "CV15-zh",
+    "lab_count": 1,
+    "labs": [
+      "qwen"
+    ],
+    "first_seen": "2025-09-22",
+    "last_seen": "2025-09-22",
+    "labs_by_year": {
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q3": 1
+    },
+    "categories": [
+      "multilingual"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "c3evalemotion",
+    "name": "CV3-eval-emotion",
+    "lab_count": 1,
+    "labs": [
+      "zai"
+    ],
+    "first_seen": "2025-12-16",
+    "last_seen": "2025-12-16",
+    "labs_by_year": {
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q4": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
   },
   {
     "id": "cadbench",
@@ -19283,7 +19334,7 @@
     "recent_share": 0
   },
   {
-    "id": "chartmimicv2direct",
+    "id": "chartmimic2direct",
     "name": "ChartMimic_v2_Direct",
     "lab_count": 1,
     "labs": [
@@ -19317,27 +19368,6 @@
     },
     "labs_by_quarter": {
       "2026-Q3": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "chartqatest",
-    "name": "ChartQA_test",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2025-09-22",
-    "last_seen": "2025-09-22",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
     },
     "categories": [
       "vision"
@@ -19408,27 +19438,6 @@
     ],
     "suite": "charxiv",
     "recent_share": 1
-  },
-  {
-    "id": "charxivr",
-    "name": "CharXiv-R",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2025-04-14",
-    "last_seen": "2025-04-14",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": "charxiv",
-    "recent_share": 0
   },
   {
     "id": "charxivvalreasoning",
@@ -20561,7 +20570,7 @@
     "recent_share": 0
   },
   {
-    "id": "codeforcesdiv1",
+    "id": "codeforcesdi1",
     "name": "Codeforces-Div1",
     "lab_count": 1,
     "labs": [
@@ -21746,90 +21755,6 @@
     },
     "labs_by_quarter": {
       "2025-Q2": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "cv15",
-    "name": "CV15",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-04-17",
-    "last_seen": "2026-04-17",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "cv15en",
-    "name": "CV15-en",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2025-09-22",
-    "last_seen": "2025-09-22",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "cv15zh",
-    "name": "CV15-zh",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2025-09-22",
-    "last_seen": "2025-09-22",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    },
-    "categories": [
-      "multilingual"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "cv3evalemotion",
-    "name": "CV3-eval-emotion",
-    "lab_count": 1,
-    "labs": [
-      "zai"
-    ],
-    "first_seen": "2025-12-16",
-    "last_seen": "2025-12-16",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q4": 1
     },
     "categories": [
       "other"
@@ -27167,29 +27092,6 @@
     "recent_share": 1
   },
   {
-    "id": "hallbench",
-    "name": "HallBench",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2024-08-29",
-    "last_seen": "2025-02-19",
-    "labs_by_year": {
-      "2024": 1,
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1,
-      "2025-Q1": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "handwrittenforms",
     "name": "Handwritten-Forms",
     "lab_count": 1,
@@ -31268,29 +31170,8 @@
     "recent_share": 0
   },
   {
-    "id": "lcbv5",
+    "id": "lcb5",
     "name": "LCBV5",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2025-09-22",
-    "last_seen": "2025-09-22",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "lcbv6",
-    "name": "LCBV6",
     "lab_count": 1,
     "labs": [
       "qwen"
@@ -32596,7 +32477,7 @@
     "recent_share": 0
   },
   {
-    "id": "lvosv2",
+    "id": "lvos2",
     "name": "LVOSv2",
     "lab_count": 1,
     "labs": [
@@ -34767,27 +34648,6 @@
     "recent_share": 0
   },
   {
-    "id": "mmbenchen11",
-    "name": "MMBench-EN (v1.1)",
-    "lab_count": 1,
-    "labs": [
-      "moonshot"
-    ],
-    "first_seen": "2025-04-09",
-    "last_seen": "2025-06-21",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": "mmbench",
-    "recent_share": 0
-  },
-  {
     "id": "mmbenchendev11",
     "name": "MMBenchEN-DEV (v1.1)",
     "lab_count": 1,
@@ -34831,27 +34691,6 @@
     "recent_share": 0
   },
   {
-    "id": "mmbenchenv11",
-    "name": "MMBench_EN_V 1.1",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2025-09-22",
-    "last_seen": "2025-09-22",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": "mmbench",
-    "recent_share": 0
-  },
-  {
     "id": "mmbenchgui",
     "name": "MMBench-GUI",
     "lab_count": 1,
@@ -34865,27 +34704,6 @@
     },
     "labs_by_quarter": {
       "2026-Q3": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": "mmbench",
-    "recent_share": 0
-  },
-  {
-    "id": "mmbenchv11",
-    "name": "MMBench-V 1.1",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2024-09-18",
-    "last_seen": "2024-09-18",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1
     },
     "categories": [
       "vision"
@@ -35554,7 +35372,7 @@
     "recent_share": 0
   },
   {
-    "id": "mosev1",
+    "id": "mose1",
     "name": "MOSEv1",
     "lab_count": 1,
     "labs": [
@@ -35575,7 +35393,7 @@
     "recent_share": 1
   },
   {
-    "id": "mosev2",
+    "id": "mose2",
     "name": "MOSEv2",
     "lab_count": 1,
     "labs": [
@@ -36492,28 +36310,6 @@
       "2023-Q2": 1
     },
     "categories": [
-      "multilingual"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "multilingualmgsm",
-    "name": "Multilingual MGSM",
-    "lab_count": 1,
-    "labs": [
-      "meta"
-    ],
-    "first_seen": "2024-07-23",
-    "last_seen": "2024-07-23",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1
-    },
-    "categories": [
-      "math",
       "multilingual"
     ],
     "suite": null,
@@ -37818,27 +37614,6 @@
     "recent_share": 0
   },
   {
-    "id": "ocrb",
-    "name": "OCRB",
-    "lab_count": 1,
-    "labs": [
-      "deepseek"
-    ],
-    "first_seen": "2024-03-08",
-    "last_seen": "2024-03-08",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q1": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "ocrbench2en",
     "name": "OCR-Bench-V2(EN)",
     "lab_count": 1,
@@ -38440,12 +38215,14 @@
     "labs": [
       "openai"
     ],
-    "first_seen": "2026-03-05",
+    "first_seen": "2025-12-11",
     "last_seen": "2026-09-03",
     "labs_by_year": {
+      "2025": 1,
       "2026": 1
     },
     "labs_by_quarter": {
+      "2025-Q4": 1,
       "2026-Q1": 1,
       "2026-Q2": 1,
       "2026-Q3": 1
@@ -38455,27 +38232,6 @@
     ],
     "suite": null,
     "recent_share": 1
-  },
-  {
-    "id": "openaimrcrv2",
-    "name": "OpenAI MRCRv2",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2025-12-11",
-    "last_seen": "2025-12-11",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q4": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
   },
   {
     "id": "openaiprs",
@@ -42438,7 +42194,7 @@
       "2024-Q3": 1
     },
     "categories": [
-      "coding"
+      "safety"
     ],
     "suite": null,
     "recent_share": 0
@@ -44286,27 +44042,6 @@
     "recent_share": 0
   },
   {
-    "id": "ss2",
-    "name": "SS-V2",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-07-30",
-    "last_seen": "2026-07-30",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "sspro",
     "name": "SS-Pro",
     "lab_count": 1,
@@ -44320,27 +44055,6 @@
     },
     "labs_by_quarter": {
       "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "ssv2",
-    "name": "SSv2",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2023-12-21",
-    "last_seen": "2023-12-21",
-    "labs_by_year": {
-      "2023": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q4": 1
     },
     "categories": [
       "other"
@@ -45974,27 +45688,6 @@
     },
     "categories": [
       "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "textmtbench",
-    "name": "Text MT-bench",
-    "lab_count": 1,
-    "labs": [
-      "mistral"
-    ],
-    "first_seen": "2024-09-17",
-    "last_seen": "2024-09-17",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1
-    },
-    "categories": [
-      "knowledge"
     ],
     "suite": null,
     "recent_share": 0
@@ -48218,7 +47911,7 @@
       "2024-Q3": 1
     },
     "categories": [
-      "other"
+      "safety"
     ],
     "suite": null,
     "recent_share": 0

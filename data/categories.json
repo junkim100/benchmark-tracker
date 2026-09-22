@@ -2,26 +2,78 @@
   "_comment": "Reviewed category assignments that the rules in scripts/classify.mjs get wrong or cannot see. Keys are the flattened benchmark name: lowercased, punctuation removed, a trailing four-digit year folded, the same key the alias map uses. Values are [primary] or [primary, secondary]. Never three: of 2,188 benchmarks exactly one plausibly wanted a third, so the cap costs nothing and keeps the label readable.",
   "_why": "Rules cover the well-cited middle; names like V*, Seal-0 and QuALITY carry no word that any pattern could match. This file is where a human decision goes, and where the research agent's proposals land after review.",
   "overrides": {
-    "v": ["vision"],
-    "mscoco": ["vision"],
-    "pixmocount": ["vision"],
-    "sunrgbd": ["vision"],
-    "simplevqa": ["vision"],
-    "vlmsareblind": ["vision"],
-    "perceptiontest": ["vision"],
-    "seed": ["vision"],
-    "seedbench": ["vision"],
-    "nl2repo": ["coding"],
-    "swemarathon": ["coding", "agentic"],
-    "sweverified": ["coding", "agentic"],
-    "paperbench": ["coding", "science"],
-    "tooldecathlon": ["agentic"],
-    "widesearch": ["agentic"],
-    "seal0": ["agentic"],
-    "textarena": ["agentic"],
-    "protocolqa": ["science"],
-    "quality": ["longctx", "knowledge"],
-    "sat": ["knowledge"],
-    "webquestions": ["knowledge"]
+    "v": [
+      "vision"
+    ],
+    "mscoco": [
+      "vision"
+    ],
+    "pixmocount": [
+      "vision"
+    ],
+    "sunrgbd": [
+      "vision"
+    ],
+    "simplevqa": [
+      "vision"
+    ],
+    "vlmsareblind": [
+      "vision"
+    ],
+    "perceptiontest": [
+      "vision"
+    ],
+    "seed": [
+      "vision"
+    ],
+    "seedbench": [
+      "vision"
+    ],
+    "nl2repo": [
+      "coding"
+    ],
+    "swemarathon": [
+      "coding",
+      "agentic"
+    ],
+    "sweverified": [
+      "coding",
+      "agentic"
+    ],
+    "paperbench": [
+      "coding",
+      "science"
+    ],
+    "tooldecathlon": [
+      "agentic"
+    ],
+    "widesearch": [
+      "agentic"
+    ],
+    "seal0": [
+      "agentic"
+    ],
+    "textarena": [
+      "agentic"
+    ],
+    "protocolqa": [
+      "science"
+    ],
+    "quality": [
+      "longctx",
+      "knowledge"
+    ],
+    "sat": [
+      "knowledge"
+    ],
+    "webquestions": [
+      "knowledge"
+    ],
+    "runcode": [
+      "safety"
+    ],
+    "weboflies": [
+      "safety"
+    ]
   }
 }

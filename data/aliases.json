@@ -127,5 +127,14 @@
   "securebiovct": "virologycapabilitiestest",
   "biosecurityvct": "virologycapabilitiestest",
   "virologycapabilitiestest": "virologycapabilitiestest",
-  "clawevalmm": "clawevalmultimodal"
+  "clawevalmm": "clawevalmultimodal",
+  "bbhard": "bbh",
+  "bigbencheh": "bbeh",
+  "ocrb": "ocrbench",
+  "hallbench": "hallusionbench",
+  "chartqatest": "chartqa",
+  "multilingualmgsm": "mgsm",
+  "cv15": "commonvoice15",
+  "charxivr": "charxivreasoning",
+  "textmtbench": "mt-bench"
 }
