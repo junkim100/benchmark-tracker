@@ -87,6 +87,13 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
   border: 1px solid var(--border); border-radius: 9px;
 }
 .browse__field:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+/* The field is a composed control: the wrapper draws the focus indicator for
+   the input inside it. Without this the input drew its own on top, so opening
+   the panel, which focuses the field, produced three rings at once: the
+   wrapper's border, the wrapper's ring, and a 2px outline offset 2px inside
+   them. The wrapper's own indicator is unchanged, so keyboard focus is still
+   plainly marked. */
+.browse__field :focus-visible { outline: none; }
 .browse__icon { width: 16px; height: 16px; flex: none; fill: none; stroke: var(--text-muted); stroke-width: 1.6; stroke-linecap: round; }
 .browse__input { flex: 1; min-width: 0; padding: 11px 0; font: inherit; background: none; border: 0; color: var(--text-primary); }
 .browse__input::-webkit-search-cancel-button { display: none; }
