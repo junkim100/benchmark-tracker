@@ -27,6 +27,14 @@ export interface FilterArgs {
 // on the page rather than a wall of cards. Held outside the render because
 // tracking something redraws this and must not close what the reader opened.
 let open = false;
+// Outside the render, like `open`, and for the same reason. Both used to be
+// locals, so every redraw reset them: a window resize wiped the search text and
+// sent the reader back to "Most cited", and on a phone that fires on rotation.
+// main.ts tried to restore them by reading the DOM and replaying a click, which
+// could not work during a search, because no tab is selected then by design.
+let tab = "top";
+let query = "";
+let rawQuery = "";
 
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
 
@@ -37,8 +45,15 @@ export const fold = (s: string): string =>
     .replace(/τ/g, "tau").replace(/[²₂]/g, "2").replace(/[³₃]/g, "3").replace(/[¹₁]/g, "1")
     .replace(/[^a-z0-9]+/g, "");
 
-const initials = (s: string): string =>
+// Two readings of a name's initials, because neither alone is right.
+// Splitting on every run of letters and digits turns "Humanity's Last Exam"
+// into Humanity + s + Last + Exam, giving "hsle", so "hle" missed the benchmark
+// whose id literally is hle. Dropping one-letter fragments gives "hle".
+// Keeping them is still needed elsewhere, so both are tried.
+const initialsAll = (s: string): string =>
   (s.match(/[A-Za-z0-9]+/g) ?? []).map((w) => w[0].toLowerCase()).join("");
+const initialsWords = (s: string): string =>
+  (s.match(/[A-Za-z0-9]+/g) ?? []).filter((w) => w.length > 1).map((w) => w[0].toLowerCase()).join("");
 
 /** Bounded Levenshtein: stops as soon as the distance exceeds max, which keeps
  *  a full-list fuzzy pass cheap enough to run on every keystroke. */
@@ -62,20 +77,40 @@ function within(a: string, b: string, max: number): number {
 export function score(t: Trackable, q: string): number {
   if (!q) return 0;
   // A suite's display name carries ", all versions" so a chip can be told from
-  // its headline version. Searching should not have to know that, and equally
-  // should not fail for someone who read the card and typed what it says: both
-  // the bare name and the full one are matched, best score wins.
-  const bare = fold(t.name.replace(/, all versions$/, ""));
-  const full = fold(t.name);
-  return bare === full ? scoreOne(t, bare, q) : Math.max(scoreOne(t, bare, q), scoreOne(t, full, q));
+  // its headline version. Both forms are scored and the better wins: searching
+  // should not have to know about the suffix, and equally should not fail for
+  // someone who read the card and typed what it says.
+  //
+  // Each form is scored whole, name and initials together. Deriving the
+  // initials from the display name while matching against the bare one made
+  // "Terminal-Bench, all versions" score its initials as "tbav", so "tb" ranked
+  // the suite below its own 2.1 release.
+  const bare = t.name.replace(/, all versions$/, "");
+  return bare === t.name ? scoreOne(bare, q) : Math.max(scoreOne(bare, q), scoreOne(t.name, q));
 }
 
-function scoreOne(t: Trackable, n: string, q: string): number {
+function scoreOne(name: string, q: string): number {
+  const n = fold(name);
   if (n === q) return 1000;
+  if (q.length >= 2) {
+    const ia = initialsAll(name), iw = initialsWords(name);
+    // An exact acronym outranks a name that merely begins with those letters.
+    // Without this "hle" returned HLE-Full, HLE-Text and HLE w/ tools, each of
+    // which starts with the letters, and not Humanity's Last Exam, whose id is
+    // literally hle and which every one of the twelve labs has cited.
+    if (ia === q || iw === q) return 950;
+  }
   if (n.startsWith(q)) return 900 - n.length;
+  if (q.length >= 2) {
+    // Initials still outrank a buried substring. Scored below it, "tb" was
+    // pushed out of the results entirely: more than 36 tracked names contain
+    // the literal letters "tb", so the cap evicted every initials match before
+    // Terminal-Bench could be shown.
+    const ia = initialsAll(name), iw = initialsWords(name);
+    if (ia.startsWith(q) || iw.startsWith(q)) return 820;
+  }
   const at = n.indexOf(q);
   if (at >= 0) return 700 - at;
-  if (q.length >= 2 && initials(t.name).startsWith(q)) return 500;
   // Typos, and only for queries long enough that a near-miss means something.
   if (q.length >= 4) {
     const max = q.length >= 8 ? 2 : 1;
@@ -103,7 +138,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
         <input class="browse__input" type="search" autocomplete="off" spellcheck="false"
                placeholder="Search ${all.length.toLocaleString()} benchmarks, suites and categories"
                aria-label="Search benchmarks, suites and categories" />
-        <button class="browse__clear" type="button" hidden aria-label="Clear search">&times;</button>
+        <button class="browse__clear" type="button" ${rawQuery ? "" : "hidden"} aria-label="Clear search">&times;</button>
       </div>
       <div class="browse__tabs" role="tablist" aria-label="Browse by category"></div>
       <div class="browse__results" role="listbox" aria-label="Benchmarks"></div>
@@ -111,14 +146,14 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     </div>`;
 
   const input = host.querySelector<HTMLInputElement>(".browse__input")!;
+  input.value = rawQuery;
   const clear = host.querySelector<HTMLButtonElement>(".browse__clear")!;
   const tabs = host.querySelector<HTMLDivElement>(".browse__tabs")!;
   const results = host.querySelector<HTMLDivElement>(".browse__results")!;
   const none = host.querySelector<HTMLParagraphElement>(".browse__none")!;
   const chips = host.querySelector<HTMLDivElement>(".chips")!;
 
-  let tab = "top";
-  let q = "";
+  let q = query;
 
   const TABS = [{ id: "top", name: "Most cited, all time" }, { id: "suites", name: "Suites" }, ...a.categories.filter((c) => c.id !== "other").map((c) => ({ id: `cat:${c.id}`, name: c.name }))];
 
@@ -193,19 +228,24 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   input.addEventListener("input", () => {
     const had = !!q;
     q = fold(input.value);
+    query = q;
+    rawQuery = input.value;
     clear.hidden = !input.value;
     if (had !== !!q) paintTabs();
     paint();
   });
   // Clearing returns to whichever tab was open before the search started.
-  clear.addEventListener("click", () => { input.value = ""; q = ""; clear.hidden = true; paintTabs(); paint(); input.focus(); });
+  clear.addEventListener("click", () => {
+    input.value = ""; q = ""; query = ""; rawQuery = ""; clear.hidden = true;
+    paintTabs(); paint(); input.focus();
+  });
   tabs.addEventListener("click", (e) => {
     const t = (e.target as Element).closest("[data-tab]")?.getAttribute("data-tab");
     if (!t) return;
     // Picking a category is a request to browse it, so it ends the search
     // rather than sitting behind one that ignores it.
     tab = t;
-    if (q) { q = ""; input.value = ""; clear.hidden = true; }
+    if (q) { q = ""; query = ""; rawQuery = ""; input.value = ""; clear.hidden = true; }
     paintTabs(); paint();
   });
   results.addEventListener("click", (e) => {

@@ -252,10 +252,22 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
    No scroller: the section is as tall as the span it covers and the page
    scroll is the time axis, newest at the top. The header sticks so the reader
    always knows which column is which lab. */
-/* Below the floor the timeline stops shrinking and this scrolls instead. */
-.tlvwrap { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
-/* On a phone it takes the full viewport, cancelling the page gutters, because
-   twelve columns need every pixel available before scrolling is worth it. */
+/* Not a scroll container unless it has to be.
+   Any non-visible overflow on either axis makes this box the scrollport its
+   sticky descendants resolve against, and it never scrolls vertically, so the
+   header had zero travel and rode the page away: at 1280 with scrollY 1920 its
+   top read -851px. Stating overflow-y does not help, because next to a
+   scrollable axis `visible` computes to `auto` and `clip` computes to `hidden`;
+   the pair cannot be mixed.
+   So the scroller only exists below the width where twelve columns stop
+   fitting. Above that, overflow stays visible, the viewport is the scrollport
+   and the header sticks. Below it the header stops sticking, which is the right
+   trade at 320px: there the choice is between a header that follows and a
+   timeline you cannot reach the right-hand side of. */
+.tlvwrap { overflow: visible; }
+@media (max-width: 350px) {
+  .tlvwrap { overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scrollbar-width: thin; }
+}
 .tlvwrap--bleed { margin-inline: calc(-1 * clamp(18px, 5vw, 44px)); }
 .tlv { position: relative; }
 .tlv__head {

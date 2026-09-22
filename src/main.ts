@@ -203,15 +203,11 @@ if (data.releases.length === 0) {
           const inside = memberIds(t, data.benchmarks);
           tracked = tracked.filter((x) => x === id || !inside.has(x));
         }
-        // Keep the browser where it was. Re-rendering replaces the field and
-        // the tab strip, so without this a second pick means retyping the
-        // search and finding the category again.
-        const before = app.querySelector<HTMLInputElement>(".browse__input")?.value ?? "";
-        const activeTab = app.querySelector('.browse__tabs [aria-selected="true"]')?.getAttribute("data-tab") ?? "";
+        // No save-and-restore here any more. The browser's tab and query live
+        // outside its render, so a redraw keeps them on its own, and replaying
+        // a click could never restore a tab during a search anyway: none is
+        // selected then.
         draw();
-        const after = app.querySelector<HTMLInputElement>(".browse__input");
-        if (after && before) { after.value = before; after.dispatchEvent(new Event("input")); }
-        if (activeTab) app.querySelector<HTMLButtonElement>(`.browse__tabs [data-tab="${activeTab}"]`)?.click();
       },
     });
     renderTrend($(".trendwrap"), {
