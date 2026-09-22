@@ -154,7 +154,10 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
       <span class="fold__n" ${open ? "hidden" : ""}>${all.length.toLocaleString()}</span>
     </button>
     <div class="browse" id="browse-panel" ${open ? "" : "hidden"}>
-      <p class="browse__note"><b>Labs</b> counts every lab that has cited it since ${esc(a.sinceLabel)}, so it never falls. <b>Recent releases</b> is the share still citing it across ${esc(a.recentLabel)}.</p>
+      <div class="browse__note">
+        <p><b>Labs</b> counts every lab that has cited it since ${esc(a.sinceLabel)}, so it never falls.</p>
+        <p><b>Recent releases</b> is the share still citing it across ${esc(a.recentLabel)}.</p>
+      </div>
       <div class="browse__field">
         <svg class="browse__icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>
         <input class="browse__input" type="search" autocomplete="off" spellcheck="false"

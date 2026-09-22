@@ -161,7 +161,11 @@ button { transition: transform .08s ease-out; }
 .fold__chevron { width: 12px; height: 12px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .15s; }
 .fold[aria-expanded="true"] .fold__chevron { transform: rotate(180deg); }
 
-.browse__note { margin: var(--s-lg) 0 0; max-width: 92ch; font-size: 14px; line-height: 1.43; letter-spacing: -0.016em; color: var(--text-muted); text-wrap: pretty; }
+/* Two statements, two lines. They define the two numbers on every card, and
+   run together as one paragraph the second one was easy to read past. */
+.browse__note { margin: var(--s-lg) 0 0; max-width: 92ch; font-size: 14px; line-height: 1.43; letter-spacing: -0.016em; color: var(--text-muted); }
+.browse__note p { margin: 0; text-wrap: pretty; }
+.browse__note p + p { margin-top: var(--s-xxs); }
 .browse__note b { color: var(--text-secondary); font-weight: 600; }
 
 /* Browse and search. Open by default and grouped, because most readers arrive
