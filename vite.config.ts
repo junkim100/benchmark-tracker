@@ -68,9 +68,14 @@ export default defineConfig({
     // No source map in production. It was 124 kB of the deploy that only a
     // developer can use, and a developer can rebuild it.
     sourcemap: false,
-    // The two data files must stay files. Inlined as base64 data URLs they
-    // would be back inside the script, a third larger, and the boot script in
-    // index.html would have nothing to point at.
-    assetsInlineLimit: (file) => (/data\/(timeline|release-log)\.json$/.test(file) ? false : undefined),
+    // The data files must stay files. Inlined as base64 data URLs they would be
+    // back inside the script, a third larger, and the boot script in index.html
+    // would have nothing to point at.
+    //
+    // descriptions-site.json is emitted by dataBoot rather than imported, so
+    // this rule does not decide its fate today. It is named anyway, because the
+    // rule that would apply to it if anything ever did import it should not be
+    // the one that undoes the reason it is a separate file.
+    assetsInlineLimit: (file) => (/data\/(timeline|release-log|descriptions-site)\.json$/.test(file) ? false : undefined),
   },
 });

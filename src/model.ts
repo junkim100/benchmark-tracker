@@ -58,7 +58,24 @@ export interface Timeline {
   /** Share of releases carrying a modality, so the scope control can be offered
    *  or withheld at first paint rather than after the log arrives. */
   modality_coverage: number;
+  /** How many benchmarks carry a description, and how many were searched for and not found. Two numbers rather than the descriptions themselves, for the reason BenchmarkDescription gives: it is enough to decide at first paint whether a detail panel is worth offering, without fetching a file most visits never need. */
+  descriptions: { described: number; refused: number };
 }
+
+/** One benchmark's description, as data/descriptions-site.json carries it.
+ *
+ *  Fetched on demand rather than with the registry: at 2,176 entries it is about as large as the registry itself and is read only when a detail panel opens, so the URL arrives on `window.btData.descriptions` and the file is requested on that click.
+ *
+ *  An id absent from the file has no description, which covers both a benchmark nobody has looked for yet and one that was looked for and not found. The two are distinguishable in `Timeline.descriptions` in aggregate but not per benchmark, deliberately: the panel says the same thing either way, and carrying a refusal per id would put the pass's bookkeeping in the browser. */
+export interface BenchmarkDescription {
+  /** One or two sentences on what the benchmark measures. Never a score: this project records citations and never results. */
+  text: string;
+  /** The page the description was taken from, https, offered to the reader as its provenance. */
+  source_url: string;
+}
+
+/** data/descriptions-site.json, keyed by benchmark id. */
+export type Descriptions = Record<string, BenchmarkDescription>;
 
 /** Recount every figure on the page over a subset of the releases.
  *

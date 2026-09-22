@@ -15,8 +15,12 @@ import { renderTrend, type TrendView } from "./trend";
 declare global {
   interface Window {
     /** Started by the inline script in index.html, while the head is still
-     *  being parsed, so the data is in flight before this module is fetched. */
-    btData?: { core?: Promise<Response>; log?: Promise<Response> };
+     *  being parsed, so the data is in flight before this module is fetched.
+     *
+     *  `descriptions` is the odd one out: a content-hashed URL rather than a
+     *  started fetch, because it is read only when a detail panel opens and it
+     *  is about as large as the registry. Fetch it on that click. */
+    btData?: { core?: Promise<Response>; log?: Promise<Response>; descriptions?: string };
     /** Reload past a stale GitHub Pages cache. Defined in index.html. */
     btRecoverStale?: () => boolean;
   }

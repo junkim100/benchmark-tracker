@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import type { Plugin } from "vite";
 
 /** The two files main.ts imports for their URL, as written on disk. Named here
@@ -7,6 +8,16 @@ const DATA = ["data/timeline.json", "data/release-log.json"] as const;
 
 /** The placeholders index.html carries, in source order. */
 const SLOTS = ['"BT_CORE_URL"', '"BT_LOG_URL"'] as const;
+
+/** The benchmark descriptions, which are handled differently from the two above in both directions.
+ *
+ *  They are emitted by this plugin rather than reached through a `?url` import, because nothing in the module graph imports them and nothing should: an import is a promise to download, and the whole point of splitting this file out is that it is downloaded on a click that most visits never make. Emitting it here still gets it a content hash, so it cannot be served as a stale pair with a registry it does not match.
+ *
+ *  And its slot receives a URL rather than a started fetch. The other two are in flight before the module is requested because every visit needs them; this one is fetched by the interface when a reader opens a detail panel, and starting it in the head would put a registry's worth of bytes back on the path to first paint, which is the cost this split exists to avoid. */
+const DESCRIPTIONS = "data/descriptions-site.json";
+const DESCRIPTIONS_SLOT = '"BT_DESC_URL"';
+/** The rollup asset name, which is the basename: `assets/descriptions-site-<hash>.json` is what comes out. */
+const DESCRIPTIONS_ASSET = "descriptions-site.json";
 
 /** Points the inline boot script in index.html at the emitted data files.
  *
@@ -35,10 +46,25 @@ const SLOTS = ['"BT_CORE_URL"', '"BT_LOG_URL"'] as const;
  *  substituted URLs rather than the placeholders. */
 export function dataBoot(): Plugin {
   let base = "/";
+  let root = ".";
   return {
     name: "bt-data-boot",
     configResolved(config) {
       base = config.base;
+      root = config.root;
+    },
+    // renderStart rather than buildStart, because this hook runs during output generation and so only on a build. The dev server has no bundle to emit into, and it does not need one: the dev branch below serves the file off disk under the same base, exactly as it does for the other two.
+    //
+    // The file is always there to read. Both npm scripts run normalize.mjs before vite, and normalize writes this file on every run even when it is empty, so a missing one means the build was invoked some other way and the page would otherwise have shipped pointing at nothing.
+    renderStart() {
+      const from = `${root}/${DESCRIPTIONS}`;
+      let source: string;
+      try {
+        source = readFileSync(from, "utf8");
+      } catch {
+        throw new Error(`bt-data-boot: ${from} is missing. Run npm run normalize first, which writes it.`);
+      }
+      this.emitFile({ type: "asset", name: DESCRIPTIONS_ASSET, source });
     },
     transformIndexHtml(html, ctx) {
       const url = (source: string): string => {
@@ -54,12 +80,23 @@ export function dataBoot(): Plugin {
         // would silently go back to discovering its data a round trip late.
         throw new Error(`bt-data-boot: ${source} is not in the bundle, so the page cannot be told where it went`);
       };
+      // The descriptions asset was emitted by renderStart above, so it is in the bundle under its hashed name but with no originalFileName to match on. Found by the name it was emitted under instead.
+      const descriptionsUrl = (): string => {
+        if (!ctx.bundle) return base + DESCRIPTIONS;
+        for (const [file, out] of Object.entries(ctx.bundle)) {
+          if (out.type === "asset" && out.name === DESCRIPTIONS_ASSET) return base + file;
+        }
+        throw new Error(`bt-data-boot: ${DESCRIPTIONS_ASSET} was emitted but is not in the bundle`);
+      };
+
       let out = html;
       DATA.forEach((source, i) => {
         const slot = SLOTS[i];
         if (!out.includes(slot)) throw new Error(`bt-data-boot: index.html no longer contains ${slot}`);
         out = out.replace(slot, JSON.stringify(url(source)));
       });
+      if (!out.includes(DESCRIPTIONS_SLOT)) throw new Error(`bt-data-boot: index.html no longer contains ${DESCRIPTIONS_SLOT}`);
+      out = out.replace(DESCRIPTIONS_SLOT, JSON.stringify(descriptionsUrl()));
       return out;
     },
   };
