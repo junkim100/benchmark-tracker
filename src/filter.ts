@@ -35,6 +35,9 @@ let open = false;
 let tab = "top";
 let query = "";
 let rawQuery = "";
+// The card the reader last acted on, so focus can be put back on it after the
+// re-render that acting on it causes.
+let lastPicked: string | null = null;
 
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
 
@@ -214,6 +217,12 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
 
   paintTabs(); paint(); paintChips();
 
+  if (lastPicked) {
+    const again = results.querySelector<HTMLElement>(`[data-id="${CSS.escape(lastPicked)}"]`);
+    lastPicked = null;
+    again?.focus({ preventScroll: true });
+  }
+
   // Not `fold`: that name is the string normaliser at the top of this file.
   const foldBtn = host.querySelector<HTMLButtonElement>(".fold")!;
   const panel = host.querySelector<HTMLDivElement>(".browse")!;
@@ -249,8 +258,14 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     paintTabs(); paint();
   });
   results.addEventListener("click", (e) => {
-    const id = (e.target as Element).closest("[data-id]")?.getAttribute("data-id");
-    if (id) a.onToggle(id);
+    const card = (e.target as Element).closest<HTMLElement>("[data-id]");
+    if (!card) return;
+    // Remember which card was acted on. Re-rendering replaces every node, so
+    // focus landed on BODY and a keyboard reader needed 22 tabs to get back to
+    // where they were. Tracking two things in a row meant traversing the
+    // masthead, the chips, the fold, the field and thirteen tabs again.
+    lastPicked = card.getAttribute("data-id");
+    a.onToggle(card.getAttribute("data-id")!);
   });
   chips.addEventListener("click", (e) => {
     const id = (e.target as Element).closest("[data-id]")?.getAttribute("data-id");

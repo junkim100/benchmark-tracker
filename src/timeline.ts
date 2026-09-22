@@ -43,6 +43,8 @@ export interface TimelineArgs {
   onHover: (rs: Release[] | null, x: number, y: number) => void;
 }
 
+// How far the year sits below its month label.
+const YEAR_DY = 18;
 const MONTH = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 function labMark(l: Lab, esc: (s: string) => string): string {
@@ -69,7 +71,11 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const days = a.releases.map((r) => dayNumber(r.date));
   const lo = Math.min(...days) - PAD_DAYS;
   const hi = Math.max(...days) + PAD_DAYS;
-  const H = Math.round((hi - lo) * PX_PER_DAY);
+  // Room under the last month for its year. January draws its year 18px below
+  // itself, so without this the oldest one, 2023, fell outside the canvas and
+  // was clipped away. Suppressing it instead would have been worse: the year a
+  // reader scrolled three screens to reach is the one worth printing.
+  const H = Math.round((hi - lo) * PX_PER_DAY) + YEAR_DY + 6;
   // Newest at the top, so y counts down from the most recent day.
   const y = (iso: string) => (hi - dayNumber(iso)) * PX_PER_DAY;
   const cx = (i: number) => GUT + colW * i + colW / 2;
@@ -101,6 +107,9 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
     for (;;) {
       const ty = (hi - dayNumber(`${yr}-${String(mo + 1).padStart(2, "0")}-01`)) * PX_PER_DAY;
       if (ty > H) break;
+      // January's year sits 18px below its month, so a January in the last 18px
+      // of the canvas had its year drawn past the edge and clipped away. The
+      // oldest year on the chart, 2023, was the one that went missing.
       if (ty >= 0) ticks.push({ y: ty, label: MONTH[mo], year: String(yr), first: mo === 0 });
       if (--mo < 0) { mo = 11; yr--; }
     }
@@ -135,7 +144,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
         ).join("")}</g>
         <g class="axis">${ticks.map((t) =>
           `<text class="axis__m${t.first ? " axis__m--first" : ""}" x="${GUT - 8}" y="${(t.y + 4).toFixed(1)}">${t.label}</text>` +
-          (t.first ? `<text class="axis__y" x="${GUT - 8}" y="${(t.y + 18).toFixed(1)}">${t.year}</text>` : "")
+          (t.first ? `<text class="axis__y" x="${GUT - 8}" y="${(t.y + YEAR_DY).toFixed(1)}">${t.year}</text>` : "")
         ).join("")}</g>
         ${marks}
       </svg>
@@ -171,10 +180,14 @@ export function tooltipHTML(rs: Release[], names: Map<string, string>, shown = 8
 
   const one = (r: Release) => {
     const rest = r.benchmarks.length - SHOWN;
-    const bs = r.benchmarks.length
-      ? r.benchmarks.slice(0, SHOWN).map((b) => `<li>${esc(names.get(b) ?? b)}</li>`).join("")
-        + (rest > 0 ? `<li class="tt__rest">and ${rest} more</li>` : "")
-      : `<li class="muted">No benchmark cited</li>`;
+    // "and N more" is a footnote to a list, not a list. With SHOWN at zero it
+    // was emitted on its own, giving a bulleted item reading "and 10 more"
+    // under a heading, with nothing to be more than.
+    const named = r.benchmarks.slice(0, SHOWN).map((b) => `<li>${esc(names.get(b) ?? b)}</li>`).join("");
+    const bs = !r.benchmarks.length
+      ? `<li class="muted">No benchmark cited</li>`
+      : named + (named && rest > 0 ? `<li class="tt__rest">and ${rest} more</li>` : "")
+        || `<li class="tt__rest">${r.benchmarks.length} benchmarks cited</li>`;
     return `<div class="tt__h">${esc(r.model)}</div>
       <div class="tt__m">${KIND_LABEL[r.kind]}, ${r.date}</div>
       <div class="tt__src">${esc(new URL(r.source_url).hostname.replace(/^www\./, ""))}</div>

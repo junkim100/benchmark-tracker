@@ -121,9 +121,18 @@ if (data.releases.length === 0) {
     // short landscape phone.
     // One pass when the builder ignores the second lever, so the trend tooltip
     // does not re-render identical markup three times per hover.
+    // Blocks are reduced before rows, not after. Reducing rows first ran the
+    // count to zero while still drawing three releases, so a short landscape
+    // window showed three headers over bulleted lists reading only "and 8
+    // more": three blocks naming nothing, where one naming eight would have
+    // fitted. Fewer releases described properly beats more described not at
+    // all.
+    //
+    // The row floor is 1 rather than 0 for the same reason. A block that names
+    // no benchmark is not worth the space it takes.
     const levers = build.length > 1 ? [3, 2, 1] : [1];
     outer: for (const blocks of levers) {
-      for (let n = max; n >= 0; n--) {
+      for (let n = max; n >= 1; n--) {
         tt.innerHTML = build(n, blocks);
         tt.hidden = false;
         tt.style.left = "0px";

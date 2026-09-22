@@ -45,7 +45,16 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
   // size, so the type stays the size it was drawn at.
   const avail = Math.round(host.getBoundingClientRect().width) || 900;
   const narrow = avail < 640;
-  const W = Math.max(300, avail);
+  // The floor has to sit below any real viewport or it stops being a floor and
+  // starts being a stretch: at a 320px screen the box measures 284 and a floor
+  // of 300 had the CSS scale 300 units into 284 pixels, shrinking the axis type
+  // by 5.3% at the one width where it can least afford it.
+  const W = Math.max(240, avail);
+  // Direct end labels are drawn for four series or fewer; past that they
+  // collide and the legend does the work. The right margin exists only to hold
+  // them, so it has to follow the same condition. It did not, so tracking five
+  // things left 152px of empty gutter, 22 per cent of the chart at 768.
+  const showEndLabels = !narrow && a.tracked.length <= 4;
   // Height follows width so the plot keeps its proportions instead of flattening
   // into a strip on a wide screen and squaring up on a phone. Bounded at both
   // ends: below 300 the gridlines crowd, above 430 the chart starts asking for
@@ -54,7 +63,7 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
   // The right margin exists only to hold the direct end labels. Below 640 there
   // is no room for them, so the margin goes and the legend underneath does that
   // work instead.
-  const M = { t: 22, r: narrow ? 16 : 152, b: 52, l: narrow ? 32 : 44 };
+  const M = { t: 22, r: showEndLabels ? 152 : 16, b: 52, l: narrow ? 32 : 44 };
 
   const labName = new Map(a.labs.map((l) => [l.id, l.name]));
   const maxY = Math.max(1, ...a.tracked.flatMap((b) => Object.values(b.labs_by_quarter) as number[]));
@@ -85,7 +94,7 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
     const pts = a.quarters.map((q, i) => ({ q, i, n: b.labs_by_quarter[q] ?? 0 }));
     const d = pts.map((p, j) => `${j ? "L" : "M"}${px(p.i).toFixed(1)},${py(p.n).toFixed(1)}`).join(" ");
     const last = pts[pts.length - 1];
-    const label = !narrow && a.tracked.length <= 4
+    const label = showEndLabels
       ? (() => {
           const ly = labelY(py(last.n));
           // The right margin is the whole width budget. A name that would run
@@ -95,11 +104,15 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
           // name map instead printed the raw id for anything that is not a
           // benchmark, so a tracked suite was labelled "suite:gdpval".
           const full = b.name;
-          // 7.8px per character, measured against this face at 12.5px. The
-          // earlier 6.1 under-counted and let 91 of 254 labels overrun the
-          // margin, where the scroller clipped them without the ellipsis.
-          const fits = Math.max(6, Math.floor((M.r - 26) / 7.8));
-          const shown = full.length > fits ? `${full.slice(0, fits - 1)}\u2026` : full;
+          // 5.9px per character, measured on the rendered face at 12.5px. The
+          // previous 7.8 over-counted and cut names that fitted: "GDPval, all
+          // versions" needs 115.6px against a 126px budget and was still
+          // truncated, and the cuts landed mid-punctuation, giving
+          // "Terminal-Bench,…" and "HumanEval, all …".
+          const fits = Math.max(6, Math.floor((M.r - 26) / 5.9));
+          // Never end on a comma or a space before the ellipsis.
+          const cut = full.slice(0, fits - 1).replace(/[\s,]+$/, "");
+          const shown = full.length > fits ? `${cut}\u2026` : full;
           return `<circle class="s-labeldot s${slot}" cx="${(px(last.i) + 11).toFixed(1)}" cy="${ly.toFixed(1)}" r="3.5"/>` +
                  `<text class="s-label" x="${(px(last.i) + 20).toFixed(1)}" y="${ly.toFixed(1)}"><title>${esc(full)}</title>${esc(shown)}</text>`;
         })()
@@ -134,7 +147,7 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
           return `<rect class="qband" data-q="${q}" x="${(px(i) - half).toFixed(1)}" y="${M.t}" width="${(half * 2).toFixed(1)}" height="${ih}"/>`;
         }).join("")}</g>
       </svg></div>
-      ${a.tracked.length ? `<ul class="legend">${a.tracked.map((b, i) => `<li class="s${i + 1}"><svg class="sw" viewBox="0 0 22 10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5"/></svg>${esc(b.name)}</li>`).join("")}</ul>` : ""}`;
+      ${a.tracked.length && !showEndLabels ? `<ul class="legend">${a.tracked.map((b, i) => `<li class="s${i + 1}"><svg class="sw" viewBox="0 0 22 10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5"/></svg>${esc(b.name)}</li>`).join("")}</ul>` : ""}`;
 
   const years = [...new Set(a.quarters.map((q) => q.slice(0, 4)))];
   const table = `
