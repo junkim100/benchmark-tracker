@@ -41,6 +41,10 @@ let open = false;
 let subject = "all";
 let sort: "labs" | "recent" = "labs";
 let grouped = true;
+// Which page of the current list is showing. Module-level for the same reason
+// the facets are: a resize redraws this component, and a reader three pages
+// into Coding should not be sent back to the first one by rotating a phone.
+let page = 0;
 let query = "";
 let rawQuery = "";
 // The card the reader last acted on, so focus can be put back on it after the
@@ -176,7 +180,15 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
       </div>
       <div class="browse__results" role="listbox" aria-label="Benchmarks"></div>
       <p class="browse__none" hidden></p>
-      <p class="browse__more" hidden></p>
+      <nav class="pager" aria-label="Result pages" hidden>
+        <button class="pager__btn" type="button" data-page="prev" aria-label="Previous page">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 13 5 8l5-5"/></svg>
+        </button>
+        <p class="pager__at" role="status"></p>
+        <button class="pager__btn" type="button" data-page="next" aria-label="Next page">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg>
+        </button>
+      </nav>
     </div>`;
 
   const input = host.querySelector<HTMLInputElement>(".browse__input")!;
@@ -187,7 +199,14 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   const groupBox = host.querySelector<HTMLInputElement>(".facets__groupbox")!;
   const results = host.querySelector<HTMLDivElement>(".browse__results")!;
   const none = host.querySelector<HTMLParagraphElement>(".browse__none")!;
-  const more = host.querySelector<HTMLParagraphElement>(".browse__more")!;
+  // The pager is built once and only ever updated, never re-rendered. Rewriting
+  // it inside paint() would replace the very button that was just pressed, so
+  // focus would land on BODY on every page turn and a keyboard reader could not
+  // press Next twice.
+  const pager = host.querySelector<HTMLElement>(".pager")!;
+  const pagerAt = host.querySelector<HTMLParagraphElement>(".pager__at")!;
+  const prevBtn = host.querySelector<HTMLButtonElement>('[data-page="prev"]')!;
+  const nextBtn = host.querySelector<HTMLButtonElement>('[data-page="next"]')!;
   const chips = host.querySelector<HTMLDivElement>(".chips")!;
 
   let q = query;
@@ -198,10 +217,12 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   // from All and from search.
   const SUBJECTS = [{ id: "all", name: "All" }, ...a.categories.filter((c) => c.id !== "other")];
 
-  const CAP = 30;
+  const PAGE = 30;
   // Anything scored below this came from the edit-distance pass in scoreOne.
   const FUZZY = 700;
-  let truncated = 0;
+  // How many the current filter matches in total, before the page is cut out
+  // of it. Set by pool(), read by paint() to draw the pager.
+  let total = 0;
 
   // Search ignores the subject and the grouping both. Scoping it to the open
   // subject would have meant typing "terminal bench" inside Speech & audio and
@@ -225,8 +246,8 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
       ? y.lab_count - x.lab_count || y.recent_share - x.recent_share
       : y.recent_share - x.recent_share || y.lab_count - x.lab_count;
 
-  const pool = (): Trackable[] => {
-    truncated = 0;
+  /** Everything the current filter matches, in order, before paging. */
+  const matches = (): Trackable[] => {
     if (q) {
       const hits = all.map((t) => ({ t, s: score(t, q) })).filter((x) => x.s > 0)
         .sort((x, y) => y.s - x.s || y.t.lab_count - x.t.lab_count);
@@ -235,7 +256,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
       // away and none of them what anyone meant. So the near-misses are only
       // shown when the real matches are thin enough to need them.
       const strong = hits.filter((x) => x.s >= FUZZY);
-      return (strong.length >= 8 ? strong : hits).slice(0, 36).map((x) => x.t);
+      return (strong.length >= 8 ? strong : hits).map((x) => x.t);
     }
     // Grouping decides which kind stands for a family: the suite card, or every
     // version of it. Showing both put Terminal-Bench beside eleven of its own
@@ -244,12 +265,28 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     let items = all.filter((t) =>
       t.kind === "category" ? false : grouped ? t.kind === "suite" || !t.suite : t.kind !== "suite");
     if (subject !== "all") items = items.filter((t) => t.categories?.includes(subject));
-    items.sort(rank);
-    truncated = Math.max(0, items.length - CAP);
-    items = items.slice(0, CAP);
+    return items.sort(rank);
+  };
+
+  const pool = (): Trackable[] => {
+    const found = matches();
+    total = found.length;
+    // Clamp rather than trust. The page survives a redraw on purpose, so it can
+    // outlive the list it indexed into: narrowing the subject while on page
+    // four of All would otherwise show an empty grid and a pager insisting
+    // there are pages behind it.
+    const last = Math.max(0, Math.ceil(total / PAGE) - 1);
+    if (page > last) page = last;
+    const items = found.slice(page * PAGE, page * PAGE + PAGE);
     // The category itself leads its own subject, because tracking a whole
     // subject is a real thing to want and this is the only place to ask for it.
-    const cat = subject === "all" ? undefined : a.trackables.get(`cat:${subject}`);
+    //
+    // Not while searching, and not past the first page. Search ignores the
+    // subject, so heading its results with the subject's own card contradicts
+    // that, and it put a Coding card on top of a search for "bench". Splitting
+    // the pool into matches() and a paging step is what let this reach the
+    // search path: the early return used to sit above it.
+    const cat = q || page > 0 || subject === "all" ? undefined : a.trackables.get(`cat:${subject}`);
     return cat ? [cat, ...items] : items;
   };
 
@@ -257,11 +294,16 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     const items = pool();
     none.hidden = items.length > 0;
     if (!items.length) none.textContent = `Nothing matches "${q}". Try fewer letters.`;
-    // A silent cap is a lie about what is there. Say how many are behind it.
-    more.hidden = truncated === 0;
-    more.textContent = truncated
-      ? `Showing the top ${CAP} of ${(truncated + CAP).toLocaleString()}. Search to reach any of the rest by name.`
-      : "";
+    // A silent cap is a lie about what is there. It used to show the top 30 of
+    // 124 coding benchmarks and offer search as the only way to the other 94,
+    // which meant the rest were reachable only if you already knew their names.
+    const pages = Math.max(1, Math.ceil(total / PAGE));
+    pager.hidden = total <= PAGE;
+    const from = page * PAGE + 1;
+    const to = Math.min(total, (page + 1) * PAGE);
+    pagerAt.textContent = `${from.toLocaleString()}\u2013${to.toLocaleString()} of ${total.toLocaleString()}`;
+    prevBtn.disabled = page === 0;
+    nextBtn.disabled = page >= pages - 1;
     results.innerHTML = items.map((t) => {
       const on = a.tracked.includes(t.id);
       // ", all versions" exists so a suite can be told from its headline
@@ -326,11 +368,15 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     query = q;
     rawQuery = input.value;
     clear.hidden = !input.value;
+    // Any change to what is being matched starts at the first page. Landing on
+    // page four of a list you have just replaced is never what was meant.
+    page = 0;
     if (had !== !!q) paintFacets();
     paint();
   });
   // Clearing returns to whichever subject was open before the search started.
   const endSearch = () => {
+    page = 0;
     if (!q) return;
     q = ""; query = ""; rawQuery = ""; input.value = ""; clear.hidden = true;
   };
@@ -351,6 +397,31 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   });
   groupBox.addEventListener("change", () => {
     grouped = groupBox.checked; endSearch(); paintFacets(); paint();
+  });
+  // Turning a page moves the grid under a button that sits below it, so the
+  // reader would otherwise be left looking at the foot of the new page. The
+  // grid is scrolled back to its own top, but only when its top is actually
+  // above the viewport: on a tall screen where the whole list is already
+  // visible, scrolling would be a jolt for no reason.
+  //
+  // Focus is untouched. The pager is built once and updated in place, so the
+  // button that was pressed is still the same node and still focused, which is
+  // what lets Next be pressed repeatedly from the keyboard.
+  pager.addEventListener("click", (e) => {
+    const dir = (e.target as Element).closest("[data-page]")?.getAttribute("data-page");
+    if (!dir) return;
+    page += dir === "next" ? 1 : -1;
+    if (page < 0) page = 0;
+    paint();
+    // Reaching the last page disables the button that was just pressed, and a
+    // disabled element cannot hold focus, so the browser drops it on BODY and
+    // the next Tab restarts from the masthead. Hand focus to the other arrow,
+    // which is always the enabled one at either end.
+    const pressed = dir === "next" ? nextBtn : prevBtn;
+    if (pressed.disabled) (dir === "next" ? prevBtn : nextBtn).focus();
+    if (results.getBoundingClientRect().top < 0) {
+      results.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
   });
   results.addEventListener("click", (e) => {
     const card = (e.target as Element).closest<HTMLElement>("[data-id]");
