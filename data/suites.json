@@ -111,6 +111,7 @@
       "name": "tau-bench",
       "starts": [
         "taubench",
+        "tau1",
         "tau2",
         "tau3",
         "t2bench",

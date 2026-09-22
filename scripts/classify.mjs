@@ -91,7 +91,23 @@ const RULES = [
   [RE("\\bbbh\\b|big.?bench|hellaswag|winogrande|arc.?agi|\\barc\\b|arc.?c|arc.?e|ai2.?reasoning|piqa|siqa|\\bcopa\\b|commonsense|\\bdrop\\b|\\banli\\b|\\brace\\b|logiqa|zebra|\\bmusr\\b|puzzle|riddle|sudoku|planning|\\blogic|reasoning|\\bcot\\b|multi.?step|\\bbench\\b"), "reasoning", null],
 ];
 
-const flatKey = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "").replace(/20(\d\d)$/, "$1");
+/** The one lookup key. Everything that has to decide whether two spellings name
+ *  the same benchmark goes through this: aliases, exclusions, suites and the
+ *  reviewed category overrides.
+ *
+ *  Transliteration has to happen before the strip, or the strip eats the only
+ *  thing telling two benchmarks apart. It used to run without it, so tau, tau
+ *  squared and tau cubed all keyed as "bench" and three separate evaluations
+ *  were counted as one; "Tau squared Bench" landed on tau-bench, and
+ *  "tau-voice Bench" merged into VoiceBench, which has nothing to do with it.
+ *  Every one of those was a silent merge of the kind normalize.mjs cannot
+ *  detect, because a merge looks the same whether or not it is right. */
+export const flatKey = (s) =>
+  s.toLowerCase()
+    .replace(/τ/g, "tau")
+    .replace(/[¹₁]/g, "1").replace(/[²₂]/g, "2").replace(/[³₃]/g, "3")
+    .replace(/[^a-z0-9]/g, "")
+    .replace(/20(\d\d)$/, "$1");
 
 // A reviewed assignment beats a rule. Names like V*, Seal-0 and QuALITY carry
 // no word any pattern could match, and this is also where the research agent's

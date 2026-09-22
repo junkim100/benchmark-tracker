@@ -7,7 +7,7 @@
 
 import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
-import { CATEGORIES, classify, suiteOf } from "./classify.mjs";
+import { CATEGORIES, classify, flatKey, suiteOf } from "./classify.mjs";
 import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -31,15 +31,13 @@ const labIds = new Set(labs.map((l) => l.id));
 // It does not fold semantic variants: AIME 2024 and AIME24 are distinct keys
 // and need an entry in aliases.json to merge, which is the right place for a
 // judgement call about whether they are the same thing.
-const key = (s) => {
-  const flat = s.toLowerCase().replace(/[^a-z0-9]/g, "");
-  // A trailing four-digit year folds to its two-digit form, so AIME 2026 and
-  // AIME26, HMMT Feb. 2025 and HMMT Feb 25, meet. Anchored to 20xx and to the
-  // end of the name, so a benchmark numbered 1000 or 500 is untouched. This is
-  // a rule rather than eight alias entries because the pattern recurs every
-  // January, and an alias file would need a new line each time.
-  return flat.replace(/20(\d\d)$/, "$1");
-};
+// One key, shared with the suite matcher and the category overrides, so the
+// four places that decide whether two spellings are the same benchmark cannot
+// drift apart. It also folds a trailing four-digit year to its two-digit form,
+// so AIME 2026 and AIME26, HMMT Feb. 2025 and HMMT Feb 25, meet; and it
+// transliterates Greek and superscripts, so tau squared keeps the part of its
+// name that distinguishes it. See classify.mjs for why both matter.
+const key = flatKey;
 
 // Third-party composite indices are dropped rather than tracked: a lab citing
 // one is not reporting a benchmark, it is citing somebody else's ranking.

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T01:45:29.596Z",
+  "generated_at": "2026-09-22T01:47:37.435Z",
   "labs": [
     {
       "id": "openai",
@@ -14748,7 +14748,7 @@
         "collie",
         "scalemultichallenge",
         "apiinstructionfollowing",
-        "2bench",
+        "tau2bench",
         "openaimrcr",
         "browsecomplongcontext",
         "factscore",
@@ -16466,11 +16466,10 @@
         "supergpqa",
         "aime-2025",
         "livecodebenchv6",
-        "2bench",
+        "tau2bench",
         "swe-bench-verified",
         "hmmt25",
         "gpqa",
-        "tau2bench",
         "hmmt"
       ]
     },
@@ -16612,7 +16611,7 @@
       "benchmarks": [
         "swe-bench-verified",
         "terminal-bench",
-        "2bench",
+        "tau2bench",
         "osworld",
         "aime-2025",
         "gpqa-diamond",
@@ -16792,7 +16791,7 @@
         "browsecomp",
         "swe-bench-verified",
         "terminal-bench",
-        "bench",
+        "tau2bench",
         "ccbench"
       ]
     },
@@ -16923,7 +16922,7 @@
       "benchmarks": [
         "swe-bench-verified",
         "terminal-bench",
-        "2bench",
+        "tau2bench",
         "osworld",
         "aime-2025",
         "gpqa-diamond",
@@ -17537,7 +17536,7 @@
         "livecodebenchpro",
         "terminalbench20terminus2agent",
         "swe-bench-verified",
-        "2bench",
+        "tau2bench",
         "vendingbench2",
         "factsbenchmarksuite",
         "simpleqaverified",
@@ -17664,7 +17663,7 @@
         "X Browse"
       ],
       "benchmarks": [
-        "benchtelecom",
+        "tau2benchtelecom",
         "berkeleyfunctioncallingv4benchmark",
         "researchevalreka",
         "frames",
@@ -17858,7 +17857,7 @@
       "benchmarks": [
         "swe-bench-verified",
         "terminalbench20",
-        "2bench",
+        "tau2bench",
         "mcpatlas",
         "osworld",
         "arc-agi-2",
@@ -17920,7 +17919,7 @@
         "terminalbench20",
         "browsecompplus",
         "browsecomp",
-        "2bench",
+        "tau2bench",
         "osworld",
         "arcagi1",
         "arc-agi-2",
@@ -18182,7 +18181,7 @@
         "swebenchmultilingual",
         "browsecomp",
         "browsecompzh",
-        "bench",
+        "tau2bench",
         "mcpuniverse",
         "mcpmark",
         "tooldecathlon",
@@ -18789,7 +18788,7 @@
         "terminalbenchhard",
         "terminalbench20",
         "browsecomp",
-        "bench"
+        "tau2bench"
       ]
     },
     {
@@ -18856,7 +18855,7 @@
         "livecodebenchpro",
         "terminalbench20terminus2harness",
         "swe-bench-verified",
-        "2bench",
+        "tau2bench",
         "toolathlon",
         "mcpatlas",
         "vendingbench2",
@@ -19116,7 +19115,7 @@
         "terminalbench20",
         "browsecomp",
         "browsecompzh",
-        "bench"
+        "tau2bench"
       ]
     },
     {
@@ -19261,8 +19260,7 @@
         "mrcr",
         "swebenchmultilingual",
         "terminalbenchhard",
-        "terminalbench20",
-        "bench"
+        "terminalbench20"
       ]
     },
     {
@@ -19563,7 +19561,7 @@
         "lcbv6",
         "hle",
         "swe-bench-verified",
-        "bench",
+        "tau2bench",
         "browsecomp"
       ]
     },
@@ -19639,7 +19637,7 @@
         "ifbench",
         "multichallenge",
         "arenahardv2",
-        "tau-bench",
+        "tau2bench",
         "bfclv4",
         "vitabench",
         "deepplanning",
@@ -20177,7 +20175,7 @@
         "terminalbench20",
         "swe-bench-verified",
         "osworld",
-        "2bench",
+        "tau2bench",
         "mcpatlas",
         "browsecomp",
         "hle",
@@ -20249,7 +20247,7 @@
         "swebenchmultilingual",
         "terminalbench20",
         "openrca",
-        "bench",
+        "tau2bench",
         "osworldverified",
         "arcagi1",
         "arc-agi-2",
@@ -20455,7 +20453,7 @@
         "cybergym",
         "browsecomp",
         "browsecompzh",
-        "bench",
+        "tau2bench",
         "mcpatlas",
         "tooldecathlon",
         "vendingbench2",
@@ -20714,7 +20712,7 @@
         "swe-bench-verified",
         "osworldverified",
         "osworld",
-        "2bench",
+        "tau2bench",
         "mcpatlas",
         "browsecomp",
         "hle",
@@ -20780,7 +20778,7 @@
         "swebenchmultilingual",
         "terminalbench20",
         "openrca",
-        "2bench",
+        "tau2bench",
         "osworldverified",
         "arcagi1",
         "arc-agi-2",
@@ -20880,7 +20878,7 @@
         "cybergym",
         "browsecomp",
         "browsecompzh",
-        "bench",
+        "tau2bench",
         "mcpatlas",
         "tooldecathlon",
         "vendingbench2",
@@ -20957,7 +20955,7 @@
         "scicode",
         "apexagents",
         "gdpvalaa",
-        "2bench",
+        "tau2bench",
         "mcpatlas",
         "browsecomp",
         "mmmupro",
@@ -21006,7 +21004,7 @@
         "scicode",
         "apexagents",
         "gdpvalaa",
-        "2bench",
+        "tau2bench",
         "mcpatlas",
         "browsecomp",
         "mmmupro",
@@ -21269,12 +21267,11 @@
         "mmmupro",
         "omnidocbench",
         "mcpatlas",
-        "benchtelecom",
+        "tau2benchtelecom",
         "financeagentv11",
         "investmentbankingmodelingtasksinternal",
         "officeqa",
         "terminalbench20",
-        "tau2benchtelecom",
         "frontierscienceresearch",
         "frontiermathtier13",
         "frontiermathtier4",
@@ -21497,7 +21494,7 @@
         "gpqa-diamond",
         "osworldverified",
         "mcpatlas",
-        "2benchtelecom",
+        "tau2benchtelecom",
         "hle",
         "mmmupro",
         "omnidocbench15",
@@ -21565,7 +21562,7 @@
       "benchmarks": [
         "pinchbenchavg",
         "claweval",
-        "2benchtelecom",
+        "tau2benchtelecom",
         "deepsearchqaf1",
         "gdpvalaa",
         "swebenchmultilingual",
@@ -21748,7 +21745,7 @@
         "aime26",
         "livecodebenchv6",
         "gpqa-diamond",
-        "2bench"
+        "tau2bench"
       ]
     },
     {
@@ -22162,7 +22159,7 @@
         "terminalbench20",
         "cybergym",
         "browsecomp",
-        "bench",
+        "tau3bench",
         "mcpatlas",
         "tooldecathlon",
         "vendingbench2",
@@ -23105,7 +23102,7 @@
         "τ-voice Leaderboard"
       ],
       "benchmarks": [
-        "voiceleaderboard"
+        "tauvoiceleaderboard"
       ]
     },
     {
@@ -23297,7 +23294,7 @@
         "terminalbench20",
         "frontiersweimplrank",
         "gdpvalaa",
-        "3bench",
+        "tau3bench",
         "clawevalpass3",
         "hle",
         "swe-bench-verified"
@@ -23365,7 +23362,7 @@
         "cmmlu",
         "globalmmlu",
         "gdpvalaaelo",
-        "bench",
+        "tau3bench",
         "clawevalpass3",
         "hle",
         "swebenchpro",
@@ -24030,10 +24027,10 @@
       ],
       "benchmarks": [
         "swe-bench-verified",
-        "telecom",
-        "airline",
-        "retail",
-        "banking",
+        "tau3telecom",
+        "tau3airline",
+        "tau3retail",
+        "tau3banking",
         "browsecomp",
         "aime-2025",
         "allenaiifbench",
@@ -24665,7 +24662,7 @@
         "aime26",
         "livecodebenchv6",
         "gpqa-diamond",
-        "2bench"
+        "tau2bench"
       ]
     },
     {
@@ -25507,7 +25504,7 @@
       "benchmarks": [
         "gpqa",
         "browsecomp",
-        "voicetelecom",
+        "tau3voicetelecom",
         "pairwiseconversationpreferencevsavm",
         "modelconversationratings"
       ]
@@ -25813,7 +25810,7 @@
         "3dcodebench",
         "cadbench",
         "gdpvalaav2",
-        "bench",
+        "tau-bench",
         "spacexaimtseval",
         "relbench",
         "deepsearchqa",
@@ -25923,7 +25920,7 @@
         "osworldverified",
         "osworld20",
         "saasbench",
-        "banking",
+        "tau3banking",
         "harveylabaa",
         "corpfinv2",
         "financeagentv2",
@@ -26166,7 +26163,7 @@
         "terminalbenchhard",
         "apexagents",
         "mcpatlas",
-        "banking",
+        "tau3banking",
         "gdpvalaav2",
         "kmmlupro",
         "click",
@@ -26434,7 +26431,7 @@
         "osworldverified",
         "osworld20",
         "saasbench",
-        "banking",
+        "tau3banking",
         "harveylabaa",
         "corpfinv2",
         "financeagentv2",
@@ -26603,7 +26600,7 @@
         "aaspeechtospeechqualityindex",
         "bigbenchaudio",
         "fullduplexbench",
-        "voicebench"
+        "tauvoicebench"
       ]
     },
     {
@@ -27193,7 +27190,7 @@
         "swe-bench-verified",
         "mcpatlas",
         "apexagents",
-        "banking",
+        "tau3banking",
         "aalcr",
         "gpqa-diamond",
         "mmlu-pro",
@@ -28577,8 +28574,8 @@
         "EVA-Bench"
       ],
       "benchmarks": [
-        "voice",
-        "voicebanking",
+        "tauvoice",
+        "tauvoicebanking",
         "bigbenchaudio",
         "speechagentarena",
         "evabench"
@@ -30221,6 +30218,38 @@
       "recent_share": 1
     },
     {
+      "id": "tau2bench",
+      "name": "τ2-bench",
+      "lab_count": 8,
+      "labs": [
+        "anthropic",
+        "deepseek",
+        "google",
+        "moonshot",
+        "openai",
+        "qwen",
+        "xiaomi",
+        "zai"
+      ],
+      "first_seen": "2025-07-11",
+      "last_seen": "2026-06-10",
+      "labs_by_year": {
+        "2025": 8,
+        "2026": 5
+      },
+      "labs_by_quarter": {
+        "2025-Q3": 5,
+        "2025-Q4": 5,
+        "2026-Q1": 5,
+        "2026-Q2": 2
+      },
+      "categories": [
+        "agentic"
+      ],
+      "suite": "tau-bench",
+      "recent_share": 9
+    },
+    {
       "id": "terminalbench20",
       "name": "Terminal-Bench 2.0",
       "lab_count": 8,
@@ -31350,7 +31379,7 @@
         "deepseek",
         "google",
         "openai",
-        "qwen",
+        "xai",
         "zai"
       ],
       "first_seen": "2024-10-22",
@@ -31365,8 +31394,7 @@
         "2025-Q1": 1,
         "2025-Q2": 4,
         "2025-Q3": 1,
-        "2026-Q1": 1,
-        "2026-Q3": 1
+        "2026-Q3": 2
       },
       "categories": [
         "agentic"
@@ -31588,36 +31616,6 @@
       ],
       "suite": null,
       "recent_share": 0
-    },
-    {
-      "id": "bench",
-      "name": "τ²-Bench",
-      "lab_count": 5,
-      "labs": [
-        "anthropic",
-        "deepseek",
-        "xai",
-        "xiaomi",
-        "zai"
-      ],
-      "first_seen": "2025-09-30",
-      "last_seen": "2026-07-14",
-      "labs_by_year": {
-        "2025": 3,
-        "2026": 4
-      },
-      "labs_by_quarter": {
-        "2025-Q3": 1,
-        "2025-Q4": 3,
-        "2026-Q1": 3,
-        "2026-Q2": 2,
-        "2026-Q3": 1
-      },
-      "categories": [
-        "agentic"
-      ],
-      "suite": null,
-      "recent_share": 5
     },
     {
       "id": "bigcodebench",
@@ -32638,34 +32636,6 @@
       ],
       "suite": "webarena",
       "recent_share": 3
-    },
-    {
-      "id": "2bench",
-      "name": "τ2-bench",
-      "lab_count": 4,
-      "labs": [
-        "anthropic",
-        "google",
-        "openai",
-        "qwen"
-      ],
-      "first_seen": "2025-08-07",
-      "last_seen": "2026-06-10",
-      "labs_by_year": {
-        "2025": 4,
-        "2026": 2
-      },
-      "labs_by_quarter": {
-        "2025-Q3": 3,
-        "2025-Q4": 2,
-        "2026-Q1": 2,
-        "2026-Q2": 1
-      },
-      "categories": [
-        "agentic"
-      ],
-      "suite": null,
-      "recent_share": 4
     },
     {
       "id": "aalcr",
@@ -33892,33 +33862,6 @@
       "recent_share": 2
     },
     {
-      "id": "tau2bench",
-      "name": "Tau2-bench",
-      "lab_count": 4,
-      "labs": [
-        "moonshot",
-        "openai",
-        "qwen",
-        "xiaomi"
-      ],
-      "first_seen": "2025-07-11",
-      "last_seen": "2026-04-17",
-      "labs_by_year": {
-        "2025": 3,
-        "2026": 2
-      },
-      "labs_by_quarter": {
-        "2025-Q3": 3,
-        "2026-Q1": 2,
-        "2026-Q2": 1
-      },
-      "categories": [
-        "agentic"
-      ],
-      "suite": "tau-bench",
-      "recent_share": 2
-    },
-    {
       "id": "terminalbench30",
       "name": "Terminal-bench 3.0",
       "lab_count": 4,
@@ -34249,30 +34192,6 @@
       ],
       "suite": "arena-hard",
       "recent_share": 4
-    },
-    {
-      "id": "banking",
-      "name": "τ³-Banking",
-      "lab_count": 3,
-      "labs": [
-        "mistral",
-        "moonshot",
-        "upstage"
-      ],
-      "first_seen": "2026-05-22",
-      "last_seen": "2026-08-11",
-      "labs_by_year": {
-        "2026": 3
-      },
-      "labs_by_quarter": {
-        "2026-Q2": 1,
-        "2026-Q3": 2
-      },
-      "categories": [
-        "agentic"
-      ],
-      "suite": null,
-      "recent_share": 0
     },
     {
       "id": "bfcl",
@@ -36214,6 +36133,33 @@
       "recent_share": 4
     },
     {
+      "id": "tau2benchtelecom",
+      "name": "Tau2-bench Telecom",
+      "lab_count": 3,
+      "labs": [
+        "openai",
+        "xai",
+        "xiaomi"
+      ],
+      "first_seen": "2025-08-07",
+      "last_seen": "2026-04-23",
+      "labs_by_year": {
+        "2025": 2,
+        "2026": 2
+      },
+      "labs_by_quarter": {
+        "2025-Q3": 1,
+        "2025-Q4": 2,
+        "2026-Q1": 2,
+        "2026-Q2": 1
+      },
+      "categories": [
+        "agentic"
+      ],
+      "suite": "tau-bench",
+      "recent_share": 2
+    },
+    {
       "id": "tau2retail",
       "name": "TAU2-Retail",
       "lab_count": 3,
@@ -36262,6 +36208,53 @@
       ],
       "suite": "tau-bench",
       "recent_share": 4
+    },
+    {
+      "id": "tau3banking",
+      "name": "τ³-Banking",
+      "lab_count": 3,
+      "labs": [
+        "mistral",
+        "moonshot",
+        "upstage"
+      ],
+      "first_seen": "2026-05-22",
+      "last_seen": "2026-08-11",
+      "labs_by_year": {
+        "2026": 3
+      },
+      "labs_by_quarter": {
+        "2026-Q2": 1,
+        "2026-Q3": 2
+      },
+      "categories": [
+        "agentic"
+      ],
+      "suite": "tau-bench",
+      "recent_share": 0
+    },
+    {
+      "id": "tau3bench",
+      "name": "TAU3-Bench",
+      "lab_count": 3,
+      "labs": [
+        "qwen",
+        "xiaomi",
+        "zai"
+      ],
+      "first_seen": "2026-04-02",
+      "last_seen": "2026-04-27",
+      "labs_by_year": {
+        "2026": 3
+      },
+      "labs_by_quarter": {
+        "2026-Q2": 3
+      },
+      "categories": [
+        "agentic"
+      ],
+      "suite": "tau-bench",
+      "recent_share": 2
     },
     {
       "id": "taubenchairline",
@@ -36413,35 +36406,6 @@
       },
       "categories": [
         "vision"
-      ],
-      "suite": null,
-      "recent_share": 0
-    },
-    {
-      "id": "voicebench",
-      "name": "VoiceBench",
-      "lab_count": 3,
-      "labs": [
-        "moonshot",
-        "qwen",
-        "xai"
-      ],
-      "first_seen": "2025-03-26",
-      "last_seen": "2026-09-14",
-      "labs_by_year": {
-        "2025": 2,
-        "2026": 2
-      },
-      "labs_by_quarter": {
-        "2025-Q1": 1,
-        "2025-Q2": 1,
-        "2025-Q3": 1,
-        "2025-Q4": 1,
-        "2026-Q2": 1,
-        "2026-Q3": 2
-      },
-      "categories": [
-        "speech"
       ],
       "suite": null,
       "recent_share": 0
@@ -36604,28 +36568,6 @@
       ],
       "suite": null,
       "recent_share": 2
-    },
-    {
-      "id": "2benchtelecom",
-      "name": "τ2-bench (telecom)",
-      "lab_count": 2,
-      "labs": [
-        "openai",
-        "xiaomi"
-      ],
-      "first_seen": "2026-03-17",
-      "last_seen": "2026-03-18",
-      "labs_by_year": {
-        "2026": 2
-      },
-      "labs_by_quarter": {
-        "2026-Q1": 2
-      },
-      "categories": [
-        "agentic"
-      ],
-      "suite": null,
-      "recent_share": 1
     },
     {
       "id": "activitynetqa",
@@ -37263,30 +37205,6 @@
       },
       "categories": [
         "other"
-      ],
-      "suite": null,
-      "recent_share": 1
-    },
-    {
-      "id": "benchtelecom",
-      "name": "τ²-bench Telecom",
-      "lab_count": 2,
-      "labs": [
-        "openai",
-        "xai"
-      ],
-      "first_seen": "2025-11-19",
-      "last_seen": "2026-03-05",
-      "labs_by_year": {
-        "2025": 1,
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q4": 1,
-        "2026-Q1": 1
-      },
-      "categories": [
-        "agentic"
       ],
       "suite": null,
       "recent_share": 1
@@ -42933,6 +42851,34 @@
       "recent_share": 0
     },
     {
+      "id": "voicebench",
+      "name": "VoiceBench",
+      "lab_count": 2,
+      "labs": [
+        "moonshot",
+        "qwen"
+      ],
+      "first_seen": "2025-03-26",
+      "last_seen": "2026-09-14",
+      "labs_by_year": {
+        "2025": 2,
+        "2026": 1
+      },
+      "labs_by_quarter": {
+        "2025-Q1": 1,
+        "2025-Q2": 1,
+        "2025-Q3": 1,
+        "2025-Q4": 1,
+        "2026-Q2": 1,
+        "2026-Q3": 1
+      },
+      "categories": [
+        "speech"
+      ],
+      "suite": null,
+      "recent_share": 0
+    },
+    {
       "id": "vsr",
       "name": "VSR",
       "lab_count": 2,
@@ -43454,27 +43400,6 @@
       ],
       "suite": null,
       "recent_share": 0
-    },
-    {
-      "id": "3bench",
-      "name": "τ3-bench",
-      "lab_count": 1,
-      "labs": [
-        "xiaomi"
-      ],
-      "first_seen": "2026-04-27",
-      "last_seen": "2026-04-27",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q2": 1
-      },
-      "categories": [
-        "agentic"
-      ],
-      "suite": null,
-      "recent_share": 1
     },
     {
       "id": "3dcodebench",
@@ -44370,27 +44295,6 @@
       },
       "categories": [
         "reasoning"
-      ],
-      "suite": null,
-      "recent_share": 0
-    },
-    {
-      "id": "airline",
-      "name": "τ³ Airline",
-      "lab_count": 1,
-      "labs": [
-        "mistral"
-      ],
-      "first_seen": "2026-05-22",
-      "last_seen": "2026-05-22",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q2": 1
-      },
-      "categories": [
-        "agentic"
       ],
       "suite": null,
       "recent_share": 0
@@ -70750,27 +70654,6 @@
       "recent_share": 0
     },
     {
-      "id": "retail",
-      "name": "τ³ Retail",
-      "lab_count": 1,
-      "labs": [
-        "mistral"
-      ],
-      "first_seen": "2026-05-22",
-      "last_seen": "2026-05-22",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q2": 1
-      },
-      "categories": [
-        "agentic"
-      ],
-      "suite": null,
-      "recent_share": 0
-    },
-    {
       "id": "reverie",
       "name": "REVERIE",
       "lab_count": 1,
@@ -74416,7 +74299,7 @@
       "categories": [
         "agentic"
       ],
-      "suite": null,
+      "suite": "tau-bench",
       "recent_share": 1
     },
     {
@@ -74437,7 +74320,7 @@
       "categories": [
         "agentic"
       ],
-      "suite": null,
+      "suite": "tau-bench",
       "recent_share": 1
     },
     {
@@ -74528,39 +74411,56 @@
       "recent_share": 1
     },
     {
-      "id": "tau2benchtelecom",
-      "name": "Tau2-bench Telecom",
+      "id": "tau3airline",
+      "name": "τ³ Airline",
       "lab_count": 1,
       "labs": [
-        "openai"
+        "mistral"
       ],
-      "first_seen": "2025-08-07",
-      "last_seen": "2026-04-23",
+      "first_seen": "2026-05-22",
+      "last_seen": "2026-05-22",
       "labs_by_year": {
-        "2025": 1,
         "2026": 1
       },
       "labs_by_quarter": {
-        "2025-Q3": 1,
-        "2025-Q4": 1,
-        "2026-Q1": 1,
         "2026-Q2": 1
       },
       "categories": [
         "agentic"
       ],
       "suite": "tau-bench",
-      "recent_share": 1
+      "recent_share": 0
     },
     {
-      "id": "tau3bench",
-      "name": "TAU3-Bench",
+      "id": "tau3retail",
+      "name": "τ³ Retail",
       "lab_count": 1,
       "labs": [
-        "qwen"
+        "mistral"
       ],
-      "first_seen": "2026-04-02",
-      "last_seen": "2026-04-15",
+      "first_seen": "2026-05-22",
+      "last_seen": "2026-05-22",
+      "labs_by_year": {
+        "2026": 1
+      },
+      "labs_by_quarter": {
+        "2026-Q2": 1
+      },
+      "categories": [
+        "agentic"
+      ],
+      "suite": "tau-bench",
+      "recent_share": 0
+    },
+    {
+      "id": "tau3telecom",
+      "name": "τ³ Telecom",
+      "lab_count": 1,
+      "labs": [
+        "mistral"
+      ],
+      "first_seen": "2026-05-22",
+      "last_seen": "2026-05-22",
       "labs_by_year": {
         "2026": 1
       },
@@ -74582,6 +74482,27 @@
       ],
       "first_seen": "2026-09-10",
       "last_seen": "2026-09-10",
+      "labs_by_year": {
+        "2026": 1
+      },
+      "labs_by_quarter": {
+        "2026-Q3": 1
+      },
+      "categories": [
+        "agentic"
+      ],
+      "suite": "tau-bench",
+      "recent_share": 0
+    },
+    {
+      "id": "tau3voicetelecom",
+      "name": "τ³-Voice Telecom",
+      "lab_count": 1,
+      "labs": [
+        "openai"
+      ],
+      "first_seen": "2026-07-08",
+      "last_seen": "2026-07-08",
       "labs_by_year": {
         "2026": 1
       },
@@ -74656,6 +74577,90 @@
       ],
       "suite": "tau-bench",
       "recent_share": 0
+    },
+    {
+      "id": "tauvoice",
+      "name": "τ-Voice",
+      "lab_count": 1,
+      "labs": [
+        "google"
+      ],
+      "first_seen": "2026-09-15",
+      "last_seen": "2026-09-15",
+      "labs_by_year": {
+        "2026": 1
+      },
+      "labs_by_quarter": {
+        "2026-Q3": 1
+      },
+      "categories": [
+        "agentic"
+      ],
+      "suite": "tau-bench",
+      "recent_share": 0
+    },
+    {
+      "id": "tauvoicebanking",
+      "name": "τ-Voice-banking",
+      "lab_count": 1,
+      "labs": [
+        "google"
+      ],
+      "first_seen": "2026-09-15",
+      "last_seen": "2026-09-15",
+      "labs_by_year": {
+        "2026": 1
+      },
+      "labs_by_quarter": {
+        "2026-Q3": 1
+      },
+      "categories": [
+        "agentic"
+      ],
+      "suite": "tau-bench",
+      "recent_share": 0
+    },
+    {
+      "id": "tauvoicebench",
+      "name": "τ-voice Bench",
+      "lab_count": 1,
+      "labs": [
+        "xai"
+      ],
+      "first_seen": "2026-07-29",
+      "last_seen": "2026-07-29",
+      "labs_by_year": {
+        "2026": 1
+      },
+      "labs_by_quarter": {
+        "2026-Q3": 1
+      },
+      "categories": [
+        "agentic"
+      ],
+      "suite": "tau-bench",
+      "recent_share": 0
+    },
+    {
+      "id": "tauvoiceleaderboard",
+      "name": "τ-voice Leaderboard",
+      "lab_count": 1,
+      "labs": [
+        "xai"
+      ],
+      "first_seen": "2026-04-23",
+      "last_seen": "2026-04-23",
+      "labs_by_year": {
+        "2026": 1
+      },
+      "labs_by_quarter": {
+        "2026-Q2": 1
+      },
+      "categories": [
+        "agentic"
+      ],
+      "suite": "tau-bench",
+      "recent_share": 1
     },
     {
       "id": "tcf",
@@ -74737,27 +74742,6 @@
       },
       "categories": [
         "other"
-      ],
-      "suite": null,
-      "recent_share": 0
-    },
-    {
-      "id": "telecom",
-      "name": "τ³ Telecom",
-      "lab_count": 1,
-      "labs": [
-        "mistral"
-      ],
-      "first_seen": "2026-05-22",
-      "last_seen": "2026-05-22",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q2": 1
-      },
-      "categories": [
-        "agentic"
       ],
       "suite": null,
       "recent_share": 0
@@ -76964,48 +76948,6 @@
       "recent_share": 0
     },
     {
-      "id": "voice",
-      "name": "τ-Voice",
-      "lab_count": 1,
-      "labs": [
-        "google"
-      ],
-      "first_seen": "2026-09-15",
-      "last_seen": "2026-09-15",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q3": 1
-      },
-      "categories": [
-        "agentic"
-      ],
-      "suite": null,
-      "recent_share": 0
-    },
-    {
-      "id": "voicebanking",
-      "name": "τ-Voice-banking",
-      "lab_count": 1,
-      "labs": [
-        "google"
-      ],
-      "first_seen": "2026-09-15",
-      "last_seen": "2026-09-15",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q3": 1
-      },
-      "categories": [
-        "agentic"
-      ],
-      "suite": null,
-      "recent_share": 0
-    },
-    {
       "id": "voicebenchcommoneval",
       "name": "VoiceBench-CommonEval",
       "lab_count": 1,
@@ -77026,27 +76968,6 @@
       ],
       "suite": null,
       "recent_share": 0
-    },
-    {
-      "id": "voiceleaderboard",
-      "name": "τ-voice Leaderboard",
-      "lab_count": 1,
-      "labs": [
-        "xai"
-      ],
-      "first_seen": "2026-04-23",
-      "last_seen": "2026-04-23",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q2": 1
-      },
-      "categories": [
-        "agentic"
-      ],
-      "suite": null,
-      "recent_share": 1
     },
     {
       "id": "voicenativeevaluationsproductionprompts",
@@ -77086,27 +77007,6 @@
       },
       "categories": [
         "speech"
-      ],
-      "suite": null,
-      "recent_share": 0
-    },
-    {
-      "id": "voicetelecom",
-      "name": "τ³-Voice Telecom",
-      "lab_count": 1,
-      "labs": [
-        "openai"
-      ],
-      "first_seen": "2026-07-08",
-      "last_seen": "2026-07-08",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q3": 1
-      },
-      "categories": [
-        "agentic"
       ],
       "suite": null,
       "recent_share": 0
@@ -78988,7 +78888,7 @@
       "id": "agentic",
       "name": "Agentic & computer use",
       "blurb": "Tool use, browsing, GUI and OS control, multi-step work",
-      "members": 185,
+      "members": 181,
       "lab_count": 12,
       "labs": [
         "anthropic",
@@ -79713,6 +79613,36 @@
       "recent_share": 31
     },
     {
+      "id": "tau-bench",
+      "name": "tau-bench",
+      "members": 28,
+      "lab_count": 11,
+      "labs": [
+        "anthropic",
+        "deepseek",
+        "google",
+        "mistral",
+        "moonshot",
+        "openai",
+        "qwen",
+        "upstage",
+        "xai",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2024-Q4": 2,
+        "2025-Q1": 1,
+        "2025-Q2": 4,
+        "2025-Q3": 5,
+        "2025-Q4": 7,
+        "2026-Q1": 7,
+        "2026-Q2": 7,
+        "2026-Q3": 5
+      },
+      "recent_share": 33
+    },
+    {
       "id": "browsecomp",
       "name": "BrowseComp",
       "members": 6,
@@ -79894,34 +79824,6 @@
         "2026-Q3": 7
       },
       "recent_share": 10
-    },
-    {
-      "id": "tau-bench",
-      "name": "tau-bench",
-      "members": 17,
-      "lab_count": 9,
-      "labs": [
-        "anthropic",
-        "deepseek",
-        "google",
-        "moonshot",
-        "openai",
-        "qwen",
-        "upstage",
-        "xiaomi",
-        "zai"
-      ],
-      "labs_by_quarter": {
-        "2024-Q4": 2,
-        "2025-Q1": 1,
-        "2025-Q2": 4,
-        "2025-Q3": 5,
-        "2025-Q4": 1,
-        "2026-Q1": 4,
-        "2026-Q2": 3,
-        "2026-Q3": 2
-      },
-      "recent_share": 19
     },
     {
       "id": "hmmt",
