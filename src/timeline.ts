@@ -43,6 +43,25 @@ export interface TimelineArgs {
   onHover: (rs: Release[] | null, x: number, y: number) => void;
 }
 
+/** The scheme check at the one place data becomes a navigation.
+ *
+ *  scripts/normalize.mjs already refuses to write a source_url that is not an
+ *  https URL on the lab's own domain, so in a correctly built bundle this can
+ *  never be false. It is here because of what the failure looks like if that
+ *  ever stops being true: window.open on a javascript: URL runs the script in
+ *  this origin, so the whole distance between a data bug and script execution
+ *  would be one regex in a build script two directories away. A check at the
+ *  sink costs nothing and does not depend on being reached through the build. */
+const isHttpUrl = (u: string): boolean => {
+  try {
+    // No base. A source_url is always absolute, and resolving against the page
+    // would let a bare "evil" pass as a same-origin path.
+    return new URL(u).protocol === "https:";
+  } catch {
+    return false;
+  }
+};
+
 // How far the year sits below its month label.
 const YEAR_DY = 18;
 const MONTH = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -166,7 +185,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
     const rs = k ? index.get(k) : null;
     // Every mark opens something. Previously only single-release days did, so a
     // fifth of the marks offered a pointer cursor and did nothing.
-    if (rs?.length) window.open(rs[0].source_url, "_blank", "noopener");
+    if (rs?.length && isHttpUrl(rs[0].source_url)) window.open(rs[0].source_url, "_blank", "noopener");
   });
 }
 
@@ -188,8 +207,14 @@ export function tooltipHTML(rs: Release[], names: Map<string, string>, shown = 8
       ? `<li class="muted">No benchmark cited</li>`
       : named + (named && rest > 0 ? `<li class="tt__rest">and ${rest} more</li>` : "")
         || `<li class="tt__rest">${r.benchmarks.length} benchmarks cited</li>`;
+    // Escaped like every other field. The date is data-derived text and was the
+    // one interpolation here that reached innerHTML raw, safe only because
+    // normalize.mjs happens to match it against ^\d{4}-\d{2}-\d{2}$ three files
+    // away. The kind falls back to its raw value the same way the mark's
+    // aria-label already does, so an unrecognised kind reads as itself rather
+    // than as the word "undefined".
     return `<div class="tt__h">${esc(r.model)}</div>
-      <div class="tt__m">${KIND_LABEL[r.kind]}, ${r.date}</div>
+      <div class="tt__m">${esc(KIND_LABEL[r.kind] ?? r.kind)}, ${esc(r.date)}</div>
       <div class="tt__src">${esc(new URL(r.source_url).hostname.replace(/^www\./, ""))}</div>
       <ul class="tt__l">${bs}</ul>`;
   };

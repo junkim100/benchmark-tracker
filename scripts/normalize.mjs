@@ -8,6 +8,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { CATEGORIES, classify, flatKey, suiteOf } from "./classify.mjs";
+import { isOfficialSource, describeAllowed } from "./sources.mjs";
 import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -20,6 +21,7 @@ const suiteDefs = read(join(DATA, "suites.json")).suites;
 const catOverrides = read(join(DATA, "categories.json")).overrides;
 const excluded = read(join(DATA, "excluded.json"));
 const labIds = new Set(labs.map((l) => l.id));
+const labById = new Map(labs.map((l) => [l.id, l]));
 
 // Lookup key: lowercase and drop every separator. Labs spell the same
 // benchmark as IFEval, IF-Eval and IF Eval, so anything that merely collapses
@@ -105,7 +107,19 @@ for (const file of files) {
       problems.push(`${where}: date "${r.date}" is in the future`);
       continue;
     }
-    if (!/^https?:\/\//.test(r.source_url ?? "")) problems.push(`${where}: missing source_url`);
+    // Provenance is a contract term, not a hint. The site opens source_url in a
+    // new tab when a mark is clicked and the footer promises it is the lab's own
+    // page, so a URL pointing anywhere else is a claim this project cannot make.
+    // The research agent reads attacker-publishable pages (arxiv.org is open to
+    // everyone and reachable for every lab), and the search allowlist constrains
+    // what it may read rather than what it may write down, so this is the only
+    // place the written value is actually checked. See scripts/sources.mjs.
+    const lab = labById.get(r.lab);
+    if (!/^https:\/\//.test(r.source_url ?? "")) {
+      problems.push(`${where}: source_url must be an https URL, got "${r.source_url}"`);
+    } else if (lab && !isOfficialSource(lab, r.source_url)) {
+      problems.push(`${where}: source_url "${r.source_url}" is not published by ${lab.name}. Allowed: ${describeAllowed(lab)}`);
+    }
     if (!Array.isArray(r.benchmarks_raw)) {
       problems.push(`${where}: benchmarks_raw must be an array`);
       continue;

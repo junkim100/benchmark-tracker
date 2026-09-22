@@ -17,7 +17,12 @@
         if (!el || (el.tagName !== "SCRIPT" && el.tagName !== "LINK")) return;
         if (sessionStorage.getItem("bt-stale")) return;
         sessionStorage.setItem("bt-stale", "1");
-        location.replace(location.pathname + "?v=" + Date.now());
+        // Rebuilt from the origin, not from the path alone. A pathname that
+        // begins with two slashes is a protocol-relative URL once it is handed
+        // to location.replace, so //evil.example would leave the site entirely.
+        // Nothing serves this page at such a path today, which is the only
+        // reason it is not already an open redirect.
+        location.replace(location.origin + location.pathname + "?v=" + Date.now());
       }, true);
     </script>
     <script type="module" src="/src/main.ts"></script>
