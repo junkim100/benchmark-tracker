@@ -701,7 +701,6 @@ function render(data: Timeline) {
           year = "all";
         }
         draw();
-        drawTimeline();
       });
       applyScope();
       paintScope();
@@ -715,7 +714,6 @@ function render(data: Timeline) {
       drawTimeline();
     });
     draw();
-    drawTimeline();
   }).catch((err) => {
     // Everything above the fold is already correct and working, so a failure
     // here costs the timeline and nothing else. Saying so in its own space is

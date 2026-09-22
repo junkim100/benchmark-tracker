@@ -51,7 +51,15 @@
       // them here would undo the split that keeps them off first paint. The
       // build rewrites this string the same way, so the URL is content-hashed
       // and the page can never ask for a file from another deploy.
-      window.btData = { core: fetch("BT_CORE_URL"), log: fetch("BT_LOG_URL"), descriptions: "BT_DESC_URL" };
+      // The log is asked for at low priority so the registry gets the connection
+      // first. Both are needed and both start here, but nothing on screen waits
+      // on the log: the first chart is built from the registry, and measuring it
+      // under a 562ms-RTT link showed the log's 33kB in the opening burst
+      // delaying that first paint by 180ms. A priority hint costs one property
+      // and keeps the parallelism; dropping the log from here entirely would buy
+      // the same 180ms and pay for it with a later timeline. Browsers that do
+      // not know the option ignore it.
+      window.btData = { core: fetch("BT_CORE_URL"), log: fetch("BT_LOG_URL", { priority: "low" }), descriptions: "BT_DESC_URL" };
       // Not error handling. Nothing awaits these until main.ts runs, and a
       // rejection meanwhile is a page error with no explanation attached.
       btData.core.catch(function () {});
