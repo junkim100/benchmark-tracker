@@ -22,6 +22,7 @@
 
 import Anthropic from "@anthropic-ai/sdk";
 import { readFileSync, writeFileSync, appendFileSync, existsSync } from "node:fs";
+import { spawnSync } from "node:child_process";
 import { CATEGORIES } from "./classify.mjs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -220,24 +221,75 @@ const aliasMap = JSON.parse(readFileSync(aliasPath, "utf8"));
 const canonical = new Map(
   Object.entries(aliasMap).filter(([k]) => !k.startsWith("_")).map(([k, v]) => [aliasKey(k), v]),
 );
-const applied = [];
+
+// Mechanical guards first, so no API call is spent on a name that resolves
+// already or on a pair that is the same string.
 const skipped = [];
+const needGate = [];
 for (const sug of aliasSuggestions) {
   const rawK = aliasKey(sug.raw);
-  const trackedK = aliasKey(sug.tracked);
-  // A name that already resolves needs nothing, and must not be overwritten:
-  // a hand-made entry outranks anything decided here.
-  if (rawK === trackedK || canonical.has(rawK)) { skipped.push(sug); continue; }
-  const target = canonical.get(trackedK) ?? trackedK;
-  aliasMap[sug.raw] = target;
-  canonical.set(rawK, target);
-  applied.push({ ...sug, target });
-  appendFileSync(
-    join(DATA, "alias-log.jsonl"),
-    JSON.stringify({ at: new Date().toISOString(), ...sug, target }) + "\n",
-  );
+  if (rawK === aliasKey(sug.tracked) || canonical.has(rawK)) { skipped.push(sug); continue; }
+  needGate.push(sug);
+}
+
+// A second opinion on what remains, from a differently-trained model.
+//
+// Applying a merge is the one automated judgement here that permanently
+// rewrites history: it changes lab_count, first_seen, labs, labs_by_quarter and
+// recent_share for BOTH benchmarks, and normalize.mjs cannot detect a wrong one
+// because a merge is valid by construction. Asking the proposer to check itself
+// would share its errors, which is the failure mode worth avoiding, so the
+// check comes from somewhere else.
+//
+// Anything that is not a confident merge is queued rather than dropped. The
+// suggestion is still evidence; it just is not evidence enough to act on
+// unattended.
+function gateAliases(candidates) {
+  if (!candidates.length) return [];
+  const py = process.env.PYTHON ?? "python3";
+  const r = spawnSync(py, [join(ROOT, "scripts", "alias-gate.py")], {
+    input: JSON.stringify(candidates), encoding: "utf8", timeout: 120000,
+  });
+  if (r.status !== 0 || !r.stdout) {
+    const why = r.error?.message ?? r.stderr?.slice(0, 200) ?? `exit ${r.status}`;
+    return candidates.map((c) => ({ ...c, decision: "REVIEW", unavailable: `gate_failed: ${why}` }));
+  }
+  try {
+    return JSON.parse(r.stdout);
+  } catch (e) {
+    return candidates.map((c) => ({ ...c, decision: "REVIEW", unavailable: `gate_unparseable: ${e.message}` }));
+  }
+}
+
+const gated = gateAliases(needGate);
+const applied = [];
+const queued = [];
+for (const g of gated) {
+  if (g.decision === "APPLY") {
+    const target = canonical.get(aliasKey(g.tracked)) ?? aliasKey(g.tracked);
+    aliasMap[g.raw] = target;
+    canonical.set(aliasKey(g.raw), target);
+    applied.push({ ...g, target });
+    appendFileSync(
+      join(DATA, "alias-log.jsonl"),
+      JSON.stringify({ at: new Date().toISOString(), ...g, target }) + "\n",
+    );
+  } else {
+    queued.push(g);
+  }
 }
 if (applied.length) writeFileSync(aliasPath, JSON.stringify(aliasMap, null, 2) + "\n");
+
+// The queue is a file, not a log line, because a log line in a commit message
+// is read by nobody on an unattended schedule. It accumulates and dedupes, so a
+// pair the agent keeps proposing appears once with its latest verdict.
+if (queued.length) {
+  const qPath = join(DATA, "alias-queue.json");
+  const existing = existsSync(qPath) ? JSON.parse(readFileSync(qPath, "utf8")) : [];
+  const byPair = new Map(existing.map((q) => [`${aliasKey(q.raw)}|${aliasKey(q.tracked)}`, q]));
+  for (const q of queued) byPair.set(`${aliasKey(q.raw)}|${aliasKey(q.tracked)}`, { ...q, seen: new Date().toISOString() });
+  writeFileSync(qPath, JSON.stringify([...byPair.values()], null, 2) + "\n");
+}
 
 // Categories the rules could not have known. The rules in classify.mjs cover
 // the well-cited middle by pattern, but a name like Seal-0 carries no word any
@@ -261,7 +313,15 @@ if (catApplied.length) writeFileSync(catPath, JSON.stringify(catFile, null, 2) +
 const lines = [...summary];
 if (applied.length) {
   lines.push("", `Merged ${applied.length} duplicate spelling(s) into data/aliases.json:`,
-    ...applied.map((x) => `  "${x.raw}" -> ${x.target} (${x.lab}: ${x.reason})`));
+    ...applied.map((x) => `  "${x.raw}" -> ${x.target}  (${x.lab}; same_name ${(x.probabilities?.same_name ?? 0).toFixed(2)}, safe ${(x.merge_is_safe ?? 0).toFixed(2)})`));
+}
+if (queued.length) {
+  lines.push("", `Held ${queued.length} suggestion(s) for review in data/alias-queue.json:`,
+    ...queued.map((x) => {
+      const failed = Object.entries(x.gates ?? {}).filter(([, v]) => !v).map(([k]) => k);
+      const why = x.unavailable ?? `${x.relation ?? "?"}; failed ${failed.join(", ") || "none"}`;
+      return `  "${x.raw}" ~ "${x.tracked}"  ${x.decision}  (${why})`;
+    }));
 }
 if (catApplied.length) {
   lines.push("", `Categorised ${catApplied.length} new benchmark(s):`,

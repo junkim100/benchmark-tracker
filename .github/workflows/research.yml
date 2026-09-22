@@ -29,9 +29,20 @@ jobs:
           cache: npm
       - run: npm ci
 
+      # The alias gate is Python: the TypeSafe SDK has no JS client. research.mjs
+      # shells out to it once per run with the whole batch on stdin.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r scripts/requirements.txt
+
       - name: Research each lab
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Second opinion on proposed alias merges. If this secret is absent the
+          # gate returns REVIEW for everything and the run still succeeds: no
+          # merge is written, the suggestions queue up, and nothing is lost.
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
           # The lookback is deliberately longer than the interval. If it only
           # just covered the gap, one delayed or dropped run would leave a
           # permanent hole, and GitHub drops scheduled runs often enough for
