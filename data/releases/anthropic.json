@@ -1530,5 +1530,52 @@
       ],
       "source": "inferred"
     }
+  },
+  {
+    "id": "anthropic-claude-opus-5-5-2026-09-22",
+    "lab": "anthropic",
+    "model": "Claude Opus 5.5",
+    "date": "2026-09-22",
+    "kind": "model_release",
+    "title": "Introducing Claude Opus 5.5",
+    "source_url": "https://www.anthropic.com/claude-opus-5-5",
+    "benchmarks_raw": [
+      "Terminal-Bench 4.0",
+      "FrontierCode",
+      "CursorBench",
+      "AutomationBench",
+      "Terminal-Bench-Science 0.1",
+      "GDPval-AA v2.1"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "anthropic-claude-opus-5-5-2026-09-22",
+    "lab": "anthropic",
+    "model": "Claude Opus 5.5",
+    "date": "2026-09-22",
+    "kind": "system_card",
+    "title": "System Card: Claude Opus 5.5",
+    "source_url": "https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf",
+    "benchmarks_raw": [
+      "Terminal-Bench 4.0",
+      "CursorBench",
+      "GDPval-AA",
+      "AA-Briefcase",
+      "Protocols",
+      "AAV capsid packaging prediction",
+      "Multimodal virology"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

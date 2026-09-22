@@ -1,0 +1,44 @@
+[
+  {
+    "raw": "Artificial Analysis' Speech to Speech Quality Index",
+    "tracked": "AA Speech-to-Speech Quality Index",
+    "reason": "Artificial Analysis is the lab's full name for the tracked AA index The tracked benchmark \"AA Speech-to-Speech Quality Index\" is described as: An equally weighted composite of three speech-to-speech evaluations: Big Bench Audio for spoken reasoning, a Full Duplex Bench subset for conversational dynamics, and tau-Voice for agentic customer service tasks.",
+    "lab": "Google DeepMind",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "different": 0.01,
+      "same_name": 0.99,
+      "version": 0,
+      "renamed": 0
+    },
+    "merge_is_safe": 0.5,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-09-22T17:49:04.487Z"
+  },
+  {
+    "raw": "Artificial Analysis' Speech-to-Speech leaderboard",
+    "tracked": "AA Speech-to-Speech Quality Index",
+    "reason": "same Artificial Analysis speech-to-speech ranking referred to as a leaderboard The tracked benchmark \"AA Speech-to-Speech Quality Index\" is described as: An equally weighted composite of three speech-to-speech evaluations: Big Bench Audio for spoken reasoning, a Full Duplex Bench subset for conversational dynamics, and tau-Voice for agentic customer service tasks.",
+    "lab": "Google DeepMind",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "different": 0.17,
+      "same_name": 0.81,
+      "renamed": 0.01,
+      "version": 0.01
+    },
+    "merge_is_safe": 0.32,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-09-22T17:49:04.487Z"
+  }
+]

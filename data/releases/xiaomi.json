@@ -670,5 +670,85 @@
       ],
       "source": "inferred"
     }
+  },
+  {
+    "id": "xiaomi-mimo-v2-6-series-2026-09-21",
+    "lab": "xiaomi",
+    "model": "MiMo-V2.6 series",
+    "date": "2026-09-21",
+    "kind": "model_release",
+    "title": "MiMo-V2.6",
+    "source_url": "https://mimo.xiaomi.com/mimo-v2-6",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "xiaomi-mimo-v2-6-pro-rl-2026-09-21",
+    "lab": "xiaomi",
+    "model": "MiMo-V2.6-Pro-RL",
+    "date": "2026-09-21",
+    "kind": "model_release",
+    "title": "XiaomiMiMo/MiMo-V2.6-Pro-RL",
+    "source_url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "xiaomi-mimo-v2-6-flash-rl-2026-09-21",
+    "lab": "xiaomi",
+    "model": "MiMo-V2.6-Flash-RL",
+    "date": "2026-09-21",
+    "kind": "model_release",
+    "title": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
+    "source_url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "xiaomi-mimo-v2-6-distill-qwen-9b-2026-09-21",
+    "lab": "xiaomi",
+    "model": "MiMo-V2.6-Distill-Qwen-9B",
+    "date": "2026-09-21",
+    "kind": "model_release",
+    "title": "XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B",
+    "source_url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "xiaomi-mimo-v2-6-pro-2026-09-22",
+    "lab": "xiaomi",
+    "model": "MiMo-V2.6-Pro",
+    "date": "2026-09-22",
+    "kind": "blog_post",
+    "title": "How Xiaomi MiMo-V2.6-Pro Boosts Productivity in New Materials R&D",
+    "source_url": "https://mimo.xiaomi.com/mimo-v2-6-material-research",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

@@ -1810,7 +1810,7 @@
       "zai"
     ],
     "first_seen": "2026-05-28",
-    "last_seen": "2026-09-17",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 7
     },
@@ -1838,7 +1838,7 @@
       "xai"
     ],
     "first_seen": "2026-07-09",
-    "last_seen": "2026-09-17",
+    "last_seen": "2026-09-21",
     "labs_by_year": {
       "2026": 7
     },
@@ -4068,6 +4068,32 @@
     "recent_share": 9
   },
   {
+    "id": "terminalbench40",
+    "name": "Terminal-Bench 4.0",
+    "lab_count": 5,
+    "labs": [
+      "anthropic",
+      "deepseek",
+      "google",
+      "openai",
+      "xai"
+    ],
+    "first_seen": "2026-09-01",
+    "last_seen": "2026-09-22",
+    "labs_by_year": {
+      "2026": 5
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 5
+    },
+    "categories": [
+      "coding",
+      "agentic"
+    ],
+    "suite": "terminal-bench",
+    "recent_share": 0
+  },
+  {
     "id": "toolathlon",
     "name": "Toolathlon",
     "lab_count": 5,
@@ -5359,31 +5385,6 @@
     "recent_share": 0
   },
   {
-    "id": "terminalbench40",
-    "name": "Terminal-Bench 4.0",
-    "lab_count": 4,
-    "labs": [
-      "anthropic",
-      "deepseek",
-      "google",
-      "openai"
-    ],
-    "first_seen": "2026-09-01",
-    "last_seen": "2026-09-17",
-    "labs_by_year": {
-      "2026": 4
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 4
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": "terminal-bench",
-    "recent_share": 0
-  },
-  {
     "id": "terminalbenchhard",
     "name": "Terminal Bench Hard",
     "lab_count": 4,
@@ -6306,6 +6307,33 @@
     "recent_share": 1
   },
   {
+    "id": "gdpval",
+    "name": "GDPval",
+    "lab_count": 3,
+    "labs": [
+      "openai",
+      "xai",
+      "xiaomi"
+    ],
+    "first_seen": "2025-12-11",
+    "last_seen": "2026-09-21",
+    "labs_by_year": {
+      "2025": 1,
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2025-Q4": 1,
+      "2026-Q1": 2,
+      "2026-Q2": 1,
+      "2026-Q3": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "gdpval",
+    "recent_share": 1
+  },
+  {
     "id": "geneval",
     "name": "GenEval",
     "lab_count": 3,
@@ -6418,6 +6446,30 @@
     ],
     "suite": null,
     "recent_share": 1
+  },
+  {
+    "id": "healthbenchprofessional",
+    "name": "HealthBench Professional",
+    "lab_count": 3,
+    "labs": [
+      "anthropic",
+      "openai",
+      "xai"
+    ],
+    "first_seen": "2026-04-23",
+    "last_seen": "2026-09-21",
+    "labs_by_year": {
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 2,
+      "2026-Q3": 3
+    },
+    "categories": [
+      "science"
+    ],
+    "suite": "healthbench",
+    "recent_share": 2
   },
   {
     "id": "hlewithtools",
@@ -9882,31 +9934,6 @@
     "recent_share": 0
   },
   {
-    "id": "gdpval",
-    "name": "GDPval",
-    "lab_count": 2,
-    "labs": [
-      "openai",
-      "xiaomi"
-    ],
-    "first_seen": "2025-12-11",
-    "last_seen": "2026-04-23",
-    "labs_by_year": {
-      "2025": 1,
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2025-Q4": 1,
-      "2026-Q1": 2,
-      "2026-Q2": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": "gdpval",
-    "recent_share": 1
-  },
-  {
     "id": "gigaspeech",
     "name": "GigaSpeech",
     "lab_count": 2,
@@ -10034,27 +10061,26 @@
     "recent_share": 0
   },
   {
-    "id": "healthbenchprofessional",
-    "name": "HealthBench Professional",
+    "id": "harveyslegalagentbenchmark",
+    "name": "Harvey's Legal Agent Benchmark",
     "lab_count": 2,
     "labs": [
-      "anthropic",
-      "openai"
+      "google",
+      "xai"
     ],
-    "first_seen": "2026-04-23",
-    "last_seen": "2026-09-03",
+    "first_seen": "2026-09-02",
+    "last_seen": "2026-09-21",
     "labs_by_year": {
       "2026": 2
     },
     "labs_by_quarter": {
-      "2026-Q2": 2,
       "2026-Q3": 2
     },
     "categories": [
-      "science"
+      "agentic"
     ],
-    "suite": "healthbench",
-    "recent_share": 2
+    "suite": null,
+    "recent_share": 0
   },
   {
     "id": "hleverified",
@@ -13282,7 +13308,7 @@
       "xai"
     ],
     "first_seen": "2026-07-29",
-    "last_seen": "2026-09-15",
+    "last_seen": "2026-09-17",
     "labs_by_year": {
       "2026": 2
     },
@@ -13327,7 +13353,7 @@
       "openai"
     ],
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 2
     },
@@ -14360,6 +14386,27 @@
     },
     "categories": [
       "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "aabriefcase11",
+    "name": "AA Briefcase v1.1",
+    "lab_count": 1,
+    "labs": [
+      "xai"
+    ],
+    "first_seen": "2026-09-21",
+    "last_seen": "2026-09-21",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "agentic"
     ],
     "suite": null,
     "recent_share": 0
@@ -21078,7 +21125,7 @@
       "anthropic"
     ],
     "first_seen": "2026-04-16",
-    "last_seen": "2026-07-24",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 1
     },
@@ -21130,6 +21177,28 @@
     },
     "categories": [
       "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "cursorbench40",
+    "name": "CursorBench 4.0",
+    "lab_count": 1,
+    "labs": [
+      "xai"
+    ],
+    "first_seen": "2026-09-21",
+    "last_seen": "2026-09-21",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "coding",
+      "agentic"
     ],
     "suite": null,
     "recent_share": 0
@@ -22722,7 +22791,7 @@
       "xai"
     ],
     "first_seen": "2026-07-14",
-    "last_seen": "2026-08-12",
+    "last_seen": "2026-09-21",
     "labs_by_year": {
       "2026": 1
     },
@@ -23188,7 +23257,7 @@
       "google"
     ],
     "first_seen": "2026-09-15",
-    "last_seen": "2026-09-15",
+    "last_seen": "2026-09-17",
     "labs_by_year": {
       "2026": 1
     },
@@ -24690,7 +24759,7 @@
       "anthropic"
     ],
     "first_seen": "2026-06-09",
-    "last_seen": "2026-09-01",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 1
     },
@@ -25178,6 +25247,28 @@
     ],
     "suite": null,
     "recent_share": 1
+  },
+  {
+    "id": "gdpvalaa21",
+    "name": "GDPval-AA v2.1",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-09-22",
+    "last_seen": "2026-09-22",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "agentic",
+      "knowledge"
+    ],
+    "suite": "gdpval",
+    "recent_share": 0
   },
   {
     "id": "geckonum",
@@ -26203,6 +26294,28 @@
     "recent_share": 0
   },
   {
+    "id": "hackerbench03",
+    "name": "HackerBench v0.3",
+    "lab_count": 1,
+    "labs": [
+      "xai"
+    ],
+    "first_seen": "2026-09-21",
+    "last_seen": "2026-09-21",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "safety",
+      "coding"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "hackerrankastra",
     "name": "HackerRank Astra",
     "lab_count": 1,
@@ -26437,27 +26550,6 @@
     },
     "categories": [
       "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "harveyslegalagentbenchmark",
-    "name": "Harvey's Legal Agent Benchmark",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2026-09-02",
-    "last_seen": "2026-09-02",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "agentic"
     ],
     "suite": null,
     "recent_share": 0
@@ -42266,7 +42358,7 @@
       "google"
     ],
     "first_seen": "2026-09-15",
-    "last_seen": "2026-09-15",
+    "last_seen": "2026-09-17",
     "labs_by_year": {
       "2026": 1
     },

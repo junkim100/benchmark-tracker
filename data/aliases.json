@@ -233,5 +233,6 @@
   "agenticmisalignmentsuite": "agenticmisalignment",
   "therapeuticsdatacommons": "therapeuticdatacommons",
   "wildspeech": "wildspeechbench",
-  "mjhqfid30k": "mjhq30k"
+  "mjhqfid30k": "mjhq30k",
+  "Harvey Legal Agent Benchmark": "harveyslegalagentbenchmark"
 }

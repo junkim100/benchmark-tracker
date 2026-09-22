@@ -761,5 +761,31 @@
       ],
       "source": "inferred"
     }
+  },
+  {
+    "id": "xai-grok-4-7-2026-09-21",
+    "lab": "xai",
+    "model": "Grok 4.7",
+    "date": "2026-09-21",
+    "kind": "model_release",
+    "title": "Introducing Grok 4.7",
+    "source_url": "https://x.ai/news/grok-4-7",
+    "benchmarks_raw": [
+      "CursorBench 4.0",
+      "DeepSWE v1.1",
+      "EEBench",
+      "AA Briefcase v1.1",
+      "Terminal-Bench 4.0",
+      "Harvey Legal Agent Benchmark",
+      "HealthBench Professional",
+      "GDPval",
+      "HackerBench v0.3"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

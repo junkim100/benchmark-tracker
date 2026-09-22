@@ -4833,5 +4833,60 @@
       ],
       "source": "inferred"
     }
+  },
+  {
+    "id": "google-gemini-3-8-live-gemini-3-8-live-extended-thinking-2026-09-17",
+    "lab": "google",
+    "model": "Gemini 3.8 Live, Gemini 3.8 Live Extended Thinking",
+    "date": "2026-09-17",
+    "kind": "model_release",
+    "title": "Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking",
+    "source_url": "https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking/",
+    "benchmarks_raw": [
+      "Artificial Analysis' Speech to Speech Quality Index",
+      "τ-Voice",
+      "Speech Agent Arena",
+      "EVA-Bench"
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "google-gemini-3-8-audio-gemini-3-8-live-gemini-3-8-live-extended-thinking-2026-09-17",
+    "lab": "google",
+    "model": "Gemini 3.8 Audio (Gemini 3.8 Live, Gemini 3.8 Live Extended Thinking)",
+    "date": "2026-09-17",
+    "kind": "system_card",
+    "title": "Gemini 3.8 Audio (Live, Live Extended Thinking) - Model Card",
+    "source_url": "https://deepmind.google/models/model-cards/gemini-3-8-audio/",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "google-gemini-3-8-live-gemini-3-8-live-extended-thinking-gemini-3-5-transcribe-2026-09-17",
+    "lab": "google",
+    "model": "Gemini 3.8 Live, Gemini 3.8 Live Extended Thinking, Gemini 3.5 Transcribe",
+    "date": "2026-09-17",
+    "kind": "blog_post",
+    "title": "Build real-time voice applications with Gemini 3.8 Live and 3.5 Transcribe",
+    "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-real-time-voice-applications-gemini-audio/",
+    "benchmarks_raw": [
+      "Artificial Analysis' Speech-to-Speech leaderboard"
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "reported"
+    }
   }
 ]

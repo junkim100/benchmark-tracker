@@ -7,12 +7,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
+      "version": 0.03,
+      "different": 0.08,
       "renamed": 0.02,
-      "different": 0.07,
-      "same_name": 0.87,
-      "version": 0.04
+      "same_name": 0.87
     },
-    "merge_is_safe": 0.61,
+    "merge_is_safe": 0.59,
     "gates": {
       "same_name_confident": true,
       "merge_is_safe": false,
@@ -28,19 +28,19 @@
     "tracked": "BabyVision",
     "reason": "Both cite the same source page, https://arxiv.org/abs/2601.06521. \"BabyVision w/ tools\" is described as: 388 puzzle-style items in 22 subclasses probing core visual ability with almost no language: fine-grained discrimination, visual tracking through mazes and lines, spatial perception of 3D views and folding, and pattern completion, here run with tool use allowed. \"BabyVision\" is described as: 388 items in 22 subclasses testing foundational visual abilities inspired by infant and early-childhood visual development: fine-grained discrimination, spatial perception, visual pattern recognition and visual tracking. Found by scanning descriptions: same source, one name contains the other.",
     "lab": "deepseek",
-    "decision": "REVIEW",
+    "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "version": 0.53,
       "renamed": 0.01,
-      "different": 0.02,
-      "same_name": 0.44
+      "same_name": 0.34,
+      "version": 0.63,
+      "different": 0.02
     },
-    "merge_is_safe": 0.57,
+    "merge_is_safe": 0.56,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
-      "version_confident": false
+      "version_confident": true
     },
     "_ids": [
       "babyvisionwtools",
@@ -55,12 +55,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "version": 0.99,
-      "different": 0,
+      "different": 0.01,
+      "same_name": 0.01,
       "renamed": 0,
-      "same_name": 0.01
+      "version": 0.98
     },
-    "merge_is_safe": 0.37,
+    "merge_is_safe": 0.33,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -80,11 +80,11 @@
     "relation": "version",
     "probabilities": {
       "different": 0,
-      "same_name": 0.07,
-      "renamed": 0,
-      "version": 0.93
+      "version": 0.88,
+      "same_name": 0.12,
+      "renamed": 0
     },
-    "merge_is_safe": 0.64,
+    "merge_is_safe": 0.68,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -103,10 +103,10 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "renamed": 0.01,
-      "same_name": 0.91,
+      "version": 0.02,
       "different": 0.06,
-      "version": 0.02
+      "same_name": 0.91,
+      "renamed": 0.01
     },
     "merge_is_safe": 0.64,
     "gates": {
@@ -125,12 +125,12 @@
     "reason": "Both cite the same source page, https://arxiv.org/abs/2503.04721. \"Full Duplex Bench v1\" is described as: An evaluation of spoken dialogue systems that listen and speak at the same time, covering four interactive behaviours: pause handling, backchannelling, turn taking and interruption, all measured with automatic metrics. \"Full Duplex Bench\" is described as: A benchmark for full-duplex spoken dialogue models that measures interactive behaviours with automatic metrics: pause handling, backchanneling, turn-taking and interruption management. Found by scanning descriptions: same source, one name contains the other.",
     "lab": "openai",
     "decision": "REVIEW",
-    "relation": "version",
+    "relation": "same_name",
     "probabilities": {
-      "version": 0.54,
+      "renamed": 0.01,
+      "version": 0.47,
       "different": 0,
-      "same_name": 0.45,
-      "renamed": 0.01
+      "same_name": 0.52
     },
     "merge_is_safe": 0.8,
     "gates": {
@@ -152,11 +152,11 @@
     "relation": "version",
     "probabilities": {
       "renamed": 0,
-      "same_name": 0.15,
       "different": 0.01,
-      "version": 0.84
+      "version": 0.83,
+      "same_name": 0.16
     },
-    "merge_is_safe": 0.62,
+    "merge_is_safe": 0.61,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -168,30 +168,6 @@
     ]
   },
   {
-    "raw": "Competition Math",
-    "tracked": "MATH",
-    "reason": "Both cite the same source page, https://arxiv.org/abs/2103.03874. \"Competition Math\" is described as: 12,500 problems taken from high-school mathematics competitions, each supplied with a full step-by-step worked solution alongside the final answer. \"MATH\" is described as: 12,500 competition mathematics problems drawn from high school contests such as AMC 10, AMC 12 and AIME, each with a full LaTeX statement, a step-by-step solution and a standardized final answer for automatic checking. Found by scanning descriptions: same source, one name contains the other.",
-    "lab": "moonshot",
-    "decision": "REVIEW",
-    "relation": "same_name",
-    "probabilities": {
-      "renamed": 0.02,
-      "same_name": 0.93,
-      "different": 0.04,
-      "version": 0
-    },
-    "merge_is_safe": 0.6,
-    "gates": {
-      "same_name_confident": true,
-      "merge_is_safe": false,
-      "version_confident": false
-    },
-    "_ids": [
-      "competitionmath",
-      "math"
-    ]
-  },
-  {
     "raw": "MCPAtlas Public",
     "tracked": "MCP Atlas",
     "reason": "Both cite the same source page, https://arxiv.org/abs/2602.00933. \"MCPAtlas Public\" is described as: The 500-task public split of MCP-Atlas: expert-written natural language requests executed against production MCP servers, with answers scored against atomic factual claims grounded in the tool outputs. \"MCP Atlas\" is described as: A benchmark of 1,000 human-written natural language tasks run against 36 production MCP servers exposing 220 tools. Prompts name no server or tool, and answers are graded against atomic factual claims grounded in tool output. Found by scanning descriptions: same source, one name contains the other.",
@@ -199,10 +175,10 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "different": 0.03,
-      "same_name": 0.09,
       "renamed": 0,
-      "version": 0.88
+      "same_name": 0.06,
+      "different": 0.02,
+      "version": 0.92
     },
     "merge_is_safe": 0.39,
     "gates": {
@@ -223,12 +199,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "renamed": 0,
       "version": 0.98,
-      "different": 0.01,
-      "same_name": 0.01
+      "renamed": 0,
+      "same_name": 0.01,
+      "different": 0.01
     },
-    "merge_is_safe": 0.29,
+    "merge_is_safe": 0.28,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -247,12 +223,12 @@
     "decision": "REVIEW",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.46,
       "different": 0,
-      "version": 0.54,
-      "renamed": 0
+      "version": 0.58,
+      "renamed": 0,
+      "same_name": 0.42
     },
-    "merge_is_safe": 0.73,
+    "merge_is_safe": 0.74,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": true,
@@ -271,10 +247,10 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "version": 0.89,
+      "same_name": 0.09,
       "different": 0.04,
       "renamed": 0,
-      "same_name": 0.07
+      "version": 0.87
     },
     "merge_is_safe": 0.34,
     "gates": {
@@ -296,11 +272,11 @@
     "relation": "same_name",
     "probabilities": {
       "different": 0.03,
-      "version": 0.27,
+      "same_name": 0.72,
       "renamed": 0,
-      "same_name": 0.7
+      "version": 0.25
     },
-    "merge_is_safe": 0.5,
+    "merge_is_safe": 0.48,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -319,12 +295,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "renamed": 0.01,
-      "same_name": 0.78,
-      "different": 0.17,
-      "version": 0.04
+      "same_name": 0.8,
+      "different": 0.15,
+      "version": 0.04,
+      "renamed": 0.01
     },
-    "merge_is_safe": 0.45,
+    "merge_is_safe": 0.47,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -343,12 +319,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
+      "different": 0.43,
       "renamed": 0.01,
-      "version": 0.08,
-      "same_name": 0.46,
-      "different": 0.45
+      "same_name": 0.49,
+      "version": 0.07
     },
-    "merge_is_safe": 0.29,
+    "merge_is_safe": 0.32,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -367,12 +343,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "version": 0.7,
-      "same_name": 0.14,
       "renamed": 0,
-      "different": 0.16
+      "version": 0.64,
+      "different": 0.19,
+      "same_name": 0.17
     },
-    "merge_is_safe": 0.25,
+    "merge_is_safe": 0.26,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -391,12 +367,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.61,
       "different": 0,
+      "same_name": 0.61,
       "renamed": 0.01,
       "version": 0.38
     },
-    "merge_is_safe": 0.85,
+    "merge_is_safe": 0.84,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": true,
@@ -415,12 +391,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
+      "same_name": 0.1,
+      "renamed": 0,
       "different": 0,
-      "same_name": 0.12,
-      "version": 0.88,
-      "renamed": 0
+      "version": 0.9
     },
-    "merge_is_safe": 0.67,
+    "merge_is_safe": 0.64,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -439,12 +415,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
+      "version": 0.09,
+      "different": 0.04,
       "renamed": 0,
-      "version": 0.11,
-      "same_name": 0.85,
-      "different": 0.04
+      "same_name": 0.87
     },
-    "merge_is_safe": 0.59,
+    "merge_is_safe": 0.61,
     "gates": {
       "same_name_confident": true,
       "merge_is_safe": false,
@@ -463,12 +439,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.71,
+      "different": 0.15,
+      "version": 0.22,
       "renamed": 0.01,
-      "version": 0.17,
-      "different": 0.11
+      "same_name": 0.62
     },
-    "merge_is_safe": 0.5,
+    "merge_is_safe": 0.47,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -480,30 +456,6 @@
     ]
   },
   {
-    "raw": "Agentic Misalignment",
-    "tracked": "Agentic misalignment suite",
-    "reason": "Both cite the same source page, https://www.anthropic.com/research/agentic-misalignment. \"Agentic Misalignment\" is described as: Hypothetical corporate scenarios where a model with email access and an assigned business goal faces replacement or a goal conflict, testing whether it turns to blackmail or to leaking information. \"Agentic misalignment suite\" is described as: Fictional corporate scenarios in which a model running as an autonomous email agent faces replacement or a conflicting goal, testing whether it turns to blackmail, leaking confidential documents, or other harmful insider actions. Found by scanning descriptions: same source, one name contains the other.",
-    "lab": "anthropic",
-    "decision": "REVIEW",
-    "relation": "same_name",
-    "probabilities": {
-      "same_name": 0.77,
-      "different": 0.02,
-      "version": 0.2,
-      "renamed": 0.01
-    },
-    "merge_is_safe": 0.71,
-    "gates": {
-      "same_name_confident": false,
-      "merge_is_safe": true,
-      "version_confident": false
-    },
-    "_ids": [
-      "agenticmisalignment",
-      "agenticmisalignmentsuite"
-    ]
-  },
-  {
     "raw": "Hae-Rae",
     "tracked": "HAE-RAE (v1.1)",
     "reason": "Both cite the same source page, https://arxiv.org/abs/2309.02706. \"Hae-Rae\" is described as: Korean questions across vocabulary, history, general knowledge and reading comprehension, written to require Korean cultural and contextual depth rather than being translated from English tests. \"HAE-RAE (v1.1)\" is described as: A Korean benchmark of six tasks across vocabulary, history, general knowledge and reading comprehension, written natively rather than back-translated so that knowledge cannot simply transfer from English. Found by scanning descriptions: same source, one name contains the other.",
@@ -511,12 +463,12 @@
     "decision": "REVIEW",
     "relation": "version",
     "probabilities": {
+      "same_name": 0.48,
       "renamed": 0.01,
-      "same_name": 0.47,
       "different": 0,
-      "version": 0.52
+      "version": 0.51
     },
-    "merge_is_safe": 0.68,
+    "merge_is_safe": 0.66,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -535,12 +487,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.84,
-      "renamed": 0.04,
-      "different": 0.09,
-      "version": 0.03
+      "version": 0.03,
+      "different": 0.11,
+      "same_name": 0.82,
+      "renamed": 0.04
     },
-    "merge_is_safe": 0.63,
+    "merge_is_safe": 0.61,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -583,12 +535,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.15,
-      "renamed": 0,
-      "different": 0.17,
-      "version": 0.68
+      "version": 0.7,
+      "same_name": 0.14,
+      "different": 0.16,
+      "renamed": 0
     },
-    "merge_is_safe": 0.29,
+    "merge_is_safe": 0.3,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -607,12 +559,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "renamed": 0,
-      "same_name": 0.6,
       "version": 0.36,
-      "different": 0.04
+      "different": 0.06,
+      "renamed": 0,
+      "same_name": 0.58
     },
-    "merge_is_safe": 0.59,
+    "merge_is_safe": 0.55,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -631,12 +583,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
+      "version": 0.95,
       "renamed": 0,
-      "version": 0.97,
-      "different": 0,
-      "same_name": 0.03
+      "same_name": 0.05,
+      "different": 0
     },
-    "merge_is_safe": 0.5,
+    "merge_is_safe": 0.56,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -655,12 +607,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "renamed": 0,
       "version": 0.8,
       "same_name": 0.2,
+      "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.57,
+    "merge_is_safe": 0.61,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -679,12 +631,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "renamed": 0.01,
-      "same_name": 0.38,
+      "same_name": 0.39,
       "version": 0.61,
-      "different": 0
+      "different": 0,
+      "renamed": 0
     },
-    "merge_is_safe": 0.82,
+    "merge_is_safe": 0.83,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": true,
@@ -703,10 +655,10 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "version": 0.97,
-      "different": 0.02,
-      "same_name": 0.01,
-      "renamed": 0
+      "renamed": 0,
+      "version": 0.96,
+      "different": 0.03,
+      "same_name": 0.01
     },
     "merge_is_safe": 0.32,
     "gates": {
@@ -720,30 +672,6 @@
     ]
   },
   {
-    "raw": "WildSpeech",
-    "tracked": "WildSpeech-Bench",
-    "reason": "Both cite the same source page, https://arxiv.org/abs/2506.21875. \"WildSpeech\" is described as: Real-world chat prompts rendered as speech with varied speaker attributes, acoustic conditions and speech-specific phenomena such as prosody, homophones and stuttering, graded by query-aware checklists for end-to-end speech models. \"WildSpeech-Bench\" is described as: Real-world chat queries rendered as speech across varied speaker attributes and acoustic conditions and augmented with prosody, homophones and stuttering, then graded by an automatic judge against a checklist written per query. Found by scanning descriptions: same source, one name contains the other.",
-    "lab": "qwen",
-    "decision": "REVIEW",
-    "relation": "same_name",
-    "probabilities": {
-      "same_name": 0.76,
-      "renamed": 0.04,
-      "different": 0.09,
-      "version": 0.11
-    },
-    "merge_is_safe": 0.49,
-    "gates": {
-      "same_name_confident": false,
-      "merge_is_safe": false,
-      "version_confident": false
-    },
-    "_ids": [
-      "wildspeech",
-      "wildspeechbench"
-    ]
-  },
-  {
     "raw": "Z.ai Code Bench",
     "tracked": "Z.ai Code Bench (v1.0)",
     "reason": "Both cite the same source page, https://docs.z.ai/guides/llm/glm-5.3. \"Z.ai Code Bench\" is described as: A private in-house test of coding agents placed in complex local development environments across diverse task categories, scored on both end-to-end task completion and fine-grained checklist accuracy at several effort levels. \"Z.ai Code Bench (v1.0)\" is described as: An in-house Z.ai benchmark that places coding agents in complex local development environments on realistic user tasks, scored both on end-to-end task completion and on fine-grained checklist accuracy. Found by scanning descriptions: same source, one name contains the other.",
@@ -751,12 +679,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "different": 0,
       "same_name": 0.39,
       "renamed": 0,
+      "different": 0,
       "version": 0.61
     },
-    "merge_is_safe": 0.67,
+    "merge_is_safe": 0.65,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -768,30 +696,6 @@
     ]
   },
   {
-    "raw": "MMB",
-    "tracked": "MMBench-CN-Test",
-    "reason": "Both cite the same source page, https://github.com/open-compass/MMBench/blob/main/README.md. \"MMB\" is described as: Short for MMBench: roughly 3,000 single-choice vision questions over 20 fine-grained ability dimensions, graded with CircularEval, which re-asks each question with the answer options rotated and requires every pass to be right. \"MMBench-CN-Test\" is described as: The Chinese test split of MMBench: 1,784 single-choice vision-language questions covering 20 ability dimensions, graded with CircularEval, which re-asks each question with the options rotated and requires every pass to be right. Found by scanning descriptions: same source, one name contains the other.",
-    "lab": "deepseek",
-    "decision": "SUITE",
-    "relation": "version",
-    "probabilities": {
-      "renamed": 0,
-      "same_name": 0.02,
-      "version": 0.98,
-      "different": 0
-    },
-    "merge_is_safe": 0.31,
-    "gates": {
-      "same_name_confident": false,
-      "merge_is_safe": false,
-      "version_confident": true
-    },
-    "_ids": [
-      "mmb",
-      "mmbenchcntest"
-    ]
-  },
-  {
     "raw": "CursorBench",
     "tracked": "CursorBench (3.2.0)",
     "reason": "Both cite the same source page, https://cursor.com/blog/cursorbench. \"CursorBench\" is described as: Cursor's internal coding-agent suite, drawn from real Cursor sessions by tracing committed code back to the agent request that produced it, and graded by agentic graders on correctness, code quality, efficiency and interaction behaviour. \"CursorBench (3.2.0)\" is described as: Cursor's internal coding-agent suite, built from real Cursor sessions traced back to the request that produced the committed code. Task prompts are short and underspecified, span multiple files, and are scored by agentic graders. Found by scanning descriptions: same source, one name contains the other.",
@@ -799,10 +703,10 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.15,
-      "different": 0,
       "renamed": 0,
-      "version": 0.85
+      "version": 0.85,
+      "different": 0,
+      "same_name": 0.15
     },
     "merge_is_safe": 0.64,
     "gates": {
@@ -823,12 +727,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.6,
       "renamed": 0.01,
-      "version": 0.26,
-      "different": 0.13
+      "version": 0.24,
+      "different": 0.12,
+      "same_name": 0.63
     },
-    "merge_is_safe": 0.52,
+    "merge_is_safe": 0.51,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -847,12 +751,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "renamed": 0,
-      "version": 0.73,
+      "renamed": 0.01,
+      "same_name": 0.27,
       "different": 0,
-      "same_name": 0.27
+      "version": 0.72
     },
-    "merge_is_safe": 0.79,
+    "merge_is_safe": 0.78,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": true,
@@ -872,9 +776,9 @@
     "relation": "version",
     "probabilities": {
       "version": 0.98,
-      "different": 0,
       "same_name": 0.02,
-      "renamed": 0
+      "renamed": 0,
+      "different": 0
     },
     "merge_is_safe": 0.47,
     "gates": {
@@ -893,12 +797,12 @@
     "reason": "Both cite the same source page, https://cave.cs.toronto.edu/kriz/cifar.html. \"CIFAR-10\" is described as: 60,000 colour images of 32 by 32 pixels in ten mutually exclusive object classes, split into 50,000 for training and 10,000 for testing, used as a small-scale image classification task. \"CIFAR-100\" is described as: 60,000 colour images of 32x32 pixels across 100 classes grouped into 20 superclasses, with 500 training and 100 test images per class; each image carries both a fine and a coarse label. Found by scanning descriptions: same source, one name contains the other.",
     "lab": "meta",
     "decision": "REVIEW",
-    "relation": "version",
+    "relation": "different",
     "probabilities": {
-      "different": 0.48,
+      "renamed": 0,
       "same_name": 0,
-      "version": 0.52,
-      "renamed": 0
+      "version": 0.49,
+      "different": 0.51
     },
     "merge_is_safe": 0.05,
     "gates": {
@@ -919,12 +823,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.77,
-      "version": 0.18,
-      "different": 0.05,
-      "renamed": 0
+      "version": 0.24,
+      "same_name": 0.71,
+      "renamed": 0,
+      "different": 0.05
     },
-    "merge_is_safe": 0.51,
+    "merge_is_safe": 0.49,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -940,18 +844,18 @@
     "tracked": "HarmB",
     "reason": "Both cite the same source page, https://arxiv.org/abs/2402.04249. \"HarmBench\" is described as: A standardised framework for automated red teaming of language models, pairing harmful-behaviour prompts with attack methods so that attacks and defences can be compared under one protocol. \"HarmB\" is described as: A standardised red-teaming framework organised around a fixed set of harmful behaviours, with a classifier that judges whether a response actually carried the behaviour out, used to compare attack methods and refusal robustness. Found by scanning descriptions: same source, one name contains the other.",
     "lab": "mistral",
-    "decision": "REVIEW",
+    "decision": "APPLY",
     "relation": "same_name",
     "probabilities": {
-      "version": 0,
       "renamed": 0,
+      "same_name": 0.97,
       "different": 0.03,
-      "same_name": 0.97
+      "version": 0
     },
-    "merge_is_safe": 0.66,
+    "merge_is_safe": 0.7,
     "gates": {
       "same_name_confident": true,
-      "merge_is_safe": false,
+      "merge_is_safe": true,
       "version_confident": false
     },
     "_ids": [
@@ -967,12 +871,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0,
-      "renamed": 0,
       "different": 0,
-      "version": 1
+      "version": 1,
+      "same_name": 0,
+      "renamed": 0
     },
-    "merge_is_safe": 0.31,
+    "merge_is_safe": 0.26,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -988,19 +892,19 @@
     "tracked": "LVIS v1",
     "reason": "Both cite the same source page, https://arxiv.org/abs/1908.03195. \"LVIS\" is described as: Around 2 million high-quality instance segmentation masks over more than 1,000 object categories across 164,000 images, built so that a long tail of rare categories has very few examples. \"LVIS v1\" is described as: Large-vocabulary instance segmentation with about 2 million high-quality masks for more than 1,000 entry-level object categories across 164,000 images, deliberately long-tailed so many categories have only a handful of examples. Found by scanning descriptions: same source, one name contains the other.",
     "lab": "meta",
-    "decision": "REVIEW",
+    "decision": "SUITE",
     "relation": "version",
     "probabilities": {
       "renamed": 0,
-      "version": 0.51,
-      "different": 0,
-      "same_name": 0.49
+      "same_name": 0.38,
+      "version": 0.62,
+      "different": 0
     },
     "merge_is_safe": 0.79,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": true,
-      "version_confident": false
+      "version_confident": true
     },
     "_ids": [
       "lvis",
@@ -1015,12 +919,12 @@
     "decision": "REVIEW",
     "relation": "different",
     "probabilities": {
-      "renamed": 0.06,
-      "different": 0.71,
       "version": 0.01,
-      "same_name": 0.22
+      "same_name": 0.15,
+      "different": 0.78,
+      "renamed": 0.06
     },
-    "merge_is_safe": 0.29,
+    "merge_is_safe": 0.25,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1039,12 +943,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "different": 0,
-      "renamed": 0.01,
       "same_name": 0.05,
-      "version": 0.94
+      "renamed": 0,
+      "different": 0,
+      "version": 0.95
     },
-    "merge_is_safe": 0.64,
+    "merge_is_safe": 0.62,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1065,10 +969,10 @@
     "probabilities": {
       "renamed": 0,
       "same_name": 0.01,
-      "version": 0.97,
-      "different": 0.02
+      "different": 0.02,
+      "version": 0.97
     },
-    "merge_is_safe": 0.27,
+    "merge_is_safe": 0.29,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1087,12 +991,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
+      "version": 0.96,
       "different": 0.01,
       "same_name": 0.03,
-      "version": 0.96,
       "renamed": 0
     },
-    "merge_is_safe": 0.39,
+    "merge_is_safe": 0.48,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1111,12 +1015,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "version": 0.21,
+      "same_name": 0.58,
       "renamed": 0.01,
-      "different": 0.24,
-      "same_name": 0.54
+      "version": 0.2,
+      "different": 0.21
     },
-    "merge_is_safe": 0.43,
+    "merge_is_safe": 0.41,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1135,12 +1039,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "different": 0,
-      "same_name": 0,
+      "renamed": 0,
       "version": 1,
-      "renamed": 0
+      "different": 0,
+      "same_name": 0
     },
-    "merge_is_safe": 0.4,
+    "merge_is_safe": 0.38,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1160,11 +1064,11 @@
     "relation": "version",
     "probabilities": {
       "renamed": 0.01,
-      "same_name": 0.13,
-      "version": 0.85,
-      "different": 0.01
+      "version": 0.83,
+      "different": 0.01,
+      "same_name": 0.15
     },
-    "merge_is_safe": 0.59,
+    "merge_is_safe": 0.57,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1183,12 +1087,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.02,
-      "version": 0.6,
-      "different": 0.38,
-      "renamed": 0
+      "version": 0.61,
+      "renamed": 0,
+      "same_name": 0.03,
+      "different": 0.36
     },
-    "merge_is_safe": 0.22,
+    "merge_is_safe": 0.2,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1207,12 +1111,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.82,
+      "renamed": 0,
+      "same_name": 0.84,
       "version": 0.01,
-      "different": 0.17,
-      "renamed": 0
+      "different": 0.15
     },
-    "merge_is_safe": 0.66,
+    "merge_is_safe": 0.64,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1231,12 +1135,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "version": 0.98,
-      "different": 0.01,
       "renamed": 0,
-      "same_name": 0.01
+      "different": 0.01,
+      "same_name": 0.01,
+      "version": 0.98
     },
-    "merge_is_safe": 0.27,
+    "merge_is_safe": 0.28,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1255,12 +1159,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
+      "version": 0.98,
       "same_name": 0.01,
       "renamed": 0,
-      "version": 0.98,
       "different": 0.01
     },
-    "merge_is_safe": 0.41,
+    "merge_is_safe": 0.42,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1269,30 +1173,6 @@
     "_ids": [
       "cmteb",
       "cmtebr"
-    ]
-  },
-  {
-    "raw": "DM code contests",
-    "tracked": "CodeContests",
-    "reason": "\"DM code contests\" is described as: DeepMind's competitive programming dataset, with problems gathered from Codeforces, CodeChef, AtCoder, HackerEarth and Aizu, each paired with input-output test cases plus correct and incorrect human submissions. \"CodeContests\" is described as: Competitive programming problems scraped from Codeforces, CodeChef, AtCoder, Aizu and HackerEarth with paired input and output tests plus correct and incorrect human submissions, split by publication date to limit leakage. Found by scanning descriptions: different sources, near-identical descriptions.",
-    "lab": "mistral",
-    "decision": "REVIEW",
-    "relation": "same_name",
-    "probabilities": {
-      "version": 0,
-      "same_name": 0.89,
-      "renamed": 0.02,
-      "different": 0.09
-    },
-    "merge_is_safe": 0.67,
-    "gates": {
-      "same_name_confident": true,
-      "merge_is_safe": false,
-      "version_confident": false
-    },
-    "_ids": [
-      "dmcodecontests",
-      "codecontests"
     ]
   }
 ]

@@ -74,6 +74,24 @@
     ],
     "weboflies": [
       "safety"
+    ],
+    "cursorbench40": [
+      "coding",
+      "agentic"
+    ],
+    "aabriefcase11": [
+      "agentic"
+    ],
+    "hackerbench03": [
+      "safety",
+      "coding"
+    ],
+    "gdpvalaa21": [
+      "agentic",
+      "knowledge"
+    ],
+    "multimodalvirology": [
+      "science"
     ]
   }
 }
