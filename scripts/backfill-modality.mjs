@@ -60,7 +60,16 @@ for (const f of readdirSync(DATA + "/releases")) {
   files[f] = JSON.parse(readFileSync(join(DATA, "releases", f), "utf8"));
   for (const r of files[f]) if (!r.modality) releases.push({ file: f, r });
 }
-const todo = releases.slice(0, LIMIT);
+const byLab = new Map();
+for (const x of releases) {
+  if (!byLab.has(x.r.lab)) byLab.set(x.r.lab, []);
+  byLab.get(x.r.lab).push(x);
+}
+const interleaved = [];
+for (let i = 0; interleaved.length < releases.length; i++) {
+  for (const list of byLab.values()) if (list[i]) interleaved.push(list[i]);
+}
+const todo = interleaved.slice(0, LIMIT);
 console.log(`unclassified: ${releases.length}, doing ${todo.length} in batches of ${BATCH}`);
 if (DRY) { console.log(todo.slice(0, 5).map((x) => `  ${x.r.model} (${x.r.lab})`).join("\n")); process.exit(0); }
 
