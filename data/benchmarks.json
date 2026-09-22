@@ -8829,31 +8829,6 @@
     "recent_share": 2
   },
   {
-    "id": "codearena",
-    "name": "Code Arena",
-    "lab_count": 2,
-    "labs": [
-      "google",
-      "qwen"
-    ],
-    "first_seen": "2024-09-18",
-    "last_seen": "2026-08-13",
-    "labs_by_year": {
-      "2024": 1,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1,
-      "2024-Q4": 1,
-      "2026-Q3": 1
-    },
-    "categories": [
-      "coding"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "codexglue",
     "name": "CodeXGLUE",
     "lab_count": 2,
@@ -20484,6 +20459,49 @@
     ],
     "suite": null,
     "recent_share": 1
+  },
+  {
+    "id": "codearena",
+    "name": "CodeArena",
+    "lab_count": 1,
+    "labs": [
+      "qwen"
+    ],
+    "first_seen": "2024-09-18",
+    "last_seen": "2024-11-12",
+    "labs_by_year": {
+      "2024": 1
+    },
+    "labs_by_quarter": {
+      "2024-Q3": 1,
+      "2024-Q4": 1
+    },
+    "categories": [
+      "coding"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "codearenawebdev",
+    "name": "Code Arena",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-08-13",
+    "last_seen": "2026-08-13",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "coding"
+    ],
+    "suite": null,
+    "recent_share": 0
   },
   {
     "id": "codechef",

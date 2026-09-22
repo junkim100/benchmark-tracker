@@ -12014,5 +12014,11 @@
     "source_url": "https://arxiv.org/html/2409.13711v1",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "codearenawebdev": {
+    "text": "Models build and deploy interactive web applications from a prompt such as building a markdown editor with dark mode, working through create_file, edit_file and read_file calls, with evaluators comparing two builds pairwise on functionality, usability and fidelity.",
+    "source_url": "https://arena.ai/blog/code-arena/",
+    "source": "researched",
+    "checked": "2026-09-22"
   }
 }

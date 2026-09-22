@@ -117,10 +117,8 @@ function relationHTML(a: InfoArgs): string {
       <ul class="sheet__l">${members.map(li).join("")}</ul>`;
   }
   const sid = a.t.suite;
-  if (!sid) {
-    // Said plainly rather than left as an empty heading. Six benchmarks in seven are in no suite, so this is what most panels say, and a reader who sees it twice should recognise it as an answer rather than as something missing.
-    return `<p class="sheet__h">Suite</p><p class="sheet__p">Not part of a suite, so it has no other versions.</p>`;
-  }
+  // Nothing at all when there is no suite. This used to say "Not part of a suite, so it has no other versions", on the reasoning that an answer beats a gap. But six benchmarks in seven are in no suite, so that sentence was the single most common thing the panel said, and a heading whose body is only ever a denial is a heading worth removing: the reader learns that a benchmark has no siblings by not being shown any.
+  if (!sid) return "";
   const others = a.benchmarks.filter((b) => b.suite === sid && b.id !== a.t.id);
   const name = a.suites.find((s) => s.id === sid)?.name ?? sid;
   // Counted off the list rather than read from the suite's own members field, so the number and the names under it can never disagree.

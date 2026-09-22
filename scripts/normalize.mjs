@@ -58,6 +58,11 @@ const aliasByKey = new Map(
     .map(([k, v]) => [key(k), v]),
 );
 
+// The same name meaning different benchmarks to different labs. Qwen's CodeArena is a 397-sample set judged by a model; Google's Code Arena is an Elo ladder for web development, and their model card says so in the row itself. The table above is keyed by the flattened name and a name is all it knows, so it cannot tell them apart and merged them into one row claiming two labs. Consulted before the name-only table, never instead of it.
+const aliasByLab = new Map(
+  Object.entries(aliases._byLab ?? {}).map(([lab, m]) => [lab, new Map(Object.entries(m).map(([k, v]) => [key(k), v]))]),
+);
+
 let dropped = 0;
 // Raw spelling counts per canonical id. Done here because this is the only
 // place the pairing is exact: the canonical list is deduped and filtered, so
@@ -158,8 +163,9 @@ for (const file of files) {
       })
       .map((raw) => {
         const k = key(raw);
-        const id = aliasByKey.get(k) ?? k;   // provisional id until an alias is added
-        if (!aliasByKey.has(k)) unknown.set(k, (unknown.get(k) ?? 0) + 1);
+        const scoped = aliasByLab.get(r.lab)?.get(k);
+        const id = scoped ?? aliasByKey.get(k) ?? k;   // provisional id until an alias is added
+        if (!scoped && !aliasByKey.has(k)) unknown.set(k, (unknown.get(k) ?? 0) + 1);
         const tally = spellings.get(id) ?? new Map();
         tally.set(raw, (tally.get(raw) ?? 0) + 1);
         spellings.set(id, tally);
