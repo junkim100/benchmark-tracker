@@ -45,7 +45,13 @@
       // the browser has asked for the module script. The build rewrites these
       // two strings; see vite-data-boot.ts for why a fetch and not a preload,
       // and for why they live in this script rather than one of their own.
-      window.btData = { core: fetch("BT_CORE_URL"), log: fetch("BT_LOG_URL") };
+      // The benchmark descriptions are a URL and not a fetch. Every visit needs
+      // the two above; the descriptions are read only when a reader opens a
+      // detail panel, and they are about as large as the registry, so starting
+      // them here would undo the split that keeps them off first paint. The
+      // build rewrites this string the same way, so the URL is content-hashed
+      // and the page can never ask for a file from another deploy.
+      window.btData = { core: fetch("BT_CORE_URL"), log: fetch("BT_LOG_URL"), descriptions: "BT_DESC_URL" };
       // Not error handling. Nothing awaits these until main.ts runs, and a
       // rejection meanwhile is a page error with no explanation attached.
       btData.core.catch(function () {});

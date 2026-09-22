@@ -4,3 +4,6 @@ dist/
 
 # Agent worktrees, which are checkouts of this same repository.
 .claude/
+
+# A describe.mjs killed mid-write leaves the half-written file it renames from.
+data/*.tmp

@@ -1,0 +1,84 @@
+name: Describe benchmarks
+
+# Manual only. This is a backfill over a registry that already exists, not something to put on a schedule: a description read off a page stays true, so re-running only touches ids nobody has tried and refusals older than the cutoff in scripts/descriptions.mjs. Run it again after a few hundred new benchmarks have accumulated, or after enough time has passed that the long tail may have grown pages.
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "How many benchmarks to describe, for a trial run. Leave empty for all of them. A limited run is a sample across the registry, not the first N."
+        default: ""
+
+# Read by default, as in the other three workflows. Only the job that commits asks for write.
+permissions:
+  contents: read
+
+# Actions pinned to commits rather than tags, for the reason deploy.yml gives.
+
+jobs:
+  describe:
+    runs-on: ubuntu-latest
+    # A full pass is 2,176 web-search turns at eight-way concurrency, which lands near four hours. Stated rather than left to the six-hour default, so a run that has stopped making progress is cut off with time left to notice: the script writes after every batch, so whatever it had bought is on disk and the next run resumes from there.
+    timeout-minutes: 350
+    permissions:
+      contents: write
+    steps:
+      # No persisted credential, so a repo-write token is not sitting in .git/config while npm install scripts run. The push asks for it by name at the end.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+
+      # The registry first. describe.mjs describes data/benchmarks.json, which is generated, so a stale one would spend the run on ids that no longer exist and skip ones that do.
+      - name: Rebuild the registry
+        run: npm run normalize
+
+      - name: Describe
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # The input reaches the shell as an environment variable rather than as an expression interpolated into the script. Both are equivalent for the numbers this field is for, but an expression is substituted into the script text before bash sees it, so a value carrying a quote and a semicolon runs as commands in a job that holds the API key and can write to the repository. Dispatching already requires write access, so this is depth rather than a hole being closed, and it costs one line.
+          LIMIT: ${{ inputs.limit }}
+        run: |
+          if [ -n "$LIMIT" ]; then
+            node scripts/describe.mjs --limit "$LIMIT"
+          else
+            node scripts/describe.mjs
+          fi
+
+      # The build is the gate. normalize.mjs checks every entry against the same contract describe.mjs checked it against, and against the registry it is filed under, and refuses to write anything if one fails, so a bad pass stops here rather than reaching the site.
+      #
+      # Run even when the step above did not finish, which is the one place this workflow departs from backfill-modality.yml. That pass was minutes long, so losing it to a crash cost a retry; this one is hours, writes after every batch, and a run cut off at the third hour has real work on the runner's disk that is thrown away with the container. Verifying and committing what is there costs nothing and the job still reports red.
+      - name: Verify
+        id: verify
+        if: always()
+        run: npm run build
+
+      # The gate, stated rather than implied. Not `success()`, which is false whenever any earlier step failed, and that is exactly the case this has to cover: what must hold is that the build passed, not that the pass ran to the end.
+      - name: Commit
+        if: ${{ always() && steps.verify.outcome == 'success' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "benchmark-tracker bot"
+          git config user.email "noreply@github.com"
+          # Asked of descriptions.json alone. normalize.mjs stamps a fresh generated_at into timeline.json on every run, so data/ is never clean and a check over the whole directory could never take this branch.
+          if git diff --quiet -- data/descriptions.json; then
+            echo "Nothing to commit."
+            exit 0
+          fi
+          git add data/descriptions.json data/descriptions-site.json data/timeline.json
+          # The refusal rate is the headline, so it goes in the message rather than only in the run log, where nobody reads it after the tab is closed.
+          git commit -m "Describe benchmarks: $(date -u +%Y-%m-%d)
+
+          $(cat descriptions-summary.txt 2>/dev/null || echo 'The pass did not finish. These are the entries it had written when it stopped.')
+
+          Written by scripts/describe.mjs. Every description came from a page the agent opened, recorded in source_url; an entry with source none is one it looked for and did not find, and is re-tried by a later pass once it is old enough.
+          "
+          PUSH_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}"
+          for i in 1 2 3; do
+            git pull --rebase --quiet && git push "$PUSH_URL" HEAD:main && break
+            sleep 5
+          done

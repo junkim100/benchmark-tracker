@@ -10,6 +10,7 @@ import { join, dirname } from "node:path";
 import { CATEGORIES, classify, flatKey, suiteOf } from "./classify.mjs";
 import { MODALITIES, isValidModality, describeModality } from "./modality.mjs";
 import { isOfficialSource, describeAllowed } from "./sources.mjs";
+import { checkDescriptions, siteDescriptions } from "./descriptions.mjs";
 import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -378,6 +379,17 @@ if (releases.length) {
   if (quarters[quarters.length - 1] !== hi) problems.push(`quarters: ran from ${lo} without reaching ${hi}`);
 }
 
+// Benchmark descriptions, checked against the registry that was just built rather than against the raw records, because the one thing that can make a well-formed entry wrong is the id it is filed under. Absent is fine and means scripts/describe.mjs has not run. See scripts/descriptions.mjs for the rules and for why a refusal is a first-class result rather than an error.
+//
+// A contract rather than a hint, on the same footing as source_url. The panel prints the text as a statement of what a benchmark measures and offers source_url as the page it came from, so a researched entry with no URL is an unsourced claim wearing this project's word for it, and an entry filed under an id nothing resolves is a description the site can never show and the pass will keep paying to rewrite.
+const descPath = join(DATA, "descriptions.json");
+const descriptions = existsSync(descPath) ? read(descPath) : {};
+problems.push(...checkDescriptions(descriptions, {
+  ids: new Set(benchmarks.map((b) => b.id)),
+  aliasByKey,
+  today: TODAY,
+}));
+
 // The quarter walk above is the last thing that can fail, and until now its
 // diagnostic was pushed onto a list nobody read again: the guard sits two
 // hundred lines up, so an unreachable end quarter was recorded and then
@@ -393,15 +405,9 @@ if (problems.length) {
 // person or another project reads, and nothing on the site loads it.
 writeFileSync(join(DATA, "benchmarks.json"), JSON.stringify(benchmarks, null, 2) + "\n");
 
-// The two files the site loads are built for the browser rather than for a
-// reader, so they carry only the fields the interface actually renders and are
-// written without indentation. Pretty-printing timeline.json cost 658 kB of
-// whitespace, which the browser downloaded and parsed to no effect.
+// The three files the site loads are built for the browser rather than for a reader, so they carry only the fields the interface actually renders and are written without indentation. Pretty-printing timeline.json cost 658 kB of whitespace, which the browser downloaded and parsed to no effect.
 //
-// They are split because the release log grows forever while the registry does
-// not, and nothing above the fold needs the log: the chart and the picker draw
-// from the registry alone, so the biggest and fastest-growing file is off the
-// path to first paint.
+// They are split by what each screen needs. The chart and the picker draw from the registry alone, so timeline.json is the only one on the path to first paint. The release log grows forever and is read two screens down. The descriptions are read only when somebody opens a detail panel, and at 2,176 entries they are most of a registry's worth of bytes for a panel most visits never open, so they are fetched on that click and not before.
 const site = (value) => JSON.stringify(value) + "\n";
 
 // Benchmark ids inside the log are positions in the registry array, not
@@ -427,6 +433,12 @@ writeFileSync(
     ...(r.modality ? { modality: r.modality.classes } : {}),
   }))),
 );
+
+// Its own asset, deliberately not a field in timeline.json. The registry is already 41 kB gzipped on the critical path and the descriptions are about the same again, for a panel that opens on a click and on many visits never opens at all.
+//
+// Keyed by benchmark id, so the interface looks one up without an index, and carrying only text and source_url: a refusal has nothing to render and the pass's own bookkeeping means nothing to a reader, so an id absent from this file is simply an id with no description. See siteDescriptions in scripts/descriptions.mjs.
+const described = siteDescriptions(descriptions);
+writeFileSync(join(DATA, "descriptions-site.json"), site(described));
 
 writeFileSync(
   join(DATA, "timeline.json"),
@@ -466,6 +478,8 @@ writeFileSync(
     // Enough about the log for the site to size the timeline and date its copy
     // without waiting for the log itself to arrive.
     release_log: { count: releases.length, first: releases.length ? releases[0].date : null },
+    // Two numbers, not the descriptions themselves: how many benchmarks have one, and how many were looked for and not found. The same job modality_coverage does for the scope control. It lets the interface decide at first paint whether a detail panel is worth offering, without fetching a file most visits will not need, and it lets the page say "no description found" rather than "loading" for an id it already knows was searched for.
+    descriptions: { described: Object.keys(described).length, refused: Object.values(descriptions).filter((d) => d.source === "none").length },
   }),
 );
 
@@ -475,6 +489,14 @@ console.log(`releases ${releases.length} · benchmarks ${benchmarks.length} · l
 // keeps the control out of sight until this is worth offering.
 const classified = releases.filter((r) => r.modality).length;
 console.log(`modality: ${classified}/${releases.length} releases classified (${Math.round((classified / releases.length) * 100)}%)`);
+// Coverage and the refusal rate together, because neither means anything alone. A pass that describes everything it touches has stopped refusing rather than found the long tail easy, and three quarters of this registry is cited by exactly one lab, so a low refusal rate is the number to be suspicious of. Printed on every build for the same reason modality coverage is: a panel filled from a partly described registry is a panel that quietly shows nothing for ids nobody decided to leave out.
+const refusedCount = Object.values(descriptions).filter((d) => d.source === "none").length;
+const attempted = Object.keys(described).length + refusedCount;
+const share = (n, d) => (d ? Math.round((n / d) * 100) : 0);
+console.log(
+  `descriptions: ${Object.keys(described).length}/${benchmarks.length} benchmarks described (${share(Object.keys(described).length, benchmarks.length)}%) · ` +
+  `${refusedCount} refused of ${attempted} attempted (${share(refusedCount, attempted)}% refusal rate) · ` +
+  `${benchmarks.length - attempted} never tried`);
 
 if (unknown.size) {
   console.log(`\nBenchmark names with no alias entry (${unknown.size}). Add the real ones to data/aliases.json:`);
