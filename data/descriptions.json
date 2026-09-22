@@ -445,7 +445,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "chinesesimpleqa": {
+  "csimpleqa": {
     "text": "A Chinese short-answer factuality benchmark covering six major topics and 99 subtopics, with static reference answers and responses graded by an LLM, following the SimpleQA format.",
     "source_url": "https://arxiv.org/abs/2411.07140",
     "source": "researched",
@@ -630,12 +630,6 @@
   "cruxevalocot": {
     "text": "The output-prediction half of CRUXEval run with chain-of-thought prompting: given one of 800 short Python functions (3 to 13 lines) and an input, the model must predict what the function returns.",
     "source_url": "https://arxiv.org/abs/2401.03065",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "csimpleqa": {
-    "text": "A Chinese short-answer factuality benchmark covering six topics and 99 subtopics, with static reference answers kept brief so grading can be automated by a model judge.",
-    "source_url": "https://arxiv.org/abs/2411.07140",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -1195,14 +1189,8 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "infographicvqa": {
-    "text": "Question answering over infographic images, requiring joint reasoning over document layout, text, graphical elements and embedded data visualizations, with many questions needing basic arithmetic.",
-    "source_url": "https://arxiv.org/abs/2104.12756",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "infovqa": {
-    "text": "InfographicVQA: visual question answering over infographic images, where questions require jointly reasoning across document layout, textual content, graphical elements and data visualizations, plus elementary arithmetic.",
+    "text": "Question answering over infographic images, requiring joint reasoning over document layout, text, graphical elements and embedded data visualizations, with many questions needing basic arithmetic.",
     "source_url": "https://arxiv.org/abs/2104.12756",
     "source": "researched",
     "checked": "2026-09-22"
@@ -1257,7 +1245,7 @@
     "source": "none",
     "checked": "2026-09-22"
   },
-  "lcb6": {
+  "livecodebench6": {
     "text": "Release v6 of LiveCodeBench, 1,055 competitive programming problems scraped from LeetCode, AtCoder and Codeforces contests held between May 2023 and April 2025 and checked against hidden tests.",
     "source_url": "https://github.com/LiveCodeBench/LiveCodeBench",
     "source": "researched",
@@ -1321,12 +1309,6 @@
   },
   "livecodebench5": {
     "text": "The v5 release of LiveCodeBench: 880 competitive programming problems collected from LeetCode, AtCoder and Codeforces between May 2023 and January 2025, each tagged with a release date so models can be scored only on problems published after their training cutoff.",
-    "source_url": "https://github.com/LiveCodeBench/LiveCodeBench",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "livecodebench6": {
-    "text": "The sixth release window of LiveCodeBench: 1,055 competitive programming problems published between May 2023 and April 2025 on LeetCode, AtCoder and Codeforces, dated so contaminated problems can be filtered out.",
     "source_url": "https://github.com/LiveCodeBench/LiveCodeBench",
     "source": "researched",
     "checked": "2026-09-22"
@@ -1927,12 +1909,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "nq": {
-    "text": "Natural Questions: real anonymized Google search queries paired with a Wikipedia page, where annotators marked a long answer (usually a paragraph) and a short answer (one or more entities), or null if the page contains neither.",
-    "source_url": "https://aclanthology.org/Q19-1026/",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "nyu2": {
     "text": "An indoor scene dataset recorded with a Microsoft Kinect, providing 1,449 densely labelled aligned RGB and depth image pairs from 464 scenes plus over 400,000 raw unlabelled frames.",
     "source_url": "https://cs.nyu.edu/~fergus/datasets/nyu_depth_v2.html",
@@ -1945,7 +1921,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "obqa": {
+  "openbookqa": {
     "text": "OpenBookQA: about 6,000 multiple-choice questions modelled on open book exams, each solvable by combining one of 1,329 elementary science facts with broader common knowledge.",
     "source_url": "https://arxiv.org/abs/1809.02789",
     "source": "researched",
@@ -2044,12 +2020,6 @@
   "openai-moderation": {
     "text": "OpenAI's content moderation evaluation set, built with a taxonomy of undesired content categories such as sexual content, hate, violence, self-harm and harassment, used to test text classifiers.",
     "source_url": "https://arxiv.org/abs/2208.03274",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "openbookqa": {
-    "text": "A multiple-choice QA set of about 6,000 questions paired with a small book of 1,329 elementary science facts, where answering requires combining a book fact with broader common knowledge.",
-    "source_url": "https://arxiv.org/abs/1809.02789",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -4557,12 +4527,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "minimalvideopairsmvpbench": {
-    "text": "55,000 multiple-choice video questions on physical-world understanding, each with a minimal-change partner: a visually similar video and identical question but the opposite answer, and both must be answered correctly to count.",
-    "source_url": "https://arxiv.org/abs/2506.09987",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "parisretrieval": {
     "text": "Landmark image retrieval over photographs of Paris in the revisited annotation, which re-created the ground truth for reliability, added harder queries, defined three protocols of increasing difficulty and supplies a million distractor images.",
     "source_url": "https://arxiv.org/abs/1803.11285",
@@ -4789,7 +4753,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "wenetmeeting": {
+  "wenetspeechmeeting": {
     "text": "The meeting test split of WenetSpeech: 15 hours of far-field, spontaneous Mandarin conversation sampled from 197 real meetings on topics from education to finance, used as a deliberately mismatched speech recognition test.",
     "source_url": "https://arxiv.org/abs/2110.03370",
     "source": "researched",
@@ -5557,12 +5521,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "mmb": {
-    "text": "Short for MMBench: roughly 3,000 single-choice vision questions over 20 fine-grained ability dimensions, graded with CircularEval, which re-asks each question with the answer options rotated and requires every pass to be right.",
-    "source_url": "https://github.com/open-compass/MMBench/blob/main/README.md",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "babelcode": {
     "text": "An execution-based framework that ports code-generation datasets such as HumanEval, MBPP, P3 and Transcoder into other programming languages, generating language-specific test harnesses and running each prediction in a Docker sandbox.",
     "source_url": "https://github.com/google-research/babelcode",
@@ -5934,12 +5892,6 @@
   "chembenchmini": {
     "text": "A 236-question subset of ChemBench, sampled to keep topics and required skills balanced across analytical, organic, physical, inorganic, technical and safety chemistry, mixing multiple-choice and open-ended items.",
     "source_url": "https://arxiv.org/abs/2404.01475",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "csqa": {
-    "text": "CommonsenseQA: 12,247 crowd-written multiple-choice questions seeded from ConceptNet, where the distractors are concepts sharing a relation with the same source concept, so answering needs prior knowledge rather than a passage.",
-    "source_url": "https://arxiv.org/abs/1811.00937",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -6571,12 +6523,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "windogrande": {
-    "text": "44,000 fill-in-the-blank pronoun problems in the Winograd Schema style, crowdsourced and then filtered by the AfLite algorithm to strip word associations that let models answer without reasoning.",
-    "source_url": "https://arxiv.org/abs/1907.10641",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "jnli": {
     "text": "The Japanese natural language inference task in JGLUE: sentence pairs built from Japanese translations of MS COCO captions and labelled entailment, contradiction or neutral, with about 20,000 training and 2,500 test examples.",
     "source_url": "https://github.com/yahoojapan/JGLUE",
@@ -6705,12 +6651,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "weaponsofmassdestructionproxywdmp": {
-    "text": "3,668 multiple-choice questions used as a proxy measure of hazardous knowledge in biosecurity, cybersecurity and chemical security, filtered before release to strip sensitive detail, and also used as a testbed for unlearning methods.",
-    "source_url": "https://arxiv.org/abs/2403.03218",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "youcook2cap": {
     "text": "Captioning the procedure steps of 2,000 YouTube cooking videos covering 89 recipes and 176 hours, where each video carries 3 to 16 temporally localized segments described by an imperative English sentence.",
     "source_url": "https://arxiv.org/abs/1703.09788",
@@ -6769,12 +6709,6 @@
   },
   "tau3retail": {
     "source": "none",
-    "checked": "2026-09-22"
-  },
-  "competitionmath": {
-    "text": "12,500 problems taken from high-school mathematics competitions, each supplied with a full step-by-step worked solution alongside the final answer.",
-    "source_url": "https://arxiv.org/abs/2103.03874",
-    "source": "researched",
     "checked": "2026-09-22"
   },
   "kimidesignbench": {
@@ -7117,7 +7051,7 @@
     "source": "none",
     "checked": "2026-09-22"
   },
-  "dmcodecontests": {
+  "codecontests": {
     "text": "DeepMind's competitive programming dataset, with problems gathered from Codeforces, CodeChef, AtCoder, HackerEarth and Aizu, each paired with input-output test cases plus correct and incorrect human submissions.",
     "source_url": "https://github.com/google-deepmind/code_contests",
     "source": "researched",
@@ -8929,12 +8863,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "codecontests": {
-    "text": "Competitive programming problems scraped from Codeforces, CodeChef, AtCoder, Aizu and HackerEarth with paired input and output tests plus correct and incorrect human submissions, split by publication date to limit leakage.",
-    "source_url": "https://huggingface.co/datasets/deepmind/code_contests",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "gorillaapibench": {
     "text": "Over 11,000 instruction and API-call pairs covering TorchHub, TensorFlow Hub and HuggingFace model APIs; a generated call is checked by matching its abstract syntax tree against the reference.",
     "source_url": "https://arxiv.org/abs/2305.15334",
@@ -8968,18 +8896,6 @@
   "aegis2": {
     "text": "Around 33,000 annotated human and LLM interactions labelled against a taxonomy of 12 core and 9 fine-grained safety violation categories, built for training and testing prompt and response moderation guardrails.",
     "source_url": "https://huggingface.co/datasets/nvidia/Aegis-AI-Content-Safety-Dataset-2.0",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "naturalqa": {
-    "text": "Real anonymised queries issued to Google search, each paired with a Wikipedia page on which an annotator marked a long answer passage and a short answer span, or null when the page contains neither.",
-    "source_url": "https://aclanthology.org/Q19-1026/",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "triqa": {
-    "text": "Mistral's shorthand for TriviaQA: over 650,000 question, answer and evidence triples whose 95,000 questions were authored by trivia enthusiasts, with web and Wikipedia evidence documents gathered afterwards.",
-    "source_url": "https://arxiv.org/abs/1705.03551",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -9498,12 +9414,6 @@
   "arxivmath": {
     "text": "Research-level mathematics with short checkable answers, released in monthly sets of about 40 problems extracted from arXiv papers posted in the preceding month and filtered by automated checks and human review for self-containment and non-triviality.",
     "source_url": "https://matharena.ai/arxivmath/",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "grayswanagentredteamingbenchmark": {
-    "text": "A curated set of high-impact prompt injection attacks distilled from a public competition in which 1.8 million attacks were thrown at 22 frontier agents across 44 deployment scenarios, measuring whether an agent can be pushed into violating its policy.",
-    "source_url": "https://arxiv.org/abs/2507.20526",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -10182,12 +10092,6 @@
   "videochatgptbench": {
     "text": "500 clips from ActivityNet-200 with human-written descriptions, used to generate questions whose free-form video-chat answers are graded by GPT-3.5 on correctness, detail, context, temporal understanding and consistency.",
     "source_url": "https://github.com/mbzuai-oryx/Video-ChatGPT/blob/main/quantitative_evaluation/README.md",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "biasbenchmarkforquestionanswering": {
-    "text": "Hand-written question sets probing nine social biases attested in US English contexts. Each question is asked twice, once with an under-informative context and once with a disambiguating one, to see when a model falls back on the stereotype.",
-    "source_url": "https://arxiv.org/abs/2110.08193",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -11359,12 +11263,6 @@
     "source": "none",
     "checked": "2026-09-22"
   },
-  "socialiqa": {
-    "text": "38,000 multiple-choice questions about everyday social situations, with the wrong answers crowdsourced as correct answers to related questions so stylistic giveaways are stripped out.",
-    "source_url": "https://arxiv.org/abs/1904.09728",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "usdermmcqa": {
     "text": "An internal teledermatology set of one image per patient for 1,996 US patients across 136 skin conditions, recast as four-option multiple choice with the dermatologist's diagnosis among the options.",
     "source_url": "https://arxiv.org/html/2507.05201v4",
@@ -11596,12 +11494,6 @@
   "uniclawbench": {
     "text": "400 bilingual real-world tasks for proactive agents, run in live Docker containers with step-by-step completion checkpoints and a closed loop of executor, hidden supervisor and simulated user.",
     "source_url": "https://arxiv.org/abs/2607.08768",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "wenetspeechmeeting": {
-    "text": "The Test_Meeting split of the WenetSpeech Mandarin corpus, a manually labelled set recorded in real meetings and used as the harder, mismatched speech recognition condition.",
-    "source_url": "https://arxiv.org/abs/2110.03370",
     "source": "researched",
     "checked": "2026-09-22"
   },

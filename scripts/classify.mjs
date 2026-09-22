@@ -38,6 +38,7 @@ export const CATEGORIES = [
 const RE = (s) => new RegExp(s, "i");
 
 // [pattern, primary, secondary]
+// These rules run on the benchmark's name as a lab wrote it, not on the flattened key, so an alternative without a word boundary matches inside a longer word. Three did. "swe.?bench" found AnswerBench inside IMOAnswerBench and filed a four-lab olympiad maths benchmark under Coding; "mt.?bench" found MT-Bench inside MMT-Bench and CMT-Benchmark; "arc.?c" found archC inside FinSearchComp. Same shape as \bbench\b sweeping every benchmark into reasoning and "gui" matching inside psycholinguistic: a short alternative in a long list is where this hides.
 const RULES = [
   // Safety and security first: a hazardous-capability benchmark is about the
   // hazard even when its subject is biology or code.
@@ -46,7 +47,7 @@ const RULES = [
   [RE("\\bsafety\\b|guardrail|alignment|honest|frontier.?risk|dangerous|biorisk|bioweapon"), "safety", null],
 
   // Coding, before agentic and multilingual so hybrid names land here.
-  [RE("swe.?bench|swebench|swe.?agent|swe.?gym|swe.?lancer|swe.?rebench|deepswe|frontierswe"), "coding", "agentic"],
+  [RE("\\bswe.?bench|\\bswebench|\\bswe.?agent|\\bswe.?gym|\\bswe.?lancer|\\bswe.?rebench|deepswe|frontierswe"), "coding", "agentic"],
   [RE("terminal.?bench|terminalbench"), "coding", "agentic"],
   [RE("humaneval|\\bmbpp|livecodebench|codeforces|leetcode|codecontest|\\bapps\\b|cruxeval|multipl.?e|polyglot|aider|bigcodebench|classeval|repobench|commitpack|ds.?1000|evalplus|mercury|bird.?sql|spider|text.?to.?sql|scicode|programbench|kernelbench|frontendbench|webdev|humanevalfim"), "coding", null],
   [RE("\\bcode\\b|coding|program(ming|bench)?\\b|compil|debug|refactor|unit.?test|pull.?request|\\brepo\\b|repositor|\\bsql\\b|\\bml.?e?.?bench|kaggle"), "coding", null],
@@ -75,7 +76,7 @@ const RULES = [
   [RE("mmmu|\\bai2d\\b|chartqa|charxiv|chartograph|docvqa|infovqa|omnidoc|\\bocr|infographic|\\bvqa|textvqa|okvqa|\\bgqa\\b|\\bcoco\\b|refcoco|nocaps|flickr|\\bpope\\b|blink|realworldqa|zerobench|cv.?bench|erqa|mmbench|mmstar|mmvet|\\bmme\\b|seedbench|hallusion|countbench|geneval|drawbench|\\bmmvu\\b|\\bmvbench|motionbench|vsi.?bench|embspatial|egoschema|charades|caption|visual|vision|\\bimage|\\bvideo|screen|diagram|\\bchart|document.?understand|spatial|\\bposter"), "vision", null],
 
   // Speech and audio.
-  [RE("librispeech|fleurs|aishell|covost|voxpopuli|\\basr\\b|speech|\\baudio|voice|\\btts\\b|whisper|acoustic|\\bmusic|\\bsound|\\bmmau\\b|\\bmmsu\\b"), "speech", null],
+  [RE("librispeech|fleurs|aishell|covost|voxpopuli|\\basr\\b|speech|\\baudio|voice|\\btts\\b|instructtts|whisper|acoustic|\\bmusic|\\bsound|\\bmmau\\b|\\bmmsu\\b"), "speech", null],
 
   // Multilingual.
   [RE("mmmlu|gmmlu|global.?mmlu|multiling|\\bflores|xquad|tydi|belebele|m3exam|xcopa|xnli|\\bwmt\\b|translat|include|cluewsc|alignbench|chinese|korean|japanese|arabic|hindi|indic|african|swahili|\\bzh\\b"), "multilingual", null],
@@ -85,7 +86,7 @@ const RULES = [
   [RE("ifeval|ifbench|instruction.?follow|multichallenge|\\bcollie\\b|format.?follow"), "reasoning", null],
 
   // Knowledge and exams.
-  [RE("\\bmmlu|\\bhle\\b|humanity.?s.?last|simpleqa|triviaqa|natural.?question|openbookqa|\\bboolq|truthfulqa|freshqa|\\bnq\\b|agieval|\\bc.?eval\\b|cmmlu|gaokao|\\bexam|\\bbar.?exam|\\bmbe\\b|arena.?hard|mt.?bench|alpacaeval|chatbot.?arena|lmarena|\\bmteb\\b|\\bquiz|knowledge|\\bqa\\b"), "knowledge", null],
+  [RE("\\bmmlu|\\bhle\\b|humanity.?s.?last|simpleqa|triviaqa|natural.?question|openbookqa|\\bboolq|truthfulqa|freshqa|\\bnq\\b|agieval|\\bc.?eval\\b|cmmlu|gaokao|\\bexam|\\bbar.?exam|\\bmbe\\b|arena.?hard|\\bmt.?bench|alpacaeval|chatbot.?arena|lmarena|\\bmteb\\b|\\bquiz|knowledge|\\bqa\\b"), "knowledge", null],
 
   // Reasoning. The list used to end in \bbench\b, which is not a reasoning
   // word, it is the word almost every benchmark is named after. Because this is
@@ -96,7 +97,7 @@ const RULES = [
   // SEC-Bench Pro is security and Reward Bench is reward models. "Other" is a
   // statement that the rules have no opinion, which is true and which the
   // category filter can show honestly. "Reasoning" was a claim, and a wrong one.
-  [RE("\\bbbh\\b|big.?bench|hellaswag|winogrande|arc.?agi|\\barc\\b|arc.?c|arc.?e|ai2.?reasoning|piqa|siqa|\\bcopa\\b|commonsense|\\bdrop\\b|\\banli\\b|\\brace\\b|logiqa|zebra|\\bmusr\\b|puzzle|riddle|sudoku|planning|\\blogic|reasoning|\\bcot\\b|multi.?step"), "reasoning", null],
+  [RE("\\bbbh\\b|big.?bench|hellaswag|winogrande|arc.?agi|\\barc\\b|\\barc.?c|\\barc.?e|ai2.?reasoning|piqa|siqa|\\bcopa\\b|commonsense|\\bdrop\\b|\\banli\\b|\\brace\\b|logiqa|zebra|\\bmusr\\b|puzzle|riddle|sudoku|planning|\\blogic|reasoning|\\bcot\\b|multi.?step"), "reasoning", null],
 ];
 
 /** The one lookup key. Everything that has to decide whether two spellings name

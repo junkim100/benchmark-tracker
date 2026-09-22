@@ -85,7 +85,11 @@
         "math23k",
         "mathodyssey",
         "mathqa",
-        "mathbench"
+        "mathbench",
+        "mathverse",
+        "mathvl",
+        "math401",
+        "mathinstruct"
       ]
     },
     {

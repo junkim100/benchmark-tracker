@@ -295,8 +295,9 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
     flex: none; display: flex; align-items: center; justify-content: space-between; gap: var(--s-xs);
     min-height: 44px; padding: 0 2px 0 var(--s-md); border-bottom: 1px solid var(--border);
   }
-  /* No bar at all until there is something to name, so the empty panel is one block of text and not a blank strip above it. */
-  .detail__bar:not(:has(.detail__t:not(:empty))) { display: none; }
+  /* Collapsed rather than removed while there is nothing to name. display:none would take .detail__t out of the render tree with it, and a live region that becomes rendered and receives its text in the same frame is a new region to a screen reader rather than a changed one, so the title never announced. Zero height keeps the empty panel looking like one block of text. */
+  .detail__bar { overflow: hidden; }
+  .detail__bar:not(:has(.detail__t:not(:empty))) { min-height: 0; height: 0; border-bottom: 0; }
   .detail__t {
     margin: 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     font-size: 17px; font-weight: 600; letter-spacing: -0.022em;
@@ -323,11 +324,11 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
 /* Selection is a border upgrade and a tick, not a wash of colour: the same
    grammar the subject chips use, and it keeps the card from fighting the
    series colours in the chips directly above. */
-.bcard[aria-selected="true"] {
+.bcard[aria-pressed="true"] {
   border: 2px solid var(--accent-focus); padding: 11px 16px;
 }
-.bcard[aria-selected="true"] .bcard__name { color: var(--accent); }
-.bcard[aria-selected="true"] .bcard__name::after {
+.bcard[aria-pressed="true"] .bcard__name { color: var(--accent); }
+.bcard[aria-pressed="true"] .bcard__name::after {
   content: ""; display: inline-block; width: 11px; height: 6px; margin-left: 7px;
   border-left: 2px solid currentColor; border-bottom: 2px solid currentColor;
   transform: rotate(-45deg) translateY(-2px); vertical-align: middle;
@@ -344,7 +345,7 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
 @media (max-width: 460px) { .bcard__sep { display: block; height: 0; overflow: hidden; } }
 /* A suite and a category gather other things, so they read as containers. */
 .bcard--suite, .bcard--category { border-style: dashed; }
-.bcard--suite[aria-selected="true"], .bcard--category[aria-selected="true"] { border-style: solid; }
+.bcard--suite[aria-pressed="true"], .bcard--category[aria-pressed="true"] { border-style: solid; }
 
 /* The card and its info button. Two sibling buttons rather than one inside the other, because a button cannot contain a button, so the wrapper is what the grid lays out and the card fills it. */
 .bcardw { position: relative; display: grid; }

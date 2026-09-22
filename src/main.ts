@@ -474,7 +474,22 @@ function render(data: Timeline) {
     d.querySelector<HTMLElement>(".detail__body")!.innerHTML = html;
     d.querySelector<HTMLElement>(".detail__x")!.hidden = !title;
   };
-  const clearDetail = () => { paintDetail("", ""); clearPicked(); };
+  /** Empty the column, putting focus somewhere deliberate first.
+   *
+   *  The close button is inside the thing it closes, and clearing hides it, so whoever pressed it by keyboard was left on <body> and the next Tab resumed past the entire browse panel, well below the card they were reading. Focus goes back to the card the panel was describing, which is where that reader was before they opened it. */
+  /** Close whatever is showing, on either surface.
+   *
+   *  There are two panels for one job, chosen by width, and nothing used to say that only one may be open. Three separate bugs came out of that: a tap opens the sheet at any width because touch is decided per pointer event rather than per breakpoint, so on a touchscreen laptop the sheet and the column could sit open describing different benchmarks; an 8px resize across 1200px slipped under the redraw's threshold and left the same pair open; and going wide to narrow left the hidden column still holding its content and its highlight. */
+  const closePanels = () => { sheet.hide(); clearDetail(); };
+
+  const clearDetail = () => {
+    const picked = document.querySelector<HTMLElement>(".bcard.is-picked");
+    const inside = detailEl()?.contains(document.activeElement) ?? false;
+    paintDetail("", "");
+    // Only the card this panel was describing. clearPicked() drops every .is-picked on the page, including a timeline mark or a chart band whose own sheet is still open, so pressing the fold used to un-highlight a mark that the panel beside it was still about.
+    picked?.classList.remove("is-picked");
+    if (inside) (picked ?? document.querySelector<HTMLElement>(".fold"))?.focus();
+  };
 
   /** What a press on a card's info button opens.
    *
@@ -490,7 +505,9 @@ function render(data: Timeline) {
     // Above 1200px the browse panel carries a detail column beside the results and the bottom sheet is not used for this at all; below it there is no room for a column and the press opens the sheet, which is what every other touch interaction on the page opens. Which one is live is read off the element rather than from a second copy of the breakpoint here: the column is display:none below it, so offsetParent is null, and the CSS stays the only place the number appears.
     const open = (desc: Description | null) => {
       const r = infoSheet({ t, benchmarks: data.benchmarks, suites: data.suites, labs, releases: log && inView(log), desc });
-      if (detailLive()) { paintDetail(r.title, r.html); return; }
+      // Closing the other one first. Whichever surface this width uses, the other must not be left open behind it.
+      if (detailLive()) { sheet.hide(); paintDetail(r.title, r.html); return; }
+      paintDetail("", "");
       sheet.show(r);
     };
     if (descs) { open(descs[key] ?? null); return; }
@@ -511,11 +528,17 @@ function render(data: Timeline) {
   document.addEventListener("click", (e) => {
     const t = e.target as Element;
     if (t.closest(".detail__x")) { clearDetail(); return; }
+    // Escape closes the column too. It closed the sheet and not the column, so the same key did different things at different widths for the same content.
+
     // Folding the list away clears what was being read about it. The fold only
     // toggles the panel's hidden attribute, so without this the detail survived
     // a close and a reopen while the highlight on its card did not, and the
     // panel came back naming a benchmark nothing on screen pointed at.
     if (t.closest(".fold")) clearDetail();
+  });
+  addEventListener("keydown", (e) => {
+    // The sheet binds its own Escape. Without this the same key closed the panel at 1199px and did nothing at 1200px, for the same content.
+    if (e.key === "Escape" && detailLive()) clearDetail();
   });
 
   const draw = () => {
@@ -527,6 +550,7 @@ function render(data: Timeline) {
     sheet.hide();
     clearPicked();
     renderFilter($(".controls"), {
+      onResults: closePanels,
       trackables, categories: data.categories, tracked,
       recentLabel: `the ${recentMonths} months to ${fmtMonth(win.to)}`,
       sinceLabel: fmtMonth(data.release_log.first),
@@ -736,9 +760,12 @@ function render(data: Timeline) {
   // now, so the reader's place in it is the page's scroll position, which the
   // browser keeps on its own.
   let chartW = $(".trendwrap").getBoundingClientRect().width;
+  let live = detailLive();
   window.addEventListener("resize", () => {
     const w = $(".trendwrap").getBoundingClientRect().width;
-    if (Math.abs(w - chartW) > 8) { chartW = w; draw(); }
+    if (Math.abs(w - chartW) > 8) { chartW = w; draw(); return; }
+    // A width change too small to be worth redrawing the chart can still cross 1200px and swap which panel is live, leaving the other one open behind it. Eight pixels is a tiled window or a zoom step, not a resize.
+    if (live !== detailLive()) { live = detailLive(); closePanels(); }
   });
 
   // A way back up. The timeline runs about 2,800px, so reaching its foot puts

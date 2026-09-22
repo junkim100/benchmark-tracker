@@ -24,6 +24,8 @@ export interface FilterArgs {
   onToggle: (id: string) => void;
   /** A press on a card's info button. The panel it opens belongs to main.ts, which is the only place that holds the release log the panel is derived from. */
   onInfo: (id: string) => void;
+  /** Called whenever the result cards are rewritten. Every card node is replaced, so whatever the detail panel was describing has just stopped existing on screen. */
+  onResults?: () => void;
 }
 
 // Folded shut on arrival, so the chart and the timeline are the first things
@@ -222,7 +224,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
         </div>
       </div>
       <div class="browse__split">
-        <div class="browse__results" role="listbox" aria-label="Benchmarks"></div>
+        <div class="browse__results" role="group" aria-label="Benchmarks, suites and subjects"></div>
         <aside class="detail" aria-label="Benchmark details">
           <div class="detail__in">
             <div class="detail__bar">
@@ -378,19 +380,23 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
       // No title attribute. It restated the two numbers already printed on the card and explained above it in the note, and a hover tooltip is not something a finger can ask for, so on a phone it was 30 cards' worth of text nobody could reach. The note is the explanation for both pointers.
       //
       // What a title attribute could never do is say what the benchmark actually is, which is the one question a card cannot answer on its face. That is what the info button is for, and it is a press rather than a hover for the same reason the title attribute went: a finger cannot ask for a hover.
-      const card = `<button type="button" role="option" class="bcard bcard--${t.kind}" data-id="${esc(t.id)}"
-               aria-selected="${on}" ${!on && full ? "disabled" : ""}>
+      const card = `<button type="button" class="bcard bcard--${t.kind}" data-id="${esc(t.id)}"
+               aria-pressed="${on}" ${!on && full ? "disabled" : ""}>
         <span class="bcard__name">${esc(label)}</span>
         <span class="bcard__meta">${esc(meta)}</span>
         <span class="bcard__n"><b>${t.lab_count}</b> lab${t.lab_count === 1 ? "" : "s"}<span class="bcard__sep"> · </span><b>${t.recent_share}%</b> of recent releases</span>
       </button>`;
-      // The info button is a sibling of the card rather than a child of it, because a button cannot contain a button and the card has been a button since it existed. The wrapper positions the two and is role="presentation" so it is dropped from the accessibility tree: without that, a generic element between the listbox and its options breaks the ownership that makes them options at all.
+      // The info button is a sibling of the card rather than a child of it, because a button cannot contain a button and the card has been a button since it existed.
+      //
+      // The wrapper used to be role="presentation" so that a generic element could not come between a listbox and its options. That was the right reasoning about the wrong structure: dropping the wrapper promoted the info button to a direct child of the listbox too, and role=listbox owns only options, so Chrome reported thirty options and thirty buttons as siblings and a screen reader's "x of y" had nothing sound to count. These were never a listbox in the first place. There is no arrow-key navigation, no aria-activedescendant and no single-selection model; each card is a toggle that tracks or untracks, which is what aria-pressed says, and the container is a labelled group. The wrapper is then just a wrapper.
       //
       // Not offered on a category card. A category gathers a subject rather than versions of one evaluation, so the panel's list of other members would run to hundreds of names that are related only by sharing a shelf, and there is no suite, no description and no single thing for the panel to be about.
       const info = t.kind === "category" ? ""
         : `<button class="bcard__i" type="button" data-info="${esc(t.id)}" aria-label="About ${esc(label)}">${INFO_ICON}</button>`;
-      return `<div class="bcardw" role="presentation">${card}${info}</div>`;
+      return `<div class="bcardw">${card}${info}</div>`;
     }).join("");
+    // Every card node above is new, so any .is-picked highlight is gone. Search, sort, grouping, subject and paging all land here without going through the full redraw, and the panel used to survive all five: it kept naming a benchmark that nothing on screen pointed at, which is the exact state the redraw's own comment describes as wrong.
+    a.onResults?.();
   };
 
   const paintChips = () => {
