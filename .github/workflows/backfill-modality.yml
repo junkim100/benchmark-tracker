@@ -33,9 +33,11 @@ jobs:
       - name: Classify
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Through the environment, not interpolated into the script. An expression is substituted into the run block's text before bash parses it, so a value carrying a command substitution executes it, in a job holding the API key and able to write to the repository. describe.yml took this fix and explained it; this workflow was never updated to match. Dispatch already needs write access, so this is depth rather than an open hole, and it costs one line.
+          LIMIT: ${{ inputs.limit }}
         run: |
-          if [ -n "${{ inputs.limit }}" ]; then
-            node scripts/backfill-modality.mjs --limit "${{ inputs.limit }}"
+          if [ -n "$LIMIT" ]; then
+            node scripts/backfill-modality.mjs --limit "$LIMIT"
           else
             node scripts/backfill-modality.mjs
           fi

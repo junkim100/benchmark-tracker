@@ -80,6 +80,9 @@ const isHttpUrl = (u: string): boolean => {
   }
 };
 
+/** The site a URL points at, or nothing when it is not a URL this site will follow. Both callers want the same thing and one of them used to call new URL bare, which throws rather than returning empty. */
+const hostOf = (u: string): string => (isHttpUrl(u) ? new URL(u).hostname.replace(/^www\./, "") : "");
+
 // How far the year sits below its month label.
 const YEAR_DY = 18;
 const MONTH = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -336,7 +339,7 @@ function pickHTML(
   const one = (r: Release) => {
     // Guarded, because new URL throws and this runs inside a template that
     // would otherwise take the whole panel down with one bad row.
-    const site = isHttpUrl(r.source_url) ? new URL(r.source_url).hostname.replace(/^www\./, "") : "";
+    const site = hostOf(r.source_url);
     const n = r.benchmarks.length;
     return `<div class="sheet__rel">
       <p class="sheet__m">${esc(r.model)}</p>
@@ -381,7 +384,7 @@ export function tooltipHTML(rs: Release[], names: string[], shown = 8, blocks = 
     // than as the word "undefined".
     return `<div class="tt__h">${esc(r.model)}</div>
       <div class="tt__m">${esc(KIND_LABEL[r.kind] ?? r.kind)}, ${esc(r.date)}</div>
-      <div class="tt__src">${esc(new URL(r.source_url).hostname.replace(/^www\./, ""))}</div>
+      <div class="tt__src">${esc(hostOf(r.source_url))}</div>
       <ul class="tt__l">${bs}</ul>`;
   };
   const MAX_RELEASES = releases;

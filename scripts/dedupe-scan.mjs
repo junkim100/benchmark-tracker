@@ -108,6 +108,10 @@ if (!process.argv.includes("--gate")) {
 // Put every candidate to the gate and write the verdicts where a person can read them.
 //
 // In chunks, because one call carrying 276 pairs is one call to lose. PYTHON is honoured the way research.mjs honours it, so CI can point at an interpreter that has the SDK; without it the gate fails closed and every pair lands in review, which is the correct outcome for a missing dependency rather than an outage to work around.
+// Any key this process can see, kept out of the file it writes.
+const SECRETS = [process.env.TYPESAFE_API_KEY, process.env.ANTHROPIC_API_KEY].filter((k) => k && k.length >= 8);
+const scrub = (s) => SECRETS.reduce((acc, k) => acc.split(k).join("[redacted]"), String(s ?? ""));
+
 const py = process.env.PYTHON ?? "python3";
 const verdicts = [];
 for (let i = 0; i < out.length; i += 25) {
@@ -118,7 +122,8 @@ for (let i = 0; i < out.length; i += 25) {
   let got = null;
   if (r.status === 0 && r.stdout) { try { got = JSON.parse(r.stdout); } catch { got = null; } }
   if (!got || got.length !== chunk.length) {
-    const why = r.error?.message ?? r.stderr?.slice(0, 160) ?? `exit ${r.status}`;
+    // Scrubbed, because this string is written into data/dedupe-queue.json and that file is committed to a public repository. research.mjs scrubs the same subprocess's stderr for the same reason and explains it: GitHub masks secrets in a run log, which is a different protection and does not cover a file in the tree. Nothing has been shown to put a key on alias-gate.py's stderr; this costs one line and does not depend on that staying true.
+    const why = scrub(r.error?.message ?? r.stderr?.slice(0, 160) ?? `exit ${r.status}`);
     verdicts.push(...chunk.map((c) => ({ ...c, decision: "REVIEW", unavailable: `gate_failed: ${why}` })));
   } else {
     verdicts.push(...got.map((g, k) => ({ ...g, _ids: chunk[k]._ids })));

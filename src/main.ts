@@ -209,7 +209,7 @@ function render(data: Timeline) {
       <div class="tile__in">
         <p>Every release is recorded from the lab's own site, model card, system card or arXiv paper, never from news coverage or a third-party leaderboard. A benchmark's description cites whichever page explains that benchmark, which is usually its paper, repository or dataset card, and sometimes the site that publishes it. No score is recorded anywhere.</p>
         <p>Lab names and marks are the trademarks of their respective owners, shown to identify whose releases each column lists. This site reports on these companies and is neither endorsed by nor affiliated with any of them.</p>
-        <p>Updated ${data.generated_at.slice(0, 10)}.</p>
+        <p>Updated ${/^\d{4}-\d{2}-\d{2}$/.test(data.generated_at.slice(0, 10)) ? data.generated_at.slice(0, 10) : "unknown"}.</p>
         <p class="ft__legal">&copy; ${new Date().getUTCFullYear()} Jun Kim. Code under the MIT licence, data under CC BY 4.0. Lab marks are excluded from both.</p>
       </div>
     </footer>
