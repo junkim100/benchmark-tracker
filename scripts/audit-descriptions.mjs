@@ -172,7 +172,8 @@ function audit(entries, registry, labs) {
   }
   for (const r of confident) {
     const own = r.fact.name.toLowerCase().replace(/[^a-z0-9]/g, "");
-    const words = r.t.text.toLowerCase().match(/[a-z0-9+#.-]+/g) ?? [];
+    const raw = r.t.text.match(/[A-Za-z0-9+#.-]+/g) ?? [];
+    const words = raw.map((w) => w.toLowerCase());
     const hits = new Set();
     for (let i = 0; i < words.length; i++) {
       for (let n = 1; n <= 3 && i + n <= words.length; n++) {
@@ -181,6 +182,8 @@ function audit(entries, registry, labs) {
         if (!other || other.id === r.fact.id) continue;
         if (own.includes(flat) || flat.includes(own)) continue;       // a family member inside its own name
         if (other.suite && other.suite === r.fact.suite) continue;     // same suite, a fair thing to mention
+        // Names are flattened to letters and digits, so \u03c4\u00b3-Banking is stored as "banking" and the word banking in running prose looks like a citation of it. Sixty-three of the sixty-three entries this rule flagged were that: "four professional scenarios (data science, product management, banking, corporate strategy)" and "instruction-following", matched against \u03c4\u00b3-Banking and IFEval. A benchmark named in prose is written as a name, so require the untouched span to carry a capital or a digit.
+        if (!/[A-Z0-9]/.test(raw.slice(i, i + n).join(""))) continue;
         hits.add(other.name);
       }
     }

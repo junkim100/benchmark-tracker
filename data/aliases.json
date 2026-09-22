@@ -113,5 +113,10 @@
   "swe verified": "swe-bench-verified",
   "swe multilingual": "swebenchmultilingual",
   "swe pro": "swebenchpro",
-  "swe agentless": "swebenchagentless"
+  "swe agentless": "swebenchagentless",
+  "race": "race",
+  "raceh": "raceh",
+  "racehigh": "raceh",
+  "racem": "racem",
+  "racemiddle": "racem"
 }

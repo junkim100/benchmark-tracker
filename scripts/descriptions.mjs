@@ -25,8 +25,8 @@ export const SOURCES = new Set(["researched", "none"]);
 const FIELDS = new Set(["text", "source_url", "source", "checked"]);
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 
-// The same rule normalize.mjs applies to benchmark names, for the same reason: this project records which benchmarks labs cite and never how well they did, so a number reading as a result is a contract breach wherever it appears. Only a percentage or an explicit "name: 88.7" counts, so "a 500-problem subset" and "GPQA Diamond 2" are both fine.
-const SCORE = /\d\s*%|[:=]\s*\d/;
+// This project records which benchmarks labs cite and never how well anyone did, so a number reading as a result is a contract breach wherever it appears. normalize.mjs line 150 enforces that on names, where a colon before any digit is enough because a name is a few words long. A description is prose, and prose says "The AI2 Reasoning Challenge: 7,787 questions" and "scored by F1" and "v1.1 corrected the reference answers", none of which is a result. So the rule here asks for the shape of a result claim instead: a percentage, a pass@k, a superlative, a decimal after a colon (a count is a whole number, a score rarely is), or a verb of achievement with a number as its object. "Judged by a GPT-4 grader" names the method and stays; "reaches 74 on the private split" does not.
+export const SCORE = /\d\s*%|\bpass@\d|[:=]\s*\d+\.\d|\bSOTA\b|state[- ]of[- ]the[- ]art|\b(?:scores?|scored|achieves?|achieved|reaches?|reached|solves?|solved|beats?|outperforms?)\s+(?:about|around|roughly|nearly|only|just|a|an|the)?\s*\d/i;
 
 /** Collapse the whitespace a model puts in a two-sentence answer, so the stored text is one line and two entries that differ only in wrapping are one entry. */
 export const tidy = (s) => String(s ?? "").replace(/\s+/g, " ").trim();

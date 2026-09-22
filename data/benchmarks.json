@@ -3705,6 +3705,40 @@
     "recent_share": 2
   },
   {
+    "id": "raceh",
+    "name": "RACE-High",
+    "lab_count": 5,
+    "labs": [
+      "anthropic",
+      "deepseek",
+      "google",
+      "mistral",
+      "xiaomi"
+    ],
+    "first_seen": "2023-05-17",
+    "last_seen": "2026-01-13",
+    "labs_by_year": {
+      "2023": 2,
+      "2024": 2,
+      "2025": 1,
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2023-Q2": 1,
+      "2023-Q3": 1,
+      "2024-Q1": 2,
+      "2024-Q2": 1,
+      "2024-Q4": 1,
+      "2025-Q2": 1,
+      "2026-Q1": 1
+    },
+    "categories": [
+      "reasoning"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "refcocog",
     "name": "RefCOCOg",
     "lab_count": 5,
@@ -7026,35 +7060,6 @@
     "categories": [
       "longctx",
       "knowledge"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "racehigh",
-    "name": "RACE-High",
-    "lab_count": 3,
-    "labs": [
-      "deepseek",
-      "mistral",
-      "xiaomi"
-    ],
-    "first_seen": "2024-01-05",
-    "last_seen": "2026-01-13",
-    "labs_by_year": {
-      "2024": 1,
-      "2025": 1,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q1": 1,
-      "2024-Q2": 1,
-      "2024-Q4": 1,
-      "2025-Q2": 1,
-      "2026-Q1": 1
-    },
-    "categories": [
-      "reasoning"
     ],
     "suite": null,
     "recent_share": 0
@@ -12800,23 +12805,24 @@
     "recent_share": 0
   },
   {
-    "id": "raceh",
-    "name": "RACE-H",
+    "id": "racem",
+    "name": "RACE-Middle",
     "lab_count": 2,
     "labs": [
-      "anthropic",
+      "deepseek",
       "google"
     ],
     "first_seen": "2023-05-17",
-    "last_seen": "2024-03-04",
+    "last_seen": "2024-12-27",
     "labs_by_year": {
-      "2023": 2,
+      "2023": 1,
       "2024": 1
     },
     "labs_by_quarter": {
       "2023-Q2": 1,
-      "2023-Q3": 1,
-      "2024-Q1": 1
+      "2024-Q1": 1,
+      "2024-Q2": 1,
+      "2024-Q4": 1
     },
     "categories": [
       "reasoning"
@@ -41322,50 +41328,6 @@
     },
     "categories": [
       "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "racem",
-    "name": "RACE-M",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2023-05-17",
-    "last_seen": "2023-05-17",
-    "labs_by_year": {
-      "2023": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q2": 1
-    },
-    "categories": [
-      "reasoning"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "racemiddle",
-    "name": "RACE-Middle",
-    "lab_count": 1,
-    "labs": [
-      "deepseek"
-    ],
-    "first_seen": "2024-01-05",
-    "last_seen": "2024-12-27",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q1": 1,
-      "2024-Q2": 1,
-      "2024-Q4": 1
-    },
-    "categories": [
-      "reasoning"
     ],
     "suite": null,
     "recent_share": 0

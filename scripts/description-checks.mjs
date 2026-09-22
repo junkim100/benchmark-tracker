@@ -10,6 +10,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { isOfficialSource } from "./sources.mjs";
+import { SCORE } from "./descriptions.mjs";
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 export const DATA = join(ROOT, "data");
@@ -158,16 +159,13 @@ const HEDGE_PATTERNS = [
   /\bno (further|public) details\b/i,
 ];
 
-// A score is the one thing SCHEMA.md forbids outright and the footer repeats to the reader. A count that describes the benchmark is fine and common: MMLU covers 57 subjects, GPQA Diamond has 198 questions. What is not fine is a result. So the test is a number in the company of a result word, plus the result formats that need no company at all.
+// A score is the one thing SCHEMA.md forbids outright and the footer repeats to the reader. A count that describes the benchmark is fine and common: MMLU covers 57 subjects, GPQA Diamond has 198 questions. What is not fine is a result.
+//
+// The first entry is the build's own rule, imported rather than restated. The audit used to keep a second, looser copy, and the two disagreeing is worse than either being wrong: the build accepted "scored by F1" and "128k context, scored by a judge" as the method descriptions they are, then the audit flagged all eleven of them as scores on every run, so the finding could never go to zero and stopped carrying information. The rest are formats the build's rule does not cover and that cannot be anything but a result.
 const SCORE_PATTERNS = [
-  /\b\d{1,3}(\.\d+)?\s?%/,
-  /\bpass@\d+/i,
-  /\b(elo|mmr)\s?(rating|score)?\s?[:of]*\s?\d/i,
-  /\b(scor(e|es|ed|ing)|accurac(y|ies)|f1|auc|bleu|rouge|win rate|success rate|solve rate|top-\d)\b[^.]{0,40}\b\d/i,
-  /\b\d[^.]{0,40}\b(scor(e|es|ed|ing)|accuracy|f1 score|win rate|success rate|solve rate)\b/i,
-  /\bstate[- ]of[- ]the[- ]art\b/i,
-  /\bachiev(e|es|ed|ing)\b[^.]{0,30}\b\d/i,
-  /\bleaderboard\b/i,
+  SCORE,
+  /\b(elo|mmr)\s+(rating|score)\s+(of\s+)?\d/i,
+  /\b(accuracy|win rate|success rate|solve rate|f1|auc|bleu|rouge)\s+(of\s+)?\d/i,
 ];
 
 // Scaffolding that carries no information about a particular benchmark. Stripping it is how a restatement of the name is told from a description: "SWE-bench Verified is a benchmark called SWE-bench Verified" is all name and all scaffolding, and what remains once both are gone is the part a reader learns something from.
@@ -409,6 +407,11 @@ const CATEGORY_WORDS = {
   reasoning: ["commonsense", "logical reasoning", "puzzle", "deductive"],
 };
 
+// Matched on word boundaries rather than as a substring. A raw indexOf found "gui" inside "psycholinguistic" and filed a text-generation bias set under agentic, and would equally find "ocr" inside "mediocre" and "bias" inside "unbiased". Built once, because this runs per word per category per description.
+const WORD = new Map(
+  Object.values(CATEGORY_WORDS).flat().map((w) => [w, new RegExp(`\\b${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`)]),
+);
+
 /** Subjects the text asserts that the registry's own categories exclude.
  *
  *  Reported as a disagreement rather than a verdict, for the reason alias-gate.py gives for taking a second opinion: two independent judgements that differ is information, and neither one of them is the truth. classify.mjs is regex rules over a name and it puts 1,005 of 2,176 benchmarks in "other", which is not a claim about anything, so "other" can never contradict and roughly half the registry has no opinion to offer here. Where it does have one, a speech benchmark whose description is about code is either a wrong description or a wrong category, and both are worth a look. */
@@ -421,7 +424,7 @@ export function categoryContradictions(text, fact) {
   for (const [cat, words] of Object.entries(CATEGORY_WORDS)) {
     if (known.has(cat)) continue;
     for (const w of words) {
-      const at = lower.indexOf(w);
+      const at = lower.search(WORD.get(w));
       if (at < 0) continue;
       const before = lower.slice(Math.max(0, at - 60), at);
       if (CLAIM_CUES.some((cue) => before.includes(cue))) { asserted.push({ category: cat, word: w }); break; }
