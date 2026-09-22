@@ -44,7 +44,13 @@
       "AIME 24",
       "AIME 25",
       "Alignbench (v1.1)"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-7b-rl-0530-2025-05-30",
@@ -66,7 +72,13 @@
       "LiveCodeBench v5",
       "LiveCodeBench v6",
       "MATH500"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-vl-7b-2025-06-04",
@@ -124,7 +136,13 @@
       "MATH500",
       "AIME24",
       "AIME25"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-vl-7b-rl-2508-2025-08-07",
@@ -159,7 +177,13 @@
       "AIME25",
       "VideoMME",
       "VideoMMMU"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-audio-2025-09-19",
@@ -254,7 +278,7 @@
       "Terminal Bench Hard",
       "Terminal Bench 2.0",
       "BrowseComp",
-      "\u03c4\u00b2-Bench"
+      "τ²-Bench"
     ]
   },
   {
@@ -346,7 +370,7 @@
       "SWE-Bench Multilingual",
       "Terminal-Bench Hard",
       "Terminal Bench 2.0",
-      "\u03c4\u00b2-Bench"
+      "τ²-Bench"
     ]
   },
   {
@@ -384,7 +408,7 @@
       "Artificial Analysis Intelligence Index",
       "PinchBench (avg.)",
       "ClawEval",
-      "\u03c42-bench (Telecom)",
+      "τ2-bench (Telecom)",
       "DeepSearch QA-F1",
       "GDPVal-AA",
       "SWE-bench Multilingual",
@@ -478,7 +502,7 @@
       "Terminal-Bench 2.0",
       "FrontierSWE (Impl., rank)",
       "GDPVal-AA",
-      "\u03c43-bench",
+      "τ3-bench",
       "Claw-Eval (pass^3)",
       "Humanity's Last Exam",
       "SWE-bench Verified"
@@ -514,7 +538,7 @@
       "CMMLU",
       "GlobalMMLU",
       "GDPVal-AA (Elo)",
-      "\u03c4\u00b3-bench",
+      "τ³-bench",
       "ClawEval (pass^3)",
       "Humanity's Last Exam",
       "SWE-bench Pro",

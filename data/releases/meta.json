@@ -7,7 +7,13 @@
     "kind": "model_release",
     "title": "Introducing LLaMA: A foundational, 65-billion-parameter large language model",
     "source_url": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-llama-2023-02-27",
@@ -38,7 +44,13 @@
       "CrowS-Pairs",
       "WinoGender",
       "TruthfulQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-segment-anything-2023-04-05",
@@ -76,7 +88,13 @@
       "COCO",
       "LVIS v1",
       "MIAP"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "vision"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-dinov2-2023-04-14",
@@ -123,7 +141,13 @@
       "Sketch",
       "Dollar Street",
       "Casual Conversations"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "vision"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-llama-2-2023-07-18",
@@ -663,11 +687,11 @@
       "TVBench",
       "How2QA",
       "PLM-VideoBench",
-      "PLM\u2013FGQA",
-      "PLM\u2013SGQA",
-      "PLM\u2013RCap",
-      "PLM\u2013RTLoc",
-      "PLM\u2013RDCap"
+      "PLM–FGQA",
+      "PLM–SGQA",
+      "PLM–RCap",
+      "PLM–RTLoc",
+      "PLM–RDCap"
     ]
   },
   {

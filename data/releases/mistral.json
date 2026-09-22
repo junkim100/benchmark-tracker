@@ -28,7 +28,13 @@
       "BBH",
       "AGI Eval",
       "MT-Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-7b-2023-10-10",
@@ -60,7 +66,13 @@
       "AGI Eval",
       "MT-Bench",
       "Chatbot Arena"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-la-plateforme-2023-12-11",
@@ -73,7 +85,14 @@
     "benchmarks_raw": [
       "MT-Bench",
       "MTEB"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language",
+        "embedding"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mixtral-8x7b-2023-12-11",
@@ -99,7 +118,13 @@
       "Math",
       "BBQ",
       "BOLD"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mixtral-8x7b-2024-01-08",
@@ -231,7 +256,7 @@
     "model": "Mathstral 7B",
     "date": "2024-07-16",
     "kind": "model_release",
-    "title": "Math\u03a3tral",
+    "title": "MathΣtral",
     "source_url": "https://mistral.ai/news/mathstral/",
     "benchmarks_raw": [
       "MATH",
@@ -944,11 +969,11 @@
     "source_url": "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5/",
     "benchmarks_raw": [
       "SWE-Bench Verified",
-      "\u03c4\u00b3-Telecom",
-      "\u03c4\u00b3 Telecom",
-      "\u03c4\u00b3 Airline",
-      "\u03c4\u00b3 Retail",
-      "\u03c4\u00b3 Banking",
+      "τ³-Telecom",
+      "τ³ Telecom",
+      "τ³ Airline",
+      "τ³ Retail",
+      "τ³ Banking",
       "BrowseComp",
       "AIME25",
       "Allenai Ifbench",

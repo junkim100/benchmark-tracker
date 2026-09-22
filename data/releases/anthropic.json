@@ -1422,7 +1422,13 @@
       "CursorBench (3.2.0)",
       "RedlineBench",
       "FrontierFinance"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-fable-5-1-mythos-5-1-system-card-2026-09-01",
@@ -1478,7 +1484,13 @@
       "Bias Benchmark for Question Answering",
       "VCT",
       "MathArena"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-fable-5-1-and-claude-mythos-5-1-2026-09-01",
@@ -1511,6 +1523,12 @@
       "OSS-Fuzz",
       "Firefox 147",
       "CritPt-Corrected"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   }
 ]

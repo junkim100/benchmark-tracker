@@ -9,7 +9,13 @@
     "source_url": "https://www.upstage.ai/news/upstage-huggingface-llm-no1",
     "benchmarks_raw": [
       "HuggingFace Open LLM Leaderboard"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-10-7b-2023-12-14",
@@ -21,7 +27,13 @@
     "source_url": "https://www.upstage.ai/news/solar-10-7b-emerges-as-worlds-top-pre-trained-llm",
     "benchmarks_raw": [
       "Huggingface Open LLM Leaderboard"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-10-7b-technical-report-2023-12-23",
@@ -40,7 +52,13 @@
       "TruthfulQA",
       "Winogrande",
       "GSM8K"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-mini-2024-01-25",
@@ -52,7 +70,13 @@
     "source_url": "https://www.upstage.ai/blog/en/introducing-solar-mini-compact-yet-powerful",
     "benchmarks_raw": [
       "Open LLM Leaderboard"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-embedding-1-large-2024-05-16",

@@ -9,7 +9,13 @@
     "source_url": "https://arxiv.org/abs/2301.11325",
     "benchmarks_raw": [
       "MusicCaps"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "google-med-palm-2-2023-03-14",
@@ -19,7 +25,13 @@
     "kind": "blog_post",
     "title": "Our latest health AI research updates",
     "source_url": "https://blog.google/technology/health/ai-llm-medpalm-research-thecheckup/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "google-palm-2-2023-05-10",
@@ -29,7 +41,13 @@
     "kind": "model_release",
     "title": "Introducing PaLM 2",
     "source_url": "https://blog.google/technology/ai/google-palm-2-ai-large-language-model/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "google-med-palm-2-2023-05-16",
@@ -56,7 +74,13 @@
       "MedicationQA",
       "Adversarial (General)",
       "Adversarial (Health equity)"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "google-palm-2-2023-05-17",
@@ -1003,7 +1027,7 @@
     "benchmarks_raw": [
       "GenAI-Bench",
       "DrawBench",
-      "DALL\u00b7E 3 Eval",
+      "DALL·E 3 Eval",
       "DOCCI-Test-Pivots",
       "GeckoNum",
       "Gecko-Rel",
@@ -1084,7 +1108,7 @@
     "model": "Gemma 2 2B JPN",
     "date": "2024-10-03",
     "kind": "model_release",
-    "title": "Towards Global Understanding \u2013 Advancing Multilingual AI with Gemma 2 and a $150K Challenge",
+    "title": "Towards Global Understanding – Advancing Multilingual AI with Gemma 2 and a $150K Challenge",
     "source_url": "https://developers.googleblog.com/en/advancing-multilingual-ai-with-gemma-2-and-a-150k-challenge/",
     "benchmarks_raw": []
   },
@@ -2472,7 +2496,7 @@
       "LiveCodeBench Pro",
       "Terminal-Bench 2.0 (Terminus-2 agent)",
       "SWE-Bench Verified",
-      "\u03c42-bench",
+      "τ2-bench",
       "Vending-Bench 2",
       "FACTS Benchmark Suite",
       "SimpleQA Verified",
@@ -2613,7 +2637,7 @@
       "LiveCodeBench Pro",
       "Terminal-bench 2.0 (Terminus-2 harness)",
       "SWE-bench Verified",
-      "\u03c42-bench",
+      "τ2-bench",
       "Toolathlon",
       "MCP Atlas",
       "Vending-Bench 2",
@@ -2789,7 +2813,7 @@
       "SciCode",
       "APEX-Agents",
       "GDPval-AA",
-      "\u03c42-bench",
+      "τ2-bench",
       "MCP Atlas",
       "BrowseComp",
       "MMMU Pro",
@@ -2816,7 +2840,7 @@
       "SciCode",
       "APEX-Agents",
       "GDPval-AA",
-      "\u03c42-bench",
+      "τ2-bench",
       "MCP Atlas",
       "BrowseComp",
       "MMMU-Pro",
@@ -2968,7 +2992,7 @@
       "AIME 2026",
       "LiveCodeBench v6",
       "GPQA Diamond",
-      "\u03c42-bench"
+      "τ2-bench"
     ]
   },
   {
@@ -3238,7 +3262,7 @@
       "AIME 2026",
       "LiveCodeBench v6",
       "GPQA Diamond",
-      "\u03c42-bench"
+      "τ2-bench"
     ]
   },
   {
@@ -3662,8 +3686,8 @@
     "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
     "benchmarks_raw": [
       "Artificial Analysis Speech to Speech Index",
-      "\u03c4-Voice",
-      "\u03c4-Voice-banking",
+      "τ-Voice",
+      "τ-Voice-banking",
       "Big Bench Audio",
       "Speech Agent Arena",
       "EVA-Bench"

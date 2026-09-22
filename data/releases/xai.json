@@ -13,7 +13,13 @@
       "HumanEval",
       "MATH",
       "Hungarian National High School Math Exam (May 2023)"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-1-model-card-2023-11-03",
@@ -23,7 +29,13 @@
     "kind": "system_card",
     "title": "Grok-1 Model Card",
     "source_url": "https://x.ai/news/grok/model-card",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-1-open-release-2024-03-17",
@@ -33,7 +45,13 @@
     "kind": "model_release",
     "title": "Open Release of Grok-1",
     "source_url": "https://x.ai/news/grok-os",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-1-5-2024-03-28",
@@ -49,7 +67,13 @@
       "GSM8K",
       "HumanEval",
       "Needle In A Haystack"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-1-5v-2024-04-12",
@@ -117,7 +141,7 @@
     "model": "Grok 3",
     "date": "2025-02-19",
     "kind": "blog_post",
-    "title": "Grok 3 Beta \u2014 The Age of Reasoning Agents",
+    "title": "Grok 3 Beta — The Age of Reasoning Agents",
     "source_url": "https://x.ai/news/grok-3",
     "benchmarks_raw": [
       "AIME'25",
@@ -312,7 +336,7 @@
     "title": "Grok 4.1 Fast and Agent Tools API",
     "source_url": "https://x.ai/news/grok-4-1-fast",
     "benchmarks_raw": [
-      "\u03c4\u00b2-bench Telecom",
+      "τ²-bench Telecom",
       "Berkeley Function Calling v4 Benchmark",
       "Research-Eval Reka",
       "FRAMES",
@@ -378,7 +402,7 @@
     "title": "Grok Voice Think Fast 1.0",
     "source_url": "https://x.ai/news/grok-voice-think-fast-1",
     "benchmarks_raw": [
-      "\u03c4-voice Leaderboard"
+      "τ-voice Leaderboard"
     ]
   },
   {
@@ -425,7 +449,7 @@
       "3DCodeBench",
       "CAD-Bench",
       "GDPval-AA v2",
-      "\u03c4-bench",
+      "τ-bench",
       "SpaceXAI MTS Eval",
       "RelBench",
       "DeepSearchQA",
@@ -473,7 +497,7 @@
       "AA Speech-to-Speech Quality Index",
       "Big Bench Audio",
       "Full Duplex Bench",
-      "\u03c4-voice Bench"
+      "τ-voice Bench"
     ]
   },
   {

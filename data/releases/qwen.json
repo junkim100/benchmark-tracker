@@ -16,7 +16,13 @@
       "MBPP",
       "BBH",
       "CMMLU"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "qwen-qwen-vl-2023-08-18",
@@ -44,7 +50,13 @@
       "RefCOCOg",
       "GRIT",
       "TouchStone"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "qwen-qwen-vl-2023-08-24",
@@ -77,7 +89,13 @@
       "MMLU",
       "CMMLU",
       "C-Eval"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "qwen-qwen-14b-2023-09-24",
@@ -96,7 +114,13 @@
       "MBPP",
       "BBH",
       "CMMLU"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "qwen-qwen-2023-09-28",

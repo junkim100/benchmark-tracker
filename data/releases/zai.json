@@ -7,7 +7,13 @@
     "kind": "model_release",
     "title": "ChatGLM-6B",
     "source_url": "https://github.com/zai-org/ChatGLM-6B",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "zai-codegeex-2023-03-30",
@@ -23,7 +29,13 @@
       "MBPP",
       "CodeXGLUE",
       "XLCoST"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "zai-visualglm-6b-2023-05-17",
@@ -33,7 +45,13 @@
     "kind": "model_release",
     "title": "VisualGLM-6B",
     "source_url": "https://github.com/zai-org/VisualGLM-6B",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "zai-webglm-2023-06-13",
@@ -48,7 +66,13 @@
       "Web Questions",
       "TriviaQA",
       "ELI5"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "zai-chatglm2-6b-2023-06-25",

@@ -7,7 +7,14 @@
     "kind": "model_release",
     "title": "Introducing ChatGPT and Whisper APIs",
     "source_url": "https://openai.com/index/introducing-chatgpt-and-whisper-apis/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language",
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-4-2023-03-14",
@@ -67,7 +74,13 @@
       "TVQA",
       "LSMDC",
       "TruthfulQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-4-technical-report-2023-03-15",
@@ -120,7 +133,13 @@
       "DROP",
       "GSM-8K",
       "TruthfulQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-4-0613-2023-06-13",
@@ -130,7 +149,13 @@
     "kind": "model_release",
     "title": "Function calling and other API updates",
     "source_url": "https://openai.com/index/function-calling-and-other-api-updates/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-4v-system-card-2023-09-25",

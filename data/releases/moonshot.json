@@ -13,7 +13,13 @@
       "LiveCodeBench",
       "MathVista",
       "Codeforces"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-k1-5-2025-01-22",
@@ -35,7 +41,13 @@
       "CLUEWSC",
       "C-Eval",
       "HumanEval-Mul"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-moba-2025-02-18",
@@ -61,7 +73,13 @@
       "TriviaQA",
       "LongBench",
       "RULER"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-moonlight-2025-02-22",
@@ -83,7 +101,13 @@
       "CMath",
       "C-Eval",
       "CMMLU"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-moonlight-2025-02-24",

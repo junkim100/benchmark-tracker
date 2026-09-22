@@ -13,7 +13,13 @@
       "MBPP",
       "DS-1000",
       "APPS"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-llm-2023-11-29",
@@ -37,7 +43,13 @@
       "Instruction Following Evaluation",
       "LeetCode Weekly Contest",
       "C-Eval"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-llm-2024-01-05",
@@ -79,7 +91,13 @@
       "LeetCode",
       "Hungarian Exam",
       "IFEval"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseekmoe-2024-01-11",
@@ -112,7 +130,13 @@
       "CMMLU",
       "CHID",
       "BBH"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-coder-2024-01-25",
@@ -140,7 +164,13 @@
       "HellaSwag",
       "WinoG",
       "ARC-C"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseekmath-2024-02-05",
