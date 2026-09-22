@@ -1,0 +1,67 @@
+name: Backfill modality
+
+# Manual only. This is a one-off pass over records written before the modality field existed, not something that should run on a schedule: once every release carries a value the research job keeps new ones filled in, and re-running only touches records that still have none.
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "How many records to classify, for a trial run. Leave empty for all of them."
+        default: ""
+
+# Read by default, as in the other two workflows. Only the job that commits asks for write.
+permissions:
+  contents: read
+
+# Actions pinned to commits rather than tags, for the reason deploy.yml gives.
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      # No persisted credential, so a repo-write token is not sitting in .git/config while npm install scripts run. The push asks for it by name at the end.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci
+
+      - name: Classify
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -n "${{ inputs.limit }}" ]; then
+            node scripts/backfill-modality.mjs --limit "${{ inputs.limit }}"
+          else
+            node scripts/backfill-modality.mjs
+          fi
+
+      # The build is the gate. normalize.mjs validates every modality block and refuses to write anything if one is malformed, so a bad pass fails here rather than reaching the site.
+      - name: Verify
+        run: npm run build
+
+      - name: Commit
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "benchmark-tracker bot"
+          git config user.email "noreply@github.com"
+          if git diff --quiet -- data/releases; then
+            echo "Nothing to commit."
+            exit 0
+          fi
+          COUNT=$(git diff --numstat -- data/releases | awk '{s+=$1} END {print s}')
+          git add data/releases data/timeline.json data/release-log.json data/benchmarks.json
+          git commit -m "Backfill modality on $COUNT record line(s)
+
+          Written by scripts/backfill-modality.mjs and stamped source: inferred, which is what tells them apart from the values the research pass reads off a source page. Re-running leaves any reported value alone.
+          "
+          PUSH_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}"
+          for i in 1 2 3; do
+            git pull --rebase --quiet && git push "$PUSH_URL" HEAD:main && break
+            sleep 5
+          done

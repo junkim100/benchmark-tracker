@@ -8,6 +8,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { CATEGORIES, classify, flatKey, suiteOf } from "./classify.mjs";
+import { MODALITIES, isValidModality, describeModality } from "./modality.mjs";
 import { isOfficialSource, describeAllowed } from "./sources.mjs";
 import { fileURLToPath } from "node:url";
 
@@ -124,6 +125,12 @@ for (const file of files) {
       problems.push(`${where}: source_url must be an https URL, got "${r.source_url}"`);
     } else if (lab && !isOfficialSource(lab, r.source_url)) {
       problems.push(`${where}: source_url "${r.source_url}" is not published by ${lab.name}. Allowed: ${describeAllowed(lab)}`);
+    }
+    // Absent is fine and means nobody has classified this release yet. Present
+    // and malformed is not, because the filter built on it would quietly show
+    // the wrong set rather than fail.
+    if (!isValidModality(r.modality)) {
+      problems.push(`${where}: modality must be absent, or {classes: [${describeModality()}], source: "reported"|"inferred"}`);
     }
     if (!KINDS.has(r.kind)) {
       problems.push(`${where}: kind "${r.kind}" is not one of ${[...KINDS].join(", ")}`);
@@ -412,6 +419,12 @@ writeFileSync(
     kind: r.kind,
     source_url: r.source_url,
     benchmarks: r.benchmarks.map((id) => indexOfBenchmark.get(id)),
+    // Flattened to the classes alone, and omitted entirely when unknown. The
+    // log is the largest thing the page fetches, so an unclassified release
+    // should cost nothing rather than carry a null. Provenance stays in
+    // data/releases, where a maintainer can see it; the interface only needs
+    // to know how many are classified, which it counts from what arrives.
+    ...(r.modality ? { modality: r.modality.classes } : {}),
   }))),
 );
 
@@ -442,6 +455,11 @@ writeFileSync(
 );
 
 console.log(`releases ${releases.length} · benchmarks ${benchmarks.length} · labs with data ${new Set(releases.map((r) => r.lab)).size}/${labs.length} · excluded citations ${dropped}`);
+// Coverage, on every run, because a filter over a partly classified set is a
+// filter that quietly hides releases nobody decided to hide. The interface
+// keeps the control out of sight until this is worth offering.
+const classified = releases.filter((r) => r.modality).length;
+console.log(`modality: ${classified}/${releases.length} releases classified (${Math.round((classified / releases.length) * 100)}%)`);
 
 if (unknown.size) {
   console.log(`\nBenchmark names with no alias entry (${unknown.size}). Add the real ones to data/aliases.json:`);

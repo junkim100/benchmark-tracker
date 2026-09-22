@@ -24,6 +24,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { readFileSync, writeFileSync, appendFileSync, existsSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { CATEGORIES } from "./classify.mjs";
+import { MODALITY_IDS, MODALITIES } from "./modality.mjs";
 import { SHARED_HOSTS, isOfficialSource } from "./sources.mjs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -100,6 +101,21 @@ const RECORD_SCHEMA = {
             items: { type: "string" },
             description: "Benchmark names exactly as the lab printed them. Never a score. Empty array is valid and means the lab cited no benchmark.",
           },
+          modality: {
+            type: "object",
+            description: "What kind of model or models this release shipped, read from the page rather than guessed from the name. A release announcing several models carries several classes.",
+            properties: {
+              classes: {
+                type: "array",
+                minItems: 1,
+                maxItems: 3,
+                items: { type: "string", enum: MODALITY_IDS },
+                description: `One entry per kind of model announced. ${MODALITIES.map((m) => `${m.id}: ${m.blurb}`).join(" ")}`,
+              },
+            },
+            required: ["classes"],
+            additionalProperties: false,
+          },
           category_suggestions: {
             type: "array",
             description: "For any benchmark you recorded that is NOT already in the tracked list, give its subject. One primary category, and a second only when the benchmark genuinely sits in two. Never three.",
@@ -129,7 +145,7 @@ const RECORD_SCHEMA = {
             },
           },
         },
-        required: ["model", "date", "kind", "title", "source_url", "benchmarks_raw", "alias_suggestions", "category_suggestions"],
+        required: ["model", "date", "kind", "title", "source_url", "benchmarks_raw", "modality", "alias_suggestions", "category_suggestions"],
         additionalProperties: false,
       },
     },
@@ -237,6 +253,12 @@ const results = await Promise.allSettled(labs.map(async (lab) => {
       title: r.title,
       source_url: r.source_url,
       benchmarks_raw: r.benchmarks_raw,
+      // Stamped "reported" because the agent read it off the page it cited,
+      // which is a different kind of claim from the backfill's, and the two
+      // should never be indistinguishable once they are sitting in the same
+      // file. Validated by normalize before anything is published, so a
+      // malformed block fails the build rather than reaching the filter.
+      ...(r.modality?.classes?.length ? { modality: { classes: r.modality.classes, source: "reported" } } : {}),
     }));
 
   for (const r of official) {
