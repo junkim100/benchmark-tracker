@@ -245,6 +245,8 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   input.value = rawQuery;
   const clear = host.querySelector<HTMLButtonElement>(".browse__clear")!;
   const subjects = host.querySelector<HTMLDivElement>(".facets__subjects")!;
+  /** The subject chip to put focus back on after its own strip is rewritten. */
+  let keepSubject: string | null = null;
   const seg = host.querySelector<HTMLDivElement>(".seg")!;
   const groupBox = host.querySelector<HTMLInputElement>(".facets__groupbox")!;
   const results = host.querySelector<HTMLDivElement>(".browse__results")!;
@@ -284,6 +286,11 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     subjects.innerHTML = SUBJECTS.map((c) =>
       `<button type="button" data-subject="${esc(c.id)}" aria-pressed="${!q && c.id === subject}">${esc(c.name)}</button>`
     ).join("") + (q ? `<span class="browse__scope">Search covers every subject and every version</span>` : "");
+    if (keepSubject) {
+      const back = subjects.querySelector<HTMLButtonElement>(`[data-subject="${CSS.escape(keepSubject)}"]`);
+      back?.focus();
+      keepSubject = null;
+    }
     for (const b of seg.querySelectorAll<HTMLButtonElement>("[data-sort]"))
       b.setAttribute("aria-pressed", String(b.dataset.sort === sort));
     groupBox.checked = grouped;
@@ -464,6 +471,8 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   subjects.addEventListener("click", (e) => {
     const v = (e.target as Element).closest("[data-subject]")?.getAttribute("data-subject");
     if (!v) return;
+    // paintFacets rewrites this strip, so the button that was just pressed stops existing and focus falls to <body>. The pager and the cards both already restore it; this one did not.
+    keepSubject = v;
     subject = v; endSearch(); paintFacets(); paint();
   });
   seg.addEventListener("click", (e) => {
@@ -496,7 +505,10 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     const pressed = dir === "next" ? nextBtn : prevBtn;
     if (pressed.disabled) (dir === "next" ? prevBtn : nextBtn).focus();
     if (results.getBoundingClientRect().top < 0) {
-      results.scrollIntoView({ block: "start", behavior: "smooth" });
+      // An explicit behavior overrides the CSS property, so the reduced-motion
+      // block cannot reach it and this animated anyway. Asked here instead.
+      const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      results.scrollIntoView({ block: "start", behavior: still ? "auto" : "smooth" });
     }
   });
   results.addEventListener("click", (e) => {

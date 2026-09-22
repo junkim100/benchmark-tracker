@@ -79,6 +79,16 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
    page and pins once it reaches the top: the behaviour wanted, with no scroll
    listener to get wrong. Parchment at 80% behind a backdrop blur, per the
    spec's frosted sub-nav. */
+/* Off screen until it has focus, which is the one time it is for. */
+.skip {
+  position: absolute; left: var(--gutter); top: -100px; z-index: 40;
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--s-md);
+  font-size: 17px; color: var(--on-accent); background: var(--accent-fill);
+  border-radius: var(--r-pill); text-decoration: none;
+  transition: top .12s;
+}
+.skip:focus-visible { top: var(--s-xs); }
+
 .subnav {
   position: sticky; top: 0; z-index: 30;
   height: var(--nav-h);
@@ -248,8 +258,15 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
 @media (hover: hover) { .facets__group:hover { color: var(--text-primary); } }
 .facets__group input { width: 16px; height: 16px; accent-color: var(--accent-fill); cursor: pointer; }
 /* Dimmed, not hidden, while a search runs: search deliberately ignores both,
-   and a control that silently stops applying is worse than one that says so. */
-.seg.is-off, .facets__group.is-off { opacity: .45; }
+   and a control that silently stops applying is worse than one that says so.
+   .45 took their labels to 1.86:1, under half the 4.5 AA asks, and these are
+   not disabled: pressing one re-sorts the list and clears the query. A control
+   nobody can read is worse than one that does not say it is idle, so the text
+   keeps its contrast and the dimming is carried by the frame instead. */
+.seg.is-off, .facets__group.is-off { opacity: 1; }
+.seg.is-off { border-style: dashed; }
+.seg.is-off button[aria-pressed="true"] { background: none; color: var(--text-secondary); font-weight: 400; }
+.facets__group.is-off span { color: var(--text-secondary); }
 
 /* Segmented control. Compact utility, so 8px and not a pill: sorting is not an
    action, it is a setting, and the shape says so before the label is read. */

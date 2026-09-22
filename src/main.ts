@@ -157,6 +157,7 @@ function render(data: Timeline) {
   // masthead to keep in step, and the one thing on the page that must not move
   // when the data lands is the thing the reader is already looking at.
   app.innerHTML = `${SHELL}
+    <a class="skip" href="#track">Skip to the benchmarks</a>
     <nav class="subnav" aria-label="Page actions">
       <div class="subnav__in">
         <span class="subnav__name">Frontier Benchmark Tracker</span>
@@ -164,6 +165,7 @@ function render(data: Timeline) {
         <button class="btn btn--sm" type="button" data-act="pick">Change what's tracked</button>
       </div>
     </nav>
+    <main>
 
     <section class="tile tile--canvas" id="track" aria-label="Track benchmarks">
       <div class="tile__in">
@@ -190,20 +192,22 @@ function render(data: Timeline) {
     <section class="tile tile--canvas" aria-label="Release timeline">
       <div class="tile__in">
         <div class="sec__head">
-          <h2>Release Timeline<span class="tlv__sizes">
+          <h2>Release Timeline</h2><span class="tlv__sizes">
             <span class="tlv__sizes-label">Releases by one lab on one day</span>
             <span class="tlv__sizes-keys">
               <span><svg viewBox="0 0 16 16" aria-hidden="true"><circle class="mark" cx="8" cy="8" r="4"/></svg>1</span>
               <span><svg viewBox="0 0 16 16" aria-hidden="true"><circle class="mark" cx="8" cy="8" r="5.5"/></svg>2</span>
               <span><svg viewBox="0 0 16 16" aria-hidden="true"><circle class="mark" cx="8" cy="8" r="7"/></svg>3 or more</span>
             </span>
-          </span></h2>
+          </span>
           <p class="howto howto--tl"></p>
         </div>
           <div class="years" role="group" aria-label="Limit the timeline to one year"></div>
         <div class="tlwrap"></div>
       </div>
     </section>
+
+    </main>
 
     <footer class="tile tile--parchment ft">
       <div class="tile__in">
