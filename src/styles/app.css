@@ -520,12 +520,19 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
 .years button[aria-pressed="true"] .years__n { color: var(--accent); }
 @media (pointer: coarse) { .years button { min-height: 44px; padding-block: 0; } }
 
-.tlv__sizes { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-xs) var(--s-sm); margin: 0 0 var(--s-sm); font-size: 12px; letter-spacing: -0.01em; color: var(--text-muted); }
+.tlv__sizes {
+  display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--s-xs) var(--s-sm);
+  margin-left: var(--s-md);
+  font-size: 12px; font-weight: 400; letter-spacing: -0.01em; line-height: 1.3;
+  color: var(--text-muted); vertical-align: middle;
+}
 .tlv__sizes-label { color: var(--text-secondary); }
-.tlv__sizes ul { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-xs) var(--s-md); list-style: none; margin: 0; padding: 0; }
-.tlv__sizes li { display: flex; align-items: center; gap: 5px; }
+.tlv__sizes-keys { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--s-xs) var(--s-sm); }
+.tlv__sizes-keys > span { display: inline-flex; align-items: center; gap: 4px; }
 .tlv__sizes svg { width: 16px; height: 16px; flex: none; }
 .tlv__sizes .mark { fill: var(--mark-neutral); stroke: none; cursor: default; }
+/* Its own line under the heading once the heading needs the width. */
+@media (max-width: 900px) { .tlv__sizes { display: flex; margin-left: 0; margin-top: var(--s-xs); } }
 
 /* Today, so the top edge is dated rather than merely implied and the space
    between it and the newest mark reads as the gap it actually is.

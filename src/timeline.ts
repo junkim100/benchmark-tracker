@@ -110,7 +110,11 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const today = dayNumber(todayISO);
   // A range fixes both ends. Without one the bottom is the oldest release with
   // room under it for its year label, and the top is today.
-  const lo = a.range ? dayNumber(a.range.from) : Math.min(...days) - PAD_DAYS;
+  const startOfMonth = (day: number) => {
+    const d = new Date(day * 864e5);
+    return dayNumber(`${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}-01`);
+  };
+  const lo = a.range ? dayNumber(a.range.from) : startOfMonth(Math.min(...days) - PAD_DAYS);
   // Enough to draw the largest mark without clipping it against the edge, and
   // no more. A flat thirty-day pad put the axis into the future: on 22
   // September the topmost tick read "Oct", a month that had not happened, above
@@ -195,19 +199,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
         .map((l) => `<li>${labMark(l, esc)}${esc(l.name)}</li>`).join("")}</ul>`
     : "";
 
-  // A mark is one lab on one date, and its size is how many releases that lab
-  // put out that day. The key used to read "1 release, 2, 3 or more", which
-  // left out both halves of that and so read as a total of some unstated kind.
-  const sizeKey = `<div class="tlv__sizes">
-    <span class="tlv__sizes-label">Releases by one lab on one day</span>
-    <ul aria-label="What the size of a mark means">${
-      ([[1, "1"], [2, "2"], [3, "3 or more"]] as [number, string][]).map(([n, label]) =>
-        `<li><svg viewBox="0 0 16 16" aria-hidden="true"><circle class="mark" cx="8" cy="8" r="${n === 3 ? 7 : n === 2 ? 5.5 : 4}"/></svg>${esc(label)}</li>`
-      ).join("")
-    }</ul>
-  </div>`;
-
-  host.innerHTML = `${key}${sizeKey}
+  host.innerHTML = `${key}
     <div class="tlvwrap${narrow ? " tlvwrap--bleed" : ""}"><div class="tlv" style="min-width:${floor}px">
       <div class="tlv__head" style="--gut:${GUT}px;--cols:${a.labs.length}">
         <div class="tlv__gutcell" aria-hidden="true"></div>

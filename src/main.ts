@@ -185,7 +185,14 @@ function render(data: Timeline) {
     <section class="tile tile--canvas" aria-label="Release timeline">
       <div class="tile__in">
         <div class="sec__head">
-          <h2>Release Timeline</h2>
+          <h2>Release Timeline<span class="tlv__sizes">
+            <span class="tlv__sizes-label">Releases by one lab on one day</span>
+            <span class="tlv__sizes-keys">
+              <span><svg viewBox="0 0 16 16" aria-hidden="true"><circle class="mark" cx="8" cy="8" r="4"/></svg>1</span>
+              <span><svg viewBox="0 0 16 16" aria-hidden="true"><circle class="mark" cx="8" cy="8" r="5.5"/></svg>2</span>
+              <span><svg viewBox="0 0 16 16" aria-hidden="true"><circle class="mark" cx="8" cy="8" r="7"/></svg>3 or more</span>
+            </span>
+          </span></h2>
           <p class="howto howto--tl"></p>
         </div>
           <div class="years" role="group" aria-label="Limit the timeline to one year"></div>
