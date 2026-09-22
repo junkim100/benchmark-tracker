@@ -722,6 +722,26 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
   .browse__field { padding-right: 4px; }
 }
 
+/* Chip rows on a phone. Same problem in four places at the same width. */
+@media (max-width: 560px) {
+  .scope__chips { gap: 5px; }
+  .scope__chips button { padding-inline: 10px; font-size: 13px; gap: 5px; }
+  .scope__chips button[aria-pressed="true"] { padding-inline: 9px; }
+  .scope__n { font-size: 11px; }
+
+  .facets__subjects { gap: 5px; }
+  .facets__subjects button { padding: 5px 9px; font-size: 12.5px; }
+  .facets__subjects button[aria-pressed="true"] { padding: 4px 8px; }
+
+  .years button { padding-inline: 11px; font-size: 13px; }
+  .years button[aria-pressed="true"] { padding-inline: 10px; }
+  .years__n { font-size: 11px; }
+
+  .chips { gap: 6px; }
+  .chip { max-width: 46vw; padding-inline: 11px; font-size: 13px; }
+  .chip__label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+
 @media (max-width: 720px) {
   .axis__m, .axis__y { font-size: 10px; }
   .dt { font-size: 13px; }

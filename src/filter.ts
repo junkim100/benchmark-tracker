@@ -370,7 +370,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
       ? a.tracked.map((id, i) => {
           const t = a.trackables.get(id);
           return `<button type="button" class="chip s${i + 1}" data-id="${esc(id)}" aria-label="Stop tracking ${esc(t?.name ?? id)}">
-            <span class="chip__dot" aria-hidden="true"></span>${esc(t?.name ?? id)}
+            <span class="chip__dot" aria-hidden="true"></span><span class="chip__label">${esc(t?.name ?? id)}</span>
             <span class="chip__x" aria-hidden="true">×</span></button>`;
         }).join("")
       : `<span class="chips__empty muted">Nothing tracked. Pick up to ${MAX_TRACKED} to compare.</span>`;
