@@ -91,7 +91,7 @@ if (data.releases.length === 0) {
 
     <div class="sec">
       <div class="sec__head">
-        <h2>Timeline View</h2>
+        <h2>Release timeline</h2>
         <p>Each mark is a model release. Hover to view details, click to read the source.</p>
       </div>
       <span class="tl-sentinel" aria-hidden="true"></span>
