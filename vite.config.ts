@@ -1,4 +1,5 @@
 import { defineConfig, type Plugin } from "vite";
+import { dataBoot } from "./vite-data-boot";
 
 // GitHub Pages cannot send response headers, so the policy has to travel inside the document. A meta CSP is weaker than a header in two specific ways worth knowing: frame-ancestors, report-uri and sandbox are ignored in meta, so clickjacking is not addressed here, and the policy only governs what the parser sees after it, which is why the tag is prepended to <head> rather than appended.
 //
@@ -31,8 +32,8 @@ function cspMeta(): Plugin {
           // The favicon, and nothing else. Every other graphic on the page is inline SVG.
           "img-src 'self'",
           "font-src 'self'",
-          // The site fetches nothing at runtime: the data is compiled into the bundle at build time. Anything that starts making requests should fail loudly here rather than quietly acquire a network.
-          "connect-src 'none'",
+          // 'self', not 'none'. The dataset is no longer compiled into the bundle: the boot script fetches two same-origin JSON assets, and Vite's modulepreload polyfill fetches preload hrefs on browsers without modulepreload. Still same-origin only, so a script that acquired a third-party endpoint would fail here, which is the part worth keeping.
+          "connect-src 'self'",
           "object-src 'none'",
           "frame-src 'none'",
           "base-uri 'none'",
@@ -55,6 +56,21 @@ function cspMeta(): Plugin {
 // so every asset URL needs that prefix.
 export default defineConfig({
   base: "/benchmark-tracker/",
-  build: { outDir: "dist", sourcemap: true },
-  plugins: [cspMeta()],
+  // dataBoot first, and cspMeta declared after it. dataBoot substitutes the
+  // hashed data URLs into the inline boot script using the default
+  // transformIndexHtml order, and cspMeta runs at order "post", so the hash is
+  // always taken from the html that ships. Reverse them and the policy would
+  // carry the hash of the placeholder text, and every deploy would ship a page
+  // whose only inline script the browser refuses to run.
+  plugins: [dataBoot(), cspMeta()],
+  build: {
+    outDir: "dist",
+    // No source map in production. It was 124 kB of the deploy that only a
+    // developer can use, and a developer can rebuild it.
+    sourcemap: false,
+    // The two data files must stay files. Inlined as base64 data URLs they
+    // would be back inside the script, a third larger, and the boot script in
+    // index.html would have nothing to point at.
+    assetsInlineLimit: (file) => (/data\/(timeline|release-log)\.json$/.test(file) ? false : undefined),
+  },
 });

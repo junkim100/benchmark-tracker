@@ -1,3 +1,6 @@
 node_modules/
 dist/
 .DS_Store
+
+# Agent worktrees, which are checkouts of this same repository.
+.claude/

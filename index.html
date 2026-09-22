@@ -7,15 +7,25 @@
     <title>Frontier Benchmark Tracker</title>
     <meta name="description" content="Which benchmarks frontier labs cite in their model releases." />
     <script>
+      // Theme, applied during parse. It used to be set by the module script,
+      // which was early enough when that script carried the whole dataset and
+      // ran before anything was drawn. The module now waits on a fetch, and a
+      // theme applied after the first paint is a flash of the wrong one.
+      try {
+        var t = localStorage.getItem("bt-theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+
       // A deploy deletes the previous hashed bundles, but GitHub Pages serves
       // this file with max-age=600, so for up to ten minutes a returning
       // visitor requests an asset that is already gone and sees a blank page.
       // Reload past the cache, once per session so a genuinely broken build
       // cannot loop.
-      addEventListener("error", function (e) {
-        var el = e.target;
-        if (!el || (el.tagName !== "SCRIPT" && el.tagName !== "LINK")) return;
-        if (sessionStorage.getItem("bt-stale")) return;
+      //
+      // Named, because the data files are hashed assets too and go missing the
+      // same way. A failed fetch raises no error event, so main.ts calls this.
+      window.btRecoverStale = function () {
+        if (sessionStorage.getItem("bt-stale")) return false;
         sessionStorage.setItem("bt-stale", "1");
         // Rebuilt from the origin, not from the path alone. A pathname that
         // begins with two slashes is a protocol-relative URL once it is handed
@@ -23,11 +33,37 @@
         // Nothing serves this page at such a path today, which is the only
         // reason it is not already an open redirect.
         location.replace(location.origin + location.pathname + "?v=" + Date.now());
+        return true;
+      };
+      addEventListener("error", function (e) {
+        var el = e.target;
+        if (!el || (el.tagName !== "SCRIPT" && el.tagName !== "LINK")) return;
+        window.btRecoverStale();
       }, true);
+
+      // Both data files, requested during parse, so they are in flight before
+      // the browser has asked for the module script. The build rewrites these
+      // two strings; see vite-data-boot.ts for why a fetch and not a preload,
+      // and for why they live in this script rather than one of their own.
+      window.btData = { core: fetch("BT_CORE_URL"), log: fetch("BT_LOG_URL") };
+      // Not error handling. Nothing awaits these until main.ts runs, and a
+      // rejection meanwhile is a page error with no explanation attached.
+      btData.core.catch(function () {});
+      btData.log.catch(function () {});
     </script>
     <script type="module" src="/src/main.ts"></script>
   </head>
   <body>
-    <div id="app" class="viz-root"></div>
+    <!-- The masthead is markup, not script output, so the page has its title
+         and its colours before any data arrives. main.ts reuses this node's
+         own HTML as the top of the page it builds, so it never moves. -->
+    <div id="app" class="viz-root">
+      <header class="tile tile--parchment hero">
+        <div class="tile__in">
+          <h1>Frontier Benchmark Tracker</h1>
+          <p class="hero__sub">Which benchmarks frontier labs cite in their model releases.</p>
+        </div>
+      </header>
+    </div>
   </body>
 </html>

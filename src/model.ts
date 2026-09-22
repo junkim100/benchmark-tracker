@@ -1,19 +1,27 @@
 // Types and the few derived views the interface needs. Everything here reads
-// the generated timeline.json; nothing recomputes what the build already did.
+// the generated timeline.json and release-log.json; nothing recomputes what
+// the build already did.
+//
+// These interfaces are the site's half of the contract in SCHEMA.md, and they
+// deliberately name fewer fields than the research records carry. A field the
+// interface never reads is a field the browser should never download, so the
+// build stopped emitting the ones that were not here.
 
-export interface Lab { id: string; name: string; homepage: string; sources: string[] }
+export interface Lab { id: string; name: string }
 
 export type ReleaseKind = "model_release" | "technical_report" | "system_card" | "blog_post";
 
 export interface Release {
-  id: string; lab: string; model: string; date: string; kind: ReleaseKind;
-  title: string; source_url: string; benchmarks_raw: string[]; benchmarks: string[];
+  lab: string; model: string; date: string; kind: ReleaseKind; source_url: string;
+  /** Positions in Timeline.benchmarks, not ids. The same few thousand id
+   *  strings were repeated across every release and came to a third of the
+   *  release log; the two files are generated and served together, so the
+   *  positions cannot drift apart. */
+  benchmarks: number[];
 }
 
 export interface Benchmark {
-  id: string; name: string; lab_count: number; labs: string[];
-  first_seen: string; last_seen: string;
-  labs_by_year: Record<string, number>;
+  id: string; name: string; lab_count: number;
   labs_by_quarter: Record<string, number>;
   categories: string[];          // one primary, optionally one secondary, never three
   suite: string | null;
@@ -21,18 +29,25 @@ export interface Benchmark {
 }
 
 export interface Group {
-  id: string; name: string; blurb?: string; members: number;
-  lab_count: number; labs: string[];
+  id: string; name: string; members: number;
+  lab_count: number;
   labs_by_quarter: Record<string, number>;
   recent_share: number;
 }
 
+/** data/timeline.json: everything the picker and the chart draw from. The
+ *  release records live in data/release-log.json and arrive separately,
+ *  because only the timeline below the fold needs them and they are the part
+ *  of the dataset that grows without bound. */
 export interface Timeline {
-  generated_at: string; labs: Lab[]; releases: Release[]; benchmarks: Benchmark[];
+  generated_at: string; labs: Lab[]; benchmarks: Benchmark[];
   quarters: string[]; categories: Group[]; suites: Group[];
   /** The window recent_share is measured over. Emitted by the build because it
    *  moves every time the data is rebuilt, so copy cannot hard-code it. */
   recent_window: { quarters: string[]; months: number; from: string | null; to: string | null; releases: number };
+  /** Enough about the log to size the timeline and date the copy before the
+   *  log itself has arrived. */
+  release_log: { count: number; first: string | null };
 }
 
 /** What a series on the chart can be. Benchmarks, the suites that gather their
@@ -52,6 +67,10 @@ export interface Trackable {
   members?: number;              // versions in a suite, benchmarks in a category
   categories?: string[];
   suite?: string | null;
+  /** Where this benchmark sits in Timeline.benchmarks, which is how the
+   *  release log names it. Absent on suites and categories, which cover many
+   *  positions and resolve them through memberIds. */
+  at?: number;
 }
 
 export const trackId = (kind: TrackKind, id: string): string =>
@@ -89,9 +108,9 @@ export function buildTrackables(t: Timeline): Map<string, Trackable> {
     // indistinguishable from the other.
     m.set(trackId("suite", s.id), { id: trackId("suite", s.id), kind: "suite", name: `${s.name}, all versions`, lab_count: s.lab_count, recent_share: s.recent_share, labs_by_quarter: s.labs_by_quarter, members: s.members, categories: modal(suiteCats.get(s.id)) });
   }
-  for (const b of t.benchmarks) {
-    m.set(b.id, { id: b.id, kind: "benchmark", name: b.name, lab_count: b.lab_count, recent_share: b.recent_share, labs_by_quarter: b.labs_by_quarter, categories: b.categories, suite: b.suite });
-  }
+  t.benchmarks.forEach((b, at) => {
+    m.set(b.id, { id: b.id, kind: "benchmark", name: b.name, lab_count: b.lab_count, recent_share: b.recent_share, labs_by_quarter: b.labs_by_quarter, categories: b.categories, suite: b.suite, at });
+  });
   return m;
 }
 
@@ -105,21 +124,13 @@ export const KIND_LABEL: Record<ReleaseKind, string> = {
   blog_post: "Blog post",
 };
 
-/** Display names come from the build, which is the only place the raw-to-canonical pairing is exact. */
-export const displayNames = (benchmarks: Benchmark[]): Map<string, string> =>
-  new Map(benchmarks.map((b) => [b.id, b.name]));
-
-export const yearsSpanned = (releases: Release[]): number[] => {
-  const ys = releases.map((r) => Number(r.date.slice(0, 4)));
-  const lo = Math.min(...ys), hi = Math.max(...ys);
-  return Array.from({ length: hi - lo + 1 }, (_, i) => lo + i);
-};
+/** Display names come from the build, which is the only place the raw-to-canonical
+ *  pairing is exact. Indexed by position, because that is how a release names
+ *  the benchmarks it cites. */
+export const displayNames = (benchmarks: Benchmark[]): string[] =>
+  benchmarks.map((b) => b.name);
 
 export const dayNumber = (iso: string): number => Date.parse(iso + "T00:00:00Z") / 864e5;
-
-/** Releases for one lab, oldest first. */
-export const byLab = (releases: Release[], labId: string): Release[] =>
-  releases.filter((r) => r.lab === labId);
 
 export const quarterOf = (iso: string): string =>
   `${iso.slice(0, 4)}-Q${Math.floor((Number(iso.slice(5, 7)) - 1) / 3) + 1}`;
@@ -130,7 +141,7 @@ export const quarterLabel = (q: string): string => `Q${q.slice(6)} ${q.slice(0, 
 /** Which labs cited a benchmark in a given quarter, and what they shipped. */
 export interface PeriodDetail { labs: { lab: string; models: string[] }[] }
 
-export function detailFor(releases: Release[], members: Set<string>): Map<string, PeriodDetail> {
+export function detailFor(releases: Release[], members: Set<number>): Map<string, PeriodDetail> {
   const acc = new Map<string, Map<string, Set<string>>>();
   for (const r of releases) {
     if (!r.benchmarks.some((b) => members.has(b))) continue;
@@ -147,16 +158,21 @@ export function detailFor(releases: Release[], members: Set<string>): Map<string
 }
 
 
-/** The benchmark ids a trackable covers: itself for a benchmark, its versions
- *  for a suite, its members for a category. The timeline colours a release mark
+/** The benchmarks a trackable covers: itself for a benchmark, its versions for
+ *  a suite, its members for a category. The timeline colours a release mark
  *  when it cites any of them, and the chart's hover detail reads the same set,
- *  so tracking a suite lights up every version of it. */
-export function memberIds(t: Trackable, benchmarks: Benchmark[]): Set<string> {
-  if (t.kind === "benchmark") return new Set([t.id]);
+ *  so tracking a suite lights up every version of it.
+ *
+ *  Positions rather than ids, to match what a release record carries. */
+export function memberIds(t: Trackable, benchmarks: Benchmark[]): Set<number> {
+  if (t.kind === "benchmark") return new Set(t.at === undefined ? [] : [t.at]);
+  const out = new Set<number>();
   if (t.kind === "suite") {
     const sid = t.id.slice("suite:".length);
-    return new Set(benchmarks.filter((b) => b.suite === sid).map((b) => b.id));
+    benchmarks.forEach((b, at) => { if (b.suite === sid) out.add(at); });
+    return out;
   }
   const cid = t.id.slice("cat:".length);
-  return new Set(benchmarks.filter((b) => b.categories.includes(cid)).map((b) => b.id));
+  benchmarks.forEach((b, at) => { if (b.categories.includes(cid)) out.add(at); });
+  return out;
 }

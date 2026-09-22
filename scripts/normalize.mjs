@@ -304,8 +304,6 @@ const benchmarks = [...registry.values()]
   })
   .sort((a, b) => b.lab_count - a.lab_count || a.id.localeCompare(b.id));
 
-writeFileSync(join(DATA, "benchmarks.json"), JSON.stringify(benchmarks, null, 2) + "\n");
-
 // A suite is only worth showing if more than one benchmark joined it: a suite
 // of one is the benchmark, and a row for it would double the same line.
 const suites = suiteDefs
@@ -365,9 +363,74 @@ if (releases.length) {
   if (quarters[quarters.length - 1] !== hi) problems.push(`quarters: ran from ${lo} without reaching ${hi}`);
 }
 
+// The quarter walk above is the last thing that can fail, and until now its
+// diagnostic was pushed onto a list nobody read again: the guard sits two
+// hundred lines up, so an unreachable end quarter was recorded and then
+// published. Checked once more here, where every producer has run and nothing
+// has yet been written.
+if (problems.length) {
+  console.error(`\n${problems.length} contract problem(s), nothing written:`);
+  for (const p of problems.slice(0, 40)) console.error(`  ${p}`);
+  process.exit(1);
+}
+
+// benchmarks.json is the full registry and stays readable: it is the file a
+// person or another project reads, and nothing on the site loads it.
+writeFileSync(join(DATA, "benchmarks.json"), JSON.stringify(benchmarks, null, 2) + "\n");
+
+// The two files the site loads are built for the browser rather than for a
+// reader, so they carry only the fields the interface actually renders and are
+// written without indentation. Pretty-printing timeline.json cost 658 kB of
+// whitespace, which the browser downloaded and parsed to no effect.
+//
+// They are split because the release log grows forever while the registry does
+// not, and nothing above the fold needs the log: the chart and the picker draw
+// from the registry alone, so the biggest and fastest-growing file is off the
+// path to first paint.
+const site = (value) => JSON.stringify(value) + "\n";
+
+// Benchmark ids inside the log are positions in the registry array, not
+// strings. The same few thousand ids were repeated across every release and
+// came to a third of the log on their own. The two files are generated
+// together and served together, so the positions cannot drift apart.
+const indexOfBenchmark = new Map(benchmarks.map((b, i) => [b.id, i]));
+
+writeFileSync(
+  join(DATA, "release-log.json"),
+  site(releases.map((r) => ({
+    lab: r.lab,
+    model: r.model,
+    date: r.date,
+    kind: r.kind,
+    source_url: r.source_url,
+    benchmarks: r.benchmarks.map((id) => indexOfBenchmark.get(id)),
+  }))),
+);
+
 writeFileSync(
   join(DATA, "timeline.json"),
-  JSON.stringify({ generated_at: new Date().toISOString(), labs, releases, benchmarks, quarters, categories, suites, recent_window }, null, 2) + "\n",
+  site({
+    generated_at: new Date().toISOString(),
+    labs: labs.map((l) => ({ id: l.id, name: l.name })),
+    benchmarks: benchmarks.map((b) => ({
+      id: b.id, name: b.name, lab_count: b.lab_count,
+      labs_by_quarter: b.labs_by_quarter, categories: b.categories,
+      suite: b.suite, recent_share: b.recent_share,
+    })),
+    quarters,
+    categories: categories.map((c) => ({
+      id: c.id, name: c.name, members: c.members,
+      lab_count: c.lab_count, labs_by_quarter: c.labs_by_quarter, recent_share: c.recent_share,
+    })),
+    suites: suites.map((s) => ({
+      id: s.id, name: s.name, members: s.members,
+      lab_count: s.lab_count, labs_by_quarter: s.labs_by_quarter, recent_share: s.recent_share,
+    })),
+    recent_window,
+    // Enough about the log for the site to size the timeline and date its copy
+    // without waiting for the log itself to arrive.
+    release_log: { count: releases.length, first: releases.length ? releases[0].date : null },
+  }),
 );
 
 console.log(`releases ${releases.length} · benchmarks ${benchmarks.length} · labs with data ${new Set(releases.map((r) => r.lab)).size}/${labs.length} · excluded citations ${dropped}`);

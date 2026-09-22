@@ -9,10 +9,32 @@ Everything in this repo is built from one idea: **which benchmarks does a fronti
 | `data/labs.json` | maintainer | Fixed list of tracked labs. Rarely changes. |
 | `data/aliases.json` | maintainer | Maps the many spellings of a benchmark onto one canonical id. |
 | `data/releases/<lab-id>.json` | one researcher per lab | The only files researchers write. One lab per file, so two researchers never touch the same file. |
-| `data/benchmarks.json` | `scripts/normalize.mjs` | Generated. Never edit by hand. |
-| `data/timeline.json` | `scripts/normalize.mjs` | Generated. The single file the site loads. |
+| `data/benchmarks.json` | `scripts/normalize.mjs` | Generated. The readable registry: every benchmark with everything known about it. Never edit by hand. |
+| `data/timeline.json` | `scripts/normalize.mjs` | Generated. The benchmark registry as the site draws it. Never edit by hand. |
+| `data/release-log.json` | `scripts/normalize.mjs` | Generated. The release records as the site draws them. Never edit by hand. |
 
 Researchers record benchmark names **exactly as the lab wrote them**, in `benchmarks_raw`. Normalisation happens later, in the build. This keeps the raw record faithful, and it means twelve researchers can work at once without ever writing to a shared file.
+
+## The two files the site loads
+
+`timeline.json` and `release-log.json` are written for a browser rather than for a reader, and the rules are different from the rest of this document.
+
+They carry **only the fields the interface draws**. A field nobody renders is a field the browser should not download, so `benchmarks_raw`, the release `id` and `title`, `first_seen`, `last_seen`, `labs_by_year`, the per-benchmark `labs` array, the lab `homepage` and `sources`, and the category `blurb` are all absent. Every one of them survives in full in `benchmarks.json` or in the release records themselves, which are the citable copy.
+
+They are written **without indentation**. Pretty-printing `timeline.json` cost 658 kB of whitespace that the browser downloaded and parsed to no effect. `benchmarks.json` and the hand-written release files stay indented, because those are read by people.
+
+They are **split by what the first screen needs**. The picker and the chart draw from the registry alone; only the release timeline, two screens down, reads the log. The log is also the part of the dataset that grows without bound, so it is fetched alongside the registry and drawn when it arrives rather than blocking anything.
+
+Inside `release-log.json`, `benchmarks` holds **positions in `timeline.json`'s `benchmarks` array**, not ids:
+
+```json
+{ "lab": "openai", "model": "GPT-5", "date": "2025-08-07", "kind": "model_release",
+  "source_url": "https://openai.com/index/introducing-gpt-5/", "benchmarks": [3, 41, 0] }
+```
+
+The same few thousand id strings repeated across every release came to a third of the log on their own. The two files are generated together and served under content-hashed names that the built page cites as a pair, so the positions cannot drift apart. If you change how `benchmarks` is ordered or filtered, both files change together and there is nothing to keep in step by hand.
+
+`timeline.json` also carries `release_log: { count, first }`, which is enough for the site to date its copy and handle an empty dataset before the log has arrived.
 
 ## A release record
 

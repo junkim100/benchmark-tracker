@@ -36,10 +36,9 @@ const MIN_COL = 26;
 
 export interface TimelineArgs {
   labs: Lab[];
-  quarters: string[];
   releases: Release[];
-  trackedMembers: Set<string>[];   // one set of benchmark ids per slot, in slot order
-  names: Map<string, string>;
+  trackedMembers: Set<number>[];   // one set of benchmark positions per slot, in slot order
+  names: string[];                 // benchmark display names, by position
   onHover: (rs: Release[] | null, x: number, y: number) => void;
 }
 
@@ -99,9 +98,9 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const y = (iso: string) => (hi - dayNumber(iso)) * PX_PER_DAY;
   const cx = (i: number) => GUT + colW * i + colW / 2;
 
-  // Slot by membership, not by identity. A tracked suite covers many benchmark
-  // ids, so the lookup is the other way round: given what a release cites, find
-  // the first slot that claims any of it.
+  // Slot by membership, not by identity. A tracked suite covers many
+  // benchmarks, so the lookup is the other way round: given what a release
+  // cites, find the first slot that claims any of it.
   // Narrowest match wins. Scanning in slot order meant that tracking a suite
   // and one of its versions coloured every mark with whichever was picked
   // first, so the version's own colour could never appear on a release that
@@ -109,12 +108,25 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const order = a.trackedMembers
     .map((set, i) => ({ set, slot: i + 1 }))
     .sort((x, y) => x.set.size - y.set.size);
-  const slotOfRelease = (ids: string[]): number | undefined => {
+  const slotOfRelease = (cited: number[]): number | undefined => {
     for (const { set, slot } of order) {
-      if (ids.some((id) => set.has(id))) return slot;
+      if (cited.some((at) => set.has(at))) return slot;
     }
     return undefined;
   };
+
+  // One pass over the log to group it, rather than one pass per lab inside the
+  // column loop and a third to build the hover index. The scan was twelve
+  // times the length of the log and the log is the part of the dataset that
+  // grows without bound.
+  const byLab = new Map<string, Map<string, Release[]>>();
+  for (const r of a.releases) {
+    let dates = byLab.get(r.lab);
+    if (!dates) byLab.set(r.lab, (dates = new Map()));
+    const sameDay = dates.get(r.date);
+    if (sameDay) sameDay.push(r);
+    else dates.set(r.date, [r]);
+  }
 
   // Month rules across the plot, labelled in the gutter. January takes the ink
   // and carries the year; the rest stay quiet.
@@ -135,8 +147,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   }
 
   const marks = a.labs.map((lab, li) => {
-    const byDate = new Map<string, Release[]>();
-    for (const r of a.releases) if (r.lab === lab.id) byDate.set(r.date, [...(byDate.get(r.date) ?? []), r]);
+    const byDate = byLab.get(lab.id) ?? new Map<string, Release[]>();
     const dots = [...byDate.entries()].map(([date, rs]) => {
       const slot = slotOfRelease(rs.flatMap((r) => r.benchmarks));
       const many = rs.length > 1;
@@ -171,10 +182,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
 
   const svg = host.querySelector<SVGSVGElement>(".tlv__svg")!;
   const index = new Map<string, Release[]>();
-  for (const r of a.releases) {
-    const k = `${r.lab}|${r.date}`;
-    index.set(k, [...(index.get(k) ?? []), r]);
-  }
+  for (const [lab, dates] of byLab) for (const [date, rs] of dates) index.set(`${lab}|${date}`, rs);
   svg.addEventListener("mousemove", (e) => {
     const k = (e.target as Element).getAttribute?.("data-key");
     a.onHover(k ? index.get(k) ?? null : null, e.clientX, e.clientY);
@@ -189,7 +197,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   });
 }
 
-export function tooltipHTML(rs: Release[], names: Map<string, string>, shown = 8, blocks = 3): string {
+export function tooltipHTML(rs: Release[], names: string[], shown = 8, blocks = 3): string {
   const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
   // `shown` is a row cap, not a pixel budget. The caller renders, measures and
   // reduces it until the box fits, which is the only approach that survives
@@ -202,7 +210,7 @@ export function tooltipHTML(rs: Release[], names: Map<string, string>, shown = 8
     // "and N more" is a footnote to a list, not a list. With SHOWN at zero it
     // was emitted on its own, giving a bulleted item reading "and 10 more"
     // under a heading, with nothing to be more than.
-    const named = r.benchmarks.slice(0, SHOWN).map((b) => `<li>${esc(names.get(b) ?? b)}</li>`).join("");
+    const named = r.benchmarks.slice(0, SHOWN).map((at) => `<li>${esc(names[at] ?? String(at))}</li>`).join("");
     const bs = !r.benchmarks.length
       ? `<li class="muted">No benchmark cited</li>`
       : named + (named && rest > 0 ? `<li class="tt__rest">and ${rest} more</li>` : "")

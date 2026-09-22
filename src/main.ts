@@ -1,31 +1,98 @@
 import "./styles/tokens.css";
 import "./styles/app.css";
-import raw from "../data/timeline.json";
-import { MAX_TRACKED, buildTrackables, displayNames, memberIds, quarterOf, type Timeline } from "./model";
+// The dataset is fetched, not imported. Imported, it was compiled into the
+// bundle as a JavaScript object literal: a megabyte of source that had to be
+// downloaded and parsed as code before the first line of this file could run.
+// `?url` keeps the content hash, so the two files a page loads are always the
+// pair that build produced and a deploy can never leave them mismatched.
+import coreUrl from "../data/timeline.json?url";
+import logUrl from "../data/release-log.json?url";
+import { MAX_TRACKED, buildTrackables, displayNames, memberIds, quarterOf, type Release, type Timeline } from "./model";
 import { renderFilter } from "./filter";
-import { renderTimeline, tooltipHTML } from "./timeline";
 import { renderTrend, type TrendView } from "./trend";
 
-const data = raw as unknown as Timeline;
+declare global {
+  interface Window {
+    /** Started by the inline script in index.html, while the head is still
+     *  being parsed, so the data is in flight before this module is fetched. */
+    btData?: { core?: Promise<Response>; log?: Promise<Response> };
+    /** Reload past a stale GitHub Pages cache. Defined in index.html. */
+    btRecoverStale?: () => boolean;
+  }
+}
+
 const app = document.querySelector<HTMLDivElement>("#app")!;
+// The masthead as index.html wrote it, before anything here touches the page.
+// Every screen this module can draw begins with it unchanged, so the title
+// paints once, in the right theme, and never moves afterwards.
+const SHELL = app.innerHTML;
 
 /* Theme: an explicit choice wins over the OS, and it persists. Storing nothing
-   until the user chooses keeps "follow the system" as the real default. */
+   until the user chooses keeps "follow the system" as the real default.
+   index.html applies the stored value during parse; these read and write the
+   same key, and exist here for the toggle. */
 type Theme = "light" | "dark" | null;
 const readTheme = (): Theme => (localStorage.getItem("bt-theme") as Theme) ?? null;
 const applyTheme = (t: Theme) => {
   if (t) document.documentElement.setAttribute("data-theme", t);
   else document.documentElement.removeAttribute("data-theme");
 };
-applyTheme(readTheme());
 const systemDark = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
 const effective = (): "light" | "dark" => readTheme() ?? (systemDark() ? "dark" : "light");
 
-if (data.releases.length === 0) {
-  app.innerHTML = `<main class="empty"><h1>Frontier Benchmark Tracker</h1>
-    <p>Which benchmarks frontier labs cite when they ship a model. No scores, only what each lab chose to report.</p>
-    <p class="muted">Tracking ${data.labs.length} labs. No releases recorded yet.</p></main>`;
-} else {
+async function load<T>(url: string, started?: Promise<Response>): Promise<T> {
+  const res = await (started ?? fetch(url));
+  // A cached index.html can name a hashed data file that the last deploy has
+  // already deleted. That is the failure the stale-asset script in index.html
+  // exists for, but a fetch raises no error event on an element, so it is
+  // reported here instead. Only on a 404: a network failure means offline,
+  // where reloading gives the browser's own error page rather than ours.
+  if (res.status === 404 && window.btRecoverStale?.()) return new Promise<T>(() => {});
+  if (!res.ok) throw new Error(`${url} responded ${res.status}`);
+  return res.json() as Promise<T>;
+}
+
+const corePromise = load<Timeline>(coreUrl, window.btData?.core);
+const logPromise = load<Release[]>(logUrl, window.btData?.log);
+// The log is only awaited once the registry has arrived and the page has been
+// built. If the registry never arrives, nothing ever looks at this, and a
+// rejection with no handler is reported to the console as an uncaught error on
+// top of the one the reader is already being shown.
+logPromise.catch(() => {});
+
+// Nothing is under the masthead yet. On any ordinary connection the data
+// arrives before this fires and it never appears; on a slow one it says what
+// the page is waiting for instead of leaving a title over empty space. One
+// muted line in the section's own type, no spinner and no reserved block.
+const slowNote = window.setTimeout(() => {
+  app.insertAdjacentHTML("beforeend", `<section class="tile tile--canvas" data-wait>
+    <div class="tile__in"><p class="empty muted">Loading the dataset.</p></div></section>`);
+}, 700);
+
+// Under the masthead, in the page's own type, saying what happened and
+// offering the one thing that can help. The alternative is a title over a
+// blank screen, which looks the same as a site that is simply broken.
+const failed = (err: unknown) => {
+  clearTimeout(slowNote);
+  console.error(err);
+  app.innerHTML = `${SHELL}<section class="tile tile--canvas"><div class="tile__in"><div class="empty">
+    <p>The dataset did not load.</p>
+    <p class="muted">This site keeps no offline copy, so there is nothing to show until the connection comes back.</p>
+    <p><button class="btn btn--sm" type="button" data-act="retry">Try again</button></p>
+  </div></div></section>`;
+  app.querySelector('[data-act="retry"]')!.addEventListener("click", () => location.reload());
+};
+
+corePromise.then(render, failed);
+
+function render(data: Timeline) {
+  clearTimeout(slowNote);
+  if (data.release_log.count === 0) {
+    app.innerHTML = `${SHELL}<section class="tile tile--canvas"><div class="tile__in"><div class="empty">
+      <p>No scores, only what each lab chose to report.</p>
+      <p class="muted">Tracking ${data.labs.length} labs. No releases recorded yet.</p></div></div></section>`;
+    return;
+  }
   const names = displayNames(data.benchmarks);
   const nowQ = quarterOf(new Date().toISOString().slice(0, 10));
   const partialQuarter = data.quarters.includes(nowQ) ? nowQ : null;
@@ -72,14 +139,12 @@ if (data.releases.length === 0) {
   // scrolls up with the page and pins when it reaches the top, which is the
   // behaviour wanted with no scroll listener to get wrong, and it means the
   // hero is never covered by a bar on first paint.
-  app.innerHTML = `
-    <header class="tile tile--parchment hero">
-      <div class="tile__in">
-        <h1>Frontier Benchmark Tracker</h1>
-        <p class="hero__sub">Which benchmarks frontier labs cite in their model releases.</p>
-      </div>
-    </header>
-
+  //
+  // The hero itself is SHELL, reused byte for byte from what index.html
+  // already painted. Writing it out again here would be a second copy of the
+  // masthead to keep in step, and the one thing on the page that must not move
+  // when the data lands is the thing the reader is already looking at.
+  app.innerHTML = `${SHELL}
     <nav class="subnav" aria-label="Page actions">
       <div class="subnav__in">
         <span class="subnav__name">Frontier Benchmark Tracker</span>
@@ -207,7 +272,7 @@ if (data.releases.length === 0) {
     renderFilter($(".controls"), {
       trackables, categories: data.categories, tracked,
       recentLabel: `the last ${recentMonths} months, ${fmtMonth(win.from)} to ${fmtMonth(win.to)}, covering ${win.releases.toLocaleString()} releases`,
-      sinceLabel: fmtMonth(data.releases[0].date),
+      sinceLabel: fmtMonth(data.release_log.first),
       onToggle: (id) => {
         const adding = !tracked.includes(id);
         tracked = adding
@@ -231,8 +296,14 @@ if (data.releases.length === 0) {
         // once.
         const t = adding ? trackables.get(id) : null;
         if (t?.kind === "suite") {
+          // Membership is a set of positions in data.benchmarks, so a tracked
+          // id has to be resolved to its own position before it can be tested.
+          // Suites and categories have none and are never inside a suite.
           const inside = memberIds(t, data.benchmarks);
-          tracked = tracked.filter((x) => x === id || !inside.has(x));
+          tracked = tracked.filter((x) => {
+            const at = trackables.get(x)?.at;
+            return x === id || at === undefined || !inside.has(at);
+          });
         }
         // No save-and-restore here any more. The browser's subject, sort,
         // grouping and query all live outside its render, so a redraw keeps
@@ -244,24 +315,56 @@ if (data.releases.length === 0) {
     renderTrend($(".trendwrap"), {
       tracked: tracked.map((id) => trackables.get(id)!).filter(Boolean),
       benchmarks: data.benchmarks,
-      releases: data.releases, labs, quarters: data.quarters, partialQuarter,
+      releases: () => log, labs, quarters: data.quarters, partialQuarter,
       view, onView: (v) => { view = v; draw(); }, onHover: showTip, onHoverFitted: showFitted,
     });
-    renderTimeline($(".tlwrap"), {
-      labs, releases: data.releases, names, quarters: data.quarters,
+    drawTimeline();
+    paintTheme();
+  };
+
+  // The release log is the largest file in the dataset and the only view that
+  // reads all of it sits two screens down, so it is fetched beside the
+  // registry and drawn when it arrives rather than waited for. The module that
+  // draws it is dynamic for the same reason: it is the heaviest of the three
+  // views and none of its code is needed to put the chart on screen.
+  //
+  // Nothing above it moves when it lands. The section, its heading and its
+  // standfirst are part of the page from the first paint; only the area below
+  // them grows, and everything after it is the footer.
+  let log: Release[] | null = null;
+  let timeline: typeof import("./timeline") | null = null;
+  const drawTimeline = () => {
+    if (!timeline || !log) return;
+    // Narrowed into locals, so the hover closure below does not have to
+    // re-check two module-scoped nullables every time the pointer moves.
+    const tl = timeline;
+    const rows = log;
+    tl.renderTimeline($(".tlwrap"), {
+      labs, releases: rows, names,
       // A mark is coloured by the slot of whatever it cites, so a tracked suite
       // has to hand the timeline every version it covers, not its own id.
       trackedMembers: tracked.map((id) => {
         const t = trackables.get(id);
-        return t ? memberIds(t, data.benchmarks) : new Set<string>();
+        return t ? memberIds(t, data.benchmarks) : new Set<number>();
       }),
       onHover: (rs, x, y) => {
         if (!rs || !rs.length) { showTip(null, 0, 0); return; }
-        showFitted((n, blocks) => tooltipHTML(rs, names, n, blocks), 8, x, y);
+        showFitted((n, blocks) => tl.tooltipHTML(rs, names, n, blocks), 8, x, y);
       },
     });
-    paintTheme();
   };
+
+  Promise.all([logPromise, import("./timeline")]).then(([rows, mod]) => {
+    log = rows;
+    timeline = mod;
+    drawTimeline();
+  }).catch((err) => {
+    // Everything above the fold is already correct and working, so a failure
+    // here costs the timeline and nothing else. Saying so in its own space is
+    // better than throwing the whole page away for the view furthest down it.
+    console.error(err);
+    $(".tlwrap").innerHTML = `<p class="empty muted">The release log did not load. Reload the page to try again.</p>`;
+  });
 
   app.addEventListener("click", (e) => {
     const act = (e.target as Element).closest("[data-act]")?.getAttribute("data-act");
