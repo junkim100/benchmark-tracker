@@ -13,6 +13,7 @@ import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { MODALITY_IDS, MODALITIES, isValidModality } from "./modality.mjs";
+import { assertSupported } from "./schema-guard.mjs";
 
 const DATA = join(dirname(fileURLToPath(import.meta.url)), "..", "data");
 const args = process.argv.slice(2);
@@ -30,9 +31,9 @@ const SCHEMA = {
         properties: {
           id: { type: "string", description: "Copied exactly from the record you were given." },
           classes: {
-            type: "array", minItems: 1, maxItems: 3,
+            type: "array",
             items: { type: "string", enum: MODALITY_IDS },
-            description: MODALITIES.map((m) => `${m.id}: ${m.blurb}`).join(" "),
+            description: `One to three entries, no duplicates. ${MODALITIES.map((m) => `${m.id}: ${m.blurb}`).join(" ")}`,
           },
         },
         required: ["id", "classes"],
@@ -63,6 +64,7 @@ const todo = releases.slice(0, LIMIT);
 console.log(`unclassified: ${releases.length}, doing ${todo.length} in batches of ${BATCH}`);
 if (DRY) { console.log(todo.slice(0, 5).map((x) => `  ${x.r.model} (${x.r.lab})`).join("\n")); process.exit(0); }
 
+assertSupported(SCHEMA, "backfill-modality SCHEMA");
 const client = new Anthropic();
 const answers = new Map();
 for (let i = 0; i < todo.length; i += BATCH) {

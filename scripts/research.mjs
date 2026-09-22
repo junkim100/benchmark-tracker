@@ -25,6 +25,7 @@ import { readFileSync, writeFileSync, appendFileSync, existsSync } from "node:fs
 import { spawnSync } from "node:child_process";
 import { CATEGORIES } from "./classify.mjs";
 import { MODALITY_IDS, MODALITIES } from "./modality.mjs";
+import { assertSupported } from "./schema-guard.mjs";
 import { SHARED_HOSTS, isOfficialSource } from "./sources.mjs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -37,6 +38,7 @@ const MAX_TOKENS = 16000;
 
 const labs = JSON.parse(readFileSync(join(DATA, "labs.json"), "utf8"));
 const CATEGORY_IDS = CATEGORIES.map((c) => c.id);
+assertSupported(RECORD_SCHEMA, "research RECORD_SCHEMA");
 const client = new Anthropic();
 
 // The benchmarks already tracked, so the agent can tell a genuinely new one
@@ -106,11 +108,15 @@ const RECORD_SCHEMA = {
             description: "What kind of model or models this release shipped, read from the page rather than guessed from the name. A release announcing several models carries several classes.",
             properties: {
               classes: {
+                // No minItems or maxItems. The structured-output API answers
+                // 400 for either on an array, and this schema is the one the
+                // scheduled research run depends on, so an unsupported keyword
+                // here fails the cron rather than a job somebody watches. The
+                // bound lives in the description and in isValidModality, which
+                // is what actually decides whether a value is written.
                 type: "array",
-                minItems: 1,
-                maxItems: 3,
                 items: { type: "string", enum: MODALITY_IDS },
-                description: `One entry per kind of model announced. ${MODALITIES.map((m) => `${m.id}: ${m.blurb}`).join(" ")}`,
+                description: `One to three entries, one per kind of model announced, no duplicates. ${MODALITIES.map((m) => `${m.id}: ${m.blurb}`).join(" ")}`,
               },
             },
             required: ["classes"],
