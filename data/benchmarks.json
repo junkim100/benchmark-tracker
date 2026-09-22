@@ -193,7 +193,7 @@
     "first_seen": "2023-02-27",
     "last_seen": "2026-09-17",
     "labs_by_year": {
-      "2023": 8,
+      "2023": 9,
       "2024": 9,
       "2025": 6,
       "2026": 6
@@ -201,7 +201,7 @@
     "labs_by_quarter": {
       "2023-Q1": 3,
       "2023-Q2": 1,
-      "2023-Q3": 4,
+      "2023-Q3": 5,
       "2023-Q4": 6,
       "2024-Q1": 6,
       "2024-Q2": 8,
@@ -557,7 +557,7 @@
       "2024-Q4": 7,
       "2025-Q1": 4,
       "2025-Q2": 5,
-      "2025-Q3": 4,
+      "2025-Q3": 5,
       "2025-Q4": 2,
       "2026-Q1": 5,
       "2026-Q2": 2,
@@ -635,7 +635,7 @@
     },
     "labs_by_quarter": {
       "2023-Q4": 2,
-      "2024-Q1": 4,
+      "2024-Q1": 5,
       "2024-Q2": 3,
       "2024-Q3": 7,
       "2024-Q4": 6,
@@ -1152,6 +1152,51 @@
     "recent_share": 4
   },
   {
+    "id": "arc-challenge",
+    "name": "ARC-Challenge",
+    "lab_count": 9,
+    "labs": [
+      "anthropic",
+      "deepseek",
+      "google",
+      "meta",
+      "mistral",
+      "moonshot",
+      "qwen",
+      "upstage",
+      "xiaomi"
+    ],
+    "first_seen": "2023-02-27",
+    "last_seen": "2026-04-27",
+    "labs_by_year": {
+      "2023": 5,
+      "2024": 7,
+      "2025": 3,
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2023-Q1": 1,
+      "2023-Q2": 1,
+      "2023-Q3": 3,
+      "2023-Q4": 1,
+      "2024-Q1": 4,
+      "2024-Q2": 5,
+      "2024-Q3": 5,
+      "2024-Q4": 3,
+      "2025-Q1": 1,
+      "2025-Q2": 2,
+      "2025-Q3": 2,
+      "2025-Q4": 2,
+      "2026-Q1": 2,
+      "2026-Q2": 1
+    },
+    "categories": [
+      "reasoning"
+    ],
+    "suite": null,
+    "recent_share": 4
+  },
+  {
     "id": "gpqa",
     "name": "GPQA",
     "lab_count": 9,
@@ -1315,45 +1360,38 @@
     "recent_share": 2
   },
   {
-    "id": "arc-challenge",
-    "name": "ARC-Challenge",
+    "id": "charxivreasoning",
+    "name": "CharXiv Reasoning",
     "lab_count": 8,
     "labs": [
       "anthropic",
-      "deepseek",
       "google",
       "meta",
-      "mistral",
       "moonshot",
+      "openai",
       "qwen",
-      "xiaomi"
+      "xiaomi",
+      "zai"
     ],
-    "first_seen": "2023-07-11",
-    "last_seen": "2026-04-27",
+    "first_seen": "2025-04-14",
+    "last_seen": "2026-09-14",
     "labs_by_year": {
-      "2023": 2,
-      "2024": 6,
-      "2025": 2,
-      "2026": 2
+      "2025": 3,
+      "2026": 8
     },
     "labs_by_quarter": {
-      "2023-Q3": 2,
-      "2023-Q4": 1,
-      "2024-Q1": 3,
-      "2024-Q2": 4,
-      "2024-Q3": 3,
-      "2024-Q4": 2,
       "2025-Q2": 1,
-      "2025-Q3": 1,
-      "2025-Q4": 1,
-      "2026-Q1": 2,
-      "2026-Q2": 1
+      "2025-Q3": 2,
+      "2025-Q4": 2,
+      "2026-Q1": 5,
+      "2026-Q2": 6,
+      "2026-Q3": 5
     },
     "categories": [
-      "reasoning"
+      "vision"
     ],
-    "suite": null,
-    "recent_share": 3
+    "suite": "charxiv",
+    "recent_share": 9
   },
   {
     "id": "cybergym",
@@ -1434,6 +1472,36 @@
     "recent_share": 4
   },
   {
+    "id": "gdpvalaa",
+    "name": "GDPval-AA",
+    "lab_count": 8,
+    "labs": [
+      "anthropic",
+      "deepseek",
+      "google",
+      "moonshot",
+      "qwen",
+      "xai",
+      "xiaomi",
+      "zai"
+    ],
+    "first_seen": "2026-02-02",
+    "last_seen": "2026-08-12",
+    "labs_by_year": {
+      "2026": 8
+    },
+    "labs_by_quarter": {
+      "2026-Q1": 5,
+      "2026-Q2": 5,
+      "2026-Q3": 2
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "gdpval",
+    "recent_share": 8
+  },
+  {
     "id": "mcpatlas",
     "name": "MCP Atlas",
     "lab_count": 8,
@@ -1492,8 +1560,8 @@
       "2023-Q4": 1,
       "2024-Q1": 3,
       "2024-Q2": 5,
-      "2024-Q3": 2,
-      "2024-Q4": 4,
+      "2024-Q3": 3,
+      "2024-Q4": 5,
       "2025-Q1": 1,
       "2025-Q2": 3,
       "2025-Q3": 2,
@@ -1647,6 +1715,46 @@
     "recent_share": 2
   },
   {
+    "id": "arceasy",
+    "name": "ARC-e",
+    "lab_count": 7,
+    "labs": [
+      "deepseek",
+      "google",
+      "meta",
+      "mistral",
+      "openai",
+      "qwen",
+      "xiaomi"
+    ],
+    "first_seen": "2023-02-27",
+    "last_seen": "2025-12-16",
+    "labs_by_year": {
+      "2023": 4,
+      "2024": 5,
+      "2025": 2
+    },
+    "labs_by_quarter": {
+      "2023-Q1": 1,
+      "2023-Q2": 1,
+      "2023-Q3": 2,
+      "2023-Q4": 1,
+      "2024-Q1": 3,
+      "2024-Q2": 3,
+      "2024-Q3": 2,
+      "2024-Q4": 1,
+      "2025-Q1": 1,
+      "2025-Q2": 2,
+      "2025-Q3": 1,
+      "2025-Q4": 1
+    },
+    "categories": [
+      "reasoning"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "automationbench",
     "name": "AutomationBench",
     "lab_count": 7,
@@ -1728,6 +1836,43 @@
       "agentic"
     ],
     "suite": "gdpval",
+    "recent_share": 1
+  },
+  {
+    "id": "infovqa",
+    "name": "InfoVQA",
+    "lab_count": 7,
+    "labs": [
+      "deepseek",
+      "google",
+      "meta",
+      "moonshot",
+      "qwen",
+      "xiaomi",
+      "zai"
+    ],
+    "first_seen": "2023-12-14",
+    "last_seen": "2026-06-03",
+    "labs_by_year": {
+      "2023": 1,
+      "2024": 4,
+      "2025": 5,
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2023-Q4": 1,
+      "2024-Q3": 3,
+      "2024-Q4": 2,
+      "2025-Q1": 2,
+      "2025-Q2": 3,
+      "2025-Q3": 3,
+      "2025-Q4": 2,
+      "2026-Q2": 1
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": null,
     "recent_share": 1
   },
   {
@@ -2025,44 +2170,6 @@
     "recent_share": 0
   },
   {
-    "id": "arcc",
-    "name": "ARC-C",
-    "lab_count": 6,
-    "labs": [
-      "deepseek",
-      "google",
-      "meta",
-      "mistral",
-      "qwen",
-      "upstage"
-    ],
-    "first_seen": "2023-02-27",
-    "last_seen": "2025-12-16",
-    "labs_by_year": {
-      "2023": 3,
-      "2024": 6,
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q1": 1,
-      "2023-Q2": 1,
-      "2023-Q3": 1,
-      "2024-Q1": 2,
-      "2024-Q2": 2,
-      "2024-Q3": 4,
-      "2024-Q4": 2,
-      "2025-Q1": 1,
-      "2025-Q2": 1,
-      "2025-Q3": 1,
-      "2025-Q4": 1
-    },
-    "categories": [
-      "reasoning"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "blink",
     "name": "BLINK",
     "lab_count": 6,
@@ -2164,34 +2271,6 @@
     "recent_share": 2
   },
   {
-    "id": "gdpvalaa",
-    "name": "GDPval-AA",
-    "lab_count": 6,
-    "labs": [
-      "anthropic",
-      "deepseek",
-      "google",
-      "moonshot",
-      "qwen",
-      "xiaomi"
-    ],
-    "first_seen": "2026-02-02",
-    "last_seen": "2026-07-24",
-    "labs_by_year": {
-      "2026": 6
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 4,
-      "2026-Q2": 5,
-      "2026-Q3": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": "gdpval",
-    "recent_share": 7
-  },
-  {
     "id": "hmmt25",
     "name": "HMMT 2025",
     "lab_count": 6,
@@ -2250,42 +2329,6 @@
     ],
     "suite": "hmmt",
     "recent_share": 4
-  },
-  {
-    "id": "infovqa",
-    "name": "InfoVQA",
-    "lab_count": 6,
-    "labs": [
-      "deepseek",
-      "google",
-      "moonshot",
-      "qwen",
-      "xiaomi",
-      "zai"
-    ],
-    "first_seen": "2023-12-14",
-    "last_seen": "2026-06-03",
-    "labs_by_year": {
-      "2023": 1,
-      "2024": 3,
-      "2025": 4,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q4": 1,
-      "2024-Q3": 2,
-      "2024-Q4": 2,
-      "2025-Q1": 2,
-      "2025-Q2": 2,
-      "2025-Q3": 3,
-      "2025-Q4": 2,
-      "2026-Q2": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": null,
-    "recent_share": 1
   },
   {
     "id": "livecodebench6",
@@ -2352,6 +2395,41 @@
     ],
     "suite": "longbench",
     "recent_share": 5
+  },
+  {
+    "id": "mrcr",
+    "name": "MRCR",
+    "lab_count": 6,
+    "labs": [
+      "google",
+      "moonshot",
+      "openai",
+      "qwen",
+      "xiaomi",
+      "zai"
+    ],
+    "first_seen": "2024-09-24",
+    "last_seen": "2026-08-31",
+    "labs_by_year": {
+      "2024": 1,
+      "2025": 5,
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2024-Q3": 1,
+      "2024-Q4": 1,
+      "2025-Q1": 1,
+      "2025-Q2": 2,
+      "2025-Q3": 2,
+      "2025-Q4": 4,
+      "2026-Q1": 2,
+      "2026-Q3": 1
+    },
+    "categories": [
+      "longctx"
+    ],
+    "suite": null,
+    "recent_share": 4
   },
   {
     "id": "ocrbench",
@@ -2718,6 +2796,36 @@
     "recent_share": 0
   },
   {
+    "id": "tau2benchtelecom",
+    "name": "TAU2-Telecom",
+    "lab_count": 6,
+    "labs": [
+      "moonshot",
+      "openai",
+      "qwen",
+      "upstage",
+      "xai",
+      "xiaomi"
+    ],
+    "first_seen": "2025-07-11",
+    "last_seen": "2026-04-23",
+    "labs_by_year": {
+      "2025": 4,
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2025-Q3": 3,
+      "2025-Q4": 2,
+      "2026-Q1": 3,
+      "2026-Q2": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "tau-bench",
+    "recent_share": 6
+  },
+  {
     "id": "toolathlonverified",
     "name": "Toolathlon Verified",
     "lab_count": 6,
@@ -2900,31 +3008,28 @@
     "recent_share": 2
   },
   {
-    "id": "arceasy",
-    "name": "ARC-Easy",
+    "id": "arc",
+    "name": "ARC",
     "lab_count": 5,
     "labs": [
       "deepseek",
       "meta",
-      "mistral",
       "openai",
-      "xiaomi"
+      "upstage",
+      "zai"
     ],
-    "first_seen": "2023-09-27",
-    "last_seen": "2025-05-12",
+    "first_seen": "2023-03-14",
+    "last_seen": "2024-07-02",
     "labs_by_year": {
-      "2023": 1,
-      "2024": 4,
-      "2025": 1
+      "2023": 3,
+      "2024": 2
     },
     "labs_by_quarter": {
+      "2023-Q1": 1,
       "2023-Q3": 1,
       "2023-Q4": 1,
-      "2024-Q1": 2,
-      "2024-Q2": 2,
-      "2024-Q3": 1,
-      "2024-Q4": 1,
-      "2025-Q2": 1
+      "2024-Q1": 1,
+      "2024-Q3": 1
     },
     "categories": [
       "reasoning"
@@ -3101,37 +3206,6 @@
     "recent_share": 1
   },
   {
-    "id": "charxivreasoning",
-    "name": "CharXiv Reasoning",
-    "lab_count": 5,
-    "labs": [
-      "anthropic",
-      "google",
-      "meta",
-      "openai",
-      "zai"
-    ],
-    "first_seen": "2025-04-14",
-    "last_seen": "2026-09-02",
-    "labs_by_year": {
-      "2025": 2,
-      "2026": 5
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1,
-      "2025-Q3": 1,
-      "2025-Q4": 2,
-      "2026-Q1": 2,
-      "2026-Q2": 3,
-      "2026-Q3": 3
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": "charxiv",
-    "recent_share": 4
-  },
-  {
     "id": "cmmlu",
     "name": "CMMLU",
     "lab_count": 5,
@@ -3170,6 +3244,42 @@
     ],
     "suite": null,
     "recent_share": 4
+  },
+  {
+    "id": "coco",
+    "name": "COCO",
+    "lab_count": 5,
+    "labs": [
+      "google",
+      "meta",
+      "openai",
+      "qwen",
+      "zai"
+    ],
+    "first_seen": "2023-04-05",
+    "last_seen": "2026-08-03",
+    "labs_by_year": {
+      "2023": 3,
+      "2024": 2,
+      "2025": 1,
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2023-Q2": 1,
+      "2023-Q4": 2,
+      "2024-Q2": 1,
+      "2024-Q4": 1,
+      "2025-Q2": 1,
+      "2025-Q3": 1,
+      "2025-Q4": 1,
+      "2026-Q2": 1,
+      "2026-Q3": 1
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": null,
+    "recent_share": 2
   },
   {
     "id": "codeforces",
@@ -3439,7 +3549,7 @@
     "labs_by_quarter": {
       "2024-Q3": 2,
       "2024-Q4": 1,
-      "2025-Q1": 1,
+      "2025-Q1": 2,
       "2025-Q2": 2,
       "2025-Q3": 2,
       "2025-Q4": 2,
@@ -3488,40 +3598,6 @@
     ],
     "suite": "mmlu",
     "recent_share": 9
-  },
-  {
-    "id": "mrcr",
-    "name": "MRCR",
-    "lab_count": 5,
-    "labs": [
-      "google",
-      "moonshot",
-      "qwen",
-      "xiaomi",
-      "zai"
-    ],
-    "first_seen": "2024-09-24",
-    "last_seen": "2026-08-31",
-    "labs_by_year": {
-      "2024": 1,
-      "2025": 4,
-      "2026": 3
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1,
-      "2024-Q4": 1,
-      "2025-Q1": 1,
-      "2025-Q2": 1,
-      "2025-Q3": 1,
-      "2025-Q4": 4,
-      "2026-Q1": 2,
-      "2026-Q3": 1
-    },
-    "categories": [
-      "longctx"
-    ],
-    "suite": null,
-    "recent_share": 3
   },
   {
     "id": "mt-bench",
@@ -4106,34 +4182,6 @@
     "recent_share": 0
   },
   {
-    "id": "arc",
-    "name": "ARC",
-    "lab_count": 4,
-    "labs": [
-      "deepseek",
-      "openai",
-      "upstage",
-      "zai"
-    ],
-    "first_seen": "2023-03-14",
-    "last_seen": "2024-07-02",
-    "labs_by_year": {
-      "2023": 2,
-      "2024": 2
-    },
-    "labs_by_quarter": {
-      "2023-Q1": 1,
-      "2023-Q4": 1,
-      "2024-Q1": 1,
-      "2024-Q3": 1
-    },
-    "categories": [
-      "reasoning"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "arc-agi-2",
     "name": "ARC-AGI-2",
     "lab_count": 4,
@@ -4161,42 +4209,6 @@
     ],
     "suite": "arc-agi",
     "recent_share": 4
-  },
-  {
-    "id": "arce",
-    "name": "ARC-e",
-    "lab_count": 4,
-    "labs": [
-      "google",
-      "meta",
-      "mistral",
-      "qwen"
-    ],
-    "first_seen": "2023-02-27",
-    "last_seen": "2025-12-16",
-    "labs_by_year": {
-      "2023": 4,
-      "2024": 1,
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q1": 1,
-      "2023-Q2": 1,
-      "2023-Q3": 1,
-      "2023-Q4": 1,
-      "2024-Q1": 1,
-      "2024-Q2": 1,
-      "2024-Q3": 1,
-      "2025-Q1": 1,
-      "2025-Q2": 1,
-      "2025-Q3": 1,
-      "2025-Q4": 1
-    },
-    "categories": [
-      "reasoning"
-    ],
-    "suite": null,
-    "recent_share": 0
   },
   {
     "id": "arenahard",
@@ -4229,6 +4241,34 @@
     ],
     "suite": "arena-hard",
     "recent_share": 1
+  },
+  {
+    "id": "arenahard2",
+    "name": "Arena-Hard v2",
+    "lab_count": 4,
+    "labs": [
+      "mistral",
+      "moonshot",
+      "qwen",
+      "upstage"
+    ],
+    "first_seen": "2025-06-19",
+    "last_seen": "2026-01-26",
+    "labs_by_year": {
+      "2025": 3,
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2025-Q2": 1,
+      "2025-Q3": 2,
+      "2025-Q4": 1,
+      "2026-Q1": 2
+    },
+    "categories": [
+      "knowledge"
+    ],
+    "suite": "arena-hard",
+    "recent_share": 4
   },
   {
     "id": "babyvision",
@@ -4343,39 +4383,6 @@
     ],
     "suite": null,
     "recent_share": 4
-  },
-  {
-    "id": "coco",
-    "name": "COCO",
-    "lab_count": 4,
-    "labs": [
-      "google",
-      "meta",
-      "qwen",
-      "zai"
-    ],
-    "first_seen": "2023-04-05",
-    "last_seen": "2026-08-03",
-    "labs_by_year": {
-      "2023": 2,
-      "2024": 1,
-      "2025": 1,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q2": 1,
-      "2023-Q4": 1,
-      "2024-Q4": 1,
-      "2025-Q2": 1,
-      "2025-Q3": 1,
-      "2025-Q4": 1,
-      "2026-Q3": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": null,
-    "recent_share": 2
   },
   {
     "id": "covost2",
@@ -4607,6 +4614,32 @@
     "recent_share": 4
   },
   {
+    "id": "ifbench",
+    "name": "IFBench",
+    "lab_count": 4,
+    "labs": [
+      "google",
+      "mistral",
+      "qwen",
+      "upstage"
+    ],
+    "first_seen": "2026-01-11",
+    "last_seen": "2026-09-14",
+    "labs_by_year": {
+      "2026": 4
+    },
+    "labs_by_quarter": {
+      "2026-Q1": 3,
+      "2026-Q2": 2,
+      "2026-Q3": 3
+    },
+    "categories": [
+      "reasoning"
+    ],
+    "suite": null,
+    "recent_share": 4
+  },
+  {
     "id": "imoanswerbench",
     "name": "IMOAnswerBench",
     "lab_count": 4,
@@ -4682,8 +4715,8 @@
     },
     "labs_by_quarter": {
       "2025-Q1": 1,
-      "2025-Q2": 1,
-      "2025-Q3": 1,
+      "2025-Q2": 2,
+      "2025-Q3": 2,
       "2025-Q4": 2,
       "2026-Q1": 1,
       "2026-Q2": 2,
@@ -4732,17 +4765,18 @@
       "xai"
     ],
     "first_seen": "2025-03-12",
-    "last_seen": "2026-01-28",
+    "last_seen": "2026-06-30",
     "labs_by_year": {
       "2025": 3,
-      "2026": 1
+      "2026": 2
     },
     "labs_by_quarter": {
       "2025-Q1": 1,
       "2025-Q2": 2,
       "2025-Q3": 1,
       "2025-Q4": 2,
-      "2026-Q1": 1
+      "2026-Q1": 1,
+      "2026-Q2": 1
     },
     "categories": [
       "knowledge"
@@ -4782,6 +4816,37 @@
     ],
     "suite": null,
     "recent_share": 3
+  },
+  {
+    "id": "mls",
+    "name": "MLS",
+    "lab_count": 4,
+    "labs": [
+      "google",
+      "meta",
+      "mistral",
+      "qwen"
+    ],
+    "first_seen": "2023-12-19",
+    "last_seen": "2026-01-29",
+    "labs_by_year": {
+      "2023": 1,
+      "2024": 2,
+      "2025": 2,
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2023-Q4": 1,
+      "2024-Q1": 1,
+      "2024-Q3": 1,
+      "2025-Q3": 2,
+      "2026-Q1": 1
+    },
+    "categories": [
+      "speech"
+    ],
+    "suite": null,
+    "recent_share": 1
   },
   {
     "id": "mmau",
@@ -5098,6 +5163,41 @@
     "recent_share": 4
   },
   {
+    "id": "seed",
+    "name": "SEED",
+    "lab_count": 4,
+    "labs": [
+      "deepseek",
+      "meta",
+      "qwen",
+      "zai"
+    ],
+    "first_seen": "2023-08-24",
+    "last_seen": "2026-04-17",
+    "labs_by_year": {
+      "2023": 2,
+      "2024": 1,
+      "2025": 3,
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2023-Q3": 1,
+      "2023-Q4": 1,
+      "2024-Q1": 1,
+      "2024-Q4": 1,
+      "2025-Q1": 2,
+      "2025-Q2": 1,
+      "2025-Q3": 1,
+      "2026-Q1": 1,
+      "2026-Q2": 1
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": "seed-bench",
+    "recent_share": 0
+  },
+  {
     "id": "simpleqaverified",
     "name": "SimpleQA Verified",
     "lab_count": 4,
@@ -5299,6 +5399,37 @@
     "recent_share": 0
   },
   {
+    "id": "vizwiz",
+    "name": "VizWiz",
+    "lab_count": 4,
+    "labs": [
+      "google",
+      "meta",
+      "qwen",
+      "zai"
+    ],
+    "first_seen": "2023-08-18",
+    "last_seen": "2025-04-17",
+    "labs_by_year": {
+      "2023": 2,
+      "2024": 1,
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2023-Q3": 1,
+      "2023-Q4": 1,
+      "2024-Q2": 1,
+      "2024-Q3": 1,
+      "2024-Q4": 1,
+      "2025-Q2": 1
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "voxpopuli",
     "name": "VoxPopuli",
     "lab_count": 4,
@@ -5465,33 +5596,6 @@
     "recent_share": 3
   },
   {
-    "id": "arenahard2",
-    "name": "Arena-Hard v2",
-    "lab_count": 3,
-    "labs": [
-      "mistral",
-      "qwen",
-      "upstage"
-    ],
-    "first_seen": "2025-06-19",
-    "last_seen": "2026-01-26",
-    "labs_by_year": {
-      "2025": 2,
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1,
-      "2025-Q3": 1,
-      "2025-Q4": 1,
-      "2026-Q1": 2
-    },
-    "categories": [
-      "knowledge"
-    ],
-    "suite": "arena-hard",
-    "recent_share": 4
-  },
-  {
     "id": "bfcl",
     "name": "BFCL",
     "lab_count": 3,
@@ -5597,33 +5701,6 @@
     ],
     "suite": null,
     "recent_share": 0
-  },
-  {
-    "id": "charxivrq",
-    "name": "CharXiv (RQ)",
-    "lab_count": 3,
-    "labs": [
-      "moonshot",
-      "qwen",
-      "xiaomi"
-    ],
-    "first_seen": "2025-09-22",
-    "last_seen": "2026-09-14",
-    "labs_by_year": {
-      "2025": 1,
-      "2026": 3
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1,
-      "2026-Q1": 3,
-      "2026-Q2": 3,
-      "2026-Q3": 2
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": "charxiv",
-    "recent_share": 5
   },
   {
     "id": "chatbotarena",
@@ -5748,6 +5825,35 @@
     "recent_share": 3
   },
   {
+    "id": "cruxevali",
+    "name": "CRUXEval-I",
+    "lab_count": 3,
+    "labs": [
+      "deepseek",
+      "qwen",
+      "xiaomi"
+    ],
+    "first_seen": "2024-05-07",
+    "last_seen": "2026-02-14",
+    "labs_by_year": {
+      "2024": 1,
+      "2025": 2,
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2024-Q2": 1,
+      "2024-Q4": 1,
+      "2025-Q1": 1,
+      "2025-Q2": 1,
+      "2026-Q1": 2
+    },
+    "categories": [
+      "coding"
+    ],
+    "suite": "cruxeval",
+    "recent_share": 1
+  },
+  {
     "id": "cybench",
     "name": "Cybench",
     "lab_count": 3,
@@ -5826,6 +5932,34 @@
     ],
     "suite": null,
     "recent_share": 0
+  },
+  {
+    "id": "dpgbench",
+    "name": "DPG-Bench",
+    "lab_count": 3,
+    "labs": [
+      "deepseek",
+      "qwen",
+      "zai"
+    ],
+    "first_seen": "2024-11-12",
+    "last_seen": "2026-01-14",
+    "labs_by_year": {
+      "2024": 1,
+      "2025": 3,
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2024-Q4": 1,
+      "2025-Q1": 2,
+      "2025-Q3": 1,
+      "2026-Q1": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 1
   },
   {
     "id": "drawbench",
@@ -5912,22 +6046,24 @@
   },
   {
     "id": "embspatial",
-    "name": "EmbSpatial",
+    "name": "EmbSpatialBench",
     "lab_count": 3,
     "labs": [
       "google",
       "qwen",
       "xiaomi"
     ],
-    "first_seen": "2025-09-25",
+    "first_seen": "2025-09-22",
     "last_seen": "2026-09-03",
     "labs_by_year": {
-      "2025": 2,
+      "2025": 3,
       "2026": 1
     },
     "labs_by_quarter": {
-      "2025-Q3": 1,
-      "2025-Q4": 2,
+      "2025-Q3": 2,
+      "2025-Q4": 3,
+      "2026-Q1": 1,
+      "2026-Q2": 1,
       "2026-Q3": 1
     },
     "categories": [
@@ -6291,31 +6427,6 @@
     "recent_share": 0
   },
   {
-    "id": "ifbench",
-    "name": "IFBench",
-    "lab_count": 3,
-    "labs": [
-      "google",
-      "qwen",
-      "upstage"
-    ],
-    "first_seen": "2026-01-11",
-    "last_seen": "2026-09-14",
-    "labs_by_year": {
-      "2026": 3
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 2,
-      "2026-Q2": 1,
-      "2026-Q3": 3
-    },
-    "categories": [
-      "reasoning"
-    ],
-    "suite": null,
-    "recent_share": 3
-  },
-  {
     "id": "jobbench",
     "name": "JobBench",
     "lab_count": 3,
@@ -6643,6 +6754,33 @@
     "recent_share": 2
   },
   {
+    "id": "mmmuprovision",
+    "name": "MMMU-Pro Vis",
+    "lab_count": 3,
+    "labs": [
+      "meta",
+      "mistral",
+      "qwen"
+    ],
+    "first_seen": "2024-09-25",
+    "last_seen": "2026-09-03",
+    "labs_by_year": {
+      "2024": 1,
+      "2025": 1,
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2024-Q3": 1,
+      "2025-Q2": 1,
+      "2026-Q3": 1
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": "mmmu",
+    "recent_share": 0
+  },
+  {
     "id": "mmsu",
     "name": "MMSU",
     "lab_count": 3,
@@ -6726,33 +6864,6 @@
     "recent_share": 2
   },
   {
-    "id": "mscoco",
-    "name": "MSCOCO",
-    "lab_count": 3,
-    "labs": [
-      "google",
-      "meta",
-      "openai"
-    ],
-    "first_seen": "2023-10-31",
-    "last_seen": "2026-05-26",
-    "labs_by_year": {
-      "2023": 1,
-      "2024": 1,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q4": 1,
-      "2024-Q2": 1,
-      "2026-Q2": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "multilingualmmlu",
     "name": "Multilingual MMLU",
     "lab_count": 3,
@@ -6822,13 +6933,13 @@
       "zai"
     ],
     "first_seen": "2026-04-02",
-    "last_seen": "2026-08-26",
+    "last_seen": "2026-09-17",
     "labs_by_year": {
       "2026": 3
     },
     "labs_by_quarter": {
       "2026-Q2": 2,
-      "2026-Q3": 2
+      "2026-Q3": 3
     },
     "categories": [
       "coding"
@@ -7216,37 +7327,6 @@
     "recent_share": 3
   },
   {
-    "id": "seed",
-    "name": "SEED",
-    "lab_count": 3,
-    "labs": [
-      "deepseek",
-      "meta",
-      "qwen"
-    ],
-    "first_seen": "2024-03-08",
-    "last_seen": "2026-04-17",
-    "labs_by_year": {
-      "2024": 1,
-      "2025": 3,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q1": 1,
-      "2024-Q4": 1,
-      "2025-Q1": 2,
-      "2025-Q2": 1,
-      "2025-Q3": 1,
-      "2026-Q1": 1,
-      "2026-Q2": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "simplevqa",
     "name": "SimpleVQA",
     "lab_count": 3,
@@ -7381,60 +7461,8 @@
     "recent_share": 4
   },
   {
-    "id": "tau2benchtelecom",
-    "name": "Tau2-bench Telecom",
-    "lab_count": 3,
-    "labs": [
-      "openai",
-      "xai",
-      "xiaomi"
-    ],
-    "first_seen": "2025-08-07",
-    "last_seen": "2026-04-23",
-    "labs_by_year": {
-      "2025": 2,
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1,
-      "2025-Q4": 2,
-      "2026-Q1": 2,
-      "2026-Q2": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": "tau-bench",
-    "recent_share": 2
-  },
-  {
     "id": "tau2retail",
     "name": "TAU2-Retail",
-    "lab_count": 3,
-    "labs": [
-      "moonshot",
-      "qwen",
-      "upstage"
-    ],
-    "first_seen": "2025-07-11",
-    "last_seen": "2026-01-11",
-    "labs_by_year": {
-      "2025": 2,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 2,
-      "2026-Q1": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": "tau-bench",
-    "recent_share": 4
-  },
-  {
-    "id": "tau2telecom",
-    "name": "TAU2-Telecom",
     "lab_count": 3,
     "labs": [
       "moonshot",
@@ -7532,7 +7560,7 @@
   },
   {
     "id": "taubenchretail",
-    "name": "Tau-Bench Retail",
+    "name": "TAU1-Retail",
     "lab_count": 3,
     "labs": [
       "openai",
@@ -7540,7 +7568,7 @@
       "zai"
     ],
     "first_seen": "2024-12-17",
-    "last_seen": "2025-08-05",
+    "last_seen": "2025-09-09",
     "labs_by_year": {
       "2024": 1,
       "2025": 3
@@ -7554,7 +7582,7 @@
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "textarena",
@@ -7763,6 +7791,64 @@
     ],
     "suite": null,
     "recent_share": 3
+  },
+  {
+    "id": "wmdpbio",
+    "name": "WMDP Bio",
+    "lab_count": 3,
+    "labs": [
+      "meta",
+      "openai",
+      "xai"
+    ],
+    "first_seen": "2024-12-05",
+    "last_seen": "2026-08-12",
+    "labs_by_year": {
+      "2024": 1,
+      "2025": 2,
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2024-Q4": 1,
+      "2025-Q1": 1,
+      "2025-Q3": 1,
+      "2025-Q4": 1,
+      "2026-Q2": 2,
+      "2026-Q3": 1
+    },
+    "categories": [
+      "safety"
+    ],
+    "suite": null,
+    "recent_share": 4
+  },
+  {
+    "id": "wmdpchem",
+    "name": "WMDP Chem",
+    "lab_count": 3,
+    "labs": [
+      "meta",
+      "openai",
+      "xai"
+    ],
+    "first_seen": "2025-02-25",
+    "last_seen": "2026-08-12",
+    "labs_by_year": {
+      "2025": 2,
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2025-Q1": 1,
+      "2025-Q3": 1,
+      "2025-Q4": 1,
+      "2026-Q2": 2,
+      "2026-Q3": 1
+    },
+    "categories": [
+      "safety"
+    ],
+    "suite": null,
+    "recent_share": 4
   },
   {
     "id": "xcopa",
@@ -9115,7 +9201,7 @@
     },
     "labs_by_quarter": {
       "2024-Q2": 1,
-      "2024-Q3": 1,
+      "2024-Q3": 2,
       "2025-Q1": 1,
       "2026-Q1": 1
     },
@@ -9124,33 +9210,6 @@
     ],
     "suite": "cruxeval",
     "recent_share": 0
-  },
-  {
-    "id": "cruxevali",
-    "name": "CRUXEval-I",
-    "lab_count": 2,
-    "labs": [
-      "deepseek",
-      "xiaomi"
-    ],
-    "first_seen": "2024-05-07",
-    "last_seen": "2026-01-06",
-    "labs_by_year": {
-      "2024": 1,
-      "2025": 1,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q2": 1,
-      "2024-Q4": 1,
-      "2025-Q2": 1,
-      "2026-Q1": 1
-    },
-    "categories": [
-      "coding"
-    ],
-    "suite": "cruxeval",
-    "recent_share": 1
   },
   {
     "id": "cruxevalicot",
@@ -9349,32 +9408,6 @@
     ],
     "suite": null,
     "recent_share": 2
-  },
-  {
-    "id": "dpgbench",
-    "name": "DPG-Bench",
-    "lab_count": 2,
-    "labs": [
-      "deepseek",
-      "zai"
-    ],
-    "first_seen": "2024-11-12",
-    "last_seen": "2026-01-14",
-    "labs_by_year": {
-      "2024": 1,
-      "2025": 2,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q4": 1,
-      "2025-Q1": 2,
-      "2026-Q1": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
   },
   {
     "id": "eclektic",
@@ -9829,29 +9862,6 @@
     "recent_share": 1
   },
   {
-    "id": "gdpvalaaelo",
-    "name": "GDPVal-AA (Elo)",
-    "lab_count": 2,
-    "labs": [
-      "xiaomi",
-      "zai"
-    ],
-    "first_seen": "2026-02-17",
-    "last_seen": "2026-04-27",
-    "labs_by_year": {
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 1,
-      "2026-Q2": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": "gdpval",
-    "recent_share": 1
-  },
-  {
     "id": "gigaspeech",
     "name": "GigaSpeech",
     "lab_count": 2,
@@ -10164,6 +10174,30 @@
     "recent_share": 0
   },
   {
+    "id": "humanevalinfilling",
+    "name": "HumanEval Infilling",
+    "lab_count": 2,
+    "labs": [
+      "google",
+      "meta"
+    ],
+    "first_seen": "2023-08-24",
+    "last_seen": "2024-06-17",
+    "labs_by_year": {
+      "2023": 1,
+      "2024": 1
+    },
+    "labs_by_quarter": {
+      "2023-Q3": 1,
+      "2024-Q2": 1
+    },
+    "categories": [
+      "coding"
+    ],
+    "suite": "humaneval",
+    "recent_share": 0
+  },
+  {
     "id": "humanevalmul",
     "name": "HumanEval-Mul",
     "lab_count": 2,
@@ -10188,28 +10222,27 @@
     "recent_share": 0
   },
   {
-    "id": "humanevalpython",
-    "name": "HumanEval Python",
+    "id": "hungarianexam",
+    "name": "Hungarian Exam",
     "lab_count": 2,
     "labs": [
       "deepseek",
-      "mistral"
+      "xai"
     ],
-    "first_seen": "2024-05-29",
-    "last_seen": "2025-01-13",
+    "first_seen": "2023-11-03",
+    "last_seen": "2024-01-05",
     "labs_by_year": {
-      "2024": 2,
-      "2025": 1
+      "2023": 1,
+      "2024": 1
     },
     "labs_by_quarter": {
-      "2024-Q2": 1,
-      "2024-Q3": 1,
-      "2025-Q1": 1
+      "2023-Q4": 1,
+      "2024-Q1": 1
     },
     "categories": [
-      "coding"
+      "knowledge"
     ],
-    "suite": "humaneval",
+    "suite": null,
     "recent_share": 0
   },
   {
@@ -10780,6 +10813,29 @@
     "recent_share": 0
   },
   {
+    "id": "lmsysarena",
+    "name": "LMSYS Chatbot Arena",
+    "lab_count": 2,
+    "labs": [
+      "google",
+      "mistral"
+    ],
+    "first_seen": "2024-01-08",
+    "last_seen": "2024-07-31",
+    "labs_by_year": {
+      "2024": 2
+    },
+    "labs_by_quarter": {
+      "2024-Q1": 1,
+      "2024-Q3": 1
+    },
+    "categories": [
+      "knowledge"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "loft",
     "name": "LOFT",
     "lab_count": 2,
@@ -11027,31 +11083,6 @@
     "recent_share": 0
   },
   {
-    "id": "mathvisionfull",
-    "name": "MathVision_full",
-    "lab_count": 2,
-    "labs": [
-      "moonshot",
-      "qwen"
-    ],
-    "first_seen": "2025-01-22",
-    "last_seen": "2025-12-09",
-    "labs_by_year": {
-      "2025": 2
-    },
-    "labs_by_quarter": {
-      "2025-Q1": 1,
-      "2025-Q3": 1,
-      "2025-Q4": 1
-    },
-    "categories": [
-      "math",
-      "vision"
-    ],
-    "suite": "mathvision",
-    "recent_share": 0
-  },
-  {
     "id": "mathvistamini",
     "name": "MathVista (mini)",
     "lab_count": 2,
@@ -11271,32 +11302,6 @@
     "labs_by_quarter": {
       "2024-Q1": 1,
       "2024-Q2": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "mls",
-    "name": "MLS",
-    "lab_count": 2,
-    "labs": [
-      "meta",
-      "qwen"
-    ],
-    "first_seen": "2024-07-31",
-    "last_seen": "2026-01-29",
-    "labs_by_year": {
-      "2024": 1,
-      "2025": 1,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1,
-      "2025-Q3": 1,
-      "2026-Q1": 1
     },
     "categories": [
       "other"
@@ -11748,30 +11753,6 @@
     "recent_share": 0
   },
   {
-    "id": "mmmuprovision",
-    "name": "MMMU-Pro-Vision",
-    "lab_count": 2,
-    "labs": [
-      "meta",
-      "mistral"
-    ],
-    "first_seen": "2024-09-25",
-    "last_seen": "2025-06-12",
-    "labs_by_year": {
-      "2024": 1,
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1,
-      "2025-Q2": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": "mmmu",
-    "recent_share": 0
-  },
-  {
     "id": "mmmuval",
     "name": "MMMU-Val",
     "lab_count": 2,
@@ -12066,32 +12047,6 @@
     "recent_share": 1
   },
   {
-    "id": "multilinguallibrispeech",
-    "name": "Multilingual LibriSpeech",
-    "lab_count": 2,
-    "labs": [
-      "google",
-      "mistral"
-    ],
-    "first_seen": "2023-12-19",
-    "last_seen": "2025-07-17",
-    "labs_by_year": {
-      "2023": 1,
-      "2024": 1,
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q4": 1,
-      "2024-Q1": 1,
-      "2025-Q3": 1
-    },
-    "categories": [
-      "speech"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "multiplehumaneval",
     "name": "Multipl-E HumanEval",
     "lab_count": 2,
@@ -12209,28 +12164,6 @@
     },
     "categories": [
       "knowledge"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "nl2repobench",
-    "name": "NL2Repo-Bench",
-    "lab_count": 2,
-    "labs": [
-      "deepseek",
-      "qwen"
-    ],
-    "first_seen": "2026-08-03",
-    "last_seen": "2026-09-17",
-    "labs_by_year": {
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 2
-    },
-    "categories": [
-      "other"
     ],
     "suite": null,
     "recent_share": 0
@@ -12819,21 +12752,25 @@
   },
   {
     "id": "realtoxicityprompts",
-    "name": "RealToxicityPrompts",
+    "name": "RealToxicity",
     "lab_count": 2,
     "labs": [
       "google",
       "meta"
     ],
     "first_seen": "2023-02-27",
-    "last_seen": "2023-12-06",
+    "last_seen": "2024-07-31",
     "labs_by_year": {
-      "2023": 2
+      "2023": 2,
+      "2024": 1
     },
     "labs_by_quarter": {
       "2023-Q1": 1,
       "2023-Q2": 1,
-      "2023-Q4": 1
+      "2023-Q4": 1,
+      "2024-Q1": 1,
+      "2024-Q2": 1,
+      "2024-Q3": 1
     },
     "categories": [
       "safety"
@@ -13104,29 +13041,6 @@
     "recent_share": 0
   },
   {
-    "id": "seedbench",
-    "name": "SEED-Bench",
-    "lab_count": 2,
-    "labs": [
-      "qwen",
-      "zai"
-    ],
-    "first_seen": "2023-08-24",
-    "last_seen": "2023-11-06",
-    "labs_by_year": {
-      "2023": 2
-    },
-    "labs_by_quarter": {
-      "2023-Q3": 1,
-      "2023-Q4": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": "seed-bench",
-    "recent_share": 0
-  },
-  {
     "id": "seedbench2plus",
     "name": "SEED-Bench-2-Plus",
     "lab_count": 2,
@@ -13151,7 +13065,7 @@
   },
   {
     "id": "seedtts",
-    "name": "Seed-TTS",
+    "name": "Seed-test-zh/en",
     "lab_count": 2,
     "labs": [
       "qwen",
@@ -13161,39 +13075,19 @@
     "last_seen": "2026-07-27",
     "labs_by_year": {
       "2024": 1,
+      "2025": 2,
       "2026": 1
     },
     "labs_by_quarter": {
       "2024-Q4": 1,
-      "2026-Q3": 1
-    },
-    "categories": [
-      "speech"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "seedttseval",
-    "name": "seed-tts-eval",
-    "lab_count": 2,
-    "labs": [
-      "qwen",
-      "zai"
-    ],
-    "first_seen": "2025-03-27",
-    "last_seen": "2025-12-16",
-    "labs_by_year": {
-      "2025": 2
-    },
-    "labs_by_quarter": {
       "2025-Q1": 1,
       "2025-Q2": 1,
       "2025-Q3": 1,
-      "2025-Q4": 1
+      "2025-Q4": 2,
+      "2026-Q3": 1
     },
     "categories": [
-      "speech"
+      "multilingual"
     ],
     "suite": null,
     "recent_share": 1
@@ -13478,6 +13372,57 @@
       "other"
     ],
     "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "tallyqa",
+    "name": "TallyQA",
+    "lab_count": 2,
+    "labs": [
+      "google",
+      "zai"
+    ],
+    "first_seen": "2024-02-06",
+    "last_seen": "2025-12-16",
+    "labs_by_year": {
+      "2024": 2,
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2024-Q1": 1,
+      "2024-Q2": 1,
+      "2024-Q3": 1,
+      "2024-Q4": 1,
+      "2025-Q1": 1,
+      "2025-Q3": 1,
+      "2025-Q4": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "tauvoice",
+    "name": "τ-Voice",
+    "lab_count": 2,
+    "labs": [
+      "google",
+      "xai"
+    ],
+    "first_seen": "2026-07-29",
+    "last_seen": "2026-09-15",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 2
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "tau-bench",
     "recent_share": 0
   },
   {
@@ -13977,56 +13922,6 @@
     "recent_share": 0
   },
   {
-    "id": "vizwiz",
-    "name": "VizWiz",
-    "lab_count": 2,
-    "labs": [
-      "meta",
-      "qwen"
-    ],
-    "first_seen": "2023-08-18",
-    "last_seen": "2025-04-17",
-    "labs_by_year": {
-      "2023": 1,
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q3": 1,
-      "2025-Q2": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "vizwizvqa",
-    "name": "VizWiz VQA",
-    "lab_count": 2,
-    "labs": [
-      "google",
-      "zai"
-    ],
-    "first_seen": "2023-10-05",
-    "last_seen": "2024-12-04",
-    "labs_by_year": {
-      "2023": 1,
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q4": 1,
-      "2024-Q2": 1,
-      "2024-Q3": 1,
-      "2024-Q4": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "vocalsound",
     "name": "VocalSound",
     "lab_count": 2,
@@ -14279,58 +14174,6 @@
     ],
     "suite": null,
     "recent_share": 0
-  },
-  {
-    "id": "wmdpbio",
-    "name": "WMDP Bio",
-    "lab_count": 2,
-    "labs": [
-      "meta",
-      "xai"
-    ],
-    "first_seen": "2025-08-20",
-    "last_seen": "2026-08-12",
-    "labs_by_year": {
-      "2025": 1,
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1,
-      "2025-Q4": 1,
-      "2026-Q2": 2,
-      "2026-Q3": 1
-    },
-    "categories": [
-      "safety"
-    ],
-    "suite": null,
-    "recent_share": 4
-  },
-  {
-    "id": "wmdpchem",
-    "name": "WMDP Chem",
-    "lab_count": 2,
-    "labs": [
-      "meta",
-      "xai"
-    ],
-    "first_seen": "2025-08-20",
-    "last_seen": "2026-08-12",
-    "labs_by_year": {
-      "2025": 1,
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1,
-      "2025-Q4": 1,
-      "2026-Q2": 2,
-      "2026-Q3": 1
-    },
-    "categories": [
-      "safety"
-    ],
-    "suite": null,
-    "recent_share": 4
   },
   {
     "id": "wmdpcyber",
@@ -14626,27 +14469,6 @@
     "recent_share": 0
   },
   {
-    "id": "aagdpval",
-    "name": "AA GDPVal",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2026-08-12",
-    "last_seen": "2026-08-12",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "aaomniscienceindex",
     "name": "AA-Omniscience Index",
     "lab_count": 1,
@@ -14780,35 +14602,15 @@
     "labs": [
       "google"
     ],
-    "first_seen": "2024-07-10",
+    "first_seen": "2024-05-14",
     "last_seen": "2024-12-04",
     "labs_by_year": {
       "2024": 1
     },
     "labs_by_quarter": {
+      "2024-Q2": 1,
       "2024-Q3": 1,
       "2024-Q4": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "activitynetcaptioning",
-    "name": "ActivityNet (Captioning)",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2024-05-14",
-    "last_seen": "2024-05-14",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q2": 1
     },
     "categories": [
       "vision"
@@ -15713,28 +15515,6 @@
     ],
     "suite": null,
     "recent_share": 0
-  },
-  {
-    "id": "allenaiifbench",
-    "name": "Allenai Ifbench",
-    "lab_count": 1,
-    "labs": [
-      "mistral"
-    ],
-    "first_seen": "2026-03-16",
-    "last_seen": "2026-05-22",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 1,
-      "2026-Q2": 1
-    },
-    "categories": [
-      "reasoning"
-    ],
-    "suite": null,
-    "recent_share": 1
   },
   {
     "id": "alpasim",
@@ -16735,27 +16515,6 @@
     "recent_share": 1
   },
   {
-    "id": "arceasyandchallenge",
-    "name": "ARC easy and challenge",
-    "lab_count": 1,
-    "labs": [
-      "meta"
-    ],
-    "first_seen": "2023-07-18",
-    "last_seen": "2023-07-18",
-    "labs_by_year": {
-      "2023": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q3": 1
-    },
-    "categories": [
-      "reasoning"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "arenaaileaderboard",
     "name": "Arena.ai Leaderboard",
     "lab_count": 1,
@@ -16796,27 +16555,6 @@
     ],
     "suite": null,
     "recent_share": 0
-  },
-  {
-    "id": "arenahard20",
-    "name": "Arena Hard (v2.0)",
-    "lab_count": 1,
-    "labs": [
-      "moonshot"
-    ],
-    "first_seen": "2025-07-28",
-    "last_seen": "2025-07-28",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    },
-    "categories": [
-      "knowledge"
-    ],
-    "suite": "arena-hard",
-    "recent_share": 1
   },
   {
     "id": "arenahard2japanese",
@@ -17347,27 +17085,6 @@
     },
     "categories": [
       "agentic"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "avgmultiple",
-    "name": "Avg MultiPL-E",
-    "lab_count": 1,
-    "labs": [
-      "mistral"
-    ],
-    "first_seen": "2025-07-30",
-    "last_seen": "2025-07-30",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    },
-    "categories": [
-      "coding"
     ],
     "suite": null,
     "recent_share": 0
@@ -19570,12 +19287,14 @@
       "google"
     ],
     "first_seen": "2025-07-07",
-    "last_seen": "2025-07-07",
+    "last_seen": "2026-04-06",
     "labs_by_year": {
-      "2025": 1
+      "2025": 1,
+      "2026": 1
     },
     "labs_by_quarter": {
-      "2025-Q3": 1
+      "2025-Q3": 1,
+      "2026-Q2": 1
     },
     "categories": [
       "other"
@@ -19715,27 +19434,6 @@
   {
     "id": "chineseword",
     "name": "ChineseWord",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2025-08-04",
-    "last_seen": "2025-08-04",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    },
-    "categories": [
-      "multilingual"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "chinesewordzh",
-    "name": "ChineseWord (ZH)",
     "lab_count": 1,
     "labs": [
       "qwen"
@@ -20377,40 +20075,19 @@
     "labs": [
       "google"
     ],
-    "first_seen": "2024-07-10",
+    "first_seen": "2024-05-14",
     "last_seen": "2025-12-16",
     "labs_by_year": {
       "2024": 1,
       "2025": 1
     },
     "labs_by_quarter": {
+      "2024-Q2": 1,
       "2024-Q3": 1,
       "2024-Q4": 1,
+      "2025-Q1": 1,
       "2025-Q3": 1,
       "2025-Q4": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "cococaptions",
-    "name": "COCO Caption",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2024-05-14",
-    "last_seen": "2025-03-25",
-    "labs_by_year": {
-      "2024": 1,
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q2": 1,
-      "2025-Q1": 1
     },
     "categories": [
       "vision"
@@ -20794,27 +20471,6 @@
     },
     "categories": [
       "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "codexhumaneval",
-    "name": "Codex HumanEval",
-    "lab_count": 1,
-    "labs": [
-      "anthropic"
-    ],
-    "first_seen": "2023-07-11",
-    "last_seen": "2023-07-11",
-    "labs_by_year": {
-      "2023": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q3": 1
-    },
-    "categories": [
-      "coding"
     ],
     "suite": null,
     "recent_share": 0
@@ -21543,27 +21199,6 @@
     "recent_share": 0
   },
   {
-    "id": "cruxe",
-    "name": "CruxE",
-    "lab_count": 1,
-    "labs": [
-      "mistral"
-    ],
-    "first_seen": "2024-07-16",
-    "last_seen": "2024-07-16",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "cruxevaloutput",
     "name": "CruxEval Output",
     "lab_count": 1,
@@ -21583,29 +21218,6 @@
     ],
     "suite": "cruxeval",
     "recent_share": 1
-  },
-  {
-    "id": "cruxi",
-    "name": "CRUX-I",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2025-01-28",
-    "last_seen": "2026-02-14",
-    "labs_by_year": {
-      "2025": 1,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q1": 1,
-      "2026-Q1": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
   },
   {
     "id": "cruxo",
@@ -21967,27 +21579,6 @@
     },
     "categories": [
       "knowledge"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "cxr14",
-    "name": "CXR14",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2026-04-06",
-    "last_seen": "2026-04-06",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1
-    },
-    "categories": [
-      "other"
     ],
     "suite": null,
     "recent_share": 0
@@ -22812,27 +22403,6 @@
     "recent_share": 0
   },
   {
-    "id": "dpg",
-    "name": "DPG",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2025-08-04",
-    "last_seen": "2025-08-04",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "dppbench140chartfigure",
     "name": "dpp-bench-v1.4.0/chart,figure",
     "lab_count": 1,
@@ -23451,34 +23021,14 @@
     "labs": [
       "qwen"
     ],
-    "first_seen": "2026-08-31",
+    "first_seen": "2026-05-21",
     "last_seen": "2026-08-31",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
+      "2026-Q2": 1,
       "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "ego3dbench",
-    "name": "Ego3D-Bench",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-05-21",
-    "last_seen": "2026-05-21",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1
     },
     "categories": [
       "other"
@@ -23677,31 +23227,6 @@
     ],
     "suite": null,
     "recent_share": 0
-  },
-  {
-    "id": "embspatialbench",
-    "name": "EmbSpatialBench",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2025-09-22",
-    "last_seen": "2026-04-22",
-    "labs_by_year": {
-      "2025": 1,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1,
-      "2025-Q4": 1,
-      "2026-Q1": 1,
-      "2026-Q2": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": null,
-    "recent_share": 1
   },
   {
     "id": "emotionalreliance",
@@ -24706,27 +24231,6 @@
   },
   {
     "id": "firstpersonfairness",
-    "name": "First-person fairness",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2025-07-17",
-    "last_seen": "2025-07-17",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "firstpersonfairnessevaluation",
     "name": "First-person fairness evaluation",
     "lab_count": 1,
     "labs": [
@@ -24740,6 +24244,7 @@
     },
     "labs_by_quarter": {
       "2025-Q2": 1,
+      "2025-Q3": 1,
       "2025-Q4": 1,
       "2026-Q1": 1,
       "2026-Q2": 1,
@@ -24888,12 +24393,14 @@
       "qwen"
     ],
     "first_seen": "2025-09-08",
-    "last_seen": "2025-09-08",
+    "last_seen": "2026-01-29",
     "labs_by_year": {
-      "2025": 1
+      "2025": 1,
+      "2026": 1
     },
     "labs_by_quarter": {
-      "2025-Q3": 1
+      "2025-Q3": 1,
+      "2026-Q1": 1
     },
     "categories": [
       "speech"
@@ -25020,27 +24527,6 @@
     },
     "labs_by_quarter": {
       "2025-Q3": 1
-    },
-    "categories": [
-      "speech"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "fleursyue",
-    "name": "Fleurs-yue",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-01-29",
-    "last_seen": "2026-01-29",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 1
     },
     "categories": [
       "speech"
@@ -25798,28 +25284,6 @@
     },
     "categories": [
       "multilingual"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "futurehouselabbench",
-    "name": "FutureHouse LAB-Bench",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2025-06-27",
-    "last_seen": "2025-08-01",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1,
-      "2025-Q3": 1
-    },
-    "categories": [
-      "science"
     ],
     "suite": null,
     "recent_share": 0
@@ -28134,48 +27598,6 @@
     "recent_share": 0
   },
   {
-    "id": "humanevalinfilling",
-    "name": "HumanEval Infilling",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2024-06-17",
-    "last_seen": "2024-06-17",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q2": 1
-    },
-    "categories": [
-      "coding"
-    ],
-    "suite": "humaneval",
-    "recent_share": 0
-  },
-  {
-    "id": "humanevalinfillingbenchmark",
-    "name": "HumanEval infilling benchmark",
-    "lab_count": 1,
-    "labs": [
-      "meta"
-    ],
-    "first_seen": "2023-08-24",
-    "last_seen": "2023-08-24",
-    "labs_by_year": {
-      "2023": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q3": 1
-    },
-    "categories": [
-      "coding"
-    ],
-    "suite": "humaneval",
-    "recent_share": 0
-  },
-  {
     "id": "humanevaljava",
     "name": "HumanEval Java",
     "lab_count": 1,
@@ -28420,27 +27842,6 @@
     "recent_share": 0
   },
   {
-    "id": "hungarianexam",
-    "name": "Hungarian Exam",
-    "lab_count": 1,
-    "labs": [
-      "deepseek"
-    ],
-    "first_seen": "2024-01-05",
-    "last_seen": "2024-01-05",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q1": 1
-    },
-    "categories": [
-      "knowledge"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "hungariannationalhighschoolexam",
     "name": "Hungarian National High-School Exam",
     "lab_count": 1,
@@ -28457,27 +27858,6 @@
     },
     "categories": [
       "knowledge"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "hungariannationalhighschoolmathexammay23",
-    "name": "Hungarian National High School Math Exam (May 2023)",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2023-11-03",
-    "last_seen": "2023-11-03",
-    "labs_by_year": {
-      "2023": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q4": 1
-    },
-    "categories": [
-      "math"
     ],
     "suite": null,
     "recent_share": 0
@@ -29248,48 +28628,6 @@
     },
     "categories": [
       "longctx"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "infographicsqa",
-    "name": "InfographicsQA",
-    "lab_count": 1,
-    "labs": [
-      "meta"
-    ],
-    "first_seen": "2024-09-25",
-    "last_seen": "2024-09-25",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "infoqa",
-    "name": "InfoQA",
-    "lab_count": 1,
-    "labs": [
-      "meta"
-    ],
-    "first_seen": "2025-04-17",
-    "last_seen": "2025-04-17",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1
-    },
-    "categories": [
-      "other"
     ],
     "suite": null,
     "recent_share": 0
@@ -31915,27 +31253,6 @@
     "recent_share": 0
   },
   {
-    "id": "lmarenaai",
-    "name": "lmarena.ai",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2026-06-30",
-    "last_seen": "2026-06-30",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1
-    },
-    "categories": [
-      "knowledge"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "lmarenatextarena",
     "name": "LMArena Text Arena",
     "lab_count": 1,
@@ -31976,48 +31293,6 @@
     ],
     "suite": null,
     "recent_share": 1
-  },
-  {
-    "id": "lmsysarena",
-    "name": "LMSys Arena",
-    "lab_count": 1,
-    "labs": [
-      "mistral"
-    ],
-    "first_seen": "2024-01-08",
-    "last_seen": "2024-01-08",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q1": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "lmsyschatbotarena",
-    "name": "LMSYS Chatbot Arena",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2024-07-31",
-    "last_seen": "2024-07-31",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1
-    },
-    "categories": [
-      "knowledge"
-    ],
-    "suite": null,
-    "recent_share": 0
   },
   {
     "id": "lmsyschatbotarenaleaderboard",
@@ -32947,27 +32222,6 @@
     "recent_share": 2
   },
   {
-    "id": "mathhendrycks",
-    "name": "Math Hendrycks",
-    "lab_count": 1,
-    "labs": [
-      "mistral"
-    ],
-    "first_seen": "2025-07-30",
-    "last_seen": "2025-07-30",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    },
-    "categories": [
-      "math"
-    ],
-    "suite": "math",
-    "recent_share": 0
-  },
-  {
     "id": "mathinstruct",
     "name": "Math Instruct",
     "lab_count": 1,
@@ -33002,27 +32256,6 @@
     },
     "labs_by_quarter": {
       "2025-Q3": 1
-    },
-    "categories": [
-      "math"
-    ],
-    "suite": "math",
-    "recent_share": 0
-  },
-  {
-    "id": "mathv",
-    "name": "MathV",
-    "lab_count": 1,
-    "labs": [
-      "deepseek"
-    ],
-    "first_seen": "2024-03-08",
-    "last_seen": "2024-03-08",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q1": 1
     },
     "categories": [
       "math"
@@ -33757,28 +32990,6 @@
     "labs_by_quarter": {
       "2025-Q1": 1,
       "2025-Q2": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "mgsm8k",
-    "name": "MGSM8K",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2024-09-19",
-    "last_seen": "2024-12-19",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1,
-      "2024-Q4": 1
     },
     "categories": [
       "other"
@@ -35136,27 +34347,6 @@
     "recent_share": 0
   },
   {
-    "id": "mmmuprovis",
-    "name": "MMMU-Pro Vis",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-09-03",
-    "last_seen": "2026-09-03",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": "mmmu",
-    "recent_share": 0
-  },
-  {
     "id": "mmsearch",
     "name": "MMSearch",
     "lab_count": 1,
@@ -35623,27 +34813,6 @@
     "recent_share": 0
   },
   {
-    "id": "mscococaption",
-    "name": "MSCOCO-caption",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2024-08-13",
-    "last_seen": "2024-08-13",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "mscxrt",
     "name": "MS-CXR-T",
     "lab_count": 1,
@@ -35718,35 +34887,15 @@
     "labs": [
       "google"
     ],
-    "first_seen": "2024-07-10",
+    "first_seen": "2024-05-14",
     "last_seen": "2024-12-04",
     "labs_by_year": {
       "2024": 1
     },
     "labs_by_quarter": {
+      "2024-Q2": 1,
       "2024-Q3": 1,
       "2024-Q4": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "msrvttcaptioning",
-    "name": "MSR-VTT (Captioning)",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2024-05-14",
-    "last_seen": "2024-05-14",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q2": 1
     },
     "categories": [
       "vision"
@@ -38205,28 +37354,6 @@
     "recent_share": 0
   },
   {
-    "id": "openaimrcr",
-    "name": "OpenAI-MRCR",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2025-04-14",
-    "last_seen": "2025-08-07",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1,
-      "2025-Q3": 1
-    },
-    "categories": [
-      "longctx"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "openaimrcr2",
     "name": "OpenAI MRCR v2",
     "lab_count": 1,
@@ -39142,32 +38269,13 @@
       "google"
     ],
     "first_seen": "2023-12-06",
-    "last_seen": "2023-12-19",
-    "labs_by_year": {
-      "2023": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q4": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "perceptiontestmcvqa",
-    "name": "Perception Test MCVQA",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2025-03-25",
     "last_seen": "2025-03-25",
     "labs_by_year": {
+      "2023": 1,
       "2025": 1
     },
     "labs_by_quarter": {
+      "2023-Q4": 1,
       "2025-Q1": 1
     },
     "categories": [
@@ -41036,29 +40144,6 @@
     ],
     "suite": null,
     "recent_share": 1
-  },
-  {
-    "id": "realtoxicity",
-    "name": "RealToxicity",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2024-03-13",
-    "last_seen": "2024-07-31",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q1": 1,
-      "2024-Q2": 1,
-      "2024-Q3": 1
-    },
-    "categories": [
-      "safety"
-    ],
-    "suite": null,
-    "recent_share": 0
   },
   {
     "id": "realworldfinance",
@@ -43070,28 +42155,6 @@
     "recent_share": 1
   },
   {
-    "id": "seedtestzhen",
-    "name": "Seed-test-zh/en",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2025-09-21",
-    "last_seen": "2025-12-09",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1,
-      "2025-Q4": 1
-    },
-    "categories": [
-      "multilingual"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "seedttstesten",
     "name": "SeedTTS test-En",
     "lab_count": 1,
@@ -44651,36 +43714,15 @@
     "labs": [
       "openai"
     ],
-    "first_seen": "2025-08-07",
-    "last_seen": "2025-11-19",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1,
-      "2025-Q4": 1
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "swelancericdiamond",
-    "name": "SWE-Lancer IC Diamond",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2025-12-11",
+    "first_seen": "2025-04-14",
     "last_seen": "2026-02-05",
     "labs_by_year": {
       "2025": 1,
       "2026": 1
     },
     "labs_by_quarter": {
+      "2025-Q2": 1,
+      "2025-Q3": 1,
       "2025-Q4": 1,
       "2026-Q1": 1
     },
@@ -44689,29 +43731,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "swelancericdiamondsubset",
-    "name": "SWE-Lancer (IC-Diamond subset)",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2025-04-14",
-    "last_seen": "2025-04-14",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "swelancericswe",
@@ -44749,28 +43769,6 @@
     },
     "labs_by_quarter": {
       "2025-Q2": 1
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "swelancericswediamondfreelancecodingtasks",
-    "name": "SWE-Lancer: IC SWE Diamond Freelance Coding Tasks",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2025-08-07",
-    "last_seen": "2025-08-07",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
     },
     "categories": [
       "coding",
@@ -45029,54 +44027,6 @@
     "recent_share": 0
   },
   {
-    "id": "tallyqa",
-    "name": "TallyQA",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2024-05-14",
-    "last_seen": "2025-12-16",
-    "labs_by_year": {
-      "2024": 1,
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q2": 1,
-      "2024-Q3": 1,
-      "2024-Q4": 1,
-      "2025-Q1": 1,
-      "2025-Q3": 1,
-      "2025-Q4": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "tallyvqa",
-    "name": "TallyVQA",
-    "lab_count": 1,
-    "labs": [
-      "zai"
-    ],
-    "first_seen": "2024-02-06",
-    "last_seen": "2024-02-06",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q1": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "targetedredteamingforriskyadvice",
     "name": "Targeted red teaming for risky advice",
     "lab_count": 1,
@@ -45100,27 +44050,6 @@
   {
     "id": "tau1airline",
     "name": "TAU1-Airline",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2025-07-21",
-    "last_seen": "2025-09-09",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": "tau-bench",
-    "recent_share": 1
-  },
-  {
-    "id": "tau1retail",
-    "name": "TAU1-Retail",
     "lab_count": 1,
     "labs": [
       "qwen"
@@ -45395,27 +44324,6 @@
     "recent_share": 0
   },
   {
-    "id": "tauvoice",
-    "name": "τ-Voice",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2026-09-15",
-    "last_seen": "2026-09-15",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": "tau-bench",
-    "recent_share": 0
-  },
-  {
     "id": "tauvoicebanking",
     "name": "τ-Voice-banking",
     "lab_count": 1,
@@ -45424,27 +44332,6 @@
     ],
     "first_seen": "2026-09-15",
     "last_seen": "2026-09-15",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": "tau-bench",
-    "recent_share": 0
-  },
-  {
-    "id": "tauvoicebench",
-    "name": "τ-voice Bench",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2026-07-29",
-    "last_seen": "2026-07-29",
     "labs_by_year": {
       "2026": 1
     },
@@ -47535,34 +46422,14 @@
     "labs": [
       "qwen"
     ],
-    "first_seen": "2026-08-31",
+    "first_seen": "2026-05-21",
     "last_seen": "2026-09-03",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
+      "2026-Q2": 1,
       "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "vladbench",
-    "name": "VLADBench",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-05-21",
-    "last_seen": "2026-05-21",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1
     },
     "categories": [
       "other"
@@ -48198,35 +47065,15 @@
     "labs": [
       "google"
     ],
-    "first_seen": "2024-07-10",
+    "first_seen": "2024-05-14",
     "last_seen": "2024-12-04",
     "labs_by_year": {
       "2024": 1
     },
     "labs_by_quarter": {
+      "2024-Q2": 1,
       "2024-Q3": 1,
       "2024-Q4": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "widgetcaptioning",
-    "name": "Widget Captioning",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2024-05-14",
-    "last_seen": "2024-05-14",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q2": 1
     },
     "categories": [
       "vision"
@@ -48541,27 +47388,6 @@
     "recent_share": 0
   },
   {
-    "id": "winog",
-    "name": "WinoG",
-    "lab_count": 1,
-    "labs": [
-      "deepseek"
-    ],
-    "first_seen": "2024-01-25",
-    "last_seen": "2024-01-25",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q1": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "winograd",
     "name": "Winograd",
     "lab_count": 1,
@@ -48599,50 +47425,6 @@
     },
     "categories": [
       "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "wmdpbiology",
-    "name": "WMDP biology",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2024-12-05",
-    "last_seen": "2025-01-31",
-    "labs_by_year": {
-      "2024": 1,
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q4": 1,
-      "2025-Q1": 1
-    },
-    "categories": [
-      "safety"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "wmdpchemistry",
-    "name": "WMDP chemistry",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2025-02-25",
-    "last_seen": "2025-02-27",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q1": 1
-    },
-    "categories": [
-      "safety"
     ],
     "suite": null,
     "recent_share": 0

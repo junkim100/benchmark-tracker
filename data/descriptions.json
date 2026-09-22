@@ -213,20 +213,8 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "arcc": {
-    "text": "The Challenge split of the AI2 Reasoning Challenge: the natural grade-school science multiple-choice questions that both a retrieval-based solver and a word co-occurrence baseline answered incorrectly.",
-    "source_url": "https://arxiv.org/abs/1803.05457",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "arce": {
-    "text": "The easier of the two splits of the AI2 Reasoning Challenge, a 7,787-question set of multiple-choice grade-school science exam questions; the Easy Set holds the questions that retrieval and word co-occurrence baselines answer correctly.",
-    "source_url": "https://arxiv.org/abs/1803.05457",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "arceasy": {
-    "text": "The easier partition of the AI2 Reasoning Challenge, made up of grade-school science questions in multiple-choice form that a retrieval or word co-occurrence baseline can already answer correctly.",
+    "text": "The easier of the two splits of the AI2 Reasoning Challenge, a 7,787-question set of multiple-choice grade-school science exam questions; the Easy Set holds the questions that retrieval and word co-occurrence baselines answer correctly.",
     "source_url": "https://arxiv.org/abs/1803.05457",
     "source": "researched",
     "checked": "2026-09-22"
@@ -447,12 +435,6 @@
   },
   "charxivreasoning": {
     "text": "The reasoning split of CharXiv: questions over 2,323 real charts handpicked from arXiv papers that require synthesizing information across several visual elements, rather than reading off a single value.",
-    "source_url": "https://arxiv.org/abs/2406.18521",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "charxivrq": {
-    "text": "The reasoning-question split of CharXiv, whose 2,323 charts are taken from arXiv papers; these questions require synthesizing information across several complex visual elements rather than reading off a single value.",
     "source_url": "https://arxiv.org/abs/2406.18521",
     "source": "researched",
     "checked": "2026-09-22"
@@ -955,12 +937,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "gdpvalaaelo": {
-    "text": "Artificial Analysis's agentic run of OpenAI's GDPval tasks across 44 occupations and nine industries, where models use a shell and web browsing to produce real deliverables that an LLM judge compares blind in pairs, aggregated into an Elo rating.",
-    "source_url": "https://artificialanalysis.ai/evaluations/gdpval-aa",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "gdpvalaa2": {
     "text": "Artificial Analysis's agentic harness over OpenAI's GDPval task set: models get shell access and web browsing to produce finished documents, slides, spreadsheets and diagrams for 220 professional tasks, graded by blind pairwise LLM judging.",
     "source_url": "https://artificialanalysis.ai/evaluations/gdpval-aa",
@@ -1150,12 +1126,6 @@
   "humanevalmul": {
     "text": "The HumanEval Python problems translated into seven further languages, C++, Java, PHP, TypeScript, C#, Bash and JavaScript, and run against each language's test cases.",
     "source_url": "https://arxiv.org/html/2401.14196v2",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "humanevalpython": {
-    "text": "The Python original of HumanEval: hand-written programming problems in which the model synthesizes a function body from its signature and docstring, judged by running unit tests for functional correctness.",
-    "source_url": "https://arxiv.org/abs/2107.03374",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -1483,12 +1453,6 @@
   },
   "mathvision": {
     "text": "3,040 mathematics problems with visual context taken from real math competitions, spanning 16 disciplines and five difficulty levels, testing multimodal mathematical reasoning.",
-    "source_url": "https://arxiv.org/abs/2402.14804",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "mathvisionfull": {
-    "text": "The complete MATH-Vision set of 3,040 visual mathematics problems taken from real competitions, spanning 16 mathematical subjects and five difficulty levels, where the diagram is needed to solve the problem.",
     "source_url": "https://arxiv.org/abs/2402.14804",
     "source": "researched",
     "checked": "2026-09-22"
@@ -1839,12 +1803,6 @@
     "source": "none",
     "checked": "2026-09-22"
   },
-  "mscoco": {
-    "text": "The Microsoft COCO dataset of about 328,000 everyday scene images with 2.5 million labeled instances across 91 object categories, annotated with per-instance segmentation masks for object recognition in context.",
-    "source_url": "https://arxiv.org/abs/1405.0312",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "mt-bench": {
     "text": "80 multi-turn questions across common use cases, used to test instruction following and conversation over two turns, with responses graded by a strong language model acting as judge.",
     "source_url": "https://arxiv.org/abs/2306.05685",
@@ -1894,12 +1852,6 @@
   "multiif": {
     "text": "An instruction-following benchmark that extends IFEval to 4,501 three-turn conversations translated into eight languages, testing whether constraints are still obeyed as turns accumulate.",
     "source_url": "https://arxiv.org/abs/2410.15553",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "multilinguallibrispeech": {
-    "text": "A speech corpus derived from LibriVox audiobooks in eight languages, with about 44,500 hours of English and roughly 6,000 hours across the others, used for automatic speech recognition evaluation.",
-    "source_url": "https://arxiv.org/abs/2012.03411",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -1965,12 +1917,6 @@
   },
   "nl2repo": {
     "text": "Repository-level generation from scratch: given only a natural language requirements document and an empty workspace, the agent must design the architecture, manage dependencies and produce an installable Python library, scored by test pass rate.",
-    "source_url": "https://arxiv.org/abs/2512.12730",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "nl2repobench": {
-    "text": "A long-horizon coding benchmark that hands an agent a single natural language requirements document and an empty workspace and asks for a fully installable Python library, scoring the result by how many of the reference tests pass.",
     "source_url": "https://arxiv.org/abs/2512.12730",
     "source": "researched",
     "checked": "2026-09-22"
@@ -2391,12 +2337,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "seedbench": {
-    "text": "A multimodal benchmark of 19,000 human-annotated multiple-choice questions across 12 evaluation dimensions covering both image and video comprehension, generated by a pipeline with automatic filtering and manual verification.",
-    "source_url": "https://arxiv.org/abs/2307.16125",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "seedbench2plus": {
     "text": "2.3K human-annotated multiple-choice questions on text-rich images in three categories, charts, maps and web pages, testing comprehension of text embedded in visuals.",
     "source_url": "https://arxiv.org/abs/2404.16790",
@@ -2405,12 +2345,6 @@
   },
   "seedtts": {
     "text": "The seed-tts-eval objective test set for zero-shot speech generation: 1,000 English samples from Common Voice and 2,000 Mandarin samples from DiDiSpeech-2, scored by ASR word error rate and WavLM speaker similarity.",
-    "source_url": "https://github.com/BytedanceSpeech/seed-tts-eval",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "seedttseval": {
-    "text": "A zero-shot speech synthesis test set of 1,000 English samples from Common Voice and 2,000 Mandarin samples from DiDiSpeech-2, plus hard cases, scored by word error rate from an ASR model and by speaker similarity from WavLM embeddings.",
     "source_url": "https://github.com/BytedanceSpeech/seed-tts-eval",
     "source": "researched",
     "checked": "2026-09-22"
@@ -2579,12 +2513,6 @@
   },
   "tau2retail": {
     "text": "The retail domain of tau2-bench, where an agent handles e-commerce account requests over multiple turns using a domain toolset while following a written policy document, in a dual-control setting where the simulated user can also call tools.",
-    "source_url": "https://arxiv.org/abs/2506.07982",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "tau2telecom": {
-    "text": "The telecom domain of the τ²-bench suite: a dual-control environment modeled as a Dec-POMDP in which the agent and a simulated user both hold tools and must coordinate to troubleshoot and change account and service state.",
     "source_url": "https://arxiv.org/abs/2506.07982",
     "source": "researched",
     "checked": "2026-09-22"
@@ -2849,12 +2777,6 @@
   },
   "vizwiz": {
     "text": "A visual question answering dataset of over 31,000 photos taken by blind users with spoken questions about them, including questions that cannot be answered from the image at all.",
-    "source_url": "https://arxiv.org/abs/1802.08218",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "vizwizvqa": {
-    "text": "Over 31,000 visual questions asked by blind users who photographed their surroundings and spoke a question, each with ten crowdsourced answers, including questions that cannot be answered from the image.",
     "source_url": "https://arxiv.org/abs/1802.08218",
     "source": "researched",
     "checked": "2026-09-22"
@@ -3215,18 +3137,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "allenaiifbench": {
-    "text": "58 new verifiable output constraints, such as required wording or formatting, chosen to fall outside the constraint types earlier instruction-following benchmarks reuse, each checked by its own verification function.",
-    "source_url": "https://arxiv.org/abs/2507.02833",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "cruxe": {
-    "text": "800 short Python functions, each paired with an input-output example, giving two tasks: predict the output from a given input, and predict an input that yields a given output.",
-    "source_url": "https://arxiv.org/abs/2401.03065",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "humanevalfimjs": {
     "source": "none",
     "checked": "2026-09-22"
@@ -3379,7 +3289,7 @@
     "source": "none",
     "checked": "2026-09-22"
   },
-  "vladbench": {
+  "vlad": {
     "text": "Close-form driving questions spanning five domains, from traffic knowledge and element recognition through traffic graphs to ego decision-making, broken into 11 secondary aspects and 29 tertiary tasks.",
     "source_url": "https://arxiv.org/abs/2503.21505",
     "source": "researched",
@@ -3510,12 +3420,6 @@
   "nejmcpc": {
     "text": "303 clinicopathological case reports from the New England Journal of Medicine, where a model reads the text-only case and returns a differential diagnosis list of ten candidates, scored on whether the correct diagnosis appears.",
     "source_url": "https://arxiv.org/abs/2404.18416",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "realtoxicity": {
-    "text": "100,000 naturally occurring sentence-level prompts drawn from English web text, each paired with a score from a toxicity classifier, used to measure how readily a language model continues into toxic text.",
-    "source_url": "https://arxiv.org/abs/2009.11462",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -4039,12 +3943,6 @@
     "source": "none",
     "checked": "2026-09-22"
   },
-  "swelancericdiamond": {
-    "text": "The public individual-contributor split of SWE-Lancer: real paid freelance software engineering jobs posted on Upwork, solved in the repository and graded by end-to-end tests triple verified by experienced engineers.",
-    "source_url": "https://arxiv.org/abs/2502.12115",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "voicenativeevaluationssyntheticprompts": {
     "text": "Safety prompts written from OpenAI's own policies to cover borderline and rarely sampled cases, then synthesised into speech and played to the model to check whether the intended behaviour survives in spoken form.",
     "source_url": "https://deploymentsafety.openai.com/gpt-live/voice-native-evaluations-synthetic-prompts",
@@ -4116,12 +4014,6 @@
   "repoeval": {
     "text": "A repository-level code completion benchmark built from recent real-world projects, covering three granularities: finishing a line, completing an API invocation and writing a whole function body.",
     "source_url": "https://arxiv.org/abs/2303.12570",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "seedtestzhen": {
-    "text": "Zero-shot voice cloning test sets distributed with the Seed-TTS eval scripts: about 1,000 English samples from Common Voice and 2,000 Mandarin samples from DiDiSpeech-2, scored for ASR error rate and speaker similarity.",
-    "source_url": "https://github.com/BytedanceSpeech/seed-tts-eval",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -4216,12 +4108,6 @@
   "minif2ftest": {
     "text": "One of the two even halves of miniF2F, whose 488 statements come from AIME, AMC and IMO problems plus high school and undergraduate coursework, each formalized in Lean, Metamath, Isabelle or HOL Light so a generated proof can be machine checked.",
     "source_url": "https://arxiv.org/abs/2109.00110",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "winog": {
-    "text": "Short label for WinoGrande: 44,000 crowdsourced pronoun resolution problems in the Winograd schema style, filtered with the AfLite algorithm to remove word association shortcuts.",
-    "source_url": "https://arxiv.org/abs/1907.10641",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -4403,18 +4289,6 @@
   },
   "productionbenchmarks": {
     "source": "none",
-    "checked": "2026-09-22"
-  },
-  "swelancericdiamondsubset": {
-    "text": "The public Diamond split of SWE-Lancer's individual-contributor tasks: real paid freelance bug fixes and feature requests sourced from Upwork, graded by end-to-end tests that experienced engineers triple-verified.",
-    "source_url": "https://arxiv.org/abs/2502.12115",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "wmdpbiology": {
-    "text": "The biosecurity portion of WMDP, a multiple-choice set built by academics and technical consultants as a public proxy for hazardous knowledge, filtered to strip genuinely sensitive detail before release.",
-    "source_url": "https://arxiv.org/abs/2403.03218",
-    "source": "researched",
     "checked": "2026-09-22"
   },
   "belebele": {
@@ -4713,12 +4587,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "avgmultiple": {
-    "text": "The average across MultiPL-E, which translates the HumanEval and MBPP Python problems and their unit tests into 18 further programming languages so the same tasks can be graded in each one.",
-    "source_url": "https://arxiv.org/abs/2208.08227",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "frenchmmlu": {
     "source": "none",
     "checked": "2026-09-22"
@@ -4731,12 +4599,6 @@
   },
   "spanishmmlu": {
     "source": "none",
-    "checked": "2026-09-22"
-  },
-  "arenahard20": {
-    "text": "500 fresh hard user queries (open-ended software engineering, math and similar) plus 250 creative writing prompts drawn from Chatbot Arena, with answers compared pairwise by automatic judges (GPT-4.1 and Gemini 2.5) and optional style control.",
-    "source_url": "https://github.com/lmarena/arena-hard-auto",
-    "source": "researched",
     "checked": "2026-09-22"
   },
   "kaet": {
@@ -4796,12 +4658,6 @@
   "swelancericswe": {
     "text": "The individual-contributor half of SWE-Lancer: real freelance jobs from Upwork, from 15-minute bug fixes to multi-week features, where the model's patch is graded by end-to-end browser tests written and triple-verified by professional engineers.",
     "source_url": "https://arxiv.org/abs/2502.12115",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "wmdpchemistry": {
-    "text": "The chemical-security subset of the Weapons of Mass Destruction Proxy benchmark: 408 multiple-choice questions on synthesis, sourcing, purification, analysis, deployment and bypass mechanisms, as a proxy for hazardous chemistry knowledge.",
-    "source_url": "https://arxiv.org/abs/2403.03218",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -4878,12 +4734,6 @@
   "sfiction": {
     "text": "A true-or-false task in L-Eval built from science fiction texts, where most correct answers contradict real-world physical laws, so the model must follow the long input context rather than its pretrained knowledge.",
     "source_url": "https://arxiv.org/abs/2307.11088",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "tau1retail": {
-    "text": "The retail domain of tau-bench: a customer-service agent uses API tools against an orders and products database while talking to an LLM-simulated user and following a domain policy, scored by comparing the final database state with the goal state.",
-    "source_url": "https://arxiv.org/abs/2406.12045",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -5011,13 +4861,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "lmarenaai": {
-    "text": "A crowdsourced evaluation site where a user's prompt is answered side by side by two anonymous models and the user picks the better reply; the accumulated votes drive public leaderboards split by modality and use case.",
-    "source_url": "https://arena.ai/how-it-works",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "mscococaption": {
+  "cococap": {
     "text": "Over 1.5 million human-written captions covering more than 330,000 COCO images, five independent captions per image; generated captions go to an evaluation server and are scored with BLEU, METEOR, ROUGE and CIDEr.",
     "source_url": "https://arxiv.org/abs/1504.00325",
     "source": "researched",
@@ -5321,12 +5165,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "codexhumaneval": {
-    "text": "The 164 hand-written Python problems released with the Codex paper: each gives a function signature and docstring plus several unit tests (7.7 per problem on average), and a solution counts only if it passes them.",
-    "source_url": "https://arxiv.org/abs/2107.03374",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "mbe": {
     "text": "The multiple-choice component of the US bar exam: a six-hour, 200-question test (175 scored and 25 unscored pretest items) split over two three-hour sessions and developed by the National Conference of Bar Examiners.",
     "source_url": "https://www.ncbex.org/exams/mbe",
@@ -5549,12 +5387,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "swelancericswediamondfreelancecodingtasks": {
-    "text": "The open-sourced Diamond split of SWE-Lancer's individual-contributor tasks: real paid Upwork jobs, mostly bug fixes, graded by end-to-end tests that were triple-verified by experienced software engineers.",
-    "source_url": "https://arxiv.org/abs/2502.12115",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "aaomniscienceindex": {
     "text": "A bounded index over 6,000 questions drawn from authoritative academic and industry sources across 42 economically relevant topics in six domains, rewarding correct factual recall, penalising hallucination and leaving abstention unpenalised.",
     "source_url": "https://arxiv.org/abs/2511.13029",
@@ -5669,7 +5501,7 @@
     "source": "none",
     "checked": "2026-09-22"
   },
-  "tauvoicebench": {
+  "tauvoice": {
     "text": "278 grounded tasks extending the text-based tau-2-bench into full-duplex voice: agents hold multi-turn conversations, follow domain policies and call tools while a simulated user supplies varied accents, realistic audio and turn-taking dynamics.",
     "source_url": "https://arxiv.org/abs/2603.13686",
     "source": "researched",
@@ -5737,12 +5569,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "activitynetcaptioning": {
-    "text": "Dense-captioning over 20,000 untrimmed ActivityNet videos: about 100,000 natural-language descriptions, each with its own start and end time, so a system must localise events as well as describe them.",
-    "source_url": "https://arxiv.org/abs/1705.00754",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "babelcode": {
     "text": "An execution-based framework that ports code-generation datasets such as HumanEval, MBPP, P3 and Transcoder into other programming languages, generating language-specific test harnesses and running each prediction in a Docker sandbox.",
     "source_url": "https://github.com/google-research/babelcode",
@@ -5770,12 +5596,6 @@
   "hsk79": {
     "text": "The advanced band of the Chinese Proficiency Test for non-native speakers: 98 questions over listening, reading, writing, translation and speaking, drawn from news, academic writing, debates and business negotiation.",
     "source_url": "https://www.chinesetest.cn/HSK/7-9",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "lmsyschatbotarena": {
-    "text": "An open platform where crowdsourced users put their own prompts to two anonymous models side by side and vote for the better reply, with the pairwise votes turned into model ratings by statistical rating methods.",
-    "source_url": "https://arxiv.org/abs/2403.04132",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -5957,12 +5777,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "dpg": {
-    "text": "A text-to-image benchmark of 1,000 dense prompts, each packing many objects, attributes and relations into a single long description, used to test how much of a prompt a generator actually renders.",
-    "source_url": "https://arxiv.org/abs/2403.05135",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "fleurs30": {
     "source": "none",
     "checked": "2026-09-22"
@@ -6077,7 +5891,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "tallyvqa": {
+  "tallyqa": {
     "text": "Open-ended object-counting questions over images, split into simple ones answerable by detection alone and complex ones needing attributes, relationships or reasoning, such as counting only the dogs that are eating.",
     "source_url": "https://arxiv.org/abs/1810.12440",
     "source": "researched",
@@ -6168,12 +5982,6 @@
   "rsvqahr": {
     "text": "The high-resolution half of RSVQA: 10,659 tiles of 15cm USGS aerial imagery over the north-eastern United States, with 1,066,316 questions built from OpenStreetMap about presence, counts, comparisons and area.",
     "source_url": "https://arxiv.org/abs/2003.07333",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "tallyqa": {
-    "text": "Open-ended counting questions over images, split into simple questions answerable by object detection and complex ones that also need attributes, relations and reasoning.",
-    "source_url": "https://arxiv.org/abs/1810.12440",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -6573,12 +6381,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "infographicsqa": {
-    "text": "Question answering over infographic images, where answers require jointly reading document layout, textual content, graphical elements and data visualisations, with an emphasis on elementary reasoning and basic arithmetic.",
-    "source_url": "https://arxiv.org/abs/2104.12756",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "moviegenvideobench": {
     "text": "1,003 text-to-video prompts covering human activity, animals, nature, physics and unusual subjects, each tagged by motion level and judged by side-by-side human comparison on text alignment, visual quality, and realness and aesthetics.",
     "source_url": "https://arxiv.org/abs/2410.13720",
@@ -6610,12 +6412,6 @@
   "gsm8kspeech": {
     "text": "A spoken version of GSM8K: grade-school math problems are filtered to those that can be said aloud, rewritten into speech-friendly wording where they contain symbols or digits, then synthesised to audio the model must answer from.",
     "source_url": "https://arxiv.org/abs/2507.13264",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "mathhendrycks": {
-    "text": "12,500 competition mathematics problems across a range of subjects and difficulty levels, each with a full step-by-step reference solution rather than just a final answer.",
-    "source_url": "https://arxiv.org/abs/2103.03874",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -6891,12 +6687,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "futurehouselabbench": {
-    "text": "Over 2,400 multiple-choice questions on practical biology research work: literature recall and reasoning, figure interpretation, database navigation, and DNA and protein sequence manipulation.",
-    "source_url": "https://arxiv.org/abs/2407.10362",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "humanevalmultiline": {
     "text": "5,815 infilling tasks that blank out several consecutive lines of a HumanEval solution and ask the model to fill the gap from the surrounding prefix and suffix.",
     "source_url": "https://arxiv.org/abs/2406.11409",
@@ -6909,12 +6699,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "msrvttcaptioning": {
-    "text": "Generating a natural-language description of a web video clip, over 10,000 clips drawn from 257 search-engine queries and carrying about 20 human-written sentences each.",
-    "source_url": "https://www.microsoft.com/en-us/research/publication/msr-vtt-a-large-video-description-dataset-for-bridging-video-and-language/",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "parlaidialoguesafety": {
     "text": "Detection of offensive language in dialogue, where whether an utterance is offensive depends on the conversation around it, collected with an iterative build it, break it, fix it loop in which crowdworkers try to fool a classifier that is then retrained on their successful attacks.",
     "source_url": "https://arxiv.org/abs/1908.06083",
@@ -6924,12 +6708,6 @@
   "rte": {
     "text": "A binary entailment decision over sentence pairs drawn from news and Wikipedia, pooling the RTE1, RTE2, RTE3 and RTE5 challenge sets as packaged in GLUE, with neutral and contradiction collapsed into one label.",
     "source_url": "https://huggingface.co/datasets/nyu-mll/glue",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "tauvoice": {
-    "text": "278 grounded customer-service tasks inherited from the text agent benchmark and replayed against full-duplex voice agents that listen and speak at once, driven by a simulated voice user with varied accents and audio conditions.",
-    "source_url": "https://arxiv.org/abs/2603.13686",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -6954,12 +6732,6 @@
   "fgvcaircraft": {
     "text": "10,200 aircraft photographs labelled with a hierarchy of 102 variants, 70 families and 41 manufacturers, each with a tight bounding box, used for fine-grained visual classification.",
     "source_url": "https://www.robots.ox.ac.uk/~vgg/data/fgvc-aircraft/",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "infoqa": {
-    "text": "Questions over infographic images that require jointly reasoning about document layout, textual content, graphical elements and data visualisations, with an emphasis on elementary reasoning and basic arithmetic.",
-    "source_url": "https://arxiv.org/abs/2104.12756",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -7619,7 +7391,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "cxr14": {
+  "chestxray14": {
     "text": "A hospital-scale chest radiograph set of 108,948 frontal-view images from 32,717 patients, with thoracic disease labels text-mined from the accompanying radiology reports.",
     "source_url": "https://arxiv.org/abs/1705.02315",
     "source": "researched",
@@ -7813,12 +7585,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "cruxi": {
-    "text": "The input-prediction half of CRUXEval: given one of 800 short Python functions and its output, the model must supply an input that produces that output.",
-    "source_url": "https://arxiv.org/abs/2401.03065",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "ecommercebench": {
     "source": "none",
     "checked": "2026-09-22"
@@ -7913,12 +7679,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "hungariannationalhighschoolmathexammay23": {
-    "text": "The 33 problems of the May 2023 Hungarian national high school mathematics final exam, released as free-response questions spanning algebra, geometry, logarithms, combinatorics and basic statistics.",
-    "source_url": "https://huggingface.co/datasets/keirp/hungarian_national_hs_finals_exam",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "xbrowse": {
     "text": "An internal xAI evaluation of an agent's multi-hop search and browsing ability over content on X.",
     "source_url": "https://x.ai/news/grok-4-fast",
@@ -7994,12 +7754,6 @@
   "bchego": {
     "text": "The HumanEval Python programming problems and their unit tests translated into Go with Google's BabelCode framework, then scored by executing the translated tests.",
     "source_url": "https://ai.google.dev/gemma/docs/codegemma/model_card",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "chestxray14": {
-    "text": "A hospital-scale chest radiograph dataset of 108,948 frontal-view X-rays from 32,717 patients, multi-labelled with thoracic disease findings text-mined from the associated radiology reports by NLP.",
-    "source_url": "https://arxiv.org/abs/1705.02315",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -8645,12 +8399,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "aagdpval": {
-    "text": "Artificial Analysis's agentic run of OpenAI's GDPval set: 220 expert-written work tasks across 44 occupations and nine industries, where a model with shell and browsing access must produce documents, slides, diagrams or spreadsheets, judged in blind pairwise comparisons.",
-    "source_url": "https://artificialanalysis.ai/evaluations/gdpval-aa",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "inferenceeval": {
     "source": "none",
     "checked": "2026-09-22"
@@ -8759,21 +8507,9 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "perceptiontestmcvqa": {
-    "text": "The multiple-choice video question answering task of the Perception Test: each question pairs a video with three candidate answers, probing memory, abstraction, physics and semantics through descriptive, explanatory, predictive and counterfactual questions.",
-    "source_url": "https://arxiv.org/abs/2305.13786",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "scicap": {
     "text": "More than two million figures extracted from computer science arXiv papers published between 2010 and 2020, paired with their author-written captions, so a model can be asked to caption a scientific figure.",
     "source_url": "https://arxiv.org/abs/2110.11624",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "widgetcaptioning": {
-    "text": "162,859 crowd-written phrases describing 61,285 individual interface elements across 21,750 mobile app screens, with the model asked to generate a description of a widget from its image and the surrounding view hierarchy.",
-    "source_url": "https://arxiv.org/abs/2010.04295",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -8914,18 +8650,6 @@
   "c15en": {
     "text": "The English portion of version 15 of Mozilla's crowdsourced Common Voice corpus, built from sentences read aloud by volunteers and validated by other volunteers, used as a speech recognition test set.",
     "source_url": "https://arxiv.org/abs/1912.06670",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "ego3dbench": {
-    "text": "Over 8,600 human-checked question and answer pairs on ego-centric, multi-view outdoor scenes, testing whether a vision-language model can judge 3D spatial relationships from the kind of observations a robot or self-driving car actually receives.",
-    "source_url": "https://arxiv.org/abs/2509.06266",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "fleursyue": {
-    "text": "The Cantonese split of FLEURS, an n-way parallel read-speech corpus built on the FLoRes translation benchmark with roughly 12 hours of recorded speech per language, used here for speech recognition.",
-    "source_url": "https://arxiv.org/abs/2205.12446",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -9289,12 +9013,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "openaimrcr": {
-    "text": "A synthetic multi-turn chat hides 2, 4 or 8 near-identical requests, such as several poems about tapirs, and the model must reproduce the i-th one; the answer is compared to the reference by difflib sequence ratio.",
-    "source_url": "https://huggingface.co/datasets/openai/mrcr",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "satmath": {
     "text": "The mathematics half of the College Board SAT, two adaptive modules of multiple-choice and student-produced-response questions across algebra, advanced math, problem solving and data analysis, and geometry and trigonometry.",
     "source_url": "https://satsuite.collegeboard.org/sat/whats-on-the-test/math/overview",
@@ -9310,12 +9028,6 @@
   "aitz": {
     "text": "18,643 Android screen and action pairs annotated with chain-of-action-thought, tying what is visible on screen to the reasoning behind the next action and the outcome it produces.",
     "source_url": "https://arxiv.org/abs/2403.02713",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "chinesewordzh": {
-    "text": "A character-level test of Chinese text rendering in generated images: prompt templates ask a text-to-image model to draw a single character, sampled from the three tiers (3,500, 3,000 and 1,605 characters) of the standard Chinese character list.",
-    "source_url": "https://arxiv.org/abs/2508.02324",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -9376,12 +9088,6 @@
   "songformbenchharmonixset": {
     "text": "The HarmonixSet half of SongFormBench, 200 expert-revised pop songs for music structure analysis: split a track into intro, verse, chorus and similar sections, scored by boundary hit rate at 0.5 and 3 second tolerances and frame-level label accuracy.",
     "source_url": "https://arxiv.org/abs/2510.02797",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "vlad": {
-    "text": "VLADBench, cited in short form: 12,000 closed-form driving questions over 2,000 static scenes and 3,000 dynamic scenarios, organised into 5 domains, 11 secondary aspects and 29 tasks from traffic element recognition to ego planning.",
-    "source_url": "https://arxiv.org/abs/2503.21505",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -9673,12 +9379,6 @@
     "source": "none",
     "checked": "2026-09-22"
   },
-  "embspatialbench": {
-    "text": "3,640 multiple-choice questions derived automatically from MP3D, AI2-THOR and ScanNet scenes, asking a model to judge egocentric spatial relations (above, below, left, right, close, far) among 294 object categories.",
-    "source_url": "https://ar5iv.labs.arxiv.org/html/2406.05756",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "fluersen": {
     "source": "none",
     "checked": "2026-09-22"
@@ -9849,12 +9549,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "cococap": {
-    "text": "Image captioning on MS COCO, where each image carries five independently written human captions and generated captions are scored against them using metrics such as BLEU, METEOR, ROUGE and CIDEr.",
-    "source_url": "https://arxiv.org/abs/1504.00325",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "egdcxr": {
     "text": "1,083 chest radiographs from MIMIC-CXR paired with a radiologist's transcribed report, dictation audio and eye-tracking data recorded while they read the image, covering normal, pneumonia and congestive heart failure cases.",
     "source_url": "https://physionet.org/content/egd-cxr/1.0.0/",
@@ -10003,12 +9697,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "firstpersonfairnessevaluation": {
-    "text": "Counterfactual test of whether a chatbot responds differently depending on the user's own name: 66 tasks across nine domains are run with names signalling two genders and four races, and a language model assistant rates the paired responses for harmful stereotypes.",
-    "source_url": "https://arxiv.org/abs/2410.19803",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "healthbenchhardhallucinations": {
     "text": "The intersection of HealthBench Hard and HealthBench Consensus, difficult health conversations each validated by two or more physicians, used to measure whether a model asserts things that are not true.",
     "source_url": "https://cdn.openai.com/gpt-5-system-card.pdf",
@@ -10074,18 +9762,6 @@
   "livebench0831": {
     "text": "The 31 August 2024 release of LiveBench, whose questions are refreshed monthly from recent competitions, arXiv papers, news and datasets across math, coding, reasoning, language, data analysis and instruction following, all graded automatically against ground truth.",
     "source_url": "https://arxiv.org/abs/2406.19314",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "mgsm8k": {
-    "text": "250 grade-school math word problems from GSM8K, manually translated into ten typologically diverse languages, for testing chain-of-thought arithmetic reasoning outside English.",
-    "source_url": "https://arxiv.org/abs/2210.03057",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "mmmuprovis": {
-    "text": "The vision-only setting of MMMU-Pro, where each multi-discipline exam question is embedded inside a screenshot rather than supplied as text, so the model has to read the question and interpret the figures from one image.",
-    "source_url": "https://arxiv.org/abs/2409.02813",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -10204,12 +9880,6 @@
   "bcmbppjava": {
     "text": "855 MBPP Python problems whose signatures and unit tests the BabelCode framework machine-translates into 14 languages including Java, with generated code checked by executing the translated tests.",
     "source_url": "https://arxiv.org/html/2302.01973v2",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "cococaptions": {
-    "text": "Over 1.5 million human-written captions covering more than 330,000 images, five per training and validation image, with an evaluation server that scores generated captions using BLEU, METEOR, ROUGE and CIDEr.",
-    "source_url": "https://arxiv.org/abs/1504.00325",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -10625,21 +10295,9 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "arceasyandchallenge": {
-    "text": "7,787 grade-school science questions from North American standardized tests, split into a Challenge set of 2,590 items that both a retrieval and a word co-occurrence baseline answered wrongly, and an Easy set holding the remainder.",
-    "source_url": "https://arxiv.org/abs/1803.05457",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "davis17": {
     "text": "Densely annotated video sequences for object segmentation. Pixel masks for the objects are given in the first frame and a method must segment and track them through the rest of the clip, with several instances annotated per video and official metrics computed at 480p.",
     "source_url": "https://davischallenge.org/davis2017/code.html",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "humanevalinfillingbenchmark": {
-    "text": "Programs from HumanEval with a span removed, leaving a prefix and a suffix the model must join up. Four variants mask a single line, several lines or a random span, and completions are run against the original test suites.",
-    "source_url": "https://github.com/openai/human-eval-infilling",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -10908,12 +10566,6 @@
   "combibench": {
     "text": "100 combinatorics problems, each formalized in Lean 4 and paired with an informal statement, spanning middle school to IMO and university level and including every IMO combinatorics problem since 2000 but one.",
     "source_url": "https://arxiv.org/abs/2505.03171",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "mathv": {
-    "text": "Mathematical reasoning in visual contexts, 6,141 examples drawn from 28 existing multimodal datasets plus three new ones (IQTest, FunctionQA and PaperQA). This is DeepSeek's short name for MathVista.",
-    "source_url": "https://arxiv.org/abs/2310.02255",
     "source": "researched",
     "checked": "2026-09-22"
   },
