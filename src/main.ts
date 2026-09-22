@@ -8,6 +8,7 @@ import "./styles/app.css";
 import coreUrl from "../data/timeline.json?url";
 import logUrl from "../data/release-log.json?url";
 import { MAX_TRACKED, buildTrackables, displayNames, memberIds, quarterOf, recount, type Release, type Timeline } from "./model";
+import { aboutHTML, descKey, infoSheet, loadDescriptions, type Description, type Descriptions } from "./describe";
 import { renderFilter } from "./filter";
 import { mountSheet } from "./sheet";
 import { renderTrend, type TrendView } from "./trend";
@@ -232,7 +233,8 @@ function render(data: Timeline) {
 
   const $ = <T extends Element>(s: string) => app.querySelector<T>(s)!;
   const tt = $<HTMLDivElement>(".tt");
-  const sheet = mountSheet($<HTMLElement>(".sheet"));
+  const sheetEl = $<HTMLElement>(".sheet");
+  const sheet = mountSheet(sheetEl);
 
   // The page explains itself through hover, and a finger cannot hover, so the instruction has to be true for the reader in front of it rather than for the one the copy was written against. The timeline's standfirst said "Hover to view details, click to read the source", which on a phone described an interaction that does not exist and an outcome, the tooltip, that nobody there had ever seen.
   //
@@ -448,6 +450,39 @@ function render(data: Timeline) {
     note.textContent = `${m?.releases.toLocaleString() ?? 0} of ${total.toLocaleString()} releases. Every count and share below is measured over those, not over all of them.`;
   };
 
+  /** The releases the current scope keeps. One implementation, because the year chips, the timeline and the detail panel all have to be describing the same subset and three copies of one filter is three chances for them not to be. */
+  const inView = (rows: Release[]): Release[] =>
+    scope === "all" ? rows : rows.filter((r) => r.modality?.includes(scope));
+
+  // The descriptions, once something has asked for them. Null means nobody has pressed an info button yet; an empty object means there is nothing to show, either because the file said so or because it was never worth asking for.
+  let descs: Descriptions | null = null;
+  // Whether the file is worth a request at all, decided from two numbers the registry already carries rather than by fetching a few hundred kilobytes to find out. A registry with nothing described is the resting state of a research pass that has not been run yet, and it is a real state this site will be in for a while.
+  const anyDescribed = (data.descriptions?.described ?? 0) > 0;
+
+  /** What a press on a card's info button opens.
+   *
+   *  Derived from inView() rather than from the whole log, so a panel can never report four labs under a card reading two. That is the same disagreement the suite rollup above exists to prevent, one screen further down the page.
+   *
+   *  Nothing is held back waiting for the descriptions file. It is fetched on the first press, it is about as large as the registry, most benchmarks have no entry in it at all, and the other three things the panel says are already in memory. So the panel is drawn from what is known and the sentence is dropped in if one arrives. Dropped into the block in place rather than by calling show() again, because show() scrolls the body back to its top and takes focus, and on a slow connection the reader may be on the link inside it by then. */
+  const openInfo = (id: string) => {
+    const t = trackables.get(id);
+    if (!t) return;
+    const key = descKey(t);
+    const open = (desc: Description | null) =>
+      sheet.show(infoSheet({ t, benchmarks: data.benchmarks, suites: data.suites, labs, releases: log && inView(log), desc }));
+    if (descs) { open(descs[key] ?? null); return; }
+    open(null);
+    if (!anyDescribed) { descs = {}; return; }
+    loadDescriptions().then((all) => {
+      descs = all;
+      if (!all[key]) return;
+      const slot = sheetEl.querySelector<HTMLElement>("[data-about]");
+      // Only if the panel is still the one that asked. A slow fetch can land after the reader has closed it or opened another card's.
+      if (sheetEl.hidden || slot?.getAttribute("data-about") !== t.id) return;
+      slot.innerHTML = aboutHTML(all[key]);
+    });
+  };
+
   const draw = () => {
     if (scopeOffered) {
       $<HTMLElement>(".scope").hidden = false;
@@ -459,6 +494,7 @@ function render(data: Timeline) {
       trackables, categories: data.categories, tracked,
       recentLabel: `the last ${recentMonths} months`,
       sinceLabel: fmtMonth(data.release_log.first),
+      onInfo: openInfo,
       onToggle: (id) => {
         const adding = !tracked.includes(id);
         tracked = adding
@@ -536,7 +572,7 @@ function render(data: Timeline) {
   const paintYears = () => {
     const el = app.querySelector<HTMLElement>(".years");
     if (!el || !log) return;
-    const scoped = scope === "all" ? log : log.filter((r) => r.modality?.includes(scope));
+    const scoped = inView(log);
     const per = new Map<string, number>();
     for (const r of scoped) { const y = r.date.slice(0, 4); per.set(y, (per.get(y) ?? 0) + 1); }
     // Newest first, the direction the timeline already reads in.
@@ -557,7 +593,7 @@ function render(data: Timeline) {
     // The same subset every figure on the page was recounted over, so the marks
     // and the numbers describing them can never be answering different
     // questions.
-    const scoped = scope === "all" ? log : log.filter((r) => r.modality?.includes(scope));
+    const scoped = inView(log);
     const rows = year === "all" ? scoped : scoped.filter((r) => r.date.slice(0, 4) === year);
     // Both ends fixed by the year rather than by what survived the filter, so a
     // year with a quiet December is still a whole year on the axis.

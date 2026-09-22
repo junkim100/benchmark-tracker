@@ -13,6 +13,7 @@
 // pass for real typos, and an initials pass so "tb" finds Terminal-Bench.
 
 import { MAX_TRACKED, type Trackable } from "./model";
+import { clearPicked } from "./sheet";
 
 export interface FilterArgs {
   trackables: Map<string, Trackable>;
@@ -21,6 +22,8 @@ export interface FilterArgs {
   sinceLabel: string;            // when the all-time count starts
   tracked: string[];
   onToggle: (id: string) => void;
+  /** A press on a card's info button. The panel it opens belongs to main.ts, which is the only place that holds the release log the panel is derived from. */
+  onInfo: (id: string) => void;
 }
 
 // Folded shut on arrival, so the chart and the timeline are the first things
@@ -58,6 +61,9 @@ const FOLD_CLOSED = `Browse benchmarks<span class="fold__more">, suites and subj
 const FOLD_OPEN = "Hide the list";
 
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
+
+// A circled i, drawn in strokes like every other icon on the page so it takes the button's own colour and stays legible at 16px. The dot is a path with a round cap rather than a second circle, because a filled 1px circle disappears at this size.
+const INFO_ICON = `<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.4"/><path d="M8 7.3v3.9"/><path d="M8 4.6v.7"/></svg>`;
 
 /** Letters and digits only. Greek and superscripts first, because a lab writing
  *  τ²-bench and a reader typing "tau2 bench" mean the same evaluation. */
@@ -356,12 +362,20 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
         : t.kind === "category" ? `Whole subject · ${t.members} benchmarks`
         : subjects_;
       // No title attribute. It restated the two numbers already printed on the card and explained above it in the note, and a hover tooltip is not something a finger can ask for, so on a phone it was 30 cards' worth of text nobody could reach. The note is the explanation for both pointers.
-      return `<button type="button" role="option" class="bcard bcard--${t.kind}" data-id="${esc(t.id)}"
+      //
+      // What a title attribute could never do is say what the benchmark actually is, which is the one question a card cannot answer on its face. That is what the info button is for, and it is a press rather than a hover for the same reason the title attribute went: a finger cannot ask for a hover.
+      const card = `<button type="button" role="option" class="bcard bcard--${t.kind}" data-id="${esc(t.id)}"
                aria-selected="${on}" ${!on && full ? "disabled" : ""}>
         <span class="bcard__name">${esc(label)}</span>
         <span class="bcard__meta">${esc(meta)}</span>
         <span class="bcard__n"><b>${t.lab_count}</b> lab${t.lab_count === 1 ? "" : "s"}<span class="bcard__sep"> · </span><b>${t.recent_share}%</b> of recent releases</span>
       </button>`;
+      // The info button is a sibling of the card rather than a child of it, because a button cannot contain a button and the card has been a button since it existed. The wrapper positions the two and is role="presentation" so it is dropped from the accessibility tree: without that, a generic element between the listbox and its options breaks the ownership that makes them options at all.
+      //
+      // Not offered on a category card. A category gathers a subject rather than versions of one evaluation, so the panel's list of other members would run to hundreds of names that are related only by sharing a shelf, and there is no suite, no description and no single thing for the panel to be about.
+      const info = t.kind === "category" ? ""
+        : `<button class="bcard__i" type="button" data-info="${esc(t.id)}" aria-label="About ${esc(label)}">${INFO_ICON}</button>`;
+      return `<div class="bcardw" role="presentation">${card}${info}</div>`;
     }).join("");
   };
 
@@ -466,7 +480,19 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     }
   });
   results.addEventListener("click", (e) => {
-    const card = (e.target as Element).closest<HTMLElement>("[data-id]");
+    const el = e.target as Element;
+    // Tested first, and it returns. The two buttons are siblings, so a press on the info button already cannot reach the card's own handler, but both live in one container under one listener and the order these are read in is the only thing that keeps them apart if the markup ever changes.
+    const info = el.closest<HTMLElement>("[data-info]");
+    if (info) {
+      // Focused explicitly, because Safari does not focus a button when it is clicked. Without this the panel records BODY as the place to put focus back, and closing it drops a reader who opened it with a mouse at the top of the document.
+      info.focus({ preventScroll: true });
+      // Which card the panel is describing, in the same class the timeline's marks and the chart's bands use, so all three surfaces say it the same way and closing the panel clears all three.
+      clearPicked();
+      info.closest(".bcardw")?.querySelector(".bcard")?.classList.add("is-picked");
+      a.onInfo(info.getAttribute("data-info")!);
+      return;
+    }
+    const card = el.closest<HTMLElement>("[data-id]");
     if (!card) return;
     // Remember which card was acted on. Re-rendering replaces every node, so
     // focus landed on BODY and a keyboard reader needed 22 tabs to get back to
