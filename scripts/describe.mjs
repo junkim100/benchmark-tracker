@@ -8,7 +8,7 @@
 //
 // Resumable, because it will be run more than once and a full pass takes hours. Only ids with no entry are attempted, plus refusals older than the cutoff in scripts/descriptions.mjs, and the file is written after every batch rather than at the end: an interrupted run keeps everything it had bought.
 //
-// Usage: ANTHROPIC_API_KEY=... node scripts/describe.mjs [--limit N] [--dry] [--prune]
+// Usage: ANTHROPIC_API_KEY=... node scripts/describe.mjs [--limit N] [--dry] [--prune] [--force]
 
 import Anthropic from "@anthropic-ai/sdk";
 import { readFileSync, writeFileSync, renameSync, existsSync } from "node:fs";
@@ -22,6 +22,8 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DATA = join(ROOT, "data");
 const args = process.argv.slice(2);
 const DRY = args.includes("--dry");
+// Required before a prune may delete a researched description that no alias accounts for.
+const FORCE = args.includes("--force");
 const PRUNE = args.includes("--prune");
 const limitArg = Number(args[args.indexOf("--limit") + 1]);
 const LIMIT = args.includes("--limit") && limitArg > 0 ? Math.floor(limitArg) : Infinity;
@@ -56,28 +58,48 @@ const save = () => {
 
 // An id can leave the registry without anything being wrong: research.mjs applies a confident alias merge unattended, and both names collapse onto one id. The description filed under the retired name is then unreachable, and normalize.mjs fails the build over it rather than publishing a file whose keys do not all resolve. Following the merge keeps the work; there is nothing to re-research, because the merged benchmark is the same benchmark.
 if (PRUNE) {
+  // Captured before the loop mutates the object, so the lossy check below reads what was there rather than what is left.
+  const descriptionsBefore = { ...descriptions };
   const aliases = JSON.parse(readFileSync(join(DATA, "aliases.json"), "utf8"));
   const aliasByKey = new Map(
     Object.entries(aliases).filter(([k]) => !k.startsWith("_")).map(([k, v]) => [flatKey(k), v]),
   );
   const ids = new Set(registry.map((b) => b.id));
   const moved = [];
+  const merged = [];
   const dropped = [];
   for (const id of Object.keys(descriptions)) {
     if (ids.has(id)) continue;
     const target = aliasByKey.get(id);
-    if (target && ids.has(target) && !descriptions[target]) {
-      descriptions[target] = descriptions[id];
-      moved.push(`${id} -> ${target}`);
+    if (target && ids.has(target)) {
+      // The target already describes the same benchmark, so this entry is a duplicate rather than a loss. Reported apart from the drops, which was not true before: both were printed as "ids no benchmark has", which is the one line a reader would check before believing the work was safe.
+      if (descriptions[target]) merged.push(`${id} (already described as ${target})`);
+      else { descriptions[target] = descriptions[id]; moved.push(`${id} -> ${target}`); }
     } else {
       dropped.push(id);
     }
     delete descriptions[id];
   }
+
+  // A drop with no alias to follow is the only lossy case, and a researched entry is the only kind that costs anything: a refusal is one search to redo, a description is a page somebody found and read.
+  //
+  // The usual reason for one is not a retired id, it is a stale registry. describe.mjs reads data/benchmarks.json off the disk, so pruning before npm run normalize compares the descriptions against whatever the last build left there, and every id added since is unknown to it and dropped. That is a silent, unrecoverable delete of exactly the expensive half of the file, so it now needs saying out loud.
+  const lossy = dropped.filter((id) => descriptionsBefore[id]?.text);
+  if (lossy.length && !FORCE) {
+    console.error(`${lossy.length} of the ${dropped.length} entries to drop are researched descriptions with no alias to follow:`);
+    for (const id of lossy.slice(0, 10)) console.error(`  ${id}`);
+    if (lossy.length > 10) console.error(`  and ${lossy.length - 10} more`);
+    console.error("\nRun npm run normalize first, so this compares against a current registry. If they really are gone, re-run with --force.");
+    process.exit(1);
+  }
+
   if (moved.length) console.log(`followed ${moved.length} alias merge(s):\n${moved.map((m) => `  ${m}`).join("\n")}`);
+  if (merged.length) console.log(`dropped ${merged.length} duplicate(s) whose benchmark is described under its surviving id:\n${merged.map((m) => `  ${m}`).join("\n")}`);
   if (dropped.length) console.log(`dropped ${dropped.length} entr(ies) for ids no benchmark has:\n${dropped.map((d) => `  ${d}`).join("\n")}`);
-  if (moved.length || dropped.length) save();
-  else console.log("nothing to prune.");
+  if (!moved.length && !merged.length && !dropped.length) { console.log("nothing to prune."); process.exit(0); }
+  // --dry never writes. The prune branch used to call save() regardless, so the one flag whose whole purpose is to show what would happen did it instead.
+  if (DRY) { console.log("\n--dry: nothing written."); process.exit(0); }
+  save();
   process.exit(0);
 }
 

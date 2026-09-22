@@ -38,7 +38,6 @@ const MAX_TOKENS = 16000;
 
 const labs = JSON.parse(readFileSync(join(DATA, "labs.json"), "utf8"));
 const CATEGORY_IDS = CATEGORIES.map((c) => c.id);
-assertSupported(RECORD_SCHEMA, "research RECORD_SCHEMA");
 const client = new Anthropic();
 
 // The benchmarks already tracked, so the agent can tell a genuinely new one
@@ -159,6 +158,17 @@ const RECORD_SCHEMA = {
   required: ["releases"],
   additionalProperties: false,
 };
+
+// Checked here and not at the top of the file, which is where this used to sit.
+// RECORD_SCHEMA is a const declared seventy lines below that call, so the call
+// was in its temporal dead zone and threw ReferenceError while the module was
+// still evaluating, before any argument or environment check could run. Every
+// scheduled pass has died on that line since it was added: the research, the
+// duplicate scan, the contract validation, the commit and the deploy were all
+// skipped, and the step has no continue-on-error to soften it. The other three
+// scripts that use this guard all call it after their schema, which is the
+// order that works.
+assertSupported(RECORD_SCHEMA, "research RECORD_SCHEMA");
 
 async function researchLab(lab) {
   const allowed = domainsFor(lab);

@@ -89,7 +89,7 @@ export function aboutHTML(d: Description | null | undefined): string {
   const link = url && isHttpUrl(url)
     ? `<a class="sheet__go" href="${esc(url)}" target="_blank" rel="noopener">Open the source on ${esc(host(url))}</a>`
     : "";
-  return `<p class="sheet__h">What it is</p><p class="sheet__p">${esc(text)}</p>${link}`;
+  return `<p class="sheet__h">What It Is</p><p class="sheet__p">${esc(text)}</p>${link}`;
 }
 
 export interface InfoArgs {
@@ -132,7 +132,7 @@ function relationHTML(a: InfoArgs): string {
  *
  *  Derived rather than read: first_seen and last_seen were taken out of the registry to shrink the file every reader downloads, and the log they came from is already in memory by the time anyone can press an info button. */
 function citedHTML(a: InfoArgs): string {
-  const head = `<p class="sheet__h">Cited by</p>`;
+  const head = `<p class="sheet__h">Cited By</p>`;
   if (!a.releases) {
     // Reachable only in the seconds before the log lands, since the log is requested in the head alongside the registry. Saying so beats an empty heading or a zero.
     return `${head}<p class="sheet__p">The release log has not arrived yet.</p>`;

@@ -232,7 +232,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
               </button>
             </div>
             <div class="detail__body"></div>
-            <p class="detail__empty">Press the information button on any card to read what that benchmark measures, which versions it counts together, and which labs have cited it.</p>
+            <p class="detail__empty">Press the information button on any card to see which labs have cited it, which versions it counts together, and, where one was found, a sourced sentence on what it measures.</p>
           </div>
         </aside>
       </div>
@@ -352,7 +352,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     }
     const items = pool();
     none.hidden = items.length > 0;
-    if (!items.length) none.textContent = `Nothing matches "${q}". Try fewer letters.`;
+    if (!items.length) none.textContent = `Nothing matches "${rawQuery}". Try fewer letters.`;
     // A silent cap is a lie about what is there. It used to show the top 30 of
     // 124 coding benchmarks and offer search as the only way to the other 94,
     // which meant the rest were reachable only if you already knew their names.
@@ -360,7 +360,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     pager.hidden = total <= PAGE;
     const from = page * PAGE + 1;
     const to = Math.min(total, (page + 1) * PAGE);
-    pagerAt.textContent = `${from.toLocaleString()}\u2013${to.toLocaleString()} of ${total.toLocaleString()}`;
+    pagerAt.textContent = `${from.toLocaleString()} to ${to.toLocaleString()} of ${total.toLocaleString()}`;
     prevBtn.disabled = page === 0;
     nextBtn.disabled = page >= pages - 1;
     results.innerHTML = items.map((t) => {

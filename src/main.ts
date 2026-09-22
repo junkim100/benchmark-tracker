@@ -207,8 +207,8 @@ function render(data: Timeline) {
 
     <footer class="tile tile--parchment ft">
       <div class="tile__in">
-        <p>Sources are each lab's own site, model card, system card, or arXiv paper. Nothing is taken from news coverage or third-party leaderboards, and no score is recorded anywhere.</p>
-        <p>Lab names and marks are the trademarks of their respective owners, shown to identify whose releases each row lists. This site reports on these companies and is neither endorsed by nor affiliated with any of them.</p>
+        <p>Every release is recorded from the lab's own site, model card, system card or arXiv paper, never from news coverage or a third-party leaderboard. A benchmark's description cites whichever page explains that benchmark, which is usually its paper, repository or dataset card, and sometimes the site that publishes it. No score is recorded anywhere.</p>
+        <p>Lab names and marks are the trademarks of their respective owners, shown to identify whose releases each column lists. This site reports on these companies and is neither endorsed by nor affiliated with any of them.</p>
         <p>Updated ${data.generated_at.slice(0, 10)}.</p>
         <p class="ft__legal">&copy; ${new Date().getUTCFullYear()} Jun Kim. Code under the MIT licence, data under CC BY 4.0. Lab marks are excluded from both.</p>
       </div>
@@ -528,7 +528,7 @@ function render(data: Timeline) {
     clearPicked();
     renderFilter($(".controls"), {
       trackables, categories: data.categories, tracked,
-      recentLabel: `the last ${recentMonths} months`,
+      recentLabel: `the ${recentMonths} months to ${fmtMonth(win.to)}`,
       sinceLabel: fmtMonth(data.release_log.first),
       onInfo: openInfo,
       onToggle: (id) => {

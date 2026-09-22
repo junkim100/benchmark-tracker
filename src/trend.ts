@@ -169,7 +169,7 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
           // and ties the table to the chart it replaces.
           return `<tr class="s${i + 1}">
             <th scope="row"><span class="dt__dot"></span>${esc(b.name)}</th>
-            ${vals.map((v) => `<td style="--v:${(v / maxY).toFixed(3)}"${v === peak && peak > 0 ? ' class="dt__peak"' : ""}>${v || "–"}</td>`).join("")}
+            ${vals.map((v) => `<td style="--v:${(v / maxY).toFixed(3)}"${v === peak && peak > 0 ? ' class="dt__peak"' : ""}>${v || "0"}</td>`).join("")}
             <td class="dt__tot">${peak}</td>
           </tr>`;
         }).join("")}</tbody>
