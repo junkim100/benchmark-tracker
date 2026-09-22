@@ -157,6 +157,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
       <div class="browse__note">
         <p><b>Labs</b> counts every lab that has cited it since ${esc(a.sinceLabel)}, so it never falls.</p>
         <p><b>Recent releases</b> is the share still citing it across ${esc(a.recentLabel)}.</p>
+        <p><b>Group versions</b> folds every edition of one evaluation into a single card, so SWE-bench Verified and SWE-Bench Pro sit under SWE-bench. Turn it off to pick a version on its own.</p>
       </div>
       <div class="browse__field">
         <svg class="browse__icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>
@@ -175,23 +176,23 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
               <button type="button" data-sort="recent">Recent releases</button>
             </div>
           </div>
-          <label class="facets__group">
+          <label class="facets__group" title="A suite gathers every version of one evaluation. Grouped, the suite stands for all of them in one card; ungrouped, each version gets its own.">
             <input type="checkbox" class="facets__groupbox" />
             <span>Group versions</span>
           </label>
+          <nav class="pager" aria-label="Result pages" hidden>
+            <button class="pager__btn" type="button" data-page="prev" aria-label="Previous page">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 13 5 8l5-5"/></svg>
+            </button>
+            <p class="pager__at" role="status"></p>
+            <button class="pager__btn" type="button" data-page="next" aria-label="Next page">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg>
+            </button>
+          </nav>
         </div>
       </div>
       <div class="browse__results" role="listbox" aria-label="Benchmarks"></div>
       <p class="browse__none" hidden></p>
-      <nav class="pager" aria-label="Result pages" hidden>
-        <button class="pager__btn" type="button" data-page="prev" aria-label="Previous page">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 13 5 8l5-5"/></svg>
-        </button>
-        <p class="pager__at" role="status"></p>
-        <button class="pager__btn" type="button" data-page="next" aria-label="Next page">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg>
-        </button>
-      </nav>
     </div>`;
 
   const input = host.querySelector<HTMLInputElement>(".browse__input")!;

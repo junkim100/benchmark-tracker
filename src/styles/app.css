@@ -278,8 +278,14 @@ button { transition: transform .08s ease-out; }
 /* Paging. Compact utility rects at 8px, not pills: turning a page is a move
    through the list rather than an action on it, and the pill is reserved for
    the action signal. The range sits between the arrows so the reader can see
-   where they are without counting pages. */
-.pager { display: flex; align-items: center; justify-content: center; gap: var(--s-sm); margin: var(--s-lg) 0 0; }
+   where they are without counting pages.
+   
+   Above the grid, at the end of the controls row, not below the cards. Card
+   heights vary with how many lines a benchmark name takes, so a pager under
+   the grid landed somewhere different on every page and the arrow moved out
+   from under the cursor between turns. Up here it never moves, and it is
+   where the other controls that change the list already are. */
+.pager { display: flex; align-items: center; gap: var(--s-xs); margin-left: auto; }
 .pager__btn {
   display: grid; place-items: center; width: 36px; height: 36px; padding: 0; cursor: pointer;
   background: var(--canvas); color: var(--text-secondary);
@@ -295,8 +301,13 @@ button { transition: transform .08s ease-out; }
   color: var(--text-muted);
 }
 /* A page turn replaces the grid, so the grid is what the reader is sent back
-   to, and it has to clear the sticky sub-nav when it gets there. */
+   to, and it has to clear the sticky sub-nav when it gets there. With the
+   pager above the grid this rarely fires, but it still covers a turn made
+   from the keyboard after scrolling away. */
 .browse__results { scroll-margin-top: calc(var(--nav-h) + var(--s-sm)); }
+/* On a narrow screen the row wraps and the pager takes its own line, where an
+   auto margin would shove it to the right on its own. */
+@media (max-width: 560px) { .pager { margin-left: 0; } }
 
 /* What is tracked. A pill each, with the series colour it was given, so the
    chip and its line on the chart are the same thing. */
