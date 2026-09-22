@@ -192,7 +192,8 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
 
 /* Browse and search. Open by default and grouped, because most readers arrive
    wanting to know which benchmarks exist rather than to look one up by name. */
-.browse { margin: 0 0 var(--s-xxs); }
+/* A gap under the fold button. Without a top margin the panel opened flush against it, so the pill and the search field below shared an edge and read as one collided control. */
+.browse { margin: var(--s-sm) 0 var(--s-xxs); }
 .controls .chips { margin-bottom: var(--s-xxs); }
 /* The spec's search input: a pill, 44px tall, 17px text, leading glyph. Search
    reads as an action here, which is why it gets the pill and not the rect. */
