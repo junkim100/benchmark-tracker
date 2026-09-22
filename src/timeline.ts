@@ -51,6 +51,14 @@ export interface TimelineArgs {
   onHover: (rs: Release[] | null, x: number, y: number) => void;
   /** A tap, on a pointer that cannot hover. Null closes whatever is open. */
   onPick: (r: SheetRequest | null) => void;
+  /** Limit the axis to a span. Null means every release, which is the default
+   *  and what the whole-history view has always been.
+   *
+   *  The bounds come from the caller rather than from the releases left after
+   *  filtering, because a year with a gap at either end should still be a whole
+   *  year: 2023 ending in November because nobody shipped in December would be
+   *  a chart that quietly changed its own axis. */
+  range?: { from: string; to: string } | null;
 }
 
 /** The scheme check at the one place data becomes a navigation.
@@ -98,23 +106,26 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const scale = narrow ? 0.62 : 1;
 
   const days = a.releases.map((r) => dayNumber(r.date));
-  const today = dayNumber(new Date().toISOString().slice(0, 10));
-  const lo = Math.min(...days) - PAD_DAYS;
+  const todayISO = new Date().toISOString().slice(0, 10);
+  const today = dayNumber(todayISO);
+  // A range fixes both ends. Without one the bottom is the oldest release with
+  // room under it for its year label, and the top is today.
+  const lo = a.range ? dayNumber(a.range.from) : Math.min(...days) - PAD_DAYS;
   // Enough to draw the largest mark without clipping it against the edge, and
   // no more. A flat thirty-day pad put the axis into the future: on 22
   // September the topmost tick read "Oct", a month that had not happened, above
   // sixty pixels of empty column that read as a month in which nobody shipped.
   // The top is today now, so the space above the newest mark is the real gap
   // since the last release rather than an artefact of the padding.
-  const TOP_PAD = 5;
-  const hi = Math.max(...days, today) + TOP_PAD;
+  const TOP_PAD = 10;
+  const hi = a.range ? dayNumber(a.range.to) : Math.max(...days, today);
   // Room under the last month for its year. January draws its year 18px below
   // itself, so without this the oldest one, 2023, fell outside the canvas and
   // was clipped away. Suppressing it instead would have been worse: the year a
   // reader scrolled three screens to reach is the one worth printing.
-  const H = Math.round((hi - lo) * PX_PER_DAY) + YEAR_DY + 6;
+  const H = Math.round((hi - lo) * PX_PER_DAY) + YEAR_DY + 6 + TOP_PAD;
   // Newest at the top, so y counts down from the most recent day.
-  const y = (iso: string) => (hi - dayNumber(iso)) * PX_PER_DAY;
+  const y = (iso: string) => (hi - dayNumber(iso)) * PX_PER_DAY + TOP_PAD;
   const cx = (i: number) => GUT + colW * i + colW / 2;
 
   // Slot by membership, not by identity. A tracked suite covers many
@@ -155,7 +166,7 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
     let yr = d0.getUTCFullYear();
     let mo = d0.getUTCMonth();
     for (;;) {
-      const ty = (hi - dayNumber(`${yr}-${String(mo + 1).padStart(2, "0")}-01`)) * PX_PER_DAY;
+      const ty = y(`${yr}-${String(mo + 1).padStart(2, "0")}-01`);
       if (ty > H) break;
       // January's year sits 18px below its month, so a January in the last 18px
       // of the canvas had its year drawn past the edge and clipped away. The
@@ -206,10 +217,10 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
         <g class="ticks">${ticks.map((t) =>
           `<line class="${t.first ? "tick tick--year" : "tick"}" x1="${GUT}" y1="${t.y.toFixed(1)}" x2="${W}" y2="${t.y.toFixed(1)}"/>`
         ).join("")}</g>
-        <g class="nowline">
-          <line x1="${GUT}" y1="${(TOP_PAD * PX_PER_DAY).toFixed(1)}" x2="${W}" y2="${(TOP_PAD * PX_PER_DAY).toFixed(1)}"/>
-          <text x="${GUT - 8}" y="${(TOP_PAD * PX_PER_DAY + 4).toFixed(1)}">Today</text>
-        </g>
+        ${today <= hi && today >= lo ? `<g class="nowline">
+          <line x1="${GUT}" y1="${y(todayISO).toFixed(1)}" x2="${W}" y2="${y(todayISO).toFixed(1)}"/>
+          <text x="${GUT - 8}" y="${(y(todayISO) + 4).toFixed(1)}">Today</text>
+        </g>` : ""}
         <g class="cols">${a.labs.map((_, i) =>
           `<line class="collline" x1="${(GUT + colW * i).toFixed(1)}" y1="0" x2="${(GUT + colW * i).toFixed(1)}" y2="${H}"/>`
         ).join("")}</g>

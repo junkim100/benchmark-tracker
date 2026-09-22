@@ -188,7 +188,8 @@ function render(data: Timeline) {
           <h2>Release Timeline</h2>
           <p class="howto howto--tl"></p>
         </div>
-          <div class="tlwrap"></div>
+          <div class="years" role="group" aria-label="Limit the timeline to one year"></div>
+        <div class="tlwrap"></div>
       </div>
     </section>
 
@@ -509,8 +510,37 @@ function render(data: Timeline) {
   // Nothing above it moves when it lands. The section, its heading and its
   // standfirst are part of the page from the first paint; only the area below
   // them grows, and everything after it is the footer.
+  // Which year the timeline is limited to, or "all".
+  //
+  // The timeline only. The chart is not filtered by it and must not be: the
+  // chart's whole job is the shape of adoption across years, so narrowing it to
+  // one would leave a single column of dots where a trend used to be. The
+  // picker is not filtered either, because a benchmark's lab count is a fact
+  // about the whole history and quietly rewriting it from a navigation control
+  // would be the same overloading the mark sizes were just rescued from.
+  //
+  // So this sits inside the timeline section rather than above the page, where
+  // a control's reach is as far as the reader can see it reaching.
+  let year: string = "all";
   let log: Release[] | null = null;
   let timeline: typeof import("./timeline") | null = null;
+  /** The year chips, counted under the scope currently in force. */
+  const paintYears = () => {
+    const el = app.querySelector<HTMLElement>(".years");
+    if (!el || !log) return;
+    const scoped = scope === "all" ? log : log.filter((r) => r.modality?.includes(scope));
+    const per = new Map<string, number>();
+    for (const r of scoped) { const y = r.date.slice(0, 4); per.set(y, (per.get(y) ?? 0) + 1); }
+    // Newest first, the direction the timeline already reads in.
+    const years = [...per.keys()].sort().reverse();
+    const chip = (id: string, label: string, n: number, disabled = false) =>
+      `<button type="button" data-year="${esc(id)}" aria-pressed="${id === year}" ${disabled ? "disabled" : ""}>` +
+      `${esc(label)}<span class="years__n">${n.toLocaleString()}</span></button>`;
+    el.innerHTML = `<span class="facets__label" id="years-label">Show</span>` +
+      chip("all", "All years", scoped.length) +
+      years.map((y) => chip(y, y, per.get(y) ?? 0)).join("");
+  };
+
   const drawTimeline = () => {
     if (!timeline || !log) return;
     // Narrowed into locals, so the hover closure below does not have to
@@ -519,9 +549,14 @@ function render(data: Timeline) {
     // The same subset every figure on the page was recounted over, so the marks
     // and the numbers describing them can never be answering different
     // questions.
-    const rows = scope === "all" ? log : log.filter((r) => r.modality?.includes(scope));
+    const scoped = scope === "all" ? log : log.filter((r) => r.modality?.includes(scope));
+    const rows = year === "all" ? scoped : scoped.filter((r) => r.date.slice(0, 4) === year);
+    // Both ends fixed by the year rather than by what survived the filter, so a
+    // year with a quiet December is still a whole year on the axis.
+    const range = year === "all" ? null : { from: `${year}-01-01`, to: `${year}-12-31` };
+    paintYears();
     tl.renderTimeline($(".tlwrap"), {
-      labs, releases: rows, names,
+      labs, releases: rows, names, range,
       // A mark is coloured by the slot of whatever it cites, so a tracked suite
       // has to hand the timeline every version it covers, not its own id.
       trackedMembers: tracked.map((id) => {
@@ -552,12 +587,25 @@ function render(data: Timeline) {
           b.setAttribute("aria-pressed", String(b.dataset.scope === scope));
         applyScope();
         paintScope();
+        // A year with nothing left under the new scope would be an empty
+        // timeline with no explanation, so the view falls back to all years.
+        if (year !== "all" && log && !log.some((r) => r.date.slice(0, 4) === year && (scope === "all" || r.modality?.includes(scope)))) {
+          year = "all";
+        }
         draw();
         drawTimeline();
       });
       applyScope();
       paintScope();
     }
+    // A year the current scope has emptied is not offered, so switching scope
+    // has to put the reader back on a year that exists.
+    app.querySelector(".years")?.addEventListener("click", (e) => {
+      const v = (e.target as Element).closest("[data-year]")?.getAttribute("data-year");
+      if (!v || v === year) return;
+      year = v;
+      drawTimeline();
+    });
     draw();
     drawTimeline();
   }).catch((err) => {

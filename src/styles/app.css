@@ -177,7 +177,7 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
 .fold__n {
   padding: 1px 9px; font-size: 14px; font-weight: 600; letter-spacing: -0.016em;
   font-variant-numeric: tabular-nums;
-  color: var(--on-accent); background: color-mix(in srgb, #ffffff 24%, transparent);
+  color: var(--on-accent); background: color-mix(in srgb, #000000 20%, transparent);
   border-radius: var(--r-pill);
 }
 .fold__chevron { width: 12px; height: 12px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .15s; }
@@ -501,6 +501,25 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
 /* What a mark's size means, drawn at the sizes it means. Colour is left out of
    it: a tracked mark takes its series colour and the chips above already say
    which colour is which, so the only thing needing a key is the radius. */
+/* Limit the timeline to one year. Inside the timeline section, because that is
+   as far as it reaches: the chart and the picker are deliberately untouched by
+   it, and a control that reached further than the reader can see would be the
+   overloading the mark sizes were rescued from. */
+.years { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-xs); margin: 0 0 var(--s-sm); }
+.years button {
+  display: inline-flex; align-items: center; gap: var(--s-xs);
+  padding: 7px 13px; font: inherit; font-size: 14px; letter-spacing: -0.016em; cursor: pointer;
+  background: var(--canvas); color: var(--text-secondary);
+  border: 1px solid var(--border); border-radius: var(--r-pill);
+  transition: color .12s, border-color .12s, transform .08s ease-out;
+}
+@media (hover: hover) { .years button:hover:not(:disabled) { color: var(--text-primary); border-color: var(--border-strong); } }
+.years button[aria-pressed="true"] { color: var(--accent); font-weight: 600; border: 2px solid var(--accent-focus); padding: 6px 12px; }
+.years button:disabled { color: var(--text-disabled); cursor: not-allowed; }
+.years__n { font-size: 12px; font-variant-numeric: tabular-nums; color: var(--text-muted); }
+.years button[aria-pressed="true"] .years__n { color: var(--accent); }
+@media (pointer: coarse) { .years button { min-height: 44px; padding-block: 0; } }
+
 .tlv__sizes { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-xs) var(--s-sm); margin: 0 0 var(--s-sm); font-size: 12px; letter-spacing: -0.01em; color: var(--text-muted); }
 .tlv__sizes-label { color: var(--text-secondary); }
 .tlv__sizes ul { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-xs) var(--s-md); list-style: none; margin: 0; padding: 0; }
