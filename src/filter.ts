@@ -94,56 +94,80 @@ function within(a: string, b: string, max: number): number {
   return prev[b.length];
 }
 
-/** Higher is better; 0 means no match. */
-export function score(t: Trackable, q: string): number {
-  if (!q) return 0;
-  // A suite's display name carries ", all versions" so a chip can be told from
-  // its headline version. Both forms are scored and the better wins: searching
-  // should not have to know about the suffix, and equally should not fail for
-  // someone who read the card and typed what it says.
-  //
-  // Each form is scored whole, name and initials together. Deriving the
-  // initials from the display name while matching against the bare one made
-  // "Terminal-Bench, all versions" score its initials as "tbav", so "tb" ranked
-  // the suite below its own 2.1 release.
+/** One spelling of a name, reduced to everything the scorer compares against.
+ *  Derived once per dataset rather than once per keystroke: the folded form
+ *  and both initials readings never change, and recomputing six regexes over
+ *  2,240 names on every letter typed is work that grows with the dataset for
+ *  no reason. */
+interface Form { n: string; ia: string; iw: string }
+
+/** A suite's display name carries ", all versions" so a chip can be told from
+ *  its headline version. Both forms are kept and the better score wins:
+ *  searching should not have to know about the suffix, and equally should not
+ *  fail for someone who read the card and typed what it says.
+ *
+ *  Each form is reduced whole, name and initials together. Deriving the
+ *  initials from the display name while matching against the bare one made
+ *  "Terminal-Bench, all versions" score its initials as "tbav", so "tb" ranked
+ *  the suite below its own 2.1 release. */
+function formsOf(t: Trackable): Form[] {
+  const one = (s: string): Form => ({ n: fold(s), ia: initialsAll(s), iw: initialsWords(s) });
   const bare = t.name.replace(/, all versions$/, "");
-  return bare === t.name ? scoreOne(bare, q) : Math.max(scoreOne(bare, q), scoreOne(t.name, q));
+  return bare === t.name ? [one(bare)] : [one(bare), one(t.name)];
 }
 
-function scoreOne(name: string, q: string): number {
-  const n = fold(name);
-  if (n === q) return 1000;
-  if (q.length >= 2) {
-    const ia = initialsAll(name), iw = initialsWords(name);
-    // An exact acronym outranks a name that merely begins with those letters.
-    // Without this "hle" returned HLE-Full, HLE-Text and HLE w/ tools, each of
-    // which starts with the letters, and not Humanity's Last Exam, whose id is
-    // literally hle and which every one of the twelve labs has cited.
-    if (ia === q || iw === q) return 950;
-  }
-  if (n.startsWith(q)) return 900 - n.length;
-  if (q.length >= 2) {
-    // Initials still outrank a buried substring. Scored below it, "tb" was
-    // pushed out of the results entirely: more than 36 tracked names contain
-    // the literal letters "tb", so the cap evicted every initials match before
-    // Terminal-Bench could be shown.
-    const ia = initialsAll(name), iw = initialsWords(name);
-    if (ia.startsWith(q) || iw.startsWith(q)) return 820;
-  }
-  const at = n.indexOf(q);
+/** Higher is better; 0 means no match. */
+export function score(t: Trackable, q: string): number {
+  return q ? scoreForms(formsOf(t), q) : 0;
+}
+
+const scoreForms = (forms: Form[], q: string): number => {
+  let best = 0;
+  for (const f of forms) best = Math.max(best, scoreOne(f, q));
+  return best;
+};
+
+function scoreOne(f: Form, q: string): number {
+  if (f.n === q) return 1000;
+  // An exact acronym outranks a name that merely begins with those letters.
+  // Without this "hle" returned HLE-Full, HLE-Text and HLE w/ tools, each of
+  // which starts with the letters, and not Humanity's Last Exam, whose id is
+  // literally hle and which every one of the twelve labs has cited.
+  if (q.length >= 2 && (f.ia === q || f.iw === q)) return 950;
+  if (f.n.startsWith(q)) return 900 - f.n.length;
+  // Initials still outrank a buried substring. Scored below it, "tb" was
+  // pushed out of the results entirely: more than 36 tracked names contain
+  // the literal letters "tb", so the cap evicted every initials match before
+  // Terminal-Bench could be shown.
+  if (q.length >= 2 && (f.ia.startsWith(q) || f.iw.startsWith(q))) return 820;
+  const at = f.n.indexOf(q);
   if (at >= 0) return 700 - at;
   // Typos, and only for queries long enough that a near-miss means something.
   if (q.length >= 4) {
     const max = q.length >= 8 ? 2 : 1;
-    const d = within(q, n.slice(0, q.length + max), max);
+    const d = within(q, f.n.slice(0, q.length + max), max);
     if (d <= max) return 300 - d * 10;
   }
   return 0;
 }
 
+/** The whole searchable list, reduced once and kept. Rebuilt only when handed
+ *  a different set of trackables, which in practice means never: main.ts
+ *  builds the map once and passes the same one to every redraw, and a redraw
+ *  happens on every toggle and every resize. */
+let indexed: { t: Trackable; forms: Form[] }[] = [];
+let indexedFrom: Map<string, Trackable> | null = null;
+const searchIndex = (m: Map<string, Trackable>) => {
+  if (indexedFrom !== m) {
+    indexedFrom = m;
+    indexed = [...m.values()].map((t) => ({ t, forms: formsOf(t) }));
+  }
+  return indexed;
+};
+
 export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   const full = a.tracked.length >= MAX_TRACKED;
-  const all = [...a.trackables.values()];
+  const entries = searchIndex(a.trackables);
   const catName = new Map(a.categories.map((c) => [c.id, c.name]));
 
   host.innerHTML = `
@@ -151,7 +175,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     <button class="fold" type="button" aria-expanded="${open}" aria-controls="browse-panel">
       <svg class="fold__chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg>
       <span class="fold__label">${open ? FOLD_OPEN : FOLD_CLOSED}</span>
-      <span class="fold__n" ${open ? "hidden" : ""}>${all.length.toLocaleString()}</span>
+      <span class="fold__n" ${open ? "hidden" : ""}>${entries.length.toLocaleString()}</span>
     </button>
     <div class="browse" id="browse-panel" ${open ? "" : "hidden"}>
       <div class="browse__note">
@@ -162,7 +186,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
       <div class="browse__field">
         <svg class="browse__icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>
         <input class="browse__input" type="search" autocomplete="off" spellcheck="false"
-               placeholder="Search ${all.length.toLocaleString()} benchmarks, suites and subjects"
+               placeholder="Search ${entries.length.toLocaleString()} benchmarks, suites and subjects"
                aria-label="Search benchmarks, suites and subjects" />
         <button class="browse__clear" type="button" ${rawQuery ? "" : "hidden"} aria-label="Clear search">&times;</button>
       </div>
@@ -253,7 +277,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   /** Everything the current filter matches, in order, before paging. */
   const matches = (): Trackable[] => {
     if (q) {
-      const hits = all.map((t) => ({ t, s: score(t, q) })).filter((x) => x.s > 0)
+      const hits = entries.map((e) => ({ t: e.t, s: scoreForms(e.forms, q) })).filter((x) => x.s > 0)
         .sort((x, y) => y.s - x.s || y.t.lab_count - x.t.lab_count);
       // Typo tolerance is a fallback, not a widener. Searching "swe bench"
       // turned up EBench, KWV Bench and SysBench in the tail, each two edits
@@ -266,7 +290,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     // version of it. Showing both put Terminal-Bench beside eleven of its own
     // versions, which is what made the list feel like noise rather than a list
     // of benchmarks.
-    let items = all.filter((t) =>
+    let items = entries.map((e) => e.t).filter((t) =>
       t.kind === "category" ? false : grouped ? t.kind === "suite" || !t.suite : t.kind !== "suite");
     if (subject !== "all") items = items.filter((t) => t.categories?.includes(subject));
     return items.sort(rank);
@@ -295,6 +319,17 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   };
 
   const paint = () => {
+    // Nothing in this panel is on screen until the fold is opened, and folded
+    // shut is how everyone arrives. Painting it anyway cost a filter and a
+    // sort over every trackable plus thirty card templates, on first paint and
+    // again on every toggle and every resize, to fill a container with
+    // display:none. The fold paints when it opens.
+    if (!open) {
+      results.innerHTML = "";
+      none.hidden = true;
+      pager.hidden = true;
+      return;
+    }
     const items = pool();
     none.hidden = items.length > 0;
     if (!items.length) none.textContent = `Nothing matches "${q}". Try fewer letters.`;
@@ -356,6 +391,9 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   const foldN = foldBtn.querySelector<HTMLSpanElement>(".fold__n")!;
   foldBtn.addEventListener("click", () => {
     open = !open;
+    // The grid is only built while the panel is open, so opening has to build
+    // it, and it is built before the panel is revealed rather than after.
+    paint();
     panel.hidden = !open;
     foldBtn.setAttribute("aria-expanded", String(open));
     // Named spans rather than lastChild. The label used to be a bare text node

@@ -8,14 +8,18 @@
 // Hovering a point names the labs and the models behind the count, because
 // "six labs" is a number and "which six, and what did they ship" is the answer.
 
-import { detailFor, memberIds, quarterLabel, type Benchmark, type Lab, type Release, type Trackable } from "./model";
+import { detailFor, memberIds, quarterLabel, type Benchmark, type Lab, type PeriodDetail, type Release, type Trackable } from "./model";
 
 export type TrendView = "chart" | "table";
 
 export interface TrendArgs {
   tracked: Trackable[];
   benchmarks: Benchmark[];
-  releases: Release[];
+  /** The release log, or null while it is still on its way. The chart's lines
+   *  come from the registry and need none of it; only the hover detail does,
+   *  which is why this is a getter rather than a value: the log lands after
+   *  the chart is already on screen. */
+  releases: () => Release[] | null;
   labs: Lab[];
   quarters: string[];
   partialQuarter: string | null;
@@ -70,7 +74,23 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
   const iw = W - M.l - M.r, ih = H - M.t - M.b;
   const px = (i: number) => M.l + (a.quarters.length < 2 ? iw / 2 : (i / (a.quarters.length - 1)) * iw);
   const py = (n: number) => M.t + ih - (n / maxY) * ih;
-  const detail = new Map(a.tracked.map((b) => [b.id, detailFor(a.releases, memberIds(b, a.benchmarks))]));
+
+  // Built on the first hover that needs it, not on every render. It walks the
+  // whole release log once per tracked series, which was the most expensive
+  // thing this module did and it was redone on every toggle, every view switch
+  // and every resize, for a tooltip most readers never open. Undefined means
+  // the log has not landed yet, which the builder reads as "show the counts
+  // without naming the labs".
+  const detail = new Map<string, Map<string, PeriodDetail>>();
+  const detailOf = (b: Trackable): Map<string, PeriodDetail> | undefined => {
+    const had = detail.get(b.id);
+    if (had) return had;
+    const log = a.releases();
+    if (!log) return undefined;
+    const made = detailFor(log, memberIds(b, a.benchmarks));
+    detail.set(b.id, made);
+    return made;
+  };
 
   // Series that finish on the same value would otherwise print their end labels
   // at identical coordinates and render as one unreadable overlap.
@@ -222,7 +242,7 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
     const build = (rows: number) => {
       const parts = a.tracked.map((b, i) => {
         const cnt = b.labs_by_quarter[q] ?? 0;
-        const det = detail.get(b.id)?.get(q);
+        const det = detailOf(b)?.get(q);
         const labs = det?.labs.slice(0, rows).map((l) => labName.get(l.lab) ?? l.lab) ?? [];
         const more = (det?.labs.length ?? 0) - labs.length;
         return `<li class="tt__row s${i + 1}">
