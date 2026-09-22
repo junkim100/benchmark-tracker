@@ -2,7 +2,7 @@
 //
 // The registry knows who cited a benchmark and when, and nothing else. A reader who opens a card for "Seal-0" or "FrontierCode 1.1 Extended" learns that four labs mentioned it and is no wiser about what it measures. This fills that in, from sources, or says it could not.
 //
-// Web search is not optional here and the numbers say why. 52 per cent of the 2,176 ids were first cited on or after June 2025, which is after most training data was collected, and 76 per cent are cited by exactly one lab, so the long tail is genuinely obscure rather than merely unfamiliar. Asked without search, a model produces a fluent description of a benchmark it has never seen, and the result is indistinguishable from a real one until a reader who knows the field arrives. So every description comes from a page the agent opened, and the page is stored beside it.
+// Web search is not optional here and the numbers say why. 52 per cent of the 2,059 ids were first cited on or after June 2025, which is after most training data was collected, and 75 per cent are cited by exactly one lab, so the long tail is genuinely obscure rather than merely unfamiliar. Asked without search, a model produces a fluent description of a benchmark it has never seen, and the result is indistinguishable from a real one until a reader who knows the field arrives. So every description comes from a page the agent opened, and the page is stored beside it.
 //
 // Refusing is therefore the expected outcome for a large share of the registry, not a failure to be minimised. It is one field and costs one request, the refusal rate is printed after every batch and again on every build, and scripts/normalize.mjs will not let an entry claim a source it does not have. A pass that describes everything is the failure mode worth worrying about.
 //
@@ -103,7 +103,7 @@ if (PRUNE) {
   process.exit(0);
 }
 
-// Attempt an id when nothing has been tried, or when the last attempt found nothing and is old enough to be worth another look. A description that came off a page is never re-read: it is still true, and confirming 2,176 of them would spend the entire budget learning nothing.
+// Attempt an id when nothing has been tried, or when the last attempt found nothing and is old enough to be worth another look. A description that came off a page is never re-read: it is still true, and confirming 2,059 of them would spend the entire budget learning nothing.
 const pool = registry.filter((b) => {
   const e = descriptions[b.id];
   return !e || isStale(e, TODAY);
@@ -114,7 +114,7 @@ const retries = pool.filter((b) => descriptions[b.id]).length;
 //
 // The modality backfill originally took the first 40 records off disk, which were all one lab's releases, so the trial measured one lab and proved nothing about the other eleven. The same shape is available here: benchmarks.json is sorted by lab count, so the first N are the twelve-lab household names, which are the easiest to describe and the least representative of a registry that is three quarters single-lab long tail.
 //
-// So every benchmark gets its position within its own category as a fraction, and the pass runs in order of that fraction. Any prefix then holds roughly the same category mix as the whole pool. Proportional rather than round-robin on purpose: "other" is 1,005 of the 2,176 ids, and taking one from each of twelve categories in turn would show a trial twelve tidy groups and hide that the uncategorised long tail is nearly half the work.
+// So every benchmark gets its position within its own category as a fraction, and the pass runs in order of that fraction. Any prefix then holds roughly the same category mix as the whole pool. Proportional rather than round-robin on purpose: "other" is 1,043 of the 2,059 ids, and taking one from each of twelve categories in turn would show a trial twelve tidy groups and hide that the uncategorised long tail is nearly half the work.
 //
 // Within a category the order is a deterministic shuffle rather than a sort, which fixes a second bias the fraction alone does not. Ordering each bucket by lab and then by date made the first twelve of a pass twelve benchmarks first cited by the alphabetically first lab in 2023: the first-N mistake again, wearing a hat. A hash of the id is unbiased on every axis at once, which is what representative of labs, categories and recency actually asks for, and it is stable across runs so a trial can be repeated and a resumed pass keeps its place.
 //
@@ -191,7 +191,7 @@ if (DRY) {
   process.exit(0);
 }
 
-// Four retries rather than the SDK's two. A full pass is 2,176 requests at eight-way concurrency and will meet a 429 somewhere; losing a benchmark to one is not serious, but losing a batch of them to a burst is a hole in the sample the next run has no way to know about.
+// Four retries rather than the SDK's two. A full pass is 2,059 requests at eight-way concurrency and will meet a 429 somewhere; losing a benchmark to one is not serious, but losing a batch of them to a burst is a hole in the sample the next run has no way to know about.
 const client = new Anthropic({ maxRetries: 4 });
 
 async function describeOne(b) {
@@ -199,7 +199,7 @@ async function describeOne(b) {
   // Counted across every turn of this benchmark, not per reply.
   let searches = 0;
   const seenUrls = new Set();
-  // A web search turn can stop at the server loop's iteration limit with stop_reason "pause_turn" and no final message. research.mjs treats that as a failure, which is right when a lab is one of twelve and a seven-day lookback gives it two more chances. Here it is one benchmark of 2,176, the searches have already been paid for, and the next attempt would start from nothing, so the turn is resumed instead. Resuming is only re-sending what came back: the API sees the trailing server tool block and continues, and adding a "carry on" message of our own would derail it.
+  // A web search turn can stop at the server loop's iteration limit with stop_reason "pause_turn" and no final message. research.mjs treats that as a failure, which is right when a lab is one of twelve and a seven-day lookback gives it two more chances. Here it is one benchmark of 2,059, the searches have already been paid for, and the next attempt would start from nothing, so the turn is resumed instead. Resuming is only re-sending what came back: the API sees the trailing server tool block and continues, and adding a "carry on" message of our own would derail it.
   for (let resumed = 0; resumed <= 2; resumed++) {
     const res = await client.messages.create({
       model: "claude-opus-5",
@@ -345,8 +345,8 @@ if (todo.length && !attempted) {
 //
 // The low-refusal warning above was a line of text on a script that exits 0.
 // This pass is hours long and runs unattended in Actions, so the only thing
-// anyone sees is the tick, and a run that invented 2,176 descriptions looked
-// exactly like a run that read 2,176 pages. research.mjs already recorded this
+// anyone sees is the tick, and a run that invented 2,059 descriptions looked
+// exactly like a run that read 2,059 pages. research.mjs already recorded this
 // lesson in its own words: a wrong key once produced twelve FAILED lines, a
 // green tick, and a commit that changed only a timestamp.
 //

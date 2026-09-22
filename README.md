@@ -10,8 +10,9 @@ Live at **https://junkim100.github.io/benchmark-tracker/**
 
 ## What it shows
 
-- **A timeline.** One row per lab, scrolling sideways through time, with a mark for every official release and the benchmarks it cited.
+- **A timeline.** One column per lab, running down the page through time, with a mark for every official release and the benchmarks it cited. It also has a table view, because a mark is not something a keyboard can reach.
 - **Benchmark tracking.** Select benchmarks to follow and see how many labs cited each one, year by year. This is how you notice that GSM8K was near-universal in 2023 and has since fallen off entirely.
+- **A detail panel.** Press the information button on any card to read what that benchmark measures, which versions are counted together with it, and which labs have cited it. Beside the list on a wide screen, in a sheet at the foot of a phone.
 
 ## Data
 
@@ -21,7 +22,15 @@ Every record comes from an official lab source: the lab's own blog, model card, 
 
 `benchmarks.json` is the readable registry: every benchmark with everything known about it. The other three are built for the browser and carry only the fields the interface draws, minified and split so that the parts nothing needs at first paint are not on the path to it.
 
-Each benchmark also gets a short description saying what it measures, and every one of them comes from a page that was opened and read, recorded alongside it. Most of the registry is obscure: three quarters of it is cited by exactly one lab, and half of it was first cited after the point where a model could be expected to know it. So a benchmark with no findable page is recorded as found nothing rather than described from its name, and the share of the registry in that state is printed on every build.
+Most benchmarks also carry a short description saying what they measure, 1,623 of 2,059, and every one comes from a page that was opened and read, recorded alongside it. Most of the registry is obscure: three quarters of it is cited by exactly one lab, and half of it was first cited after the point where a model could be expected to know it. So a benchmark with no findable page is recorded as found nothing rather than described from its name, and the share of the registry in that state is printed on every build.
+
+## Deduplication
+
+Labs spell the same benchmark many ways, and a wrong merge is invisible: it changes `lab_count`, `first_seen` and `labs` for two benchmarks, and nothing downstream can detect it, because a merge is valid by construction. So merging is gated.
+
+`scripts/classify.mjs` folds punctuation, spacing, casing, Greek letters and version notation into one key; `data/aliases.json` carries the rest by hand, including a `_byLab` section for the case where one name means different things to different labs. A name the key rules cannot match goes to `scripts/alias-gate.py`, which asks a differently-trained model two questions and routes the answer to apply, to the suite file, or to review. It fails closed.
+
+`npm run dedupe` runs the other direction. It pairs benchmarks that cite the same source page and puts each pair to the same gate, using the descriptions as the evidence, which is what makes it work: asked on the names alone the gate calls ARC-Challenge a spelling of ARC, and given both descriptions it calls it a version. Proposals land in `data/dedupe-queue.json` for a person to read. Nothing is applied automatically.
 
 ## Keeping it current
 

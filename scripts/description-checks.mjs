@@ -2,7 +2,7 @@
 //
 // Descriptions are the first thing on this site written rather than cited. Every other value here came off a page the pipeline read: a citation, a date, a URL. A description is prose in the site's own voice, and the footer promises the reader that nothing came from news coverage or a third-party leaderboard and that no score is recorded anywhere. Prose is where that promise gets broken first, because a sentence can be wrong in a way a URL cannot.
 //
-// Two measurements set the difficulty. 52 per cent of the registry was first cited on or after June 2025, which is after most training data ends, so a model asked what those benchmarks are has nothing to recall and every incentive to sound fluent. And 76 per cent are cited by exactly one lab, which is the obscure tail where no good page exists at all. Both are recomputed here from release-log.json rather than trusted, because the cohort split is what every number in the audit is conditioned on and a wrong split would quietly invalidate all of them.
+// Two measurements set the difficulty. 52 per cent of the registry was first cited on or after June 2025, which is after most training data ends, so a model asked what those benchmarks are has nothing to recall and every incentive to sound fluent. And 75 per cent are cited by exactly one lab, which is the obscure tail where no good page exists at all. Both are recomputed here from release-log.json rather than trusted, because the cohort split is what every number in the audit is conditioned on and a wrong split would quietly invalidate all of them.
 //
 // This module holds everything the audit and the sampler share: how a benchmark's cohort is decided, how a refusal is recognised, and what counts as a finding. They are shared rather than written twice for the reason sources.mjs gives for sharing SHARED_HOSTS: a sampler stratifying on one definition of "hard" while the audit reports on another is two answers to the same question, and nobody would know which they were reading.
 
@@ -32,7 +32,7 @@ const read = (p) => JSON.parse(readFileSync(p, "utf8"));
  *
  *  first_seen and the citing-lab set are derived from release-log.json rather than read out of benchmarks.json, because release-log is the evidence and benchmarks.json is a second rendering of it. Deriving them here also gives the audit something benchmarks.json does not carry: which labs cited a benchmark, which is what decides whether a lab-domain source URL has any business being attached to it.
  *
- *  The derived lab count is checked against the one timeline.json publishes. They agree on all 2,176 today. If they ever stop agreeing, every cohort split in the audit is being computed off a different dataset from the one the site draws, and that is worth a loud line rather than a silent divergence. */
+ *  The derived lab count is checked against the one timeline.json publishes. They agree on all 2,059 today. If they ever stop agreeing, every cohort split in the audit is being computed off a different dataset from the one the site draws, and that is worth a loud line rather than a silent divergence. */
 export function loadRegistry() {
   const timeline = read(join(DATA, "timeline.json"));
   const log = read(join(DATA, "release-log.json"));
@@ -331,7 +331,7 @@ const shingles = (words, n = 4) => {
 
 /** Pairs of descriptions that are substantially the same text.
  *
- *  Mass invention does not produce 2,176 different lies. It produces one sentence with the name swapped, because the model has nothing benchmark-specific to say and the prompt still asks for a sentence. So the name is removed before comparing: leaving it in makes every pair look different for the one reason that never mattered.
+ *  Mass invention does not produce 2,059 different lies. It produces one sentence with the name swapped, because the model has nothing benchmark-specific to say and the prompt still asks for a sentence. So the name is removed before comparing: leaving it in makes every pair look different for the one reason that never mattered.
  *
  *  Compared through an inverted index on shingles rather than all 2.4 million pairs, and shingles shared by more than `common` entries are skipped when collecting candidates, since a phrase that generic tells nothing apart. Both entries of a pair keep their full shingle set for the actual score, so the shortcut changes which pairs are looked at and not what any of them scores. */
 export function nearDuplicates(items, { threshold = 0.6, common = 40 } = {}) {
@@ -414,7 +414,7 @@ const WORD = new Map(
 
 /** Subjects the text asserts that the registry's own categories exclude.
  *
- *  Reported as a disagreement rather than a verdict, for the reason alias-gate.py gives for taking a second opinion: two independent judgements that differ is information, and neither one of them is the truth. classify.mjs is regex rules over a name and it puts 1,005 of 2,176 benchmarks in "other", which is not a claim about anything, so "other" can never contradict and roughly half the registry has no opinion to offer here. Where it does have one, a speech benchmark whose description is about code is either a wrong description or a wrong category, and both are worth a look. */
+ *  Reported as a disagreement rather than a verdict, for the reason alias-gate.py gives for taking a second opinion: two independent judgements that differ is information, and neither one of them is the truth. classify.mjs is regex rules over a name and it puts 1,043 of 2,059 benchmarks in "other", which is not a claim about anything, so "other" can never contradict and roughly half the registry has no opinion to offer here. Where it does have one, a speech benchmark whose description is about code is either a wrong description or a wrong category, and both are worth a look. */
 export function categoryContradictions(text, fact) {
   if (!text || !fact || !fact.categories.length) return [];
   const lower = text.toLowerCase();

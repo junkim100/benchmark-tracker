@@ -1053,7 +1053,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "hmmt2025feb": {
+  "hmmtfeb25": {
     "text": "The problem set from the February 2025 Harvard-MIT Mathematics Tournament, a high school mathematics competition run in Team, Algebra and Number Theory, Combinatorics, Geometry and Guts rounds.",
     "source_url": "https://www.hmmt.org/www/archive/282",
     "source": "researched",
@@ -1068,18 +1068,6 @@
   "hmmt25": {
     "text": "The 30 answer-based problems from the February 2025 Harvard-MIT Mathematics Tournament, spanning algebra, combinatorics, geometry and number theory, with final answers parsed automatically and checked for symbolic equivalence.",
     "source_url": "https://arxiv.org/html/2505.23281v1",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "hmmtfeb25": {
-    "text": "The 30 problems of the February 2025 Harvard-MIT Mathematics Tournament, extracted and transcribed to LaTeX by MathArena, covering algebra, geometry, combinatorics and number theory.",
-    "source_url": "https://huggingface.co/datasets/MathArena/hmmt_feb_2025",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "hmmtfeb26": {
-    "text": "The 33 short-answer problems from the February 2026 Harvard-MIT Mathematics Tournament, spanning algebra, combinatorics, geometry and number theory, transcribed to LaTeX and graded by comparing the model's boxed final answer to the official one.",
-    "source_url": "https://huggingface.co/datasets/MathArena/hmmt_feb_2026",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -4351,12 +4339,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "hmmt2025nov": {
-    "text": "Short-answer olympiad-style problem sets from the November 2025 Harvard-MIT Mathematics Tournament, covering the General and Theme individual rounds, the team round and the 36-problem Guts round.",
-    "source_url": "https://www.hmmt.org/www/archive/291",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "marcja": {
     "text": "The JGLUE text classification task built from the Japanese half of the Multilingual Amazon Reviews Corpus: star ratings become positive or negative labels with three-star reviews dropped, and dev and test items are kept only on crowdworker consensus.",
     "source_url": "https://github.com/yahoojapan/JGLUE/blob/main/README.md",
@@ -4705,10 +4687,6 @@
     "text": "Sixty human-authored bilingual tasks run inside real CLI agent harnesses in Docker with genuine tools instead of mocks; the multimodal ones require perceiving images, video, audio or rendered PDFs, and grading mixes rule checks, environment audits and a model judge.",
     "source_url": "https://arxiv.org/abs/2605.10912",
     "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "hmmt2602": {
-    "source": "none",
     "checked": "2026-09-22"
   },
   "mmlujapanese": {
@@ -5139,12 +5117,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "mjhqfid30k": {
-    "text": "FID measured against a curated set of 30,000 high-quality Midjourney images spread evenly over ten categories (animals, art, fashion, food, indoor, landscape, logo, people, plants, vehicles), as a proxy for aesthetic quality in text-to-image models.",
-    "source_url": "https://huggingface.co/datasets/playgroundai/MJHQ-30K",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "activitynetcap": {
     "text": "20k videos totalling 849 hours annotated with 100k natural-language event descriptions, each carrying its own start and end time, for detecting and describing every event in a video.",
     "source_url": "https://arxiv.org/abs/1705.00754",
@@ -5439,7 +5411,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "wildspeech": {
+  "wildspeechbench": {
     "text": "Real-world chat prompts rendered as speech with varied speaker attributes, acoustic conditions and speech-specific phenomena such as prosody, homophones and stuttering, graded by query-aware checklists for end-to-end speech models.",
     "source_url": "https://arxiv.org/abs/2506.21875",
     "source": "researched",
@@ -5790,12 +5762,6 @@
   "videommewsub": {
     "text": "The subtitle-assisted setting of Video-MME: 2,700 expert-written multiple-choice questions over 900 videos running from 11 seconds to an hour, where the model receives subtitle text aligned to its sampled frames alongside the frames.",
     "source_url": "https://arxiv.org/html/2405.21075v2",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "wildspeechbench": {
-    "text": "Real-world chat queries rendered as speech across varied speaker attributes and acoustic conditions and augmented with prosody, homophones and stuttering, then graded by an automatic judge against a checklist written per query.",
-    "source_url": "https://arxiv.org/abs/2506.21875",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -6725,7 +6691,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "charxivd": {
+  "charxivdescriptive": {
     "text": "Questions about the basic elements of 2,323 charts taken from arXiv papers, such as labels, ticks and counts, rather than about what the chart implies. This is the descriptive half of CharXiv.",
     "source_url": "https://arxiv.org/abs/2406.18521",
     "source": "researched",
@@ -6911,12 +6877,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "agenticmisalignmentsuite": {
-    "text": "Fictional corporate scenarios in which a model running as an autonomous email agent faces replacement or a conflicting goal, testing whether it turns to blackmail, leaking confidential documents, or other harmful insider actions.",
-    "source_url": "https://www.anthropic.com/research/agentic-misalignment",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "frontierfinance": {
     "text": "An open set of 220 expert-written investment research queries, each scored against source-attributed rubric items marked must-have or informational, spanning screening, earnings analysis, company research and macro work.",
     "source_url": "https://research.samaya.ai/benchmarks/frontier-finance",
@@ -6993,12 +6953,6 @@
   },
   "plidac2": {
     "source": "none",
-    "checked": "2026-09-22"
-  },
-  "therapeuticsdatacommons": {
-    "text": "An open platform of 66 machine learning datasets grouped into 22 drug discovery and development tasks, with prescribed data splits, evaluation strategies, molecule generation oracles and leaderboards, all reachable from one Python library.",
-    "source_url": "https://arxiv.org/abs/2102.09548",
-    "source": "researched",
     "checked": "2026-09-22"
   },
   "winobias22": {
@@ -7454,12 +7408,6 @@
   "appsychology": {
     "text": "The College Board's Advanced Placement exam in introductory psychology: 75 multiple-choice questions plus an article-analysis and an evidence-based free-response question, covering psychological theories, research methods and data interpretation.",
     "source_url": "https://apstudents.collegeboard.org/courses/ap-psychology/assessment",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "charxivdescriptive": {
-    "text": "One of the two question types in CharXiv: 9,292 questions from 19 templates about basic elements of 2,323 real arXiv figures, such as titles, axis labels, tick counts and subplot layout, a quarter of them deliberately unanswerable.",
-    "source_url": "https://arxiv.org/abs/2406.18521",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -9657,12 +9605,6 @@
     "source": "none",
     "checked": "2026-09-22"
   },
-  "hmmt25feb": {
-    "text": "The 30 problems from the February 2025 Harvard-MIT Mathematics Tournament, covering algebra, number theory, combinatorics and geometry, each paired with a single gold answer that can be checked automatically.",
-    "source_url": "https://huggingface.co/datasets/MathArena/hmmt_feb_2025",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "livebench0831": {
     "text": "The 31 August 2024 release of LiveBench, whose questions are refreshed monthly from recent competitions, arXiv papers, news and datasets across math, coding, reasoning, language, data analysis and instruction following, all graded automatically against ground truth.",
     "source_url": "https://arxiv.org/abs/2406.19314",
@@ -9983,12 +9925,10 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "hmmt25nov": {
-    "source": "none",
-    "checked": "2026-09-22"
-  },
-  "livebench1125": {
-    "source": "none",
+  "livebench20241125": {
+    "text": "A contamination-resistant benchmark that ships new questions every month, drawn from recently released datasets, arXiv papers, news articles and film synopses. Its 18 tasks across six categories each carry a verifiable answer scored automatically rather than by a judge model.",
+    "source_url": "https://github.com/LiveBench/LiveBench",
+    "source": "researched",
     "checked": "2026-09-22"
   },
   "miabench": {
@@ -10329,12 +10269,6 @@
   },
   "hps": {
     "source": "none",
-    "checked": "2026-09-22"
-  },
-  "livebench20241125": {
-    "text": "A contamination-resistant benchmark that ships new questions every month, drawn from recently released datasets, arXiv papers, news articles and film synopses. Its 18 tasks across six categories each carry a verifiable answer scored automatically rather than by a judge model.",
-    "source_url": "https://github.com/LiveBench/LiveBench",
-    "source": "researched",
     "checked": "2026-09-22"
   },
   "minervamath": {
@@ -10688,12 +10622,6 @@
   "hummusqa": {
     "text": "320 hand-written questions about music audio, curated and validated by annotators with musical training, paired with checks for whether a model can answer from text alone without listening.",
     "source_url": "https://arxiv.org/abs/2603.27877",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "livebench241125": {
-    "text": "The question set released on 25 November 2024 for LiveBench, whose contamination-resistant tasks span math, coding, reasoning, language, instruction following and data analysis and are graded automatically against ground-truth answers.",
-    "source_url": "https://github.com/LiveBench/LiveBench",
     "source": "researched",
     "checked": "2026-09-22"
   },

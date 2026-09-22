@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Whether a finished description pass is worth publishing.
 //
-// The pass writes a short description for each of 2,176 benchmarks, and it is told that refusing is a correct outcome and that 2,176 confident answers would be a failed run. Nothing downstream can check that. A description is valid by construction the way an alias merge is: it is a string in a string field, normalize.mjs will publish it, and the site will print it in its own voice under a footer promising the reader that nothing here came from news coverage or a leaderboard and that no score is recorded anywhere.
+// The pass writes a short description for each of 2,059 benchmarks, and it is told that refusing is a correct outcome and that 2,059 confident answers would be a failed run. Nothing downstream can check that. A description is valid by construction the way an alias merge is: it is a string in a string field, normalize.mjs will publish it, and the site will print it in its own voice under a footer promising the reader that nothing here came from news coverage or a leaderboard and that no score is recorded anywhere.
 //
 // So this reports the things a person should look at, and it is built around one idea. Invention is uniform and research is not. A pass that read pages will refuse far more often on a benchmark one lab mentioned once in August 2025 than on MMLU, will cite different hosts for different benchmarks, and will write sentences that differ because the benchmarks differ. A pass that invented will look the same everywhere. Every check below is a way of measuring sameness where there should be difference, or difference where there should be none.
 //
@@ -42,7 +42,7 @@ function audit(entries, registry, labs) {
     if (!e.id) { flag(`#${e.index}`, "no-id", "high", "entry carries no benchmark id"); continue; }
     if (seenIds.has(e.id)) flag(e.id, "duplicate-id", "high", "this id appears more than once in the file");
     seenIds.add(e.id);
-    // An id the registry does not have is a description of a benchmark this site does not track, which on a pass told to describe a fixed list of 2,176 means a name was invented or mangled rather than looked up.
+    // An id the registry does not have is a description of a benchmark this site does not track, which on a pass told to describe a fixed list of 2,059 means a name was invented or mangled rather than looked up.
     if (!fact) { flag(e.id, "unknown-id", "high", "not a benchmark in timeline.json"); continue; }
 
     const t = readText(e, fact);
@@ -498,7 +498,7 @@ for (const [check, list] of grouped) {
   for (const f of list.slice(0, 3)) line(`           ${f.id}: ${f.detail}`);
   if (list.length > 3) line(`           ... and ${list.length - 3} more`);
 }
-if (!findings.length) line("  none, which for 2,176 written descriptions is itself worth a second look");
+if (!findings.length) line("  none, which for 2,059 written descriptions is itself worth a second look");
 
 const flaggedIds = new Set(findings.filter((f) => f.severity === "high").map((f) => f.id));
 const hardConfident = confident.filter((r) => r.cohort.difficulty === "hard");

@@ -14,6 +14,7 @@ Everything in this repo is built from one idea: **which benchmarks does a fronti
 | `data/release-log.json` | `scripts/normalize.mjs` | Generated. The release records as the site draws them. Never edit by hand. |
 | `data/descriptions.json` | `scripts/describe.mjs` | One sourced sentence per benchmark, or a record that none was found. A maintainer may correct an entry by hand; the pass never overwrites one. |
 | `data/descriptions-site.json` | `scripts/normalize.mjs` | Generated. The descriptions the site shows. Never edit by hand. |
+| `data/dedupe-queue.json` | `npm run dedupe` | Proposed benchmark merges awaiting a person. Written by the scan, read by nobody automatic, and applied by hand. |
 
 Researchers record benchmark names **exactly as the lab wrote them**, in `benchmarks_raw`. Normalisation happens later, in the build. This keeps the raw record faithful, and it means twelve researchers can work at once without ever writing to a shared file.
 
@@ -25,7 +26,7 @@ They carry **only the fields the interface draws**. A field nobody renders is a 
 
 They are written **without indentation**. Pretty-printing `timeline.json` cost 658 kB of whitespace that the browser downloaded and parsed to no effect. `benchmarks.json` and the hand-written release files stay indented, because those are read by people.
 
-They are **split by what the first screen needs**. The picker and the chart draw from the registry alone; only the release timeline, two screens down, reads the log. The log is also the part of the dataset that grows without bound, so it is fetched alongside the registry and drawn when it arrives rather than blocking anything. The descriptions go further: nothing needs them until a reader opens a detail panel, so the page is handed their content-hashed URL on `window.btData.descriptions` and fetches the file on that click. At 2,176 entries they are roughly another registry's worth of bytes for a panel most visits never open.
+They are **split by what the first screen needs**. The picker and the chart draw from the registry alone; only the release timeline, two screens down, reads the log. The log is also the part of the dataset that grows without bound, so it is fetched alongside the registry and drawn when it arrives rather than blocking anything. The descriptions go further: nothing needs them until a reader opens a detail panel, so the page is handed their content-hashed URL on `window.btData.descriptions` and fetches the file on that click. At 1,623 entries they are most of another registry's worth of bytes for a panel most visits never open.
 
 Inside `release-log.json`, `benchmarks` holds **positions in `timeline.json`'s `benchmarks` array**, not ids:
 
@@ -102,7 +103,7 @@ A split is its own benchmark. `IFEval (Japanese)` is not `IFEval`, and `Leetcode
 | `source` | `researched` when a page was opened and read, `none` when it was looked for and not found. |
 | `checked` | `YYYY-MM-DD`, the date of the attempt, so a later pass can re-try the refusals without redoing the rest. |
 
-**Refusing is the expected outcome for a large share of the registry, not a failure.** 76 per cent of the 2,176 benchmarks are cited by exactly one lab and 52 per cent were first cited on or after June 2025, so the long tail is both obscure and later than most training data. A description assembled from the name alone is wrong in a way no reader could detect, so `describe.mjs` writes one only when it opened a page, and `source: "none"` records the attempt so the next pass can skip it until the cutoff. A pass that describes everything it touches has stopped refusing; the refusal rate is printed after every batch and again on every build for that reason.
+**Refusing is the expected outcome for a large share of the registry, not a failure.** 75 per cent of the 2,059 benchmarks are cited by exactly one lab and 52 per cent were first cited on or after June 2025, so the long tail is both obscure and later than most training data. A description assembled from the name alone is wrong in a way no reader could detect, so `describe.mjs` writes one only when it opened a page, and `source: "none"` records the attempt so the next pass can skip it until the cutoff. A pass that describes everything it touches has stopped refusing; the refusal rate is printed after every batch and again on every build for that reason.
 
 **No scores, ever**, as everywhere else in this repo. A percentage or an explicit `name: 88.7` in a description fails the build.
 

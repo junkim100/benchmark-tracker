@@ -1,8 +1,8 @@
 // What a benchmark description is, and what makes one valid.
 //
-// The registry answers who cited a benchmark and when. It does not answer what the benchmark is, and for most of it nobody can: 76 per cent of the 2,176 ids are cited by exactly one lab, and 52 per cent were first cited on or after June 2025. A model asked what "FrontierCode 1.1 Extended" measures will answer fluently from the name alone, and that answer is wrong in a way no reader of this site could detect. So a description is only written when a page was found and read, and the page is recorded beside it.
+// The registry answers who cited a benchmark and when. It does not answer what the benchmark is, and for most of it nobody can: 75 per cent of the 2,059 ids are cited by exactly one lab, and 52 per cent were first cited on or after June 2025. A model asked what "FrontierCode 1.1 Extended" measures will answer fluently from the name alone, and that answer is wrong in a way no reader of this site could detect. So a description is only written when a page was found and read, and the page is recorded beside it.
 //
-// Which makes refusal the load-bearing case rather than the error case. An entry with source "none" is a real result: it says somebody looked on this date and found nothing usable, so the next pass can skip it until the cutoff and spend its budget on ids nobody has tried. A pass that returns 2,176 confident descriptions has failed, and the refusal rate is printed on every build for that reason.
+// Which makes refusal the load-bearing case rather than the error case. An entry with source "none" is a real result: it says somebody looked on this date and found nothing usable, so the next pass can skip it until the cutoff and spend its budget on ids nobody has tried. A pass that returns 2,059 confident descriptions has failed, and the refusal rate is printed on every build for that reason.
 //
 // The rules live here rather than in either caller because both need them. scripts/describe.mjs checks an answer before writing it, so one bad reply costs one entry instead of failing the build that publishes the other 2,175; scripts/normalize.mjs repeats the same check as a contract rule, so a hand edit or a future writer is covered too. This is the arrangement scripts/sources.mjs already uses for source_url, and for the same reason.
 
@@ -87,7 +87,7 @@ export function checkDescriptions(descriptions, { ids, aliasByKey, today }) {
   return problems;
 }
 
-/** True when a refusal is old enough to be worth another look. Only refusals go stale: a description that was read off a page stays true, and re-reading 2,176 of them to confirm that would cost the whole budget every run. */
+/** True when a refusal is old enough to be worth another look. Only refusals go stale: a description that was read off a page stays true, and re-reading 2,059 of them to confirm that would cost the whole budget every run. */
 export const isStale = (entry, today, days = RETRY_DAYS) =>
   entry?.source === "none" && entry.checked < new Date(Date.parse(today) - days * 864e5).toISOString().slice(0, 10);
 

@@ -72,7 +72,7 @@ export interface Timeline {
 
 /** One benchmark's description, as data/descriptions-site.json carries it.
  *
- *  Fetched on demand rather than with the registry: at 2,176 entries it is about as large as the registry itself and is read only when a detail panel opens, so the URL arrives on `window.btData.descriptions` and the file is requested on that click.
+ *  Fetched on demand rather than with the registry: at 1,623 entries it is most of the registry's own size and is read only when a detail panel opens, so the URL arrives on `window.btData.descriptions` and the file is requested on that click.
  *
  *  An id absent from the file has no description, which covers both a benchmark nobody has looked for yet and one that was looked for and not found. The two are distinguishable in `Timeline.descriptions` in aggregate but not per benchmark, deliberately: the panel says the same thing either way, and carrying a refusal per id would put the pass's bookkeeping in the browser. */
 export interface BenchmarkDescription {

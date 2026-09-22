@@ -220,5 +220,18 @@
   "naturalqa": "naturalquestions",
   "lcb6": "livecodebench6",
   "competitionmath": "math",
-  "minimalvideopairsmvpbench": "mvp"
+  "minimalvideopairsmvpbench": "mvp",
+  "hmmt2025feb": "hmmtfeb25",
+  "hmmt25feb": "hmmtfeb25",
+  "hmmt2025nov": "hmmtnov25",
+  "hmmt25nov": "hmmtnov25",
+  "hmmtfeb26": "hmmt2026feb",
+  "hmmt2602": "hmmt2026feb",
+  "livebench241125": "livebench20241125",
+  "livebench1125": "livebench20241125",
+  "charxivd": "charxivdescriptive",
+  "agenticmisalignmentsuite": "agenticmisalignment",
+  "therapeuticsdatacommons": "therapeuticdatacommons",
+  "wildspeech": "wildspeechbench",
+  "mjhqfid30k": "mjhq30k"
 }

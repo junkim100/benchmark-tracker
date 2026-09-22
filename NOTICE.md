@@ -16,7 +16,7 @@ Everything under `data/`, under
 
 The records are observations about public documents: which benchmarks a lab
 named in a release it published itself. Facts are not owned by anyone, but the
-selection, normalisation and alias work that turns 779 scattered release pages
+selection, normalisation and alias work that turns 777 scattered release pages
 into one comparable set took effort worth attributing, so attribution is the
 only condition.
 

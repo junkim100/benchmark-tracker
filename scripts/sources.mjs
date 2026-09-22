@@ -41,7 +41,7 @@ export const describeAllowed = (lab) =>
  *
  *  Not for a shared host, though. A subdomain of github.com is somebody's Pages site rather than a repo, so those match on the exact host and only under the lab's own org.
  *
- *  https only. Every one of the 781 records already uses it, and a source link the reader is invited to click should not be one a network can rewrite. */
+ *  https only. Every one of the 777 records already uses it, and a source link the reader is invited to click should not be one a network can rewrite. */
 export function isOfficialSource(lab, url) {
   let u;
   try { u = new URL(url); } catch { return false; }

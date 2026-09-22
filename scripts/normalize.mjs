@@ -413,7 +413,7 @@ writeFileSync(join(DATA, "benchmarks.json"), JSON.stringify(benchmarks, null, 2)
 
 // The three files the site loads are built for the browser rather than for a reader, so they carry only the fields the interface actually renders and are written without indentation. Pretty-printing timeline.json cost 658 kB of whitespace, which the browser downloaded and parsed to no effect.
 //
-// They are split by what each screen needs. The chart and the picker draw from the registry alone, so timeline.json is the only one on the path to first paint. The release log grows forever and is read two screens down. The descriptions are read only when somebody opens a detail panel, and at 2,176 entries they are most of a registry's worth of bytes for a panel most visits never open, so they are fetched on that click and not before.
+// They are split by what each screen needs. The chart and the picker draw from the registry alone, so timeline.json is the only one on the path to first paint. The release log grows forever and is read two screens down. The descriptions are read only when somebody opens a detail panel, and at 1,623 entries they are most of a registry's worth of bytes for a panel most visits never open, so they are fetched on that click and not before.
 const site = (value) => JSON.stringify(value) + "\n";
 
 // Benchmark ids inside the log are positions in the registry array, not
