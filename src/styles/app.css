@@ -66,15 +66,29 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
 /* The list folds away, so a first load shows the chart and the timeline rather
    than a wall of cards. The chips stay outside it: what you are tracking has to
    remain visible and removable when the list is shut. */
+/* This is the one thing to press in the section, and it read as an aside: grey
+   text on a grey pill, the same weight as the footnote under it. It carries the
+   accent now, and the count sits in its own badge so the label can be read as a
+   label rather than a sentence. */
 .fold {
-  display: inline-flex; align-items: center; gap: 7px; margin: 10px 0 0;
-  padding: 8px 14px 8px 11px; font: inherit; font-size: 13.5px; cursor: pointer;
-  background: var(--surface-2); color: var(--text-secondary);
-  border: 1px solid var(--border); border-radius: 999px;
-  transition: color .12s, border-color .12s;
+  display: inline-flex; align-items: center; gap: 9px; margin: 10px 0 0;
+  padding: 10px 14px 10px 13px; font: inherit; font-size: 14.5px; font-weight: 550;
+  cursor: pointer; color: var(--surface-0);
+  background: var(--accent); border: 1px solid var(--accent);
+  border-radius: 999px; text-align: left;
+  transition: background .12s, border-color .12s, box-shadow .12s;
 }
-.fold:hover { color: var(--accent); border-color: var(--accent-line); }
-.fold__chevron { width: 12px; height: 12px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .15s; }
+@media (max-width: 560px) { .fold__more { display: none; } }
+/* Solid, and the only solid accent on the page. A tinted fill sat at 1.06
+   against the page behind it, so the button was legible without being
+   findable: you had to already be looking at it. */
+.fold:hover { background: var(--accent-strong); border-color: var(--accent-strong); }
+.fold__n {
+  padding: 1px 8px; font-size: 12.5px; font-weight: 600; font-variant-numeric: tabular-nums;
+  color: var(--surface-0); background: color-mix(in oklab, var(--surface-0) 24%, transparent);
+  border-radius: 999px;
+}
+.fold__chevron { width: 12px; height: 12px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .15s; }
 .fold[aria-expanded="true"] .fold__chevron { transform: rotate(180deg); }
 /* One line at desktop width, so no reading cap: a cap of 92ch was breaking a
    194-character sentence across two lines inside a container wide enough to

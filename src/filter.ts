@@ -47,6 +47,12 @@ let rawQuery = "";
 // re-render that acting on it causes.
 let lastPicked: string | null = null;
 
+// The tail is dropped on a narrow screen, where the full label wraps to two
+// centred lines around a chevron and a badge and stops looking like one
+// control. "Browse benchmarks" alone still says what the button does.
+const FOLD_CLOSED = `Browse benchmarks<span class="fold__more">, suites and subjects</span>`;
+const FOLD_OPEN = "Hide the list";
+
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
 
 /** Letters and digits only. Greek and superscripts first, because a lab writing
@@ -140,15 +146,16 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     <div class="chips" aria-live="polite"></div>
     <button class="fold" type="button" aria-expanded="${open}" aria-controls="browse-panel">
       <svg class="fold__chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg>
-      ${open ? "Hide the list" : `Browse and search ${all.length.toLocaleString()} benchmarks, suites and categories`}
+      <span class="fold__label">${open ? FOLD_OPEN : FOLD_CLOSED}</span>
+      <span class="fold__n" ${open ? "hidden" : ""}>${all.length.toLocaleString()}</span>
     </button>
     <div class="browse" id="browse-panel" ${open ? "" : "hidden"}>
       <p class="browse__note"><b>Labs</b> counts every lab that has cited it since ${esc(a.sinceLabel)}, so it never falls. <b>Recent releases</b> is the share still citing it across ${esc(a.recentLabel)}.</p>
       <div class="browse__field">
         <svg class="browse__icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>
         <input class="browse__input" type="search" autocomplete="off" spellcheck="false"
-               placeholder="Search ${all.length.toLocaleString()} benchmarks, suites and categories"
-               aria-label="Search benchmarks, suites and categories" />
+               placeholder="Search ${all.length.toLocaleString()} benchmarks, suites and subjects"
+               aria-label="Search benchmarks, suites and subjects" />
         <button class="browse__clear" type="button" ${rawQuery ? "" : "hidden"} aria-label="Clear search">&times;</button>
       </div>
       <div class="facets">
@@ -299,11 +306,17 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
   // Not `fold`: that name is the string normaliser at the top of this file.
   const foldBtn = host.querySelector<HTMLButtonElement>(".fold")!;
   const panel = host.querySelector<HTMLDivElement>(".browse")!;
+  const foldLabel = foldBtn.querySelector<HTMLSpanElement>(".fold__label")!;
+  const foldN = foldBtn.querySelector<HTMLSpanElement>(".fold__n")!;
   foldBtn.addEventListener("click", () => {
     open = !open;
     panel.hidden = !open;
     foldBtn.setAttribute("aria-expanded", String(open));
-    foldBtn.lastChild!.textContent = open ? "Hide the list" : ` Browse and search ${all.length.toLocaleString()} benchmarks, suites and categories`;
+    // Named spans rather than lastChild. The label used to be a bare text node
+    // and this wrote to whatever ended up last, which is a promise the markup
+    // has to keep every time it changes.
+    foldLabel.innerHTML = open ? FOLD_OPEN : FOLD_CLOSED;
+    foldN.hidden = open;
     if (open) input.focus();
   });
 
