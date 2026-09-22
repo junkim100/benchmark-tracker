@@ -91,7 +91,13 @@
       "MTEB Retrieval",
       "MIRACL",
       "Ko-miracl"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "embedding"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-mini-chat-ja-2024-05-22",
@@ -108,7 +114,13 @@
       "JSQuAD",
       "JAQKET v2",
       "MGSM"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-writeup-2024-06-05",
@@ -118,7 +130,13 @@
     "kind": "model_release",
     "title": "Next generation for AGI: Upstage's on-device LLM, WriteUp",
     "source_url": "https://www.upstage.ai/blog/en/on-device-writeup",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-pro-preview-model-card-2024-09-08",
@@ -140,7 +158,13 @@
       "MUSR",
       "GSM8K",
       "MBPP"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-pro-preview-2024-09-10",
@@ -153,7 +177,13 @@
     "benchmarks_raw": [
       "MMLU-Pro",
       "IFEval"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-proofread-2024-09-10",
@@ -163,7 +193,13 @@
     "kind": "blog_post",
     "title": "Small models, big impact: How Upstage built a highly accurate SLM for proofreading",
     "source_url": "https://www.upstage.ai/blog/en/small-models-big-impact-how-upstage-built-a-highly-accurate-slm-for-proofreading",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-document-parse-2024-10-15",
@@ -175,7 +211,13 @@
     "source_url": "https://www.upstage.ai/blog/en/let-llms-read-your-documents-with-speed-and-accuracy",
     "benchmarks_raw": [
       "DP-Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "vision"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-pro-2024-12-05",
@@ -197,7 +239,13 @@
       "KorMedMCQA",
       "KBL",
       "Ko-Finance-Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-document-parse-chart-recognition-2025-01-23",
@@ -207,7 +255,13 @@
     "kind": "model_release",
     "title": "Turn Charts into LLM-Actionable Data: Introducing Chart Recognition in Upstage Document Parse",
     "source_url": "https://www.upstage.ai/blog/en/introducing-chart-recognition-in-upstage-document-parse",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "vision"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-document-parse-250404-2025-04-15",
@@ -217,7 +271,13 @@
     "kind": "model_release",
     "title": "Document Parse got stronger: Better at forms, rotation, and complex tables",
     "source_url": "https://www.upstage.ai/blog/en/upstage-document-parse-now-supports-rotated-docs-multi-page-tables-and-long-image-processing",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "vision"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-pro-mini-korean-update-2025-04-28",
@@ -232,7 +292,13 @@
       "Ko-MT-Bench",
       "Ko-MMLU",
       "Open Ko-LLM Leaderboard"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-pro-2-preview-2025-05-20",
@@ -242,7 +308,13 @@
     "kind": "model_release",
     "title": "Solar Pro 2 Preview: Small. Powerful. Now with reasoning.",
     "source_url": "https://www.upstage.ai/blog/en/solar-pro-2-preview-small-powerful-now-with-reasoning",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-information-extract-2025-05-29",
@@ -252,7 +324,13 @@
     "kind": "model_release",
     "title": "Extract structured data from any document—Information Extract API is live",
     "source_url": "https://www.upstage.ai/blog/en/extract-structured-data-from-any-document--information-extract-api-is-live",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-pro-2-2025-07-10",
@@ -273,7 +351,13 @@
       "Math500",
       "AIME",
       "SWE-Bench Agentless"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-pro-2-frontier-2025-07-21",
@@ -285,7 +369,13 @@
     "source_url": "https://www.upstage.ai/news/solar-pro-2-frontier",
     "benchmarks_raw": [
       "Artificial Analysis' Intelligence Index"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-syn-pro-2025-10-23",
@@ -297,7 +387,13 @@
     "source_url": "https://www.upstage.ai/blog/en/upstage-ai-jp-syn-pro",
     "benchmarks_raw": [
       "Nejumi Leaderboard"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-document-classify-2025-12-05",
@@ -307,7 +403,13 @@
     "kind": "model_release",
     "title": "Introducing Document Classify: Universal, semantic classification for any document",
     "source_url": "https://www.upstage.ai/blog/en/introducing-document-classify-universal-semantic-classification-for-any-document",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "other"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-document-parse-enhanced-2025-12-17",
@@ -321,7 +423,13 @@
       "dpp-bench-v1.4.0/table",
       "dpp-bench-v1.4.0/checkbox",
       "dpp-bench-v1.4.0/chart,figure"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "vision"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-open-technical-report-2026-01-11",
@@ -363,7 +471,13 @@
       "Tau2 Retail",
       "AA-LCR",
       "HellaSwag"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-pro-3-2026-01-26",
@@ -376,7 +490,13 @@
     "benchmarks_raw": [
       "IFBench",
       "Arena Hard v2"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-pro-3-0323-2026-03-24",
@@ -391,7 +511,13 @@
       "SWE Bench",
       "Terminal Bench 2",
       "Ko-Arena-hard-v2"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-open-2-technical-report-2026-07-22",
@@ -427,7 +553,13 @@
       "KBL",
       "KorMedMCQA",
       "Ko-GDPval"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "upstage-solar-pro-4-2026-08-11",
@@ -457,6 +589,12 @@
       "Arena-Hard v2 (Japanese)",
       "MMLU (Japanese)",
       "IFEval (Japanese)"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   }
 ]

@@ -129,7 +129,13 @@
       "CMath",
       "C-Eval",
       "CMMLU"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-vl-a3b-2025-04-09",
@@ -164,7 +170,13 @@
       "EgoSchema",
       "VSI-Bench",
       "TOMATO"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-vl-2025-04-10",
@@ -200,7 +212,13 @@
       "VSI-Bench",
       "TOMATO",
       "MMMU-Pro"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimina-prover-preview-2025-04-15",
@@ -214,7 +232,13 @@
       "miniF2F",
       "miniF2F/IMO",
       "miniF2F/AIME"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-audio-2025-04-25",
@@ -251,7 +275,13 @@
       "OpenBookQA",
       "IFEval",
       "AdvBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-audio-report-2025-04-25",
@@ -287,7 +317,13 @@
       "OpenBookQA",
       "IFEval",
       "AdvBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-dev-72b-2025-06-16",
@@ -299,7 +335,13 @@
     "source_url": "https://github.com/MoonshotAI/Kimi-Dev",
     "benchmarks_raw": [
       "SWE-bench Verified"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-researcher-2025-06-20",
@@ -315,7 +357,13 @@
       "FRAMES",
       "Seal-0",
       "SimpleQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-vl-a3b-thinking-2506-2025-06-21",
@@ -346,7 +394,13 @@
       "MMLU-Pro",
       "MATH",
       "GPQA-Diamond"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-k2-2025-07-11",
@@ -395,7 +449,13 @@
       "GSM8k",
       "C-Eval",
       "CSimpleQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-k2-2025-07-28",
@@ -461,7 +521,13 @@
       "CMATH",
       "CMMLU",
       "CSimpleQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-k2-instruct-0905-2025-09-03",
@@ -477,7 +543,13 @@
       "Multi-SWE-Bench",
       "Terminal-Bench",
       "SWE-Dev"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-dev-72b-2025-09-27",
@@ -490,7 +562,13 @@
     "benchmarks_raw": [
       "SWE-bench Verified",
       "SWE-bench Multilingual"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-linear-2025-10-30",
@@ -535,7 +613,13 @@
       "MRCR",
       "RepoQA",
       "HELMET"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-k2-thinking-2025-11-06",
@@ -569,7 +653,13 @@
       "SciCode",
       "LiveCodeBench v6",
       "OJ-Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-k2-5-2026-01-27",
@@ -624,7 +714,13 @@
       "SWE-Verified",
       "HLE",
       "MMMU Pro"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-k2-5-2026-02-02",
@@ -689,7 +785,13 @@
       "SWE-Bench Pro",
       "SWE-Bench Multilingual",
       "In-house Swarm Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-attention-residuals-2026-03-15",
@@ -709,7 +811,13 @@
       "MBPP",
       "CMMLU",
       "C-Eval"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-k2-6-2026-04-20",
@@ -753,7 +861,13 @@
       "Humanity's Last Exam",
       "GPQA Diamond",
       "SWE-Multilingual"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-k2-7-code-2026-06-11",
@@ -770,7 +884,13 @@
       "Kimi Claw 24/7 Bench",
       "MCP Atlas",
       "MCP Mark Verified"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-k3-2026-07-16",
@@ -830,7 +950,13 @@
       "AIME 2026",
       "SWE-Bench Pro",
       "Terminal-Bench 2.0"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-k3-2026-07-27",
@@ -902,7 +1028,13 @@
       "WebDev Arena",
       "Text Arena",
       "Agent Arena"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "moonshot-kimi-k2-7-code-2026-09-14",
@@ -919,6 +1051,12 @@
       "Kimi Claw 24/7 Bench",
       "MCP Atlas",
       "MCP Mark Verified"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   }
 ]

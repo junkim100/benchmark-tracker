@@ -196,7 +196,13 @@
       "BBH",
       "HumanEval",
       "MBPP"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-vl-2024-03-08",
@@ -222,7 +228,13 @@
       "GSM8K",
       "MBPP",
       "AGIEval"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v2-2024-05-07",
@@ -269,7 +281,13 @@
       "MT-Bench",
       "AlpacaEval 2.0",
       "AlignBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v2-lite-2024-05-16",
@@ -288,7 +306,13 @@
       "MBPP",
       "GSM8K",
       "Math"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-prover-2024-05-23",
@@ -302,7 +326,13 @@
       "miniF2F-valid",
       "miniF2F-test",
       "FIMO"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-coder-v2-2024-06-17",
@@ -341,7 +371,13 @@
       "AlpacaEval 2.0",
       "MT-Bench",
       "Alignbench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-esft-2024-07-02",
@@ -363,7 +399,13 @@
       "CEval",
       "HellaSwag",
       "ARC"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v2-chat-0628-2024-07-18",
@@ -381,7 +423,13 @@
       "IFEval",
       "Arena-Hard",
       "JSON Output (Internal)"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-prover-v1-5-2024-08-15",
@@ -394,7 +442,13 @@
     "benchmarks_raw": [
       "miniF2F-test",
       "ProofNet"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v2-5-2024-09-05",
@@ -416,7 +470,13 @@
       "SWE-verified",
       "DS-FIM-Eval",
       "DS-Arena-Code"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-janus-2024-10-17",
@@ -438,7 +498,14 @@
       "GenEval",
       "COCO-30K",
       "MJHQ-30K"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language",
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-janusflow-2024-11-12",
@@ -462,7 +529,14 @@
       "MM-Vet",
       "ChartQA",
       "TextVQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language",
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-r1-lite-preview-2024-11-20",
@@ -479,7 +553,13 @@
       "Codeforces",
       "LiveCodeBench",
       "ZebraLogic"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v2-5-1210-2024-12-10",
@@ -493,7 +573,13 @@
       "Math-500",
       "LiveCodebench",
       "Chinese High School Mathematics League test 1"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-vl2-2024-12-13",
@@ -521,7 +607,13 @@
       "RefCOCO",
       "RefCOCO+",
       "RefCOCOg"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v3-2024-12-27",
@@ -583,7 +675,13 @@
       "Arena-Hard",
       "AlpacaEval 2.0",
       "RewardBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-r1-2025-01-22",
@@ -614,7 +712,13 @@
       "CLUEWSC",
       "C-Eval",
       "C-SimpleQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-janus-pro-2025-01-29",
@@ -634,7 +738,14 @@
       "MM-Vet",
       "GenEval",
       "DPG-Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language",
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v3-0324-2025-03-24",
@@ -649,7 +760,13 @@
       "GPQA",
       "AIME",
       "LiveCodeBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v3-0324-2025-03-25",
@@ -665,7 +782,13 @@
       "MATH-500",
       "AIME 2024",
       "LiveCodeBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-prover-v2-2025-04-30",
@@ -683,7 +806,13 @@
       "CombiBench",
       "FormalMATH",
       "ProverBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-r1-0528-2025-05-28",
@@ -714,7 +843,13 @@
       "AIME 25",
       "HMMT Feb 25",
       "GPQA Diamond"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v3-1-2025-08-21",
@@ -741,7 +876,13 @@
       "AIME 2024",
       "AIME 2025",
       "HMMT 2025"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v3-1-release-2025-08-21",
@@ -765,7 +906,13 @@
       "AIME 2025",
       "GPQA Diamond",
       "LiveCodeBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v3-1-terminus-2025-09-22",
@@ -788,7 +935,13 @@
       "SWE Verified",
       "SWE-bench Multilingual",
       "Terminal-bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v3-2-exp-2025-09-29",
@@ -813,7 +966,13 @@
       "SWE Verified",
       "SWE-bench Multilingual",
       "Terminal-bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-ocr-2025-10-21",
@@ -826,7 +985,13 @@
     "benchmarks_raw": [
       "Fox",
       "OmniDocBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseekmath-v2-2025-11-27",
@@ -841,7 +1006,13 @@
       "IMO 2025",
       "CMO 2024",
       "Putnam 2024"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v3-2-2025-12-02",
@@ -875,7 +1046,13 @@
       "CMO 2025",
       "IOI 2025",
       "ICPC WF 2025"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-ocr-2-2026-01-28",
@@ -887,7 +1064,13 @@
     "source_url": "https://arxiv.org/abs/2601.20552",
     "benchmarks_raw": [
       "OmniDocBench (v1.5)"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v4-2026-04-26",
@@ -944,7 +1127,13 @@
       "MCPAtlas Public",
       "Toolathlon",
       "R&D Coding Benchmark"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v4-flash-0731-2026-07-31",
@@ -964,7 +1153,13 @@
       "AutomationBench Public",
       "DSBench-FullStack",
       "DSBench-Hard"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v4-pro-0813-2026-08-13",
@@ -985,7 +1180,13 @@
       "AutomationBench (Public)",
       "DSBench-FullStack",
       "DSBench-Hard"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v4-flash-vision-exp-2026-08-21",
@@ -1007,7 +1208,13 @@
       "Agents' Last Exam",
       "Chartography",
       "ZeroBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v4-1-flash-2026-09-10",
@@ -1017,7 +1224,13 @@
     "kind": "model_release",
     "title": "DeepSeek-V4.1-Flash: Smarter, Faster, More Efficient",
     "source_url": "https://api-docs.deepseek.com/news/news260910/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "deepseek-deepseek-v4-1-flash-2026-09-17",
@@ -1068,6 +1281,12 @@
       "BabyVision w/ tools",
       "ZeroBench-main w/ tools",
       "Terminal-Bench (v2.1)"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   }
 ]

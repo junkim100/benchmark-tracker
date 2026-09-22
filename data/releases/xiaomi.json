@@ -209,7 +209,14 @@
       "MMAU-Pro",
       "Big Bench Audio",
       "MultiChallenge Audio"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech",
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-embodied-2025-11-20",
@@ -250,7 +257,14 @@
       "MME-RealWorld",
       "IDKB",
       "MMMU-Pro"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "robotics",
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-v2-flash-2025-12-16",
@@ -279,7 +293,13 @@
       "Terminal Bench 2.0",
       "BrowseComp",
       "τ²-Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-vl-miloco-2025-12-19",
@@ -308,7 +328,13 @@
       "MMLU-Pro",
       "GPQA Diamond",
       "MATH500"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-v2-flash-technical-report-2026-01-06",
@@ -371,7 +397,13 @@
       "Terminal-Bench Hard",
       "Terminal Bench 2.0",
       "τ²-Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-v2-omni-2026-03-18",
@@ -394,7 +426,13 @@
       "PinchBench (avg.)",
       "SWE-Bench Verified",
       "GDPVal"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-v2-pro-2026-03-18",
@@ -414,7 +452,13 @@
       "SWE-bench Multilingual",
       "SWE-bench Verified",
       "Terminal-Bench 2.0"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-v2-tts-2026-03-18",
@@ -424,7 +468,13 @@
     "kind": "model_release",
     "title": "Xiaomi MiMo-V2-TTS",
     "source_url": "https://mimo.xiaomi.com/blog/mimo-v2-tts",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-v2-5-2026-04-22",
@@ -447,7 +497,13 @@
       "Video-MME",
       "DailyOmni",
       "VideoHolmes"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-v2-5-asr-2026-04-23",
@@ -460,7 +516,13 @@
     "benchmarks_raw": [
       "Open ASR Leaderboard",
       "AMI"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-v2-5-model-card-2026-04-27",
@@ -485,7 +547,13 @@
       "SWE-Bench Pro",
       "GraphWalks BFS",
       "GraphWalks Parents"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-v2-5-pro-2026-04-27",
@@ -506,7 +574,13 @@
       "Claw-Eval (pass^3)",
       "Humanity's Last Exam",
       "SWE-bench Verified"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-v2-5-pro-model-card-2026-04-27",
@@ -547,7 +621,13 @@
       "FrontierSWE (Impl.)",
       "GraphWalks BFS",
       "GraphWalks Parents"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-v2-5-pro-fp4-dflash-2026-06-08",
@@ -567,7 +647,13 @@
       "HumanEval",
       "MT-Bench",
       "SWE-Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xiaomi-mimo-v2-5-dflash-2026-07-03",
@@ -577,6 +663,12 @@
     "kind": "model_release",
     "title": "MiMo-V2.5-DFlash",
     "source_url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5-DFlash",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   }
 ]

@@ -165,7 +165,13 @@
     "kind": "system_card",
     "title": "GPT-4V(ision) system card",
     "source_url": "https://openai.com/index/gpt-4v-system-card/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-dall-e-3-system-card-2023-10-03",
@@ -175,7 +181,13 @@
     "kind": "system_card",
     "title": "DALL·E 3 system card",
     "source_url": "https://openai.com/index/dall-e-3-system-card/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-dall-e-3-paper-2023-10-31",
@@ -190,7 +202,13 @@
       "T2I-CompBench",
       "MSCOCO",
       "DALL-E 3 Eval"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-4-turbo-2023-11-06",
@@ -200,7 +218,13 @@
     "kind": "model_release",
     "title": "New models and developer products announced at DevDay",
     "source_url": "https://openai.com/index/new-models-and-developer-products-announced-at-devday/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-whisper-large-v3-2023-11-06",
@@ -214,7 +238,13 @@
       "Common Voice 15",
       "Fleurs",
       "LibriSpeech"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-text-embedding-3-2024-01-25",
@@ -227,7 +257,13 @@
     "benchmarks_raw": [
       "MIRACL",
       "MTEB"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "embedding"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-sora-2024-02-15",
@@ -237,7 +273,13 @@
     "kind": "technical_report",
     "title": "Video generation models as world simulators",
     "source_url": "https://openai.com/index/video-generation-models-as-world-simulators/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "video"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-4o-2024-05-13",
@@ -259,7 +301,13 @@
       "MMMU",
       "MathVista",
       "ChartQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-4o-mini-2024-07-18",
@@ -278,7 +326,13 @@
       "HumanEval",
       "MMMU",
       "MathVista"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-4o-2024-08-06-2024-08-06",
@@ -288,7 +342,13 @@
     "kind": "model_release",
     "title": "Introducing Structured Outputs in the API",
     "source_url": "https://openai.com/index/introducing-structured-outputs-in-the-api/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-4o-system-card-2024-08-08",
@@ -319,7 +379,13 @@
       "TruthfulQA",
       "Uhura-Eval",
       "SAD"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-o1-mini-2024-09-12",
@@ -338,7 +404,13 @@
       "GPQA Diamond",
       "MATH-500",
       "StrongREJECT"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-o1-preview-2024-09-12",
@@ -360,7 +432,13 @@
       "StrongREJECT",
       "WildChat",
       "XSTest"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-omni-moderation-2024-09-26",
@@ -370,7 +448,13 @@
     "kind": "model_release",
     "title": "Upgrading the Moderation API with our new multimodal moderation model",
     "source_url": "https://openai.com/index/upgrading-the-moderation-api-with-our-new-multimodal-moderation-model/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "other"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-4o-realtime-preview-2024-10-01",
@@ -380,7 +464,14 @@
     "kind": "model_release",
     "title": "Introducing the Realtime API",
     "source_url": "https://openai.com/index/introducing-the-realtime-api/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language",
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-o1-2024-12-05",
@@ -394,7 +485,13 @@
       "AIME 2024",
       "Codeforces",
       "GPQA Diamond"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-o1-system-card-2024-12-05",
@@ -437,7 +534,13 @@
       "MLE-Bench",
       "MMLU",
       "QuantBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-sora-system-card-2024-12-09",
@@ -447,7 +550,13 @@
     "kind": "system_card",
     "title": "Sora System Card",
     "source_url": "https://openai.com/index/sora-system-card/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "video"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-sora-turbo-2024-12-09",
@@ -457,7 +566,13 @@
     "kind": "model_release",
     "title": "Sora is here",
     "source_url": "https://openai.com/index/sora-is-here/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "video"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-o1-2024-12-17-2024-12-17",
@@ -480,7 +595,13 @@
       "SimpleQA",
       "TAU-bench (retail)",
       "TAU-bench (airline)"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-computer-using-agent-2025-01-23",
@@ -494,7 +615,13 @@
       "OSWorld",
       "WebArena",
       "WebVoyager"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-operator-system-card-2025-01-23",
@@ -513,7 +640,13 @@
       "Human Sourced Jailbreaks",
       "StrongREJECT",
       "OSWorld"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-o3-mini-2025-01-31",
@@ -530,7 +663,13 @@
       "Codeforces",
       "SWE-bench Verified",
       "LiveBench Coding"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-o3-mini-system-card-2025-01-31",
@@ -570,7 +709,13 @@
       "MLE-Bench",
       "OpenAI PRs",
       "MMLU"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-deep-research-2025-02-02",
@@ -583,7 +728,13 @@
     "benchmarks_raw": [
       "Humanity's Last Exam",
       "GAIA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-o3-competitive-programming-2025-02-03",
@@ -598,7 +749,13 @@
       "IOI 2024",
       "HackerRank Astra",
       "SWE-Bench Verified"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-deep-research-system-card-2025-02-25",
@@ -634,7 +791,13 @@
       "MLE-Bench",
       "OpenAI PRs",
       "SWE-Lancer"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-4-5-2025-02-27",
@@ -652,7 +815,13 @@
       "MMMU",
       "SWE-Lancer Diamond",
       "SWE-Bench Verified"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-4-5-system-card-2025-02-27",
@@ -694,7 +863,13 @@
       "OpenAI PRs",
       "SWE-Lancer",
       "MMLU"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-4o-transcribe-2025-03-20",
@@ -706,7 +881,13 @@
     "source_url": "https://openai.com/index/introducing-our-next-generation-audio-models/",
     "benchmarks_raw": [
       "FLEURS"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-4o-image-generation-2025-03-25",
@@ -716,7 +897,13 @@
     "kind": "model_release",
     "title": "Introducing 4o Image Generation",
     "source_url": "https://openai.com/index/introducing-4o-image-generation/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-4o-image-generation-system-card-addendum-2025-03-25",
@@ -726,7 +913,13 @@
     "kind": "system_card",
     "title": "Addendum to GPT-4o System Card: 4o image generation",
     "source_url": "https://openai.com/index/gpt-4o-image-generation-system-card-addendum/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-4-1-2025-04-14",
@@ -766,7 +959,13 @@
       "ComplexFuncBench",
       "Taubench airline",
       "Taubench retail"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-o3-o4-mini-2025-04-16",
@@ -791,7 +990,13 @@
       "Scale MultiChallenge",
       "BrowseComp",
       "Tau-bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-o3-o4-mini-system-card-2025-04-16",
@@ -828,7 +1033,13 @@
       "SWE-Lancer",
       "PaperBench",
       "MMLU"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-thinking-with-images-2025-04-16",
@@ -846,7 +1057,13 @@
       "V*",
       "CharXiv-descriptive",
       "CharXiv-reasoning"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-image-1-2025-04-23",
@@ -856,7 +1073,13 @@
     "kind": "model_release",
     "title": "Introducing our latest image generation model in the API",
     "source_url": "https://openai.com/index/image-generation-api/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-codex-1-2025-05-16",
@@ -869,7 +1092,13 @@
     "benchmarks_raw": [
       "SWE-Bench Verified",
       "OpenAI Internal SWE tasks"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-codex-1-system-card-addendum-2025-05-16",
@@ -884,7 +1113,13 @@
       "StrongReject",
       "Malware Refusals (Synthetic)",
       "Malware Refusals (Golden Set)"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-o3-operator-system-card-addendum-2025-05-23",
@@ -897,7 +1132,13 @@
     "benchmarks_raw": [
       "StrongREJECT",
       "Harmful agentic tasks"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-chatgpt-agent-2025-07-17",
@@ -916,7 +1157,13 @@
       "WebArena",
       "Investment Banking Modeling Tasks",
       "Economically important tasks"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-chatgpt-agent-system-card-2025-07-17",
@@ -945,7 +1192,13 @@
       "SWE-bench Verified",
       "OpenAI PRs",
       "PaperBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-oss-2025-08-05",
@@ -965,7 +1218,13 @@
       "GPQA Diamond",
       "MMLU",
       "Tau-Bench Retail"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-oss-model-card-2025-08-05",
@@ -1006,7 +1265,13 @@
       "Cyber Range",
       "OpenAI PRs",
       "PaperBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-2025-08-07",
@@ -1041,7 +1306,13 @@
       "LongFact-Objects",
       "FActScore",
       "CharXiv missing image"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-for-developers-2025-08-07",
@@ -1081,7 +1352,13 @@
       "Graphwalks bfs",
       "Graphwalks parents",
       "VideoMME"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-system-card-2025-08-07",
@@ -1130,7 +1407,13 @@
       "SWE-Lancer Diamond IC-SWE",
       "PaperBench",
       "OPQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-realtime-2025-08-28",
@@ -1144,7 +1427,13 @@
       "Big Bench Audio",
       "MultiChallenge (Audio)",
       "ComplexFuncBench Audio"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-codex-2025-09-15",
@@ -1157,7 +1446,13 @@
     "benchmarks_raw": [
       "SWE-bench Verified",
       "Code refactoring tasks"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-codex-system-card-addendum-2025-09-15",
@@ -1172,7 +1467,13 @@
       "StrongReject",
       "Malware Refusals (Golden Set)",
       "Coding-focused prompt injections"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-sora-2-2025-09-30",
@@ -1182,7 +1483,13 @@
     "kind": "model_release",
     "title": "Sora 2 is here",
     "source_url": "https://openai.com/index/sora-2/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "video"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-sora-2-system-card-2025-09-30",
@@ -1192,7 +1499,13 @@
     "kind": "system_card",
     "title": "Sora 2 System Card",
     "source_url": "https://openai.com/index/sora-2-system-card/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "video"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-oct-3-system-card-addendum-2025-10-27",
@@ -1209,7 +1522,13 @@
       "StrongReject",
       "Image input evaluations",
       "SimpleQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-oss-safeguard-2025-10-29",
@@ -1223,7 +1542,13 @@
       "Internal moderation eval",
       "OpenAI Mod (2022)",
       "ToxicChat"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-oss-safeguard-technical-report-2025-10-29",
@@ -1245,7 +1570,13 @@
       "SimpleQA",
       "PersonQA",
       "BBQ"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-1-2025-11-12",
@@ -1258,7 +1589,13 @@
     "benchmarks_raw": [
       "AIME 2025",
       "Codeforces"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-1-system-card-addendum-2025-11-12",
@@ -1272,7 +1609,13 @@
       "Production Benchmarks",
       "StrongReject",
       "Image input evaluations"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-1-for-developers-2025-11-13",
@@ -1292,7 +1635,13 @@
       "Tau2-bench Telecom",
       "Tau2-bench Retail",
       "BrowseComp Long Context"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-1-codex-max-2025-11-19",
@@ -1306,7 +1655,13 @@
       "SWE-Lancer IC SWE",
       "Terminal-Bench 2.0",
       "SWE-Bench Verified"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-1-codex-max-system-card-2025-11-19",
@@ -1335,7 +1690,13 @@
       "Paperbench-10",
       "MLE-bench-30",
       "OpenAI PRs"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-2-2025-12-11",
@@ -1373,7 +1734,13 @@
       "HLE",
       "MMMLU",
       "HMMT, Feb 2025"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-2-system-card-2025-12-11",
@@ -1408,7 +1775,13 @@
       "MLE-Bench",
       "PaperBench",
       "OPQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-image-1-5-2025-12-16",
@@ -1418,7 +1791,13 @@
     "kind": "model_release",
     "title": "The new ChatGPT Images is here",
     "source_url": "https://openai.com/index/new-chatgpt-images-is-here/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-2-codex-2025-12-18",
@@ -1432,7 +1811,13 @@
       "SWE-Bench Pro",
       "Terminal-Bench 2.0",
       "Professional Capture-the-Flag Challenges"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-2-codex-system-card-2025-12-18",
@@ -1455,7 +1840,13 @@
       "OpenAI PRs",
       "MLE-bench-30",
       "Paperbench-10"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-3-codex-2026-02-05",
@@ -1472,7 +1863,13 @@
       "GDPval",
       "Cybersecurity Capture The Flag Challenges",
       "SWE-Lancer IC Diamond"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-3-codex-system-card-2026-02-05",
@@ -1492,7 +1889,13 @@
       "CVE-Bench",
       "Cyber Range",
       "Monorepo-Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-3-codex-spark-2026-02-12",
@@ -1505,7 +1908,13 @@
     "benchmarks_raw": [
       "SWE-Bench Pro",
       "Terminal-Bench 2.0"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-3-instant-2026-03-03",
@@ -1515,7 +1924,13 @@
     "kind": "model_release",
     "title": "GPT-5.3 Instant: Smoother, more useful everyday conversations",
     "source_url": "https://openai.com/index/gpt-5-3-instant/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-3-instant-system-card-2026-03-03",
@@ -1529,7 +1944,13 @@
       "Production Benchmarks",
       "Dynamic Mental Health Evaluations",
       "HealthBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-4-2026-03-05",
@@ -1566,7 +1987,13 @@
       "OpenAI MRCR v2",
       "ARC-AGI-1 (Verified)",
       "ARC-AGI-2 (Verified)"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-4-thinking-system-card-2026-03-05",
@@ -1598,7 +2025,13 @@
       "Monorepo-Bench",
       "MLE-Bench",
       "OPQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-4-mini-nano-2026-03-17",
@@ -1622,7 +2055,13 @@
       "OpenAI MRCR v2",
       "Graphwalks BFS",
       "Graphwalks parents"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-rosalind-2026-04-16",
@@ -1635,7 +2074,13 @@
     "benchmarks_raw": [
       "BixBench",
       "LABBench2"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-chatgpt-images-2-0-2026-04-21",
@@ -1645,7 +2090,13 @@
     "kind": "model_release",
     "title": "Introducing ChatGPT Images 2.0",
     "source_url": "https://openai.com/index/introducing-chatgpt-images-2-0/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-privacy-filter-2026-04-22",
@@ -1657,7 +2108,13 @@
     "source_url": "https://openai.com/index/introducing-openai-privacy-filter/",
     "benchmarks_raw": [
       "PII-Masking-300k"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-5-2026-04-23",
@@ -1695,7 +2152,13 @@
       "OpenAI MRCR v2",
       "ARC-AGI-1 (Verified)",
       "ARC-AGI-2 (Verified)"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-5-system-card-2026-04-23",
@@ -1731,7 +2194,13 @@
       "MLE-Bench",
       "Internal Research Debugging Evaluation",
       "OPQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-5-instant-2026-05-05",
@@ -1747,7 +2216,13 @@
       "OmniDocBench",
       "GPQA",
       "AIME 2025"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-5-instant-system-card-2026-05-05",
@@ -1773,7 +2248,13 @@
       "Capture the Flag (CTF) Challenges",
       "CVE-Bench",
       "Cyber Range"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-realtime-2-2026-05-07",
@@ -1786,7 +2267,13 @@
     "benchmarks_raw": [
       "Big Bench Audio",
       "Audio MultiChallenge"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-rosalind-5-5-2026-06-03",
@@ -1801,7 +2288,13 @@
       "MedChemBench",
       "GeneBench",
       "LabWorkBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-rosalind-5-5-system-card-2026-06-03",
@@ -1818,7 +2311,13 @@
       "Biorisk knowledge",
       "Multi-select Virology Troubleshooting",
       "Hard-negative protein binding prediction"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-6-preview-2026-06-26",
@@ -1833,7 +2332,13 @@
       "GeneBench v1",
       "ExploitBench",
       "ExploitGym"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-6-preview-system-card-2026-06-26",
@@ -1873,7 +2378,13 @@
       "PostTrainBench Lite",
       "MLE-Bench Revised",
       "Biology Model Refusal Evaluation"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-live-2026-07-08",
@@ -1889,7 +2400,13 @@
       "τ³-Voice Telecom",
       "Pairwise Conversation Preference vs AVM",
       "Model Conversation Ratings"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-live-system-card-2026-07-08",
@@ -1902,7 +2419,13 @@
     "benchmarks_raw": [
       "Voice-Native Evaluations: Production Prompts",
       "Voice-Native Evaluations: Synthetic Prompts"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-6-2026-07-09",
@@ -1948,7 +2471,13 @@
       "OpenAI MRCR v2",
       "GraphWalks BFS",
       "ARC-AGI-3"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-6-system-card-2026-07-09",
@@ -1990,7 +2519,13 @@
       "MLE-Bench Revised",
       "Time Horizon 1.1",
       "Biology Model Refusal Evaluation"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-5-6-august-update-system-card-2026-08-06",
@@ -2021,7 +2556,13 @@
       "SEC-Bench Pro",
       "Cyber Range",
       "Biology Model Refusal Evaluation"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-6-astra-2026-09-03",
@@ -2071,7 +2612,13 @@
       "OpenAI MRCR v2",
       "ARC-AGI-2",
       "ARC-AGI-1"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-6-astra-system-card-2026-09-03",
@@ -2116,7 +2663,13 @@
       "MLE-Bench Revised",
       "Monorepo-Bench",
       "Expert-SWE"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-chatgpt-images-2-5-2026-09-08",
@@ -2126,7 +2679,13 @@
     "kind": "model_release",
     "title": "Introducing ChatGPT Images 2.5",
     "source_url": "https://openai.com/index/introducing-chatgpt-images-2-5/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-chatgpt-images-2-5-system-card-2026-09-08",
@@ -2136,7 +2695,13 @@
     "kind": "system_card",
     "title": "ChatGPT Images 2.5 System Card",
     "source_url": "https://deploymentsafety.openai.com/chatgpt-images-2-5",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-6-astra-2026-09-09",
@@ -2152,7 +2717,13 @@
       "Terminal-Bench 4.0",
       "Artificial Analysis Intelligence Index",
       "DeepSWE v1.1"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "openai-gpt-live-1-api-2026-09-10",
@@ -2170,6 +2741,12 @@
       "Full Duplex Bench (v1.5)",
       "Full Duplex Bench v1",
       "Full Duplex Bench v3"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   }
 ]

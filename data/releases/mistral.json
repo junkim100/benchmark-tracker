@@ -158,7 +158,13 @@
       "BOLD",
       "MT-Bench",
       "LMSys Arena"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-large-2024-02-26",
@@ -179,7 +185,13 @@
       "MBPP",
       "Math",
       "GSM8K"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mixtral-8x22b-2024-04-17",
@@ -200,7 +212,13 @@
       "MBPP",
       "GSM8K",
       "Math"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-codestral-2024-05-29",
@@ -229,7 +247,13 @@
       "HumanEvalFIM JavaScript",
       "HumanEvalFIM Java",
       "Kotlin-HumanEval"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-codestral-mamba-2024-07-16",
@@ -248,7 +272,13 @@
       "HumanEval Java",
       "HumanEval JavaScript",
       "HumanEval Bash"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mathstral-2024-07-16",
@@ -266,7 +296,13 @@
       "GRE Math",
       "AMC 2023",
       "AIME 2024"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-nemo-2024-07-18",
@@ -288,7 +324,13 @@
       "Arc Challenge",
       "MT Bench",
       "WildBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-large-2-2024-07-24",
@@ -311,7 +353,13 @@
       "Wild Bench",
       "Arena Hard",
       "Multilingual MMLU"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-small-24-09-2024-09-17",
@@ -328,7 +376,13 @@
       "Human Eval Plus",
       "MT Bench",
       "WildBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-pixtral-12b-2024-09-17",
@@ -354,7 +408,13 @@
       "MMLU",
       "MATH",
       "HumanEval"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-pixtral-12b-2024-10-09",
@@ -376,7 +436,13 @@
       "MT-Bench",
       "MMLU",
       "LMSys Vision Leaderboard"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-ministral-3b-8b-2024-10-16",
@@ -402,7 +468,13 @@
       "Wild bench",
       "MBPP",
       "Math"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-pixtral-large-2024-11-18",
@@ -421,7 +493,13 @@
       "AI2D",
       "MM-MT-Bench",
       "LMSys Vision Leaderboard"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-codestral-25-01-2025-01-13",
@@ -450,7 +528,13 @@
       "HumanEvalFIM Python",
       "HumanEvalFIM Java",
       "HumanEvalFIM JS"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-small-3-2025-01-30",
@@ -480,7 +564,13 @@
       "Chinese MMLU",
       "Korean MMLU",
       "Japanese MMLU"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-saba-2025-02-17",
@@ -500,7 +590,13 @@
       "Arabic Alghafa",
       "Arabic Hellaswag",
       "English MMLU"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-ocr-2025-03-06",
@@ -510,7 +606,13 @@
     "kind": "model_release",
     "title": "Mistral OCR",
     "source_url": "https://mistral.ai/news/mistral-ocr/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "vision"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-small-3-1-2025-03-11",
@@ -540,7 +642,13 @@
       "LongBench v2",
       "RULER 32K",
       "RULER 128K"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-small-3-1-2025-03-17",
@@ -553,7 +661,13 @@
     "benchmarks_raw": [
       "GPQA-Diamond",
       "MM-MT-Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-medium-3-2025-05-07",
@@ -578,7 +692,13 @@
       "DocVQA",
       "AI2D",
       "ChartQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-devstral-2025-05-21",
@@ -590,7 +710,13 @@
     "source_url": "https://mistral.ai/news/devstral/",
     "benchmarks_raw": [
       "SWE-Bench Verified"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-codestral-embed-2025-05-28",
@@ -615,7 +741,13 @@
       "DS 1000",
       "SWE-Bench",
       "Text2Code (GitHub)"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "embedding"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-magistral-2025-06-10",
@@ -632,7 +764,13 @@
       "GPQA Diamond",
       "LiveCodeBench (v5)",
       "Aider-Polyglot"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-magistral-2025-06-12",
@@ -657,7 +795,13 @@
       "MMMU-Pro-Standard",
       "MMMU-Pro-Vision",
       "IFEval"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-small-3-2-2025-06-19",
@@ -683,7 +827,13 @@
       "ChartQA",
       "DocVQA",
       "AI2D"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-devstral-small-1-1-medium-2025-07-10",
@@ -695,7 +845,13 @@
     "source_url": "https://mistral.ai/news/devstral-2507/",
     "benchmarks_raw": [
       "SWE-Bench Verified"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-voxtral-2025-07-15",
@@ -727,7 +883,14 @@
       "Math Instruct v2",
       "Natural QA",
       "Trivia QA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech",
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-voxtral-2025-07-17",
@@ -757,7 +920,14 @@
       "MMAU",
       "TriviaQA",
       "GSM8K"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech",
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-magistral-small-1-1-2025-07-18",
@@ -772,7 +942,13 @@
       "AIME25",
       "GPQA Diamond",
       "Livecodebench (v5)"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-codestral-25-08-2025-07-30",
@@ -796,7 +972,13 @@
       "Livecodebench v6",
       "Math Hendrycks",
       "SWE-Bench Verified"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-devstral-small-2025-08-08",
@@ -808,7 +990,13 @@
     "source_url": "https://arxiv.org/abs/2509.25193",
     "benchmarks_raw": [
       "SWE-bench Verified"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-magistral-small-1-2-2025-09-12",
@@ -823,7 +1011,13 @@
       "AIME25",
       "GPQA Diamond",
       "Livecodebench (v5)"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-3-2025-12-02",
@@ -842,7 +1036,13 @@
       "LMArena",
       "GPQA Diamond",
       "AIME '25"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-devstral-2-2025-12-09",
@@ -854,7 +1054,13 @@
     "source_url": "https://mistral.ai/news/devstral-2-vibe-cli/",
     "benchmarks_raw": [
       "SWE-bench Verified"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-ocr-3-2025-12-17",
@@ -864,7 +1070,13 @@
     "kind": "model_release",
     "title": "Introducing Mistral OCR 3",
     "source_url": "https://mistral.ai/news/mistral-ocr-3/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-ministral-3-2026-01-13",
@@ -896,7 +1108,13 @@
       "Arena Hard",
       "WildBench",
       "PhyBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-voxtral-transcribe-2-2026-02-04",
@@ -914,7 +1132,13 @@
       "AMI-SDM",
       "SBCSAE",
       "TalkBank"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-leanstral-2026-03-16",
@@ -926,7 +1150,13 @@
     "source_url": "https://mistral.ai/news/leanstral/",
     "benchmarks_raw": [
       "FLTEval"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-small-4-2026-03-16",
@@ -947,7 +1177,13 @@
       "AIME25",
       "Collie",
       "LiveCodeBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-voxtral-tts-2026-03-23",
@@ -957,7 +1193,13 @@
     "kind": "model_release",
     "title": "Speaking of Voxtral",
     "source_url": "https://mistral.ai/news/voxtral-tts/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-medium-3-5-2026-05-22",
@@ -979,7 +1221,13 @@
       "Allenai Ifbench",
       "Collie",
       "Beyond AIME"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-mistral-ocr-4-2026-06-23",
@@ -993,7 +1241,14 @@
       "OlmOCRBench",
       "OmniDocBench",
       "Crawl Multilingual"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language",
+        "vision"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-leanstral-1-5-2026-07-02",
@@ -1009,7 +1264,13 @@
       "FATE-H",
       "FATE-X",
       "FLTEval"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-robostral-navigate-2026-07-08",
@@ -1021,7 +1282,13 @@
     "source_url": "https://mistral.ai/news/robostral-navigate/",
     "benchmarks_raw": [
       "R2R-CE"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "robotics"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-robostral-navigate-2026-07-22",
@@ -1034,7 +1301,13 @@
     "benchmarks_raw": [
       "R2R-CE",
       "RxR-CE"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "robotics"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-shieldstral-2026-07-28",
@@ -1061,7 +1334,13 @@
       "VLGuard",
       "UnsafeBench",
       "LlavaGuard"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "mistral-shieldstral-2026-08-04",
@@ -1078,6 +1357,12 @@
       "VLGuard",
       "UnsafeBench",
       "LlavaGuard"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   }
 ]

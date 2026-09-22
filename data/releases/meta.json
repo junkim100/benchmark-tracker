@@ -157,7 +157,13 @@
     "kind": "model_release",
     "title": "Meta and Microsoft Introduce the Next Generation of Llama",
     "source_url": "https://ai.meta.com/blog/llama-2/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-llama-2-technical-report-2023-07-18",
@@ -190,7 +196,13 @@
       "TruthfulQA",
       "ToxiGen",
       "BOLD"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-seamlessm4t-2023-08-22",
@@ -206,7 +218,13 @@
       "CoVoST 2",
       "CVSS",
       "Multilingual HolisticBias"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-code-llama-2023-08-24",
@@ -229,7 +247,13 @@
       "Long Code Completion (LCC)",
       "LCC-balanced",
       "GSM8K"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-emu-video-emu-edit-2023-11-16",
@@ -239,7 +263,14 @@
     "kind": "model_release",
     "title": "Introducing Emu Video and Emu Edit, our latest generative AI research milestones",
     "source_url": "https://ai.meta.com/blog/emu-text-to-video-generation-image-editing-research/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "video",
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-seamless-2023-11-30",
@@ -249,7 +280,13 @@
     "kind": "model_release",
     "title": "Introducing a suite of AI language translation models that preserve expression and improve streaming",
     "source_url": "https://ai.meta.com/blog/seamless-communication/",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-llama-guard-2023-12-07",
@@ -262,7 +299,13 @@
     "benchmarks_raw": [
       "ToxicChat",
       "OpenAI Moderation Evaluation Dataset"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-v-jepa-2024-02-15",
@@ -275,7 +318,14 @@
     "benchmarks_raw": [
       "Kinetics-400",
       "Something-Something-v2"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "vision",
+        "embedding"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-llama-3-2024-04-18",
@@ -301,7 +351,13 @@
       "HumanEval",
       "GSM-8K",
       "MATH"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-llama-guard-2-2024-04-18",
@@ -315,7 +371,13 @@
       "XSTest",
       "OpenAI Moderation",
       "BeaverTails-30k"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-chameleon-2024-05-16",
@@ -340,7 +402,14 @@
       "MS-COCO",
       "Flickr30k",
       "VQA-v2"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language",
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-llama-3-1-2024-07-23",
@@ -377,7 +446,13 @@
       "Gorilla Benchmark API Bench",
       "Nexus",
       "Multilingual MGSM"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-llama-guard-3-2024-07-23",
@@ -389,7 +464,13 @@
     "source_url": "https://github.com/meta-llama/PurpleLlama/blob/main/Llama-Guard3/8B/MODEL_CARD.md",
     "benchmarks_raw": [
       "XSTest"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-llama-3-herd-2024-07-31",
@@ -456,7 +537,13 @@
       "VoxPopuli",
       "FLEURS",
       "Covost 2"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-sam-2-2024-08-01",
@@ -477,7 +564,13 @@
       "DAVIS interactive benchmark",
       "SA-23",
       "SA-V"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "vision"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-llama-3-2-2024-09-25",
@@ -509,7 +602,13 @@
       "InfiniteBench/En.MC",
       "NIH/Multi-needle",
       "MGSM"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-llama-3-2-vision-2024-09-25",
@@ -534,7 +633,13 @@
       "MATH",
       "GPQA",
       "MGSM"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-movie-gen-2024-10-17",
@@ -547,7 +652,14 @@
     "benchmarks_raw": [
       "Movie Gen Video Bench",
       "Movie Gen Audio Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "video",
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-llama-3-3-2024-12-06",
@@ -567,7 +679,13 @@
       "MATH",
       "BFCL v2",
       "MGSM"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-llama-4-2025-04-05",
@@ -581,7 +699,13 @@
       "MATH-500",
       "GPQA Diamond",
       "LMArena"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-llama-4-model-card-2025-04-05",
@@ -608,7 +732,13 @@
       "MGSM",
       "MTOB (half book) eng->kgv/kgv->eng",
       "MTOB (full book) eng->kgv/kgv->eng"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-perception-encoder-plm-locate-3d-dyblt-2025-04-17",
@@ -630,7 +760,15 @@
       "ARKitScenes",
       "ScanNet",
       "ScanNet++"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "vision",
+        "language",
+        "robotics"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-perception-language-model-2025-04-17",
@@ -692,7 +830,13 @@
       "PLM–RCap",
       "PLM–RTLoc",
       "PLM–RDCap"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-v-jepa-2-2025-06-11",
@@ -710,7 +854,14 @@
       "Epic-Kitchens-100",
       "Perception Test",
       "TempCompass"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "vision",
+        "robotics"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-v-jepa-2-technical-report-2025-06-11",
@@ -733,7 +884,14 @@
       "TempCompass",
       "TemporalBench",
       "TOMATO"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "vision",
+        "robotics"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-dinov3-2025-08-13",
@@ -759,7 +917,13 @@
       "COCO",
       "Mapillary Street-level Sequences",
       "Satlidar"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "vision"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-cwm-2025-09-30",
@@ -778,7 +942,13 @@
       "CruxEval Output",
       "CodeContests",
       "RULER"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-sam-3d-2025-11-19",
@@ -790,7 +960,13 @@
     "source_url": "https://ai.meta.com/blog/sam-3d/",
     "benchmarks_raw": [
       "SA-3DAO"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "vision"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-sam-3-2025-11-20",
@@ -833,7 +1009,13 @@
       "RefCOCO+",
       "RefCOCOg",
       "SA-37"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "vision"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-sam-audio-2025-12-16",
@@ -845,7 +1027,13 @@
     "source_url": "https://ai.meta.com/blog/sam-audio/",
     "benchmarks_raw": [
       "SAM Audio-Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-sam-3-1-2026-03-27",
@@ -863,7 +1051,13 @@
       "CountBench",
       "ReasonSeg",
       "OmniLabel"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "vision"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-muse-spark-2026-04-08",
@@ -877,7 +1071,13 @@
       "Humanity's Last Exam",
       "FrontierScience Research",
       "AIME"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-muse-spark-safety-preparedness-report-2026-05-14",
@@ -925,7 +1125,13 @@
       "CIMemories",
       "TextQuests",
       "Machiavelli"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-muse-image-muse-video-2026-07-07",
@@ -937,7 +1143,14 @@
     "source_url": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/",
     "benchmarks_raw": [
       "Arena"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "image",
+        "video"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "meta-muse-spark-1-1-2026-07-09",
@@ -961,6 +1174,12 @@
       "BabyVision",
       "DeepSearchQA",
       "WideSearch"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   }
 ]

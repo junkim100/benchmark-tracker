@@ -91,7 +91,13 @@
       "ChartQA",
       "DocVQA",
       "RealWorldQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-2-2024-08-13",
@@ -111,7 +117,13 @@
       "MMMU",
       "MathVista",
       "DocVQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-aurora-2024-12-09",
@@ -121,7 +133,13 @@
     "kind": "blog_post",
     "title": "Grok Image Generation Release",
     "source_url": "https://x.ai/news/grok-image-generation-release",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-2-1212-2024-12-12",
@@ -133,7 +151,13 @@
     "source_url": "https://x.ai/news/grok-1212",
     "benchmarks_raw": [
       "Multi-IFEval"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-3-2025-02-19",
@@ -154,7 +178,13 @@
       "LOFT",
       "SimpleQA",
       "EgoSchema"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-4-2025-07-09",
@@ -173,7 +203,13 @@
       "AIME'25",
       "ARC-AGI-2",
       "Vending-Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-4-model-card-2025-08-20",
@@ -195,7 +231,13 @@
       "WMDP Chem",
       "WMDP Cyber",
       "CyBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-2-open-weights-2025-08-22",
@@ -205,7 +247,13 @@
     "kind": "model_release",
     "title": "xai-org/grok-2",
     "source_url": "https://huggingface.co/xai-org/grok-2",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-code-fast-1-model-card-2025-08-26",
@@ -225,7 +273,13 @@
       "WMDP Chem",
       "CyBench",
       "WMDP Cyber"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-code-fast-1-2025-08-28",
@@ -237,7 +291,13 @@
     "source_url": "https://x.ai/news/grok-code-fast-1",
     "benchmarks_raw": [
       "SWE-Bench-Verified"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-4-fast-2025-09-19",
@@ -263,7 +323,13 @@
       "X Browse",
       "Search Arena",
       "Text Arena"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-4-fast-model-card-2025-09-19",
@@ -285,7 +351,13 @@
       "WMDP Chem",
       "WMDP Cyber",
       "CyBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-4-1-2025-11-17",
@@ -300,7 +372,13 @@
       "EQ-Bench",
       "Creative Writing v3",
       "FActScore"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-4-1-model-card-2025-11-17",
@@ -325,7 +403,13 @@
       "WMDP Cyber",
       "CyBench",
       "MakeMeSay"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-4-1-fast-2025-11-19",
@@ -341,7 +425,13 @@
       "Research-Eval Reka",
       "FRAMES",
       "X Browse"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-voice-agent-api-2025-12-17",
@@ -353,7 +443,13 @@
     "source_url": "https://x.ai/news/grok-voice-agent-api",
     "benchmarks_raw": [
       "Big Bench Audio"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-imagine-api-2026-01-28",
@@ -367,7 +463,14 @@
       "Artificial Analysis: Text-to-Video Rankings",
       "LMArena",
       "IVEBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "video",
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-4-20-system-card-2026-04-07",
@@ -391,7 +494,13 @@
       "WMDP Cyber",
       "CyBench",
       "MakeMeSay"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-voice-think-fast-1-2026-04-23",
@@ -403,7 +512,13 @@
     "source_url": "https://x.ai/news/grok-voice-think-fast-1",
     "benchmarks_raw": [
       "τ-voice Leaderboard"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-imagine-1-5-preview-2026-06-03",
@@ -413,7 +528,13 @@
     "kind": "blog_post",
     "title": "Grok Imagine 1.5 Preview",
     "source_url": "https://x.ai/news/grok-imagine-1-5",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "video"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-imagine-video-1-5-2026-06-16",
@@ -423,7 +544,13 @@
     "kind": "blog_post",
     "title": "Grok Imagine Video 1.5",
     "source_url": "https://x.ai/news/grok-imagine-video-1-5",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "video"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-4-5-model-card-2026-07-14",
@@ -467,7 +594,13 @@
       "Epistemic Bias",
       "MASK-Rectified",
       "Sycophancy"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-4-5-2026-07-16",
@@ -483,7 +616,13 @@
       "SWE Marathon",
       "Terminal Bench 2.1",
       "SWE Bench Pro"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-voice-think-fast-2-2026-07-29",
@@ -498,7 +637,13 @@
       "Big Bench Audio",
       "Full Duplex Bench",
       "τ-voice Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-imagine-image-2-2026-08-07",
@@ -511,7 +656,13 @@
     "benchmarks_raw": [
       "Image Edit Arena",
       "Text-to-Image Arena"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "image"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-4-6-2026-08-12",
@@ -532,7 +683,13 @@
       "APEX-SWE",
       "AA-Briefcase",
       "Harvey LAB (Vals)"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-4-6-model-card-2026-08-12",
@@ -579,7 +736,13 @@
       "FORTRESS-RN",
       "MASK-Rectified",
       "Sycophancy"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "xai-grok-voice-transcribe-2-2026-09-18",
@@ -591,6 +754,12 @@
     "source_url": "https://x.ai/news/grok-voice-transcribe-2",
     "benchmarks_raw": [
       "Artificial Analysis leaderboard"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "inferred"
+    }
   }
 ]
