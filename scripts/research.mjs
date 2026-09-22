@@ -30,6 +30,8 @@ import { fileURLToPath } from "node:url";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DATA = join(ROOT, "data");
 const LOOKBACK_DAYS = Number(process.env.LOOKBACK_DAYS ?? 14);
+// Named so the truncation error can quote the limit it hit.
+const MAX_TOKENS = 16000;
 
 const labs = JSON.parse(readFileSync(join(DATA, "labs.json"), "utf8"));
 const CATEGORY_IDS = CATEGORIES.map((c) => c.id);
@@ -135,7 +137,7 @@ async function researchLab(lab) {
   const allowed = domainsFor(lab);
   const response = await client.messages.create({
     model: "claude-opus-5",
-    max_tokens: 16000,
+    max_tokens: MAX_TOKENS,
     output_config: { effort: "high", format: { type: "json_schema", schema: RECORD_SCHEMA } },
     tools: [{ type: "web_search_20260209", name: "web_search", max_uses: 12, allowed_domains: allowed }],
     system:
@@ -162,9 +164,28 @@ async function researchLab(lab) {
     }],
   });
 
+  // Refusal was the only stop reason handled, and it is not the only one that
+  // arrives without usable text. A paused turn carries tool blocks and no final
+  // message, and a truncated one stops mid-JSON; both then failed inside
+  // JSON.parse with a syntax error that says nothing about what happened, and
+  // allSettled turned that into one unexplained FAILED line.
   if (response.stop_reason === "refusal") throw new Error(`refused: ${response.stop_details?.category}`);
-  const text = response.content.filter((b) => b.type === "text").map((b) => b.text).join("");
-  return JSON.parse(text).releases ?? [];
+  if (response.stop_reason === "pause_turn") throw new Error("paused mid-turn: no final message to read");
+  if (response.stop_reason === "max_tokens") throw new Error(`hit max_tokens (${MAX_TOKENS}): the answer is truncated`);
+
+  const text = response.content.filter((b) => b.type === "text").map((b) => b.text).join("").trim();
+  if (!text) throw new Error(`no text in the reply (stop_reason: ${response.stop_reason})`);
+
+  let parsed;
+  try {
+    parsed = JSON.parse(text);
+  } catch (e) {
+    // Say what could not be parsed. A bare SyntaxError names a column in a
+    // string nobody can see.
+    throw new Error(`reply was not JSON (${e.message}); first 200 chars: ${text.slice(0, 200)}`);
+  }
+  if (!Array.isArray(parsed.releases)) throw new Error("reply had no releases array");
+  return parsed.releases;
 }
 
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -209,8 +230,12 @@ const results = await Promise.allSettled(labs.map(async (lab) => {
   }
 }));
 
+const failures = [];
 for (const [i, r] of results.entries()) {
-  if (r.status === "rejected") summary.push(`${labs[i].name}: FAILED ${r.reason?.message ?? r.reason}`);
+  if (r.status === "rejected") {
+    failures.push(labs[i].name);
+    summary.push(`${labs[i].name}: FAILED ${r.reason?.message ?? r.reason}`);
+  }
 }
 
 // Fold the accepted suggestions into the alias map. Same key rule as the
@@ -346,4 +371,26 @@ if (skipped.length) {
 const report = lines.join("\n") || "No new releases found.";
 console.log(report);
 writeFileSync(join(ROOT, "research-summary.txt"), report);
+
+// How many releases landed, for the workflow to branch on. It used to ask git
+// whether anything under data/ changed, but normalize.mjs stamps a fresh
+// generated_at into timeline.json on every run, so the answer was always yes
+// and the "nothing new" branch was unreachable.
+writeFileSync(join(ROOT, "research-added.txt"), String(added));
+
+// A run where every lab failed is an outage, not a quiet week, and it must not
+// report success. Promise.allSettled turns each rejection into a summary line
+// and the script ended on a bare exit 0, so a wrong API key produced twelve
+// FAILED lines, a green tick, and a commit that changed only a timestamp.
+//
+// Partial failure stays tolerated on purpose: one lab rate-limited should not
+// discard the other eleven, and the seven-day lookback gives the missed one two
+// or three more chances.
+if (failures.length === labs.length) {
+  console.error(`\nEvery lab failed (${failures.length}/${labs.length}). Treating this as an outage, not a quiet run.`);
+  process.exit(1);
+}
+if (failures.length > labs.length / 2) {
+  console.error(`\nWarning: ${failures.length} of ${labs.length} labs failed.`);
+}
 process.exit(0);

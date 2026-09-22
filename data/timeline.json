@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T00:18:11.536Z",
+  "generated_at": "2026-09-22T00:20:34.345Z",
   "labs": [
     {
       "id": "openai",
@@ -28735,28 +28735,6 @@
       "benchmarks": [
         "qwenimagebench"
       ]
-    },
-    {
-      "id": "qwen-qwen-image-2-1-2026-09-20",
-      "lab": "qwen",
-      "model": "Qwen-Image-2.1",
-      "date": "2026-09-20",
-      "kind": "model_release",
-      "title": "QwenLM/Qwen-Image-2.1: Qwen's most powerful open-source image generation model",
-      "source_url": "https://github.com/QwenLM/Qwen-Image-2.1",
-      "benchmarks_raw": [],
-      "benchmarks": []
-    },
-    {
-      "id": "qwen-qwen-image-2-1-2026-09-20",
-      "lab": "qwen",
-      "model": "Qwen-Image-2.1",
-      "date": "2026-09-20",
-      "kind": "model_release",
-      "title": "Qwen/Qwen-Image-2.1 · Hugging Face",
-      "source_url": "https://huggingface.co/Qwen/Qwen-Image-2.1",
-      "benchmarks_raw": [],
-      "benchmarks": []
     },
     {
       "id": "qwen-qwen-image-2-1-pe-t2i-2026-09-20",

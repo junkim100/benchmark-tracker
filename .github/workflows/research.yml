@@ -65,8 +65,13 @@ jobs:
       - name: Commit anything new
         id: commit
         run: |
-          if [ -z "$(git status --porcelain data)" ]; then
+          # Ask the script what it found, not git. normalize.mjs stamps a fresh
+          # generated_at into timeline.json every run, so data/ is never clean
+          # and this branch could never be taken.
+          ADDED=$(cat research-added.txt 2>/dev/null || echo 0)
+          if [ "$ADDED" -eq 0 ]; then
             echo "No new releases."
+            git checkout -- data || true
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -78,7 +83,14 @@ jobs:
           git commit -m "Research: $(date -u +%Y-%m-%d)
 
           $(cat research-summary.txt)"
-          git push
+          # The repo takes human commits too, and a rejected push under `bash -e`
+          # would abort the step, leave `changed` unset and skip the deploy,
+          # discarding the run's alias and category work with it.
+          for attempt in 1 2 3; do
+            git push && break
+            echo "push rejected, rebasing (attempt $attempt)"
+            git pull --rebase --autostash origin main || exit 1
+          done
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
   # Only when something landed, and only as an explicit call: the bot's own push

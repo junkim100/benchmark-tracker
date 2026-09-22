@@ -62,6 +62,9 @@ let dropped = 0;
 // zipping it against benchmarks_raw by index downstream is simply wrong.
 const spellings = new Map();
 const problems = [];
+const TODAY = new Date().toISOString().slice(0, 10);
+const seenIds = new Set();
+const duplicateIds = [];
 const unknown = new Map();
 const releases = [];
 
@@ -87,7 +90,23 @@ for (const file of files) {
   for (const r of records) {
     const where = `${file} ${r.id ?? "<no id>"}`;
     if (!labIds.has(r.lab)) problems.push(`${where}: unknown lab "${r.lab}"`);
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(r.date ?? "")) problems.push(`${where}: bad date "${r.date}"`);
+    // A malformed date is fatal to this record, not just noted. It used to be
+    // recorded and carried on: "2026-9-5" is schema-valid output, sorts after
+    // "2026-09-20" under localeCompare, became the upper bound of the quarters
+    // loop, and that loop has no termination but reaching it. Five million
+    // iterations in 106ms, and the diagnostic naming the bad date sat twenty
+    // lines past the loop that never ended.
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(r.date ?? "")) {
+      problems.push(`${where}: bad date "${r.date}"`);
+      continue;
+    }
+    // Nor may a record be dated ahead of the run. A future date sorts last,
+    // enters the recent window, pushes a real quarter out of it, and stretches
+    // the quarter axis the chart draws.
+    if (r.date > TODAY) {
+      problems.push(`${where}: date "${r.date}" is in the future`);
+      continue;
+    }
     if (!/^https?:\/\//.test(r.source_url ?? "")) problems.push(`${where}: missing source_url`);
     if (!Array.isArray(r.benchmarks_raw)) {
       problems.push(`${where}: benchmarks_raw must be an array`);
@@ -119,8 +138,28 @@ for (const file of files) {
         return id;
       }))];
 
+    // Ids are minted from lab, model and date, so one launch mirrored across a
+    // blog, a repo and a model card yields three records with one id. They were
+    // deduplicated on source_url alone, which treats mirrors as separate
+    // releases and inflates the denominator of every recent-share figure.
+    if (seenIds.has(r.id)) {
+      duplicateIds.push(`${where}: duplicate id, mirrored at ${r.source_url}`);
+      continue;
+    }
+    seenIds.add(r.id);
     releases.push({ ...r, benchmarks: canonical });
   }
+}
+
+// Everything is read and checked before anything is written. The generated
+// files used to be written first and validated after, so a failing run left
+// benchmarks.json and timeline.json on disk built from data that had just been
+// rejected. CI discards its workspace so it never noticed; a local run kept
+// them.
+if (problems.length) {
+  console.error(`\n${problems.length} contract problem(s), nothing written:`);
+  for (const p of problems.slice(0, 40)) console.error(`  ${p}`);
+  process.exit(1);
 }
 
 releases.sort((a, b) => a.date.localeCompare(b.date) || a.lab.localeCompare(b.lab));
@@ -277,10 +316,16 @@ const categories = CATEGORIES.map((c) => {
 const quarters = [];
 if (releases.length) {
   const [lo, hi] = [quarterOf(releases[0].date), quarterOf(releases[releases.length - 1].date)];
-  for (let y = Number(lo.slice(0, 4)), q = Number(lo.slice(6)); ; q === 4 ? ((q = 1), y++) : q++) {
+  // Bounded. Reaching `hi` is the intended exit, but it is not the only one:
+  // the loop must terminate even if `hi` is unreachable, because a loop whose
+  // only stop condition is a value derived from data is a hang waiting for bad
+  // data. Two hundred quarters is fifty years.
+  const MAX_QUARTERS = 200;
+  for (let y = Number(lo.slice(0, 4)), q = Number(lo.slice(6)); quarters.length < MAX_QUARTERS; q === 4 ? ((q = 1), y++) : q++) {
     quarters.push(`${y}-Q${q}`);
     if (`${y}-Q${q}` === hi) break;
   }
+  if (quarters[quarters.length - 1] !== hi) problems.push(`quarters: ran from ${lo} without reaching ${hi}`);
 }
 
 writeFileSync(
@@ -294,8 +339,7 @@ if (unknown.size) {
   console.log(`\nBenchmark names with no alias entry (${unknown.size}). Add the real ones to data/aliases.json:`);
   for (const [k, n] of [...unknown].sort((a, b) => b[1] - a[1]).slice(0, 25)) console.log(`  ${n}x  ${k}`);
 }
-if (problems.length) {
-  console.error(`\n${problems.length} contract problem(s):`);
-  for (const p of problems.slice(0, 40)) console.error(`  ${p}`);
-  process.exit(1);
+if (duplicateIds.length) {
+  console.log(`\nSkipped ${duplicateIds.length} mirrored record(s) sharing an id with one already read:`);
+  for (const d of duplicateIds.slice(0, 10)) console.log(`  ${d}`);
 }
