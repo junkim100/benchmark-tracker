@@ -7,7 +7,13 @@
     "kind": "model_release",
     "title": "Introducing Claude",
     "source_url": "https://www.anthropic.com/news/introducing-claude",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-2-2023-07-11",
@@ -22,7 +28,13 @@
       "GRE reading and writing exams",
       "Codex HumanEval",
       "GSM8k"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-2-model-card-2023-07-11",
@@ -46,7 +58,13 @@
       "GRE General Test",
       "Multistate Bar Examination (MBE)",
       "USMLE"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-instant-1-2-2023-08-09",
@@ -59,7 +77,13 @@
     "benchmarks_raw": [
       "Codex",
       "GSM8K"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-2-1-2023-11-21",
@@ -69,7 +93,13 @@
     "kind": "model_release",
     "title": "Introducing Claude 2.1",
     "source_url": "https://www.anthropic.com/news/claude-2-1",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-2-1-model-card-appendix-2023-11-21",
@@ -79,7 +109,13 @@
     "kind": "system_card",
     "title": "Claude 2.1 Model Card Appendix",
     "source_url": "https://www-cdn.anthropic.com/5c49cc247484cecf107c699baf29250302e5da70/ModelCardClaudev2_with_appendix_v1.pdf",
-    "benchmarks_raw": []
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-3-2024-03-04",
@@ -105,7 +141,13 @@
       "AI2D",
       "Needle In A Haystack",
       "Bias Benchmark for Question Answering (BBQ)"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-3-model-card-2024-03-04",
@@ -151,7 +193,13 @@
       "USMLE",
       "MedMCQA",
       "BBQ"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-3-5-sonnet-2024-06-21",
@@ -173,7 +221,13 @@
       "MathVista",
       "AI2D",
       "MMMU"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-3-5-sonnet-model-card-addendum-2024-06-21",
@@ -200,7 +254,13 @@
       "Wildchat",
       "XSTest",
       "Needle In A Haystack"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-3-5-haiku-sonnet-model-card-addendum-2024-10-22",
@@ -231,7 +291,13 @@
       "BIG-Bench Hard",
       "AIME 2024",
       "IFEval"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-3-5-sonnet-new-haiku-2024-10-22",
@@ -251,7 +317,13 @@
       "SWE-bench Verified",
       "TAU-bench",
       "OSWorld"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-3-7-sonnet-2025-02-24",
@@ -270,7 +342,13 @@
       "IFEval",
       "MATH 500",
       "AIME 2024"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-3-7-sonnet-system-card-2025-02-24",
@@ -295,7 +373,13 @@
       "METR Data Deduplication",
       "RE-Bench",
       "Cybench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-4-2025-05-22",
@@ -313,7 +397,13 @@
       "MMMLU",
       "MMMU",
       "AIME"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-4-system-card-2025-05-22",
@@ -335,7 +425,13 @@
       "SWE-bench Verified",
       "METR data deduplication",
       "Cybench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-opus-4-1-2025-08-05",
@@ -353,7 +449,13 @@
       "MMMLU",
       "MMMU",
       "AIME 2025"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-opus-4-1-system-card-2025-08-05",
@@ -372,7 +474,13 @@
       "SeqQA",
       "SWE-bench Verified",
       "Cybench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-sonnet-4-5-2025-09-29",
@@ -392,7 +500,13 @@
       "MMMLU",
       "MMMU",
       "Finance Agent"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-sonnet-4-5-system-card-2025-09-29",
@@ -417,7 +531,13 @@
       "SeqQA",
       "CloningScenarios",
       "SWE-bench Verified"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-haiku-4-5-2025-10-15",
@@ -436,7 +556,13 @@
       "GPQA Diamond",
       "MMMLU",
       "MMMU"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-haiku-4-5-system-card-2025-10-15",
@@ -458,7 +584,13 @@
       "SeqQA",
       "Cybench",
       "SWE-bench Verified"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-opus-4-5-2025-11-24",
@@ -482,7 +614,13 @@
       "Aider Polyglot",
       "BrowseComp-Plus",
       "Vending-Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-opus-4-5-system-card-2025-11-24",
@@ -525,7 +663,13 @@
       "SeqQA",
       "CloningScenarios",
       "Cybench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-opus-4-6-2026-02-05",
@@ -558,7 +702,13 @@
       "MRCR v2",
       "BioPipelineBench",
       "BigLaw Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-opus-4-6-system-card-2026-02-05",
@@ -605,7 +755,13 @@
       "ProtocolQA",
       "Cybench",
       "Simple-QA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-sonnet-4-6-2026-02-17",
@@ -632,7 +788,13 @@
       "MMMLU",
       "Vending-Bench Arena",
       "OfficeQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-sonnet-4-6-system-card-2026-02-17",
@@ -680,7 +842,13 @@
       "VCT",
       "LAB-Bench",
       "Cybench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-mythos-preview-2026-04-07",
@@ -693,7 +861,13 @@
     "benchmarks_raw": [
       "OSS-Fuzz",
       "Firefox 147"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-mythos-preview-system-card-2026-04-07",
@@ -733,7 +907,13 @@
       "SimpleQA",
       "ECLeKTic",
       "Vending-Bench 2"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-opus-4-7-2026-04-16",
@@ -766,7 +946,13 @@
       "BigLaw Bench",
       "CursorBench",
       "Rakuten-SWE-Bench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-opus-4-7-system-card-2026-04-16",
@@ -819,7 +1005,13 @@
       "LAB-Bench",
       "MathArena",
       "SimpleQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-opus-4-8-2026-05-28",
@@ -838,7 +1030,13 @@
       "Finance Agent v2",
       "CursorBench",
       "Legal Agent Benchmark"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-opus-4-8-system-card-2026-05-28",
@@ -900,7 +1098,13 @@
       "LAB-Bench",
       "MathArena",
       "SimpleQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-fable-5-mythos-5-2026-06-09",
@@ -931,7 +1135,13 @@
       "CursorBench",
       "FrontierBench",
       "ViBench"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-fable-5-mythos-5-system-card-2026-06-09",
@@ -1005,7 +1215,13 @@
       "LAB-Bench",
       "MathArena",
       "SimpleQA"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-sonnet-5-2026-06-30",
@@ -1022,7 +1238,13 @@
       "OSWorld-Verified",
       "GDPval-AA v2",
       "BrowseComp"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-sonnet-5-system-card-2026-06-30",
@@ -1075,7 +1297,13 @@
       "Bias Benchmark for Question Answering",
       "VCT",
       "MathArena"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-opus-5-2026-07-24",
@@ -1102,7 +1330,13 @@
       "Artificial Analysis Coding Agent Index",
       "DeepSearchQA",
       "OSS-Fuzz"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-opus-5-system-card-2026-07-24",
@@ -1162,7 +1396,13 @@
       "Bias Benchmark for Question Answering",
       "VCT",
       "MathArena"
-    ]
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "inferred"
+    }
   },
   {
     "id": "anthropic-claude-fable-5-1-mythos-5-1-2026-09-01",
