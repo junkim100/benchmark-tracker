@@ -114,6 +114,8 @@ export const flatKey = (s) =>
   s.toLowerCase()
     .replace(/τ/g, "tau")
     .replace(/[¹₁]/g, "1").replace(/[²₂]/g, "2").replace(/[³₃]/g, "3")
+    // Labs write the same version three ways, and two of them survived the strip as different keys: "DeepSWE 1.1", "DeepSWE v1.1" and "DeepSWE (v1.1)" became deepswe11, deepswe11 and deepswev11, so one benchmark was a three-lab row and a five-lab row side by side. The "v" goes only where a word starts and a digit follows, which is why this runs before the strip takes the boundary away: NLVR2 keeps its v because the v is inside the word. Across all 2,773 spellings in the release files this merges eight groups and every one is a version of itself.
+    .replace(/\bv(?=\d)/g, "")
     .replace(/[^a-z0-9]/g, "")
     .replace(/20(\d\d)$/, "$1");
 

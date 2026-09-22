@@ -80,9 +80,9 @@ function audit(entries, registry, labs) {
       if (src.arxiv && !src.arxiv.wellFormed) flag(e.id, "arxiv-malformed", "high", `${src.url} is not a valid arXiv identifier`);
       if (src.arxiv?.month && fact.first_seen) {
         const citedMonth = fact.first_seen.slice(0, 7);
-        // A lab cannot cite a paper that has not been written. This is the one factual contradiction available with no network at all, and invented arXiv ids skew recent because a recent-looking number is what a recent-sounding benchmark seems to deserve.
+        // Weak on its own, and it used to be filed as high on the premise that a lab cannot cite a paper that has not been written. A lab cites a benchmark, not its paper, and the paper routinely comes months later: WildChat, ZebraLogic, ScreenSpot-Pro and Terminal-Bench 2.0 all shipped as a dataset or a leaderboard first. Checking all twelve against the arXiv API found eleven innocent and one real, so the signal is about one in twelve and the value is that the cohort stays small enough to read by hand. The one it caught is worth the rule: DALL-E 3 Eval pointed at Google's Imagen 3 report, which merely evaluates against it, and the description had been written from that results table.
         if (src.arxiv.month > citedMonth) {
-          flag(e.id, "arxiv-postdates-citation", "high", `arXiv ${src.arxiv.id} is from ${src.arxiv.month} but the benchmark was first cited ${fact.first_seen}`);
+          flag(e.id, "arxiv-postdates-citation", "medium", `arXiv ${src.arxiv.id} is from ${src.arxiv.month} but the benchmark was first cited ${fact.first_seen}, which is usually just a late paper`);
         }
         const now = new Date().toISOString().slice(0, 7);
         if (src.arxiv.month > now) flag(e.id, "arxiv-in-the-future", "high", `arXiv ${src.arxiv.id} is dated ${src.arxiv.month}`);

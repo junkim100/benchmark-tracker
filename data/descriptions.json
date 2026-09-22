@@ -113,7 +113,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "alignbenchv11": {
+  "alignbench11": {
     "text": "Version 1.1 of AlignBench, a Chinese alignment benchmark of 683 real-user queries across eight categories, judged by a model with chain-of-thought and rule-calibrated scoring; v1.1 corrected the reference answers on fact-heavy items and added source evidence.",
     "source_url": "https://github.com/THUDM/AlignBench",
     "source": "researched",
@@ -241,7 +241,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "arenahardv2": {
+  "arenahard2": {
     "text": "A 750-prompt automatic evaluation built from Chatbot Arena traffic: 500 hard real-world queries in areas such as software engineering and math plus 250 creative writing queries, with model answers compared by LLM judges.",
     "source_url": "https://github.com/lmarena/arena-hard-auto",
     "source": "researched",
@@ -319,7 +319,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "bfclv3": {
+  "bfcl3": {
     "text": "The third version of the Berkeley Function Calling Leaderboard, adding multi-turn and multi-step tool use scored by comparing the resulting backend state against ground truth, with categories for missing parameters, missing functions and long distracting context.",
     "source_url": "https://gorilla.cs.berkeley.edu/blogs/13_bfcl_v3_multi_turn.html",
     "source": "researched",
@@ -591,7 +591,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "creativewritingv3": {
+  "creativewriting3": {
     "text": "32 creative writing prompts run three times each, with a judge model scoring the outputs against a nine-point rubric and also comparing them pairwise for an Elo rating.",
     "source_url": "https://eqbench.com/about.html",
     "source": "researched",
@@ -700,9 +700,7 @@
     "checked": "2026-09-22"
   },
   "dalle3eval": {
-    "text": "A 170-prompt text-to-image evaluation set released with the DALL-E 3 paper, used for side-by-side human comparisons of generated images on overall preference, prompt-image alignment and visual appeal.",
-    "source_url": "https://arxiv.org/abs/2408.07009",
-    "source": "researched",
+    "source": "none",
     "checked": "2026-09-22"
   },
   "davis": {
@@ -726,12 +724,6 @@
   "deepswe11": {
     "text": "A coding agent benchmark whose tasks are written from scratch against active open-source repositories in five languages and never contributed upstream, each graded by a hand-written verifier that accepts any implementation providing the requested functionality.",
     "source_url": "https://arxiv.org/abs/2607.07946",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "deepswev11": {
-    "text": "A revision of Datacurve's DeepSWE keeping the same 113 original long-horizon engineering tasks over open-source repositories, but running the agent on a feature branch and grading its committed patch in a separate isolated container.",
-    "source_url": "https://deepswe.datacurve.ai/blog/deepswe-v1-1",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -843,13 +835,13 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "financeagentv11": {
+  "financeagent11": {
     "text": "A benchmark of 537 expert-written questions covering entry-level financial analyst work, from simple retrieval to market research and projections, built with Stanford researchers and industry practitioners.",
     "source_url": "https://www.vals.ai/benchmarks/finance_agent",
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "financeagentv2": {
+  "financeagent2": {
     "text": "An expanded rebuild of the Finance Agent benchmark with 927 expert-reviewed questions over public company filings and transcripts, split into public, private validation and held-out test sets.",
     "source_url": "https://www.vals.ai/benchmarks/fabv2",
     "source": "researched",
@@ -905,7 +897,7 @@
     "source": "none",
     "checked": "2026-09-22"
   },
-  "frontiercodev11": {
+  "frontiercode11": {
     "source": "none",
     "checked": "2026-09-22"
   },
@@ -969,7 +961,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "gdpvalaav2": {
+  "gdpvalaa2": {
     "text": "Artificial Analysis's agentic harness over OpenAI's GDPval task set: models get shell access and web browsing to produce finished documents, slides, spreadsheets and diagrams for 220 professional tasks, graded by blind pairwise LLM judging.",
     "source_url": "https://artificialanalysis.ai/evaluations/gdpval-aa",
     "source": "researched",
@@ -1209,7 +1201,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "imagenetv2": {
+  "imagenet2": {
     "text": "Three replacement ImageNet test sets of 10,000 images each, newly collected from Flickr and filtered by crowd workers following the original ImageNet protocol, to test generalization beyond the reused validation set.",
     "source_url": "https://github.com/modestyachts/ImageNetV2",
     "source": "researched",
@@ -1295,7 +1287,7 @@
     "source": "none",
     "checked": "2026-09-22"
   },
-  "lcbv6": {
+  "lcb6": {
     "text": "Release v6 of LiveCodeBench, 1,055 competitive programming problems scraped from LeetCode, AtCoder and Codeforces contests held between May 2023 and April 2025 and checked against hidden tests.",
     "source_url": "https://github.com/LiveCodeBench/LiveCodeBench",
     "source": "researched",
@@ -1357,13 +1349,13 @@
     "source": "none",
     "checked": "2026-09-22"
   },
-  "livecodebenchv5": {
+  "livecodebench5": {
     "text": "The v5 release of LiveCodeBench: 880 competitive programming problems collected from LeetCode, AtCoder and Codeforces between May 2023 and January 2025, each tagged with a release date so models can be scored only on problems published after their training cutoff.",
     "source_url": "https://github.com/LiveCodeBench/LiveCodeBench",
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "livecodebenchv6": {
+  "livecodebench6": {
     "text": "The sixth release window of LiveCodeBench: 1,055 competitive programming problems published between May 2023 and April 2025 on LeetCode, AtCoder and Codeforces, dated so contaminated problems can be filtered out.",
     "source_url": "https://github.com/LiveCodeBench/LiveCodeBench",
     "source": "researched",
@@ -1405,7 +1397,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "longbenchv2": {
+  "longbench2": {
     "text": "503 multiple-choice questions over contexts of 8k to 2M words, covering single- and multi-document QA, long in-context learning, long dialogue history, code repositories and long structured data.",
     "source_url": "https://arxiv.org/abs/2412.15204",
     "source": "researched",
@@ -1637,17 +1629,17 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "mmbenchenv11": {
+  "mmbenchen11": {
     "text": "The English split of MMBench v1.1, a data-quality revision of MMBench: multiple-choice vision-language questions organized around 20 ability dimensions and scored with CircularEval, which re-asks each question with the options rotated.",
     "source_url": "https://arxiv.org/abs/2307.06281v4",
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "mmbenchv11": {
+  "mmbench11": {
     "source": "none",
     "checked": "2026-09-22"
   },
-  "mmbenchv11en": {
+  "mmbench11en": {
     "source": "none",
     "checked": "2026-09-22"
   },
@@ -1841,7 +1833,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "mrcrv2": {
+  "mrcr2": {
     "source": "none",
     "checked": "2026-09-22"
   },
@@ -1869,7 +1861,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "mtebengv2": {
+  "mtebeng2": {
     "text": "A 41-task English text embedding benchmark covering retrieval, classification, semantic similarity, clustering and reranking, cut down from MTEB v1 and made zero-shot by excluding training-common sets such as MS MARCO and Natural Questions.",
     "source_url": "https://arxiv.org/html/2502.13595v1",
     "source": "researched",
@@ -2074,12 +2066,6 @@
   "omnidocbench15": {
     "text": "Version 1.5 of OmniDocBench, a document parsing benchmark of 1,355 PDF pages across nine document types in English, Chinese and mixed text, with block and span level annotations for layout, tables, formulas and OCR.",
     "source_url": "https://github.com/opendatalab/OmniDocBench/tree/v1_5",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "omnidocbenchv15": {
-    "text": "Version 1.5 of the OmniDocBench document parsing benchmark: 1,651 PDF pages over 10 document types with 28 block-level and 4 span-level annotation elements, rescanned newspaper and note pages, rebalanced Chinese and English pages, and a hybrid text-formula matching algorithm.",
-    "source_url": "https://github.com/opendatalab/OmniDocBench",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -2373,7 +2359,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "screenspotv2": {
+  "screenspot2": {
     "text": "A re-annotated version of the ScreenSpot GUI grounding benchmark released with OS-Atlas, correcting roughly 11 percent of mislabelled samples across mobile, desktop and web screenshots while keeping the test set size unchanged.",
     "source_url": "https://arxiv.org/abs/2410.23218",
     "source": "researched",
@@ -2481,7 +2467,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "ssv2": {
+  "ss2": {
     "text": "220,847 short videos filmed by crowd workers who were given an action template first and then recorded themselves performing it, labelled with 174 fine-grained templates for object manipulation.",
     "source_url": "https://huggingface.co/datasets/HuggingFaceM4/something_something_v2",
     "source": "researched",
@@ -2637,12 +2623,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "terminalbench2": {
-    "text": "The second release of Terminal-Bench: containerized terminal tasks such as debugging async code, resolving security vulnerabilities or preparing protein assembly, each given hours of human and model-assisted validation for solvability and clear specification, run through the Harbor harness.",
-    "source_url": "https://huggingface.co/datasets/harborframework/terminal-bench-2.0",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "terminalbench20": {
     "text": "A curated set of 89 hard tasks in real computer terminal environments, each with its own container, a human-written solution, and tests that verify whether the agent's end state is correct.",
     "source_url": "https://arxiv.org/abs/2601.11868",
@@ -2676,12 +2656,6 @@
   "terminalbenchscience01": {
     "text": "70 scientific research workflow tasks for terminal agents across life, physical, Earth, mathematical and engineering sciences, covering data analysis, simulation, optimization and signal processing, each verified against concrete artifacts the agent must produce.",
     "source_url": "https://www.tbench.ai/news/terminal-bench-science-0-1",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "terminalbenchv21": {
-    "text": "A revision of Terminal-Bench 2.0 keeping its 89 sandboxed command-line tasks, with 28 of them fixed for broken external dependencies, too-tight resource budgets and instructions that did not match their tests.",
-    "source_url": "https://www.tbench.ai/news/terminal-bench-2-1",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -2853,7 +2827,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "vidorev2": {
+  "vidore2": {
     "text": "The second version of the Visual Document Retrieval Benchmark, built from insurance, biomedical, economic and ESG document collections, using blind contextual querying so queries are less extractive, and emphasizing long-form and cross-document retrieval in several languages.",
     "source_url": "https://huggingface.co/blog/manu/vidore-v2",
     "source": "researched",
@@ -2907,7 +2881,7 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "vqav2": {
+  "vqa2": {
     "text": "A balanced visual question answering dataset in which every question is paired with two similar images that yield different answers, so a model cannot answer from language priors alone.",
     "source_url": "https://arxiv.org/abs/1612.00837",
     "source": "researched",

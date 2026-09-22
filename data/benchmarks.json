@@ -1074,6 +1074,38 @@
     "recent_share": 13
   },
   {
+    "id": "terminalbench21",
+    "name": "Terminal-Bench 2.1",
+    "lab_count": 10,
+    "labs": [
+      "anthropic",
+      "deepseek",
+      "google",
+      "meta",
+      "moonshot",
+      "openai",
+      "qwen",
+      "upstage",
+      "xai",
+      "zai"
+    ],
+    "first_seen": "2026-05-19",
+    "last_seen": "2026-09-17",
+    "labs_by_year": {
+      "2026": 10
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 4,
+      "2026-Q3": 9
+    },
+    "categories": [
+      "coding",
+      "agentic"
+    ],
+    "suite": "terminal-bench",
+    "recent_share": 3
+  },
+  {
     "id": "winogrande",
     "name": "WinoGrande",
     "lab_count": 10,
@@ -1161,35 +1193,38 @@
     "recent_share": 5
   },
   {
-    "id": "terminalbench21",
-    "name": "Terminal-Bench 2.1",
+    "id": "terminalbench20",
+    "name": "Terminal-Bench 2.0",
     "lab_count": 9,
     "labs": [
       "anthropic",
       "deepseek",
       "google",
-      "meta",
       "moonshot",
       "openai",
       "qwen",
-      "xai",
+      "upstage",
+      "xiaomi",
       "zai"
     ],
-    "first_seen": "2026-05-19",
-    "last_seen": "2026-09-17",
+    "first_seen": "2025-11-18",
+    "last_seen": "2026-07-16",
     "labs_by_year": {
+      "2025": 6,
       "2026": 9
     },
     "labs_by_quarter": {
-      "2026-Q2": 4,
-      "2026-Q3": 8
+      "2025-Q4": 6,
+      "2026-Q1": 8,
+      "2026-Q2": 7,
+      "2026-Q3": 1
     },
     "categories": [
       "coding",
       "agentic"
     ],
     "suite": "terminal-bench",
-    "recent_share": 3
+    "recent_share": 17
   },
   {
     "id": "triviaqa",
@@ -1506,39 +1541,6 @@
     "recent_share": 9
   },
   {
-    "id": "terminalbench20",
-    "name": "Terminal-Bench 2.0",
-    "lab_count": 8,
-    "labs": [
-      "anthropic",
-      "deepseek",
-      "google",
-      "moonshot",
-      "openai",
-      "qwen",
-      "xiaomi",
-      "zai"
-    ],
-    "first_seen": "2025-11-19",
-    "last_seen": "2026-07-16",
-    "labs_by_year": {
-      "2025": 5,
-      "2026": 8
-    },
-    "labs_by_quarter": {
-      "2025-Q4": 5,
-      "2026-Q1": 7,
-      "2026-Q2": 7,
-      "2026-Q3": 1
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": "terminal-bench",
-    "recent_share": 15
-  },
-  {
     "id": "truthfulqa",
     "name": "TruthfulQA",
     "lab_count": 8,
@@ -1673,7 +1675,35 @@
     "recent_share": 2
   },
   {
-    "id": "gdpvalaav2",
+    "id": "deepswe11",
+    "name": "DeepSWE (v1.1)",
+    "lab_count": 7,
+    "labs": [
+      "anthropic",
+      "deepseek",
+      "google",
+      "meta",
+      "openai",
+      "qwen",
+      "xai"
+    ],
+    "first_seen": "2026-07-09",
+    "last_seen": "2026-09-17",
+    "labs_by_year": {
+      "2026": 7
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 7
+    },
+    "categories": [
+      "coding",
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "gdpvalaa2",
     "name": "GDPval-AA v2",
     "lab_count": 7,
     "labs": [
@@ -1954,10 +1984,9 @@
       "2023-Q3": 1,
       "2023-Q4": 2,
       "2024-Q1": 1,
-      "2024-Q2": 2,
+      "2024-Q2": 1,
       "2024-Q3": 3,
       "2024-Q4": 3,
-      "2025-Q1": 1,
       "2025-Q2": 1,
       "2025-Q3": 1,
       "2025-Q4": 1
@@ -2258,7 +2287,7 @@
     "recent_share": 1
   },
   {
-    "id": "livecodebenchv6",
+    "id": "livecodebench6",
     "name": "LiveCodeBench v6",
     "lab_count": 6,
     "labs": [
@@ -2290,7 +2319,7 @@
     "recent_share": 9
   },
   {
-    "id": "longbenchv2",
+    "id": "longbench2",
     "name": "LongBench v2",
     "lab_count": 6,
     "labs": [
@@ -2390,6 +2419,34 @@
     ],
     "suite": "omnidocbench",
     "recent_share": 3
+  },
+  {
+    "id": "omnidocbench15",
+    "name": "OmniDocBench 1.5",
+    "lab_count": 6,
+    "labs": [
+      "deepseek",
+      "google",
+      "moonshot",
+      "openai",
+      "qwen",
+      "zai"
+    ],
+    "first_seen": "2026-01-27",
+    "last_seen": "2026-08-03",
+    "labs_by_year": {
+      "2026": 6
+    },
+    "labs_by_quarter": {
+      "2026-Q1": 5,
+      "2026-Q2": 2,
+      "2026-Q3": 2
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": "omnidocbench",
+    "recent_share": 4
   },
   {
     "id": "openbookqa",
@@ -3265,32 +3322,6 @@
     ],
     "suite": null,
     "recent_share": 5
-  },
-  {
-    "id": "deepswev11",
-    "name": "DeepSWE (v1.1)",
-    "lab_count": 5,
-    "labs": [
-      "anthropic",
-      "deepseek",
-      "google",
-      "openai",
-      "xai"
-    ],
-    "first_seen": "2026-07-09",
-    "last_seen": "2026-09-17",
-    "labs_by_year": {
-      "2026": 5
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 5
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 0
   },
   {
     "id": "erqa",
@@ -4429,7 +4460,7 @@
     "recent_share": 0
   },
   {
-    "id": "financeagentv2",
+    "id": "financeagent2",
     "name": "Finance Agent v2",
     "lab_count": 4,
     "labs": [
@@ -4631,7 +4662,7 @@
     "recent_share": 5
   },
   {
-    "id": "livecodebenchv5",
+    "id": "livecodebench5",
     "name": "LiveCodeBench v5",
     "lab_count": 4,
     "labs": [
@@ -4970,32 +5001,6 @@
     ],
     "suite": null,
     "recent_share": 0
-  },
-  {
-    "id": "omnidocbench15",
-    "name": "OmniDocBench 1.5",
-    "lab_count": 4,
-    "labs": [
-      "google",
-      "moonshot",
-      "openai",
-      "qwen"
-    ],
-    "first_seen": "2026-01-27",
-    "last_seen": "2026-08-03",
-    "labs_by_year": {
-      "2026": 4
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 3,
-      "2026-Q2": 2,
-      "2026-Q3": 2
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": "omnidocbench",
-    "recent_share": 2
   },
   {
     "id": "pope",
@@ -5457,7 +5462,7 @@
     "recent_share": 3
   },
   {
-    "id": "arenahardv2",
+    "id": "arenahard2",
     "name": "Arena-Hard v2",
     "lab_count": 3,
     "labs": [
@@ -5810,30 +5815,6 @@
     },
     "labs_by_quarter": {
       "2026-Q2": 1,
-      "2026-Q3": 3
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "deepswe11",
-    "name": "DeepSWE 1.1",
-    "lab_count": 3,
-    "labs": [
-      "meta",
-      "qwen",
-      "xai"
-    ],
-    "first_seen": "2026-07-09",
-    "last_seen": "2026-09-14",
-    "labs_by_year": {
-      "2026": 3
-    },
-    "labs_by_quarter": {
       "2026-Q3": 3
     },
     "categories": [
@@ -6600,7 +6581,7 @@
     "recent_share": 2
   },
   {
-    "id": "mmbenchv11",
+    "id": "mmbench11",
     "name": "MMBench (V1.1)",
     "lab_count": 3,
     "labs": [
@@ -6608,15 +6589,16 @@
       "qwen",
       "zai"
     ],
-    "first_seen": "2024-09-18",
+    "first_seen": "2024-08-29",
     "last_seen": "2025-12-08",
     "labs_by_year": {
       "2024": 2,
-      "2025": 1
+      "2025": 2
     },
     "labs_by_quarter": {
       "2024-Q3": 1,
       "2024-Q4": 1,
+      "2025-Q1": 1,
       "2025-Q3": 1,
       "2025-Q4": 1
     },
@@ -8015,7 +7997,7 @@
     "recent_share": 0
   },
   {
-    "id": "alignbenchv11",
+    "id": "alignbench11",
     "name": "AlignBench (v1.1)",
     "lab_count": 2,
     "labs": [
@@ -8471,7 +8453,7 @@
     "recent_share": 1
   },
   {
-    "id": "bfclv3",
+    "id": "bfcl3",
     "name": "BFCL-v3",
     "lab_count": 2,
     "labs": [
@@ -9015,7 +8997,7 @@
     "recent_share": 0
   },
   {
-    "id": "creativewritingv3",
+    "id": "creativewriting3",
     "name": "Creative Writing v3",
     "lab_count": 2,
     "labs": [
@@ -9517,7 +9499,7 @@
     "recent_share": 2
   },
   {
-    "id": "financeagentv11",
+    "id": "financeagent11",
     "name": "Finance Agent (v1.1)",
     "lab_count": 2,
     "labs": [
@@ -9634,14 +9616,36 @@
     "recent_share": 0
   },
   {
-    "id": "frontiercode11main",
-    "name": "FrontierCode 1.1 Main",
+    "id": "frontiercode11",
+    "name": "FrontierCode (v1.1)",
     "lab_count": 2,
     "labs": [
-      "google",
-      "openai"
+      "anthropic",
+      "xai"
     ],
-    "first_seen": "2026-08-13",
+    "first_seen": "2026-07-24",
+    "last_seen": "2026-08-12",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 2
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": "frontiercode",
+    "recent_share": 0
+  },
+  {
+    "id": "frontiercode11extended",
+    "name": "FrontierCode 1.1 Extended",
+    "lab_count": 2,
+    "labs": [
+      "openai",
+      "xai"
+    ],
+    "first_seen": "2026-08-12",
     "last_seen": "2026-09-03",
     "labs_by_year": {
       "2026": 2
@@ -9656,15 +9660,15 @@
     "recent_share": 0
   },
   {
-    "id": "frontiercodev11",
-    "name": "FrontierCode (v1.1)",
+    "id": "frontiercode11main",
+    "name": "FrontierCode 1.1 Main",
     "lab_count": 2,
     "labs": [
-      "anthropic",
-      "xai"
+      "google",
+      "openai"
     ],
-    "first_seen": "2026-07-24",
-    "last_seen": "2026-08-12",
+    "first_seen": "2026-08-13",
+    "last_seen": "2026-09-03",
     "labs_by_year": {
       "2026": 2
     },
@@ -10280,6 +10284,30 @@
     "recent_share": 1
   },
   {
+    "id": "imagenet2",
+    "name": "ImageNet-V2",
+    "lab_count": 2,
+    "labs": [
+      "meta",
+      "qwen"
+    ],
+    "first_seen": "2023-04-14",
+    "last_seen": "2025-11-26",
+    "labs_by_year": {
+      "2023": 1,
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2023-Q2": 1,
+      "2025-Q4": 1
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": "imagenet",
+    "recent_share": 0
+  },
+  {
     "id": "imageneta",
     "name": "ImageNet-A",
     "lab_count": 2,
@@ -10306,30 +10334,6 @@
   {
     "id": "imagenetr",
     "name": "ImageNet-R",
-    "lab_count": 2,
-    "labs": [
-      "meta",
-      "qwen"
-    ],
-    "first_seen": "2023-04-14",
-    "last_seen": "2025-11-26",
-    "labs_by_year": {
-      "2023": 1,
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q2": 1,
-      "2025-Q4": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": "imagenet",
-    "recent_share": 0
-  },
-  {
-    "id": "imagenetv2",
-    "name": "ImageNet-V2",
     "lab_count": 2,
     "labs": [
       "meta",
@@ -10527,21 +10531,20 @@
     "recent_share": 0
   },
   {
-    "id": "lcbv6",
+    "id": "lcb6",
     "name": "LCB v6",
     "lab_count": 2,
     "labs": [
       "qwen",
       "zai"
     ],
-    "first_seen": "2025-09-22",
+    "first_seen": "2025-10-16",
     "last_seen": "2026-01-19",
     "labs_by_year": {
       "2025": 1,
       "2026": 1
     },
     "labs_by_quarter": {
-      "2025-Q3": 1,
       "2025-Q4": 1,
       "2026-Q1": 1
     },
@@ -10549,7 +10552,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "legalagentbenchmark",
@@ -11344,6 +11347,29 @@
     "recent_share": 1
   },
   {
+    "id": "mmbench11en",
+    "name": "MMBench-V1.1-EN",
+    "lab_count": 2,
+    "labs": [
+      "qwen",
+      "zai"
+    ],
+    "first_seen": "2025-02-19",
+    "last_seen": "2025-07-01",
+    "labs_by_year": {
+      "2025": 2
+    },
+    "labs_by_quarter": {
+      "2025-Q1": 1,
+      "2025-Q3": 1
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": "mmbench",
+    "recent_share": 0
+  },
+  {
     "id": "mmbenchcn",
     "name": "MMBench-CN",
     "lab_count": 2,
@@ -11387,52 +11413,6 @@
       "2024-Q3": 1,
       "2025-Q1": 1,
       "2025-Q2": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": "mmbench",
-    "recent_share": 0
-  },
-  {
-    "id": "mmbenchenv11",
-    "name": "MMBench-EN (v1.1)",
-    "lab_count": 2,
-    "labs": [
-      "moonshot",
-      "qwen"
-    ],
-    "first_seen": "2025-04-09",
-    "last_seen": "2025-09-22",
-    "labs_by_year": {
-      "2025": 2
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1,
-      "2025-Q3": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": "mmbench",
-    "recent_share": 0
-  },
-  {
-    "id": "mmbenchv11en",
-    "name": "MMBench-V1.1-EN",
-    "lab_count": 2,
-    "labs": [
-      "qwen",
-      "zai"
-    ],
-    "first_seen": "2025-02-19",
-    "last_seen": "2025-07-01",
-    "labs_by_year": {
-      "2025": 2
-    },
-    "labs_by_quarter": {
-      "2025-Q1": 1,
-      "2025-Q3": 1
     },
     "categories": [
       "vision"
@@ -11885,7 +11865,7 @@
     "recent_share": 1
   },
   {
-    "id": "mrcrv2",
+    "id": "mrcr2",
     "name": "MRCR v2",
     "lab_count": 2,
     "labs": [
@@ -11936,7 +11916,7 @@
     "recent_share": 0
   },
   {
-    "id": "mtebengv2",
+    "id": "mtebeng2",
     "name": "MTEB(Eng, v2)",
     "lab_count": 2,
     "labs": [
@@ -12427,28 +12407,6 @@
       "math"
     ],
     "suite": null,
-    "recent_share": 1
-  },
-  {
-    "id": "omnidocbenchv15",
-    "name": "OmniDocBench (v1.5)",
-    "lab_count": 2,
-    "labs": [
-      "deepseek",
-      "zai"
-    ],
-    "first_seen": "2026-01-28",
-    "last_seen": "2026-02-02",
-    "labs_by_year": {
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 2
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": "omnidocbench",
     "recent_share": 1
   },
   {
@@ -13046,7 +13004,7 @@
     "recent_share": 0
   },
   {
-    "id": "screenspotv2",
+    "id": "screenspot2",
     "name": "ScreenSpot-v2",
     "lab_count": 2,
     "labs": [
@@ -13344,30 +13302,6 @@
     "recent_share": 1
   },
   {
-    "id": "ssv2",
-    "name": "SS-V2",
-    "lab_count": 2,
-    "labs": [
-      "google",
-      "qwen"
-    ],
-    "first_seen": "2023-12-21",
-    "last_seen": "2026-07-30",
-    "labs_by_year": {
-      "2023": 1,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q4": 1,
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "storycloze",
     "name": "StoryCloze",
     "lab_count": 2,
@@ -13517,29 +13451,6 @@
     "recent_share": 0
   },
   {
-    "id": "terminalbench2",
-    "name": "Terminal Bench 2",
-    "lab_count": 2,
-    "labs": [
-      "qwen",
-      "upstage"
-    ],
-    "first_seen": "2026-02-14",
-    "last_seen": "2026-03-24",
-    "labs_by_year": {
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 2
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": "terminal-bench",
-    "recent_share": 1
-  },
-  {
     "id": "terminalbenchscience01",
     "name": "Terminal-Bench-Science 0.1",
     "lab_count": 2,
@@ -13549,29 +13460,6 @@
     ],
     "first_seen": "2026-09-01",
     "last_seen": "2026-09-03",
-    "labs_by_year": {
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 2
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": "terminal-bench",
-    "recent_share": 0
-  },
-  {
-    "id": "terminalbenchv21",
-    "name": "Terminal-Bench (v2.1)",
-    "lab_count": 2,
-    "labs": [
-      "deepseek",
-      "upstage"
-    ],
-    "first_seen": "2026-08-11",
-    "last_seen": "2026-09-17",
     "labs_by_year": {
       "2026": 2
     },
@@ -13990,7 +13878,7 @@
     "recent_share": 1
   },
   {
-    "id": "vidorev2",
+    "id": "vidore2",
     "name": "ViDoRe v2",
     "lab_count": 2,
     "labs": [
@@ -14136,6 +14024,30 @@
     },
     "categories": [
       "speech"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "vqa2",
+    "name": "VQA v2",
+    "lab_count": 2,
+    "labs": [
+      "google",
+      "meta"
+    ],
+    "first_seen": "2024-05-16",
+    "last_seen": "2025-03-25",
+    "labs_by_year": {
+      "2024": 1,
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2024-Q2": 1,
+      "2025-Q1": 1
+    },
+    "categories": [
+      "vision"
     ],
     "suite": null,
     "recent_share": 0
@@ -15004,6 +14916,27 @@
     "recent_share": 0
   },
   {
+    "id": "aegis2",
+    "name": "Aegis v2",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-07-28",
+    "last_seen": "2026-07-28",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "aegis20",
     "name": "Aegis 2.0",
     "lab_count": 1,
@@ -15017,27 +14950,6 @@
     },
     "labs_by_quarter": {
       "2025-Q4": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "aegisv2",
-    "name": "Aegis v2",
-    "lab_count": 1,
-    "labs": [
-      "mistral"
-    ],
-    "first_seen": "2026-07-28",
-    "last_seen": "2026-07-28",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
     },
     "categories": [
       "other"
@@ -16857,6 +16769,48 @@
     "recent_share": 0
   },
   {
+    "id": "arenahard20",
+    "name": "Arena Hard (v2.0)",
+    "lab_count": 1,
+    "labs": [
+      "moonshot"
+    ],
+    "first_seen": "2025-07-28",
+    "last_seen": "2025-07-28",
+    "labs_by_year": {
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q3": 1
+    },
+    "categories": [
+      "knowledge"
+    ],
+    "suite": "arena-hard",
+    "recent_share": 1
+  },
+  {
+    "id": "arenahard2japanese",
+    "name": "Arena-Hard v2 (Japanese)",
+    "lab_count": 1,
+    "labs": [
+      "upstage"
+    ],
+    "first_seen": "2026-08-11",
+    "last_seen": "2026-08-11",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "multilingual"
+    ],
+    "suite": "arena-hard",
+    "recent_share": 0
+  },
+  {
     "id": "arenahardcreativewriting",
     "name": "Arena-Hard (Creative Writing)",
     "lab_count": 1,
@@ -16901,48 +16855,6 @@
     ],
     "suite": "arena-hard",
     "recent_share": 1
-  },
-  {
-    "id": "arenahardv20",
-    "name": "Arena Hard (v2.0)",
-    "lab_count": 1,
-    "labs": [
-      "moonshot"
-    ],
-    "first_seen": "2025-07-28",
-    "last_seen": "2025-07-28",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    },
-    "categories": [
-      "knowledge"
-    ],
-    "suite": "arena-hard",
-    "recent_share": 1
-  },
-  {
-    "id": "arenahardv2japanese",
-    "name": "Arena-Hard v2 (Japanese)",
-    "lab_count": 1,
-    "labs": [
-      "upstage"
-    ],
-    "first_seen": "2026-08-11",
-    "last_seen": "2026-08-11",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "multilingual"
-    ],
-    "suite": "arena-hard",
-    "recent_share": 0
   },
   {
     "id": "arenatext",
@@ -18006,7 +17918,7 @@
     "recent_share": 0
   },
   {
-    "id": "berkeleyfunctioncallingv4benchmark",
+    "id": "berkeleyfunctioncalling4benchmark",
     "name": "Berkeley Function Calling v4 Benchmark",
     "lab_count": 1,
     "labs": [
@@ -18069,7 +17981,7 @@
     "recent_share": 0
   },
   {
-    "id": "bfclv2",
+    "id": "bfcl2",
     "name": "BFCL v2",
     "lab_count": 1,
     "labs": [
@@ -18091,28 +18003,7 @@
     "recent_share": 0
   },
   {
-    "id": "bfclv3multiturn",
-    "name": "BFCL_v3_MultiTurn",
-    "lab_count": 1,
-    "labs": [
-      "deepseek"
-    ],
-    "first_seen": "2025-05-28",
-    "last_seen": "2025-05-28",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": "bfcl",
-    "recent_share": 0
-  },
-  {
-    "id": "bfclv4",
+    "id": "bfcl4",
     "name": "BFCL-V4",
     "lab_count": 1,
     "labs": [
@@ -18132,6 +18023,27 @@
     ],
     "suite": "bfcl",
     "recent_share": 1
+  },
+  {
+    "id": "bfclv3multiturn",
+    "name": "BFCL_v3_MultiTurn",
+    "lab_count": 1,
+    "labs": [
+      "deepseek"
+    ],
+    "first_seen": "2025-05-28",
+    "last_seen": "2025-05-28",
+    "labs_by_year": {
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q2": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "bfcl",
+    "recent_share": 0
   },
   {
     "id": "biasbenchmarkforquestionanswering",
@@ -18462,7 +18374,7 @@
     "recent_share": 0
   },
   {
-    "id": "biotierv1",
+    "id": "biotier1",
     "name": "BioTIER v1",
     "lab_count": 1,
     "labs": [
@@ -19019,7 +18931,7 @@
     "recent_share": 0
   },
   {
-    "id": "ccbenchv2",
+    "id": "ccbench2",
     "name": "CC-Bench-V2",
     "lab_count": 1,
     "labs": [
@@ -19088,7 +19000,7 @@
     "recent_share": 1
   },
   {
-    "id": "ccocrbenchv2",
+    "id": "ccocrbench2",
     "name": "CC-OCR-Bench-V2",
     "lab_count": 1,
     "labs": [
@@ -20753,7 +20665,7 @@
     "recent_share": 0
   },
   {
-    "id": "codegolfv22pass1",
+    "id": "codegolf22pass1",
     "name": "Codegolf v2.2 (pass@1)",
     "lab_count": 1,
     "labs": [
@@ -21225,7 +21137,7 @@
     "recent_share": 0
   },
   {
-    "id": "corpfinv2",
+    "id": "corpfin2",
     "name": "CorpFin v2",
     "lab_count": 1,
     "labs": [
@@ -21820,7 +21732,7 @@
   },
   {
     "id": "cursorbench32",
-    "name": "CursorBench 3.2",
+    "name": "CursorBench (v3.2)",
     "lab_count": 1,
     "labs": [
       "xai"
@@ -21848,27 +21760,6 @@
     ],
     "first_seen": "2026-09-01",
     "last_seen": "2026-09-01",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "cursorbenchv32",
-    "name": "CursorBench (v3.2)",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2026-08-12",
-    "last_seen": "2026-08-12",
     "labs_by_year": {
       "2026": 1
     },
@@ -22487,35 +22378,13 @@
   },
   {
     "id": "deepswe10",
-    "name": "DeepSWE 1.0",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2026-07-16",
-    "last_seen": "2026-07-16",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "deepswev10",
     "name": "DeepSWE (v1.0)",
     "lab_count": 1,
     "labs": [
       "xai"
     ],
     "first_seen": "2026-07-14",
-    "last_seen": "2026-07-14",
+    "last_seen": "2026-07-16",
     "labs_by_year": {
       "2026": 1
     },
@@ -23061,7 +22930,7 @@
     "recent_share": 0
   },
   {
-    "id": "dppbenchv140chartfigure",
+    "id": "dppbench140chartfigure",
     "name": "dpp-bench-v1.4.0/chart,figure",
     "lab_count": 1,
     "labs": [
@@ -23082,7 +22951,7 @@
     "recent_share": 1
   },
   {
-    "id": "dppbenchv140checkbox",
+    "id": "dppbench140checkbox",
     "name": "dpp-bench-v1.4.0/checkbox",
     "lab_count": 1,
     "labs": [
@@ -23103,7 +22972,7 @@
     "recent_share": 1
   },
   {
-    "id": "dppbenchv140table",
+    "id": "dppbench140table",
     "name": "dpp-bench-v1.4.0/table",
     "lab_count": 1,
     "labs": [
@@ -25662,7 +25531,7 @@
     "recent_share": 0
   },
   {
-    "id": "frontierbenchv01",
+    "id": "frontierbench01",
     "name": "Frontier-Bench (v0.1)",
     "lab_count": 1,
     "labs": [
@@ -25703,48 +25572,6 @@
     ],
     "suite": "frontiercode",
     "recent_share": 1
-  },
-  {
-    "id": "frontiercode11extended",
-    "name": "FrontierCode 1.1 Extended",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2026-09-03",
-    "last_seen": "2026-09-03",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": "frontiercode",
-    "recent_share": 0
-  },
-  {
-    "id": "frontiercodev11extended",
-    "name": "FrontierCode v1.1 (Extended)",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2026-08-12",
-    "last_seen": "2026-08-12",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": "frontiercode",
-    "recent_share": 0
   },
   {
     "id": "frontierfinance",
@@ -25815,7 +25642,7 @@
     "recent_share": 1
   },
   {
-    "id": "frontiermathtier13v2",
+    "id": "frontiermathtier132",
     "name": "FrontierMath Tier 1-3 (v2)",
     "lab_count": 1,
     "labs": [
@@ -25860,7 +25687,7 @@
     "recent_share": 1
   },
   {
-    "id": "frontiermathtier4v2",
+    "id": "frontiermathtier42",
     "name": "FrontierMath Tier 4 (v2)",
     "lab_count": 1,
     "labs": [
@@ -25878,6 +25705,28 @@
       "math"
     ],
     "suite": "frontiermath",
+    "recent_share": 0
+  },
+  {
+    "id": "frontierswe2",
+    "name": "FrontierSWE v2",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-09-01",
+    "last_seen": "2026-09-01",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "coding",
+      "agentic"
+    ],
+    "suite": "frontierswe",
     "recent_share": 0
   },
   {
@@ -25925,29 +25774,7 @@
     "recent_share": 1
   },
   {
-    "id": "frontierswev2",
-    "name": "FrontierSWE v2",
-    "lab_count": 1,
-    "labs": [
-      "anthropic"
-    ],
-    "first_seen": "2026-09-01",
-    "last_seen": "2026-09-01",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": "frontierswe",
-    "recent_share": 0
-  },
-  {
-    "id": "fullduplexbenchv1",
+    "id": "fullduplexbench1",
     "name": "Full Duplex Bench v1",
     "lab_count": 1,
     "labs": [
@@ -25968,7 +25795,7 @@
     "recent_share": 0
   },
   {
-    "id": "fullduplexbenchv15",
+    "id": "fullduplexbench15",
     "name": "Full Duplex Bench (v1.5)",
     "lab_count": 1,
     "labs": [
@@ -25989,7 +25816,7 @@
     "recent_share": 0
   },
   {
-    "id": "fullduplexbenchv3",
+    "id": "fullduplexbench3",
     "name": "Full Duplex Bench v3",
     "lab_count": 1,
     "labs": [
@@ -26202,7 +26029,7 @@
     "recent_share": 0
   },
   {
-    "id": "gdmmrcrv2",
+    "id": "gdmmrcr2",
     "name": "GDM-MRCR v2",
     "lab_count": 1,
     "labs": [
@@ -26437,6 +26264,27 @@
     "recent_share": 0
   },
   {
+    "id": "genebench1",
+    "name": "GeneBench v1",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-06-26",
+    "last_seen": "2026-06-26",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "genebenchpro",
     "name": "GeneBench Pro",
     "lab_count": 1,
@@ -26450,27 +26298,6 @@
     },
     "labs_by_quarter": {
       "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "genebenchv1",
-    "name": "GeneBench v1",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2026-06-26",
-    "last_seen": "2026-06-26",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1
     },
     "categories": [
       "other"
@@ -27267,7 +27094,7 @@
     "recent_share": 0
   },
   {
-    "id": "hackerbenchv02",
+    "id": "hackerbench02",
     "name": "HackerBench (v0.2)",
     "lab_count": 1,
     "labs": [
@@ -27358,7 +27185,7 @@
     "recent_share": 1
   },
   {
-    "id": "haeraev11",
+    "id": "haerae11",
     "name": "HAE-RAE (v1.1)",
     "lab_count": 1,
     "labs": [
@@ -27750,7 +27577,7 @@
     "recent_share": 0
   },
   {
-    "id": "hhemv21",
+    "id": "hhem21",
     "name": "HHEM (v2.1)",
     "lab_count": 1,
     "labs": [
@@ -28881,6 +28708,27 @@
     "recent_share": 1
   },
   {
+    "id": "ifeval8",
+    "name": "IF eval v8",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2025-07-30",
+    "last_seen": "2025-07-30",
+    "labs_by_year": {
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q3": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "ifevaljapanese",
     "name": "IFEval (Japanese)",
     "lab_count": 1,
@@ -28941,27 +28789,6 @@
     },
     "categories": [
       "reasoning"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "ifevalv8",
-    "name": "IF eval v8",
-    "lab_count": 1,
-    "labs": [
-      "mistral"
-    ],
-    "first_seen": "2025-07-30",
-    "last_seen": "2025-07-30",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1
-    },
-    "categories": [
-      "other"
     ],
     "suite": null,
     "recent_share": 0
@@ -30400,7 +30227,7 @@
     "recent_share": 0
   },
   {
-    "id": "jaqketv2",
+    "id": "jaqket2",
     "name": "JAQKET v2",
     "lab_count": 1,
     "labs": [
@@ -30720,7 +30547,7 @@
     "recent_share": 0
   },
   {
-    "id": "kernelbenchinternalv11",
+    "id": "kernelbenchinternal11",
     "name": "KernelBenchInternal (v1.1)",
     "lab_count": 1,
     "labs": [
@@ -30874,28 +30701,7 @@
     "recent_share": 2
   },
   {
-    "id": "kimicodebench20",
-    "name": "Kimi Code Bench 2.0",
-    "lab_count": 1,
-    "labs": [
-      "moonshot"
-    ],
-    "first_seen": "2026-07-16",
-    "last_seen": "2026-07-16",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "coding"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "kimicodebenchv2",
+    "id": "kimicodebench2",
     "name": "Kimi Code Bench v2",
     "lab_count": 1,
     "labs": [
@@ -30915,6 +30721,27 @@
     ],
     "suite": null,
     "recent_share": 1
+  },
+  {
+    "id": "kimicodebench20",
+    "name": "Kimi Code Bench 2.0",
+    "lab_count": 1,
+    "labs": [
+      "moonshot"
+    ],
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-07-16",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "coding"
+    ],
+    "suite": null,
+    "recent_share": 0
   },
   {
     "id": "kimidesignbench",
@@ -31049,6 +30876,27 @@
     "recent_share": 1
   },
   {
+    "id": "koarenahard2",
+    "name": "Ko Arena Hard v2",
+    "lab_count": 1,
+    "labs": [
+      "upstage"
+    ],
+    "first_seen": "2026-01-11",
+    "last_seen": "2026-03-24",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q1": 1
+    },
+    "categories": [
+      "knowledge"
+    ],
+    "suite": null,
+    "recent_share": 2
+  },
+  {
     "id": "koarenahardauto",
     "name": "Ko-Arena-Hard-Auto",
     "lab_count": 1,
@@ -31068,27 +30916,6 @@
     ],
     "suite": null,
     "recent_share": 1
-  },
-  {
-    "id": "koarenahardv2",
-    "name": "Ko Arena Hard v2",
-    "lab_count": 1,
-    "labs": [
-      "upstage"
-    ],
-    "first_seen": "2026-01-11",
-    "last_seen": "2026-03-24",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 1
-    },
-    "categories": [
-      "knowledge"
-    ],
-    "suite": null,
-    "recent_share": 2
   },
   {
     "id": "kobalt",
@@ -31460,7 +31287,7 @@
     "recent_share": 0
   },
   {
-    "id": "lbppv2",
+    "id": "lbpp2",
     "name": "LBPP (v2)",
     "lab_count": 1,
     "labs": [
@@ -31483,6 +31310,27 @@
   {
     "id": "lcbv5",
     "name": "LCBV5",
+    "lab_count": 1,
+    "labs": [
+      "qwen"
+    ],
+    "first_seen": "2025-09-22",
+    "last_seen": "2025-09-22",
+    "labs_by_year": {
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q3": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "lcbv6",
+    "name": "LCBV6",
     "lab_count": 1,
     "labs": [
       "qwen"
@@ -32014,6 +31862,27 @@
     "recent_share": 0
   },
   {
+    "id": "livecodebench1",
+    "name": "LiveCodeBench v1",
+    "lab_count": 1,
+    "labs": [
+      "qwen"
+    ],
+    "first_seen": "2024-07-15",
+    "last_seen": "2024-07-15",
+    "labs_by_year": {
+      "2024": 1
+    },
+    "labs_by_quarter": {
+      "2024-Q3": 1
+    },
+    "categories": [
+      "coding"
+    ],
+    "suite": "livecodebench",
+    "recent_share": 0
+  },
+  {
     "id": "livecodebench23052409",
     "name": "LiveCodeBench 2305-2409",
     "lab_count": 1,
@@ -32033,6 +31902,28 @@
     ],
     "suite": "livecodebench",
     "recent_share": 0
+  },
+  {
+    "id": "livecodebench625022505",
+    "name": "LiveCodeBench v6 (25.02-25.05)",
+    "lab_count": 1,
+    "labs": [
+      "qwen"
+    ],
+    "first_seen": "2025-07-21",
+    "last_seen": "2025-12-09",
+    "labs_by_year": {
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q3": 1,
+      "2025-Q4": 1
+    },
+    "categories": [
+      "coding"
+    ],
+    "suite": "livecodebench",
+    "recent_share": 1
   },
   {
     "id": "livecodebenchcodegeneration",
@@ -32077,49 +31968,6 @@
     ],
     "suite": "livecodebench",
     "recent_share": 0
-  },
-  {
-    "id": "livecodebenchv1",
-    "name": "LiveCodeBench v1",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2024-07-15",
-    "last_seen": "2024-07-15",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1
-    },
-    "categories": [
-      "coding"
-    ],
-    "suite": "livecodebench",
-    "recent_share": 0
-  },
-  {
-    "id": "livecodebenchv625022505",
-    "name": "LiveCodeBench v6 (25.02-25.05)",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2025-07-21",
-    "last_seen": "2025-12-09",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1,
-      "2025-Q4": 1
-    },
-    "categories": [
-      "coding"
-    ],
-    "suite": "livecodebench",
-    "recent_share": 1
   },
   {
     "id": "liveqa",
@@ -32725,7 +32573,7 @@
     "recent_share": 2
   },
   {
-    "id": "lvisv1",
+    "id": "lvis1",
     "name": "LVIS v1",
     "lab_count": 1,
     "labs": [
@@ -33282,7 +33130,7 @@
     "recent_share": 0
   },
   {
-    "id": "mathinstructv2",
+    "id": "mathinstruct2",
     "name": "Math Instruct v2",
     "lab_count": 1,
     "labs": [
@@ -34827,6 +34675,28 @@
     "recent_share": 0
   },
   {
+    "id": "mmau051525",
+    "name": "MMAU (v0.5.15.25)",
+    "lab_count": 1,
+    "labs": [
+      "qwen"
+    ],
+    "first_seen": "2025-09-21",
+    "last_seen": "2025-12-09",
+    "labs_by_year": {
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q3": 1,
+      "2025-Q4": 1
+    },
+    "categories": [
+      "speech"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "mmaupro",
     "name": "MMAU-Pro",
     "lab_count": 1,
@@ -34848,28 +34718,6 @@
     ],
     "suite": null,
     "recent_share": 1
-  },
-  {
-    "id": "mmauv051525",
-    "name": "MMAU (v0.5.15.25)",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2025-09-21",
-    "last_seen": "2025-12-09",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1,
-      "2025-Q4": 1
-    },
-    "categories": [
-      "speech"
-    ],
-    "suite": null,
-    "recent_share": 0
   },
   {
     "id": "mmb",
@@ -34917,21 +34765,19 @@
     "recent_share": 0
   },
   {
-    "id": "mmbench11",
-    "name": "MMBench 1.1",
+    "id": "mmbench11cn",
+    "name": "MMBench-V1.1-CN",
     "lab_count": 1,
     "labs": [
-      "qwen"
+      "zai"
     ],
-    "first_seen": "2024-08-29",
-    "last_seen": "2025-01-26",
+    "first_seen": "2025-07-01",
+    "last_seen": "2025-07-01",
     "labs_by_year": {
-      "2024": 1,
       "2025": 1
     },
     "labs_by_quarter": {
-      "2024-Q3": 1,
-      "2025-Q1": 1
+      "2025-Q3": 1
     },
     "categories": [
       "vision"
@@ -34961,7 +34807,28 @@
     "recent_share": 0
   },
   {
-    "id": "mmbenchendevv11",
+    "id": "mmbenchen11",
+    "name": "MMBench-EN (v1.1)",
+    "lab_count": 1,
+    "labs": [
+      "moonshot"
+    ],
+    "first_seen": "2025-04-09",
+    "last_seen": "2025-06-21",
+    "labs_by_year": {
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q2": 1
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": "mmbench",
+    "recent_share": 0
+  },
+  {
+    "id": "mmbenchendev11",
     "name": "MMBenchEN-DEV (v1.1)",
     "lab_count": 1,
     "labs": [
@@ -35004,6 +34871,27 @@
     "recent_share": 0
   },
   {
+    "id": "mmbenchenv11",
+    "name": "MMBench_EN_V 1.1",
+    "lab_count": 1,
+    "labs": [
+      "qwen"
+    ],
+    "first_seen": "2025-09-22",
+    "last_seen": "2025-09-22",
+    "labs_by_year": {
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q3": 1
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": "mmbench",
+    "recent_share": 0
+  },
+  {
     "id": "mmbenchgui",
     "name": "MMBench-GUI",
     "lab_count": 1,
@@ -35025,19 +34913,19 @@
     "recent_share": 0
   },
   {
-    "id": "mmbenchv11cn",
-    "name": "MMBench-V1.1-CN",
+    "id": "mmbenchv11",
+    "name": "MMBench-V 1.1",
     "lab_count": 1,
     "labs": [
-      "zai"
+      "qwen"
     ],
-    "first_seen": "2025-07-01",
-    "last_seen": "2025-07-01",
+    "first_seen": "2024-09-18",
+    "last_seen": "2024-09-18",
     "labs_by_year": {
-      "2025": 1
+      "2024": 1
     },
     "labs_by_quarter": {
-      "2025-Q3": 1
+      "2024-Q3": 1
     },
     "categories": [
       "vision"
@@ -35130,7 +35018,7 @@
     "recent_share": 0
   },
   {
-    "id": "mmebv2",
+    "id": "mmeb2",
     "name": "MMEB-v2",
     "lab_count": 1,
     "labs": [
@@ -35874,7 +35762,7 @@
     "recent_share": 1
   },
   {
-    "id": "mrcrv2128k",
+    "id": "mrcr2128k",
     "name": "MRCR-v2 128k",
     "lab_count": 1,
     "labs": [
@@ -35895,7 +35783,7 @@
     "recent_share": 0
   },
   {
-    "id": "mrcrv2256k8needle",
+    "id": "mrcr2256k8needle",
     "name": "MRCR v2 256K (8-needle)",
     "lab_count": 1,
     "labs": [
@@ -35916,7 +35804,7 @@
     "recent_share": 0
   },
   {
-    "id": "mrcrv28needle",
+    "id": "mrcr28needle",
     "name": "MRCR v2 (8-needle)",
     "lab_count": 1,
     "labs": [
@@ -36138,7 +36026,7 @@
     "recent_share": 0
   },
   {
-    "id": "mtebcodev1",
+    "id": "mtebcode1",
     "name": "MTEB(Code, v1)",
     "lab_count": 1,
     "labs": [
@@ -36161,7 +36049,7 @@
     "recent_share": 0
   },
   {
-    "id": "mtebmultilingualv2",
+    "id": "mtebmultilingual2",
     "name": "MTEB Multilingual v2",
     "lab_count": 1,
     "labs": [
@@ -37991,7 +37879,7 @@
     "recent_share": 0
   },
   {
-    "id": "ocrbenchv2en",
+    "id": "ocrbench2en",
     "name": "OCR-Bench-V2(EN)",
     "lab_count": 1,
     "labs": [
@@ -38012,7 +37900,7 @@
     "recent_share": 0
   },
   {
-    "id": "ocrbenchv2enzh",
+    "id": "ocrbench2enzh",
     "name": "OCR-Bench-V2 (EN/ZH)",
     "lab_count": 1,
     "labs": [
@@ -38033,7 +37921,7 @@
     "recent_share": 0
   },
   {
-    "id": "ocrbenchv2zh",
+    "id": "ocrbench2zh",
     "name": "OCR-Bench-V2(ZH)",
     "lab_count": 1,
     "labs": [
@@ -38097,7 +37985,7 @@
     "recent_share": 0
   },
   {
-    "id": "officeqaprov2",
+    "id": "officeqapro2",
     "name": "OfficeQA Pro V2",
     "lab_count": 1,
     "labs": [
@@ -38586,20 +38474,18 @@
     "recent_share": 0
   },
   {
-    "id": "openaimrcrv2",
+    "id": "openaimrcr2",
     "name": "OpenAI MRCR v2",
     "lab_count": 1,
     "labs": [
       "openai"
     ],
-    "first_seen": "2025-12-11",
+    "first_seen": "2026-03-05",
     "last_seen": "2026-09-03",
     "labs_by_year": {
-      "2025": 1,
       "2026": 1
     },
     "labs_by_quarter": {
-      "2025-Q4": 1,
       "2026-Q1": 1,
       "2026-Q2": 1,
       "2026-Q3": 1
@@ -38609,6 +38495,27 @@
     ],
     "suite": null,
     "recent_share": 1
+  },
+  {
+    "id": "openaimrcrv2",
+    "name": "OpenAI MRCRv2",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2025-12-11",
+    "last_seen": "2025-12-11",
+    "labs_by_year": {
+      "2025": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q4": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
   },
   {
     "id": "openaiprs",
@@ -38892,7 +38799,7 @@
     "recent_share": 1
   },
   {
-    "id": "organicchemistryv2",
+    "id": "organicchemistry2",
     "name": "Organic chemistry, V2",
     "lab_count": 1,
     "labs": [
@@ -38956,7 +38863,7 @@
     "recent_share": 0
   },
   {
-    "id": "osworldv2",
+    "id": "osworld2",
     "name": "OSWorld-v2",
     "lab_count": 1,
     "labs": [
@@ -40414,7 +40321,7 @@
     "recent_share": 0
   },
   {
-    "id": "precisionfdatruthchallengev2",
+    "id": "precisionfdatruthchallenge2",
     "name": "PrecisionFDA Truth Challenge V2",
     "lab_count": 1,
     "labs": [
@@ -41441,7 +41348,7 @@
     "recent_share": 1
   },
   {
-    "id": "realworldfinancev1",
+    "id": "realworldfinance1",
     "name": "Real-World Finance v1",
     "lab_count": 1,
     "labs": [
@@ -41462,7 +41369,7 @@
     "recent_share": 0
   },
   {
-    "id": "realworldfinancev2",
+    "id": "realworldfinance2",
     "name": "Real-World Finance v2",
     "lab_count": 1,
     "labs": [
@@ -41787,7 +41694,7 @@
     "recent_share": 0
   },
   {
-    "id": "repobenchv11",
+    "id": "repobench11",
     "name": "RepoBench (v1.1)",
     "lab_count": 1,
     "labs": [
@@ -42083,7 +41990,7 @@
     "recent_share": 0
   },
   {
-    "id": "robochallengetable30v1",
+    "id": "robochallengetable301",
     "name": "RoboChallenge Table30 v1",
     "lab_count": 1,
     "labs": [
@@ -43987,7 +43894,7 @@
     "recent_share": 1
   },
   {
-    "id": "somethingsomethingv2",
+    "id": "somethingsomething2",
     "name": "Something-Something v2",
     "lab_count": 1,
     "labs": [
@@ -44333,6 +44240,27 @@
     "recent_share": 0
   },
   {
+    "id": "spreadsheetbench1",
+    "name": "SpreadSheetBench-v1",
+    "lab_count": 1,
+    "labs": [
+      "qwen"
+    ],
+    "first_seen": "2026-05-16",
+    "last_seen": "2026-05-21",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "spreadsheetbench2",
     "name": "SpreadsheetBench 2",
     "lab_count": 1,
@@ -44346,27 +44274,6 @@
     },
     "labs_by_quarter": {
       "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "spreadsheetbenchv1",
-    "name": "SpreadSheetBench-v1",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-05-16",
-    "last_seen": "2026-05-21",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1
     },
     "categories": [
       "other"
@@ -44399,7 +44306,7 @@
     "recent_share": 0
   },
   {
-    "id": "squadv2",
+    "id": "squad2",
     "name": "SQuAD v2",
     "lab_count": 1,
     "labs": [
@@ -44462,6 +44369,27 @@
     "recent_share": 0
   },
   {
+    "id": "ss2",
+    "name": "SS-V2",
+    "lab_count": 1,
+    "labs": [
+      "qwen"
+    ],
+    "first_seen": "2026-07-30",
+    "last_seen": "2026-07-30",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "sspro",
     "name": "SS-Pro",
     "lab_count": 1,
@@ -44475,6 +44403,27 @@
     },
     "labs_by_quarter": {
       "2026-Q3": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "ssv2",
+    "name": "SSv2",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2023-12-21",
+    "last_seen": "2023-12-21",
+    "labs_by_year": {
+      "2023": 1
+    },
+    "labs_by_quarter": {
+      "2023-Q4": 1
     },
     "categories": [
       "other"
@@ -44655,6 +44604,27 @@
     "recent_share": 0
   },
   {
+    "id": "strongreject2",
+    "name": "StrongREJECT v2",
+    "lab_count": 1,
+    "labs": [
+      "meta"
+    ],
+    "first_seen": "2026-05-14",
+    "last_seen": "2026-05-14",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 1
+    },
+    "categories": [
+      "safety"
+    ],
+    "suite": null,
+    "recent_share": 1
+  },
+  {
     "id": "strongrejectfiltered",
     "name": "StrongReject filtered",
     "lab_count": 1,
@@ -44674,27 +44644,6 @@
     ],
     "suite": null,
     "recent_share": 0
-  },
-  {
-    "id": "strongrejectv2",
-    "name": "StrongREJECT v2",
-    "lab_count": 1,
-    "labs": [
-      "meta"
-    ],
-    "first_seen": "2026-05-14",
-    "last_seen": "2026-05-14",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1
-    },
-    "categories": [
-      "safety"
-    ],
-    "suite": null,
-    "recent_share": 1
   },
   {
     "id": "sudoku",
@@ -45182,7 +45131,7 @@
     "recent_share": 0
   },
   {
-    "id": "swemarathonv11",
+    "id": "swemarathon11",
     "name": "SWE-Marathon (v1.1)",
     "lab_count": 1,
     "labs": [
@@ -45999,94 +45948,6 @@
     },
     "labs_by_quarter": {
       "2026-Q2": 1
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": "terminal-bench",
-    "recent_share": 0
-  },
-  {
-    "id": "terminalbench20terminus",
-    "name": "Terminal Bench 2.0-Terminus",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-05-16",
-    "last_seen": "2026-05-21",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": "terminal-bench",
-    "recent_share": 0
-  },
-  {
-    "id": "terminalbench20terminus2agent",
-    "name": "Terminal-Bench 2.0 (Terminus-2 agent)",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2025-11-18",
-    "last_seen": "2025-11-18",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q4": 1
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": "terminal-bench",
-    "recent_share": 0
-  },
-  {
-    "id": "terminalbench20terminus2harness",
-    "name": "Terminal-bench 2.0 (Terminus-2 harness)",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2025-12-17",
-    "last_seen": "2025-12-17",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q4": 1
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": "terminal-bench",
-    "recent_share": 0
-  },
-  {
-    "id": "terminalbenchv30",
-    "name": "Terminal-Bench (v3.0)",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2026-08-12",
-    "last_seen": "2026-08-12",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
     },
     "categories": [
       "coding",
@@ -47357,7 +47218,7 @@
     "recent_share": 0
   },
   {
-    "id": "valsfinanceagentv2",
+    "id": "valsfinanceagent2",
     "name": "Vals Finance Agent v2",
     "lab_count": 1,
     "labs": [
@@ -47635,7 +47496,7 @@
     "recent_share": 0
   },
   {
-    "id": "videommev2",
+    "id": "videomme2",
     "name": "Video-MME-v2",
     "lab_count": 1,
     "labs": [
@@ -47656,7 +47517,7 @@
     "recent_share": 0
   },
   {
-    "id": "videommev2wsub",
+    "id": "videomme2wsub",
     "name": "VideoMME v2 (w/ Sub.)",
     "lab_count": 1,
     "labs": [
@@ -47722,7 +47583,7 @@
     "recent_share": 1
   },
   {
-    "id": "vidorev1",
+    "id": "vidore1",
     "name": "Vidore-v1",
     "lab_count": 1,
     "labs": [
@@ -47743,7 +47604,7 @@
     "recent_share": 0
   },
   {
-    "id": "vidorev3",
+    "id": "vidore3",
     "name": "Vidore-v3",
     "lab_count": 1,
     "labs": [
@@ -48251,7 +48112,7 @@
     "recent_share": 0
   },
   {
-    "id": "voxpopuliv10en",
+    "id": "voxpopuli10en",
     "name": "Voxpopuli-V1.0-en",
     "lab_count": 1,
     "labs": [
@@ -48836,7 +48697,7 @@
     "recent_share": 0
   },
   {
-    "id": "wildbenchv2",
+    "id": "wildbench2",
     "name": "Wildbench v2",
     "lab_count": 1,
     "labs": [
@@ -49851,7 +49712,7 @@
     "recent_share": 0
   },
   {
-    "id": "zaicodebenchv10",
+    "id": "zaicodebench10",
     "name": "Z.ai Code Bench (v1.0)",
     "lab_count": 1,
     "labs": [

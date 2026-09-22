@@ -118,5 +118,9 @@
   "raceh": "raceh",
   "racehigh": "raceh",
   "racem": "racem",
-  "racemiddle": "racem"
+  "racemiddle": "racem",
+  "terminalbench2": "terminalbench20",
+  "terminalbench20terminus": "terminalbench20",
+  "terminalbench20terminus2agent": "terminalbench20",
+  "terminalbench20terminus2harness": "terminalbench20"
 }
