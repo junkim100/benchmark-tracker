@@ -1,7 +1,7 @@
 import "./styles/tokens.css";
 import "./styles/app.css";
 import raw from "../data/timeline.json";
-import { MAX_TRACKED, buildTrackables, displayNames, memberIds, quarterOf, yearsSpanned, type Timeline } from "./model";
+import { MAX_TRACKED, buildTrackables, displayNames, memberIds, quarterOf, type Timeline } from "./model";
 import { renderFilter } from "./filter";
 import { renderTimeline, tooltipHTML } from "./timeline";
 import { renderTrend, type TrendView } from "./trend";
@@ -22,12 +22,11 @@ const systemDark = () => window.matchMedia("(prefers-color-scheme: dark)").match
 const effective = (): "light" | "dark" => readTheme() ?? (systemDark() ? "dark" : "light");
 
 if (data.releases.length === 0) {
-  app.innerHTML = `<main class="empty"><h1>Benchmark Tracker</h1>
+  app.innerHTML = `<main class="empty"><h1>Frontier Benchmark Tracker</h1>
     <p>Which benchmarks frontier labs cite when they ship a model. No scores, only what each lab chose to report.</p>
     <p class="muted">Tracking ${data.labs.length} labs. No releases recorded yet.</p></main>`;
 } else {
   const names = displayNames(data.benchmarks);
-  const years = yearsSpanned(data.releases);
   const nowQ = quarterOf(new Date().toISOString().slice(0, 10));
   const partialQuarter = data.quarters.includes(nowQ) ? nowQ : null;
   // The window the recent share is measured over. Read from the build, not
@@ -67,8 +66,8 @@ if (data.releases.length === 0) {
   app.innerHTML = `
     <header class="hd">
       <div class="hd__title">
-        <h1>Benchmark Tracker</h1>
-        <p class="hd__sub">Which benchmarks frontier labs cite when they ship, not how they scored, across ${data.releases.length.toLocaleString()} official releases from ${labs.length} labs since ${years[0]}.</p>
+        <h1>Frontier Benchmark Tracker</h1>
+        <p class="hd__sub">Which benchmarks frontier labs cite in their model releases.</p>
       </div>
       <button class="iconbtn" type="button" data-act="theme">
         <span class="vh"></span>
@@ -101,11 +100,10 @@ if (data.releases.length === 0) {
     </div>
 
     <footer class="ft">
-      <div class="ft__notes">
-        <p>Sources are each lab's own site, model card, system card, or arXiv paper. Nothing is taken from news coverage or third-party leaderboards, and no score is recorded anywhere.</p>
-        <p>Lab names and marks are the trademarks of their respective owners, shown to identify whose releases each row lists. This site reports on these companies and is neither endorsed by nor affiliated with any of them.</p>
-      </div>
-      <p class="ft__meta">Updated ${data.generated_at.slice(0, 10)}. <a href="https://github.com/junkim100/benchmark-tracker">Data and code on GitHub</a></p>
+      <p>Sources are each lab's own site, model card, system card, or arXiv paper. Nothing is taken from news coverage or third-party leaderboards, and no score is recorded anywhere.</p>
+      <p>Lab names and marks are the trademarks of their respective owners, shown to identify whose releases each row lists. This site reports on these companies and is neither endorsed by nor affiliated with any of them.</p>
+      <p>Updated ${data.generated_at.slice(0, 10)}. <a href="https://github.com/junkim100/benchmark-tracker">Data and code on GitHub</a></p>
+      <p class="ft__legal">&copy; ${new Date().getUTCFullYear()} Jun Kim. Code under the MIT licence, data under CC BY 4.0. Lab marks are excluded from both.</p>
     </footer>
     <div class="tt" role="tooltip" hidden></div>`;
 

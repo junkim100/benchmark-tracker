@@ -1,6 +1,6 @@
-# Benchmark Tracker
+# Frontier Benchmark Tracker
 
-**Which benchmarks do frontier labs actually cite when they ship a model?**
+**Which benchmarks frontier labs cite in their model releases.**
 
 New benchmarks appear constantly and most of them go nowhere. The ones that matter are the ones frontier labs choose to put in front of the public. This site tracks that choice over time, and only that choice: it records **which benchmarks a lab reported, never how it scored**.
 
@@ -40,3 +40,9 @@ npm run build    # normalize, typecheck, bundle
 ```
 
 The build fails on any data contract breach, so a malformed research record cannot reach the site.
+
+## Licence
+
+Code is MIT, data is CC BY 4.0, and the lab marks in `src/logos.ts` are
+third-party trademarks covered by neither. See [NOTICE.md](NOTICE.md) for what
+each one reaches.

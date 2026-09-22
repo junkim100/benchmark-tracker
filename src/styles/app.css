@@ -324,15 +324,14 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 
 /* The page ends on its own surface rather than trailing off. A colour change
    closes the document more cleanly than another hairline would. */
-/* Two notes side by side, then the meta line on its own row beneath a rule.
-   Three equal columns at 52ch left every note four lines deep and ragged; two
-   columns of half the row give each about two, and the short meta line no
-   longer has to pretend it is a third column. */
-.ft { margin-top: 52px; padding: 26px clamp(18px, 5vw, 44px) 30px; border-top: 1px solid var(--border);
-  background: var(--surface-2); border-radius: var(--radius); }
-.ft__notes { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 40px; }
-.ft__meta { margin: 20px 0 0; padding-top: 18px; border-top: 1px solid var(--border); }
-.ft p { margin: 0; font-size: 13px; line-height: 1.55; color: var(--text-muted); text-wrap: pretty; }
+/* A single column on the page's own surface. The panel and the two columns
+   were doing decorative work: a footer is the one place where reading straight
+   down beats scanning across, and a tinted box made the end of the document
+   look like another component. A rule is enough of a boundary. */
+.ft { margin-top: 52px; padding: 26px 0 0; border-top: 1px solid var(--border); }
+.ft p { margin: 0 0 14px; max-width: 86ch; font-size: 13px; line-height: 1.6; color: var(--text-muted); text-wrap: pretty; }
+.ft p:last-child { margin-bottom: 0; }
+.ft__legal { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); }
 .empty { max-width: 56ch; }
 
 @media (max-width: 720px) {
@@ -340,8 +339,6 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
   .axis__y { font-size: 10px; }
   #app { padding-top: 36px; }
   .dt { font-size: 13px; }
-  /* One column. Two of them in a 350px row left each note twelve lines deep. */
-  .ft__notes { grid-template-columns: 1fr; gap: 18px; }
   /* A comfortable target rather than the 31px the pair sat at. */
   .seg button { padding: 10px 16px; }
 }
