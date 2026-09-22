@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T00:42:44.378Z",
+  "generated_at": "2026-09-22T01:36:08.848Z",
   "labs": [
     {
       "id": "openai",
@@ -2083,7 +2083,7 @@
       ],
       "benchmarks": [
         "toxicchat",
-        "openaimoderationevaluationdataset"
+        "openai-moderation"
       ]
     },
     {
@@ -3827,7 +3827,7 @@
       ],
       "benchmarks": [
         "xstest",
-        "openaimoderation",
+        "openai-moderation",
         "beavertails30k"
       ]
     },
@@ -5673,7 +5673,7 @@
       ],
       "benchmarks": [
         "lmsyschatbotarena",
-        "openaimod",
+        "openai-moderation",
         "toxicchat"
       ]
     },
@@ -5694,7 +5694,7 @@
       "benchmarks": [
         "sgprompt",
         "sgresponse",
-        "openaimod",
+        "openai-moderation",
         "toxicchat"
       ]
     },
@@ -17035,7 +17035,7 @@
       ],
       "benchmarks": [
         "toxic",
-        "openaimod",
+        "openai-moderation",
         "aegis",
         "aegis20",
         "simpst",
@@ -17163,7 +17163,7 @@
       ],
       "benchmarks": [
         "internalmoderationeval",
-        "openaimod22",
+        "openai-moderation",
         "toxicchat"
       ]
     },
@@ -17190,7 +17190,7 @@
       ],
       "benchmarks": [
         "internalmoderationevaluation",
-        "openaimoderationapi",
+        "openai-moderation",
         "toxicchat",
         "mmmlu",
         "standarddisallowedcontentevaluation",
@@ -26531,7 +26531,7 @@
         "aegisv2",
         "harmbench",
         "simplesafetytests",
-        "openaimoderation",
+        "openai-moderation",
         "beavertails",
         "saferlhf",
         "xstest",
@@ -29399,7 +29399,7 @@
         "math",
         "vision"
       ],
-      "suite": null,
+      "suite": "mathvista",
       "recent_share": 2
     },
     {
@@ -30905,7 +30905,7 @@
       "categories": [
         "math"
       ],
-      "suite": null,
+      "suite": "hmmt",
       "recent_share": 8
     },
     {
@@ -30935,7 +30935,7 @@
       "categories": [
         "math"
       ],
-      "suite": null,
+      "suite": "hmmt",
       "recent_share": 4
     },
     {
@@ -31037,7 +31037,7 @@
       "categories": [
         "longctx"
       ],
-      "suite": null,
+      "suite": "longbench",
       "recent_share": 5
     },
     {
@@ -31074,7 +31074,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "ocrbench",
       "recent_share": 5
     },
     {
@@ -31105,7 +31105,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "omnidocbench",
       "recent_share": 3
     },
     {
@@ -31340,7 +31340,7 @@
         "agentic",
         "vision"
       ],
-      "suite": null,
+      "suite": "screenspot",
       "recent_share": 3
     },
     {
@@ -31399,7 +31399,7 @@
       "categories": [
         "agentic"
       ],
-      "suite": null,
+      "suite": "toolathlon",
       "recent_share": 0
     },
     {
@@ -31786,7 +31786,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "charxiv",
       "recent_share": 1
     },
     {
@@ -31817,7 +31817,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "charxiv",
       "recent_share": 4
     },
     {
@@ -31955,7 +31955,7 @@
       "categories": [
         "coding"
       ],
-      "suite": null,
+      "suite": "cruxeval",
       "recent_share": 1
     },
     {
@@ -32095,7 +32095,7 @@
         "coding",
         "agentic"
       ],
-      "suite": null,
+      "suite": "frontierswe",
       "recent_share": 1
     },
     {
@@ -32130,7 +32130,7 @@
       "categories": [
         "speech"
       ],
-      "suite": null,
+      "suite": "librispeech",
       "recent_share": 0
     },
     {
@@ -32166,7 +32166,7 @@
         "math",
         "vision"
       ],
-      "suite": null,
+      "suite": "mathvision",
       "recent_share": 4
     },
     {
@@ -32300,7 +32300,7 @@
       "categories": [
         "reasoning"
       ],
-      "suite": null,
+      "suite": "multichallenge",
       "recent_share": 2
     },
     {
@@ -32338,7 +32338,7 @@
       "categories": [
         "coding"
       ],
-      "suite": null,
+      "suite": "multipl-e",
       "recent_share": 3
     },
     {
@@ -32391,8 +32391,40 @@
       "categories": [
         "agentic"
       ],
-      "suite": null,
+      "suite": "officeqa",
       "recent_share": 1
+    },
+    {
+      "id": "openai-moderation",
+      "name": "OpenAI Mod",
+      "lab_count": 5,
+      "labs": [
+        "google",
+        "meta",
+        "mistral",
+        "openai",
+        "qwen"
+      ],
+      "first_seen": "2023-12-07",
+      "last_seen": "2026-07-28",
+      "labs_by_year": {
+        "2023": 1,
+        "2024": 2,
+        "2025": 2,
+        "2026": 1
+      },
+      "labs_by_quarter": {
+        "2023-Q4": 1,
+        "2024-Q2": 1,
+        "2024-Q3": 1,
+        "2025-Q4": 2,
+        "2026-Q3": 1
+      },
+      "categories": [
+        "other"
+      ],
+      "suite": null,
+      "recent_share": 0
     },
     {
       "id": "programbench",
@@ -32572,7 +32604,7 @@
       "categories": [
         "agentic"
       ],
-      "suite": null,
+      "suite": "toolathlon",
       "recent_share": 4
     },
     {
@@ -32606,7 +32638,7 @@
         "agentic",
         "vision"
       ],
-      "suite": null,
+      "suite": "webarena",
       "recent_share": 3
     },
     {
@@ -32872,7 +32904,7 @@
       "categories": [
         "knowledge"
       ],
-      "suite": null,
+      "suite": "arena-hard",
       "recent_share": 1
     },
     {
@@ -33160,7 +33192,7 @@
       "categories": [
         "agentic"
       ],
-      "suite": null,
+      "suite": "finance-agent",
       "recent_share": 1
     },
     {
@@ -33221,7 +33253,7 @@
       "categories": [
         "science"
       ],
-      "suite": null,
+      "suite": "healthbench",
       "recent_share": 3
     },
     {
@@ -33248,7 +33280,7 @@
       "categories": [
         "math"
       ],
-      "suite": null,
+      "suite": "hmmt",
       "recent_share": 4
     },
     {
@@ -33487,7 +33519,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "mmbench",
       "recent_share": 0
     },
     {
@@ -33704,7 +33736,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "omnidocbench",
       "recent_share": 2
     },
     {
@@ -34160,7 +34192,7 @@
       "categories": [
         "multilingual"
       ],
-      "suite": null,
+      "suite": "alignbench",
       "recent_share": 0
     },
     {
@@ -34217,7 +34249,7 @@
       "categories": [
         "knowledge"
       ],
-      "suite": null,
+      "suite": "arena-hard",
       "recent_share": 4
     },
     {
@@ -34375,7 +34407,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "charxiv",
       "recent_share": 5
     },
     {
@@ -34956,7 +34988,7 @@
       "categories": [
         "longctx"
       ],
-      "suite": null,
+      "suite": "graphwalks",
       "recent_share": 3
     },
     {
@@ -35034,7 +35066,7 @@
       "categories": [
         "math"
       ],
-      "suite": null,
+      "suite": "hmmt",
       "recent_share": 2
     },
     {
@@ -35384,7 +35416,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "mmbench",
       "recent_share": 1
     },
     {
@@ -35660,7 +35692,7 @@
       "categories": [
         "agentic"
       ],
-      "suite": null,
+      "suite": "officeqa",
       "recent_share": 2
     },
     {
@@ -35795,7 +35827,7 @@
       "categories": [
         "science"
       ],
-      "suite": null,
+      "suite": "protocolqa",
       "recent_share": 4
     },
     {
@@ -35988,7 +36020,7 @@
         "agentic",
         "vision"
       ],
-      "suite": null,
+      "suite": "screenspot",
       "recent_share": 1
     },
     {
@@ -36390,7 +36422,7 @@
       "categories": [
         "agentic"
       ],
-      "suite": null,
+      "suite": "vending-bench",
       "recent_share": 5
     },
     {
@@ -36469,7 +36501,7 @@
         "agentic",
         "vision"
       ],
-      "suite": null,
+      "suite": "webarena",
       "recent_share": 1
     },
     {
@@ -36834,7 +36866,7 @@
       "categories": [
         "multilingual"
       ],
-      "suite": null,
+      "suite": "alignbench",
       "recent_share": 0
     },
     {
@@ -36857,7 +36889,7 @@
       "categories": [
         "knowledge"
       ],
-      "suite": null,
+      "suite": "alpacaeval",
       "recent_share": 0
     },
     {
@@ -36884,7 +36916,7 @@
       "categories": [
         "knowledge"
       ],
-      "suite": null,
+      "suite": "alpacaeval",
       "recent_share": 0
     },
     {
@@ -37783,7 +37815,7 @@
       "categories": [
         "other"
       ],
-      "suite": null,
+      "suite": "complexfuncbench",
       "recent_share": 0
     },
     {
@@ -37808,7 +37840,7 @@
       "categories": [
         "speech"
       ],
-      "suite": null,
+      "suite": "complexfuncbench",
       "recent_share": 0
     },
     {
@@ -37957,7 +37989,7 @@
       "categories": [
         "coding"
       ],
-      "suite": null,
+      "suite": "cruxeval",
       "recent_share": 0
     },
     {
@@ -37984,7 +38016,7 @@
       "categories": [
         "coding"
       ],
-      "suite": null,
+      "suite": "cruxeval",
       "recent_share": 1
     },
     {
@@ -38008,7 +38040,7 @@
       "categories": [
         "coding"
       ],
-      "suite": null,
+      "suite": "cruxeval",
       "recent_share": 1
     },
     {
@@ -38033,7 +38065,7 @@
       "categories": [
         "coding"
       ],
-      "suite": null,
+      "suite": "cruxeval",
       "recent_share": 2
     },
     {
@@ -38358,7 +38390,7 @@
       "categories": [
         "agentic"
       ],
-      "suite": null,
+      "suite": "finance-agent",
       "recent_share": 1
     },
     {
@@ -38474,7 +38506,7 @@
       "categories": [
         "other"
       ],
-      "suite": null,
+      "suite": "frontiercode",
       "recent_share": 0
     },
     {
@@ -38496,7 +38528,7 @@
       "categories": [
         "other"
       ],
-      "suite": null,
+      "suite": "frontiercode",
       "recent_share": 0
     },
     {
@@ -38739,7 +38771,7 @@
       "categories": [
         "longctx"
       ],
-      "suite": null,
+      "suite": "graphwalks",
       "recent_share": 2
     },
     {
@@ -38766,7 +38798,7 @@
       "categories": [
         "longctx"
       ],
-      "suite": null,
+      "suite": "graphwalks",
       "recent_share": 2
     },
     {
@@ -38811,7 +38843,7 @@
       "categories": [
         "science"
       ],
-      "suite": null,
+      "suite": "healthbench",
       "recent_share": 2
     },
     {
@@ -38857,7 +38889,7 @@
       "categories": [
         "math"
       ],
-      "suite": null,
+      "suite": "hmmt",
       "recent_share": 0
     },
     {
@@ -38879,7 +38911,7 @@
       "categories": [
         "math"
       ],
-      "suite": null,
+      "suite": "hmmt",
       "recent_share": 3
     },
     {
@@ -38901,7 +38933,7 @@
       "categories": [
         "math"
       ],
-      "suite": null,
+      "suite": "hmmt",
       "recent_share": 1
     },
     {
@@ -39073,7 +39105,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "imagenet",
       "recent_share": 0
     },
     {
@@ -39098,7 +39130,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "imagenet",
       "recent_share": 1
     },
     {
@@ -39122,7 +39154,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "imagenet",
       "recent_share": 0
     },
     {
@@ -39146,7 +39178,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "imagenet",
       "recent_share": 0
     },
     {
@@ -39170,7 +39202,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "imagenet",
       "recent_share": 0
     },
     {
@@ -39247,7 +39279,7 @@
       "categories": [
         "other"
       ],
-      "suite": null,
+      "suite": "instructttseval",
       "recent_share": 1
     },
     {
@@ -39271,7 +39303,7 @@
       "categories": [
         "multilingual"
       ],
-      "suite": null,
+      "suite": "instructttseval",
       "recent_share": 1
     },
     {
@@ -39417,7 +39449,7 @@
       "categories": [
         "speech"
       ],
-      "suite": null,
+      "suite": "librispeech",
       "recent_share": 0
     },
     {
@@ -39441,7 +39473,7 @@
       "categories": [
         "speech"
       ],
-      "suite": null,
+      "suite": "librispeech",
       "recent_share": 1
     },
     {
@@ -39463,7 +39495,7 @@
       "categories": [
         "speech"
       ],
-      "suite": null,
+      "suite": "librispeech",
       "recent_share": 1
     },
     {
@@ -39487,7 +39519,7 @@
       "categories": [
         "speech"
       ],
-      "suite": null,
+      "suite": "librispeech",
       "recent_share": 1
     },
     {
@@ -39638,7 +39670,7 @@
       "categories": [
         "longctx"
       ],
-      "suite": null,
+      "suite": "longbench",
       "recent_share": 1
     },
     {
@@ -39665,7 +39697,7 @@
       "categories": [
         "longctx"
       ],
-      "suite": null,
+      "suite": "longbench",
       "recent_share": 0
     },
     {
@@ -39861,7 +39893,7 @@
         "math",
         "vision"
       ],
-      "suite": null,
+      "suite": "mathvision",
       "recent_share": 0
     },
     {
@@ -39888,7 +39920,7 @@
         "math",
         "vision"
       ],
-      "suite": null,
+      "suite": "mathvista",
       "recent_share": 2
     },
     {
@@ -40188,7 +40220,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "mmbench",
       "recent_share": 0
     },
     {
@@ -40213,7 +40245,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "mmbench",
       "recent_share": 0
     },
     {
@@ -40236,7 +40268,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "mmbench",
       "recent_share": 0
     },
     {
@@ -40259,7 +40291,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "mmbench",
       "recent_share": 0
     },
     {
@@ -40851,7 +40883,7 @@
       "categories": [
         "speech"
       ],
-      "suite": null,
+      "suite": "multichallenge",
       "recent_share": 1
     },
     {
@@ -40925,7 +40957,7 @@
       "categories": [
         "coding"
       ],
-      "suite": null,
+      "suite": "multipl-e",
       "recent_share": 1
     },
     {
@@ -40949,7 +40981,7 @@
       "categories": [
         "coding"
       ],
-      "suite": null,
+      "suite": "multipl-e",
       "recent_share": 1
     },
     {
@@ -41167,7 +41199,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "ocrbench",
       "recent_share": 1
     },
     {
@@ -41270,7 +41302,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "omnidocbench",
       "recent_share": 1
     },
     {
@@ -41318,7 +41350,7 @@
       "categories": [
         "reasoning"
       ],
-      "suite": null,
+      "suite": "oneig-bench",
       "recent_share": 0
     },
     {
@@ -41342,7 +41374,7 @@
       "categories": [
         "multilingual"
       ],
-      "suite": null,
+      "suite": "oneig-bench",
       "recent_share": 0
     },
     {
@@ -41366,54 +41398,6 @@
       "categories": [
         "agentic",
         "vision"
-      ],
-      "suite": null,
-      "recent_share": 0
-    },
-    {
-      "id": "openaimod",
-      "name": "OpenAI Mod",
-      "lab_count": 2,
-      "labs": [
-        "google",
-        "qwen"
-      ],
-      "first_seen": "2024-07-31",
-      "last_seen": "2025-10-16",
-      "labs_by_year": {
-        "2024": 1,
-        "2025": 1
-      },
-      "labs_by_quarter": {
-        "2024-Q3": 1,
-        "2025-Q4": 1
-      },
-      "categories": [
-        "other"
-      ],
-      "suite": null,
-      "recent_share": 0
-    },
-    {
-      "id": "openaimoderation",
-      "name": "OpenAI Moderation",
-      "lab_count": 2,
-      "labs": [
-        "meta",
-        "mistral"
-      ],
-      "first_seen": "2024-04-18",
-      "last_seen": "2026-07-28",
-      "labs_by_year": {
-        "2024": 1,
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2024-Q2": 1,
-        "2026-Q3": 1
-      },
-      "categories": [
-        "other"
       ],
       "suite": null,
       "recent_share": 0
@@ -41540,7 +41524,7 @@
       "categories": [
         "other"
       ],
-      "suite": null,
+      "suite": "protocolqa",
       "recent_share": 2
     },
     {
@@ -41936,7 +41920,7 @@
         "agentic",
         "vision"
       ],
-      "suite": null,
+      "suite": "screenspot",
       "recent_share": 1
     },
     {
@@ -42005,7 +41989,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "seed-bench",
       "recent_share": 0
     },
     {
@@ -42028,7 +42012,7 @@
       "categories": [
         "reasoning"
       ],
-      "suite": null,
+      "suite": "seed-bench",
       "recent_share": 0
     },
     {
@@ -42851,7 +42835,7 @@
       "categories": [
         "agentic"
       ],
-      "suite": null,
+      "suite": "vending-bench",
       "recent_share": 1
     },
     {
@@ -45806,7 +45790,7 @@
       "categories": [
         "knowledge"
       ],
-      "suite": null,
+      "suite": "arena-hard",
       "recent_share": 1
     },
     {
@@ -45829,7 +45813,7 @@
       "categories": [
         "knowledge"
       ],
-      "suite": null,
+      "suite": "arena-hard",
       "recent_share": 1
     },
     {
@@ -45850,7 +45834,7 @@
       "categories": [
         "knowledge"
       ],
-      "suite": null,
+      "suite": "arena-hard",
       "recent_share": 1
     },
     {
@@ -45871,7 +45855,7 @@
       "categories": [
         "multilingual"
       ],
-      "suite": null,
+      "suite": "arena-hard",
       "recent_share": 0
     },
     {
@@ -48378,7 +48362,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "charxiv",
       "recent_share": 0
     },
     {
@@ -48399,7 +48383,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "charxiv",
       "recent_share": 0
     },
     {
@@ -48421,7 +48405,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "charxiv",
       "recent_share": 1
     },
     {
@@ -48442,7 +48426,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "charxiv",
       "recent_share": 0
     },
     {
@@ -48463,7 +48447,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "charxiv",
       "recent_share": 0
     },
     {
@@ -50612,7 +50596,7 @@
       "categories": [
         "coding"
       ],
-      "suite": null,
+      "suite": "cruxeval",
       "recent_share": 1
     },
     {
@@ -53711,7 +53695,7 @@
       "categories": [
         "agentic"
       ],
-      "suite": null,
+      "suite": "finance-agent",
       "recent_share": 3
     },
     {
@@ -54631,7 +54615,7 @@
       "categories": [
         "other"
       ],
-      "suite": null,
+      "suite": "frontiercode",
       "recent_share": 1
     },
     {
@@ -54652,7 +54636,7 @@
       "categories": [
         "other"
       ],
-      "suite": null,
+      "suite": "frontiercode",
       "recent_share": 0
     },
     {
@@ -54673,7 +54657,7 @@
       "categories": [
         "other"
       ],
-      "suite": null,
+      "suite": "frontiercode",
       "recent_share": 0
     },
     {
@@ -54717,7 +54701,7 @@
       "categories": [
         "math"
       ],
-      "suite": null,
+      "suite": "frontiermath",
       "recent_share": 1
     },
     {
@@ -54741,7 +54725,7 @@
       "categories": [
         "math"
       ],
-      "suite": null,
+      "suite": "frontiermath",
       "recent_share": 1
     },
     {
@@ -54762,7 +54746,7 @@
       "categories": [
         "math"
       ],
-      "suite": null,
+      "suite": "frontiermath",
       "recent_share": 0
     },
     {
@@ -54786,7 +54770,7 @@
       "categories": [
         "math"
       ],
-      "suite": null,
+      "suite": "frontiermath",
       "recent_share": 1
     },
     {
@@ -54807,7 +54791,7 @@
       "categories": [
         "math"
       ],
-      "suite": null,
+      "suite": "frontiermath",
       "recent_share": 0
     },
     {
@@ -54829,7 +54813,7 @@
         "coding",
         "agentic"
       ],
-      "suite": null,
+      "suite": "frontierswe",
       "recent_share": 1
     },
     {
@@ -54851,7 +54835,7 @@
         "coding",
         "agentic"
       ],
-      "suite": null,
+      "suite": "frontierswe",
       "recent_share": 1
     },
     {
@@ -54873,7 +54857,7 @@
         "coding",
         "agentic"
       ],
-      "suite": null,
+      "suite": "frontierswe",
       "recent_share": 0
     },
     {
@@ -56544,7 +56528,7 @@
       "categories": [
         "science"
       ],
-      "suite": null,
+      "suite": "healthbench",
       "recent_share": 1
     },
     {
@@ -56569,7 +56553,7 @@
       "categories": [
         "science"
       ],
-      "suite": null,
+      "suite": "healthbench",
       "recent_share": 1
     },
     {
@@ -56590,7 +56574,7 @@
       "categories": [
         "science"
       ],
-      "suite": null,
+      "suite": "healthbench",
       "recent_share": 0
     },
     {
@@ -56983,7 +56967,7 @@
       "categories": [
         "math"
       ],
-      "suite": null,
+      "suite": "hmmt",
       "recent_share": 1
     },
     {
@@ -57004,7 +56988,7 @@
       "categories": [
         "other"
       ],
-      "suite": null,
+      "suite": "hmmt",
       "recent_share": 0
     },
     {
@@ -57025,7 +57009,7 @@
       "categories": [
         "other"
       ],
-      "suite": null,
+      "suite": "hmmt",
       "recent_share": 0
     },
     {
@@ -57046,7 +57030,7 @@
       "categories": [
         "other"
       ],
-      "suite": null,
+      "suite": "hmmt",
       "recent_share": 0
     },
     {
@@ -58045,7 +58029,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "imagenet",
       "recent_share": 1
     },
     {
@@ -58066,7 +58050,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "imagenet",
       "recent_share": 0
     },
     {
@@ -58087,7 +58071,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "imagenet",
       "recent_share": 0
     },
     {
@@ -58108,7 +58092,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "imagenet",
       "recent_share": 0
     },
     {
@@ -58687,7 +58671,7 @@
       "categories": [
         "other"
       ],
-      "suite": null,
+      "suite": "instructttseval",
       "recent_share": 0
     },
     {
@@ -60743,7 +60727,7 @@
       "categories": [
         "speech"
       ],
-      "suite": null,
+      "suite": "librispeech",
       "recent_share": 0
     },
     {
@@ -61344,7 +61328,7 @@
       "categories": [
         "longctx"
       ],
-      "suite": null,
+      "suite": "longbench",
       "recent_share": 0
     },
     {
@@ -61365,7 +61349,7 @@
       "categories": [
         "longctx"
       ],
-      "suite": null,
+      "suite": "longbench",
       "recent_share": 0
     },
     {
@@ -63866,7 +63850,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "mmbench",
       "recent_share": 0
     },
     {
@@ -63887,7 +63871,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "mmbench",
       "recent_share": 0
     },
     {
@@ -63909,7 +63893,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "mmbench",
       "recent_share": 0
     },
     {
@@ -63930,7 +63914,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "mmbench",
       "recent_share": 0
     },
     {
@@ -63951,7 +63935,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "mmbench",
       "recent_share": 0
     },
     {
@@ -63972,7 +63956,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "mmbench",
       "recent_share": 0
     },
     {
@@ -63993,7 +63977,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "mmbench",
       "recent_share": 0
     },
     {
@@ -66938,7 +66922,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "ocrbench",
       "recent_share": 0
     },
     {
@@ -66959,7 +66943,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "ocrbench",
       "recent_share": 0
     },
     {
@@ -66980,7 +66964,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "ocrbench",
       "recent_share": 0
     },
     {
@@ -67044,7 +67028,7 @@
       "categories": [
         "agentic"
       ],
-      "suite": null,
+      "suite": "officeqa",
       "recent_share": 0
     },
     {
@@ -67235,7 +67219,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "omnidocbench",
       "recent_share": 0
     },
     {
@@ -67385,7 +67369,7 @@
       "categories": [
         "reasoning"
       ],
-      "suite": null,
+      "suite": "oneig-bench",
       "recent_share": 0
     },
     {
@@ -67406,7 +67390,7 @@
       "categories": [
         "reasoning"
       ],
-      "suite": null,
+      "suite": "oneig-bench",
       "recent_share": 0
     },
     {
@@ -67427,7 +67411,7 @@
       "categories": [
         "multilingual"
       ],
-      "suite": null,
+      "suite": "oneig-bench",
       "recent_share": 0
     },
     {
@@ -67489,69 +67473,6 @@
       },
       "categories": [
         "knowledge"
-      ],
-      "suite": null,
-      "recent_share": 0
-    },
-    {
-      "id": "openaimod22",
-      "name": "OpenAI Mod (2022)",
-      "lab_count": 1,
-      "labs": [
-        "openai"
-      ],
-      "first_seen": "2025-10-29",
-      "last_seen": "2025-10-29",
-      "labs_by_year": {
-        "2025": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q4": 1
-      },
-      "categories": [
-        "other"
-      ],
-      "suite": null,
-      "recent_share": 0
-    },
-    {
-      "id": "openaimoderationapi",
-      "name": "OpenAI Moderation API",
-      "lab_count": 1,
-      "labs": [
-        "openai"
-      ],
-      "first_seen": "2025-10-29",
-      "last_seen": "2025-10-29",
-      "labs_by_year": {
-        "2025": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q4": 1
-      },
-      "categories": [
-        "other"
-      ],
-      "suite": null,
-      "recent_share": 0
-    },
-    {
-      "id": "openaimoderationevaluationdataset",
-      "name": "OpenAI Moderation Evaluation Dataset",
-      "lab_count": 1,
-      "labs": [
-        "meta"
-      ],
-      "first_seen": "2023-12-07",
-      "last_seen": "2023-12-07",
-      "labs_by_year": {
-        "2023": 1
-      },
-      "labs_by_quarter": {
-        "2023-Q4": 1
-      },
-      "categories": [
-        "other"
       ],
       "suite": null,
       "recent_share": 0
@@ -72505,7 +72426,7 @@
       "categories": [
         "vision"
       ],
-      "suite": null,
+      "suite": "seed-bench",
       "recent_share": 0
     },
     {
@@ -76526,7 +76447,7 @@
       "categories": [
         "agentic"
       ],
-      "suite": null,
+      "suite": "vending-bench",
       "recent_share": 1
     },
     {
@@ -77463,7 +77384,7 @@
         "agentic",
         "vision"
       ],
-      "suite": null,
+      "suite": "webarena",
       "recent_share": 0
     },
     {
@@ -79546,7 +79467,7 @@
       "id": "other",
       "name": "Other",
       "blurb": "Does not fit the categories above",
-      "members": 1021,
+      "members": 1017,
       "lab_count": 12,
       "labs": [
         "anthropic",
@@ -79952,6 +79873,39 @@
       "recent_share": 16
     },
     {
+      "id": "mathvista",
+      "name": "MathVista",
+      "members": 2,
+      "lab_count": 11,
+      "labs": [
+        "anthropic",
+        "deepseek",
+        "google",
+        "meta",
+        "mistral",
+        "moonshot",
+        "openai",
+        "qwen",
+        "xai",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2023-Q4": 2,
+        "2024-Q1": 4,
+        "2024-Q2": 3,
+        "2024-Q3": 7,
+        "2024-Q4": 6,
+        "2025-Q1": 4,
+        "2025-Q2": 5,
+        "2025-Q3": 3,
+        "2025-Q4": 2,
+        "2026-Q1": 3,
+        "2026-Q2": 1
+      },
+      "recent_share": 4
+    },
+    {
       "id": "livecodebench",
       "name": "LiveCodeBench",
       "members": 9,
@@ -80072,6 +80026,32 @@
       "recent_share": 19
     },
     {
+      "id": "hmmt",
+      "name": "HMMT",
+      "members": 11,
+      "lab_count": 9,
+      "labs": [
+        "deepseek",
+        "mistral",
+        "moonshot",
+        "openai",
+        "qwen",
+        "upstage",
+        "xai",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2025-Q2": 1,
+        "2025-Q3": 5,
+        "2025-Q4": 6,
+        "2026-Q1": 6,
+        "2026-Q2": 4,
+        "2026-Q3": 1
+      },
+      "recent_share": 23
+    },
+    {
       "id": "osworld",
       "name": "OSWorld",
       "members": 5,
@@ -80099,6 +80079,79 @@
       "recent_share": 12
     },
     {
+      "id": "omnidocbench",
+      "name": "OmniDocBench",
+      "members": 4,
+      "lab_count": 8,
+      "labs": [
+        "deepseek",
+        "google",
+        "mistral",
+        "moonshot",
+        "openai",
+        "qwen",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2025-Q1": 1,
+        "2025-Q4": 2,
+        "2026-Q1": 5,
+        "2026-Q2": 5,
+        "2026-Q3": 3
+      },
+      "recent_share": 7
+    },
+    {
+      "id": "toolathlon",
+      "name": "Toolathlon",
+      "members": 2,
+      "lab_count": 8,
+      "labs": [
+        "anthropic",
+        "deepseek",
+        "google",
+        "meta",
+        "moonshot",
+        "openai",
+        "qwen",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2025-Q4": 2,
+        "2026-Q1": 1,
+        "2026-Q2": 5,
+        "2026-Q3": 7
+      },
+      "recent_share": 4
+    },
+    {
+      "id": "charxiv",
+      "name": "CharXiv",
+      "members": 8,
+      "lab_count": 8,
+      "labs": [
+        "anthropic",
+        "google",
+        "meta",
+        "moonshot",
+        "openai",
+        "qwen",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2025-Q1": 1,
+        "2025-Q2": 2,
+        "2025-Q3": 2,
+        "2025-Q4": 4,
+        "2026-Q1": 5,
+        "2026-Q2": 7,
+        "2026-Q3": 5
+      },
+      "recent_share": 11
+    },
+    {
       "id": "video-mme",
       "name": "Video-MME",
       "members": 5,
@@ -80124,6 +80177,112 @@
         "2026-Q3": 2
       },
       "recent_share": 7
+    },
+    {
+      "id": "cruxeval",
+      "name": "CRUXEval",
+      "members": 6,
+      "lab_count": 7,
+      "labs": [
+        "deepseek",
+        "meta",
+        "mistral",
+        "moonshot",
+        "qwen",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2024-Q2": 2,
+        "2024-Q3": 2,
+        "2024-Q4": 2,
+        "2025-Q1": 1,
+        "2025-Q2": 1,
+        "2025-Q3": 2,
+        "2025-Q4": 1,
+        "2026-Q1": 2
+      },
+      "recent_share": 5
+    },
+    {
+      "id": "librispeech",
+      "name": "LibriSpeech",
+      "members": 6,
+      "lab_count": 7,
+      "labs": [
+        "meta",
+        "mistral",
+        "moonshot",
+        "openai",
+        "qwen",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2023-Q4": 2,
+        "2024-Q3": 2,
+        "2024-Q4": 1,
+        "2025-Q1": 1,
+        "2025-Q2": 1,
+        "2025-Q3": 3,
+        "2026-Q1": 1,
+        "2026-Q2": 1,
+        "2026-Q3": 1
+      },
+      "recent_share": 3
+    },
+    {
+      "id": "screenspot",
+      "name": "ScreenSpot",
+      "members": 3,
+      "lab_count": 7,
+      "labs": [
+        "anthropic",
+        "google",
+        "moonshot",
+        "openai",
+        "qwen",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2024-Q4": 1,
+        "2025-Q1": 1,
+        "2025-Q2": 2,
+        "2025-Q3": 2,
+        "2025-Q4": 4,
+        "2026-Q1": 1,
+        "2026-Q2": 2,
+        "2026-Q3": 2
+      },
+      "recent_share": 5
+    },
+    {
+      "id": "arena-hard",
+      "name": "Arena-Hard",
+      "members": 6,
+      "lab_count": 7,
+      "labs": [
+        "deepseek",
+        "mistral",
+        "moonshot",
+        "qwen",
+        "upstage",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2024-Q2": 2,
+        "2024-Q3": 3,
+        "2024-Q4": 3,
+        "2025-Q1": 3,
+        "2025-Q2": 3,
+        "2025-Q3": 2,
+        "2025-Q4": 2,
+        "2026-Q1": 4,
+        "2026-Q3": 1
+      },
+      "recent_share": 8
     },
     {
       "id": "refcoco",
@@ -80156,6 +80315,178 @@
       "recent_share": 5
     },
     {
+      "id": "longbench",
+      "name": "LongBench",
+      "members": 5,
+      "lab_count": 6,
+      "labs": [
+        "deepseek",
+        "mistral",
+        "moonshot",
+        "qwen",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2023-Q4": 1,
+        "2024-Q1": 1,
+        "2024-Q2": 1,
+        "2024-Q3": 1,
+        "2024-Q4": 2,
+        "2025-Q1": 3,
+        "2025-Q3": 1,
+        "2025-Q4": 3,
+        "2026-Q1": 4,
+        "2026-Q2": 2,
+        "2026-Q3": 2
+      },
+      "recent_share": 6
+    },
+    {
+      "id": "multichallenge",
+      "name": "MultiChallenge",
+      "members": 2,
+      "lab_count": 6,
+      "labs": [
+        "moonshot",
+        "openai",
+        "qwen",
+        "upstage",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2025-Q2": 1,
+        "2025-Q3": 4,
+        "2026-Q1": 1,
+        "2026-Q3": 1
+      },
+      "recent_share": 3
+    },
+    {
+      "id": "mmbench",
+      "name": "MMBench",
+      "members": 13,
+      "lab_count": 6,
+      "labs": [
+        "deepseek",
+        "meta",
+        "moonshot",
+        "qwen",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2023-Q4": 1,
+        "2024-Q1": 1,
+        "2024-Q2": 1,
+        "2024-Q3": 2,
+        "2024-Q4": 1,
+        "2025-Q1": 1,
+        "2025-Q2": 3,
+        "2025-Q3": 2,
+        "2025-Q4": 2,
+        "2026-Q1": 1,
+        "2026-Q2": 1,
+        "2026-Q3": 1
+      },
+      "recent_share": 2
+    },
+    {
+      "id": "frontierswe",
+      "name": "FrontierSWE",
+      "members": 4,
+      "lab_count": 6,
+      "labs": [
+        "anthropic",
+        "moonshot",
+        "qwen",
+        "xai",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2026-Q2": 3,
+        "2026-Q3": 5
+      },
+      "recent_share": 2
+    },
+    {
+      "id": "ocrbench",
+      "name": "OCRBench",
+      "members": 5,
+      "lab_count": 6,
+      "labs": [
+        "deepseek",
+        "meta",
+        "moonshot",
+        "qwen",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2024-Q2": 1,
+        "2024-Q3": 2,
+        "2024-Q4": 1,
+        "2025-Q1": 1,
+        "2025-Q2": 3,
+        "2025-Q3": 3,
+        "2025-Q4": 3,
+        "2026-Q1": 3,
+        "2026-Q2": 1,
+        "2026-Q3": 1
+      },
+      "recent_share": 6
+    },
+    {
+      "id": "officeqa",
+      "name": "OfficeQA",
+      "members": 3,
+      "lab_count": 6,
+      "labs": [
+        "anthropic",
+        "google",
+        "moonshot",
+        "openai",
+        "xai",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2026-Q1": 3,
+        "2026-Q2": 2,
+        "2026-Q3": 5
+      },
+      "recent_share": 3
+    },
+    {
+      "id": "multipl-e",
+      "name": "MultiPL-E",
+      "members": 3,
+      "lab_count": 6,
+      "labs": [
+        "deepseek",
+        "meta",
+        "mistral",
+        "moonshot",
+        "qwen",
+        "xiaomi"
+      ],
+      "labs_by_quarter": {
+        "2023-Q3": 1,
+        "2023-Q4": 1,
+        "2024-Q2": 1,
+        "2024-Q3": 3,
+        "2024-Q4": 1,
+        "2025-Q1": 1,
+        "2025-Q2": 2,
+        "2025-Q3": 3,
+        "2025-Q4": 1,
+        "2026-Q1": 2,
+        "2026-Q3": 1
+      },
+      "recent_share": 4
+    },
+    {
       "id": "arc-agi",
       "name": "ARC-AGI",
       "members": 6,
@@ -80175,6 +80506,76 @@
         "2026-Q3": 2
       },
       "recent_share": 7
+    },
+    {
+      "id": "mathvision",
+      "name": "MathVision",
+      "members": 2,
+      "lab_count": 5,
+      "labs": [
+        "google",
+        "moonshot",
+        "qwen",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2024-Q3": 2,
+        "2024-Q4": 1,
+        "2025-Q1": 2,
+        "2025-Q2": 2,
+        "2025-Q3": 2,
+        "2025-Q4": 2,
+        "2026-Q1": 2,
+        "2026-Q2": 3,
+        "2026-Q3": 3
+      },
+      "recent_share": 4
+    },
+    {
+      "id": "finance-agent",
+      "name": "Finance Agent",
+      "members": 3,
+      "lab_count": 5,
+      "labs": [
+        "anthropic",
+        "google",
+        "meta",
+        "moonshot",
+        "openai"
+      ],
+      "labs_by_quarter": {
+        "2025-Q3": 1,
+        "2025-Q4": 1,
+        "2026-Q1": 2,
+        "2026-Q2": 3,
+        "2026-Q3": 2
+      },
+      "recent_share": 5
+    },
+    {
+      "id": "webarena",
+      "name": "WebArena",
+      "members": 3,
+      "lab_count": 5,
+      "labs": [
+        "anthropic",
+        "moonshot",
+        "openai",
+        "qwen",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2023-Q4": 1,
+        "2024-Q4": 1,
+        "2025-Q1": 1,
+        "2025-Q3": 2,
+        "2025-Q4": 1,
+        "2026-Q1": 4,
+        "2026-Q2": 1,
+        "2026-Q3": 1
+      },
+      "recent_share": 3
     },
     {
       "id": "bfcl",
@@ -80199,6 +80600,251 @@
         "2026-Q2": 1
       },
       "recent_share": 3
+    },
+    {
+      "id": "graphwalks",
+      "name": "Graphwalks",
+      "members": 3,
+      "lab_count": 4,
+      "labs": [
+        "anthropic",
+        "google",
+        "openai",
+        "xiaomi"
+      ],
+      "labs_by_quarter": {
+        "2025-Q2": 1,
+        "2025-Q3": 1,
+        "2025-Q4": 1,
+        "2026-Q1": 2,
+        "2026-Q2": 3,
+        "2026-Q3": 2
+      },
+      "recent_share": 7
+    },
+    {
+      "id": "healthbench",
+      "name": "HealthBench",
+      "members": 5,
+      "lab_count": 4,
+      "labs": [
+        "anthropic",
+        "moonshot",
+        "openai",
+        "qwen"
+      ],
+      "labs_by_quarter": {
+        "2025-Q3": 1,
+        "2025-Q4": 2,
+        "2026-Q1": 1,
+        "2026-Q2": 2,
+        "2026-Q3": 3
+      },
+      "recent_share": 8
+    },
+    {
+      "id": "alignbench",
+      "name": "AlignBench",
+      "members": 2,
+      "lab_count": 4,
+      "labs": [
+        "deepseek",
+        "qwen",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2024-Q1": 1,
+        "2024-Q2": 3,
+        "2024-Q3": 3,
+        "2024-Q4": 1,
+        "2025-Q2": 1
+      },
+      "recent_share": 0
+    },
+    {
+      "id": "protocolqa",
+      "name": "ProtocolQA",
+      "members": 2,
+      "lab_count": 4,
+      "labs": [
+        "anthropic",
+        "meta",
+        "openai",
+        "xai"
+      ],
+      "labs_by_quarter": {
+        "2024-Q4": 1,
+        "2025-Q1": 2,
+        "2025-Q2": 2,
+        "2025-Q3": 2,
+        "2025-Q4": 3,
+        "2026-Q1": 2,
+        "2026-Q2": 3,
+        "2026-Q3": 2
+      },
+      "recent_share": 6
+    },
+    {
+      "id": "vending-bench",
+      "name": "Vending-Bench",
+      "members": 3,
+      "lab_count": 4,
+      "labs": [
+        "anthropic",
+        "google",
+        "xai",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2025-Q3": 1,
+        "2025-Q4": 2,
+        "2026-Q1": 2,
+        "2026-Q2": 2
+      },
+      "recent_share": 7
+    },
+    {
+      "id": "frontiercode",
+      "name": "FrontierCode",
+      "members": 5,
+      "lab_count": 4,
+      "labs": [
+        "anthropic",
+        "google",
+        "openai",
+        "xai"
+      ],
+      "labs_by_quarter": {
+        "2026-Q2": 1,
+        "2026-Q3": 4
+      },
+      "recent_share": 1
+    },
+    {
+      "id": "alpacaeval",
+      "name": "AlpacaEval",
+      "members": 2,
+      "lab_count": 3,
+      "labs": [
+        "deepseek",
+        "moonshot",
+        "qwen"
+      ],
+      "labs_by_quarter": {
+        "2024-Q1": 1,
+        "2024-Q2": 2,
+        "2024-Q3": 1,
+        "2024-Q4": 1,
+        "2025-Q1": 1,
+        "2025-Q2": 1,
+        "2025-Q3": 1
+      },
+      "recent_share": 0
+    },
+    {
+      "id": "seed-bench",
+      "name": "SEED-Bench",
+      "members": 3,
+      "lab_count": 3,
+      "labs": [
+        "qwen",
+        "xiaomi",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2023-Q3": 1,
+        "2023-Q4": 1,
+        "2024-Q2": 1,
+        "2025-Q1": 1,
+        "2025-Q2": 1
+      },
+      "recent_share": 0
+    },
+    {
+      "id": "imagenet",
+      "name": "ImageNet",
+      "members": 9,
+      "lab_count": 3,
+      "labs": [
+        "google",
+        "meta",
+        "qwen"
+      ],
+      "labs_by_quarter": {
+        "2023-Q2": 1,
+        "2025-Q2": 1,
+        "2025-Q3": 1,
+        "2025-Q4": 1,
+        "2026-Q2": 1
+      },
+      "recent_share": 3
+    },
+    {
+      "id": "complexfuncbench",
+      "name": "ComplexFuncBench",
+      "members": 2,
+      "lab_count": 2,
+      "labs": [
+        "google",
+        "openai"
+      ],
+      "labs_by_quarter": {
+        "2025-Q2": 1,
+        "2025-Q3": 1,
+        "2025-Q4": 1,
+        "2026-Q1": 1
+      },
+      "recent_share": 1
+    },
+    {
+      "id": "instructttseval",
+      "name": "InstructTTSEval",
+      "members": 3,
+      "lab_count": 2,
+      "labs": [
+        "qwen",
+        "xiaomi"
+      ],
+      "labs_by_quarter": {
+        "2025-Q3": 1,
+        "2025-Q4": 1,
+        "2026-Q1": 1
+      },
+      "recent_share": 1
+    },
+    {
+      "id": "oneig-bench",
+      "name": "OneIG-Bench",
+      "members": 5,
+      "lab_count": 2,
+      "labs": [
+        "qwen",
+        "zai"
+      ],
+      "labs_by_quarter": {
+        "2025-Q3": 1,
+        "2026-Q1": 1
+      },
+      "recent_share": 1
+    },
+    {
+      "id": "frontiermath",
+      "name": "FrontierMath",
+      "members": 5,
+      "lab_count": 1,
+      "labs": [
+        "openai"
+      ],
+      "labs_by_quarter": {
+        "2025-Q1": 1,
+        "2025-Q3": 1,
+        "2025-Q4": 1,
+        "2026-Q1": 1,
+        "2026-Q2": 1,
+        "2026-Q3": 1
+      },
+      "recent_share": 2
     }
   ],
   "recent_window": {

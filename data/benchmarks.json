@@ -649,7 +649,7 @@
       "math",
       "vision"
     ],
-    "suite": null,
+    "suite": "mathvista",
     "recent_share": 2
   },
   {
@@ -2155,7 +2155,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "hmmt",
     "recent_share": 8
   },
   {
@@ -2185,7 +2185,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "hmmt",
     "recent_share": 4
   },
   {
@@ -2287,7 +2287,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "longbench",
     "recent_share": 5
   },
   {
@@ -2324,7 +2324,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "ocrbench",
     "recent_share": 5
   },
   {
@@ -2355,7 +2355,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "omnidocbench",
     "recent_share": 3
   },
   {
@@ -2590,7 +2590,7 @@
       "agentic",
       "vision"
     ],
-    "suite": null,
+    "suite": "screenspot",
     "recent_share": 3
   },
   {
@@ -2649,7 +2649,7 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "toolathlon",
     "recent_share": 0
   },
   {
@@ -3036,7 +3036,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "charxiv",
     "recent_share": 1
   },
   {
@@ -3067,7 +3067,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "charxiv",
     "recent_share": 4
   },
   {
@@ -3205,7 +3205,7 @@
     "categories": [
       "coding"
     ],
-    "suite": null,
+    "suite": "cruxeval",
     "recent_share": 1
   },
   {
@@ -3345,7 +3345,7 @@
       "coding",
       "agentic"
     ],
-    "suite": null,
+    "suite": "frontierswe",
     "recent_share": 1
   },
   {
@@ -3380,7 +3380,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "librispeech",
     "recent_share": 0
   },
   {
@@ -3416,7 +3416,7 @@
       "math",
       "vision"
     ],
-    "suite": null,
+    "suite": "mathvision",
     "recent_share": 4
   },
   {
@@ -3550,7 +3550,7 @@
     "categories": [
       "reasoning"
     ],
-    "suite": null,
+    "suite": "multichallenge",
     "recent_share": 2
   },
   {
@@ -3588,7 +3588,7 @@
     "categories": [
       "coding"
     ],
-    "suite": null,
+    "suite": "multipl-e",
     "recent_share": 3
   },
   {
@@ -3641,8 +3641,40 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "officeqa",
     "recent_share": 1
+  },
+  {
+    "id": "openai-moderation",
+    "name": "OpenAI Mod",
+    "lab_count": 5,
+    "labs": [
+      "google",
+      "meta",
+      "mistral",
+      "openai",
+      "qwen"
+    ],
+    "first_seen": "2023-12-07",
+    "last_seen": "2026-07-28",
+    "labs_by_year": {
+      "2023": 1,
+      "2024": 2,
+      "2025": 2,
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2023-Q4": 1,
+      "2024-Q2": 1,
+      "2024-Q3": 1,
+      "2025-Q4": 2,
+      "2026-Q3": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
   },
   {
     "id": "programbench",
@@ -3822,7 +3854,7 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "toolathlon",
     "recent_share": 4
   },
   {
@@ -3856,7 +3888,7 @@
       "agentic",
       "vision"
     ],
-    "suite": null,
+    "suite": "webarena",
     "recent_share": 3
   },
   {
@@ -4122,7 +4154,7 @@
     "categories": [
       "knowledge"
     ],
-    "suite": null,
+    "suite": "arena-hard",
     "recent_share": 1
   },
   {
@@ -4410,7 +4442,7 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "finance-agent",
     "recent_share": 1
   },
   {
@@ -4471,7 +4503,7 @@
     "categories": [
       "science"
     ],
-    "suite": null,
+    "suite": "healthbench",
     "recent_share": 3
   },
   {
@@ -4498,7 +4530,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "hmmt",
     "recent_share": 4
   },
   {
@@ -4737,7 +4769,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "mmbench",
     "recent_share": 0
   },
   {
@@ -4954,7 +4986,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "omnidocbench",
     "recent_share": 2
   },
   {
@@ -5410,7 +5442,7 @@
     "categories": [
       "multilingual"
     ],
-    "suite": null,
+    "suite": "alignbench",
     "recent_share": 0
   },
   {
@@ -5467,7 +5499,7 @@
     "categories": [
       "knowledge"
     ],
-    "suite": null,
+    "suite": "arena-hard",
     "recent_share": 4
   },
   {
@@ -5625,7 +5657,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "charxiv",
     "recent_share": 5
   },
   {
@@ -6206,7 +6238,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "graphwalks",
     "recent_share": 3
   },
   {
@@ -6284,7 +6316,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "hmmt",
     "recent_share": 2
   },
   {
@@ -6634,7 +6666,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "mmbench",
     "recent_share": 1
   },
   {
@@ -6910,7 +6942,7 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "officeqa",
     "recent_share": 2
   },
   {
@@ -7045,7 +7077,7 @@
     "categories": [
       "science"
     ],
-    "suite": null,
+    "suite": "protocolqa",
     "recent_share": 4
   },
   {
@@ -7238,7 +7270,7 @@
       "agentic",
       "vision"
     ],
-    "suite": null,
+    "suite": "screenspot",
     "recent_share": 1
   },
   {
@@ -7640,7 +7672,7 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "vending-bench",
     "recent_share": 5
   },
   {
@@ -7719,7 +7751,7 @@
       "agentic",
       "vision"
     ],
-    "suite": null,
+    "suite": "webarena",
     "recent_share": 1
   },
   {
@@ -8084,7 +8116,7 @@
     "categories": [
       "multilingual"
     ],
-    "suite": null,
+    "suite": "alignbench",
     "recent_share": 0
   },
   {
@@ -8107,7 +8139,7 @@
     "categories": [
       "knowledge"
     ],
-    "suite": null,
+    "suite": "alpacaeval",
     "recent_share": 0
   },
   {
@@ -8134,7 +8166,7 @@
     "categories": [
       "knowledge"
     ],
-    "suite": null,
+    "suite": "alpacaeval",
     "recent_share": 0
   },
   {
@@ -9033,7 +9065,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "complexfuncbench",
     "recent_share": 0
   },
   {
@@ -9058,7 +9090,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "complexfuncbench",
     "recent_share": 0
   },
   {
@@ -9207,7 +9239,7 @@
     "categories": [
       "coding"
     ],
-    "suite": null,
+    "suite": "cruxeval",
     "recent_share": 0
   },
   {
@@ -9234,7 +9266,7 @@
     "categories": [
       "coding"
     ],
-    "suite": null,
+    "suite": "cruxeval",
     "recent_share": 1
   },
   {
@@ -9258,7 +9290,7 @@
     "categories": [
       "coding"
     ],
-    "suite": null,
+    "suite": "cruxeval",
     "recent_share": 1
   },
   {
@@ -9283,7 +9315,7 @@
     "categories": [
       "coding"
     ],
-    "suite": null,
+    "suite": "cruxeval",
     "recent_share": 2
   },
   {
@@ -9608,7 +9640,7 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "finance-agent",
     "recent_share": 1
   },
   {
@@ -9724,7 +9756,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "frontiercode",
     "recent_share": 0
   },
   {
@@ -9746,7 +9778,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "frontiercode",
     "recent_share": 0
   },
   {
@@ -9989,7 +10021,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "graphwalks",
     "recent_share": 2
   },
   {
@@ -10016,7 +10048,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "graphwalks",
     "recent_share": 2
   },
   {
@@ -10061,7 +10093,7 @@
     "categories": [
       "science"
     ],
-    "suite": null,
+    "suite": "healthbench",
     "recent_share": 2
   },
   {
@@ -10107,7 +10139,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "hmmt",
     "recent_share": 0
   },
   {
@@ -10129,7 +10161,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "hmmt",
     "recent_share": 3
   },
   {
@@ -10151,7 +10183,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "hmmt",
     "recent_share": 1
   },
   {
@@ -10323,7 +10355,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "imagenet",
     "recent_share": 0
   },
   {
@@ -10348,7 +10380,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "imagenet",
     "recent_share": 1
   },
   {
@@ -10372,7 +10404,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "imagenet",
     "recent_share": 0
   },
   {
@@ -10396,7 +10428,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "imagenet",
     "recent_share": 0
   },
   {
@@ -10420,7 +10452,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "imagenet",
     "recent_share": 0
   },
   {
@@ -10497,7 +10529,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "instructttseval",
     "recent_share": 1
   },
   {
@@ -10521,7 +10553,7 @@
     "categories": [
       "multilingual"
     ],
-    "suite": null,
+    "suite": "instructttseval",
     "recent_share": 1
   },
   {
@@ -10667,7 +10699,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "librispeech",
     "recent_share": 0
   },
   {
@@ -10691,7 +10723,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "librispeech",
     "recent_share": 1
   },
   {
@@ -10713,7 +10745,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "librispeech",
     "recent_share": 1
   },
   {
@@ -10737,7 +10769,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "librispeech",
     "recent_share": 1
   },
   {
@@ -10888,7 +10920,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "longbench",
     "recent_share": 1
   },
   {
@@ -10915,7 +10947,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "longbench",
     "recent_share": 0
   },
   {
@@ -11111,7 +11143,7 @@
       "math",
       "vision"
     ],
-    "suite": null,
+    "suite": "mathvision",
     "recent_share": 0
   },
   {
@@ -11138,7 +11170,7 @@
       "math",
       "vision"
     ],
-    "suite": null,
+    "suite": "mathvista",
     "recent_share": 2
   },
   {
@@ -11438,7 +11470,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "mmbench",
     "recent_share": 0
   },
   {
@@ -11463,7 +11495,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "mmbench",
     "recent_share": 0
   },
   {
@@ -11486,7 +11518,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "mmbench",
     "recent_share": 0
   },
   {
@@ -11509,7 +11541,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "mmbench",
     "recent_share": 0
   },
   {
@@ -12101,7 +12133,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "multichallenge",
     "recent_share": 1
   },
   {
@@ -12175,7 +12207,7 @@
     "categories": [
       "coding"
     ],
-    "suite": null,
+    "suite": "multipl-e",
     "recent_share": 1
   },
   {
@@ -12199,7 +12231,7 @@
     "categories": [
       "coding"
     ],
-    "suite": null,
+    "suite": "multipl-e",
     "recent_share": 1
   },
   {
@@ -12417,7 +12449,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "ocrbench",
     "recent_share": 1
   },
   {
@@ -12520,7 +12552,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "omnidocbench",
     "recent_share": 1
   },
   {
@@ -12568,7 +12600,7 @@
     "categories": [
       "reasoning"
     ],
-    "suite": null,
+    "suite": "oneig-bench",
     "recent_share": 0
   },
   {
@@ -12592,7 +12624,7 @@
     "categories": [
       "multilingual"
     ],
-    "suite": null,
+    "suite": "oneig-bench",
     "recent_share": 0
   },
   {
@@ -12616,54 +12648,6 @@
     "categories": [
       "agentic",
       "vision"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "openaimod",
-    "name": "OpenAI Mod",
-    "lab_count": 2,
-    "labs": [
-      "google",
-      "qwen"
-    ],
-    "first_seen": "2024-07-31",
-    "last_seen": "2025-10-16",
-    "labs_by_year": {
-      "2024": 1,
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1,
-      "2025-Q4": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "openaimoderation",
-    "name": "OpenAI Moderation",
-    "lab_count": 2,
-    "labs": [
-      "meta",
-      "mistral"
-    ],
-    "first_seen": "2024-04-18",
-    "last_seen": "2026-07-28",
-    "labs_by_year": {
-      "2024": 1,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q2": 1,
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
     ],
     "suite": null,
     "recent_share": 0
@@ -12790,7 +12774,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "protocolqa",
     "recent_share": 2
   },
   {
@@ -13186,7 +13170,7 @@
       "agentic",
       "vision"
     ],
-    "suite": null,
+    "suite": "screenspot",
     "recent_share": 1
   },
   {
@@ -13255,7 +13239,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "seed-bench",
     "recent_share": 0
   },
   {
@@ -13278,7 +13262,7 @@
     "categories": [
       "reasoning"
     ],
-    "suite": null,
+    "suite": "seed-bench",
     "recent_share": 0
   },
   {
@@ -14101,7 +14085,7 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "vending-bench",
     "recent_share": 1
   },
   {
@@ -17056,7 +17040,7 @@
     "categories": [
       "knowledge"
     ],
-    "suite": null,
+    "suite": "arena-hard",
     "recent_share": 1
   },
   {
@@ -17079,7 +17063,7 @@
     "categories": [
       "knowledge"
     ],
-    "suite": null,
+    "suite": "arena-hard",
     "recent_share": 1
   },
   {
@@ -17100,7 +17084,7 @@
     "categories": [
       "knowledge"
     ],
-    "suite": null,
+    "suite": "arena-hard",
     "recent_share": 1
   },
   {
@@ -17121,7 +17105,7 @@
     "categories": [
       "multilingual"
     ],
-    "suite": null,
+    "suite": "arena-hard",
     "recent_share": 0
   },
   {
@@ -19628,7 +19612,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "charxiv",
     "recent_share": 0
   },
   {
@@ -19649,7 +19633,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "charxiv",
     "recent_share": 0
   },
   {
@@ -19671,7 +19655,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "charxiv",
     "recent_share": 1
   },
   {
@@ -19692,7 +19676,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "charxiv",
     "recent_share": 0
   },
   {
@@ -19713,7 +19697,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "charxiv",
     "recent_share": 0
   },
   {
@@ -21862,7 +21846,7 @@
     "categories": [
       "coding"
     ],
-    "suite": null,
+    "suite": "cruxeval",
     "recent_share": 1
   },
   {
@@ -24961,7 +24945,7 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "finance-agent",
     "recent_share": 3
   },
   {
@@ -25881,7 +25865,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "frontiercode",
     "recent_share": 1
   },
   {
@@ -25902,7 +25886,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "frontiercode",
     "recent_share": 0
   },
   {
@@ -25923,7 +25907,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "frontiercode",
     "recent_share": 0
   },
   {
@@ -25967,7 +25951,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "frontiermath",
     "recent_share": 1
   },
   {
@@ -25991,7 +25975,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "frontiermath",
     "recent_share": 1
   },
   {
@@ -26012,7 +25996,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "frontiermath",
     "recent_share": 0
   },
   {
@@ -26036,7 +26020,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "frontiermath",
     "recent_share": 1
   },
   {
@@ -26057,7 +26041,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "frontiermath",
     "recent_share": 0
   },
   {
@@ -26079,7 +26063,7 @@
       "coding",
       "agentic"
     ],
-    "suite": null,
+    "suite": "frontierswe",
     "recent_share": 1
   },
   {
@@ -26101,7 +26085,7 @@
       "coding",
       "agentic"
     ],
-    "suite": null,
+    "suite": "frontierswe",
     "recent_share": 1
   },
   {
@@ -26123,7 +26107,7 @@
       "coding",
       "agentic"
     ],
-    "suite": null,
+    "suite": "frontierswe",
     "recent_share": 0
   },
   {
@@ -27794,7 +27778,7 @@
     "categories": [
       "science"
     ],
-    "suite": null,
+    "suite": "healthbench",
     "recent_share": 1
   },
   {
@@ -27819,7 +27803,7 @@
     "categories": [
       "science"
     ],
-    "suite": null,
+    "suite": "healthbench",
     "recent_share": 1
   },
   {
@@ -27840,7 +27824,7 @@
     "categories": [
       "science"
     ],
-    "suite": null,
+    "suite": "healthbench",
     "recent_share": 0
   },
   {
@@ -28233,7 +28217,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "hmmt",
     "recent_share": 1
   },
   {
@@ -28254,7 +28238,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "hmmt",
     "recent_share": 0
   },
   {
@@ -28275,7 +28259,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "hmmt",
     "recent_share": 0
   },
   {
@@ -28296,7 +28280,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "hmmt",
     "recent_share": 0
   },
   {
@@ -29295,7 +29279,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "imagenet",
     "recent_share": 1
   },
   {
@@ -29316,7 +29300,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "imagenet",
     "recent_share": 0
   },
   {
@@ -29337,7 +29321,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "imagenet",
     "recent_share": 0
   },
   {
@@ -29358,7 +29342,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "imagenet",
     "recent_share": 0
   },
   {
@@ -29937,7 +29921,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "instructttseval",
     "recent_share": 0
   },
   {
@@ -31993,7 +31977,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "librispeech",
     "recent_share": 0
   },
   {
@@ -32594,7 +32578,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "longbench",
     "recent_share": 0
   },
   {
@@ -32615,7 +32599,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "longbench",
     "recent_share": 0
   },
   {
@@ -35116,7 +35100,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "mmbench",
     "recent_share": 0
   },
   {
@@ -35137,7 +35121,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "mmbench",
     "recent_share": 0
   },
   {
@@ -35159,7 +35143,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "mmbench",
     "recent_share": 0
   },
   {
@@ -35180,7 +35164,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "mmbench",
     "recent_share": 0
   },
   {
@@ -35201,7 +35185,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "mmbench",
     "recent_share": 0
   },
   {
@@ -35222,7 +35206,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "mmbench",
     "recent_share": 0
   },
   {
@@ -35243,7 +35227,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "mmbench",
     "recent_share": 0
   },
   {
@@ -38188,7 +38172,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "ocrbench",
     "recent_share": 0
   },
   {
@@ -38209,7 +38193,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "ocrbench",
     "recent_share": 0
   },
   {
@@ -38230,7 +38214,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "ocrbench",
     "recent_share": 0
   },
   {
@@ -38294,7 +38278,7 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "officeqa",
     "recent_share": 0
   },
   {
@@ -38485,7 +38469,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "omnidocbench",
     "recent_share": 0
   },
   {
@@ -38635,7 +38619,7 @@
     "categories": [
       "reasoning"
     ],
-    "suite": null,
+    "suite": "oneig-bench",
     "recent_share": 0
   },
   {
@@ -38656,7 +38640,7 @@
     "categories": [
       "reasoning"
     ],
-    "suite": null,
+    "suite": "oneig-bench",
     "recent_share": 0
   },
   {
@@ -38677,7 +38661,7 @@
     "categories": [
       "multilingual"
     ],
-    "suite": null,
+    "suite": "oneig-bench",
     "recent_share": 0
   },
   {
@@ -38739,69 +38723,6 @@
     },
     "categories": [
       "knowledge"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "openaimod22",
-    "name": "OpenAI Mod (2022)",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2025-10-29",
-    "last_seen": "2025-10-29",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q4": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "openaimoderationapi",
-    "name": "OpenAI Moderation API",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2025-10-29",
-    "last_seen": "2025-10-29",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q4": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "openaimoderationevaluationdataset",
-    "name": "OpenAI Moderation Evaluation Dataset",
-    "lab_count": 1,
-    "labs": [
-      "meta"
-    ],
-    "first_seen": "2023-12-07",
-    "last_seen": "2023-12-07",
-    "labs_by_year": {
-      "2023": 1
-    },
-    "labs_by_quarter": {
-      "2023-Q4": 1
-    },
-    "categories": [
-      "other"
     ],
     "suite": null,
     "recent_share": 0
@@ -43755,7 +43676,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "seed-bench",
     "recent_share": 0
   },
   {
@@ -47776,7 +47697,7 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "vending-bench",
     "recent_share": 1
   },
   {
@@ -48713,7 +48634,7 @@
       "agentic",
       "vision"
     ],
-    "suite": null,
+    "suite": "webarena",
     "recent_share": 0
   },
   {

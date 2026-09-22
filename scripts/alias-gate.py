@@ -19,6 +19,13 @@ about. The safety question read 0.37 on that pair against 0.79 to 0.86 for
 every correct merge, so the pair of gates caught what either alone would have
 let through.
 
+On a 17-pair set covering all four relations, 16 route as intended and no
+wrong merge is written. The miss is Instruction-Following Eval against IFEval:
+the choice is right at 0.99 but safety reads 0.66 against a 0.70 bar, so a
+correct merge waits for a human. That asymmetry is the point. A held-back
+merge costs one glance at research-added.txt; a wrong one rewrites lab_count
+and first_seen for two benchmarks with nothing downstream able to notice.
+
 Fails closed. The delegation gate this borrows from fails open, because there
 the cost of not delegating is only lost parallelism. Here the cost of a wrong
 merge is silent data corruption, so anything unexpected, an unreachable API, a
@@ -74,6 +81,12 @@ QUESTION_TEXT = {
         "Two versions, releases or named splits of one evaluation family, such as "
         "a numbered version or a named subset. They belong together as a suite "
         "but are not interchangeable names."
+    ),
+    "renamed": (
+        "One evaluation that changed its name. The later name replaced the "
+        "earlier one for the same benchmark, rather than both being in use at "
+        "once. Choose this when the claim is that it USED TO be called the "
+        "other thing."
     ),
     "different": (
         "Two different evaluations that merely resemble each other, sharing a "
@@ -153,7 +166,18 @@ def main():
                         "merge_is_safe": safe >= MIN_MERGE_SAFE,
                         "version_confident": ver_p >= MIN_VERSION,
                     }
-                    if rel.choice == "same_name" and gates["same_name_confident"] and gates["merge_is_safe"]:
+                    if rel.choice == "renamed":
+                        # Never applied automatically, whatever the confidence.
+                        # Whether a benchmark was renamed is a fact about the
+                        # world, not about the two strings, and neither model
+                        # can check it: the proposer is repeating what a release
+                        # page said and the gate is reasoning from names alone.
+                        # Asked with the rename stated, this scored same_name at
+                        # 0.93 and safety at 0.59; asked without it, different
+                        # at 0.90. Same pair, opposite readings, decided by what
+                        # it was told rather than what is true.
+                        decision = "REVIEW"
+                    elif rel.choice == "same_name" and gates["same_name_confident"] and gates["merge_is_safe"]:
                         decision = "APPLY"
                     elif rel.choice == "version" and gates["version_confident"]:
                         decision = "SUITE"
