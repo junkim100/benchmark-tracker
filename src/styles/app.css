@@ -108,16 +108,52 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
 .browse__clear { flex: none; padding: 2px 6px; font-size: 18px; line-height: 1; background: none; border: 0; color: var(--text-muted); cursor: pointer; }
 .browse__clear:hover { color: var(--accent); }
 
-.browse__tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 12px; }
-.browse__tabs button {
+/* Three controls on two rows, because they answer three different questions.
+   Subject is a filter, sort is an order, grouping is a choice about what counts
+   as one thing. They used to be a single strip of chips where "Most cited",
+   "Suites" and "Reasoning" sat side by side as though they were alternatives,
+   which meant the most cited coding benchmark was not a question the interface
+   could be asked. */
+.facets { margin: 14px 0 12px; }
+.facets__subjects { display: flex; flex-wrap: wrap; gap: 6px; }
+.facets__subjects button {
   padding: 6px 12px; font: inherit; font-size: 13px; cursor: pointer;
   background: none; color: var(--text-secondary);
   border: 1px solid var(--border); border-radius: 999px;
   transition: color .12s, border-color .12s, background .12s;
 }
-.browse__tabs button:hover { color: var(--text-primary); border-color: var(--border-strong); }
+.facets__subjects button:hover { color: var(--text-primary); border-color: var(--border-strong); }
+.facets__subjects button[aria-pressed="true"] { color: var(--surface-0); border-color: var(--accent); background: var(--accent); font-weight: 550; }
 .browse__scope { align-self: center; padding-left: 4px; font-size: 12.5px; color: var(--text-muted); }
-.browse__tabs button[aria-selected="true"] { color: var(--surface-0); border-color: var(--accent); background: var(--accent); font-weight: 550; }
+
+.facets__how { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-top: 10px; }
+.facets__sort { display: inline-flex; align-items: center; gap: 8px; }
+.facets__label { font-size: 12.5px; color: var(--text-muted); }
+/* Square where the subjects are round: sorting is not another filter, and the
+   shape says so before the label is read. */
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 7px; overflow: hidden; }
+.seg button {
+  padding: 5px 11px; font: inherit; font-size: 12.5px; cursor: pointer;
+  background: none; color: var(--text-muted); border: 0;
+  transition: color .12s, background .12s;
+}
+.seg button + button { border-left: 1px solid var(--border); }
+.seg button:hover { color: var(--text-primary); }
+.seg button[aria-pressed="true"] { color: var(--text-primary); background: var(--surface-3); font-weight: 550; }
+.facets__group { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--text-muted); cursor: pointer; }
+.facets__group:hover { color: var(--text-primary); }
+.facets__group input { width: 14px; height: 14px; accent-color: var(--accent); cursor: pointer; }
+/* Dimmed, not hidden, while a search runs: search deliberately ignores both,
+   and a control that silently stops applying is worse than one that says so. */
+.seg.is-off, .facets__group.is-off { opacity: .45; }
+/* Eleven subjects plus All need five rows at 390px, which pushes the first
+   card off the screen on the one gesture that was supposed to show what is
+   there. Tightening the chips rather than making them scroll sideways: a
+   filter you cannot see the whole of is not much of a filter. */
+@media (max-width: 560px) {
+  .facets__subjects { gap: 5px; }
+  .facets__subjects button { padding: 5px 9px; font-size: 12.5px; }
+}
 
 /* A grid rather than a dropdown: the whole point is to see what is there. */
 .browse__results { display: grid; grid-template-columns: repeat(auto-fill, minmax(206px, 1fr)); gap: 8px; }
@@ -156,6 +192,7 @@ a:hover { color: var(--accent-strong); text-decoration-color: currentColor; }
 /* A suite and a category gather other things, so they read as containers. */
 .bcard--suite, .bcard--category { border-style: dashed; }
 .browse__none { margin: 4px 0 0; font-size: 14px; color: var(--text-muted); }
+.browse__more { margin: 10px 0 0; font-size: 12.5px; color: var(--text-muted); }
 
 .chips { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; min-height: 31px; }
 .chips__empty { font-size: 14px; }

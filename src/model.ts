@@ -64,11 +64,30 @@ export function buildTrackables(t: Timeline): Map<string, Trackable> {
   for (const c of t.categories) {
     m.set(trackId("category", c.id), { id: trackId("category", c.id), kind: "category", name: c.name, lab_count: c.lab_count, recent_share: c.recent_share, labs_by_quarter: c.labs_by_quarter, members: c.members });
   }
+  // A suite's subject, read off the versions inside it. Versions of one
+  // evaluation share a subject by construction, so the modal primary category
+  // of the members is the suite's own. Derived here rather than in the build
+  // because it is a display concern: it exists so a suite can be browsed
+  // alongside the benchmarks it competes with, instead of being exiled to a
+  // list of its own where nobody looking for a coding eval would find it.
+  const suiteCats = new Map<string, string[]>();
+  for (const b of t.benchmarks) {
+    if (!b.suite || !b.categories.length) continue;
+    const seen = suiteCats.get(b.suite) ?? [];
+    seen.push(b.categories[0]);
+    suiteCats.set(b.suite, seen);
+  }
+  const modal = (xs: string[] | undefined): string[] => {
+    if (!xs?.length) return [];
+    const n = new Map<string, number>();
+    for (const x of xs) n.set(x, (n.get(x) ?? 0) + 1);
+    return [[...n].sort((a, b) => b[1] - a[1])[0][0]];
+  };
   for (const s of t.suites) {
     // A suite and its headline version often share a name, so the suite says
     // so. Without this the browser showed "GPQA" twice and a chip for each was
     // indistinguishable from the other.
-    m.set(trackId("suite", s.id), { id: trackId("suite", s.id), kind: "suite", name: `${s.name}, all versions`, lab_count: s.lab_count, recent_share: s.recent_share, labs_by_quarter: s.labs_by_quarter, members: s.members });
+    m.set(trackId("suite", s.id), { id: trackId("suite", s.id), kind: "suite", name: `${s.name}, all versions`, lab_count: s.lab_count, recent_share: s.recent_share, labs_by_quarter: s.labs_by_quarter, members: s.members, categories: modal(suiteCats.get(s.id)) });
   }
   for (const b of t.benchmarks) {
     m.set(b.id, { id: b.id, kind: "benchmark", name: b.name, lab_count: b.lab_count, recent_share: b.recent_share, labs_by_quarter: b.labs_by_quarter, categories: b.categories, suite: b.suite });

@@ -41,7 +41,7 @@ const RE = (s) => new RegExp(s, "i");
 const RULES = [
   // Safety and security first: a hazardous-capability benchmark is about the
   // hazard even when its subject is biology or code.
-  [RE("wmdp|jailbreak|\\bharm|toxic|refus|red.?team|xstest|\\bbbq\\b|stereotyp|sycoph|deception|\\bmask\\b|\\bbold\\b|csam|abuse|strongreject|advbench|agentharm|maliciou|persuas"), "safety", null],
+  [RE("wmdp|jailbreak|\\bharm|toxic|refus|red.?team|xstest|\\bbbq\\b|stereotyp|sycoph|deception|\\bmask\\b|\\bbold\\b|csam|abuse|strongreject|advbench|agentharm|maliciou|persuas|moderation"), "safety", null],
   [RE("cyber|cybench|cyb.?scenario|cyscenario|exploit|\\bctf\\b|vulnerab|pentest|malware|\\bhack|intrusion|\\bcve\\b"), "safety", "coding"],
   [RE("\\bsafety\\b|guardrail|alignment|honest|frontier.?risk|dangerous|biorisk|bioweapon"), "safety", null],
 
@@ -60,7 +60,7 @@ const RULES = [
   // Math, before multilingual and vision so MGSM and MathVista land here.
   [RE("mathvista|mathvision|mathverse|math.?vqa|geometry3k|\\bgeoqa|dynamath|we.?math"), "math", "vision"],
   [RE("\\bmgsm\\b|multilingual.?grade|\\bcmath\\b"), "math", "multilingual"],
-  [RE("\\baime\\b|\\bhmmt\\b|\\bimo\\b|putnam|olympiad|matharena|frontiermath|omni.?math|minerva|\\bgsm|math.?500|\\bmath|algebra|arithmetic|geometry|calculus|number.?theor|combinatoric|theorem|\\bproof|\\blean\\b|minif2f|aimo"), "math", null],
+  [RE("\\baime\\b|\\bhmmt\\b|\\bimo\\b|putnam|olympiad|matharena|frontiermath|omni.?math|minerva|\\bgsm|math.?500|\\bmath|algebra|arithmetic|geometry|calculus|number.?theor|combinatoric|theorem|\\bproof|\\blean\\b|minif2f|\\baimo"), "math", null],
 
   // Science and medicine.
   [RE("\\bgpqa|supergpqa|critpt|lab.?bench|scibench|scienceqa|chembench|protein|genom|astro|materials|\\bvct\\b"), "science", null],

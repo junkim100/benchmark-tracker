@@ -215,10 +215,10 @@ if (data.releases.length === 0) {
           const inside = memberIds(t, data.benchmarks);
           tracked = tracked.filter((x) => x === id || !inside.has(x));
         }
-        // No save-and-restore here any more. The browser's tab and query live
-        // outside its render, so a redraw keeps them on its own, and replaying
-        // a click could never restore a tab during a search anyway: none is
-        // selected then.
+        // No save-and-restore here any more. The browser's subject, sort,
+        // grouping and query all live outside its render, so a redraw keeps
+        // them on its own, and replaying a click could never restore a subject
+        // during a search anyway: none is selected then.
         draw();
       },
     });

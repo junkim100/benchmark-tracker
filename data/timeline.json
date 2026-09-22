@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T01:36:59.143Z",
+  "generated_at": "2026-09-22T01:45:29.596Z",
   "labs": [
     {
       "id": "openai",
@@ -6276,7 +6276,7 @@
         "humanevalmulti",
         "livecodebench",
         "aider",
-        "sweverified",
+        "swe-bench-verified",
         "dsfimeval",
         "dsarenacode"
       ]
@@ -8568,7 +8568,7 @@
         "humanevalmul",
         "livecodebench",
         "codeforces",
-        "sweverified",
+        "swe-bench-verified",
         "aideredit",
         "aiderpolyglot",
         "aime-2024",
@@ -8734,7 +8734,7 @@
         "arenahard",
         "livecodebench",
         "codeforces",
-        "sweverified",
+        "swe-bench-verified",
         "aiderpolyglot",
         "aime-2024",
         "math-500",
@@ -12149,7 +12149,7 @@
         "hle",
         "livecodebench",
         "codeforcesdiv1",
-        "sweverified",
+        "swe-bench-verified",
         "aiderpolyglot",
         "aime-2024",
         "aime-2025",
@@ -15379,7 +15379,7 @@
         "livecodebench",
         "codeforcesdiv1",
         "aiderpolyglot",
-        "sweverified",
+        "swe-bench-verified",
         "swebenchmultilingual",
         "terminal-bench",
         "aime-2024",
@@ -16075,7 +16075,7 @@
         "browsecomp",
         "browsecompzh",
         "simpleqa",
-        "sweverified",
+        "swe-bench-verified",
         "swebenchmultilingual",
         "terminal-bench"
       ]
@@ -16698,7 +16698,7 @@
         "browsecomp",
         "browsecompzh",
         "simpleqa",
-        "sweverified",
+        "swe-bench-verified",
         "swebenchmultilingual",
         "terminal-bench"
       ]
@@ -17318,7 +17318,7 @@
         "hle",
         "browsecomp",
         "seal0",
-        "swemultilingual",
+        "swebenchmultilingual",
         "swe-bench-verified",
         "livecodebenchv6",
         "terminal-bench",
@@ -17333,7 +17333,6 @@
         "browsecompzh",
         "finsearchcompt3",
         "frames",
-        "swebenchmultilingual",
         "multiswebench",
         "scicode",
         "ojbench"
@@ -18179,8 +18178,8 @@
         "hmmtnov25",
         "imoanswerbench",
         "terminalbench20",
-        "sweverified",
-        "swemultilingual",
+        "swe-bench-verified",
+        "swebenchmultilingual",
         "browsecomp",
         "browsecompzh",
         "bench",
@@ -19635,7 +19634,7 @@
         "hmmtfeb25",
         "hmmtnov25",
         "imoanswerbench",
-        "sweverified",
+        "swe-bench-verified",
         "hlewithtools",
         "ifbench",
         "multichallenge",
@@ -19789,7 +19788,6 @@
         "kimicodebench",
         "aiofficebenchmark",
         "generalagentbenchmark",
-        "sweverified",
         "hle"
       ]
     },
@@ -20680,7 +20678,7 @@
         "gsm8k",
         "evalplus",
         "multipl-e",
-        "sweagentless",
+        "swebenchagentless",
         "cruxi",
         "cruxo"
       ]
@@ -22767,8 +22765,7 @@
         "mathvision",
         "babyvision",
         "v",
-        "hle",
-        "swemultilingual"
+        "hle"
       ]
     },
     {
@@ -23221,9 +23218,9 @@
         "mrcr1m",
         "corpusqa1m",
         "terminalbench20",
-        "sweverified",
-        "swepro",
-        "swemultilingual",
+        "swe-bench-verified",
+        "swebenchpro",
+        "swebenchmultilingual",
         "browsecomp",
         "hlewithtools",
         "gdpvalaa",
@@ -23696,9 +23693,9 @@
       ],
       "benchmarks": [
         "terminalbench20terminus",
-        "sweverified",
-        "swepro",
-        "swemultilingual",
+        "swe-bench-verified",
+        "swebenchpro",
+        "swebenchmultilingual",
         "nl2repo",
         "scicode",
         "qwenwebdev",
@@ -23935,9 +23932,9 @@
       ],
       "benchmarks": [
         "terminalbench20terminus",
-        "sweverified",
-        "swepro",
-        "swemultilingual",
+        "swe-bench-verified",
+        "swebenchpro",
+        "swebenchmultilingual",
         "nl2repo",
         "scicode",
         "qwenwebdev",
@@ -29041,19 +29038,19 @@
       "first_seen": "2024-08-08",
       "last_seen": "2026-08-11",
       "labs_by_year": {
-        "2024": 3,
+        "2024": 4,
         "2025": 11,
-        "2026": 8
+        "2026": 9
       },
       "labs_by_quarter": {
-        "2024-Q3": 1,
-        "2024-Q4": 3,
-        "2025-Q1": 3,
-        "2025-Q2": 6,
+        "2024-Q3": 2,
+        "2024-Q4": 4,
+        "2025-Q1": 4,
+        "2025-Q2": 7,
         "2025-Q3": 10,
-        "2025-Q4": 7,
+        "2025-Q4": 8,
         "2026-Q1": 6,
-        "2026-Q2": 5,
+        "2026-Q2": 6,
         "2026-Q3": 2
       },
       "categories": [
@@ -29061,7 +29058,7 @@
         "agentic"
       ],
       "suite": "swe-bench",
-      "recent_share": 28
+      "recent_share": 33
     },
     {
       "id": "ai2d",
@@ -29789,6 +29786,41 @@
       "recent_share": 12
     },
     {
+      "id": "swebenchpro",
+      "name": "SWE-Bench Pro",
+      "lab_count": 10,
+      "labs": [
+        "anthropic",
+        "deepseek",
+        "google",
+        "meta",
+        "moonshot",
+        "openai",
+        "qwen",
+        "xai",
+        "xiaomi",
+        "zai"
+      ],
+      "first_seen": "2025-11-24",
+      "last_seen": "2026-09-14",
+      "labs_by_year": {
+        "2025": 2,
+        "2026": 10
+      },
+      "labs_by_quarter": {
+        "2025-Q4": 2,
+        "2026-Q1": 4,
+        "2026-Q2": 8,
+        "2026-Q3": 7
+      },
+      "categories": [
+        "coding",
+        "agentic"
+      ],
+      "suite": "swe-bench",
+      "recent_share": 13
+    },
+    {
       "id": "winogrande",
       "name": "WinoGrande",
       "lab_count": 10,
@@ -29874,40 +29906,6 @@
       ],
       "suite": "gpqa",
       "recent_share": 5
-    },
-    {
-      "id": "swebenchpro",
-      "name": "SWE-Bench Pro",
-      "lab_count": 9,
-      "labs": [
-        "anthropic",
-        "google",
-        "meta",
-        "moonshot",
-        "openai",
-        "qwen",
-        "xai",
-        "xiaomi",
-        "zai"
-      ],
-      "first_seen": "2025-11-24",
-      "last_seen": "2026-09-14",
-      "labs_by_year": {
-        "2025": 2,
-        "2026": 9
-      },
-      "labs_by_quarter": {
-        "2025-Q4": 2,
-        "2026-Q1": 4,
-        "2026-Q2": 7,
-        "2026-Q3": 7
-      },
-      "categories": [
-        "coding",
-        "agentic"
-      ],
-      "suite": "swe-bench",
-      "recent_share": 12
     },
     {
       "id": "terminalbench21",
@@ -30554,13 +30552,13 @@
       "last_seen": "2026-09-14",
       "labs_by_year": {
         "2025": 6,
-        "2026": 6
+        "2026": 7
       },
       "labs_by_quarter": {
         "2025-Q3": 3,
-        "2025-Q4": 4,
+        "2025-Q4": 5,
         "2026-Q1": 5,
-        "2026-Q2": 3,
+        "2026-Q2": 4,
         "2026-Q3": 3
       },
       "categories": [
@@ -30568,7 +30566,7 @@
         "agentic"
       ],
       "suite": "swe-bench",
-      "recent_share": 18
+      "recent_share": 20
     },
     {
       "id": "textvqa",
@@ -32421,7 +32419,7 @@
         "2026-Q3": 1
       },
       "categories": [
-        "other"
+        "safety"
       ],
       "suite": null,
       "recent_share": 0
@@ -36139,6 +36137,33 @@
       "recent_share": 0
     },
     {
+      "id": "swebenchagentless",
+      "name": "SWE-agentless",
+      "lab_count": 3,
+      "labs": [
+        "qwen",
+        "upstage",
+        "xiaomi"
+      ],
+      "first_seen": "2025-07-10",
+      "last_seen": "2026-04-27",
+      "labs_by_year": {
+        "2025": 1,
+        "2026": 2
+      },
+      "labs_by_quarter": {
+        "2025-Q3": 1,
+        "2026-Q1": 1,
+        "2026-Q2": 1
+      },
+      "categories": [
+        "coding",
+        "agentic"
+      ],
+      "suite": "swe-bench",
+      "recent_share": 2
+    },
+    {
       "id": "swemarathon",
       "name": "SWE-Marathon",
       "lab_count": 3,
@@ -36162,64 +36187,6 @@
       ],
       "suite": null,
       "recent_share": 0
-    },
-    {
-      "id": "swemultilingual",
-      "name": "SWE-Multilingual",
-      "lab_count": 3,
-      "labs": [
-        "deepseek",
-        "moonshot",
-        "qwen"
-      ],
-      "first_seen": "2025-11-06",
-      "last_seen": "2026-05-21",
-      "labs_by_year": {
-        "2025": 2,
-        "2026": 3
-      },
-      "labs_by_quarter": {
-        "2025-Q4": 2,
-        "2026-Q2": 3
-      },
-      "categories": [
-        "multilingual"
-      ],
-      "suite": null,
-      "recent_share": 4
-    },
-    {
-      "id": "sweverified",
-      "name": "SWE Verified",
-      "lab_count": 3,
-      "labs": [
-        "deepseek",
-        "moonshot",
-        "qwen"
-      ],
-      "first_seen": "2024-09-05",
-      "last_seen": "2026-05-21",
-      "labs_by_year": {
-        "2024": 1,
-        "2025": 1,
-        "2026": 3
-      },
-      "labs_by_quarter": {
-        "2024-Q3": 1,
-        "2024-Q4": 1,
-        "2025-Q1": 1,
-        "2025-Q2": 1,
-        "2025-Q3": 1,
-        "2025-Q4": 1,
-        "2026-Q1": 2,
-        "2026-Q2": 2
-      },
-      "categories": [
-        "coding",
-        "agentic"
-      ],
-      "suite": null,
-      "recent_share": 6
     },
     {
       "id": "tau2airline",
@@ -37248,7 +37215,7 @@
         "2026-Q3": 2
       },
       "categories": [
-        "other"
+        "reasoning"
       ],
       "suite": null,
       "recent_share": 1
@@ -37590,7 +37557,7 @@
         "2026-Q2": 2
       },
       "categories": [
-        "other"
+        "agentic"
       ],
       "suite": null,
       "recent_share": 2
@@ -39942,7 +39909,7 @@
         "2026-Q2": 1
       },
       "categories": [
-        "other"
+        "science"
       ],
       "suite": null,
       "recent_share": 1
@@ -41250,7 +41217,7 @@
         "2026-Q2": 1
       },
       "categories": [
-        "other"
+        "reasoning"
       ],
       "suite": null,
       "recent_share": 4
@@ -42299,53 +42266,6 @@
       "recent_share": 0
     },
     {
-      "id": "swebenchagentless",
-      "name": "SWE-Bench (AgentLess)",
-      "lab_count": 2,
-      "labs": [
-        "upstage",
-        "xiaomi"
-      ],
-      "first_seen": "2025-07-10",
-      "last_seen": "2026-04-27",
-      "labs_by_year": {
-        "2025": 1,
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2025-Q3": 1,
-        "2026-Q2": 1
-      },
-      "categories": [
-        "coding",
-        "agentic"
-      ],
-      "suite": "swe-bench",
-      "recent_share": 2
-    },
-    {
-      "id": "swepro",
-      "name": "SWE-Pro",
-      "lab_count": 2,
-      "labs": [
-        "deepseek",
-        "qwen"
-      ],
-      "first_seen": "2026-04-26",
-      "last_seen": "2026-05-21",
-      "labs_by_year": {
-        "2026": 2
-      },
-      "labs_by_quarter": {
-        "2026-Q2": 2
-      },
-      "categories": [
-        "other"
-      ],
-      "suite": null,
-      "recent_share": 1
-    },
-    {
       "id": "synthetictext2sql",
       "name": "Synthetic Text2SQL",
       "lab_count": 2,
@@ -43388,7 +43308,7 @@
         "2026-Q1": 1
       },
       "categories": [
-        "other"
+        "reasoning"
       ],
       "suite": null,
       "recent_share": 3
@@ -47071,7 +46991,7 @@
         "2026-Q3": 1
       },
       "categories": [
-        "other"
+        "safety"
       ],
       "suite": null,
       "recent_share": 4
@@ -58926,7 +58846,7 @@
         "2025-Q4": 1
       },
       "categories": [
-        "other"
+        "safety"
       ],
       "suite": null,
       "recent_share": 0
@@ -58947,7 +58867,7 @@
         "2025-Q4": 1
       },
       "categories": [
-        "other"
+        "safety"
       ],
       "suite": null,
       "recent_share": 0
@@ -65281,7 +65201,7 @@
         "2026-Q3": 1
       },
       "categories": [
-        "other"
+        "multilingual"
       ],
       "suite": null,
       "recent_share": 0
@@ -73806,28 +73726,6 @@
       "recent_share": 0
     },
     {
-      "id": "sweagentless",
-      "name": "SWE-agentless",
-      "lab_count": 1,
-      "labs": [
-        "qwen"
-      ],
-      "first_seen": "2026-02-14",
-      "last_seen": "2026-02-14",
-      "labs_by_year": {
-        "2026": 1
-      },
-      "labs_by_quarter": {
-        "2026-Q1": 1
-      },
-      "categories": [
-        "coding",
-        "agentic"
-      ],
-      "suite": null,
-      "recent_share": 0
-    },
-    {
       "id": "sweatlasqna",
       "name": "SWE-Atlas-QnA",
       "lab_count": 1,
@@ -77814,7 +77712,7 @@
         "2026-Q1": 1
       },
       "categories": [
-        "other"
+        "reasoning"
       ],
       "suite": null,
       "recent_share": 0
@@ -79051,7 +78949,7 @@
       "id": "coding",
       "name": "Coding",
       "blurb": "Code generation, repair and repo-scale software engineering",
-      "members": 195,
+      "members": 193,
       "lab_count": 12,
       "labs": [
         "anthropic",
@@ -79090,7 +78988,7 @@
       "id": "agentic",
       "name": "Agentic & computer use",
       "blurb": "Tool use, browsing, GUI and OS control, multi-step work",
-      "members": 186,
+      "members": 185,
       "lab_count": 12,
       "labs": [
         "anthropic",
@@ -79203,7 +79101,7 @@
       "id": "science",
       "name": "Science",
       "blurb": "Physics, chemistry, biology and medicine",
-      "members": 74,
+      "members": 75,
       "lab_count": 12,
       "labs": [
         "anthropic",
@@ -79236,7 +79134,7 @@
         "2026-Q2": 10,
         "2026-Q3": 8
       },
-      "recent_share": 61
+      "recent_share": 62
     },
     {
       "id": "knowledge",
@@ -79281,7 +79179,7 @@
       "id": "reasoning",
       "name": "Reasoning",
       "blurb": "Logic, commonsense and puzzles",
-      "members": 133,
+      "members": 137,
       "lab_count": 12,
       "labs": [
         "anthropic",
@@ -79314,7 +79212,7 @@
         "2026-Q2": 10,
         "2026-Q3": 9
       },
-      "recent_share": 69
+      "recent_share": 70
     },
     {
       "id": "speech",
@@ -79381,18 +79279,18 @@
         "2025-Q1": 6,
         "2025-Q2": 6,
         "2025-Q3": 7,
-        "2025-Q4": 7,
+        "2025-Q4": 6,
         "2026-Q1": 6,
-        "2026-Q2": 7,
+        "2026-Q2": 6,
         "2026-Q3": 5
       },
-      "recent_share": 32
+      "recent_share": 29
     },
     {
       "id": "safety",
       "name": "Safety & security",
       "blurb": "Refusal, bias, jailbreaks and cyber-offence",
-      "members": 90,
+      "members": 94,
       "lab_count": 10,
       "labs": [
         "anthropic",
@@ -79467,7 +79365,7 @@
       "id": "other",
       "name": "Other",
       "blurb": "Does not fit the categories above",
-      "members": 1017,
+      "members": 1005,
       "lab_count": 12,
       "labs": [
         "anthropic",
@@ -79487,17 +79385,17 @@
         "2023-Q1": 3,
         "2023-Q2": 3,
         "2023-Q3": 7,
-        "2023-Q4": 7,
+        "2023-Q4": 6,
         "2024-Q1": 9,
         "2024-Q2": 7,
         "2024-Q3": 7,
-        "2024-Q4": 8,
+        "2024-Q4": 7,
         "2025-Q1": 9,
         "2025-Q2": 11,
         "2025-Q3": 11,
         "2025-Q4": 12,
         "2026-Q1": 11,
-        "2026-Q2": 11,
+        "2026-Q2": 10,
         "2026-Q3": 11
       },
       "recent_share": 99
@@ -79597,17 +79495,17 @@
       ],
       "labs_by_quarter": {
         "2024-Q2": 1,
-        "2024-Q3": 1,
-        "2024-Q4": 3,
-        "2025-Q1": 3,
-        "2025-Q2": 6,
+        "2024-Q3": 2,
+        "2024-Q4": 4,
+        "2025-Q1": 4,
+        "2025-Q2": 7,
         "2025-Q3": 11,
-        "2025-Q4": 7,
+        "2025-Q4": 8,
         "2026-Q1": 8,
-        "2026-Q2": 8,
+        "2026-Q2": 9,
         "2026-Q3": 8
       },
-      "recent_share": 48
+      "recent_share": 53
     },
     {
       "id": "humaneval",

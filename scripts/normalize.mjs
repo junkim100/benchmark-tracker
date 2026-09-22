@@ -264,7 +264,32 @@ const benchmarks = [...registry.values()]
       Object.entries(e.by_quarter).sort().map(([q, s]) => [q, s.size]),
     ),
   }))
-  .map((b) => ({ ...b, categories: classify(b.name, catOverrides), suite: suiteOf(b.name, suiteDefs), recent_share: recentShare([b.id]) }))
+  // The display name is whichever spelling labs used most, so merging an
+  // abbreviation into a benchmark can change it: aliasing SWE-agentless onto
+  // SWE-Bench (AgentLess) made the shorter form win the tie, and the merged
+  // entry fell out of the SWE-bench suite because the winning name no longer
+  // contains "swebench". A suite's lab count moved because of a tie-break.
+  //
+  // So a suite is resolved against every spelling, longest first. Suite
+  // patterns are curated stems, so a spurious match is unlikely and a missed
+  // one costs a whole family its grouping.
+  //
+  // Categories are not treated the same way, because there the failure runs the
+  // other direction: a mangled spelling can win a confident wrong label. The
+  // display name decides, and only if it yields Other does a fuller spelling
+  // get a say. "OpenAIMod" appears once in the data and matched a math rule
+  // inside its own letters, which was enough to file a content moderation
+  // dataset under Math when any spelling could win.
+  .map((b) => {
+    const forms = [...new Set([b.name, ...(spellings.get(b.id) ?? new Map()).keys()])]
+      .sort((x, y) => y.length - x.length);
+    const suite = forms.map((n) => suiteOf(n, suiteDefs)).find(Boolean) ?? null;
+    const own = classify(b.name, catOverrides);
+    const cats = own[0] !== "other" ? own
+      : forms.filter((n) => n.length > b.name.length)
+          .map((n) => classify(n, catOverrides)).find((c) => c[0] !== "other") ?? own;
+    return { ...b, categories: cats, suite, recent_share: recentShare([b.id]) };
+  })
   .sort((a, b) => b.lab_count - a.lab_count || a.id.localeCompare(b.id));
 
 writeFileSync(join(DATA, "benchmarks.json"), JSON.stringify(benchmarks, null, 2) + "\n");

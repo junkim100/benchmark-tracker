@@ -109,5 +109,9 @@
   "openai mod": "openai-moderation",
   "openai mod 2022": "openai-moderation",
   "openai moderation api": "openai-moderation",
-  "openai moderation evaluation dataset": "openai-moderation"
+  "openai moderation evaluation dataset": "openai-moderation",
+  "swe verified": "swe-bench-verified",
+  "swe multilingual": "swebenchmultilingual",
+  "swe pro": "swebenchpro",
+  "swe agentless": "swebenchagentless"
 }
