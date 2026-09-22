@@ -31,10 +31,15 @@ jobs:
 
       # The alias gate is Python: the TypeSafe SDK has no JS client. research.mjs
       # shells out to it once per run with the whole batch on stdin.
+      # Both steps are allowed to fail. The gate degrades to "review everything"
+      # without Python or the SDK, so a PyPI outage should cost us the second
+      # opinion for one run, not the whole research pass.
       - uses: actions/setup-python@v5
+        continue-on-error: true
         with:
           python-version: "3.12"
       - run: pip install -r scripts/requirements.txt
+        continue-on-error: true
 
       - name: Research each lab
         env:

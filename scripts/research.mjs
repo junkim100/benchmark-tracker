@@ -261,7 +261,19 @@ function gateAliases(candidates) {
   }
 }
 
-const gated = gateAliases(needGate);
+// Reconcile what came back against what was sent. The gate is a separate
+// process and its contract is "one verdict per candidate", but a contract is
+// not a guarantee: unparseable input, for one, makes it return an empty list.
+// Anything sent and not returned is queued rather than lost, because silently
+// dropping a suggestion is the one outcome worse than holding it.
+const gatedRaw = gateAliases(needGate);
+const seenBack = new Set(gatedRaw.map((g) => `${aliasKey(g.raw)}|${aliasKey(g.tracked)}`));
+const gated = [
+  ...gatedRaw,
+  ...needGate
+    .filter((c) => !seenBack.has(`${aliasKey(c.raw)}|${aliasKey(c.tracked)}`))
+    .map((c) => ({ ...c, decision: "REVIEW", unavailable: "gate_returned_no_verdict" })),
+];
 const applied = [];
 const queued = [];
 for (const g of gated) {
