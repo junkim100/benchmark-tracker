@@ -133,6 +133,13 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
   font-size: 17px; line-height: 1.47; color: var(--text-muted);
 }
 
+/* Narrowing the page to one kind of model. Sits above the picker because it
+   changes what every number under it means, and its note says so rather than
+   leaving the reader to notice that a count moved. */
+.scope { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-sm) var(--s-md); margin: 0 0 var(--s-lg); }
+.scope__note { flex: 1 1 100%; margin: 0; font-size: 14px; line-height: 1.43; letter-spacing: -0.016em; color: var(--text-muted); text-wrap: pretty; }
+@media (min-width: 900px) { .scope__note { flex: 1 1 auto; } }
+
 /* The list folds away, so a first load shows the chart and the timeline rather
    than a wall of cards. The chips stay outside it: what you are tracking has
    to remain visible and removable when the list is shut. */

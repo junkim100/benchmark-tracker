@@ -13,6 +13,10 @@ export type ReleaseKind = "model_release" | "technical_report" | "system_card" |
 
 export interface Release {
   lab: string; model: string; date: string; kind: ReleaseKind; source_url: string;
+  /** What kind of model this release shipped. Absent only if the backfill has
+   *  not reached it; every record carries one today. A list, because one
+   *  announcement is often several models. */
+  modality?: string[];
   /** Positions in Timeline.benchmarks, not ids. The same few thousand id
    *  strings were repeated across every release and came to a third of the
    *  release log; the two files are generated and served together, so the
@@ -48,6 +52,71 @@ export interface Timeline {
   /** Enough about the log to size the timeline and date the copy before the
    *  log itself has arrived. */
   release_log: { count: number; first: string | null };
+}
+
+/** Recount every figure on the page over a subset of the releases.
+ *
+ *  The build computes lab_count, recent_share and labs_by_quarter across all
+ *  777 releases, which is right until a reader narrows the page to one kind of
+ *  model. Then the timeline would show language releases while every card went
+ *  on reporting how many labs cited a benchmark anywhere, including in the
+ *  video releases just hidden. A filter whose numbers do not move is worse than
+ *  no filter, because it looks like it worked.
+ *
+ *  Cheap enough to do on every change: one pass over the log, which is already
+ *  in memory because the timeline needs it.
+ *
+ *  `quarters` and `recentQuarters` come from the build so the axis and the
+ *  disclosed window stay fixed while the scope moves. A share measured against
+ *  a window that also changed would be comparing two different things. */
+export interface Recount {
+  labCount: number[];              // by benchmark position
+  recentShare: number[];
+  labsByQuarter: Record<string, number>[];
+  releases: number;                // the denominator the shares were taken over
+}
+
+export function recount(
+  log: Release[],
+  benchmarkCount: number,
+  quarters: string[],
+  recentQuarters: string[],
+): Recount {
+  const recent = new Set(recentQuarters);
+  const labs: Set<string>[] = Array.from({ length: benchmarkCount }, () => new Set());
+  const perQuarter: Map<string, Set<string>>[] = Array.from({ length: benchmarkCount }, () => new Map());
+  // Per lab, how many releases it shipped in the window and how many of those
+  // cited each benchmark. recent_share is a mean of per-lab shares rather than
+  // a global ratio, so a lab that ships forty times a quarter cannot drown one
+  // that ships twice.
+  const shipped = new Map<string, number>();
+  const cited: Map<string, number>[] = Array.from({ length: benchmarkCount }, () => new Map());
+
+  for (const r of log) {
+    const q = quarterOf(r.date);
+    const inWindow = recent.has(q);
+    if (inWindow) shipped.set(r.lab, (shipped.get(r.lab) ?? 0) + 1);
+    for (const b of r.benchmarks) {
+      if (b == null || b >= benchmarkCount) continue;
+      labs[b].add(r.lab);
+      const m = perQuarter[b];
+      if (!m.has(q)) m.set(q, new Set());
+      m.get(q)!.add(r.lab);
+      if (inWindow) cited[b].set(r.lab, (cited[b].get(r.lab) ?? 0) + 1);
+    }
+  }
+
+  const labCount = labs.map((s) => s.size);
+  const labsByQuarter = perQuarter.map((m) => {
+    const out: Record<string, number> = {};
+    for (const q of quarters) if (m.has(q)) out[q] = m.get(q)!.size;
+    return out;
+  });
+  const recentShare = cited.map((m) => {
+    const shares = [...shipped].map(([lab, n]) => (n ? (m.get(lab) ?? 0) / n : 0));
+    return shares.length ? Math.round((shares.reduce((a, b) => a + b, 0) / shares.length) * 100) : 0;
+  });
+  return { labCount, recentShare, labsByQuarter, releases: [...shipped.values()].reduce((a, b) => a + b, 0) };
 }
 
 /** What a series on the chart can be. Benchmarks, the suites that gather their

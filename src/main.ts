@@ -7,7 +7,7 @@ import "./styles/app.css";
 // pair that build produced and a deploy can never leave them mismatched.
 import coreUrl from "../data/timeline.json?url";
 import logUrl from "../data/release-log.json?url";
-import { MAX_TRACKED, buildTrackables, displayNames, memberIds, quarterOf, type Release, type Timeline } from "./model";
+import { MAX_TRACKED, buildTrackables, displayNames, memberIds, quarterOf, recount, type Release, type Timeline } from "./model";
 import { renderFilter } from "./filter";
 import { mountSheet } from "./sheet";
 import { renderTrend, type TrendView } from "./trend";
@@ -107,7 +107,8 @@ function render(data: Timeline) {
   // Rows read alphabetically. Any other order implies a ranking the data does
   // not support, and a reader looking for one lab should not have to hunt.
   const labs = [...data.labs].sort((a, b) => a.name.localeCompare(b.name, "en"));
-  const trackables = buildTrackables(data);
+  // Reassigned when a scope is applied, so every view reads one registry.
+  let trackables = buildTrackables(data);
 
   // Open on four that already say something, rather than on an empty chart in
   // the largest space on the page. Four leaves half the eight slots free.
@@ -162,6 +163,14 @@ function render(data: Timeline) {
     <section class="tile tile--canvas" id="track" aria-label="Track benchmarks">
       <div class="tile__in">
         <div class="sec__head"><h2>Choose what to track</h2></div>
+        <div class="scope" hidden>
+          <span class="facets__label" id="scope-label">Releases</span>
+          <div class="seg" role="group" aria-labelledby="scope-label">
+            <button type="button" data-scope="all" aria-pressed="true">All models</button>
+            <button type="button" data-scope="language" aria-pressed="false">Language only</button>
+          </div>
+          <p class="scope__note" role="status"></p>
+        </div>
         <div class="controls"></div>
       </div>
     </section>
@@ -305,6 +314,85 @@ function render(data: Timeline) {
     $('[data-act="theme"]').setAttribute("title", label);
   };
 
+  /** A suite or category counted over the same subset as its members.
+   *
+   *  Left alone, a scoped page would show "Terminal-Bench, all versions" at 11
+   *  labs above a list of versions now totalling four, because the rollup came
+   *  from the build while the versions came from the recount.
+   *
+   *  Counted by the same function as a benchmark, not a parallel one. Each kept
+   *  release is rewritten to cite a single synthetic benchmark when it cites any
+   *  member, so recount produces the group's distinct labs, its labs per quarter
+   *  and its mean per-lab share with exactly the rules used everywhere else. Two
+   *  implementations of "share of recent releases" would eventually disagree,
+   *  and the disagreement would be invisible.
+   */
+  const rollup = (
+    groups: Timeline["suites"],
+    membersOf: (g: Timeline["suites"][number]) => Set<number>,
+    kept: Release[],
+  ): Timeline["suites"] =>
+    groups.map((g) => {
+      const members = membersOf(g);
+      const asOne = kept.map((r) => ({ ...r, benchmarks: r.benchmarks.some((b) => members.has(b)) ? [0] : [] }));
+      const rc = recount(asOne, 1, data.quarters, data.recent_window.quarters);
+      return { ...g, lab_count: rc.labCount[0], labs_by_quarter: rc.labsByQuarter[0], recent_share: rc.recentShare[0] };
+    });
+
+  // Narrowing the page to one kind of model.
+  //
+  // Only offered once the release log has arrived, because it is the log that
+  // carries modality and the log that every recounted figure is derived from,
+  // and a control that cannot do anything yet is worse than one that appears
+  // when it can.
+  //
+  // "all" is not a recount. With no scope the page uses the figures the build
+  // computed, so the default view is byte-for-byte what it was before this
+  // existed, and a reader who never touches the control cannot be affected by
+  // it.
+  let scope: string = "all";
+  const baseTrackables = trackables;
+  const baseWin = win.releases;
+
+  /** Rebuild every trackable's figures over the releases the scope keeps. */
+  const applyScope = () => {
+    if (scope === "all" || !log) {
+      trackables = baseTrackables;
+      win.releases = baseWin;
+      return;
+    }
+    const kept = log.filter((r) => r.modality?.includes(scope));
+    const rc = recount(kept, data.benchmarks.length, data.quarters, data.recent_window.quarters);
+    // The registry is rewritten rather than annotated, so nothing downstream
+    // has to know a scope exists: the filter, the chart and the cards all read
+    // the same fields they always read.
+    const scoped: Timeline = {
+      ...data,
+      benchmarks: data.benchmarks.map((b, i) => ({
+        ...b, lab_count: rc.labCount[i], recent_share: rc.recentShare[i], labs_by_quarter: rc.labsByQuarter[i],
+      })),
+      // Suites and categories are rollups of benchmarks, so they are recounted
+      // from the members rather than left at their unscoped values, which would
+      // have a suite claiming more labs than any version inside it.
+      suites: rollup(data.suites, (g) => new Set(data.benchmarks.flatMap((b, i) => (b.suite === g.id ? [i] : []))), kept),
+      categories: rollup(data.categories, (g) => new Set(data.benchmarks.flatMap((b, i) => (b.categories.includes(g.id) ? [i] : []))), kept),
+    };
+    trackables = buildTrackables(scoped);
+    win.releases = rc.releases;
+  };
+
+  /** What the scope changed, said plainly, because it moves every number. */
+  const paintScopeNote = () => {
+    const el = app.querySelector<HTMLElement>(".scope__note");
+    if (!el || !log) return;
+    if (scope === "all") {
+      el.textContent = `All ${log.length.toLocaleString()} releases, including image, speech, video and embedding models.`;
+      return;
+    }
+    const kept = log.filter((r) => r.modality?.includes(scope)).length;
+    el.textContent = `${kept.toLocaleString()} of ${log.length.toLocaleString()} releases. Every count and share below is measured over those, not over all of them.`;
+  };
+
   const draw = () => {
     // A redraw replaces every mark and every band, so anything the panel is describing is about to stop existing. Closing it first also puts focus back before the filter hands it to the card that was just pressed.
     sheet.hide();
@@ -378,7 +466,10 @@ function render(data: Timeline) {
     // Narrowed into locals, so the hover closure below does not have to
     // re-check two module-scoped nullables every time the pointer moves.
     const tl = timeline;
-    const rows = log;
+    // The same subset every figure on the page was recounted over, so the marks
+    // and the numbers describing them can never be answering different
+    // questions.
+    const rows = scope === "all" ? log : log.filter((r) => r.modality?.includes(scope));
     tl.renderTimeline($(".tlwrap"), {
       labs, releases: rows, names,
       // A mark is coloured by the slot of whatever it cites, so a tracked suite
@@ -398,6 +489,28 @@ function render(data: Timeline) {
   Promise.all([logPromise, import("./timeline")]).then(([rows, mod]) => {
     log = rows;
     timeline = mod;
+    // Offered only now, and only if the data can answer it. Coverage is read
+    // rather than assumed: a backfill that stopped halfway would otherwise give
+    // a control that silently hides every release it never classified.
+    const classified = rows.filter((r) => r.modality?.length).length;
+    if (classified / rows.length >= 0.98) {
+      const el = $<HTMLElement>(".scope");
+      el.hidden = false;
+      el.addEventListener("click", (e) => {
+        const v = (e.target as Element).closest("[data-scope]")?.getAttribute("data-scope");
+        if (!v || v === scope) return;
+        scope = v;
+        for (const b of el.querySelectorAll<HTMLButtonElement>("[data-scope]"))
+          b.setAttribute("aria-pressed", String(b.dataset.scope === scope));
+        applyScope();
+        paintScopeNote();
+        draw();
+        drawTimeline();
+      });
+      applyScope();
+      paintScopeNote();
+      draw();
+    }
     drawTimeline();
   }).catch((err) => {
     // Everything above the fold is already correct and working, so a failure
