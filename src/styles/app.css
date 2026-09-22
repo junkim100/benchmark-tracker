@@ -304,6 +304,30 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
 /* A suite and a category gather other things, so they read as containers. */
 .bcard--suite, .bcard--category { border-style: dashed; }
 .bcard--suite[aria-selected="true"], .bcard--category[aria-selected="true"] { border-style: solid; }
+
+/* The card and its info button. Two sibling buttons rather than one inside the other, because a button cannot contain a button, so the wrapper is what the grid lays out and the card fills it. */
+.bcardw { position: relative; display: grid; }
+/* Room for the button in the card's own padding, so the name wraps before it reaches it rather than running underneath. Written after the selected rule above so the longhand wins over both of that rule's padding shorthands, which is the whole reason it sits here rather than up with the rest of the card. */
+.bcardw > .bcard { padding-right: 38px; }
+/* Thirty of these is a real density cost on a phone, so the button takes no vertical space at all: it is lifted out of flow into a corner the card already leaves empty, and the card is exactly as tall as it was. */
+.bcard__i {
+  position: absolute; top: 0; right: 0; z-index: 1;
+  display: grid; place-items: center; width: 36px; height: 36px; padding: 0; cursor: pointer;
+  background: none; border: 0; border-radius: var(--r-pill); color: var(--text-muted);
+  transition: color .12s, background .12s, transform .08s ease-out;
+}
+.bcard__i svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; }
+@media (hover: hover) { .bcard__i:hover { color: var(--accent); background: var(--surface-3); } }
+/* The press animation belongs to the whole card, and the card is now only part of it. Without this the card shrank 5% under a button that stayed exactly where it was, and the two came apart for the length of the press. Guarded, because dropping the transform on the card is only safe where the rule that puts it back can be parsed. */
+@supports selector(:has(*)) {
+  .bcardw > .bcard:active:not(:disabled) { transform: none; }
+  .bcardw:has(> .bcard:active:not(:disabled)) { transform: scale(0.95); }
+}
+/* Which card the open panel is describing, in the same grammar the timeline's marks and the chart's bands use: the page's own muted ink laid over the card's surface, which darkens in light mode and lightens in dark without a rule per theme. A fill rather than a border, because the border already carries whether the benchmark is tracked and one signal per channel is the only way both stay readable.
+   8% and not more. The chart's picked band runs at 14%, but nothing is written on a band. Here the card's 12px meta line sits on this fill at --text-muted, which measures 4.59:1 at 8% and 4.47:1 at 10%, so ten would put the smallest text on the card under AA in light mode. At eight, in light and dark: muted 4.59 and 5.20, accent 5.04 and 4.95, primary 15.22 and 14.94. */
+.bcard.is-picked { background: color-mix(in srgb, var(--text-muted) 8%, var(--canvas)); }
+/* The button that opened the panel stays lit for as long as it is open, so the affordance and its result are visibly one thing. */
+.bcard.is-picked + .bcard__i { color: var(--accent); }
 .browse__none { margin: var(--s-xs) 0 0; font-size: 17px; color: var(--text-muted); }
 
 /* Paging. Compact utility rects at 8px, not pills: turning a page is a move
@@ -642,8 +666,16 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 .sheet__m { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.24; letter-spacing: -0.022em; }
 .sheet__k { margin: 2px 0 0; font-size: 12px; line-height: 1.3; letter-spacing: -0.01em; color: var(--text-muted); }
 .sheet__l { margin: var(--s-xs) 0 0; padding-left: 17px; font-size: 14px; line-height: 1.5; letter-spacing: -0.016em; }
+/* A benchmark's own panel: what it is, what suite it is in, who has cited it. One section per question, and a gap only after a section that has anything in it. The description is fetched on the first press and most benchmarks have none, so the first section is usually empty, and an empty section must not push the rest down by a gap it is not filling. */
+.sheet__sec:not(:empty) + .sheet__sec { margin-top: var(--s-md); }
+/* The bar names what the panel is about, so these name its parts. Same 12px as the muted lines around them and the page's own ink, so the two do not read as one block. */
+.sheet__h { margin: 0 0 3px; font-size: 12px; font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; color: var(--text-secondary); }
+.sheet__p { margin: 0; font-size: 14px; line-height: 1.43; letter-spacing: -0.016em; text-wrap: pretty; }
+.sheet__p + .sheet__k { margin-top: var(--s-xxs); }
 /* A link, not a pill. Several releases can land in one panel and a stack of blue pills would read as the loudest thing on the page; the accent underline is the grammar the rest of the page already uses for going somewhere. It still gets the 44px a finger is entitled to. */
 .sheet__go { display: inline-flex; align-items: center; min-height: 44px; font-size: 17px; }
+/* Inside a benchmark's panel it drops to the size of the sentence it belongs to. In the timeline's panel the link is the one thing on offer and 17px is right; here the sentence is the point, and a link a size larger than everything around it would be the loudest thing in a panel about a benchmark. */
+.sheet__sec .sheet__go { font-size: 14px; }
 /* Stepping to the quarter on either side, because the bands are 21.6px wide at 390 and a fingertip is not. */
 .sheet__steps { display: flex; justify-content: space-between; gap: var(--s-xs); margin-top: var(--s-md); }
 .sheet__step {
@@ -716,6 +748,9 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
   .facets__subjects button[aria-pressed="true"] { padding-block: 0; }
   .seg button { padding-block: 0; }
   .bcard { min-height: 44px; }
+  /* The glyph stays 16px and only the target grows, so a phone gets its 44px without thirty cards each carrying a visibly bigger button. The card gives up the matching width from its own end padding. */
+  .bcard__i { width: 44px; height: 44px; }
+  .bcardw > .bcard { padding-right: 46px; }
   .facets__group { min-height: 44px; }
   /* The clear button was the one control here that grew in one direction only: min-height took it to 44 and it stayed 28 wide. The field gives up the right half of its padding to make room. */
   .browse__clear { min-width: 44px; }
@@ -750,6 +785,8 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
   html { scroll-behavior: auto; }
   * { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   button:active:not(:disabled), .bcard:active:not(:disabled) { transform: none; }
+  /* The card's press animation moved to its wrapper when the info button arrived, so the wrapper is what has to be stilled here as well. */
+  .bcardw:has(> .bcard:active:not(:disabled)) { transform: none; }
 }
 
 /* The figure caption carries only the partial-quarter warning now; the section

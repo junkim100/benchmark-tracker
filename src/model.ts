@@ -52,6 +52,16 @@ export interface Timeline {
   /** Enough about the log to size the timeline and date the copy before the
    *  log itself has arrived. */
   release_log: { count: number; first: string | null };
+  /** How many benchmarks have a researched description and how many were looked
+   *  for and not found. The descriptions themselves are their own asset,
+   *  fetched only when a reader opens a detail panel; these two numbers ride in
+   *  the registry so the interface can tell at first paint whether that fetch
+   *  would find anything, without making it.
+   *
+   *  Optional because a registry built before the description pass existed does
+   *  not carry it, and a page served that registry has to behave as though
+   *  nothing had been described rather than throw. */
+  descriptions?: { described: number; refused: number };
   /** The kinds of model present in this dataset, commonest first, with how many
    *  releases each covers. Only classes with something behind them. */
   modalities: { id: string; name: string; short: string; blurb: string; releases: number }[];

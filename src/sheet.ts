@@ -45,9 +45,10 @@ export function mountSheet(el: HTMLElement): Sheet {
   };
 
   const show = (r: SheetRequest) => {
-    // Only on the way in from a closed panel. Tapping a second mark while it is
-    // open must not record the panel itself as the place to go back to.
-    if (el.hidden) returnTo = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    // Recorded unless focus is already inside the panel. Tapping a second mark while it is open must not record the panel itself as the place to go back to, which is what focus is on by then; pressing a second card's info button, which does take focus and takes it outside, must, or closing would return the reader to the card before last.
+    if (!el.contains(document.activeElement)) {
+      returnTo = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    }
     bar.textContent = r.title;
     body.innerHTML = r.html;
     onAct = r.onAct ?? null;
