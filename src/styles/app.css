@@ -101,6 +101,8 @@ button { transition: transform .08s ease-out; }
    them slide to the left edge when the name goes. */
 .subnav__spacer { flex: 1; }
 @media (max-width: 640px) { .subnav__name { font-size: 17px; } }
+/* Empty bar: keep the space, drop the paint. */
+.subnav.is-bare { background: transparent; border-bottom-color: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; }
 
 /* Two button grammars, and only two: the blue pill that means act, and the
    compact utility rect. */
@@ -114,17 +116,6 @@ button { transition: transform .08s ease-out; }
 }
 .btn:hover { background: var(--accent-press); border-color: var(--accent-press); }
 .btn--sm { padding: 7px 16px; font-size: 14px; letter-spacing: -0.016em; }
-
-/* Utility rect, for the nav's icon actions. 8px radius, never a pill: the
-   pill is reserved for the action signal. */
-.iconbtn {
-  flex: none; display: grid; place-items: center; width: 36px; height: 36px; padding: 0;
-  background: transparent; color: var(--text-secondary);
-  border: 1px solid transparent; border-radius: var(--r-sm); cursor: pointer;
-  transition: color .12s, background .12s, transform .08s ease-out;
-}
-.iconbtn__i { width: 18px; height: 18px; display: block; }
-.iconbtn:hover { color: var(--text-primary); background: var(--surface-3); }
 
 /* Section heads. The accent rule that used to sit before every h2 is gone:
    the spec's instruction when something needs emphasis is to change the
@@ -509,7 +500,11 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 
 /* Footer. The spec goes deliberately dense here so the whole information
    architecture is visible at a glance, and runs the legal row at fine-print. */
-.ft { padding: 64px 0; }
+/* The last line of the footer is the one place a fixed corner control sits on
+   top of text for good rather than in passing, because the page stops there
+   and the buttons do not. The extra room below is the button plus its inset
+   plus a gap, so the copyright clears both corners at every width. */
+.ft { padding: 64px 0 calc(clamp(16px, 4vw, 32px) + 44px + var(--s-lg)); }
 .ft p { margin: 0 0 var(--s-md); max-width: 86ch; font-size: 14px; line-height: 1.43; letter-spacing: -0.016em; color: var(--text-muted); text-wrap: pretty; }
 .ft p:last-child { margin-bottom: 0; }
 /* Fine print keeps the spec's size and the spec's role but not its colour:
@@ -518,19 +513,26 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 .ft__legal { margin-top: var(--s-lg); padding-top: var(--s-md); border-top: 1px solid var(--border); font-size: 12px !important; letter-spacing: -0.01em !important; }
 .empty { max-width: 56ch; }
 
-/* Back to top. The spec's circular control chip: 44px, translucent, floating
-   over content, with the icon carrying the meaning and the label read out. */
+/* The two corner controls. Both are the spec's circular chip: 44px,
+   translucent over a blur, floating above the content with the icon carrying
+   the meaning and the label read out. They are a matched pair, one in each
+   bottom corner, so they read as page furniture rather than as two unrelated
+   buttons that happen to float. Theme is always there; back to top arrives
+   once there is a long way back. */
 .tl-sentinel { display: block; height: 1px; margin-bottom: -1px; }
-.totop {
-  position: fixed; right: clamp(16px, 4vw, 32px); bottom: clamp(16px, 4vw, 32px); z-index: 20;
+.corner {
+  position: fixed; bottom: clamp(16px, 4vw, 32px); z-index: 20;
   display: grid; place-items: center; width: 44px; height: 44px; padding: 0; cursor: pointer;
   background: color-mix(in srgb, var(--border-strong) 64%, transparent);
   -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
   color: var(--text-primary); border: 0; border-radius: var(--r-pill);
   transition: background .12s, transform .08s ease-out;
 }
-.totop:hover { background: var(--border-strong); }
-.totop svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.corner--left { left: clamp(16px, 4vw, 32px); }
+.corner--right { right: clamp(16px, 4vw, 32px); }
+.corner:hover { background: var(--border-strong); }
+.corner svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.corner__i { width: 18px; height: 18px; display: block; }
 
 /* Touch targets. The spec's floor is 44x44, and it also notes that precision
    desktop actions deliberately sit tighter. So the floor is enforced where a
@@ -542,7 +544,6 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
   .facets__subjects button, .chip { padding-block: 0; }
   .facets__subjects button[aria-pressed="true"] { padding-block: 0; }
   .seg button { padding-block: 0; }
-  .iconbtn { width: 44px; height: 44px; }
   .bcard { min-height: 44px; }
   .facets__group { min-height: 44px; }
 }

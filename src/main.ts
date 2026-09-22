@@ -85,10 +85,6 @@ if (data.releases.length === 0) {
         <span class="subnav__name">Frontier Benchmark Tracker</span>
         <span class="subnav__spacer"></span>
         <button class="btn btn--sm" type="button" data-act="pick">Change what's tracked</button>
-        <button class="iconbtn" type="button" data-act="theme">
-          <span class="vh"></span>
-          <svg class="iconbtn__i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></svg>
-        </button>
       </div>
     </nav>
 
@@ -126,7 +122,11 @@ if (data.releases.length === 0) {
       </div>
     </footer>
     <div class="tt" role="tooltip" hidden></div>
-    <button class="totop" type="button" hidden aria-label="Back to top" title="Back to top">
+    <button class="corner corner--left" type="button" data-act="theme">
+      <span class="vh"></span>
+      <svg class="corner__i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></svg>
+    </button>
+    <button class="corner corner--right totop" type="button" hidden aria-label="Back to top" title="Back to top">
       <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>
     </button>`;
 
@@ -199,9 +199,9 @@ if (data.releases.length === 0) {
   const paintTheme = () => {
     const toDark = effective() !== "dark";
     const label = toDark ? "Switch to dark theme" : "Switch to light theme";
-    $(".iconbtn__i").innerHTML = toDark ? MOON : SUN;
-    $(".iconbtn .vh").textContent = label;
-    $(".iconbtn").setAttribute("title", label);
+    $(".corner__i").innerHTML = toDark ? MOON : SUN;
+    $('[data-act="theme"] .vh').textContent = label;
+    $('[data-act="theme"]').setAttribute("title", label);
   };
 
   const draw = () => {
@@ -330,6 +330,7 @@ if (data.releases.length === 0) {
   // "Frontier Benchmark Tracker" is noise; so is a blue pill saying "Change
   // what's tracked" directly above a blue pill saying "Browse benchmarks".
   // Each appears exactly when the thing it stands in for is off screen.
+  const subnav = $<HTMLElement>(".subnav");
   const navName = $<HTMLElement>(".subnav__name");
   const navPick = $<HTMLElement>('[data-act="pick"]');
   const hero = $(".hero");
@@ -342,6 +343,11 @@ if (data.releases.length === 0) {
     toTop.hidden = sentinel.getBoundingClientRect().top > 0;
     navName.hidden = hero.getBoundingClientRect().bottom > 0;
     navPick.hidden = controls.getBoundingClientRect().bottom > navH;
+    // With both pieces away the bar holds nothing, and an empty strip with a
+    // hairline under it is a rule doing the job the surface change already
+    // does. It keeps its 52px so nothing below it moves, and paints only once
+    // it has something to carry, which is also the moment it pins.
+    subnav.classList.toggle("is-bare", navName.hidden && navPick.hidden);
   };
   addEventListener("scroll", () => {
     if (ticking) return;
