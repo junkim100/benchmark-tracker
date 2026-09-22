@@ -388,13 +388,11 @@ function render(data: Timeline) {
   const DEFAULT_SCOPE = "language";
   let scope: string = scopeOffered ? DEFAULT_SCOPE : "all";
   const baseTrackables = trackables;
-  const baseWin = win.releases;
 
   /** Rebuild every trackable's figures over the releases the scope keeps. */
   const applyScope = () => {
     if (scope === "all" || !log) {
       trackables = baseTrackables;
-      win.releases = baseWin;
       return;
     }
     const kept = log.filter((r) => r.modality?.includes(scope));
@@ -414,7 +412,6 @@ function render(data: Timeline) {
       categories: rollup(data.categories, (g) => new Set(data.benchmarks.flatMap((b, i) => (b.categories.includes(g.id) ? [i] : []))), kept),
     };
     trackables = buildTrackables(scoped);
-    win.releases = rc.releases;
   };
 
   /** The chips, and the line saying what the current one did.
@@ -456,7 +453,7 @@ function render(data: Timeline) {
     sheet.hide();
     renderFilter($(".controls"), {
       trackables, categories: data.categories, tracked,
-      recentLabel: `the last ${recentMonths} months, ${fmtMonth(win.from)} to ${fmtMonth(win.to)}, covering ${win.releases.toLocaleString()} releases`,
+      recentLabel: `the last ${recentMonths} months`,
       sinceLabel: fmtMonth(data.release_log.first),
       onToggle: (id) => {
         const adding = !tracked.includes(id);

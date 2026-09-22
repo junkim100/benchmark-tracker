@@ -178,11 +178,6 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
       <span class="fold__n" ${open ? "hidden" : ""}>${entries.length.toLocaleString()}</span>
     </button>
     <div class="browse" id="browse-panel" ${open ? "" : "hidden"}>
-      <div class="browse__note">
-        <p><b>Labs</b> counts how many of the twelve have cited it since ${esc(a.sinceLabel)}, so it never falls.</p>
-        <p><b>Recent releases</b> is the share still citing it across ${esc(a.recentLabel)}.</p>
-        <p><b>Group versions</b> folds every edition of one evaluation into a single card, so SWE-bench Verified and SWE-Bench Pro sit under SWE-bench. Turn it off to pick a version on its own.</p>
-      </div>
       <div class="browse__field">
         <svg class="browse__icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>
         <input class="browse__input" type="search" autocomplete="off" spellcheck="false"
@@ -192,6 +187,11 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
       </div>
       <div class="facets">
         <div class="facets__subjects" role="group" aria-label="Subject"></div>
+        <div class="browse__note">
+          <p><b>Labs</b> counts how many of the twelve have cited it since ${esc(a.sinceLabel)}.</p>
+          <p><b>Recent releases</b> is the share still citing it across ${esc(a.recentLabel)}.</p>
+          <p><b>Group versions</b> folds every edition of one evaluation into a single card, so SWE-bench Verified and SWE-Bench Pro sit under SWE-bench. Turn it off to pick a version on its own.</p>
+        </div>
         <div class="facets__how">
           <div class="facets__sort">
             <span class="facets__label" id="sort-label">Sort by</span>
