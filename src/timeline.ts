@@ -281,8 +281,13 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
     // Tighter than the tap slice, because a mouse is precise and the only job
     // here is to beat the overlap rather than to forgive a finger.
     const hit = marksNear(e.clientX, e.clientY, HOVER_SLICE);
-    const rs = hit ? hit.near.flatMap((m) => index.get(m.key) ?? []) : null;
-    a.onHover(rs && rs.length ? rs : null, e.clientX, e.clientY);
+    if (!hit) { a.onHover(null, e.clientX, e.clientY); return; }
+    const box = svg.getBoundingClientRect();
+    const uy = (e.clientY - box.top) / (box.width / W);
+    const rs = [...hit.near]
+      .sort((m1, m2) => Math.abs(m1.cy - uy) - Math.abs(m2.cy - uy))
+      .flatMap((m) => index.get(m.key) ?? []);
+    a.onHover(rs.length ? rs : null, e.clientX, e.clientY);
   });
   svg.addEventListener("mouseleave", () => a.onHover(null, 0, 0));
   svg.addEventListener("click", (e) => {
