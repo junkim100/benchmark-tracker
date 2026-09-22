@@ -390,3 +390,20 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 /* The figure caption carries only the partial-quarter warning now; the section
    standfirst says what the chart is. Empty means empty, not a blank line. */
 figcaption:empty { display: none; }
+
+/* Back to top, shown once the timeline's top has scrolled past.
+   Bottom right, clear of the content rather than over it, and it inherits the
+   page surface so it reads as part of the document instead of floating chrome. */
+.tl-sentinel { display: block; height: 1px; margin-bottom: -1px; }
+.totop {
+  position: fixed; right: clamp(14px, 4vw, 32px); bottom: clamp(14px, 4vw, 32px); z-index: 20;
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 15px 9px 12px; font: inherit; font-size: 13.5px; cursor: pointer;
+  background: var(--surface-0); color: var(--text-secondary);
+  border: 1px solid var(--border-strong); border-radius: 999px;
+  box-shadow: var(--shadow);
+  transition: color .12s, border-color .12s;
+}
+.totop:hover { color: var(--accent); border-color: var(--accent); }
+.totop svg { width: 12px; height: 12px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.totop[hidden] { display: none; }

@@ -94,6 +94,7 @@ if (data.releases.length === 0) {
         <h2>Timeline View</h2>
         <p>Each mark is a model release. Hover to view details, click to read the source.</p>
       </div>
+      <span class="tl-sentinel" aria-hidden="true"></span>
       <section class="tlwrap" aria-label="Release timeline"></section>
     </div>
 
@@ -103,7 +104,11 @@ if (data.releases.length === 0) {
       <p>Updated ${data.generated_at.slice(0, 10)}. <a href="https://github.com/junkim100/benchmark-tracker">Data and code on GitHub</a></p>
       <p class="ft__legal">&copy; ${new Date().getUTCFullYear()} Jun Kim. Code under the MIT licence, data under CC BY 4.0. Lab marks are excluded from both.</p>
     </footer>
-    <div class="tt" role="tooltip" hidden></div>`;
+    <div class="tt" role="tooltip" hidden></div>
+    <button class="totop" type="button" hidden>
+      <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5"/></svg>
+      Back to top
+    </button>`;
 
   const $ = <T extends Element>(s: string) => app.querySelector<T>(s)!;
   const tt = $<HTMLDivElement>(".tt");
@@ -258,6 +263,50 @@ if (data.releases.length === 0) {
   window.addEventListener("resize", () => {
     const w = $(".trendwrap").getBoundingClientRect().width;
     if (Math.abs(w - chartW) > 8) { chartW = w; draw(); }
+  });
+
+  // A way back up, once there is a long way down. The timeline runs about
+  // 2,800px, so reaching its foot puts the masthead three screens away and the
+  // only route back is the same distance in reverse.
+  //
+  // A sentinel rather than a scroll listener: the button should appear when the
+  // timeline's top has passed the viewport, and asking an observer to report
+  // that costs nothing per frame. Observing the timeline itself would not work,
+  // because an element that tall keeps intersecting the whole time you are
+  // inside it.
+  const toTop = $<HTMLButtonElement>(".totop");
+  const sentinel = $(".tl-sentinel");
+  // A scroll listener rather than an observer, which this started as.
+  // IntersectionObserver only fires when intersection CHANGES, and a 1px
+  // sentinel can be jumped clean over: false to false, no callback, and the
+  // button keeps whatever state it had. Ordinary scrolling passes through it,
+  // so it looked right; a programmatic jump, an in-page link, or a reload that
+  // restores scroll position did not.
+  //
+  // rAF-throttled, so the work is one getBoundingClientRect per painted frame
+  // at most, and it asks which side the sentinel is on rather than whether it
+  // is on screen: below the fold is also "not intersecting".
+  let ticking = false;
+  const syncToTop = () => {
+    ticking = false;
+    toTop.hidden = sentinel.getBoundingClientRect().top > 0;
+  };
+  addEventListener("scroll", () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(syncToTop);
+  }, { passive: true });
+  addEventListener("resize", syncToTop, { passive: true });
+  syncToTop();
+
+  toTop.addEventListener("click", () => {
+    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: still ? "auto" : "smooth" });
+    // Keyboard focus follows, or the reader is returned to the top of the page
+    // with their place in the tab order still three screens below it.
+    const h1 = $<HTMLElement>("h1");
+    h1.tabIndex = -1;
+    h1.focus({ preventScroll: true });
   });
 
   draw();
