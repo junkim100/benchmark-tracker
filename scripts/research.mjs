@@ -310,10 +310,17 @@ const canonical = new Map(
 
 // Mechanical guards first, so no API call is spent on a name that resolves
 // already or on a pair that is the same string.
-// Descriptions are keyed by benchmark id, and a suggestion carries a name, so the lookup goes through the key both sides already agree on.
+// Descriptions are keyed by benchmark id and a suggestion carries a name, so the lookup has to cross that gap.
+//
+// Flattening the name is not enough on its own. An id usually is the flattened name, but not when the row was reached through an alias: Humanity's Last Exam is filed under "hle", RACE-High under "raceh", the Virology Capabilities Test under "virologycapabilitiestest" while labs write "VCT". Keying on the name alone missed 25 of 1,651, and they are the well-known ones, which is where a wrong merge costs most. So the name goes through the alias map first, the same one the guard above uses.
 const descriptions = existsSync(join(DATA, "descriptions.json")) ? JSON.parse(readFileSync(join(DATA, "descriptions.json"), "utf8")) : {};
-const describedByKey = new Map(Object.entries(descriptions).filter(([, e]) => e.text).map(([id, e]) => [flatKey(id), e.text]));
-const descriptionOf = (name) => describedByKey.get(flatKey(name)) ?? null;
+const describedById = new Map(Object.entries(descriptions).filter(([, e]) => e.text).map(([id, e]) => [id, e.text]));
+const describedByKey = new Map([...describedById].map(([id, t]) => [flatKey(id), t]));
+const descriptionOf = (name) => {
+  const k = aliasKey(name);
+  const id = canonical.get(k);
+  return (id && describedById.get(id)) ?? describedById.get(k) ?? describedByKey.get(k) ?? null;
+};
 
 const skipped = [];
 const needGate = [];
