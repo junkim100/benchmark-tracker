@@ -488,8 +488,15 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
       info.focus({ preventScroll: true });
       // Which card the panel is describing, in the same class the timeline's marks and the chart's bands use, so all three surfaces say it the same way and closing the panel clears all three.
       clearPicked();
-      info.closest(".bcardw")?.querySelector(".bcard")?.classList.add("is-picked");
+      const picked = info.closest(".bcardw")?.querySelector(".bcard");
+      picked?.classList.add("is-picked");
       a.onInfo(info.getAttribute("data-info")!);
+      // On a wide screen the grid gives up a column's width to the panel, which
+      // re-flows the auto-fill columns and can move this card to another row.
+      // The reader pressed a button on one card and has to still be looking at
+      // it. After the layout settles, not during: the class above is what the
+      // padding rule keys on, so the reflow has not happened yet on this frame.
+      requestAnimationFrame(() => picked?.scrollIntoView({ block: "nearest", inline: "nearest" }));
       return;
     }
     const card = el.closest<HTMLElement>("[data-id]");
