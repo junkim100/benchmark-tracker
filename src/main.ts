@@ -162,7 +162,7 @@ function render(data: Timeline) {
 
     <section class="tile tile--canvas" id="track" aria-label="Track benchmarks">
       <div class="tile__in">
-        <div class="sec__head"><h2>Choose what to track</h2></div>
+        <div class="sec__head"><h2>Choose What to Track</h2></div>
         <div class="scope" hidden>
           <span class="facets__label" id="scope-label">Releases</span>
           <div class="scope__chips" role="group" aria-labelledby="scope-label"></div>
@@ -175,7 +175,7 @@ function render(data: Timeline) {
     <section class="tile tile--parchment" aria-label="Adoption trend">
       <div class="tile__in">
         <div class="sec__head">
-          <h2>Adoption over time</h2>
+          <h2>Adoption Over Time</h2>
           <p class="howto howto--trend" hidden></p>
         </div>
         <div class="trendwrap"></div>
@@ -185,7 +185,7 @@ function render(data: Timeline) {
     <section class="tile tile--canvas" aria-label="Release timeline">
       <div class="tile__in">
         <div class="sec__head">
-          <h2>Release timeline</h2>
+          <h2>Release Timeline</h2>
           <p class="howto howto--tl"></p>
         </div>
           <div class="tlwrap"></div>
