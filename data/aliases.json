@@ -1,5 +1,5 @@
 {
-  "_comment": "Maps raw benchmark spellings onto one canonical id. Keys are lowercased and stripped of punctuation before lookup, so only add entries that differ by more than case or spacing. The build warns about any raw name that matches nothing here, which is how new benchmarks get noticed.",
+  "_comment": "Maps raw benchmark spellings onto one canonical id. Keys are lowercased and stripped of punctuation before lookup, so only add entries that differ by more than case or spacing. The build warns about any raw name that matches nothing here, which is how new benchmarks get noticed. Some entries match no name any lab has written yet, which is not dead weight: they are the spellings a benchmark is likely to arrive under, and an alias costs nothing until it fires. An entry whose target is not yet a registry row is the same case, so do not read a missing target as a fault.",
   "gsm8k": "gsm8k",
   "gsm 8k": "gsm8k",
   "grade school math 8k": "gsm8k",
