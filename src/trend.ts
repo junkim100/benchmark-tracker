@@ -115,8 +115,6 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
     return made;
   };
 
-  // Series that finish on the same value would otherwise print their end labels
-  // at identical coordinates and render as one unreadable overlap.
   const series = a.tracked.map((b, si) => {
     const slot = si + 1;
     const pts = a.quarters.map((q, i) => ({ q, i, n: b.labs_by_quarter[q] ?? 0 }));

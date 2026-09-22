@@ -518,11 +518,13 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
 .axis__m { fill: var(--text-muted); font-size: 11px; font-variant-numeric: tabular-nums; text-anchor: end; }
 .axis__m--first { fill: var(--text-primary); font-weight: 600; }
 .axis__y { fill: var(--text-secondary); font-size: 11px; font-variant-numeric: tabular-nums; text-anchor: end; }
-/* The stroke scales with the mark. Leaving it at a fixed 2px meant a phone's
-   3.2px dot was painted 5.2px wide against a 2.4px day, so in painted pixels
-   70 of 620 marks had their centre covered by a neighbour, against 14 on
-   desktop. Scaling it makes the narrow view a true 0.4 of the wide one. */
-.mark { fill: var(--mark-neutral); stroke: var(--tile-bg); stroke-width: var(--mark-stroke, 2); cursor: pointer; }
+/* A knockout ring in the tile's own colour, so a mark reads as separate from
+   the one it overlaps. Flat rather than scaled with the mark: a scaled version
+   was described here for a while and never wired, and measuring it showed why
+   it did not matter. At 2px per day the stroke only ever decides adjacent-day
+   pairs, and scaling it leaves the number of marks with a covered centre at
+   169 of 620, unchanged. */
+.mark { fill: var(--mark-neutral); stroke: var(--tile-bg); stroke-width: 2; cursor: pointer; }
 @media (hover: hover) {
   circle.mark:hover, circle.mark[class*="mark--s"]:hover { fill: var(--text-primary); }
 }
@@ -530,7 +532,9 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
 circle.mark.is-picked, circle.mark[class*="mark--s"].is-picked {
   fill: var(--text-primary); stroke-width: 3;
 }
-.mark--many { stroke-width: var(--mark-stroke-many, 2.5); }
+/* A mark covering more than one release is drawn larger, so it gets a slightly
+   heavier ring to keep the same visual separation from its neighbours. */
+.mark--many { stroke-width: 2.5; }
 circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 
 .s1, .mark--s1 { --slot: var(--series-1); } .s2, .mark--s2 { --slot: var(--series-2); }
