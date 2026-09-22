@@ -25822,7 +25822,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "terminal-bench",
     "recent_share": 0
   },
   {
@@ -25843,7 +25843,7 @@
     "categories": [
       "reasoning"
     ],
-    "suite": null,
+    "suite": "terminal-bench",
     "recent_share": 0
   },
   {

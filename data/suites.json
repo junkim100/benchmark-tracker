@@ -32,8 +32,10 @@
       "id": "terminal-bench",
       "name": "Terminal-Bench",
       "has": [
-        "terminalbench"
-      ]
+        "terminalbench",
+        "frontierbench"
+      ],
+      "_note": "FrontierBench folds in as a former name, not a variant. Anthropic cited FrontierBench on 2026-06-09 and Frontier-Bench (v0.1) on 2026-07-24, and cited nothing by either name afterwards; Terminal-Bench 3.0 first appears 2026-08-12 and is cited by four labs. The merge gate cannot settle a rename from the names alone, so this one was confirmed by hand against that sequence."
     },
     {
       "id": "swe-bench",

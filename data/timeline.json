@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T01:36:08.848Z",
+  "generated_at": "2026-09-22T01:36:59.143Z",
   "labs": [
     {
       "id": "openai",
@@ -54572,7 +54572,7 @@
       "categories": [
         "other"
       ],
-      "suite": null,
+      "suite": "terminal-bench",
       "recent_share": 0
     },
     {
@@ -54593,7 +54593,7 @@
       "categories": [
         "reasoning"
       ],
-      "suite": null,
+      "suite": "terminal-bench",
       "recent_share": 0
     },
     {
@@ -79789,7 +79789,7 @@
     {
       "id": "terminal-bench",
       "name": "Terminal-Bench",
-      "members": 14,
+      "members": 16,
       "lab_count": 11,
       "labs": [
         "anthropic",
