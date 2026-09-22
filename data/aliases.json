@@ -122,5 +122,10 @@
   "terminalbench2": "terminalbench20",
   "terminalbench20terminus": "terminalbench20",
   "terminalbench20terminus2agent": "terminalbench20",
-  "terminalbench20terminus2harness": "terminalbench20"
+  "terminalbench20terminus2harness": "terminalbench20",
+  "securebiovmqa": "virologycapabilitiestest",
+  "securebiovct": "virologycapabilitiestest",
+  "biosecurityvct": "virologycapabilitiestest",
+  "virologycapabilitiestest": "virologycapabilitiestest",
+  "clawevalmm": "clawevalmultimodal"
 }

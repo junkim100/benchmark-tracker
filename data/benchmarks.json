@@ -3925,6 +3925,38 @@
     "recent_share": 4
   },
   {
+    "id": "virologycapabilitiestest",
+    "name": "VCT",
+    "lab_count": 5,
+    "labs": [
+      "anthropic",
+      "google",
+      "meta",
+      "openai",
+      "xai"
+    ],
+    "first_seen": "2025-02-24",
+    "last_seen": "2026-09-01",
+    "labs_by_year": {
+      "2025": 4,
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2025-Q1": 1,
+      "2025-Q2": 2,
+      "2025-Q3": 4,
+      "2025-Q4": 3,
+      "2026-Q1": 1,
+      "2026-Q2": 3,
+      "2026-Q3": 2
+    },
+    "categories": [
+      "science"
+    ],
+    "suite": null,
+    "recent_share": 8
+  },
+  {
     "id": "webarena",
     "name": "WebArena",
     "lab_count": 5,
@@ -5263,37 +5295,6 @@
     ],
     "suite": null,
     "recent_share": 0
-  },
-  {
-    "id": "virologycapabilitiestest",
-    "name": "VCT",
-    "lab_count": 4,
-    "labs": [
-      "anthropic",
-      "meta",
-      "openai",
-      "xai"
-    ],
-    "first_seen": "2025-02-24",
-    "last_seen": "2026-09-01",
-    "labs_by_year": {
-      "2025": 3,
-      "2026": 3
-    },
-    "labs_by_quarter": {
-      "2025-Q1": 1,
-      "2025-Q2": 1,
-      "2025-Q3": 3,
-      "2025-Q4": 2,
-      "2026-Q1": 1,
-      "2026-Q2": 3,
-      "2026-Q3": 2
-    },
-    "categories": [
-      "science"
-    ],
-    "suite": null,
-    "recent_share": 8
   },
   {
     "id": "voxpopuli",
@@ -8700,6 +8701,29 @@
     ],
     "suite": null,
     "recent_share": 2
+  },
+  {
+    "id": "clawevalmultimodal",
+    "name": "ClawEval-MM",
+    "lab_count": 2,
+    "labs": [
+      "qwen",
+      "xiaomi"
+    ],
+    "first_seen": "2026-04-22",
+    "last_seen": "2026-09-14",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 2,
+      "2026-Q3": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 1
   },
   {
     "id": "clawevalpass3",
@@ -18353,27 +18377,6 @@
     "recent_share": 0
   },
   {
-    "id": "biosecurityvct",
-    "name": "Biosecurity VCT",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2026-08-12",
-    "last_seen": "2026-08-12",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "science"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "biotier1",
     "name": "BioTIER v1",
     "lab_count": 1,
@@ -19958,49 +19961,6 @@
     ],
     "suite": null,
     "recent_share": 0
-  },
-  {
-    "id": "clawevalmm",
-    "name": "ClawEval-MM",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-05-21",
-    "last_seen": "2026-09-14",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1,
-      "2026-Q3": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "clawevalmultimodal",
-    "name": "Claw-Eval Multimodal",
-    "lab_count": 1,
-    "labs": [
-      "xiaomi"
-    ],
-    "first_seen": "2026-04-22",
-    "last_seen": "2026-04-27",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 1
   },
   {
     "id": "clawevaltext",
@@ -43265,49 +43225,6 @@
     },
     "labs_by_quarter": {
       "2024-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "securebiovct",
-    "name": "Securebio VCT",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2025-11-18",
-    "last_seen": "2025-11-18",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q4": 1
-    },
-    "categories": [
-      "science"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "securebiovmqa",
-    "name": "SecureBio VMQA",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2025-06-27",
-    "last_seen": "2025-08-01",
-    "labs_by_year": {
-      "2025": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1,
-      "2025-Q3": 1
     },
     "categories": [
       "other"
