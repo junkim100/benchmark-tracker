@@ -23,7 +23,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { readFileSync, writeFileSync, appendFileSync, existsSync } from "node:fs";
 import { spawnSync } from "node:child_process";
-import { CATEGORIES } from "./classify.mjs";
+import { CATEGORIES, flatKey } from "./classify.mjs";
 import { MODALITY_IDS, MODALITIES } from "./modality.mjs";
 import { assertSupported } from "./schema-guard.mjs";
 import { SHARED_HOSTS, isOfficialSource } from "./sources.mjs";
@@ -292,9 +292,16 @@ for (const [i, r] of results.entries()) {
   }
 }
 
-// Fold the accepted suggestions into the alias map. Same key rule as the
-// build: lowercase, drop separators, collapse a trailing four-digit year.
-const aliasKey = (x) => x.toLowerCase().replace(/[^a-z0-9]/g, "").replace(/20(\d\d)$/, "$1");
+// Fold the accepted suggestions into the alias map, on the build's own key.
+//
+// This used to be a local copy that said "same key rule as the build" and was
+// not: it never gained the Greek transliteration or the version-notation fold
+// that flatKey has, so it read "Terminal-Bench (v2.1)" as a name nobody tracks
+// and spent a gate call proving it was Terminal-Bench 2.1. normalize.mjs calls
+// this "the four places that decide whether two spellings are the same
+// benchmark"; this was a fifth, and the one place a restatement is least
+// visible is a comment claiming the two agree.
+const aliasKey = flatKey;
 const aliasPath = join(DATA, "aliases.json");
 const aliasMap = JSON.parse(readFileSync(aliasPath, "utf8"));
 const canonical = new Map(
@@ -303,12 +310,21 @@ const canonical = new Map(
 
 // Mechanical guards first, so no API call is spent on a name that resolves
 // already or on a pair that is the same string.
+// Descriptions are keyed by benchmark id, and a suggestion carries a name, so the lookup goes through the key both sides already agree on.
+const descriptions = existsSync(join(DATA, "descriptions.json")) ? JSON.parse(readFileSync(join(DATA, "descriptions.json"), "utf8")) : {};
+const describedByKey = new Map(Object.entries(descriptions).filter(([, e]) => e.text).map(([id, e]) => [flatKey(id), e.text]));
+const descriptionOf = (name) => describedByKey.get(flatKey(name)) ?? null;
+
 const skipped = [];
 const needGate = [];
 for (const sug of aliasSuggestions) {
   const rawK = aliasKey(sug.raw);
   if (rawK === aliasKey(sug.tracked) || canonical.has(rawK)) { skipped.push(sug); continue; }
-  needGate.push(sug);
+  // The tracked benchmark's own description, appended as evidence.
+  //
+  // Asked on the names alone, this gate answered "ARC-Challenge is the same name as ARC" at 0.99, which would have merged the hard partition into its own parent. Given the description, "partitioned into an Easy set and a Challenge set", the same pair comes back "version" at 0.77 and is queued instead of applied. A reason built only from names gets an answer about names, and that is the answer this project can least afford.
+  const known = descriptionOf(sug.tracked);
+  needGate.push(known ? { ...sug, reason: `${sug.reason} The tracked benchmark "${sug.tracked}" is described as: ${known}` } : sug);
 }
 
 // A diagnostic from a failed gate call is untrusted text on its way to a public

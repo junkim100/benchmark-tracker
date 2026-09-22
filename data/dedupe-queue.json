@@ -1,0 +1,1298 @@
+[
+  {
+    "raw": "Aider-Edit",
+    "tracked": "Aider",
+    "reason": "Both cite the same source page, https://aider.chat/docs/benchmarks.html. \"Aider-Edit\" is described as: The code editing benchmark of the aider CLI tool: 133 Python exercises from Exercism, where the model must edit the stub implementation file through aider's edit format until the exercise's own unit tests pass. \"Aider\" is described as: Aider's code editing benchmark, which asks a model to complete 133 Exercism Python exercises from stub code and then repair its work once after seeing unit test errors; it scores both correctness and whether edits are formatted so Aider can apply them. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "deepseek",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "renamed": 0.02,
+      "different": 0.07,
+      "same_name": 0.87,
+      "version": 0.04
+    },
+    "merge_is_safe": 0.61,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "aideredit",
+      "aider"
+    ]
+  },
+  {
+    "raw": "BabyVision w/ tools",
+    "tracked": "BabyVision",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2601.06521. \"BabyVision w/ tools\" is described as: 388 puzzle-style items in 22 subclasses probing core visual ability with almost no language: fine-grained discrimination, visual tracking through mazes and lines, spatial perception of 3D views and folding, and pattern completion, here run with tool use allowed. \"BabyVision\" is described as: 388 items in 22 subclasses testing foundational visual abilities inspired by infant and early-childhood visual development: fine-grained discrimination, spatial perception, visual pattern recognition and visual tracking. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "deepseek",
+    "decision": "REVIEW",
+    "relation": "version",
+    "probabilities": {
+      "version": 0.53,
+      "renamed": 0.01,
+      "different": 0.02,
+      "same_name": 0.44
+    },
+    "merge_is_safe": 0.57,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "babyvisionwtools",
+      "babyvision"
+    ]
+  },
+  {
+    "raw": "ClawEval-MM",
+    "tracked": "ClawEval",
+    "reason": "Both cite the same source page, https://github.com/claw-eval/claw-eval. \"ClawEval-MM\" is described as: The multimodal split of Claw-Eval: 101 human-verified agent tasks covering perception and creation such as webpage generation, video question answering and document extraction, audited over the full trajectory against rubric items for completion, safety and robustness. \"ClawEval\" is described as: An agent evaluation harness of 300 human-verified tasks in nine categories, split into general, multimodal and multi-turn work, graded on task completion, safety and consistency across repeated trials. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "qwen",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "version": 0.99,
+      "different": 0,
+      "renamed": 0,
+      "same_name": 0.01
+    },
+    "merge_is_safe": 0.37,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "clawevalmultimodal",
+      "claweval"
+    ]
+  },
+  {
+    "raw": "DeepSWE",
+    "tracked": "DeepSWE (v1.1)",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2607.07946. \"DeepSWE\" is described as: 113 original long-horizon software engineering tasks written for the benchmark rather than mined from merged GitHub fixes, spanning 91 repositories across TypeScript, Go, Python, JavaScript and Rust. \"DeepSWE (v1.1)\" is described as: A coding agent benchmark whose tasks are written from scratch against active open-source repositories in five languages and never contributed upstream, each graded by a hand-written verifier that accepts any implementation providing the requested functionality. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "deepseek",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "different": 0,
+      "same_name": 0.07,
+      "renamed": 0,
+      "version": 0.93
+    },
+    "merge_is_safe": 0.64,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "deepswe",
+      "deepswe11"
+    ]
+  },
+  {
+    "raw": "Vals Finance Agent v2",
+    "tracked": "Finance Agent v2",
+    "reason": "Both cite the same source page, https://www.vals.ai/benchmarks/fabv2. \"Vals Finance Agent v2\" is described as: 927 expert-reviewed financial analyst tasks over SEC filings and related documents, across nine categories from retrieval to financial modelling, graded with severity-weighted partial credit and a stricter all-pass variant. \"Finance Agent v2\" is described as: An expanded rebuild of the Finance Agent benchmark with 927 expert-reviewed questions over public company filings and transcripts, split into public, private validation and held-out test sets. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "google",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "renamed": 0.01,
+      "same_name": 0.91,
+      "different": 0.06,
+      "version": 0.02
+    },
+    "merge_is_safe": 0.64,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "valsfinanceagent2",
+      "financeagent2"
+    ]
+  },
+  {
+    "raw": "Full Duplex Bench v1",
+    "tracked": "Full Duplex Bench",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2503.04721. \"Full Duplex Bench v1\" is described as: An evaluation of spoken dialogue systems that listen and speak at the same time, covering four interactive behaviours: pause handling, backchannelling, turn taking and interruption, all measured with automatic metrics. \"Full Duplex Bench\" is described as: A benchmark for full-duplex spoken dialogue models that measures interactive behaviours with automatic metrics: pause handling, backchanneling, turn-taking and interruption management. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "openai",
+    "decision": "REVIEW",
+    "relation": "version",
+    "probabilities": {
+      "version": 0.54,
+      "different": 0,
+      "same_name": 0.45,
+      "renamed": 0.01
+    },
+    "merge_is_safe": 0.8,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": true,
+      "version_confident": false
+    },
+    "_ids": [
+      "fullduplexbench1",
+      "fullduplexbench"
+    ]
+  },
+  {
+    "raw": "IFEval strict-prompt",
+    "tracked": "IFEval",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2311.07911. \"IFEval strict-prompt\" is described as: The strict prompt-level scoring of IFEval, where a prompt counts only when a program checking the literal response finds every one of its verifiable instructions, such as word counts or required keywords, satisfied. \"IFEval\" is described as: About 500 prompts built from 25 types of verifiable instructions (for example \"write more than 400 words\" or \"mention a keyword at least 3 times\"), checked by deterministic programs instead of human or model judges. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "qwen",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "renamed": 0,
+      "same_name": 0.15,
+      "different": 0.01,
+      "version": 0.84
+    },
+    "merge_is_safe": 0.62,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "ifevalstrictprompt",
+      "ifeval"
+    ]
+  },
+  {
+    "raw": "Competition Math",
+    "tracked": "MATH",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2103.03874. \"Competition Math\" is described as: 12,500 problems taken from high-school mathematics competitions, each supplied with a full step-by-step worked solution alongside the final answer. \"MATH\" is described as: 12,500 competition mathematics problems drawn from high school contests such as AMC 10, AMC 12 and AIME, each with a full LaTeX statement, a step-by-step solution and a standardized final answer for automatic checking. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "moonshot",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "renamed": 0.02,
+      "same_name": 0.93,
+      "different": 0.04,
+      "version": 0
+    },
+    "merge_is_safe": 0.6,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "competitionmath",
+      "math"
+    ]
+  },
+  {
+    "raw": "MCPAtlas Public",
+    "tracked": "MCP Atlas",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2602.00933. \"MCPAtlas Public\" is described as: The 500-task public split of MCP-Atlas: expert-written natural language requests executed against production MCP servers, with answers scored against atomic factual claims grounded in the tool outputs. \"MCP Atlas\" is described as: A benchmark of 1,000 human-written natural language tasks run against 36 production MCP servers exposing 220 tools. Prompts name no server or tool, and answers are graded against atomic factual claims grounded in tool output. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "deepseek",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "different": 0.03,
+      "same_name": 0.09,
+      "renamed": 0,
+      "version": 0.88
+    },
+    "merge_is_safe": 0.39,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "mcpatlaspublic",
+      "mcpatlas"
+    ]
+  },
+  {
+    "raw": "MGSM-zh",
+    "tracked": "MGSM",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2210.03057. \"MGSM-zh\" is described as: The Chinese split of Multilingual Grade School Math: 250 GSM8K word problems hand translated into Chinese, which the model must work through step by step in that language. \"MGSM\" is described as: 250 grade school math word problems drawn from GSM8K and hand-translated into ten typologically diverse languages, used to test chain-of-thought reasoning outside English. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "deepseek",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "renamed": 0,
+      "version": 0.98,
+      "different": 0.01,
+      "same_name": 0.01
+    },
+    "merge_is_safe": 0.29,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "mgsmzh",
+      "mgsm"
+    ]
+  },
+  {
+    "raw": "MMAU (v0.5.15.25)",
+    "tracked": "MMAU",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2410.19168. \"MMAU (v0.5.15.25)\" is described as: 10,000 audio clips spanning speech, environmental sound and music, each with a human-written question that requires information extraction or reasoning across 27 distinct skills. \"MMAU\" is described as: 10,000 audio clips with multiple-choice questions over speech, environmental sounds and music, covering 27 tasks that mix information extraction with reasoning that needs domain knowledge. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "qwen",
+    "decision": "REVIEW",
+    "relation": "version",
+    "probabilities": {
+      "same_name": 0.46,
+      "different": 0,
+      "version": 0.54,
+      "renamed": 0
+    },
+    "merge_is_safe": 0.73,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": true,
+      "version_confident": false
+    },
+    "_ids": [
+      "mmau051525",
+      "mmau"
+    ]
+  },
+  {
+    "raw": "MME-P",
+    "tracked": "MME",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2306.13394. \"MME-P\" is described as: The perception half of MME: ten yes/no subtasks covering object existence, count, position and colour, plus posters, celebrities, scenes, landmarks, artworks and OCR, with every instruction-answer pair written by hand. \"MME\" is described as: A multimodal evaluation of 14 subtasks split into perception and cognition abilities, with every instruction-answer pair written by hand so that no public dataset annotations leak into the questions. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "deepseek",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "version": 0.89,
+      "different": 0.04,
+      "renamed": 0,
+      "same_name": 0.07
+    },
+    "merge_is_safe": 0.34,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "mmep",
+      "mme"
+    ]
+  },
+  {
+    "raw": "Perception Test MCQA",
+    "tracked": "PerceptionTest",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2305.13786. \"Perception Test MCQA\" is described as: The multiple-choice video question answering task of the Perception Test, built on 11.6k filmed real-world videos averaging 23 seconds and probing memory, abstraction, physics and semantics through descriptive, explanatory, predictive and counterfactual questions. \"PerceptionTest\" is described as: About 11.6k purpose-filmed real-world videos with multiple-choice and grounded video questions, object and point tracks and action and sound segments, probing memory, abstraction, physics and semantics across video, audio and text. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "google",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "different": 0.03,
+      "version": 0.27,
+      "renamed": 0,
+      "same_name": 0.7
+    },
+    "merge_is_safe": 0.5,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "perceptiontestmcqa",
+      "perceptiontest"
+    ]
+  },
+  {
+    "raw": "RoboSpatial-VQA",
+    "tracked": "RoboSpatial",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2411.16537. \"RoboSpatial-VQA\" is described as: Spatial question answering for robotics built from indoor and tabletop RGB-D scenes: binary and point-prediction questions about free space, whether an object fits somewhere, and relative position, each asked from egocentric, world-centric and object-centric frames. \"RoboSpatial\" is described as: A spatial reasoning resource for robotics that pairs 2D egocentric images with 3D scans and annotates 3 million spatial relationships in ego-centric, world-centric and object-centric frames, evaluated on spatial affordance and relationship prediction. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "google",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "renamed": 0.01,
+      "same_name": 0.78,
+      "different": 0.17,
+      "version": 0.04
+    },
+    "merge_is_safe": 0.45,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "robospatialvqa",
+      "robospatial"
+    ]
+  },
+  {
+    "raw": "RoboSpatialHome",
+    "tracked": "RoboSpatial",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2411.16537. \"RoboSpatialHome\" is described as: 350 hand-written spatial questions over RGB and depth captures of real indoor scenes, asking whether a spatial relation holds between two objects, pointing at free space, and judging whether a named object would fit there. \"RoboSpatial\" is described as: A spatial reasoning resource for robotics that pairs 2D egocentric images with 3D scans and annotates 3 million spatial relationships in ego-centric, world-centric and object-centric frames, evaluated on spatial affordance and relationship prediction. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "qwen",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "renamed": 0.01,
+      "version": 0.08,
+      "same_name": 0.46,
+      "different": 0.45
+    },
+    "merge_is_safe": 0.29,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "robospatialhome",
+      "robospatial"
+    ]
+  },
+  {
+    "raw": "SEED-EN",
+    "tracked": "Seed-test-zh/en",
+    "reason": "Both cite the same source page, https://github.com/BytedanceSpeech/seed-tts-eval. \"SEED-EN\" is described as: The English half of the Seed-TTS objective test set: 1,000 out-of-domain samples drawn from Common Voice used as reference clips for zero-shot speech generation, scored by ASR word error rate and speaker similarity. \"Seed-test-zh/en\" is described as: The seed-tts-eval objective test set for zero-shot speech generation: 1,000 English samples from Common Voice and 2,000 Mandarin samples from DiDiSpeech-2, scored by ASR word error rate and WavLM speaker similarity. Found by scanning descriptions: same source, near-identical descriptions.",
+    "lab": "xiaomi",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "version": 0.7,
+      "same_name": 0.14,
+      "renamed": 0,
+      "different": 0.16
+    },
+    "merge_is_safe": 0.25,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "seeden",
+      "seedtts"
+    ]
+  },
+  {
+    "raw": "SpreadSheetBench-v1",
+    "tracked": "SpreadsheetBench",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2406.14991. \"SpreadSheetBench-v1\" is described as: 912 spreadsheet manipulation instructions taken from online Excel forums, each shipped with several input and output workbook test cases and graded online-judge style so a solution must generalize across files. \"SpreadsheetBench\" is described as: 912 real spreadsheet manipulation questions collected from online Excel forums, graded like an online judge: each instruction ships with several test spreadsheet files so a solution must work across varying values. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "qwen",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.61,
+      "different": 0,
+      "renamed": 0.01,
+      "version": 0.38
+    },
+    "merge_is_safe": 0.85,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": true,
+      "version_confident": false
+    },
+    "_ids": [
+      "spreadsheetbench1",
+      "spreadsheetbench"
+    ]
+  },
+  {
+    "raw": "SWE-Marathon (v1.1)",
+    "tracked": "SWE-Marathon",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2606.07682. \"SWE-Marathon (v1.1)\" is described as: Twenty ultra-long-horizon software engineering tasks, each with its own executable environment, a human-written reference solution and a multi-layer verification suite with hidden tests and adversarial checks against shortcut solutions. \"SWE-Marathon\" is described as: 20 ultra-long-horizon software engineering tasks, each with its own executable environment, a human-written reference solution and a multi-layer verification suite designed to block shortcut solutions. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "xai",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "different": 0,
+      "same_name": 0.12,
+      "version": 0.88,
+      "renamed": 0
+    },
+    "merge_is_safe": 0.67,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "swemarathon11",
+      "swemarathon"
+    ]
+  },
+  {
+    "raw": "WMT24++ (ChrF)",
+    "tracked": "WMT24++",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2502.12404. \"WMT24++ (ChrF)\" is described as: A machine translation test set extending WMT24 to 55 languages and dialects with professional reference translations and post-edits over literary, news, social and speech text, here scored with the character n-gram F-score chrF. \"WMT24++\" is described as: An extension of the WMT24 translation test set to 55 languages and dialects, adding newly collected human-written references and post-edits for 46 additional languages. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "google",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "renamed": 0,
+      "version": 0.11,
+      "same_name": 0.85,
+      "different": 0.04
+    },
+    "merge_is_safe": 0.59,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "wmt24chrf",
+      "wmt24"
+    ]
+  },
+  {
+    "raw": "YouCook2 Cap",
+    "tracked": "YouCook2",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/1703.09788. \"YouCook2 Cap\" is described as: Captioning the procedure steps of 2,000 YouTube cooking videos covering 89 recipes and 176 hours, where each video carries 3 to 16 temporally localized segments described by an imperative English sentence. \"YouCook2\" is described as: A procedure segmentation dataset of instructional cooking videos from YouTube, in which each recipe step is temporally localized within the video and described in natural language, supporting segmentation and dense video captioning. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "google",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.71,
+      "renamed": 0.01,
+      "version": 0.17,
+      "different": 0.11
+    },
+    "merge_is_safe": 0.5,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "youcook2cap",
+      "youcook2"
+    ]
+  },
+  {
+    "raw": "Agentic Misalignment",
+    "tracked": "Agentic misalignment suite",
+    "reason": "Both cite the same source page, https://www.anthropic.com/research/agentic-misalignment. \"Agentic Misalignment\" is described as: Hypothetical corporate scenarios where a model with email access and an assigned business goal faces replacement or a goal conflict, testing whether it turns to blackmail or to leaking information. \"Agentic misalignment suite\" is described as: Fictional corporate scenarios in which a model running as an autonomous email agent faces replacement or a conflicting goal, testing whether it turns to blackmail, leaking confidential documents, or other harmful insider actions. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "anthropic",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.77,
+      "different": 0.02,
+      "version": 0.2,
+      "renamed": 0.01
+    },
+    "merge_is_safe": 0.71,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": true,
+      "version_confident": false
+    },
+    "_ids": [
+      "agenticmisalignment",
+      "agenticmisalignmentsuite"
+    ]
+  },
+  {
+    "raw": "Hae-Rae",
+    "tracked": "HAE-RAE (v1.1)",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2309.02706. \"Hae-Rae\" is described as: Korean questions across vocabulary, history, general knowledge and reading comprehension, written to require Korean cultural and contextual depth rather than being translated from English tests. \"HAE-RAE (v1.1)\" is described as: A Korean benchmark of six tasks across vocabulary, history, general knowledge and reading comprehension, written natively rather than back-translated so that knowledge cannot simply transfer from English. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "upstage",
+    "decision": "REVIEW",
+    "relation": "version",
+    "probabilities": {
+      "renamed": 0.01,
+      "same_name": 0.47,
+      "different": 0,
+      "version": 0.52
+    },
+    "merge_is_safe": 0.68,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "haerae",
+      "haerae11"
+    ]
+  },
+  {
+    "raw": "Instruction Hierarchy",
+    "tracked": "Instruction Hierarchy Evaluation",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2404.13208. \"Instruction Hierarchy\" is described as: Adversarial tests of whether a model gives system messages priority over user text and tool output, covering direct and indirect prompt injection, system prompt and password extraction and jailbreaks, paired with over-refusal sets of benign lower-privilege instructions. \"Instruction Hierarchy Evaluation\" is described as: Conflict cases in which a lower-priority input, a user message or third-party tool output, tries to override a higher-priority system instruction, checking that the model keeps to the privileged instruction. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "openai",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.84,
+      "renamed": 0.04,
+      "different": 0.09,
+      "version": 0.03
+    },
+    "merge_is_safe": 0.63,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "instructionhierarchy",
+      "instructionhierarchyevaluations"
+    ]
+  },
+  {
+    "raw": "Opencpop",
+    "tracked": "Opencpop-test",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2201.07429. \"Opencpop\" is described as: A studio-quality Mandarin singing corpus: 100 pop songs recorded at 44.1 kHz by a single professional female singer, annotated with lyrics, musical scores and phoneme and note boundaries, built for singing voice synthesis. \"Opencpop-test\" is described as: The held-out test split of the Opencpop Mandarin singing corpus: 206 utterances from five of its 100 studio-recorded pop songs, with lyrics, musical scores and phoneme and note boundaries, for singing voice synthesis. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "qwen",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "renamed": 0,
+      "version": 0.99,
+      "different": 0.01,
+      "same_name": 0
+    },
+    "merge_is_safe": 0.23,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "opencpop",
+      "opencpoptest"
+    ]
+  },
+  {
+    "raw": "ZeroBench-main w/ tools",
+    "tracked": "ZeroBench-main",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2502.09696. \"ZeroBench-main w/ tools\" is described as: The 100 hand-crafted main questions of ZeroBench, multi-step visual reasoning problems over natural and synthetic images that demand an exact answer, curated by adversarial filtering to be unsolvable by frontier models at release. \"ZeroBench-main\" is described as: The 100 hand-crafted main questions of ZeroBench, multi-step visual reasoning problems with a deliberately wide answer space so guessing does not help; its 334 intermediate subquestions are scored separately. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "deepseek",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "same_name": 0.15,
+      "renamed": 0,
+      "different": 0.17,
+      "version": 0.68
+    },
+    "merge_is_safe": 0.29,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "zerobenchmainwtools",
+      "zerobenchmain"
+    ]
+  },
+  {
+    "raw": "ASIMOV-Multimodal",
+    "tracked": "ASIMOV",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2503.08663. \"ASIMOV-Multimodal\" is described as: Images of everyday scenes, some edited by an image generator to introduce hazards, each paired with candidate robot instructions that a model must judge desirable or undesirable; one dataset of Google DeepMind's ASIMOV semantic safety benchmark. \"ASIMOV\" is described as: A collection of datasets for measuring the semantic safety of foundation models used as robot brains, built by generating undesirable situations from real visual scenes and hospital injury reports. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "google",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "renamed": 0,
+      "same_name": 0.6,
+      "version": 0.36,
+      "different": 0.04
+    },
+    "merge_is_safe": 0.59,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "asimovmultimodal",
+      "asimov"
+    ]
+  },
+  {
+    "raw": "PolyMath-en",
+    "tracked": "PolyMATH",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2504.18428. \"PolyMath-en\" is described as: The English split of PolyMath, a multilingual math reasoning benchmark covering 18 languages and four difficulty levels from easy to competition-grade problems. \"PolyMATH\" is described as: A multilingual mathematical reasoning benchmark spanning 18 languages and four difficulty levels, with parallel problems produced by controlled translation so results are comparable across languages. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "moonshot",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "renamed": 0,
+      "version": 0.97,
+      "different": 0,
+      "same_name": 0.03
+    },
+    "merge_is_safe": 0.5,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "polymathen",
+      "polymath"
+    ]
+  },
+  {
+    "raw": "Common Voice",
+    "tracked": "Mozilla Common Voice 15.1",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/1912.06670. \"Common Voice\" is described as: A crowdsourced multilingual corpus of read speech with volunteer-validated transcripts, collected by Mozilla across dozens of languages and tens of thousands of speakers, intended mainly for speech recognition. \"Mozilla Common Voice 15.1\" is described as: Volunteer-read sentences gathered and checked by crowdsourcing through Mozilla's web platform, published as versioned multilingual releases and used here as a speech recognition test set. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "qwen",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "renamed": 0,
+      "version": 0.8,
+      "same_name": 0.2,
+      "different": 0
+    },
+    "merge_is_safe": 0.57,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "commonvoice",
+      "mozillacommonvoice151"
+    ]
+  },
+  {
+    "raw": "MOSE",
+    "tracked": "MOSEv1",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2302.01872. \"MOSE\" is described as: 2,149 video clips of crowded, heavily occluded scenes with 431,725 masks over 5,200 objects in 36 categories, for video object segmentation where targets are often hidden or disappear from the frame entirely. \"MOSEv1\" is described as: 2,149 video clips covering 5,200 objects in 36 categories with 431,725 segmentation masks, collected so that targets are crowded, frequently occluded, and disappear and reappear, for video object segmentation in complex scenes. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "meta",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "renamed": 0.01,
+      "same_name": 0.38,
+      "version": 0.61,
+      "different": 0
+    },
+    "merge_is_safe": 0.82,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": true,
+      "version_confident": true
+    },
+    "_ids": [
+      "mose",
+      "mose1"
+    ]
+  },
+  {
+    "raw": "InfiniteBench",
+    "tracked": "InfiniteBench/En.QA",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2402.13718. \"InfiniteBench\" is described as: A long-context suite whose examples average more than 100K tokens, mixing synthetic and realistic tasks in English and Chinese that are designed so retrieving a short span of the context is not enough to answer. \"InfiniteBench/En.QA\" is described as: The free-form English question-answering task of InfiniteBench: 351 hand-written questions over whole novels averaging 192.6K tokens, whose answers require aggregating or filtering facts spread across the book. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "meta",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "version": 0.97,
+      "different": 0.02,
+      "same_name": 0.01,
+      "renamed": 0
+    },
+    "merge_is_safe": 0.32,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "infinitebench",
+      "infinitebenchenqa"
+    ]
+  },
+  {
+    "raw": "WildSpeech",
+    "tracked": "WildSpeech-Bench",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2506.21875. \"WildSpeech\" is described as: Real-world chat prompts rendered as speech with varied speaker attributes, acoustic conditions and speech-specific phenomena such as prosody, homophones and stuttering, graded by query-aware checklists for end-to-end speech models. \"WildSpeech-Bench\" is described as: Real-world chat queries rendered as speech across varied speaker attributes and acoustic conditions and augmented with prosody, homophones and stuttering, then graded by an automatic judge against a checklist written per query. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "qwen",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.76,
+      "renamed": 0.04,
+      "different": 0.09,
+      "version": 0.11
+    },
+    "merge_is_safe": 0.49,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "wildspeech",
+      "wildspeechbench"
+    ]
+  },
+  {
+    "raw": "Z.ai Code Bench",
+    "tracked": "Z.ai Code Bench (v1.0)",
+    "reason": "Both cite the same source page, https://docs.z.ai/guides/llm/glm-5.3. \"Z.ai Code Bench\" is described as: A private in-house test of coding agents placed in complex local development environments across diverse task categories, scored on both end-to-end task completion and fine-grained checklist accuracy at several effort levels. \"Z.ai Code Bench (v1.0)\" is described as: An in-house Z.ai benchmark that places coding agents in complex local development environments on realistic user tasks, scored both on end-to-end task completion and on fine-grained checklist accuracy. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "zai",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "different": 0,
+      "same_name": 0.39,
+      "renamed": 0,
+      "version": 0.61
+    },
+    "merge_is_safe": 0.67,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "zaicodebench",
+      "zaicodebench10"
+    ]
+  },
+  {
+    "raw": "MMB",
+    "tracked": "MMBench-CN-Test",
+    "reason": "Both cite the same source page, https://github.com/open-compass/MMBench/blob/main/README.md. \"MMB\" is described as: Short for MMBench: roughly 3,000 single-choice vision questions over 20 fine-grained ability dimensions, graded with CircularEval, which re-asks each question with the answer options rotated and requires every pass to be right. \"MMBench-CN-Test\" is described as: The Chinese test split of MMBench: 1,784 single-choice vision-language questions covering 20 ability dimensions, graded with CircularEval, which re-asks each question with the options rotated and requires every pass to be right. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "deepseek",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "renamed": 0,
+      "same_name": 0.02,
+      "version": 0.98,
+      "different": 0
+    },
+    "merge_is_safe": 0.31,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "mmb",
+      "mmbenchcntest"
+    ]
+  },
+  {
+    "raw": "CursorBench",
+    "tracked": "CursorBench (3.2.0)",
+    "reason": "Both cite the same source page, https://cursor.com/blog/cursorbench. \"CursorBench\" is described as: Cursor's internal coding-agent suite, drawn from real Cursor sessions by tracing committed code back to the agent request that produced it, and graded by agentic graders on correctness, code quality, efficiency and interaction behaviour. \"CursorBench (3.2.0)\" is described as: Cursor's internal coding-agent suite, built from real Cursor sessions traced back to the request that produced the committed code. Task prompts are short and underspecified, span multiple files, and are scored by agentic graders. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "anthropic",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "same_name": 0.15,
+      "different": 0,
+      "renamed": 0,
+      "version": 0.85
+    },
+    "merge_is_safe": 0.64,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "cursorbench",
+      "cursorbench320"
+    ]
+  },
+  {
+    "raw": "MSR-VTT",
+    "tracked": "MSRVTT-CAP",
+    "reason": "Both cite the same source page, https://www.microsoft.com/en-us/research/publication/msr-vtt-a-large-video-description-dataset-for-bridging-video-and-language/. \"MSR-VTT\" is described as: 10,000 web video clips totalling 41.2 hours, gathered from 257 video-search queries, each paired with about 20 crowd-written sentences for video-to-text description and retrieval. \"MSRVTT-CAP\" is described as: Video-to-text description over MSR-VTT, a set of 10,000 web clips totalling 41.2 hours gathered from 257 search queries, each annotated with roughly 20 human-written English sentences. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "google",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.6,
+      "renamed": 0.01,
+      "version": 0.26,
+      "different": 0.13
+    },
+    "merge_is_safe": 0.52,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "msrvtt",
+      "msrvttcap"
+    ]
+  },
+  {
+    "raw": "RoboChallenge Table30",
+    "tracked": "RoboChallenge Table30 v1",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2510.17950. \"RoboChallenge Table30\" is described as: 30 tabletop manipulation tasks run on real UR5, Franka Panda, ARX-5 and Cobot Magic Aloha arms hosted online, each rolled out 10 times and graded on task success plus a staged progress score with deductions for retries. \"RoboChallenge Table30 v1\" is described as: 30 tabletop manipulation tasks executed on a fleet of online-hosted real robots, stressing precise 3D placement, occlusion and multi-view perception, memory of progress, and long-horizon sequences, scored by success rate and a partial-progress score. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "qwen",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "renamed": 0,
+      "version": 0.73,
+      "different": 0,
+      "same_name": 0.27
+    },
+    "merge_is_safe": 0.79,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": true,
+      "version_confident": true
+    },
+    "_ids": [
+      "robochallengetable30",
+      "robochallengetable301"
+    ]
+  },
+  {
+    "raw": "MTVQA",
+    "tracked": "MTVQA-Test",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2405.11985. \"MTVQA\" is described as: 2,116 images and 6,778 question-answer pairs in nine languages, annotated by human experts so the questions target the text actually visible inside the image rather than translated captions. \"MTVQA-Test\" is described as: 6,778 question-answer pairs written by human experts over 2,116 images in nine languages, covering reading and reasoning about text that appears inside the image. This is the held-out split. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "qwen",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "version": 0.98,
+      "different": 0,
+      "same_name": 0.02,
+      "renamed": 0
+    },
+    "merge_is_safe": 0.47,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "mtvqa",
+      "mtvqatest"
+    ]
+  },
+  {
+    "raw": "CIFAR-10",
+    "tracked": "CIFAR-100",
+    "reason": "Both cite the same source page, https://cave.cs.toronto.edu/kriz/cifar.html. \"CIFAR-10\" is described as: 60,000 colour images of 32 by 32 pixels in ten mutually exclusive object classes, split into 50,000 for training and 10,000 for testing, used as a small-scale image classification task. \"CIFAR-100\" is described as: 60,000 colour images of 32x32 pixels across 100 classes grouped into 20 superclasses, with 500 training and 100 test images per class; each image carries both a fine and a coarse label. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "meta",
+    "decision": "REVIEW",
+    "relation": "version",
+    "probabilities": {
+      "different": 0.48,
+      "same_name": 0,
+      "version": 0.52,
+      "renamed": 0
+    },
+    "merge_is_safe": 0.05,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "cifar10",
+      "cifar100"
+    ]
+  },
+  {
+    "raw": "MTOB (full book) eng->kgv/kgv->eng",
+    "tracked": "MTOB",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2309.16575. \"MTOB (full book) eng->kgv/kgv->eng\" is described as: Translation between English and Kalamang, a language with fewer than 200 speakers and almost no web presence, where the model works from a field-linguistics grammar book and bilingual word list placed in its context rather than from a parallel corpus. Scored in both directions. \"MTOB\" is described as: Translating between English and Kalamang, a language with under 200 speakers and almost no web presence, from a single field grammar book plus a 2,000-entry wordlist and a few hundred parallel sentences placed in context. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "meta",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.77,
+      "version": 0.18,
+      "different": 0.05,
+      "renamed": 0
+    },
+    "merge_is_safe": 0.51,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "mtobfullbookengkgvkgveng",
+      "mtob"
+    ]
+  },
+  {
+    "raw": "HarmBench",
+    "tracked": "HarmB",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2402.04249. \"HarmBench\" is described as: A standardised framework for automated red teaming of language models, pairing harmful-behaviour prompts with attack methods so that attacks and defences can be compared under one protocol. \"HarmB\" is described as: A standardised red-teaming framework organised around a fixed set of harmful behaviours, with a classifier that judges whether a response actually carried the behaviour out, used to compare attack methods and refusal robustness. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "mistral",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "version": 0,
+      "renamed": 0,
+      "different": 0.03,
+      "same_name": 0.97
+    },
+    "merge_is_safe": 0.66,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "harmbench",
+      "harmb"
+    ]
+  },
+  {
+    "raw": "ProofNet",
+    "tracked": "ProofNet-test",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2302.12433. \"ProofNet\" is described as: 371 undergraduate pure mathematics problems from standard textbooks in real and complex analysis, linear algebra, abstract algebra and topology, each with a natural language statement, a natural language proof and a formal Lean 3 statement, for autoformalization and formal proving. \"ProofNet-test\" is described as: The held-out test split of ProofNet, which pairs natural-language statements and proofs of undergraduate pure mathematics exercises with formal Lean statements, and is used for both autoformalization and formal theorem proving over analysis, algebra and topology. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "deepseek",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "same_name": 0,
+      "renamed": 0,
+      "different": 0,
+      "version": 1
+    },
+    "merge_is_safe": 0.31,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "proofnet",
+      "proofnettest"
+    ]
+  },
+  {
+    "raw": "LVIS",
+    "tracked": "LVIS v1",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/1908.03195. \"LVIS\" is described as: Around 2 million high-quality instance segmentation masks over more than 1,000 object categories across 164,000 images, built so that a long tail of rare categories has very few examples. \"LVIS v1\" is described as: Large-vocabulary instance segmentation with about 2 million high-quality masks for more than 1,000 entry-level object categories across 164,000 images, deliberately long-tailed so many categories have only a handful of examples. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "meta",
+    "decision": "REVIEW",
+    "relation": "version",
+    "probabilities": {
+      "renamed": 0,
+      "version": 0.51,
+      "different": 0,
+      "same_name": 0.49
+    },
+    "merge_is_safe": 0.79,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": true,
+      "version_confident": false
+    },
+    "_ids": [
+      "lvis",
+      "lvis1"
+    ]
+  },
+  {
+    "raw": "MSRVTT-QA",
+    "tracked": "MSVD-QA",
+    "reason": "Both cite the same source page, https://github.com/xudejing/video-question-answering. \"MSRVTT-QA\" is described as: Open-ended question answering over the MSR-VTT collection of web video clips, with question-answer pairs generated automatically from the clips' human-written descriptions. \"MSVD-QA\" is described as: Open-ended question answering over short YouTube clips from the Microsoft Video Description corpus, with question-answer pairs generated automatically from the clips' human-written descriptions and then post-processed. Found by scanning descriptions: same source, near-identical descriptions.",
+    "lab": "google",
+    "decision": "REVIEW",
+    "relation": "different",
+    "probabilities": {
+      "renamed": 0.06,
+      "different": 0.71,
+      "version": 0.01,
+      "same_name": 0.22
+    },
+    "merge_is_safe": 0.29,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "msrvttqa",
+      "msvdqa"
+    ]
+  },
+  {
+    "raw": "ChartMimic",
+    "tracked": "ChartMimic_v2_Direct",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2406.09961. \"ChartMimic\" is described as: Chart-to-code generation over 4,800 human-curated triplets of a figure, a textual instruction and reference code: the model sees the chart and instruction and must emit code that renders the same chart. \"ChartMimic_v2_Direct\" is described as: Chart-to-code generation in its direct setting: shown a scientific chart, the model must write code that re-renders it faithfully, drawn from human-curated figure, instruction and code triplets and scored by multi-level metrics over the code and the rendered chart. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "qwen",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "different": 0,
+      "renamed": 0.01,
+      "same_name": 0.05,
+      "version": 0.94
+    },
+    "merge_is_safe": 0.64,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "chartmimic",
+      "chartmimic2direct"
+    ]
+  },
+  {
+    "raw": "Kernel Bench L3",
+    "tracked": "KernelBench",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2502.10517. \"Kernel Bench L3\" is described as: The hardest of KernelBench's three tiers: 50 full PyTorch model architectures drawn from popular GitHub repositories, for which a model must write faster GPU kernels that still match the reference outputs on random inputs. \"KernelBench\" is described as: 250 PyTorch machine learning workloads for which a model must write a GPU kernel, graded on whether the kernel is functionally correct and how much it speeds the workload up over the PyTorch baseline. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "qwen",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "renamed": 0,
+      "same_name": 0.01,
+      "version": 0.97,
+      "different": 0.02
+    },
+    "merge_is_safe": 0.27,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "kernelbenchl3",
+      "kernelbench"
+    ]
+  },
+  {
+    "raw": "RoboTwin-Easy",
+    "tracked": "RoboTwin-Easy / Hard",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2506.18088. \"RoboTwin-Easy\" is described as: The clean evaluation setting of the RoboTwin 2.0 bimanual manipulation benchmark: policies trained on 50 expert demonstrations per task are rolled out on 50 dual-arm simulation tasks without the clutter, lighting and texture randomization of the Hard setting. \"RoboTwin-Easy / Hard\" is described as: Two evaluation settings of a 50-task bimanual manipulation benchmark: policies trained on 50 clean demonstrations per task are rolled out either in clean scenes (Easy) or under randomised clutter, lighting, textures and table heights (Hard). Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "qwen",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "different": 0.01,
+      "same_name": 0.03,
+      "version": 0.96,
+      "renamed": 0
+    },
+    "merge_is_safe": 0.39,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "robotwineasy",
+      "robotwineasyhard"
+    ]
+  },
+  {
+    "raw": "Ego3D",
+    "tracked": "Ego3D RMSE",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2509.06266. \"Ego3D\" is described as: Over 8,600 human-annotated question-answer pairs about ego-centric, multi-view outdoor scenes of the kind a robot or self-driving car sees, split between multiple-choice spatial reasoning and absolute distance estimation. \"Ego3D RMSE\" is described as: Over 8,600 human-checked question and answer pairs built from ego-centric multi-view outdoor driving footage taken from nuScenes, Argoverse and Waymo, covering absolute and relative distance, localisation, motion reasoning and travel time. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "qwen",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "version": 0.21,
+      "renamed": 0.01,
+      "different": 0.24,
+      "same_name": 0.54
+    },
+    "merge_is_safe": 0.43,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "ego3d",
+      "ego3drmse"
+    ]
+  },
+  {
+    "raw": "IMO-ProofBench",
+    "tracked": "IMO-ProofBench Advanced",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2511.01846. \"IMO-ProofBench\" is described as: Sixty olympiad problems, 30 basic and 30 advanced, across algebra, combinatorics, geometry and number theory, each answered with a full written proof that is graded against detailed problem-specific guidelines by an LLM autograder. \"IMO-ProofBench Advanced\" is described as: The harder of IMO-ProofBench's two tiers: 30 olympiad problems spanning algebra, combinatorics, geometry and number theory, answered with a full written proof that an LLM autograder scores against detailed grading guidelines. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "deepseek",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "different": 0,
+      "same_name": 0,
+      "version": 1,
+      "renamed": 0
+    },
+    "merge_is_safe": 0.4,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "imoproofbench",
+      "imoproofbenchadvanced"
+    ]
+  },
+  {
+    "raw": "Real-World Finance",
+    "tracked": "Real-World Finance v1",
+    "reason": "Both cite the same source page, https://claude.com/blog/opus-4-6-finance. \"Real-World Finance\" is described as: An Anthropic internal evaluation spanning roughly 50 investment and financial analysis use cases across spreadsheets, slide decks and document generation and review, scored with a mix of rubrics and preference judgements covering domain knowledge, task completeness, accuracy and presentation. \"Real-World Finance v1\" is described as: An internal Anthropic eval covering about 50 investment and financial analysis use cases across spreadsheets, slide decks and documents, run with code execution and tool use harnesses and graded by rubrics and preferences for domain knowledge, completeness and presentation. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "anthropic",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "renamed": 0.01,
+      "same_name": 0.13,
+      "version": 0.85,
+      "different": 0.01
+    },
+    "merge_is_safe": 0.59,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "realworldfinance",
+      "realworldfinance1"
+    ]
+  },
+  {
+    "raw": "BC MBPP C#",
+    "tracked": "BC MBPP Go",
+    "reason": "Both cite the same source page, https://huggingface.co/datasets/gabeorlanski/bc-mbpp. \"BC MBPP C#\" is described as: The C# portion of BabelCode-MBPP, which converts Google's MBPP Python programming problems into 16 languages along with per-language test code and run commands, so generated solutions are executed against the translated test cases. \"BC MBPP Go\" is described as: The Go split of BabelCode-MBPP, which converts the MBPP Python programming problems into 16 languages with per-language test code and execution commands, so generated Go is scored by running the translated tests. Found by scanning descriptions: same source, near-identical descriptions.",
+    "lab": "google",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "same_name": 0.02,
+      "version": 0.6,
+      "different": 0.38,
+      "renamed": 0
+    },
+    "merge_is_safe": 0.22,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "bcmbppc",
+      "bcmbppgo"
+    ]
+  },
+  {
+    "raw": "GRE",
+    "tracked": "GRE General Test",
+    "reason": "Both cite the same source page, https://www.ets.org/gre/test-takers/general-test/prepare/content.html. \"GRE\" is described as: A graduate-admissions test with three measures: verbal reasoning over written discourse, quantitative reasoning covering arithmetic, algebra, geometry and data analysis, and analytical writing on argument-based essay prompts. \"GRE General Test\" is described as: The graduate admissions exam from ETS, made up of five scored sections: one analytical writing task, two verbal reasoning sections and two quantitative reasoning sections covering reading, vocabulary and quantitative interpretation. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "anthropic",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.82,
+      "version": 0.01,
+      "different": 0.17,
+      "renamed": 0
+    },
+    "merge_is_safe": 0.66,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "gre",
+      "gregeneraltest"
+    ]
+  },
+  {
+    "raw": "PrimeVul",
+    "tracked": "PrimeVul Paired",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2403.18624. \"PrimeVul\" is described as: A function-level vulnerability detection dataset whose labels come from techniques validated against human-verified benchmarks, with rigorous de-duplication and a chronological train/test split to limit data leakage. \"PrimeVul Paired\" is described as: The paired split of PrimeVul, where each vulnerable C or C++ function is matched with its patched version that shares most of its text, so a detector must label both correctly and surface cues are not enough. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "google",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "version": 0.98,
+      "different": 0.01,
+      "renamed": 0,
+      "same_name": 0.01
+    },
+    "merge_is_safe": 0.27,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "primevul",
+      "primevulpaired"
+    ]
+  },
+  {
+    "raw": "CMTEB",
+    "tracked": "CMTEB-R",
+    "reason": "Both cite the same source page, https://arxiv.org/abs/2309.07597. \"CMTEB\" is described as: A Chinese text embedding benchmark covering six task types across 35 datasets, used to compare general-purpose Chinese embedding models. \"CMTEB-R\" is described as: The retrieval group of C-MTEB, a Chinese text embedding benchmark of 35 datasets over six task types. A model embeds queries and candidate passages and is judged on ranking the relevant passage highest. Found by scanning descriptions: same source, one name contains the other.",
+    "lab": "qwen",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "same_name": 0.01,
+      "renamed": 0,
+      "version": 0.98,
+      "different": 0.01
+    },
+    "merge_is_safe": 0.41,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "_ids": [
+      "cmteb",
+      "cmtebr"
+    ]
+  },
+  {
+    "raw": "DM code contests",
+    "tracked": "CodeContests",
+    "reason": "\"DM code contests\" is described as: DeepMind's competitive programming dataset, with problems gathered from Codeforces, CodeChef, AtCoder, HackerEarth and Aizu, each paired with input-output test cases plus correct and incorrect human submissions. \"CodeContests\" is described as: Competitive programming problems scraped from Codeforces, CodeChef, AtCoder, Aizu and HackerEarth with paired input and output tests plus correct and incorrect human submissions, split by publication date to limit leakage. Found by scanning descriptions: different sources, near-identical descriptions.",
+    "lab": "mistral",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "version": 0,
+      "same_name": 0.89,
+      "renamed": 0.02,
+      "different": 0.09
+    },
+    "merge_is_safe": 0.67,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "_ids": [
+      "dmcodecontests",
+      "codecontests"
+    ]
+  }
+]

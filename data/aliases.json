@@ -200,5 +200,7 @@
   "widgetcaptioning": "widgetcap",
   "ego3dbench": "ego3d",
   "firstpersonfairnessevaluation": "firstpersonfairness",
-  "embspatialbench": "embspatial"
+  "embspatialbench": "embspatial",
+  "labbenchfigqa": "figqa",
+  "lmsyschatbotarenaleaderboard": "lmsysarena"
 }

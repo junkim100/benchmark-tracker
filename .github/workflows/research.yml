@@ -65,6 +65,17 @@ jobs:
           LOOKBACK_DAYS: ${{ inputs.lookback_days || '7' }}
         run: node scripts/research.mjs
 
+      # Sweep for duplicates the name rules cannot see.
+      #
+      # The step above catches a new name that a research agent noticed resembled a tracked one. This catches the other direction: two rows already in the registry that turn out to cite the same page, which is the signal the descriptions added and the name rules never had. It runs after the research so a release ingested this pass is included.
+      #
+      # Writes data/dedupe-queue.json and applies nothing. An APPLY verdict is a proposal, because a merge rewrites lab_count and first_seen for two benchmarks and normalize.mjs cannot detect a wrong one. Two of the first sixty-one proposals were wrong and only reading both descriptions caught them, so a person reads this file.
+      - name: Scan for duplicates
+        continue-on-error: true
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: npm run dedupe
+
       # The same check the site build runs. A malformed or score-bearing record
       # fails here, before it can reach main.
       - name: Validate against the data contract

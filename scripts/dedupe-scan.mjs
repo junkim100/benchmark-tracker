@@ -6,7 +6,8 @@
 //
 // Emits gate input on stdout. Applies nothing: a merge rewrites lab_count, first_seen and labs for two benchmarks and normalize.mjs cannot detect a wrong one, so writing stays a separate, reviewed step.
 
-import { readFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
+import { spawnSync } from "node:child_process";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -46,6 +47,9 @@ for (const [id, e] of Object.entries(descriptions)) {
 /** Candidate pairs, each as [smaller, larger] so the merge direction folds the lesser-cited name into the better-known one. */
 const pairs = new Map();
 const add = (a, b, why) => {
+  // Already grouped as versions of one thing, which is the answer a SUITE verdict would give. Asking again costs two model calls to be told what the registry already records, and puts a resolved pair in a queue meant for open ones.
+  const [sa, sb] = [info.get(a).suite, info.get(b).suite];
+  if (sa && sa === sb) return;
   const [lo, hi] = (info.get(a).labs?.length ?? 0) <= (info.get(b).labs?.length ?? 0) ? [a, b] : [b, a];
   const k = `${lo}\u0000${hi}`;
   if (!pairs.has(k)) pairs.set(k, { lo, hi, why: new Set() });
@@ -95,4 +99,35 @@ const out = [...pairs.values()].map(({ lo, hi, why }) => {
 });
 
 process.stderr.write(`${out.length} candidate pairs from ${rows.length} benchmarks\n`);
-process.stdout.write(JSON.stringify(out, null, 2));
+
+if (!process.argv.includes("--gate")) {
+  process.stdout.write(JSON.stringify(out, null, 2));
+  process.exit(0);
+}
+
+// Put every candidate to the gate and write the verdicts where a person can read them.
+//
+// In chunks, because one call carrying 276 pairs is one call to lose. PYTHON is honoured the way research.mjs honours it, so CI can point at an interpreter that has the SDK; without it the gate fails closed and every pair lands in review, which is the correct outcome for a missing dependency rather than an outage to work around.
+const py = process.env.PYTHON ?? "python3";
+const verdicts = [];
+for (let i = 0; i < out.length; i += 25) {
+  const chunk = out.slice(i, i + 25);
+  const r = spawnSync(py, [join(ROOT, "scripts", "alias-gate.py")], {
+    input: JSON.stringify(chunk.map(({ _ids, ...c }) => c)), encoding: "utf8", timeout: 180000,
+  });
+  let got = null;
+  if (r.status === 0 && r.stdout) { try { got = JSON.parse(r.stdout); } catch { got = null; } }
+  if (!got || got.length !== chunk.length) {
+    const why = r.error?.message ?? r.stderr?.slice(0, 160) ?? `exit ${r.status}`;
+    verdicts.push(...chunk.map((c) => ({ ...c, decision: "REVIEW", unavailable: `gate_failed: ${why}` })));
+  } else {
+    verdicts.push(...got.map((g, k) => ({ ...g, _ids: chunk[k]._ids })));
+  }
+  process.stderr.write(`  ${Math.min(i + 25, out.length)}/${out.length}\n`);
+}
+
+const tally = verdicts.reduce((a, v) => ({ ...a, [v.decision]: (a[v.decision] ?? 0) + 1 }), {});
+writeFileSync(join(ROOT, "data/dedupe-queue.json"), JSON.stringify(verdicts, null, 2) + "\n");
+process.stderr.write(`\n${JSON.stringify(tally)}\nwritten to data/dedupe-queue.json\n`);
+// Nothing is applied. A merge rewrites lab_count and first_seen for two benchmarks and normalize.mjs cannot detect a wrong one, so an APPLY here is a proposal to be read, not a decision taken. Two of the first 61 were wrong and only reading both descriptions caught them.
+process.stderr.write("APPLY verdicts are proposals. Read both descriptions before writing an alias.\n");

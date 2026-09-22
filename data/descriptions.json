@@ -986,8 +986,8 @@
     "checked": "2026-09-22"
   },
   "graphwalks": {
-    "text": "Fills the context window with a directed graph of hexadecimal hashes and asks the model to run a breadth-first search from a random node and return every node at a given depth, forcing reasoning across many positions at once.",
-    "source_url": "https://openai.com/index/gpt-4-1/",
+    "text": "A long-context evaluation over directed graphs of hexadecimal hashes given as an edge list, with two tasks: breadth-first search returning every node at a given depth from a starting node, and returning every node with an edge into a named node.",
+    "source_url": "https://huggingface.co/datasets/openai/graphwalks",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -3347,12 +3347,6 @@
   },
   "biopipelinebench": {
     "source": "none",
-    "checked": "2026-09-22"
-  },
-  "labbenchfigqa": {
-    "text": "The figure-reasoning subtask of LAB-Bench: multiple-choice questions that require interpreting figures taken from open-access biology papers, each with one correct answer and a set of distractors.",
-    "source_url": "https://huggingface.co/datasets/futurehouse/lab-bench",
-    "source": "researched",
     "checked": "2026-09-22"
   },
   "usmle": {
@@ -10211,12 +10205,6 @@
   },
   "codeforcesdi1": {
     "source": "none",
-    "checked": "2026-09-22"
-  },
-  "lmsyschatbotarenaleaderboard": {
-    "text": "An open platform that collects pairwise human preferences: a user submits a prompt, two anonymous models answer, and the user votes for the better reply. The crowdsourced votes are aggregated into a ranking of models.",
-    "source_url": "https://arxiv.org/abs/2403.04132",
-    "source": "researched",
     "checked": "2026-09-22"
   },
   "racem": {

@@ -6,7 +6,8 @@
     "normalize": "node scripts/normalize.mjs",
     "dev": "npm run normalize && vite",
     "build": "npm run normalize && tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dedupe": "node scripts/dedupe-scan.mjs --gate"
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.127.0",

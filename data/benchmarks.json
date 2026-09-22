@@ -1313,7 +1313,7 @@
     "categories": [
       "knowledge"
     ],
-    "suite": null,
+    "suite": "triviaqa",
     "recent_share": 8
   },
   {
@@ -1908,7 +1908,7 @@
     "categories": [
       "multilingual"
     ],
-    "suite": null,
+    "suite": "mmmlu",
     "recent_share": 8
   },
   {
@@ -2428,7 +2428,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "mrcr",
     "recent_share": 4
   },
   {
@@ -3844,7 +3844,7 @@
     "categories": [
       "reasoning"
     ],
-    "suite": null,
+    "suite": "race",
     "recent_share": 0
   },
   {
@@ -5034,7 +5034,7 @@
     "categories": [
       "knowledge"
     ],
-    "suite": null,
+    "suite": "mteb",
     "recent_share": 0
   },
   {
@@ -6502,6 +6502,30 @@
     "recent_share": 0
   },
   {
+    "id": "lmsysarena",
+    "name": "LMSYS Chatbot Arena",
+    "lab_count": 3,
+    "labs": [
+      "deepseek",
+      "google",
+      "mistral"
+    ],
+    "first_seen": "2024-01-08",
+    "last_seen": "2024-07-31",
+    "labs_by_year": {
+      "2024": 3
+    },
+    "labs_by_quarter": {
+      "2024-Q1": 1,
+      "2024-Q3": 2
+    },
+    "categories": [
+      "knowledge"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "logicvista",
     "name": "LogicVista",
     "lab_count": 3,
@@ -7819,7 +7843,7 @@
     "categories": [
       "safety"
     ],
-    "suite": null,
+    "suite": "wmdp",
     "recent_share": 4
   },
   {
@@ -7847,7 +7871,7 @@
     "categories": [
       "safety"
     ],
-    "suite": null,
+    "suite": "wmdp",
     "recent_share": 4
   },
   {
@@ -9518,23 +9542,24 @@
       "xai"
     ],
     "first_seen": "2025-02-24",
-    "last_seen": "2026-04-07",
+    "last_seen": "2026-06-09",
     "labs_by_year": {
       "2025": 2,
-      "2026": 1
+      "2026": 2
     },
     "labs_by_quarter": {
       "2025-Q1": 1,
       "2025-Q2": 1,
       "2025-Q3": 1,
       "2025-Q4": 2,
-      "2026-Q2": 1
+      "2026-Q1": 1,
+      "2026-Q2": 2
     },
     "categories": [
-      "other"
+      "science"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 5
   },
   {
     "id": "financeagent11",
@@ -10813,29 +10838,6 @@
     "recent_share": 0
   },
   {
-    "id": "lmsysarena",
-    "name": "LMSYS Chatbot Arena",
-    "lab_count": 2,
-    "labs": [
-      "google",
-      "mistral"
-    ],
-    "first_seen": "2024-01-08",
-    "last_seen": "2024-07-31",
-    "labs_by_year": {
-      "2024": 2
-    },
-    "labs_by_quarter": {
-      "2024-Q1": 1,
-      "2024-Q3": 1
-    },
-    "categories": [
-      "knowledge"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "loft",
     "name": "LOFT",
     "lab_count": 2,
@@ -11643,7 +11645,7 @@
     "categories": [
       "science"
     ],
-    "suite": "mmlu-pro",
+    "suite": "mmlu",
     "recent_share": 0
   },
   {
@@ -11897,7 +11899,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "mrcr",
     "recent_share": 2
   },
   {
@@ -11922,7 +11924,7 @@
     "categories": [
       "coding"
     ],
-    "suite": null,
+    "suite": "mteb",
     "recent_share": 0
   },
   {
@@ -11946,7 +11948,7 @@
     "categories": [
       "knowledge"
     ],
-    "suite": null,
+    "suite": "mteb",
     "recent_share": 0
   },
   {
@@ -11973,7 +11975,7 @@
     "categories": [
       "multilingual"
     ],
-    "suite": null,
+    "suite": "mteb",
     "recent_share": 0
   },
   {
@@ -12721,7 +12723,7 @@
     "categories": [
       "reasoning"
     ],
-    "suite": null,
+    "suite": "race",
     "recent_share": 0
   },
   {
@@ -12747,7 +12749,7 @@
     "categories": [
       "reasoning"
     ],
-    "suite": null,
+    "suite": "race",
     "recent_share": 0
   },
   {
@@ -13746,7 +13748,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "vatex",
     "recent_share": 0
   },
   {
@@ -14172,7 +14174,7 @@
     "categories": [
       "safety"
     ],
-    "suite": null,
+    "suite": "wmdp",
     "recent_share": 0
   },
   {
@@ -14197,7 +14199,7 @@
     "categories": [
       "safety"
     ],
-    "suite": null,
+    "suite": "wmdp",
     "recent_share": 4
   },
   {
@@ -30417,30 +30419,6 @@
     "recent_share": 0
   },
   {
-    "id": "labbenchfigqa",
-    "name": "LAB-Bench FigQA",
-    "lab_count": 1,
-    "labs": [
-      "anthropic"
-    ],
-    "first_seen": "2025-11-24",
-    "last_seen": "2026-06-09",
-    "labs_by_year": {
-      "2025": 1,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q4": 1,
-      "2026-Q1": 1,
-      "2026-Q2": 1
-    },
-    "categories": [
-      "science"
-    ],
-    "suite": null,
-    "recent_share": 3
-  },
-  {
     "id": "labworkbench",
     "name": "Labwork Bench",
     "lab_count": 1,
@@ -31293,27 +31271,6 @@
     ],
     "suite": null,
     "recent_share": 1
-  },
-  {
-    "id": "lmsyschatbotarenaleaderboard",
-    "name": "LMSYS Chatbot Arena Leaderboard",
-    "lab_count": 1,
-    "labs": [
-      "deepseek"
-    ],
-    "first_seen": "2024-07-18",
-    "last_seen": "2024-07-18",
-    "labs_by_year": {
-      "2024": 1
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1
-    },
-    "categories": [
-      "knowledge"
-    ],
-    "suite": null,
-    "recent_share": 0
   },
   {
     "id": "lmsysvisionleaderboard",
@@ -34301,7 +34258,7 @@
     "categories": [
       "multilingual"
     ],
-    "suite": null,
+    "suite": "mmmlu",
     "recent_share": 0
   },
   {
@@ -34744,7 +34701,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "mrcr",
     "recent_share": 1
   },
   {
@@ -34765,7 +34722,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "mrcr",
     "recent_share": 0
   },
   {
@@ -34786,7 +34743,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "mrcr",
     "recent_share": 0
   },
   {
@@ -34809,7 +34766,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "mrcr",
     "recent_share": 0
   },
   {
@@ -34990,7 +34947,7 @@
     "categories": [
       "coding"
     ],
-    "suite": null,
+    "suite": "mteb",
     "recent_share": 0
   },
   {
@@ -35011,7 +34968,7 @@
     "categories": [
       "multilingual"
     ],
-    "suite": null,
+    "suite": "mteb",
     "recent_share": 0
   },
   {
@@ -35032,7 +34989,7 @@
     "categories": [
       "knowledge"
     ],
-    "suite": null,
+    "suite": "mteb",
     "recent_share": 0
   },
   {
@@ -35053,7 +35010,7 @@
     "categories": [
       "knowledge"
     ],
-    "suite": null,
+    "suite": "mteb",
     "recent_share": 0
   },
   {
@@ -43682,7 +43639,7 @@
       "coding",
       "agentic"
     ],
-    "suite": null,
+    "suite": "swe-lancer",
     "recent_share": 0
   },
   {
@@ -43704,7 +43661,7 @@
       "coding",
       "agentic"
     ],
-    "suite": null,
+    "suite": "swe-lancer",
     "recent_share": 0
   },
   {
@@ -43730,7 +43687,7 @@
       "coding",
       "agentic"
     ],
-    "suite": null,
+    "suite": "swe-lancer",
     "recent_share": 1
   },
   {
@@ -43752,7 +43709,7 @@
       "coding",
       "agentic"
     ],
-    "suite": null,
+    "suite": "swe-lancer",
     "recent_share": 0
   },
   {
@@ -43774,7 +43731,7 @@
       "coding",
       "agentic"
     ],
-    "suite": null,
+    "suite": "swe-lancer",
     "recent_share": 0
   },
   {
@@ -45190,7 +45147,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "triviaqa",
     "recent_share": 0
   },
   {
@@ -45212,7 +45169,7 @@
     "categories": [
       "knowledge"
     ],
-    "suite": null,
+    "suite": "triviaqa",
     "recent_share": 0
   },
   {
@@ -45792,7 +45749,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "vatex",
     "recent_share": 0
   },
   {
@@ -45817,7 +45774,7 @@
     "categories": [
       "multilingual"
     ],
-    "suite": null,
+    "suite": "vatex",
     "recent_share": 0
   },
   {
