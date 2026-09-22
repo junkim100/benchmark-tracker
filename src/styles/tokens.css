@@ -1,54 +1,80 @@
-/* Design tokens.
+/* Design tokens, following DESIGN-apple.md.
  *
- * Defined on :root, not on a wrapper. An earlier version scoped them to
- * .viz-root, which is a child of body, so body's own background resolved
- * against nothing and the page stayed white while the chart panel went dark.
- * Custom properties inherit downward only.
+ * That document describes a product-marketing gallery: full-bleed tiles,
+ * photography carrying the page, one blue accent, chrome that recedes. This is
+ * a data instrument instead, so the system is applied at the volume the
+ * document itself names when it says one design language is expressed at
+ * different volumes. What carries over exactly: the colour roles, the type
+ * ladder, the 8px spacing rhythm, the radius grammar, the single accent, and
+ * the rule that shadow is not a UI material.
  *
- * The eight categorical slots are the validated palette, checked in both modes
- * with the data-viz validator: lightness band, chroma floor, CVD separation,
- * normal-vision floor, contrast. Do not substitute hexes without re-running it.
+ * Two deliberate departures, both forced by the data rather than by taste.
  *
- * Those eight encode TRACKED BENCHMARKS, never labs. Twelve labs cannot be told
- * apart by hue and the palette caps at eight, so lab identity is carried by row
- * position, logo and name, and colour is spent where it does real work.
+ * 1. Dark tiles are not used to divide sections. The spec alternates light and
+ *    near-black full-bleed tiles and lets the colour change be the divider.
+ *    Here the lab marks in the timeline pick their ink from the THEME, not
+ *    from the tile they sit on, so a near-black tile inside light mode would
+ *    render twelve logos in their light-surface colours against near-black.
+ *    Canvas alternates with Parchment instead, which the spec provides for
+ *    exactly this purpose.
  *
- * The accent is the one hue the data never uses. Measured in OKLCH, the eight
- * slots leave a single wide vacancy: a 93-degree gap centred on 209, the teal
- * band between the green slot at 162 and the blue at 256. The interface takes
- * that band and nothing else, so a reader never has to work out whether a
- * colour means "you can act on this" or "this is benchmark three".
+ * 2. Action Blue displaced the first series colour rather than the other way
+ *    round. The spec's single accent is non-negotiable, and this palette had
+ *    already learned the same lesson the hard way: --accent was once #2a78d6,
+ *    byte-identical to --series-1, so the click signal and the first tracked
+ *    benchmark were the same colour on the same screen. Action Blue #0066cc
+ *    measures 5.5 OKLab units from that blue, which is the same collision
+ *    again. So series-1 moved to teal and the accent took the blue band.
  *
- * That separation was not true before. --accent was #2a78d6, byte-identical to
- * --series-1, so the click signal and the first tracked benchmark were the
- * same colour on the same screen.
+ * Measured after the swap, and not to be changed without re-measuring:
+ *   accent to nearest series   12.2 light (violet), 10.4 dark
+ *   series-1 to nearest series 17.0 light, 11.4 dark
+ *   palette CVD floor          1.8 deut / 1.5 prot, unchanged by the swap
+ *   white on Action Blue       5.57:1      Action Blue on canvas    5.57:1
+ *   Sky Blue on dark page      5.58:1      Sky Blue on dark tile     4.75:1
  *
- * Both accents clear WCAG AA as text on their own surface (6.04:1 light,
- * 8.73:1 dark) and sit at least 14.8 OKLab units from every slot in their
- * mode. Do not move them without re-checking both numbers.
+ * The eight categorical slots encode TRACKED BENCHMARKS, never labs. Twelve
+ * labs cannot be told apart by hue and the palette caps at eight, so lab
+ * identity is carried by row position, logo and name.
  */
 :root {
   color-scheme: light;
 
-  --surface-0: #ffffff;
-  --surface-1: #fcfcfb;
-  --surface-2: #f4f4f1;
-  --surface-3: #ebebe7;
-  --border: #dedcd6;
-  --border-strong: #c6c4bc;
+  /* Surface. Canvas and Parchment alternate to divide sections; Pearl is the
+     fill that still reads as a control when it sits on Parchment. */
+  --canvas: #ffffff;
+  --parchment: #f5f5f7;
+  --surface-0: #ffffff;   /* canvas: cards, raised chrome */
+  --surface-1: #f5f5f7;   /* parchment: the page */
+  --surface-2: #fafafc;   /* pearl: ghost button and input fill */
+  --surface-3: #f0f0f0;   /* divider-soft as a fill */
+  --border: #e0e0e0;      /* hairline */
+  --border-strong: #d2d2d7;
 
-  --text-primary: #0b0b0b;
-  --text-secondary: #52514e;
-  --text-muted: #6e6d67;
-  --mark-neutral: #8a897f;
+  /* Text. One near-black for everything, per the spec: pure black would make
+     the page read as printed rather than photographic.
+     The spec's #7a7a7a measures 3.94:1 on Parchment, under AA for body text,
+     so muted copy uses #6e6e73 at 4.66:1 and #7a7a7a is kept for the disabled
+     state, where the spec puts it and where AA does not apply. */
+  --text-primary: #1d1d1f;
+  --text-secondary: #333333;
+  --text-muted: #6e6e73;
+  --text-disabled: #7a7a7a;
+  --mark-neutral: #8a8a8e;
 
-  --accent: #046b7a;
-  --accent-strong: #02545f;
-  --accent-soft: #e4f1f3;
-  --accent-line: #b6d8dd;
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.07);
+  /* Action. One hue, used for nothing that is not interactive.
+     --accent is the readable one for text and icons on the current surface.
+     --accent-fill is what a filled control is painted with, and it stays
+     Action Blue in both modes because white on it clears AA in both. */
+  --accent: #0066cc;
+  --accent-fill: #0066cc;
+  --accent-press: #0055ad;
+  --accent-focus: #0071e3;
+  --on-accent: #ffffff;
+  --accent-soft: #e8f1fc;
+  --accent-line: #b8d4f2;
 
-  --series-1: #2a78d6;
+  --series-1: #016c78;
   --series-2: #eb6834;
   --series-3: #1baf7a;
   --series-4: #eda100;
@@ -57,8 +83,30 @@
   --series-7: #4a3aa7;
   --series-8: #e34948;
 
-  --radius: 12px;
-  --radius-sm: 8px;
+  /* Radius grammar. Compact utility, pearl capsule, utility card, pill. The
+     spec's instruction is not to invent values between these. */
+  --r-sm: 8px;
+  --r-md: 11px;
+  --r-lg: 18px;
+  --r-pill: 9999px;
+
+  /* 8px base. The odd 17px is the spec's own, and matches the body size. */
+  --s-xxs: 4px;
+  --s-xs: 8px;
+  --s-sm: 12px;
+  --s-md: 17px;
+  --s-lg: 24px;
+  --s-xl: 32px;
+  --s-xxl: 48px;
+  --s-section: 80px;
+
+  --nav-h: 52px;
+
+  /* Elevation is surface change and backdrop blur. There is no card shadow,
+     no button shadow, no text shadow. The one shadow the spec allows is for
+     product photography resting on a surface, and this page has none, so the
+     only float is the tooltip, which earns a hairline and a blur instead. */
+  --blur: saturate(180%) blur(20px);
 }
 
 /* Dark values are selected for the dark surface, not an automatic inversion.
@@ -69,25 +117,34 @@
   :root:not([data-theme="light"]) {
     color-scheme: dark;
 
-    --surface-0: #141413;
-    --surface-1: #1a1a19;
-    --surface-2: #232322;
-    --surface-3: #2c2c2a;
-    --border: #383835;
-    --border-strong: #4d4d49;
+    --canvas: #1d1d1f;
+    --parchment: #272729;
+    --surface-0: #2a2a2c;
+    --surface-1: #1d1d1f;
+    --surface-2: #252527;
+    --surface-3: #323234;
+    --border: #3a3a3c;
+    --border-strong: #48484a;
 
     --text-primary: #ffffff;
-    --text-secondary: #c3c2b7;
-    --text-muted: #8e8d84;
+    --text-secondary: #cccccc;
+    --text-muted: #98989d;
+    --text-disabled: #7a7a7a;
     --mark-neutral: #6f6e66;
 
-    --accent: #3ec8de;
-    --accent-strong: #6fdcee;
-    --accent-soft: #10312f;
-    --accent-line: #2a5a60;
-    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 28px rgb(0 0 0 / 0.45);
+    /* Sky Link Blue for text and icons, because Action Blue disappears against
+       a near-black tile. Filled controls keep Action Blue: white on Sky Blue
+       measures 2.4:1 and would fail, white on Action Blue measures 5.57:1 and
+       passes on either surface. */
+    --accent: #2997ff;
+    --accent-fill: #0066cc;
+    --accent-press: #0055ad;
+    --accent-focus: #0071e3;
+    --on-accent: #ffffff;
+    --accent-soft: #10243d;
+    --accent-line: #1f4a7a;
 
-    --series-1: #3987e5;
+    --series-1: #35a9bd;
     --series-2: #d95926;
     --series-3: #199e70;
     --series-4: #c98500;
@@ -101,25 +158,30 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
 
-  --surface-0: #141413;
-  --surface-1: #1a1a19;
-  --surface-2: #232322;
-  --surface-3: #2c2c2a;
-  --border: #383835;
-  --border-strong: #4d4d49;
+  --canvas: #1d1d1f;
+  --parchment: #272729;
+  --surface-0: #2a2a2c;
+  --surface-1: #1d1d1f;
+  --surface-2: #252527;
+  --surface-3: #323234;
+  --border: #3a3a3c;
+  --border-strong: #48484a;
 
   --text-primary: #ffffff;
-  --text-secondary: #c3c2b7;
-  --text-muted: #8e8d84;
+  --text-secondary: #cccccc;
+  --text-muted: #98989d;
+  --text-disabled: #7a7a7a;
   --mark-neutral: #6f6e66;
 
-  --accent: #3ec8de;
-  --accent-strong: #6fdcee;
-  --accent-soft: #10312f;
-  --accent-line: #2a5a60;
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 28px rgb(0 0 0 / 0.45);
+  --accent: #2997ff;
+  --accent-fill: #0066cc;
+  --accent-press: #0055ad;
+  --accent-focus: #0071e3;
+  --on-accent: #ffffff;
+  --accent-soft: #10243d;
+  --accent-line: #1f4a7a;
 
-  --series-1: #3987e5;
+  --series-1: #35a9bd;
   --series-2: #d95926;
   --series-3: #199e70;
   --series-4: #c98500;

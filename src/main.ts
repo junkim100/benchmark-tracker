@@ -63,51 +63,71 @@ if (data.releases.length === 0) {
   if (!tracked.length) tracked = data.benchmarks.slice(0, 4).map((b) => b.id);
   let view: TrendView = "chart";
 
+  // Full-bleed tiles, alternating canvas and parchment. There is no wrapper
+  // with a margin: each band paints the whole width and the colour change is
+  // the only divider, which is what the design document means when it says to
+  // change the surface before adding chrome.
+  //
+  // The sub-nav sits AFTER the hero rather than before it. Being sticky, it
+  // scrolls up with the page and pins when it reaches the top, which is the
+  // behaviour wanted with no scroll listener to get wrong, and it means the
+  // hero is never covered by a bar on first paint.
   app.innerHTML = `
-    <header class="hd">
-      <div class="hd__title">
+    <header class="tile tile--parchment hero">
+      <div class="tile__in">
         <h1>Frontier Benchmark Tracker</h1>
-        <p class="hd__sub">Which benchmarks frontier labs cite in their model releases.</p>
+        <p class="hero__sub">Which benchmarks frontier labs cite in their model releases.</p>
       </div>
-      <button class="iconbtn" type="button" data-act="theme">
-        <span class="vh"></span>
-        <svg class="iconbtn__i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></svg>
-      </button>
     </header>
 
-    <div class="sec">
-      <div class="sec__head">
-        <h2>Choose what to track</h2>
+    <nav class="subnav" aria-label="Page actions">
+      <div class="subnav__in">
+        <span class="subnav__name">Frontier Benchmark Tracker</span>
+        <span class="subnav__spacer"></span>
+        <button class="btn btn--sm" type="button" data-act="pick">Change what's tracked</button>
+        <button class="iconbtn" type="button" data-act="theme">
+          <span class="vh"></span>
+          <svg class="iconbtn__i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></svg>
+        </button>
       </div>
-      <section class="controls" aria-label="Track benchmarks"></section>
-    </div>
+    </nav>
 
-    <div class="sec">
-      <div class="sec__head">
-        <h2>Adoption over time</h2>
+    <section class="tile tile--canvas" id="track" aria-label="Track benchmarks">
+      <div class="tile__in">
+        <div class="sec__head"><h2>Choose what to track</h2></div>
+        <div class="controls"></div>
       </div>
-      <section class="trendwrap" aria-label="Adoption trend"></section>
-    </div>
+    </section>
 
-    <div class="sec">
-      <div class="sec__head">
-        <h2>Release timeline</h2>
-        <p>Each mark is a model release. Hover to view details, click to read the source.</p>
+    <section class="tile tile--parchment" aria-label="Adoption trend">
+      <div class="tile__in">
+        <div class="sec__head"><h2>Adoption over time</h2></div>
+        <div class="trendwrap"></div>
       </div>
-      <span class="tl-sentinel" aria-hidden="true"></span>
-      <section class="tlwrap" aria-label="Release timeline"></section>
-    </div>
+    </section>
 
-    <footer class="ft">
-      <p>Sources are each lab's own site, model card, system card, or arXiv paper. Nothing is taken from news coverage or third-party leaderboards, and no score is recorded anywhere.</p>
-      <p>Lab names and marks are the trademarks of their respective owners, shown to identify whose releases each row lists. This site reports on these companies and is neither endorsed by nor affiliated with any of them.</p>
-      <p>Updated ${data.generated_at.slice(0, 10)}. <a href="https://github.com/junkim100/benchmark-tracker">Data and code on GitHub</a></p>
-      <p class="ft__legal">&copy; ${new Date().getUTCFullYear()} Jun Kim. Code under the MIT licence, data under CC BY 4.0. Lab marks are excluded from both.</p>
+    <section class="tile tile--canvas" aria-label="Release timeline">
+      <div class="tile__in">
+        <div class="sec__head">
+          <h2>Release timeline</h2>
+          <p>Each mark is a model release. Hover to view details, click to read the source.</p>
+        </div>
+        <span class="tl-sentinel" aria-hidden="true"></span>
+        <div class="tlwrap"></div>
+      </div>
+    </section>
+
+    <footer class="tile tile--parchment ft">
+      <div class="tile__in">
+        <p>Sources are each lab's own site, model card, system card, or arXiv paper. Nothing is taken from news coverage or third-party leaderboards, and no score is recorded anywhere.</p>
+        <p>Lab names and marks are the trademarks of their respective owners, shown to identify whose releases each row lists. This site reports on these companies and is neither endorsed by nor affiliated with any of them.</p>
+        <p>Updated ${data.generated_at.slice(0, 10)}. <a href="https://github.com/junkim100/benchmark-tracker">Data and code on GitHub</a></p>
+        <p class="ft__legal">&copy; ${new Date().getUTCFullYear()} Jun Kim. Code under the MIT licence, data under CC BY 4.0. Lab marks are excluded from both.</p>
+      </div>
     </footer>
     <div class="tt" role="tooltip" hidden></div>
-    <button class="totop" type="button" hidden>
-      <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 10V2M2.5 5.5 6 2l3.5 3.5"/></svg>
-      Back to top
+    <button class="totop" type="button" hidden aria-label="Back to top" title="Back to top">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>
     </button>`;
 
   const $ = <T extends Element>(s: string) => app.querySelector<T>(s)!;
@@ -245,10 +265,28 @@ if (data.releases.length === 0) {
   };
 
   app.addEventListener("click", (e) => {
-    if (!(e.target as Element).closest('[data-act="theme"]')) return;
-    localStorage.setItem("bt-theme", effective() === "dark" ? "light" : "dark");
-    applyTheme(readTheme());
-    paintTheme();
+    const act = (e.target as Element).closest("[data-act]")?.getAttribute("data-act");
+    if (act === "theme") {
+      localStorage.setItem("bt-theme", effective() === "dark" ? "light" : "dark");
+      applyTheme(readTheme());
+      paintTheme();
+      return;
+    }
+    // The picker is at the top of a page about three screens long, so once you
+    // have scrolled to the timeline and decided you want a different benchmark
+    // the only route back was the same distance in reverse. The sub-nav is
+    // sticky, so this is reachable from anywhere.
+    //
+    // It clicks the real control rather than reaching into the filter's state:
+    // one code path opens the panel, so the panel cannot end up open with the
+    // button still saying "Browse".
+    if (act === "pick") {
+      const fold = app.querySelector<HTMLButtonElement>(".fold");
+      if (fold?.getAttribute("aria-expanded") === "false") fold.click();
+      // After, not before. Opening focuses the search field, and focusing
+      // scrolls it into view, which would otherwise undo this.
+      requestAnimationFrame(() => app.querySelector("#track")?.scrollIntoView({ block: "start" }));
+    }
   });
 
   // Both the chart and the timeline measure their container when they draw, so
@@ -286,10 +324,24 @@ if (data.releases.length === 0) {
   // rAF-throttled, so the work is one getBoundingClientRect per painted frame
   // at most, and it asks which side the sentinel is on rather than whether it
   // is on screen: below the fold is also "not intersecting".
+  // The sub-nav's two pieces are revealed by the same pass, because both are
+  // duplicates until you have scrolled away from what they duplicate. Sitting
+  // 250px under an h1 reading "Frontier Benchmark Tracker", a bar reading
+  // "Frontier Benchmark Tracker" is noise; so is a blue pill saying "Change
+  // what's tracked" directly above a blue pill saying "Browse benchmarks".
+  // Each appears exactly when the thing it stands in for is off screen.
+  const navName = $<HTMLElement>(".subnav__name");
+  const navPick = $<HTMLElement>('[data-act="pick"]');
+  const hero = $(".hero");
+  const controls = $(".controls");
+  const navH = 52;
+
   let ticking = false;
   const syncToTop = () => {
     ticking = false;
     toTop.hidden = sentinel.getBoundingClientRect().top > 0;
+    navName.hidden = hero.getBoundingClientRect().bottom > 0;
+    navPick.hidden = controls.getBoundingClientRect().bottom > navH;
   };
   addEventListener("scroll", () => {
     if (ticking) return;
