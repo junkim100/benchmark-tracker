@@ -108,8 +108,7 @@ if (data.releases.length === 0) {
           <h2>Release timeline</h2>
           <p>Each mark is a model release. Hover to view details, click to read the source.</p>
         </div>
-        <span class="tl-sentinel" aria-hidden="true"></span>
-        <div class="tlwrap"></div>
+          <div class="tlwrap"></div>
       </div>
     </section>
 
@@ -126,7 +125,7 @@ if (data.releases.length === 0) {
       <span class="vh"></span>
       <svg class="corner__i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></svg>
     </button>
-    <button class="corner corner--right totop" type="button" hidden aria-label="Back to top" title="Back to top">
+    <button class="corner corner--right totop" type="button" aria-label="Back to top" title="Back to top">
       <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>
     </button>`;
 
@@ -303,27 +302,26 @@ if (data.releases.length === 0) {
     if (Math.abs(w - chartW) > 8) { chartW = w; draw(); }
   });
 
-  // A way back up, once there is a long way down. The timeline runs about
-  // 2,800px, so reaching its foot puts the masthead three screens away and the
-  // only route back is the same distance in reverse.
+  // A way back up. The timeline runs about 2,800px, so reaching its foot puts
+  // the masthead three screens away and the only route back is the same
+  // distance in reverse.
   //
-  // A sentinel rather than a scroll listener: the button should appear when the
-  // timeline's top has passed the viewport, and asking an observer to report
-  // that costs nothing per frame. Observing the timeline itself would not work,
-  // because an element that tall keeps intersecting the whole time you are
-  // inside it.
+  // Always on screen, like the theme toggle it is paired with. It used to
+  // appear only once the timeline's top had passed, which meant it was absent
+  // for the first two screens and a reader could not learn where it lives: a
+  // control that comes and goes cannot be reached for. Its twin never moves,
+  // and now neither does it.
+  //
+  // Disabled at the very top rather than hidden, because there it has nowhere
+  // to go, and offering an action that does nothing is worse than showing that
+  // there is nothing to do. The pager arrows already disable at the ends of
+  // their list, so the page has one grammar for "this way is exhausted".
+  //
+  // The whole sentinel is gone with it. It existed to answer "has the timeline
+  // scrolled past", and the question now is simply whether the page is at the
+  // top, which scrollY answers without a DOM read.
   const toTop = $<HTMLButtonElement>(".totop");
-  const sentinel = $(".tl-sentinel");
-  // A scroll listener rather than an observer, which this started as.
-  // IntersectionObserver only fires when intersection CHANGES, and a 1px
-  // sentinel can be jumped clean over: false to false, no callback, and the
-  // button keeps whatever state it had. Ordinary scrolling passes through it,
-  // so it looked right; a programmatic jump, an in-page link, or a reload that
-  // restores scroll position did not.
-  //
-  // rAF-throttled, so the work is one getBoundingClientRect per painted frame
-  // at most, and it asks which side the sentinel is on rather than whether it
-  // is on screen: below the fold is also "not intersecting".
+  // rAF-throttled, so the work is a handful of reads per painted frame at most.
   // The sub-nav's two pieces are revealed by the same pass, because both are
   // duplicates until you have scrolled away from what they duplicate. Sitting
   // 250px under an h1 reading "Frontier Benchmark Tracker", a bar reading
@@ -340,7 +338,7 @@ if (data.releases.length === 0) {
   let ticking = false;
   const syncToTop = () => {
     ticking = false;
-    toTop.hidden = sentinel.getBoundingClientRect().top > 0;
+    toTop.disabled = window.scrollY <= 0;
     navName.hidden = hero.getBoundingClientRect().bottom > 0;
     navPick.hidden = controls.getBoundingClientRect().bottom > navH;
     // With both pieces away the bar holds nothing, and an empty strip with a

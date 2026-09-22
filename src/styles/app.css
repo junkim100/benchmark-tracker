@@ -527,10 +527,9 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 /* The two corner controls. Both are the spec's circular chip: 44px,
    translucent over a blur, floating above the content with the icon carrying
    the meaning and the label read out. They are a matched pair, one in each
-   bottom corner, so they read as page furniture rather than as two unrelated
-   buttons that happen to float. Theme is always there; back to top arrives
-   once there is a long way back. */
-.tl-sentinel { display: block; height: 1px; margin-bottom: -1px; }
+   bottom corner, and both are permanent: furniture you can reach for without
+   looking is worth more than chrome that tidies itself away. Back to top goes
+   dim at the very top of the page, where it has nowhere to go. */
 .corner {
   position: fixed; bottom: clamp(16px, 4vw, 32px); z-index: 20;
   display: grid; place-items: center; width: 44px; height: 44px; padding: 0; cursor: pointer;
@@ -541,7 +540,10 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 }
 .corner--left { left: clamp(16px, 4vw, 32px); }
 .corner--right { right: clamp(16px, 4vw, 32px); }
-.corner:hover { background: var(--border-strong); }
+.corner:hover:not(:disabled) { background: var(--border-strong); }
+/* Dim rather than gone. Half opacity keeps its place in the corner visible so
+   the pair still reads as a pair, while saying the arrow has nothing to do. */
+.corner:disabled { opacity: .4; cursor: default; }
 .corner svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .corner__i { width: 18px; height: 18px; display: block; }
 
