@@ -400,7 +400,7 @@ const CATEGORY_WORDS = {
   vision: ["image", "images", "visual", "chart", "diagram", "ocr", "video frame", "screenshot", "photograph"],
   science: ["physics", "chemistry", "biology", "medical", "clinical", "molecular", "genomic"],
   safety: ["jailbreak", "refusal", "toxicity", "bias", "harmful", "red-team", "red team", "malware", "cyberattack"],
-  multilingual: ["multilingual", "cross-lingual", "translation", "languages"],
+  multilingual: ["multilingual", "cross-lingual", "translation", "natural languages", "language pairs"],
   longctx: ["long context", "long-context", "needle in a haystack", "context window"],
   agentic: ["tool use", "tool-use", "web browsing", "gui", "computer use", "multi-step task", "function calling"],
   knowledge: ["factual recall", "trivia", "general knowledge", "hallucination"],

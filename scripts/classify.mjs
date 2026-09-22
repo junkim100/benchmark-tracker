@@ -87,8 +87,16 @@ const RULES = [
   // Knowledge and exams.
   [RE("\\bmmlu|\\bhle\\b|humanity.?s.?last|simpleqa|triviaqa|natural.?question|openbookqa|\\bboolq|truthfulqa|freshqa|\\bnq\\b|agieval|\\bc.?eval\\b|cmmlu|gaokao|\\bexam|\\bbar.?exam|\\bmbe\\b|arena.?hard|mt.?bench|alpacaeval|chatbot.?arena|lmarena|\\bmteb\\b|\\bquiz|knowledge|\\bqa\\b"), "knowledge", null],
 
-  // Reasoning.
-  [RE("\\bbbh\\b|big.?bench|hellaswag|winogrande|arc.?agi|\\barc\\b|arc.?c|arc.?e|ai2.?reasoning|piqa|siqa|\\bcopa\\b|commonsense|\\bdrop\\b|\\banli\\b|\\brace\\b|logiqa|zebra|\\bmusr\\b|puzzle|riddle|sudoku|planning|\\blogic|reasoning|\\bcot\\b|multi.?step|\\bbench\\b"), "reasoning", null],
+  // Reasoning. The list used to end in \bbench\b, which is not a reasoning
+  // word, it is the word almost every benchmark is named after. Because this is
+  // the last rule, that one alternative was catching everything no earlier rule
+  // had claimed and labelling it reasoning instead of letting it fall through to
+  // "other": 76 of the 135 benchmarks in the category were there for no reason
+  // but their own name. BioLP-Bench is biology, DPG-Bench is image generation,
+  // SEC-Bench Pro is security and Reward Bench is reward models. "Other" is a
+  // statement that the rules have no opinion, which is true and which the
+  // category filter can show honestly. "Reasoning" was a claim, and a wrong one.
+  [RE("\\bbbh\\b|big.?bench|hellaswag|winogrande|arc.?agi|\\barc\\b|arc.?c|arc.?e|ai2.?reasoning|piqa|siqa|\\bcopa\\b|commonsense|\\bdrop\\b|\\banli\\b|\\brace\\b|logiqa|zebra|\\bmusr\\b|puzzle|riddle|sudoku|planning|\\blogic|reasoning|\\bcot\\b|multi.?step"), "reasoning", null],
 ];
 
 /** The one lookup key. Everything that has to decide whether two spellings name
