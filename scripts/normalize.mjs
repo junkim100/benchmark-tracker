@@ -62,6 +62,11 @@ let dropped = 0;
 // zipping it against benchmarks_raw by index downstream is simply wrong.
 const spellings = new Map();
 const problems = [];
+// The four kinds the interface knows how to label. The TypeScript union is a
+// compile-time claim about data the build never checked, and kind is written
+// by the research agent and rendered into the page, so an unrecognised value
+// reached the DOM on the strength of a type that does not exist at runtime.
+const KINDS = new Set(["model_release", "technical_report", "system_card", "blog_post"]);
 const TODAY = new Date().toISOString().slice(0, 10);
 const seenIds = new Set();
 const duplicateIds = [];
@@ -119,6 +124,9 @@ for (const file of files) {
       problems.push(`${where}: source_url must be an https URL, got "${r.source_url}"`);
     } else if (lab && !isOfficialSource(lab, r.source_url)) {
       problems.push(`${where}: source_url "${r.source_url}" is not published by ${lab.name}. Allowed: ${describeAllowed(lab)}`);
+    }
+    if (!KINDS.has(r.kind)) {
+      problems.push(`${where}: kind "${r.kind}" is not one of ${[...KINDS].join(", ")}`);
     }
     if (!Array.isArray(r.benchmarks_raw)) {
       problems.push(`${where}: benchmarks_raw must be an array`);

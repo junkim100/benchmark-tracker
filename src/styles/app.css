@@ -32,7 +32,8 @@ body {
    moved onto the nearest rung. */
 
 a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-line); text-decoration-thickness: 1px; text-underline-offset: 3px; transition: color .12s, text-decoration-color .12s; }
-a:hover { text-decoration-color: currentColor; }
+/* Every :hover rule in this file is behind (hover: hover), in place rather than collected at the end, because moving them would change which rule wins: the pressed states of the chips and the segmented control are written after their hover states and rely on coming later. The guard is not decoration. A touch browser applies :hover to whatever was tapped last and keeps it there until something else is tapped, so without it a chip stayed lit long after the finger had gone and read as selected when it was not. */
+@media (hover: hover) { a:hover { text-decoration-color: currentColor; } }
 /* A class that sets `display` beats the user agent's own [hidden] rule, so
    .btn[hidden] and .fold__n[hidden] stayed on screen while reporting
    hidden === true. Stated once here rather than per component, because the
@@ -45,7 +46,9 @@ a:hover { text-decoration-color: currentColor; }
 /* The one system-wide micro-interaction the spec names. Applied to every
    control rather than to a button class, so nothing new can forget it. */
 button:active:not(:disabled), .bcard:active:not(:disabled) { transform: scale(0.95); }
+/* iOS paints its own grey flash over anything it thinks is tappable, which on this page is a second press feedback on top of the scale above and lands on a different shape: a rectangle over a pill. The scale is the one the spec names, so it is the one that is kept. `manipulation` is the other half: nothing here wants double-tap to zoom, and opting out removes the wait for a possible second tap. */
 button { transition: transform .08s ease-out; }
+button, label { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 
 /* Full-bleed tiles. Stacked with zero gap: the colour change is the divider,
    so there are no rules between sections and nothing is rounded. */
@@ -114,7 +117,7 @@ button { transition: transform .08s ease-out; }
   border: 1px solid var(--accent-fill); border-radius: var(--r-pill);
   transition: background .12s, transform .08s ease-out;
 }
-.btn:hover { background: var(--accent-press); border-color: var(--accent-press); }
+@media (hover: hover) { .btn:hover { background: var(--accent-press); border-color: var(--accent-press); } }
 .btn--sm { padding: 7px 16px; font-size: 14px; letter-spacing: -0.016em; }
 
 /* Section heads. The accent rule that used to sit before every h2 is gone:
@@ -141,7 +144,7 @@ button { transition: transform .08s ease-out; }
   border: 1px solid var(--accent-fill); border-radius: var(--r-pill);
   transition: background .12s, transform .08s ease-out;
 }
-.fold:hover { background: var(--accent-press); border-color: var(--accent-press); }
+@media (hover: hover) { .fold:hover { background: var(--accent-press); border-color: var(--accent-press); } }
 @media (max-width: 560px) { .fold__more { display: none; } }
 .fold__n {
   padding: 1px 9px; font-size: 14px; font-weight: 600; letter-spacing: -0.016em;
@@ -183,7 +186,7 @@ button { transition: transform .08s ease-out; }
 .browse__input::-webkit-search-cancel-button { display: none; }
 .browse__input::placeholder { color: var(--text-muted); opacity: 1; }
 .browse__clear { flex: none; display: grid; place-items: center; width: 28px; height: 28px; font-size: 20px; line-height: 1; background: none; border: 0; border-radius: var(--r-pill); color: var(--text-muted); cursor: pointer; }
-.browse__clear:hover { color: var(--accent); background: var(--surface-3); }
+@media (hover: hover) { .browse__clear:hover { color: var(--accent); background: var(--surface-3); } }
 
 /* Three controls, because they answer three different questions. Subject is a
    filter, sort is an order, grouping is a choice about what counts as one
@@ -202,7 +205,7 @@ button { transition: transform .08s ease-out; }
   border: 1px solid var(--border); border-radius: var(--r-pill);
   transition: color .12s, border-color .12s, transform .08s ease-out;
 }
-.facets__subjects button:hover { color: var(--text-primary); border-color: var(--border-strong); }
+@media (hover: hover) { .facets__subjects button:hover { color: var(--text-primary); border-color: var(--border-strong); } }
 .facets__subjects button[aria-pressed="true"] {
   color: var(--accent); font-weight: 600;
   border: 2px solid var(--accent-focus); padding: 8px 15px;
@@ -213,7 +216,7 @@ button { transition: transform .08s ease-out; }
 .facets__sort { display: inline-flex; align-items: center; gap: var(--s-sm); }
 .facets__label { font-size: 14px; letter-spacing: -0.016em; color: var(--text-muted); }
 .facets__group { display: inline-flex; align-items: center; gap: var(--s-xs); font-size: 14px; letter-spacing: -0.016em; color: var(--text-muted); cursor: pointer; }
-.facets__group:hover { color: var(--text-primary); }
+@media (hover: hover) { .facets__group:hover { color: var(--text-primary); } }
 .facets__group input { width: 16px; height: 16px; accent-color: var(--accent-fill); cursor: pointer; }
 /* Dimmed, not hidden, while a search runs: search deliberately ignores both,
    and a control that silently stops applying is worse than one that says so. */
@@ -228,7 +231,7 @@ button { transition: transform .08s ease-out; }
   transition: color .12s, background .12s, transform .08s ease-out;
 }
 .seg button + button { border-left: 1px solid var(--border); }
-.seg button:hover { color: var(--text-primary); }
+@media (hover: hover) { .seg button:hover { color: var(--text-primary); } }
 /* The pressed fill is a tint of the accent over the control's own surface,
    not a neutral grey. Grey put Sky Blue at 4.24:1 in dark mode, under AA, and
    in light mode any grey pale enough to sit on white was invisible. */
@@ -247,7 +250,7 @@ button { transition: transform .08s ease-out; }
   font: inherit; color: var(--text-primary);
   transition: border-color .12s, transform .08s ease-out;
 }
-.bcard:hover:not(:disabled) { border-color: var(--border-strong); }
+@media (hover: hover) { .bcard:hover:not(:disabled) { border-color: var(--border-strong); } }
 /* Selection is a border upgrade and a tick, not a wash of colour: the same
    grammar the subject chips use, and it keeps the card from fighting the
    series colours in the chips directly above. */
@@ -292,7 +295,7 @@ button { transition: transform .08s ease-out; }
   border: 1px solid var(--border); border-radius: var(--r-sm);
   transition: color .12s, border-color .12s, transform .08s ease-out;
 }
-.pager__btn:hover:not(:disabled) { color: var(--accent); border-color: var(--border-strong); }
+@media (hover: hover) { .pager__btn:hover:not(:disabled) { color: var(--accent); border-color: var(--border-strong); } }
 .pager__btn:disabled { color: var(--text-disabled); cursor: not-allowed; }
 .pager__btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .pager__at {
@@ -320,10 +323,10 @@ button { transition: transform .08s ease-out; }
   border: 1px solid var(--border-strong); border-radius: var(--r-pill); cursor: pointer;
   transition: border-color .12s, transform .08s ease-out;
 }
-.chip:hover { border-color: var(--text-primary); }
+@media (hover: hover) { .chip:hover { border-color: var(--text-primary); } }
 .chip__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--slot, var(--text-muted)); flex: none; }
 .chip__x { color: var(--text-muted); font-size: 16px; line-height: 1; }
-.chip:hover .chip__x { color: var(--accent); }
+@media (hover: hover) { .chip:hover .chip__x { color: var(--accent); } }
 
 /* Trend. */
 .trend { margin: 0; }
@@ -369,7 +372,8 @@ button { transition: transform .08s ease-out; }
 
 /* Data table: rules only where they separate meaning, numbers aligned on the
    decimal, the peak year emphasised so the arc is legible without the chart. */
-.dtwrap { overflow-x: auto; scrollbar-width: thin; }
+/* overscroll-behavior-x, like the chart scroller next to it. Without it, dragging the table past its last column hands the gesture to the browser and iOS reads it as the back swipe, which leaves the page. */
+.dtwrap { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
 .dt { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 14px; letter-spacing: -0.016em; font-variant-numeric: tabular-nums lining-nums; }
 .dt__year { padding: 0 0 6px !important; font-size: 12px !important; font-weight: 600 !important; color: var(--text-secondary) !important; text-align: center !important; border-bottom: 1px solid var(--border) !important; }
 .dt__corner { border: 0; }
@@ -455,6 +459,16 @@ button { transition: transform .08s ease-out; }
   letter-spacing: -0.01em;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
+/* The lab key. Below 640px the header drops the names, because twelve columns share 350px and no name fits in 29px, which left the columns identified only by a logo and a title attribute: on a phone, twelve unlabelled marks. The key names them once, in the same left-to-right order the columns run in, and costs four lines above the chart. */
+.tlv__key {
+  display: flex; flex-wrap: wrap; gap: var(--s-xxs) var(--s-sm);
+  list-style: none; margin: 0 0 var(--s-sm); padding: 0;
+  font-size: 12px; line-height: 1.3; letter-spacing: -0.01em; color: var(--text-secondary);
+}
+.tlv__key li { display: flex; align-items: center; gap: 5px; }
+.tlv__key .tl__logo { width: 18px; height: 18px; font-size: 10px; }
+.tlv__key .tl__logo svg { width: 12px; height: 12px; }
+
 .tlv__svg { display: block; width: 100%; height: auto; }
 .collline { stroke: var(--border); stroke-width: 1; opacity: .4; }
 
@@ -466,7 +480,13 @@ button { transition: transform .08s ease-out; }
    70 of 620 marks had their centre covered by a neighbour, against 14 on
    desktop. Scaling it makes the narrow view a true 0.4 of the wide one. */
 .mark { fill: var(--mark-neutral); stroke: var(--tile-bg); stroke-width: var(--mark-stroke, 2); cursor: pointer; }
-circle.mark:hover, circle.mark[class*="mark--s"]:hover { fill: var(--text-primary); }
+@media (hover: hover) {
+  circle.mark:hover, circle.mark[class*="mark--s"]:hover { fill: var(--text-primary); }
+}
+/* Tapped, and it stays tapped for as long as the panel describing it is open. The hover rule cannot do this job: it is gone the moment the finger is, and a tap claims a 24px slice of the column, so usually more than one mark is being described and the reader needs to see which. Same ink as hover, and a wider knockout ring so a picked mark separates from the neighbours it was picked alongside. */
+circle.mark.is-picked, circle.mark[class*="mark--s"].is-picked {
+  fill: var(--text-primary); stroke-width: 3;
+}
 .mark--many { stroke-width: var(--mark-stroke-many, 2.5); }
 circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 
@@ -484,7 +504,8 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
   color: var(--text-primary);
   border: 1px solid var(--border-strong); border-radius: var(--r-md);
   padding: var(--s-sm) var(--s-md); font-size: 14px; letter-spacing: -0.016em;
-  max-height: calc(100vh - 24px); overflow: hidden;
+  /* 100vh on iOS is the tall viewport, the one with the toolbars hidden, so a box sized against it runs under the address bar for as long as the bar is showing. dvh is the one that is actually on screen; vh stays as the fallback for anything that has not got dvh. */
+  max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); overflow: hidden;
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .tt { background: var(--surface-0); }
@@ -503,11 +524,72 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 .tt__n { font-variant-numeric: tabular-nums; font-weight: 600; font-size: 14px; }
 .tt__who { grid-column: 2 / -1; color: var(--text-muted); font-size: 12px; line-height: 1.4; }
 
+/* The panel a tap opens, and the only other thing on the page that floats. Modelled on the spec's floating sticky bar, which is its one bottom-anchored surface: the page colour behind a blur, a hairline, no shadow. Rounded at the two corners that are not against an edge, at the 18px card rung.
+
+   Not modal and not covered by a scrim. The design document has no overlay token, and the page behind has to stay scrollable: the timeline is three screens long and the reader is usually part way down it. */
+.sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
+  max-width: 560px; margin: 0 auto;
+  display: flex; flex-direction: column;
+  max-height: 60vh; max-height: 60dvh;
+  background: color-mix(in srgb, var(--surface-0) 92%, transparent);
+  -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+  color: var(--text-primary);
+  border-top: 1px solid var(--border-strong);
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .sheet { background: var(--surface-0); }
+}
+/* The panel takes focus when it opens so a screen reader is put inside it, but it is tabindex -1 and no Tab ever reaches it, so the page's focus ring would only ever be drawn around something nobody had focused on purpose. The close button and the links inside keep theirs. */
+.sheet:focus, .sheet:focus-visible { outline: none; }
+/* The bar does not scroll with the body, so the way out stays under the thumb however long the list of benchmarks is. */
+.sheet__bar {
+  flex: none; display: flex; align-items: center; justify-content: space-between; gap: var(--s-xs);
+  padding: 2px 2px 2px var(--s-md); border-bottom: 1px solid var(--border);
+}
+.sheet__t {
+  margin: 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: 17px; font-weight: 600; letter-spacing: -0.022em;
+}
+.sheet__x {
+  flex: none; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; cursor: pointer;
+  background: none; border: 0; border-radius: var(--r-pill); color: var(--text-muted);
+}
+.sheet__x svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+@media (hover: hover) { .sheet__x:hover { color: var(--text-primary); background: var(--surface-3); } }
+/* The home indicator sits below a phone's bottom edge; see the note on .corner for why env() reads 0 here today and is stated anyway. */
+.sheet__body {
+  overflow-y: auto; overscroll-behavior: contain;
+  padding: var(--s-sm) var(--s-md) calc(var(--s-md) + env(safe-area-inset-bottom, 0px));
+}
+.sheet__day + .sheet__day { margin-top: var(--s-sm); padding-top: var(--s-sm); border-top: 1px solid var(--border); }
+.sheet__d { margin: 0 0 var(--s-xxs); font-size: 12px; letter-spacing: -0.01em; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.sheet__rel + .sheet__rel { margin-top: var(--s-md); }
+.sheet__m { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.24; letter-spacing: -0.022em; }
+.sheet__k { margin: 2px 0 0; font-size: 12px; line-height: 1.3; letter-spacing: -0.01em; color: var(--text-muted); }
+.sheet__l { margin: var(--s-xs) 0 0; padding-left: 17px; font-size: 14px; line-height: 1.5; letter-spacing: -0.016em; }
+/* A link, not a pill. Several releases can land in one panel and a stack of blue pills would read as the loudest thing on the page; the accent underline is the grammar the rest of the page already uses for going somewhere. It still gets the 44px a finger is entitled to. */
+.sheet__go { display: inline-flex; align-items: center; min-height: 44px; font-size: 17px; }
+/* Stepping to the quarter on either side, because the bands are 21.6px wide at 390 and a fingertip is not. */
+.sheet__steps { display: flex; justify-content: space-between; gap: var(--s-xs); margin-top: var(--s-md); }
+.sheet__step {
+  display: inline-flex; align-items: center; gap: var(--s-xs); min-height: 44px; padding: 0 14px;
+  font: inherit; font-size: 14px; letter-spacing: -0.016em; cursor: pointer;
+  background: var(--canvas); color: var(--text-secondary);
+  border: 1px solid var(--border); border-radius: var(--r-sm);
+}
+.sheet__step:last-child { margin-left: auto; }
+.sheet__step svg { width: 14px; height: 14px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+@media (hover: hover) { .sheet__step:hover { color: var(--accent); border-color: var(--border-strong); } }
+
 /* Crosshair. A band per quarter reports every tracked series at once, so two
    sharing a value are both reachable; per-point targets stacked and hid 36% of
    them at eight tracked. */
 .qband { fill: transparent; cursor: crosshair; }
 .qband.on { fill: var(--text-muted); fill-opacity: .07; }
+/* Tapped. A shade darker than hover because it has to be findable while the reader is looking at the panel rather than at the chart. */
+.qband.is-picked { fill: var(--text-muted); fill-opacity: .14; }
 
 /* Footer. The spec goes deliberately dense here so the whole information
    architecture is visible at a glance, and runs the legal row at fine-print. */
@@ -515,7 +597,7 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
    top of text for good rather than in passing, because the page stops there
    and the buttons do not. The extra room below is the button plus its inset
    plus a gap, so the copyright clears both corners at every width. */
-.ft { padding: 64px 0 calc(clamp(16px, 4vw, 32px) + 44px + var(--s-lg)); }
+.ft { padding: 64px 0 calc(clamp(16px, 4vw, 32px) + env(safe-area-inset-bottom, 0px) + 44px + var(--s-lg)); }
 .ft p { margin: 0 0 var(--s-md); max-width: 86ch; font-size: 14px; line-height: 1.43; letter-spacing: -0.016em; color: var(--text-muted); text-wrap: pretty; }
 .ft p:last-child { margin-bottom: 0; }
 /* Fine print keeps the spec's size and the spec's role but not its colour:
@@ -530,8 +612,9 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
    bottom corner, and both are permanent: furniture you can reach for without
    looking is worth more than chrome that tidies itself away. Back to top goes
    dim at the very top of the page, where it has nowhere to go. */
+/* env() reads 0 until a page opts into viewport-fit=cover, which this one deliberately does not: without it iOS insets the viewport itself, so bottom already means the top of the home indicator and these clear it. Stated anyway so that adding viewport-fit=cover later moves the buttons rather than dropping them under the indicator. */
 .corner {
-  position: fixed; bottom: clamp(16px, 4vw, 32px); z-index: 20;
+  position: fixed; bottom: calc(clamp(16px, 4vw, 32px) + env(safe-area-inset-bottom, 0px)); z-index: 20;
   display: grid; place-items: center; width: 44px; height: 44px; padding: 0; cursor: pointer;
   background: color-mix(in srgb, var(--border-strong) 64%, transparent);
   -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
@@ -540,7 +623,7 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
 }
 .corner--left { left: clamp(16px, 4vw, 32px); }
 .corner--right { right: clamp(16px, 4vw, 32px); }
-.corner:hover:not(:disabled) { background: var(--border-strong); }
+@media (hover: hover) { .corner:hover:not(:disabled) { background: var(--border-strong); } }
 /* Dim rather than gone. Half opacity keeps its place in the corner visible so
    the pair still reads as a pair, while saying the arrow has nothing to do. */
 .corner:disabled { opacity: .4; cursor: default; }
@@ -553,12 +636,17 @@ circle.mark[class*="mark--s"] { fill: var(--slot, var(--mark-neutral)); }
    chips from becoming five rows of slabs on a laptop. */
 @media (pointer: coarse) {
   .facets__subjects button, .seg button, .chip, .browse__clear { min-height: 44px; }
+  /* The sub-nav's pill was the one control that stayed below the floor: it is .btn--sm, whose whole job is to be the compact one, and it measured 36.6px tall on a phone where it is the only way back to the picker. */
+  .btn { min-height: 44px; padding-block: 0; }
   .pager__btn { width: 44px; height: 44px; }
   .facets__subjects button, .chip { padding-block: 0; }
   .facets__subjects button[aria-pressed="true"] { padding-block: 0; }
   .seg button { padding-block: 0; }
   .bcard { min-height: 44px; }
   .facets__group { min-height: 44px; }
+  /* The clear button was the one control here that grew in one direction only: min-height took it to 44 and it stayed 28 wide. The field gives up the right half of its padding to make room. */
+  .browse__clear { min-width: 44px; }
+  .browse__field { padding-right: 4px; }
 }
 
 @media (max-width: 720px) {

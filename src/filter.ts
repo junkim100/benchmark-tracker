@@ -179,7 +179,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
     </button>
     <div class="browse" id="browse-panel" ${open ? "" : "hidden"}>
       <div class="browse__note">
-        <p><b>Labs</b> counts every lab that has cited it since ${esc(a.sinceLabel)}, so it never falls.</p>
+        <p><b>Labs</b> counts how many of the twelve have cited it since ${esc(a.sinceLabel)}, so it never falls.</p>
         <p><b>Recent releases</b> is the share still citing it across ${esc(a.recentLabel)}.</p>
         <p><b>Group versions</b> folds every edition of one evaluation into a single card, so SWE-bench Verified and SWE-Bench Pro sit under SWE-bench. Turn it off to pick a version on its own.</p>
       </div>
@@ -200,7 +200,7 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
               <button type="button" data-sort="recent">Recent releases</button>
             </div>
           </div>
-          <label class="facets__group" title="A suite gathers every version of one evaluation. Grouped, the suite stands for all of them in one card; ungrouped, each version gets its own.">
+          <label class="facets__group">
             <input type="checkbox" class="facets__groupbox" />
             <span>Group versions</span>
           </label>
@@ -355,9 +355,9 @@ export function renderFilter(host: HTMLElement, a: FilterArgs): void {
       const meta = t.kind === "suite" ? `${t.members} versions${subjects_ ? ` · ${subjects_}` : ""}`
         : t.kind === "category" ? `Whole subject · ${t.members} benchmarks`
         : subjects_;
-      const title = `${t.lab_count} of 12 labs have cited this. ${t.recent_share}% of releases in ${a.recentLabel} cite it.`;
+      // No title attribute. It restated the two numbers already printed on the card and explained above it in the note, and a hover tooltip is not something a finger can ask for, so on a phone it was 30 cards' worth of text nobody could reach. The note is the explanation for both pointers.
       return `<button type="button" role="option" class="bcard bcard--${t.kind}" data-id="${esc(t.id)}"
-               title="${esc(title)}" aria-selected="${on}" ${!on && full ? "disabled" : ""}>
+               aria-selected="${on}" ${!on && full ? "disabled" : ""}>
         <span class="bcard__name">${esc(label)}</span>
         <span class="bcard__meta">${esc(meta)}</span>
         <span class="bcard__n"><b>${t.lab_count}</b> lab${t.lab_count === 1 ? "" : "s"}<span class="bcard__sep"> · </span><b>${t.recent_share}%</b> of recent releases</span>
