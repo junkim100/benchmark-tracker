@@ -3,6 +3,7 @@ import "./styles/app.css";
 import raw from "../data/timeline.json";
 import { MAX_TRACKED, buildTrackables, displayNames, memberIds, quarterOf, type Timeline } from "./model";
 import { renderFilter } from "./filter";
+import { mountSheet } from "./sheet";
 import { renderTimeline, tooltipHTML } from "./timeline";
 import { renderTrend, type TrendView } from "./trend";
 
@@ -97,7 +98,10 @@ if (data.releases.length === 0) {
 
     <section class="tile tile--parchment" aria-label="Adoption trend">
       <div class="tile__in">
-        <div class="sec__head"><h2>Adoption over time</h2></div>
+        <div class="sec__head">
+          <h2>Adoption over time</h2>
+          <p class="howto howto--trend" hidden></p>
+        </div>
         <div class="trendwrap"></div>
       </div>
     </section>
@@ -106,7 +110,7 @@ if (data.releases.length === 0) {
       <div class="tile__in">
         <div class="sec__head">
           <h2>Release timeline</h2>
-          <p>Each mark is a model release. Hover to view details, click to read the source.</p>
+          <p class="howto howto--tl"></p>
         </div>
           <div class="tlwrap"></div>
       </div>
@@ -121,6 +125,15 @@ if (data.releases.length === 0) {
       </div>
     </footer>
     <div class="tt" role="tooltip" hidden></div>
+    <div class="sheet" role="dialog" aria-labelledby="sheet-t" tabindex="-1" hidden>
+      <div class="sheet__bar">
+        <p class="sheet__t" id="sheet-t"></p>
+        <button class="sheet__x" type="button" aria-label="Close details">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8"/></svg>
+        </button>
+      </div>
+      <div class="sheet__body"></div>
+    </div>
     <button class="corner corner--left" type="button" data-act="theme">
       <span class="vh"></span>
       <svg class="corner__i" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></svg>
@@ -131,6 +144,25 @@ if (data.releases.length === 0) {
 
   const $ = <T extends Element>(s: string) => app.querySelector<T>(s)!;
   const tt = $<HTMLDivElement>(".tt");
+  const sheet = mountSheet($<HTMLElement>(".sheet"));
+
+  // The page explains itself through hover, and a finger cannot hover, so the instruction has to be true for the reader in front of it rather than for the one the copy was written against. The timeline's standfirst said "Hover to view details, click to read the source", which on a phone described an interaction that does not exist and an outcome, the tooltip, that nobody there had ever seen.
+  //
+  // Repainted on change too: that is a laptop plugging in a mouse, or a tablet being put in a keyboard case.
+  //
+  // The chart's line is touch only. On a mouse the crosshair cursor and the band lighting up already say the chart answers questions, and this page has deliberately cut standfirsts that only restate what is visible; on a touchscreen there is no cursor and no hover, so nothing says it at all.
+  const hoverless = matchMedia("(hover: none)");
+  const paintHowto = () => {
+    const touch = hoverless.matches;
+    $(".howto--tl").textContent = touch
+      ? "Each mark is a model release. Tap a mark to see what it cited and open its source."
+      : "Each mark is a model release. Hover to view details, click to read the source.";
+    const trend = $<HTMLElement>(".howto--trend");
+    trend.textContent = "Tap a quarter to see which labs cited each tracked benchmark.";
+    trend.hidden = !touch;
+  };
+  hoverless.addEventListener("change", paintHowto);
+  paintHowto();
 
   /** Render, measure, trim, repeat. Every previous version computed the height
    *  from assumed row sizes and was wrong, because rows wrap. Asking the
@@ -204,6 +236,8 @@ if (data.releases.length === 0) {
   };
 
   const draw = () => {
+    // A redraw replaces every mark and every band, so anything the panel is describing is about to stop existing. Closing it first also puts focus back before the filter hands it to the card that was just pressed.
+    sheet.hide();
     renderFilter($(".controls"), {
       trackables, categories: data.categories, tracked,
       recentLabel: `the last ${recentMonths} months, ${fmtMonth(win.from)} to ${fmtMonth(win.to)}, covering ${win.releases.toLocaleString()} releases`,
@@ -246,6 +280,7 @@ if (data.releases.length === 0) {
       benchmarks: data.benchmarks,
       releases: data.releases, labs, quarters: data.quarters, partialQuarter,
       view, onView: (v) => { view = v; draw(); }, onHover: showTip, onHoverFitted: showFitted,
+      onPick: (r) => (r ? sheet.show(r) : sheet.hide()),
     });
     renderTimeline($(".tlwrap"), {
       labs, releases: data.releases, names, quarters: data.quarters,
@@ -259,6 +294,7 @@ if (data.releases.length === 0) {
         if (!rs || !rs.length) { showTip(null, 0, 0); return; }
         showFitted((n, blocks) => tooltipHTML(rs, names, n, blocks), 8, x, y);
       },
+      onPick: (r) => (r ? sheet.show(r) : sheet.hide()),
     });
     paintTheme();
   };

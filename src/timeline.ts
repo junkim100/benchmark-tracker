@@ -17,6 +17,7 @@
 
 import { LOGOS } from "./logos";
 import { KIND_LABEL, dayNumber, type Lab, type Release } from "./model";
+import { clearPicked, type SheetRequest } from "./sheet";
 
 const PAD_DAYS = 30;
 // Vertical scale. The span is about 1,460 days, so this makes the timeline
@@ -33,6 +34,11 @@ const GUTTER_NARROW = 38;
 // 360px phone clears once the timeline is allowed the full viewport. Only a
 // genuinely small screen, 320px and under, ends up scrolling.
 const MIN_COL = 26;
+// The tap window, in CSS pixels, measured down the column from where the finger landed. A mark is painted 5.0px across on a 390px phone and the marks in one column sit a median 24px apart, with a quarter of adjacent pairs 8px or less apart, so no amount of enlarging makes them individually hittable: growing them to 24px would put 56% of adjacent pairs on top of each other, against 20% today. A tap therefore claims a 24px slice of whichever column it landed in, which is the 24x24 target WCAG 2.5.8 asks for at every width the timeline renders (the column never goes below 26px), and everything inside the slice is handed to the panel so the reader picks the release rather than the pixel. A slice this tall catches a median of 2 marks and at most 7.
+const TAP_SLICE = 24;
+// A press counts as a tap, not a scroll, within this much travel and this long.
+const TAP_SLOP = 10;
+const TAP_MS = 700;
 
 export interface TimelineArgs {
   labs: Lab[];
@@ -41,6 +47,8 @@ export interface TimelineArgs {
   trackedMembers: Set<string>[];   // one set of benchmark ids per slot, in slot order
   names: Map<string, string>;
   onHover: (rs: Release[] | null, x: number, y: number) => void;
+  /** A tap, on a pointer that cannot hover. Null closes whatever is open. */
+  onPick: (r: SheetRequest | null) => void;
 }
 
 // How far the year sits below its month label.
@@ -129,11 +137,17 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
     return `<g class="tlv__col" data-lab="${esc(lab.id)}">${dots}</g>`;
   }).join("");
 
-  host.innerHTML = `
+  // Below 640px the header drops the lab names, because twelve columns share 350px and a name does not fit in 29px. That left twelve logos identified only by a title attribute, which a finger cannot summon, so a phone reader had no way at all to tell whose column was whose. The key says it once, in the same left-to-right order as the columns. Above 640px the names are in the header and the title is only a fallback for the ones that clamp.
+  const key = narrow
+    ? `<ul class="tlv__key" aria-label="Which lab each column is">${a.labs
+        .map((l) => `<li>${labMark(l, esc)}${esc(l.name)}</li>`).join("")}</ul>`
+    : "";
+
+  host.innerHTML = `${key}
     <div class="tlvwrap${narrow ? " tlvwrap--bleed" : ""}"><div class="tlv" style="min-width:${floor}px">
       <div class="tlv__head" style="--gut:${GUT}px;--cols:${a.labs.length}">
         <div class="tlv__gutcell" aria-hidden="true"></div>
-        ${a.labs.map((l) => `<div class="tlv__lab" title="${esc(l.name)}">${labMark(l, esc)}${narrow ? "" : `<span class="tlv__name">${esc(l.name)}</span>`}</div>`).join("")}
+        ${a.labs.map((l) => `<div class="tlv__lab"${narrow ? "" : ` title="${esc(l.name)}"`}>${labMark(l, esc)}${narrow ? "" : `<span class="tlv__name">${esc(l.name)}</span>`}</div>`).join("")}
       </div>
       <svg class="tlv__svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Releases per lab over time, newest first">
         <g class="ticks">${ticks.map((t) =>
@@ -151,23 +165,96 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
     </div></div>`;
 
   const svg = host.querySelector<SVGSVGElement>(".tlv__svg")!;
+  const cols = [...svg.querySelectorAll<SVGGElement>(".tlv__col")];
   const index = new Map<string, Release[]>();
   for (const r of a.releases) {
     const k = `${r.lab}|${r.date}`;
     index.set(k, [...(index.get(k) ?? []), r]);
   }
+
+  // Which interaction a reader gets is decided by the pointer in their hand, not by the width of their screen: a laptop with a touchscreen has both, and should get hover from the trackpad and the panel from a finger. Seeded from the media query so the first tap on a phone is already right, then kept up to date by whichever pointer is actually moving.
+  let coarse = matchMedia("(hover: none)").matches;
+  const notePointer = (e: PointerEvent) => { coarse = e.pointerType !== "mouse"; };
+  svg.addEventListener("pointerdown", notePointer, { passive: true });
+  svg.addEventListener("pointermove", notePointer, { passive: true });
+
+  /** The marks within a tap slice of this point, newest first, or null. */
+  const pickAt = (clientX: number, clientY: number): SheetRequest | null => {
+    const box = svg.getBoundingClientRect();
+    // Above 350px the svg is drawn at 1:1 and below it sits in a scroller, but never assume: convert through the box it is actually occupying.
+    const k = box.width / W;
+    const ux = (clientX - box.left) / k;
+    const li = Math.floor((ux - GUT) / colW);
+    if (ux < GUT || li < 0 || li >= cols.length) return null;
+    const uy = (clientY - box.top) / k;
+    const half = TAP_SLICE / 2 / k;
+    const near = ([...cols[li].children] as SVGCircleElement[])
+      .map((c) => ({ c, cy: Number(c.getAttribute("cy")), key: c.getAttribute("data-key") ?? "" }))
+      // Ascending cy is newest first, because y counts down from the most recent day, so the panel reads in the same direction as the page.
+      .filter((m) => Math.abs(m.cy - uy) <= half)
+      .sort((x, y2) => x.cy - y2.cy);
+    if (!near.length) return null;
+    clearPicked();
+    for (const m of near) m.c.classList.add("is-picked");
+    const days = near.map((m) => ({ date: m.key.slice(m.key.indexOf("|") + 1), releases: index.get(m.key) ?? [] }));
+    return { title: a.labs[li].name, html: pickHTML(days, a.names, esc) };
+  };
+
   svg.addEventListener("mousemove", (e) => {
+    if (coarse) return;
     const k = (e.target as Element).getAttribute?.("data-key");
     a.onHover(k ? index.get(k) ?? null : null, e.clientX, e.clientY);
   });
   svg.addEventListener("mouseleave", () => a.onHover(null, 0, 0));
   svg.addEventListener("click", (e) => {
+    // A tap is served by the pointer handlers below. Letting the click through as well would open the source behind the panel that just described it.
+    if (coarse) return;
     const k = (e.target as Element).getAttribute?.("data-key");
     const rs = k ? index.get(k) : null;
     // Every mark opens something. Previously only single-release days did, so a
     // fifth of the marks offered a pointer cursor and did nothing.
     if (rs?.length) window.open(rs[0].source_url, "_blank", "noopener");
   });
+
+  // The tap is read from the pointer rather than from a click, because most of the slice a tap claims is empty canvas and iOS Safari only synthesises a click on something it already considers clickable. Down and up within 10px and 700ms, which a scroll fling never is.
+  let down: { x: number; y: number; t: number } | null = null;
+  svg.addEventListener("pointerdown", (e) => { down = { x: e.clientX, y: e.clientY, t: e.timeStamp }; }, { passive: true });
+  svg.addEventListener("pointercancel", () => { down = null; }, { passive: true });
+  svg.addEventListener("pointerup", (e) => {
+    const d = down;
+    down = null;
+    if (!coarse || !d) return;
+    if (Math.hypot(e.clientX - d.x, e.clientY - d.y) > TAP_SLOP || e.timeStamp - d.t > TAP_MS) return;
+    // A synthetic mousemove may have got in first on a hybrid machine.
+    a.onHover(null, 0, 0);
+    a.onPick(pickAt(e.clientX, e.clientY));
+  }, { passive: true });
+}
+
+/** What a tap on the timeline puts in the panel.
+ *
+ *  Nothing is trimmed. The hover tooltip has to fit beside a cursor, so it counts rows and gives up at eight; the panel scrolls, the reader asked for it by tapping, and what it cited is the whole question. */
+function pickHTML(
+  days: { date: string; releases: Release[] }[],
+  names: Map<string, string>,
+  esc: (s: string) => string,
+): string {
+  const one = (r: Release) => {
+    const site = new URL(r.source_url).hostname.replace(/^www\./, "");
+    const n = r.benchmarks.length;
+    return `<div class="sheet__rel">
+      <p class="sheet__m">${esc(r.model)}</p>
+      <p class="sheet__k">${KIND_LABEL[r.kind] ?? r.kind}${n ? `, ${n} benchmark${n === 1 ? "" : "s"} cited` : ""}</p>
+      ${n
+        ? `<ul class="sheet__l">${r.benchmarks.map((b) => `<li>${esc(names.get(b) ?? b)}</li>`).join("")}</ul>`
+        : `<p class="sheet__k">No benchmark cited.</p>`}
+      <a class="sheet__go" href="${esc(r.source_url)}" target="_blank" rel="noopener">Open the source on ${esc(site)}</a>
+    </div>`;
+  };
+  return days.map((d) => `<div class="sheet__day">
+      <p class="sheet__d">${esc(d.date)}</p>
+      ${d.releases.map(one).join("")}
+    </div>`).join("");
 }
 
 export function tooltipHTML(rs: Release[], names: Map<string, string>, shown = 8, blocks = 3): string {

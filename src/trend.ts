@@ -9,6 +9,7 @@
 // "six labs" is a number and "which six, and what did they ship" is the answer.
 
 import { detailFor, memberIds, quarterLabel, type Benchmark, type Lab, type Release, type Trackable } from "./model";
+import { clearPicked, type SheetRequest } from "./sheet";
 
 export type TrendView = "chart" | "table";
 
@@ -23,7 +24,13 @@ export interface TrendArgs {
   onView: (v: TrendView) => void;
   onHover: (html: string | null, x: number, y: number) => void;
   onHoverFitted: (build: (n: number) => string, max: number, x: number, y: number) => void;
+  /** A tap, on a pointer that cannot hover. Null closes whatever is open. */
+  onPick: (r: SheetRequest | null) => void;
 }
+
+// A press counts as a tap, not a scroll, within this much travel and this long.
+const TAP_SLOP = 10;
+const TAP_MS = 700;
 
 
 // Survives re-renders, per scroller. Null means "never scrolled", which opens
@@ -211,35 +218,80 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
   if (a.view === "table") return;
 
   const svg = host.querySelector<SVGSVGElement>(".trend__svg")!;
-  svg.addEventListener("mousemove", (e) => {
-    const band = (e.target as Element).closest?.(".qband");
-    if (!band) { a.onHover(null, 0, 0); return; }
-    const q = band.getAttribute("data-q")!;
-    svg.querySelectorAll(".qband").forEach((r) => r.classList.toggle("on", r === band));
 
-    // Every tracked series for this quarter, so two sharing a value are both
-    // reported rather than one hiding the other.
-    const build = (rows: number) => {
-      const parts = a.tracked.map((b, i) => {
-        const cnt = b.labs_by_quarter[q] ?? 0;
-        const det = detail.get(b.id)?.get(q);
-        const labs = det?.labs.slice(0, rows).map((l) => labName.get(l.lab) ?? l.lab) ?? [];
-        const more = (det?.labs.length ?? 0) - labs.length;
-        return `<li class="tt__row s${i + 1}">
+  // Which interaction a reader gets follows the pointer in their hand rather than the width of their screen, for the reason the timeline gives: a laptop with a touchscreen has both and should get whichever is in use.
+  let coarse = matchMedia("(hover: none)").matches;
+  const notePointer = (e: PointerEvent) => { coarse = e.pointerType !== "mouse"; };
+  svg.addEventListener("pointerdown", notePointer, { passive: true });
+  svg.addEventListener("pointermove", notePointer, { passive: true });
+
+  // Every tracked series for this quarter, so two sharing a value are both reported rather than one hiding the other. Shared by the hover tooltip, which trims the lab lists to fit beside a cursor, and by the tap panel, which scrolls and so names them all.
+  const rowsFor = (q: string, rows: number) =>
+    a.tracked.map((b, i) => {
+      const cnt = b.labs_by_quarter[q] ?? 0;
+      const det = detail.get(b.id)?.get(q);
+      const labs = det?.labs.slice(0, rows).map((l) => labName.get(l.lab) ?? l.lab) ?? [];
+      const more = (det?.labs.length ?? 0) - labs.length;
+      return `<li class="tt__row s${i + 1}">
             <span class="tt__swatch" aria-hidden="true"></span>
             <span class="tt__name">${esc(b.name)}</span>
             <span class="tt__n">${cnt}</span>
             ${labs.length ? `<span class="tt__who">${esc(labs.join(", "))}${more > 0 ? ` and ${more} more` : ""}</span>` : ""}
           </li>`;
-      }).join("");
-      return `<div class="tt__h">${quarterLabel(q)}</div>
+    }).join("");
+
+  svg.addEventListener("mousemove", (e) => {
+    if (coarse) return;
+    const band = (e.target as Element).closest?.(".qband");
+    if (!band) { a.onHover(null, 0, 0); return; }
+    const q = band.getAttribute("data-q")!;
+    svg.querySelectorAll(".qband").forEach((r) => r.classList.toggle("on", r === band));
+    a.onHoverFitted((rows) => `<div class="tt__h">${quarterLabel(q)}</div>
         <div class="tt__m">labs citing each tracked benchmark</div>
-        <ul class="tt__rows">${parts}</ul>`;
-    };
-    a.onHoverFitted(build, 6, e.clientX, e.clientY);
+        <ul class="tt__rows">${rowsFor(q, rows)}</ul>`, 6, e.clientX, e.clientY);
   });
   svg.addEventListener("mouseleave", () => {
     svg.querySelectorAll(".qband").forEach((r) => r.classList.remove("on"));
     a.onHover(null, 0, 0);
   });
+
+  // Touch. The bands tile the plot with no gaps, but at 390px each one is only 21.6px wide, under the 24px a finger is entitled to and well under a fingertip, so the panel carries a step to either side: landing on the wrong quarter costs one press rather than a second attempt at a 21px target.
+  const step = (q: string, dir: -1 | 1) => {
+    const to = a.quarters[a.quarters.indexOf(q) + dir];
+    if (!to) return "";
+    const arrow = dir < 0 ? `<path d="M10 13 5 8l5-5"/>` : `<path d="m6 3 5 5-5 5"/>`;
+    const svgIcon = `<svg viewBox="0 0 16 16" aria-hidden="true">${arrow}</svg>`;
+    return `<button class="sheet__step" type="button" data-sheet-act="${esc(to)}">${
+      dir < 0 ? svgIcon + esc(quarterLabel(to)) : esc(quarterLabel(to)) + svgIcon}</button>`;
+  };
+  const pickQuarter = (q: string): SheetRequest | null => {
+    const band = svg.querySelector(`.qband[data-q="${CSS.escape(q)}"]`);
+    if (!band) return null;
+    // `on` belongs to hover and `is-picked` to the panel, kept apart so that closing the panel, which clears only its own class, cannot leave a band shaded with nothing open to explain it.
+    clearPicked();
+    svg.querySelectorAll(".qband").forEach((r) => r.classList.remove("on"));
+    band.classList.add("is-picked");
+    return {
+      title: quarterLabel(q),
+      html: `<p class="sheet__k">Labs citing each tracked benchmark.</p>
+        <ul class="tt__rows">${rowsFor(q, 40)}</ul>
+        <div class="sheet__steps">${step(q, -1)}${step(q, 1)}</div>`,
+      onAct: (to) => a.onPick(pickQuarter(to)),
+    };
+  };
+
+  let down: { x: number; y: number; t: number } | null = null;
+  svg.addEventListener("pointerdown", (e) => { down = { x: e.clientX, y: e.clientY, t: e.timeStamp }; }, { passive: true });
+  svg.addEventListener("pointercancel", () => { down = null; }, { passive: true });
+  svg.addEventListener("pointerup", (e) => {
+    const d = down;
+    down = null;
+    if (!coarse || !d) return;
+    if (Math.hypot(e.clientX - d.x, e.clientY - d.y) > TAP_SLOP || e.timeStamp - d.t > TAP_MS) return;
+    a.onHover(null, 0, 0);
+    const band = (e.target as Element).closest?.(".qband");
+    // Tapping the open quarter again shuts the panel, so it can be dismissed where the reader is already looking rather than at the close button.
+    if (!band || band.classList.contains("is-picked")) { a.onPick(null); return; }
+    a.onPick(pickQuarter(band.getAttribute("data-q")!));
+  }, { passive: true });
 }
