@@ -160,9 +160,9 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
       const slot = slotOfRelease(rs.flatMap((r) => r.benchmarks));
       const many = rs.length > 1;
       const cls = `mark${slot ? ` mark--s${slot}` : ""}${many ? " mark--many" : ""}`;
-      const r0 = (slot ? 5.5 : 4) * scale;
+      const r0 = (rs.length >= 3 ? 7 : rs.length === 2 ? 5.5 : 4) * scale;
       const label = `${lab.name}, ${date}, ${rs.length} release${rs.length > 1 ? "s" : ""}: ${rs.map((r) => `${r.model} (${KIND_LABEL[r.kind] ?? r.kind})`).join("; ")}`;
-      return `<circle class="${cls}" cx="${cx(li).toFixed(1)}" cy="${y(date).toFixed(1)}" r="${(many ? r0 + 1.5 * scale : r0).toFixed(2)}" data-key="${esc(lab.id + "|" + date)}" aria-label="${esc(label)}"></circle>`;
+      return `<circle class="${cls}" cx="${cx(li).toFixed(1)}" cy="${y(date).toFixed(1)}" r="${r0.toFixed(2)}" data-key="${esc(lab.id + "|" + date)}" aria-label="${esc(label)}"></circle>`;
     }).join("");
     return `<g class="tlv__col" data-lab="${esc(lab.id)}">${dots}</g>`;
   }).join("");
@@ -173,7 +173,13 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
         .map((l) => `<li>${labMark(l, esc)}${esc(l.name)}</li>`).join("")}</ul>`
     : "";
 
-  host.innerHTML = `${key}
+  const sizeKey = `<ul class="tlv__sizes" aria-label="What the size of a mark means">${
+    [[1, "1 release"], [2, "2"], [3, "3 or more"]].map(([n, label]) =>
+      `<li><svg viewBox="0 0 16 16" aria-hidden="true"><circle class="mark" cx="8" cy="8" r="${n === 3 ? 7 : n === 2 ? 5.5 : 4}"/></svg>${esc(String(label))}</li>`
+    ).join("")
+  }</ul>`;
+
+  host.innerHTML = `${key}${sizeKey}
     <div class="tlvwrap${narrow ? " tlvwrap--bleed" : ""}"><div class="tlv" style="min-width:${floor}px">
       <div class="tlv__head" style="--gut:${GUT}px;--cols:${a.labs.length}">
         <div class="tlv__gutcell" aria-hidden="true"></div>
