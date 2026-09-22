@@ -61,51 +61,36 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
   // of 300 had the CSS scale 300 units into 284 pixels, shrinking the axis type
   // by 5.3% at the one width where it can least afford it.
   const W = Math.max(240, avail);
-  // Direct end labels are drawn for four series or fewer; past that they
-  // collide and the legend does the work. The right margin exists only to hold
-  // them, so it has to follow the same condition. It did not, so tracking five
-  // things left 152px of empty gutter, 22 per cent of the chart at 768.
-  const showEndLabels = !narrow && a.tracked.length <= 4;
   // Height follows width so the plot keeps its proportions instead of flattening
   // into a strip on a wide screen and squaring up on a phone. Bounded at both
   // ends: below 300 the gridlines crowd, above 430 the chart starts asking for
   // more of the fold than it earns.
   const H = Math.round(Math.min(430, Math.max(300, W * 0.36)));
-  // The right margin exists only to hold the direct end labels. Below 640 there
-  // is no room for them, so the margin goes and the legend underneath does that
-  // work instead.
-  /** Width of a string in the face the end labels are actually drawn in.
-   *
-   *  This used to be a constant, 5.9px per character, measured once on one
-   *  name. Characters are not one width, so the estimate was wrong in both
-   *  directions depending on the name, and the only way to find out was to read
-   *  a truncated label. The canvas knows, and the family is read off the host
-   *  rather than restated, so a change to the page font cannot leave this
-   *  measuring the old one. */
-  const measure = (() => {
-    const ctx = document.createElement("canvas").getContext("2d");
-    const family = getComputedStyle(host).fontFamily || "sans-serif";
-    if (ctx) ctx.font = `13px ${family}`;
-    return (t: string) => (ctx ? ctx.measureText(t).width : t.length * 5.9);
-  })();
-
-  // The right margin holds the end labels, so it is sized to the labels rather
-  // than fixed. At 152 it was a 21-character budget at every width, so
-  // "Terminal-Bench, all versions" came out as "Terminal-Bench, all…" on a
-  // 1280px screen with 400px of empty gutter to its right.
+  // The legend does the naming at every width now, so the right margin is only
+  // the room a last point needs not to sit on the edge.
   //
-  // Still bounded. The margin comes out of the plot, so a very long name may
-  // not take more than a quarter of the chart; past that the label truncates
-  // and keeps its full text in a title. LABEL_GAP is the dot, its gap and a
-  // little air at the end.
-  const LABEL_GAP = 26;
-  const labelRoom = showEndLabels
-    ? Math.min(
-        Math.max(152, Math.ceil(Math.max(0, ...a.tracked.map((b) => measure(b.name)))) + LABEL_GAP),
-        Math.round(W * 0.25),
-      )
-    : 16;
-  const M = { t: 22, r: labelRoom, b: 52, l: narrow ? 32 : 44 };
+  // Direct end labels used to be drawn for four series or fewer. Direct
+  // labelling is the better idea in general, and it was the wrong one here, for
+  // two reasons this chart happens to have.
+  //
+  // The dash pattern is the accessible encoding. Eight slots clear the
+  // colour-vision floor on adjacent pairs but not all pairs, pink against green
+  // measures 1.6 under deuteranopia, and the answer was to give every series a
+  // dash as well as a hue. The legend draws a line sample, so it carries that
+  // dash. An end label draws a filled dot, so it carries only the hue, and a
+  // reader who cannot separate two hues got nothing from the one form of
+  // labelling that was on by default.
+  //
+  // And the labels were not reliably at their lines. The whole advantage of
+  // direct labelling is that the name sits where the line ends, but this axis
+  // counts distinct labs as integers capped at twelve, so lines converge
+  // constantly; labelY then dodges by fifteen pixels at a time. With the
+  // default four tracked, one of the four was already displaced off its own
+  // line, which is a legend in a worse place.
+  //
+  // The plot gets the space back: 197px of a 1270px chart, 16 per cent, and the
+  // chart stops changing shape when the fifth thing is tracked.
+  const M = { t: 22, r: 16, b: 52, l: narrow ? 32 : 44 };
 
   const labName = new Map(a.labs.map((l) => [l.id, l.name]));
   const maxY = Math.max(1, ...a.tracked.flatMap((b) => Object.values(b.labs_by_quarter) as number[]));
@@ -132,53 +117,12 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
 
   // Series that finish on the same value would otherwise print their end labels
   // at identical coordinates and render as one unreadable overlap.
-  const usedLabelY: number[] = [];
-  const labelY = (want: number): number => {
-    // Dodge alternately up and down, and stay inside the plot. An earlier
-    // version only pushed downward with no bound, which walked labels into the
-    // axis row and then out of the SVG entirely.
-    const lo = M.t + 6, hi = M.t + ih - 6;
-    const free = (y: number) => y >= lo && y <= hi && !usedLabelY.some((u) => Math.abs(u - y) < 15);
-    if (free(want)) { usedLabelY.push(want); return want; }
-    for (let step = 15; step <= ih; step += 15) {
-      for (const y of [want - step, want + step]) if (free(y)) { usedLabelY.push(y); return y; }
-    }
-    usedLabelY.push(want);
-    return Math.min(Math.max(want, lo), hi);
-  };
-
   const series = a.tracked.map((b, si) => {
     const slot = si + 1;
     const pts = a.quarters.map((q, i) => ({ q, i, n: b.labs_by_quarter[q] ?? 0 }));
     const d = pts.map((p, j) => `${j ? "L" : "M"}${px(p.i).toFixed(1)},${py(p.n).toFixed(1)}`).join(" ");
-    const last = pts[pts.length - 1];
-    const label = showEndLabels
-      ? (() => {
-          const ly = labelY(py(last.n));
-          // The right margin is the whole width budget. A name that would run
-          // past it is truncated here rather than clipped by the scroller,
-          // which produced a half-word with no ellipsis and no way to reach it.
-          // The trackable carries its own name. Reading it from the benchmark
-          // name map instead printed the raw id for anything that is not a
-          // benchmark, so a tracked suite was labelled "suite:gdpval".
-          const full = b.name;
-          // Trimmed against the measured width rather than a character count,
-          // so a name fits exactly when it fits. Only reached when the margin
-          // was capped, since it is otherwise sized to hold the longest name.
-          const budget = M.r - LABEL_GAP;
-          let shown = full;
-          if (measure(full) > budget) {
-            let cut = full;
-            while (cut.length > 1 && measure(`${cut}\u2026`) > budget) cut = cut.slice(0, -1);
-            // Never end on a comma or a space before the ellipsis.
-            shown = `${cut.replace(/[\s,]+$/, "")}\u2026`;
-          }
-          return `<circle class="s-labeldot s${slot}" cx="${(px(last.i) + 11).toFixed(1)}" cy="${ly.toFixed(1)}" r="3.5"/>` +
-                 `<text class="s-label" x="${(px(last.i) + 20).toFixed(1)}" y="${ly.toFixed(1)}"><title>${esc(full)}</title>${esc(shown)}</text>`;
-        })()
-      : "";
     const dots = pts.map((p) => `<circle class="s-dot s${slot}" cx="${px(p.i).toFixed(1)}" cy="${py(p.n).toFixed(1)}" r="3.6"/>`).join("");
-    return `<path class="s-line s${slot}" d="${d}"/>${dots}${label}`;
+    return `<path class="s-line s${slot}" d="${d}"/>${dots}`;
   }).join("");
 
   // Always label the peak. Filtering to even values left an odd maximum
@@ -207,7 +151,7 @@ export function renderTrend(host: HTMLElement, a: TrendArgs): void {
           return `<rect class="qband" data-q="${q}" x="${(px(i) - half).toFixed(1)}" y="${M.t}" width="${(half * 2).toFixed(1)}" height="${ih}"/>`;
         }).join("")}</g>
       </svg></div>
-      ${a.tracked.length && !showEndLabels ? `<ul class="legend">${a.tracked.map((b, i) => `<li class="s${i + 1}"><svg class="sw" viewBox="0 0 22 10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5"/></svg>${esc(b.name)}</li>`).join("")}</ul>` : ""}`;
+      ${a.tracked.length ? `<ul class="legend">${a.tracked.map((b, i) => `<li class="s${i + 1}"><svg class="sw" viewBox="0 0 22 10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5"/></svg>${esc(b.name)}</li>`).join("")}</ul>` : ""}`;
 
   const years = [...new Set(a.quarters.map((q) => q.slice(0, 4)))];
   const table = `

@@ -389,8 +389,6 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
 /* The halo reads against the tile the chart is drawn on, not against a fixed
    surface, so it stays correct when the tile alternates. */
 .s-dot { fill: var(--slot, var(--text-secondary)); stroke: var(--tile-bg); stroke-width: 2; pointer-events: none; }
-.s-labeldot { fill: var(--slot, var(--text-secondary)); stroke: var(--tile-bg); stroke-width: 1.5; }
-.s-label { font-size: 13px; dominant-baseline: middle; fill: var(--text-secondary); }
 .legend { display: flex; flex-wrap: wrap; gap: var(--s-xs) var(--s-lg); list-style: none; margin: var(--s-md) 0 0; padding: 0; font-size: 14px; letter-spacing: -0.016em; color: var(--text-secondary); }
 .legend li { display: flex; align-items: center; gap: var(--s-xs); }
 /* A line sample, not a colour chip. Above four series the direct labels are
