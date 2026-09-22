@@ -432,6 +432,15 @@ writeFileSync(
   join(DATA, "timeline.json"),
   site({
     generated_at: new Date().toISOString(),
+    // The classes actually present, with how many releases each covers, so the
+    // interface offers a scope only where there is something behind it and can
+    // say how much before a reader spends a click finding out. Emitted rather
+    // than imported from modality.mjs, because the question the control has to
+    // answer is what is in this dataset, not what the taxonomy allows.
+    modalities: MODALITIES
+      .map((m) => ({ ...m, releases: releases.filter((r) => r.modality?.classes.includes(m.id)).length }))
+      .filter((m) => m.releases > 0)
+      .sort((a, b) => b.releases - a.releases),
     labs: labs.map((l) => ({ id: l.id, name: l.name })),
     benchmarks: benchmarks.map((b) => ({
       id: b.id, name: b.name, lab_count: b.lab_count,

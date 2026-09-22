@@ -8,14 +8,14 @@
 
 /** The classes, in the order a chooser should offer them. */
 export const MODALITIES = [
-  { id: "language", name: "Language", blurb: "Generates text. Includes models that also read images or audio, because a multimodal LLM is still a language model." },
-  { id: "image", name: "Image generation", blurb: "Generates or edits still images." },
-  { id: "video", name: "Video generation", blurb: "Generates or edits video." },
-  { id: "speech", name: "Speech and audio", blurb: "Recognition, synthesis, translation or understanding of audio. Not a language model that happens to accept audio." },
-  { id: "embedding", name: "Embedding and retrieval", blurb: "Produces vectors rather than text. Includes rerankers." },
-  { id: "vision", name: "Vision", blurb: "Understands images or video without generating text as its product, such as a segmentation or perception model." },
-  { id: "robotics", name: "Robotics and world models", blurb: "Acts in or predicts a physical environment." },
-  { id: "other", name: "Other", blurb: "None of the above, including weather, biology and protein models." },
+  { id: "language", name: "LLM", short: "LLM", blurb: "Generates text. This includes vision-language models and any model that reads images or audio and answers in text: a multimodal LLM is still an LLM. Choose this for GPT, Gemini, Claude, Llama, Qwen-VL and the like." },
+  { id: "image", name: "Image generation", short: "Image", blurb: "Generates or edits still images." },
+  { id: "video", name: "Video generation", short: "Video", blurb: "Generates or edits video." },
+  { id: "speech", name: "Speech and audio", short: "Speech", blurb: "Recognition, synthesis, translation or understanding of audio. Not a language model that happens to accept audio." },
+  { id: "embedding", name: "Embedding and retrieval", short: "Embedding", blurb: "Produces vectors rather than text. Includes rerankers." },
+  { id: "vision", name: "Vision", short: "Vision", blurb: "Understands images or video without producing text as its output, such as a segmentation, detection or perception model. Not a vision-language model, which is an LLM." },
+  { id: "robotics", name: "Robotics and world models", short: "Robotics", blurb: "Acts in or predicts a physical environment." },
+  { id: "other", name: "Other", short: "Other", blurb: "None of the above, including weather, biology and protein models." },
 ];
 
 export const MODALITY_IDS = MODALITIES.map((m) => m.id);

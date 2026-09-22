@@ -52,6 +52,9 @@ export interface Timeline {
   /** Enough about the log to size the timeline and date the copy before the
    *  log itself has arrived. */
   release_log: { count: number; first: string | null };
+  /** The kinds of model present in this dataset, commonest first, with how many
+   *  releases each covers. Only classes with something behind them. */
+  modalities: { id: string; name: string; short: string; blurb: string; releases: number }[];
 }
 
 /** Recount every figure on the page over a subset of the releases.

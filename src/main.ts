@@ -165,10 +165,7 @@ function render(data: Timeline) {
         <div class="sec__head"><h2>Choose what to track</h2></div>
         <div class="scope" hidden>
           <span class="facets__label" id="scope-label">Releases</span>
-          <div class="seg" role="group" aria-labelledby="scope-label">
-            <button type="button" data-scope="all" aria-pressed="true">All models</button>
-            <button type="button" data-scope="language" aria-pressed="false">Language only</button>
-          </div>
+          <div class="scope__chips" role="group" aria-labelledby="scope-label"></div>
           <p class="scope__note" role="status"></p>
         </div>
         <div class="controls"></div>
@@ -381,16 +378,30 @@ function render(data: Timeline) {
     win.releases = rc.releases;
   };
 
-  /** What the scope changed, said plainly, because it moves every number. */
-  const paintScopeNote = () => {
-    const el = app.querySelector<HTMLElement>(".scope__note");
-    if (!el || !log) return;
+  /** The chips, and the line saying what the current one did.
+   *
+   *  The count rides in the chip because it is what decides whether a scope is
+   *  worth choosing: Vision covers twenty releases and LLM covers five hundred
+   *  and ninety-one, and finding that out by clicking is a worse deal than
+   *  reading it. */
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]!));
+
+  const paintScope = () => {
+    const chips = app.querySelector<HTMLElement>(".scope__chips");
+    const note = app.querySelector<HTMLElement>(".scope__note");
+    if (!chips || !note || !log) return;
+    const all = { id: "all", name: "All models", short: "All", releases: log.length };
+    chips.innerHTML = [all, ...data.modalities].map((m) =>
+      `<button type="button" data-scope="${esc(m.id)}" aria-pressed="${m.id === scope}">` +
+      `<span class="scope__long">${esc(m.name)}</span><span class="scope__short">${esc(m.short)}</span>` +
+      `<span class="scope__n">${m.releases.toLocaleString()}</span></button>`
+    ).join("");
     if (scope === "all") {
-      el.textContent = `All ${log.length.toLocaleString()} releases, including image, speech, video and embedding models.`;
+      note.textContent = `Every release, including image, speech, video and embedding models.`;
       return;
     }
-    const kept = log.filter((r) => r.modality?.includes(scope)).length;
-    el.textContent = `${kept.toLocaleString()} of ${log.length.toLocaleString()} releases. Every count and share below is measured over those, not over all of them.`;
+    const m = data.modalities.find((x) => x.id === scope);
+    note.textContent = `${m?.releases.toLocaleString() ?? 0} of ${log.length.toLocaleString()} releases. Every count and share below is measured over those, not over all of them.`;
   };
 
   const draw = () => {
@@ -503,12 +514,12 @@ function render(data: Timeline) {
         for (const b of el.querySelectorAll<HTMLButtonElement>("[data-scope]"))
           b.setAttribute("aria-pressed", String(b.dataset.scope === scope));
         applyScope();
-        paintScopeNote();
+        paintScope();
         draw();
         drawTimeline();
       });
       applyScope();
-      paintScopeNote();
+      paintScope();
       draw();
     }
     drawTimeline();
