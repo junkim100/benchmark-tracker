@@ -68,8 +68,6 @@ export interface Timeline {
   /** Share of releases carrying a modality, so the scope control can be offered
    *  or withheld at first paint rather than after the log arrives. */
   modality_coverage: number;
-  /** How many benchmarks carry a description, and how many were searched for and not found. Two numbers rather than the descriptions themselves, for the reason BenchmarkDescription gives: it is enough to decide at first paint whether a detail panel is worth offering, without fetching a file most visits never need. */
-  descriptions: { described: number; refused: number };
 }
 
 /** One benchmark's description, as data/descriptions-site.json carries it.
