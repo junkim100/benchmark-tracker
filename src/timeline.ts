@@ -98,8 +98,16 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
   const scale = narrow ? 0.62 : 1;
 
   const days = a.releases.map((r) => dayNumber(r.date));
+  const today = dayNumber(new Date().toISOString().slice(0, 10));
   const lo = Math.min(...days) - PAD_DAYS;
-  const hi = Math.max(...days) + PAD_DAYS;
+  // Enough to draw the largest mark without clipping it against the edge, and
+  // no more. A flat thirty-day pad put the axis into the future: on 22
+  // September the topmost tick read "Oct", a month that had not happened, above
+  // sixty pixels of empty column that read as a month in which nobody shipped.
+  // The top is today now, so the space above the newest mark is the real gap
+  // since the last release rather than an artefact of the padding.
+  const TOP_PAD = 5;
+  const hi = Math.max(...days, today) + TOP_PAD;
   // Room under the last month for its year. January draws its year 18px below
   // itself, so without this the oldest one, 2023, fell outside the canvas and
   // was clipped away. Suppressing it instead would have been worse: the year a
@@ -176,11 +184,17 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
         .map((l) => `<li>${labMark(l, esc)}${esc(l.name)}</li>`).join("")}</ul>`
     : "";
 
-  const sizeKey = `<ul class="tlv__sizes" aria-label="What the size of a mark means">${
-    [[1, "1 release"], [2, "2"], [3, "3 or more"]].map(([n, label]) =>
-      `<li><svg viewBox="0 0 16 16" aria-hidden="true"><circle class="mark" cx="8" cy="8" r="${n === 3 ? 7 : n === 2 ? 5.5 : 4}"/></svg>${esc(String(label))}</li>`
-    ).join("")
-  }</ul>`;
+  // A mark is one lab on one date, and its size is how many releases that lab
+  // put out that day. The key used to read "1 release, 2, 3 or more", which
+  // left out both halves of that and so read as a total of some unstated kind.
+  const sizeKey = `<div class="tlv__sizes">
+    <span class="tlv__sizes-label">Releases by one lab on one day</span>
+    <ul aria-label="What the size of a mark means">${
+      ([[1, "1"], [2, "2"], [3, "3 or more"]] as [number, string][]).map(([n, label]) =>
+        `<li><svg viewBox="0 0 16 16" aria-hidden="true"><circle class="mark" cx="8" cy="8" r="${n === 3 ? 7 : n === 2 ? 5.5 : 4}"/></svg>${esc(label)}</li>`
+      ).join("")
+    }</ul>
+  </div>`;
 
   host.innerHTML = `${key}${sizeKey}
     <div class="tlvwrap${narrow ? " tlvwrap--bleed" : ""}"><div class="tlv" style="min-width:${floor}px">
@@ -192,6 +206,10 @@ export function renderTimeline(host: HTMLElement, a: TimelineArgs): void {
         <g class="ticks">${ticks.map((t) =>
           `<line class="${t.first ? "tick tick--year" : "tick"}" x1="${GUT}" y1="${t.y.toFixed(1)}" x2="${W}" y2="${t.y.toFixed(1)}"/>`
         ).join("")}</g>
+        <g class="nowline">
+          <line x1="${GUT}" y1="${(TOP_PAD * PX_PER_DAY).toFixed(1)}" x2="${W}" y2="${(TOP_PAD * PX_PER_DAY).toFixed(1)}"/>
+          <text x="${GUT - 8}" y="${(TOP_PAD * PX_PER_DAY + 4).toFixed(1)}">Today</text>
+        </g>
         <g class="cols">${a.labs.map((_, i) =>
           `<line class="collline" x1="${(GUT + colW * i).toFixed(1)}" y1="0" x2="${(GUT + colW * i).toFixed(1)}" y2="${H}"/>`
         ).join("")}</g>

@@ -501,10 +501,19 @@ button, label { -webkit-tap-highlight-color: transparent; touch-action: manipula
 /* What a mark's size means, drawn at the sizes it means. Colour is left out of
    it: a tracked mark takes its series colour and the chips above already say
    which colour is which, so the only thing needing a key is the radius. */
-.tlv__sizes { display: flex; flex-wrap: wrap; gap: var(--s-xs) var(--s-md); list-style: none; margin: 0 0 var(--s-sm); padding: 0; font-size: 12px; letter-spacing: -0.01em; color: var(--text-muted); }
+.tlv__sizes { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-xs) var(--s-sm); margin: 0 0 var(--s-sm); font-size: 12px; letter-spacing: -0.01em; color: var(--text-muted); }
+.tlv__sizes-label { color: var(--text-secondary); }
+.tlv__sizes ul { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-xs) var(--s-md); list-style: none; margin: 0; padding: 0; }
 .tlv__sizes li { display: flex; align-items: center; gap: 5px; }
 .tlv__sizes svg { width: 16px; height: 16px; flex: none; }
 .tlv__sizes .mark { fill: var(--mark-neutral); stroke: none; cursor: default; }
+
+/* Today, so the top edge is dated rather than merely implied and the space
+   between it and the newest mark reads as the gap it actually is.
+   The accent, not red: red is a series colour here, and a reader should never
+   have to work out whether a line means "now" or "benchmark eight". */
+.nowline line { stroke: var(--accent); stroke-width: 1; stroke-dasharray: 3 3; opacity: .7; }
+.nowline text { fill: var(--accent); font-size: 10.5px; text-anchor: end; font-weight: 600; }
 
 .axis__m { fill: var(--text-muted); font-size: 11px; font-variant-numeric: tabular-nums; text-anchor: end; }
 .axis__m--first { fill: var(--text-primary); font-weight: 600; }
