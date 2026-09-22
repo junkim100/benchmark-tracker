@@ -110,19 +110,24 @@ function render(data: Timeline) {
   const trackables = buildTrackables(data);
 
   // Open on four that already say something, rather than on an empty chart in
-  // the largest space on the page.
+  // the largest space on the page. Four leaves half the eight slots free.
   //
-  // Three rising and one falling, because four lines all climbing from zero
-  // tell one story and the point of the chart is the contrast. HumanEval is the
-  // fourth for a reason: it falls from 8 to 2 while Terminal-Bench climbs from
-  // 0 to 10, crossing in Q1 2025, and both are coding, so it reads as a handoff
-  // from function completion to terminal agents rather than as four unrelated
-  // lines. Four leaves half the eight slots free.
+  // All four climb, which is a change. HumanEval held this last slot because it
+  // falls from 8 labs to 2 while Terminal-Bench climbs from 0 to 10, and both
+  // are coding, so the pair read as a handoff from function completion to
+  // terminal agents rather than as unrelated lines. SciCode is the newer
+  // evaluation and the more current thing to be watching, and it is what the
+  // owner asked to open on; the cost is that nothing on the default chart falls
+  // any more, and that SciCode's line runs at 1 to 2 labs against a scale that
+  // Terminal-Bench takes to 10, so it sits close to the axis. Both are visible
+  // and neither is wrong. Anyone wanting the old contrast can add HumanEval
+  // back in two clicks.
   //
-  // Suites, not their headline versions, so the line counts every version of
-  // the evaluation. Terminal-Bench reads 11 labs as a suite against 9 for its
-  // most-cited single version.
-  const DEFAULT_TRACKED = ["suite:terminal-bench", "suite:gdpval", "hle", "suite:humaneval"];
+  // Suites where one exists, so the line counts every version of the
+  // evaluation: Terminal-Bench reads 11 labs as a suite against 9 for its
+  // most-cited single version. SciCode has no versions, so it is tracked as
+  // the benchmark it is.
+  const DEFAULT_TRACKED = ["suite:terminal-bench", "suite:gdpval", "hle", "scicode"];
   // A suite stops existing if its members ever drop below two, and the data is
   // rebuilt every three days without anyone watching, so the default is
   // filtered against what actually exists and falls back rather than opening
