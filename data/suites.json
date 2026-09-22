@@ -175,7 +175,8 @@
       "id": "cruxeval",
       "name": "CRUXEval",
       "starts": [
-        "cruxeval"
+        "cruxeval",
+        "cruxo"
       ]
     },
     {
@@ -399,6 +400,115 @@
       "name": "MultiPL-E",
       "starts": [
         "multiple"
+      ]
+    },
+    {
+      "id": "fleurs",
+      "name": "FLEURS",
+      "starts": [
+        "fleurs"
+      ]
+    },
+    {
+      "id": "arc",
+      "name": "ARC",
+      "starts": [
+        "arc"
+      ],
+      "not": [
+        "arcagi",
+        "arcade"
+      ]
+    },
+    {
+      "id": "medqa",
+      "name": "MedQA",
+      "starts": [
+        "medqa"
+      ]
+    },
+    {
+      "id": "saco",
+      "name": "SA-Co",
+      "starts": [
+        "saco"
+      ]
+    },
+    {
+      "id": "ruler",
+      "name": "RULER",
+      "starts": [
+        "ruler"
+      ]
+    },
+    {
+      "id": "wenetspeech",
+      "name": "WenetSpeech",
+      "starts": [
+        "wenetspeech"
+      ]
+    },
+    {
+      "id": "infovqa",
+      "name": "InfoVQA",
+      "starts": [
+        "infovqa"
+      ]
+    },
+    {
+      "id": "gedit",
+      "name": "GEdit",
+      "starts": [
+        "gedit"
+      ]
+    },
+    {
+      "id": "minif2f",
+      "name": "miniF2F",
+      "starts": [
+        "minif2f"
+      ]
+    },
+    {
+      "id": "medmcqa",
+      "name": "MedMCQA",
+      "starts": [
+        "medmcqa"
+      ]
+    },
+    {
+      "id": "medxpertqa",
+      "name": "MedXpertQA",
+      "starts": [
+        "medxpertqa"
+      ]
+    },
+    {
+      "id": "bbq",
+      "name": "BBQ",
+      "starts": [
+        "bbq"
+      ]
+    },
+    {
+      "id": "agieval",
+      "name": "AGIEval",
+      "starts": [
+        "agieval"
+      ]
+    },
+    {
+      "id": "aishell",
+      "name": "AISHELL",
+      "starts": [
+        "aishell"
+      ]
+    },
+    {
+      "id": "livebench",
+      "name": "LiveBench",
+      "starts": [
+        "livebench"
       ]
     }
   ]

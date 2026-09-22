@@ -1193,7 +1193,7 @@
     "categories": [
       "reasoning"
     ],
-    "suite": null,
+    "suite": "arc",
     "recent_share": 4
   },
   {
@@ -1356,7 +1356,7 @@
     "categories": [
       "knowledge"
     ],
-    "suite": null,
+    "suite": "agieval",
     "recent_share": 2
   },
   {
@@ -1751,7 +1751,7 @@
     "categories": [
       "reasoning"
     ],
-    "suite": null,
+    "suite": "arc",
     "recent_share": 0
   },
   {
@@ -1872,7 +1872,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "infovqa",
     "recent_share": 1
   },
   {
@@ -2267,7 +2267,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "fleurs",
     "recent_share": 2
   },
   {
@@ -3034,7 +3034,7 @@
     "categories": [
       "reasoning"
     ],
-    "suite": null,
+    "suite": "arc",
     "recent_share": 0
   },
   {
@@ -3911,7 +3911,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "ruler",
     "recent_share": 3
   },
   {
@@ -4123,7 +4123,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "aishell",
     "recent_share": 1
   },
   {
@@ -4327,7 +4327,7 @@
     "categories": [
       "safety"
     ],
-    "suite": null,
+    "suite": "bbq",
     "recent_share": 1
   },
   {
@@ -8084,7 +8084,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "aishell",
     "recent_share": 0
   },
   {
@@ -9578,7 +9578,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "fleurs",
     "recent_share": 0
   },
   {
@@ -9604,7 +9604,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "fleurs",
     "recent_share": 1
   },
   {
@@ -10758,7 +10758,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "livebench",
     "recent_share": 3
   },
   {
@@ -11184,7 +11184,7 @@
     "categories": [
       "science"
     ],
-    "suite": null,
+    "suite": "medmcqa",
     "recent_share": 0
   },
   {
@@ -11208,7 +11208,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "medxpertqa",
     "recent_share": 1
   },
   {
@@ -11259,7 +11259,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "minif2f",
     "recent_share": 0
   },
   {
@@ -12919,7 +12919,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "ruler",
     "recent_share": 1
   },
   {
@@ -14048,7 +14048,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "wenetspeech",
     "recent_share": 0
   },
   {
@@ -15106,7 +15106,7 @@
     "categories": [
       "knowledge"
     ],
-    "suite": null,
+    "suite": "agieval",
     "recent_share": 0
   },
   {
@@ -15343,7 +15343,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "aishell",
     "recent_share": 0
   },
   {
@@ -15364,7 +15364,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "aishell",
     "recent_share": 0
   },
   {
@@ -17238,7 +17238,7 @@
     "categories": [
       "safety"
     ],
-    "suite": null,
+    "suite": "bbq",
     "recent_share": 0
   },
   {
@@ -17261,7 +17261,7 @@
     "categories": [
       "safety"
     ],
-    "suite": null,
+    "suite": "bbq",
     "recent_share": 0
   },
   {
@@ -21241,7 +21241,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "cruxeval",
     "recent_share": 0
   },
   {
@@ -24319,7 +24319,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "fleurs",
     "recent_share": 0
   },
   {
@@ -24340,7 +24340,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "fleurs",
     "recent_share": 0
   },
   {
@@ -24361,7 +24361,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "fleurs",
     "recent_share": 0
   },
   {
@@ -24382,7 +24382,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "fleurs",
     "recent_share": 0
   },
   {
@@ -24405,7 +24405,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "fleurs",
     "recent_share": 0
   },
   {
@@ -24426,7 +24426,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "fleurs",
     "recent_share": 0
   },
   {
@@ -24447,7 +24447,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "fleurs",
     "recent_share": 0
   },
   {
@@ -24468,7 +24468,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "fleurs",
     "recent_share": 0
   },
   {
@@ -24489,7 +24489,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "fleurs",
     "recent_share": 0
   },
   {
@@ -24510,7 +24510,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "fleurs",
     "recent_share": 0
   },
   {
@@ -24531,7 +24531,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "fleurs",
     "recent_share": 0
   },
   {
@@ -24556,7 +24556,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "fleurs",
     "recent_share": 0
   },
   {
@@ -24577,7 +24577,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "fleurs",
     "recent_share": 0
   },
   {
@@ -25497,7 +25497,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "gedit",
     "recent_share": 0
   },
   {
@@ -25518,7 +25518,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "gedit",
     "recent_share": 0
   },
   {
@@ -25539,7 +25539,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "gedit",
     "recent_share": 0
   },
   {
@@ -25560,7 +25560,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "gedit",
     "recent_share": 0
   },
   {
@@ -25581,7 +25581,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "gedit",
     "recent_share": 0
   },
   {
@@ -28650,7 +28650,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "infovqa",
     "recent_share": 1
   },
   {
@@ -28671,7 +28671,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "infovqa",
     "recent_share": 1
   },
   {
@@ -30968,7 +30968,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "livebench",
     "recent_share": 0
   },
   {
@@ -30989,7 +30989,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "livebench",
     "recent_share": 0
   },
   {
@@ -31011,7 +31011,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "livebench",
     "recent_share": 1
   },
   {
@@ -31032,7 +31032,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "livebench",
     "recent_share": 0
   },
   {
@@ -31055,7 +31055,7 @@
     "categories": [
       "coding"
     ],
-    "suite": null,
+    "suite": "livebench",
     "recent_share": 0
   },
   {
@@ -32689,7 +32689,7 @@
     "categories": [
       "science"
     ],
-    "suite": null,
+    "suite": "medmcqa",
     "recent_share": 0
   },
   {
@@ -32716,7 +32716,7 @@
     "categories": [
       "science"
     ],
-    "suite": null,
+    "suite": "medqa",
     "recent_share": 0
   },
   {
@@ -32737,7 +32737,7 @@
     "categories": [
       "science"
     ],
-    "suite": null,
+    "suite": "medqa",
     "recent_share": 0
   },
   {
@@ -32758,7 +32758,7 @@
     "categories": [
       "science"
     ],
-    "suite": null,
+    "suite": "medqa",
     "recent_share": 0
   },
   {
@@ -32781,7 +32781,7 @@
     "categories": [
       "science"
     ],
-    "suite": null,
+    "suite": "medqa",
     "recent_share": 0
   },
   {
@@ -32802,7 +32802,7 @@
     "categories": [
       "science"
     ],
-    "suite": null,
+    "suite": "medqa",
     "recent_share": 0
   },
   {
@@ -32823,7 +32823,7 @@
     "categories": [
       "science"
     ],
-    "suite": null,
+    "suite": "medqa",
     "recent_share": 0
   },
   {
@@ -32867,7 +32867,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "medxpertqa",
     "recent_share": 0
   },
   {
@@ -33261,7 +33261,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "minif2f",
     "recent_share": 0
   },
   {
@@ -33282,7 +33282,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "minif2f",
     "recent_share": 0
   },
   {
@@ -33307,7 +33307,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "minif2f",
     "recent_share": 0
   },
   {
@@ -33331,7 +33331,7 @@
     "categories": [
       "math"
     ],
-    "suite": null,
+    "suite": "minif2f",
     "recent_share": 0
   },
   {
@@ -41233,7 +41233,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "ruler",
     "recent_share": 0
   },
   {
@@ -41254,7 +41254,7 @@
     "categories": [
       "longctx"
     ],
-    "suite": null,
+    "suite": "ruler",
     "recent_share": 1
   },
   {
@@ -41467,7 +41467,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "saco",
     "recent_share": 1
   },
   {
@@ -41488,7 +41488,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "saco",
     "recent_share": 1
   },
   {
@@ -41509,7 +41509,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "saco",
     "recent_share": 1
   },
   {
@@ -41532,7 +41532,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "saco",
     "recent_share": 2
   },
   {
@@ -41553,7 +41553,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "saco",
     "recent_share": 1
   },
   {
@@ -41574,7 +41574,7 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "saco",
     "recent_share": 1
   },
   {
@@ -41595,7 +41595,7 @@
     "categories": [
       "vision"
     ],
-    "suite": null,
+    "suite": "saco",
     "recent_share": 1
   },
   {
@@ -46970,7 +46970,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "wenetspeech",
     "recent_share": 0
   },
   {
@@ -46992,7 +46992,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "wenetspeech",
     "recent_share": 0
   },
   {
@@ -47013,7 +47013,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "wenetspeech",
     "recent_share": 0
   },
   {
@@ -47034,7 +47034,7 @@
     "categories": [
       "speech"
     ],
-    "suite": null,
+    "suite": "wenetspeech",
     "recent_share": 0
   },
   {
