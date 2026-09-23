@@ -91,14 +91,47 @@ jobs:
           # generated_at into timeline.json every run, so data/ is never clean
           # and this branch could never be taken.
           ADDED=$(cat research-added.txt 2>/dev/null || echo 0)
+          git config user.name "benchmark-tracker bot"
+          git config user.email "noreply@github.com"
           if [ "$ADDED" -eq 0 ]; then
             echo "No new releases."
+            # The two queues survive a quiet run. Everything else in data/ is
+            # reverted, because normalize.mjs stamps a fresh generated_at into
+            # timeline.json on every run and that is not a change worth a commit.
+            #
+            # The queues are. This ran on a quiet day and still produced two
+            # alias suggestions held for review and 49 dedupe candidates, one of
+            # them an APPLY, and the blanket checkout threw all of it away: the
+            # gate had been paid for and its verdicts deleted before anyone saw
+            # them. A queue nobody can read is a queue that does not exist.
+            # Copied aside rather than stashed. One queue is tracked and the
+            # other is not, and git stash with a mixed pathspec fails as a whole
+            # and stashes neither, so the checkout below then reverted the one
+            # that was tracked. Tested; a copy has no such edge.
+            mkdir -p "$RUNNER_TEMP/queues"
+            cp -f data/alias-queue.json data/dedupe-queue.json "$RUNNER_TEMP/queues/" 2>/dev/null || true
             git checkout -- data || true
+            cp -f "$RUNNER_TEMP/queues/"*.json data/ 2>/dev/null || true
+            # status, not diff: alias-queue.json is untracked until its first
+            # commit and git diff does not report an untracked file at all, so a
+            # brand new queue would have looked like no change and been skipped.
+            if [ -n "$(git status --porcelain -- data/alias-queue.json data/dedupe-queue.json)" ]; then
+              git add data/alias-queue.json data/dedupe-queue.json
+              git commit -m "Queue: $(date -u +%Y-%m-%d)
+
+          Proposals from a run that found no new releases. Nothing is applied; both files are for a person to read."
+              PUSH_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}"
+              for attempt in 1 2 3; do
+                git push "$PUSH_URL" HEAD:main && break
+                echo "push rejected, rebasing (attempt $attempt)"
+                git pull --rebase --autostash origin main || exit 1
+              done
+            else
+              echo "Queues unchanged."
+            fi
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          git config user.name "benchmark-tracker bot"
-          git config user.email "noreply@github.com"
           # The generated files too. Committing only the sources left the repo
           # claiming 775 releases while the deployed site correctly served 779.
           git add data

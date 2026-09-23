@@ -85,7 +85,11 @@ jobs:
           Written by scripts/describe.mjs. Every description came from a page the agent opened, recorded in source_url; an entry with source none is one it looked for and did not find, and is re-tried by a later pass once it is old enough.
           "
           PUSH_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}"
-          for i in 1 2 3; do
-            git pull --rebase --quiet && git push "$PUSH_URL" HEAD:main && break
-            sleep 5
+          # The loop's last command used to be sleep, so three failed pushes
+          # still left the step green and the workflow published nothing while
+          # reporting success. research.yml gets this right; these two did not.
+          for attempt in 1 2 3; do
+            git push "$PUSH_URL" HEAD:main && break
+            echo "push rejected, rebasing (attempt $attempt)"
+            git pull --rebase --autostash origin main || exit 1
           done

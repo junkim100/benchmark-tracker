@@ -63,7 +63,11 @@ jobs:
           Written by scripts/backfill-modality.mjs and stamped source: inferred, which is what tells them apart from the values the research pass reads off a source page. Re-running leaves any reported value alone.
           "
           PUSH_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}"
-          for i in 1 2 3; do
-            git pull --rebase --quiet && git push "$PUSH_URL" HEAD:main && break
-            sleep 5
+          # The loop's last command used to be sleep, so three failed pushes
+          # still left the step green and the workflow published nothing while
+          # reporting success. research.yml gets this right; these two did not.
+          for attempt in 1 2 3; do
+            git push "$PUSH_URL" HEAD:main && break
+            echo "push rejected, rebasing (attempt $attempt)"
+            git pull --rebase --autostash origin main || exit 1
           done
