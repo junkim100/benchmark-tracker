@@ -2750,6 +2750,24 @@
     }
   },
   {
+    "id": "openai-astra-for-law-gpt-6-astra-law-gpt-6-astra-law-2026-09-17",
+    "lab": "openai",
+    "model": "Astra for Law (GPT-6 Astra Law / gpt-6-astra-law)",
+    "date": "2026-09-17",
+    "kind": "model_release",
+    "title": "Introducing Astra for Law",
+    "source_url": "https://openai.com/index/astra-for-law/",
+    "benchmarks_raw": [
+      "Vals AI's Legal Research Bench"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
     "id": "openai-gpt-6-sol-and-gpt-6-luna-2026-09-22",
     "lab": "openai",
     "model": "GPT-6 Sol and GPT-6 Luna",

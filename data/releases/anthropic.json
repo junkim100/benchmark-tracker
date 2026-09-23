@@ -1532,6 +1532,41 @@
     }
   },
   {
+    "id": "anthropic-claude-mythos-5-1-claude-mythos-5-claude-opus-5-2026-09-17",
+    "lab": "anthropic",
+    "model": "Claude Mythos 5.1, Claude Mythos 5, Claude Opus 5",
+    "date": "2026-09-17",
+    "kind": "blog_post",
+    "title": "How Claude is uplifting biomolecular modeling",
+    "source_url": "https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "anthropic-claude-mythos-5-1-mythos-5-opus-5-and-an-internal-general-purpose-research-model-2026-09-17",
+    "lab": "anthropic",
+    "model": "Claude (Mythos 5.1, Mythos 5, Opus 5 and an internal general-purpose research model)",
+    "date": "2026-09-17",
+    "kind": "technical_report",
+    "title": "Accelerating open-source biomolecular models with Claude",
+    "source_url": "https://www-cdn.anthropic.com/e96b5807039a88168733d9687afe41dfbbd5de13.pdf",
+    "benchmarks_raw": [
+      "FoldBench-Lite",
+      "FoldBench"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
     "id": "anthropic-claude-opus-5-5-2026-09-22",
     "lab": "anthropic",
     "model": "Claude Opus 5.5",

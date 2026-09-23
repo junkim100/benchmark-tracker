@@ -146,6 +146,12 @@
     ],
     "automationbench106": [
       "agentic"
+    ],
+    "foldbenchlite": [
+      "science"
+    ],
+    "foldbench": [
+      "science"
     ]
   }
 }

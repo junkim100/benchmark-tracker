@@ -17,3 +17,5 @@
 {"at":"2026-09-23T07:08:48.003Z","raw":"Omni2Web","cats":["agentic","vision"],"lab":"Qwen"}
 {"at":"2026-09-23T07:08:48.003Z","raw":"OmniEchoBench","cats":["vision","speech"],"lab":"Qwen"}
 {"at":"2026-09-23T07:46:15.179Z","raw":"AutomationBench 1.0.6","cats":["agentic"],"lab":"OpenAI"}
+{"at":"2026-09-23T08:03:59.890Z","raw":"FoldBench-Lite","cats":["science"],"lab":"Anthropic"}
+{"at":"2026-09-23T08:03:59.890Z","raw":"FoldBench","cats":["science"],"lab":"Anthropic"}

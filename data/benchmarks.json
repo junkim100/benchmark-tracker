@@ -10613,6 +10613,28 @@
     "recent_share": 2
   },
   {
+    "id": "legalresearchbench",
+    "name": "Legal Research Bench",
+    "lab_count": 2,
+    "labs": [
+      "moonshot",
+      "openai"
+    ],
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-09-17",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 2
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "librispeechclean",
     "name": "LibriSpeech Clean",
     "lab_count": 2,
@@ -24544,6 +24566,48 @@
     "recent_share": 0
   },
   {
+    "id": "foldbench",
+    "name": "FoldBench",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-09-17",
+    "last_seen": "2026-09-17",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "science"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "foldbenchlite",
+    "name": "FoldBench-Lite",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-09-17",
+    "last_seen": "2026-09-17",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "science"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "followir",
     "name": "FollowIR",
     "lab_count": 1,
@@ -30440,27 +30504,6 @@
     },
     "categories": [
       "coding"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "legalresearchbench",
-    "name": "Legal Research Bench",
-    "lab_count": 1,
-    "labs": [
-      "moonshot"
-    ],
-    "first_seen": "2026-07-16",
-    "last_seen": "2026-07-27",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
     ],
     "suite": null,
     "recent_share": 0

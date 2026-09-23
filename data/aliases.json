@@ -237,5 +237,6 @@
   "Harvey Legal Agent Benchmark": "harveyslegalagentbenchmark",
   "omnilinguamspeaker": "omnilinguamultispeaker",
   "avspeaker": "avspeakerbench",
-  "cursorbench320": "cursorbench32"
+  "cursorbench320": "cursorbench32",
+  "Vals AI's Legal Research Bench": "legalresearchbench"
 }
