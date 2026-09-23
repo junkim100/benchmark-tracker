@@ -21,6 +21,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "aabriefcase11": {
+    "text": "Agentic knowledge-work benchmark in which models act as agents on long-horizon, multi-week professional projects built by industry experts; graded by rubric pass rate plus pairwise comparisons of analytical and presentation quality, combined into a single Elo.",
+    "source_url": "https://artificialanalysis.ai/evaluations/aa-briefcase",
+    "source": "researched",
+    "checked": "2026-09-23"
+  },
   "aalcr": {
     "text": "100 hard text questions from Artificial Analysis that each require reasoning across a set of real documents totalling roughly 100k tokens, spanning company reports, industry reports, government consultations, academia, legal, marketing and survey documents.",
     "source_url": "https://artificialanalysis.ai/articles/announcing-aa-lcr",
@@ -2383,6 +2389,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "cursorbench40": {
+    "text": "Cursor's internal eval suite for coding agents, built from real Cursor sessions; version 4.0 adds long-horizon tasks covering editing, refactoring, investigation, intent understanding, job management, and design adherence, reporting correctness alongside cost, tokens, and steps per task.",
+    "source_url": "https://cursor.com/cursorbench",
+    "source": "researched",
+    "checked": "2026-09-23"
+  },
   "cute": {
     "text": "Character-level tasks built from synthetically generated text, covering spelling, inverse spelling, character containment, orthographic similarity and insertion, deletion, substitution and swapping, to test whether a model can manipulate the characters inside its own tokens.",
     "source_url": "https://arxiv.org/abs/2409.15452",
@@ -3704,6 +3716,12 @@
     "source_url": "https://artificialanalysis.ai/evaluations/gdpval-aa",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "gdpvalaa21": {
+    "text": "Artificial Analysis' implementation of OpenAI's GDPval gold subset: 220 real-world occupational tasks across 44 occupations and 9 industries, run agentically with shell and web access, scored by Elo from blind pairwise output comparisons.",
+    "source_url": "https://artificialanalysis.ai/evaluations/gdpval-aa",
+    "source": "researched",
+    "checked": "2026-09-23"
   },
   "geckonum": {
     "text": "Prompts that probe numerical reasoning in text-to-image models, covering exact and approximate object counts, linguistic quantifiers, the concept of zero and fractional quantities, paired with human annotations of the generated images.",
@@ -5224,6 +5242,12 @@
   "labworkbench": {
     "source": "none",
     "checked": "2026-09-22"
+  },
+  "lamarbench": {
+    "text": "Audio-language benchmark of 1,597 questions derived from podcast recordings, testing fine-grained acoustic understanding, cross-audio relation reasoning, and decisions under goals and constraints; scored by task metrics plus format and ordering diagnostics.",
+    "source_url": "https://zenodo.org/records/22857938",
+    "source": "researched",
+    "checked": "2026-09-23"
   },
   "lambada": {
     "text": "Narrative passages from novels where the final word is predictable to a human who reads the whole passage but not to one who sees only the last sentence, so the model must track the broader discourse.",
@@ -7049,6 +7073,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "mulabench": {
+    "text": "Tests audio-language models with open-ended questions on long, in-the-wild recordings across 16 languages and eight domains, in a balanced semantic track plus an acoustic track of non-speech evidence; questions are evidence-grounded and expert-reviewed.",
+    "source_url": "https://arxiv.org/abs/2609.23416",
+    "source": "researched",
+    "checked": "2026-09-23"
+  },
   "multichallenge": {
     "text": "A multi-turn conversation benchmark from Scale AI covering four challenges: instruction retention, inference memory of user information, reliable versioned editing, and self-coherence. Final responses are graded by an LLM judge against instance-level rubrics.",
     "source_url": "https://labs.scale.com/leaderboard/multichallenge",
@@ -7565,6 +7595,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "odubench": {
+    "text": "Evaluates whether multimodal models can detect if a user demand is present in an audio-visual interaction stream and infer the underlying intent from visual, acoustic and dialogue context; it includes demand-like utterances that should not trigger a response.",
+    "source_url": "https://arxiv.org/abs/2609.21392",
+    "source": "researched",
+    "checked": "2026-09-23"
+  },
   "officeqa": {
     "text": "A Databricks benchmark suite for grounded reasoning over dense financial documents, requiring an agent to find and combine figures across U.S. Treasury Bulletins and federal receipts and expenditures records, graded by fuzzy numeric matching.",
     "source_url": "https://github.com/databricks/officeqa",
@@ -7616,6 +7652,12 @@
     "source_url": "https://arxiv.org/abs/2402.14008",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "omni2web": {
+    "text": "Omni2Web tests web editing from screen recordings with speech and cursor-based deictic references: 918 bilingual instances over 129 pages and 13,907 edit steps, scored on three tracks (direct editing, instruction recovery, instruction utility).",
+    "source_url": "https://arxiv.org/abs/2609.23417",
+    "source": "researched",
+    "checked": "2026-09-23"
   },
   "omni3d": {
     "text": "234,000 images carrying more than 3 million annotated 3D object instances across 98 categories, assembled from existing datasets, for predicting 3D bounding boxes from a single image across varied cameras and scene types.",
@@ -7671,6 +7713,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "omniechobench": {
+    "text": "A benchmark for spatial audio-visual perception and audio-vision-language navigation in embodied agents: six tasks over 197 real-world scenes, with 2,972 question-answer pairs and 900 navigation samples using first-order ambisonics audio from 30 environments.",
+    "source_url": "https://arxiv.org/html/2609.23407",
+    "source": "researched",
+    "checked": "2026-09-23"
+  },
   "omnigaia": {
     "text": "A benchmark for omni-modal agents built from an event-graph construction over real data, posing multi-hop queries that require reasoning across video, audio and image inputs together with multi-turn tool use.",
     "source_url": "https://arxiv.org/abs/2602.22897",
@@ -7683,9 +7731,27 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "omnilinguaaudiomaxife": {
+    "text": "Audio instruction-following track of Qwen's Omnilingua-Bench: MaXIFE multilingual and cross-lingual instructions are rendered as TTS speech, and responses are checked both for content and for satisfying verifiable constraints on format, length, keywords, language switching and style.",
+    "source_url": "https://github.com/QwenLM/Omnilingua-Bench",
+    "source": "researched",
+    "checked": "2026-09-23"
+  },
+  "omnilingualongaudioasr": {
+    "text": "A multilingual long-form speech recognition subset of Qwen's Omnilingua-Bench: models transcribe single audio clips of roughly 30 to 200 minutes, with reference text annotations used to score transcription completeness and stability over long context.",
+    "source_url": "https://github.com/QwenLM/Omnilingua-Bench",
+    "source": "researched",
+    "checked": "2026-09-23"
+  },
   "omnilinguamspeaker": {
     "source": "none",
     "checked": "2026-09-22"
+  },
+  "omnilinguamultispeaker": {
+    "text": "Multilingual multi-speaker audio benchmark built from public social-media videos (297 clips, ~26 hours), evaluating speaker-attributed transcription and diarization via metrics such as cpWER, tcpWER and DER.",
+    "source_url": "https://github.com/QwenLM/Omnilingua-Bench",
+    "source": "researched",
+    "checked": "2026-09-23"
   },
   "omnimath": {
     "text": "4,428 competition-level olympiad mathematics problems, sorted into 33 sub-domains and 10 difficulty tiers, with reference solutions and explicit answers checked by an accompanying judge model.",
@@ -7698,6 +7764,12 @@
     "source_url": "https://arxiv.org/abs/2506.03135",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "omnivchatbench": {
+    "text": "OmniVChat-Bench evaluates omni models on native audio-visual dialogue, where the user query is embedded in audio and video with no separate text input. It uses 2,800 synthesized single- and multi-turn dialogues across five ability categories, scored against reference answers with tiered rubrics.",
+    "source_url": "https://arxiv.org/abs/2609.21465",
+    "source": "researched",
+    "checked": "2026-09-23"
   },
   "omnivideobench": {
     "text": "1,000 question-answer pairs over 628 videos running from seconds to 30 minutes, each annotated with a step-by-step reasoning trace, across 13 question types that require combining audio and visual evidence.",
@@ -8330,6 +8402,12 @@
     "source_url": "https://arxiv.org/abs/2403.18624",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "proactivevideoqa": {
+    "text": "Evaluates proactive interaction in video LLMs: a question is posed at video start and the system must decide when, during playback, to respond as relevant segments appear. Scored with PAUC, a metric weighting response timing and correctness.",
+    "source_url": "https://arxiv.org/abs/2507.09313",
+    "source": "researched",
+    "checked": "2026-09-23"
   },
   "processbench": {
     "text": "3,400 step-by-step solutions to competition and olympiad mathematics problems, each annotated by human experts, where the model must name the earliest erroneous step or state that every step is correct.",
@@ -10866,6 +10944,12 @@
     "source_url": "https://arxiv.org/abs/2212.06200",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "voxinfinity": {
+    "text": "Vox-Infinity evaluates long-context understanding in spoken language models by scaling audio history along both turn count and turn duration, across multi-turn dialogues, monologues and beyond-semantic dialogues, with per-question answer-provenance annotations for length-aware scoring.",
+    "source_url": "https://arxiv.org/html/2609.22452",
+    "source": "researched",
+    "checked": "2026-09-23"
   },
   "voxpopuli": {
     "text": "A multilingual speech corpus built from 2009 to 2020 European Parliament recordings: about 400K hours of unlabeled audio in 23 EU languages plus transcribed speech in 18 languages and accented non-native English.",
