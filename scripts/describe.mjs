@@ -148,7 +148,7 @@ const SCHEMA = {
     text: {
       type: "string",
       // No minLength or maxLength: the structured-output API answers 400 for either, which is what scripts/schema-guard.mjs exists to catch. The bound is stated here and enforced by checkEntry before anything is written.
-      description: `One or two sentences on what the benchmark measures and how it is built or scored, between ${MIN_TEXT} and ${MAX_TEXT} characters. Plain and technical. Never a score, a result, a ranking or a percentage. Omit entirely when found is false.`,
+      description: `One or two sentences on what the benchmark measures and how it is built or scored, between ${MIN_TEXT} and ${MAX_TEXT - 40} characters, and never more than ${MAX_TEXT}. Plain and technical. Never a score, a result, a ranking or a percentage. Omit entirely when found is false.`,
     },
     source_url: {
       type: "string",
@@ -199,6 +199,7 @@ async function describeOne(b) {
   // Counted across every turn of this benchmark, not per reply.
   let searches = 0;
   const seenUrls = new Set();
+  let shortened = false;
   // A web search turn can stop at the server loop's iteration limit with stop_reason "pause_turn" and no final message. research.mjs treats that as a failure, which is right when a lab is one of twelve and a seven-day lookback gives it two more chances. Here it is one benchmark of 2,059, the searches have already been paid for, and the next attempt would start from nothing, so the turn is resumed instead. Resuming is only re-sending what came back: the API sees the trailing server tool block and continues, and adding a "carry on" message of our own would derail it.
   for (let resumed = 0; resumed <= 2; resumed++) {
     const res = await client.messages.create({
@@ -234,12 +235,25 @@ async function describeOne(b) {
     }
     const text = res.content.filter((x) => x.type === "text").map((x) => x.text).join("").trim();
     if (!text) throw new Error(`no text in the reply (stop_reason: ${res.stop_reason})`);
+    let parsed;
     try {
-      return { ...JSON.parse(text), _searches: searches, _seenUrls: seenUrls };
+      parsed = JSON.parse(text);
     } catch (e) {
       // Say what could not be parsed, as research.mjs does. A bare SyntaxError names a column in a string nobody can see.
       throw new Error(`reply was not JSON (${e.message}); first 200 chars: ${text.slice(0, 200)}`);
     }
+    // Too long is the one contract failure worth a second turn, and only once.
+    //
+    // The schema cannot carry maxLength, because the structured-output API rejects it, so the limit lives in the prompt alone and the model overshoots it: the first run on new benchmarks dropped 14 of 17 answers at 303 to 422 characters. Every one had already paid for its searches and found a real page, and dropping it meant the next pass would search for it again from nothing. Asking for the same description shorter keeps the source it found, costs no search, and the answer still goes through checkEntry afterwards like any other.
+    const len = tidy(parsed.text ?? "").length;
+    if (parsed.found && len > MAX_TEXT && !shortened) {
+      shortened = true;
+      messages.push({ role: "assistant", content: res.content });
+      messages.push({ role: "user", content: `That description is ${len} characters and the limit is ${MAX_TEXT}. Rewrite it in at most ${MAX_TEXT - 40} characters, from the same page and with the same source_url. Keep the facts that say what the benchmark measures and how; drop anything else. Do not search again.` });
+      resumed--;
+      continue;
+    }
+    return { ...parsed, _searches: searches, _seenUrls: seenUrls };
   }
   throw new Error("still paused after two continuations");
 }
