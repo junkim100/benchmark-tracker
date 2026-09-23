@@ -3,3 +3,16 @@
 {"at":"2026-09-22T17:49:04.487Z","raw":"HackerBench v0.3","cats":["safety","coding"],"lab":"xAI"}
 {"at":"2026-09-22T17:49:04.488Z","raw":"GDPval-AA v2.1","cats":["agentic","knowledge"],"lab":"Anthropic"}
 {"at":"2026-09-22T17:49:04.488Z","raw":"Multimodal virology","cats":["science"],"lab":"Anthropic"}
+{"at":"2026-09-23T07:08:48.003Z","raw":"LatchBio's biosafety benchmark","cats":["safety","science"],"lab":"xAI"}
+{"at":"2026-09-23T07:08:48.003Z","raw":"WANDR","cats":["agentic","knowledge"],"lab":"Anthropic"}
+{"at":"2026-09-23T07:08:48.003Z","raw":"OmniLingua-LongAudioASR","cats":["speech","multilingual"],"lab":"Qwen"}
+{"at":"2026-09-23T07:08:48.003Z","raw":"MuLA-Bench","cats":["speech","multilingual"],"lab":"Qwen"}
+{"at":"2026-09-23T07:08:48.003Z","raw":"OmniLingua-AudioMaxIfe","cats":["speech","multilingual"],"lab":"Qwen"}
+{"at":"2026-09-23T07:08:48.003Z","raw":"Vox-Infinity","cats":["speech","longctx"],"lab":"Qwen"}
+{"at":"2026-09-23T07:08:48.003Z","raw":"LAMAR-Bench","cats":["speech","reasoning"],"lab":"Qwen"}
+{"at":"2026-09-23T07:08:48.003Z","raw":"MMOU","cats":["vision","speech"],"lab":"Qwen"}
+{"at":"2026-09-23T07:08:48.003Z","raw":"ODUbench","cats":["vision","speech"],"lab":"Qwen"}
+{"at":"2026-09-23T07:08:48.003Z","raw":"ProactiveVideoQA","cats":["vision"],"lab":"Qwen"}
+{"at":"2026-09-23T07:08:48.003Z","raw":"OmniVChat-Bench","cats":["vision","speech"],"lab":"Qwen"}
+{"at":"2026-09-23T07:08:48.003Z","raw":"Omni2Web","cats":["agentic","vision"],"lab":"Qwen"}
+{"at":"2026-09-23T07:08:48.003Z","raw":"OmniEchoBench","cats":["vision","speech"],"lab":"Qwen"}

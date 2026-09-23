@@ -787,5 +787,28 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "xai-grok-4-7-2026-09-21",
+    "lab": "xai",
+    "model": "Grok 4.7",
+    "date": "2026-09-21",
+    "kind": "system_card",
+    "title": "Model Card: Grok 4.7",
+    "source_url": "https://media.x.ai/v1/website/4p7card-5eccc980.pdf",
+    "benchmarks_raw": [
+      "CursorBench 4.0",
+      "DeepSWE v1.1",
+      "Terminal-Bench 4.0",
+      "FrontierSWE V2",
+      "SWE-Marathon v1.1",
+      "HealthBench Professional"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

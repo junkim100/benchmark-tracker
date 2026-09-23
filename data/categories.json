@@ -92,6 +92,57 @@
     ],
     "multimodalvirology": [
       "science"
+    ],
+    "latchbiosbiosafetybenchmark": [
+      "safety",
+      "science"
+    ],
+    "wandr": [
+      "agentic",
+      "knowledge"
+    ],
+    "omnilingualongaudioasr": [
+      "speech",
+      "multilingual"
+    ],
+    "mulabench": [
+      "speech",
+      "multilingual"
+    ],
+    "omnilinguaaudiomaxife": [
+      "speech",
+      "multilingual"
+    ],
+    "voxinfinity": [
+      "speech",
+      "longctx"
+    ],
+    "lamarbench": [
+      "speech",
+      "reasoning"
+    ],
+    "mmou": [
+      "vision",
+      "speech"
+    ],
+    "odubench": [
+      "vision",
+      "speech"
+    ],
+    "proactivevideoqa": [
+      "vision"
+    ],
+    "omnivchatbench": [
+      "vision",
+      "speech"
+    ],
+    "omni2web": [
+      "agentic",
+      "vision"
+    ],
+    "omniechobench": [
+      "vision",
+      "speech"
     ]
   }
 }

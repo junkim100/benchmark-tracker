@@ -750,5 +750,26 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "xiaomi-mimo-v2-6-2026-09-22",
+    "lab": "xiaomi",
+    "model": "MiMo-V2.6",
+    "date": "2026-09-22",
+    "kind": "technical_report",
+    "title": "MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement",
+    "source_url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL/blob/main/MiMo_V2_6_technical_report.pdf",
+    "benchmarks_raw": [
+      "SWE-bench Verified",
+      "SWE-bench Pro",
+      "Terminal-Bench 2.1",
+      "Toolathlon"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]
