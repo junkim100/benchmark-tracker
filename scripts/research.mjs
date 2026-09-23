@@ -332,11 +332,17 @@ const descriptionOf = (name) => {
   return (id && describedById.get(id)) ?? describedById.get(k) ?? describedByKey.get(k) ?? null;
 };
 
+// The same exclusion normalize.mjs applies, read from the same file and matched on the same key.
+const excludedPatterns = JSON.parse(readFileSync(join(DATA, "excluded.json"), "utf8")).patterns.map((x) => aliasKey(x.match));
+const isExcluded = (k) => excludedPatterns.some((pat) => k.includes(pat));
+
 const skipped = [];
 const needGate = [];
 for (const sug of aliasSuggestions) {
   const rawK = aliasKey(sug.raw);
   if (rawK === aliasKey(sug.tracked) || canonical.has(rawK)) { skipped.push(sug); continue; }
+  // An excluded name is dropped at build time whatever it is merged with, so asking the gate about it spends two model calls on a question whose answer cannot change anything. Two Artificial Analysis index spellings were being proposed on every run for exactly this reason.
+  if (isExcluded(rawK) || isExcluded(aliasKey(sug.tracked))) { skipped.push(sug); continue; }
   // The tracked benchmark's own description, appended as evidence.
   //
   // Asked on the names alone, this gate answered "ARC-Challenge is the same name as ARC" at 0.99, which would have merged the hard partition into its own parent. Given the description, "partitioned into an Easy set and a Challenge set", the same pair comes back "version" at 0.77 and is queued instead of applied. A reason built only from names gets an answer about names, and that is the answer this project can least afford.
@@ -421,7 +427,10 @@ if (applied.length) writeFileSync(aliasPath, JSON.stringify(aliasMap, null, 2) +
 if (queued.length) {
   const qPath = join(DATA, "alias-queue.json");
   const existing = existsSync(qPath) ? JSON.parse(readFileSync(qPath, "utf8")) : [];
-  const byPair = new Map(existing.map((q) => [`${aliasKey(q.raw)}|${aliasKey(q.tracked)}`, q]));
+  // Settled entries leave the queue. It deduped but never dropped anything, so a pair a person had already merged by hand sat in the file forever looking like open work. An entry is settled once both names resolve to the same row, whichever direction the merge went, or once either side is excluded. Asking only whether the raw name has an alias missed half of them: a merge often keeps the raw spelling as the surviving id and aliases the tracked one onto it.
+  const resolve = (name) => { const k = aliasKey(name); return canonical.get(k) ?? k; };
+  const settled = (q) => resolve(q.raw) === resolve(q.tracked) || isExcluded(aliasKey(q.raw)) || isExcluded(aliasKey(q.tracked));
+  const byPair = new Map(existing.filter((q) => !settled(q)).map((q) => [`${aliasKey(q.raw)}|${aliasKey(q.tracked)}`, q]));
   for (const q of queued) byPair.set(`${aliasKey(q.raw)}|${aliasKey(q.tracked)}`, { ...q, seen: new Date().toISOString() });
   writeFileSync(qPath, JSON.stringify([...byPair.values()], null, 2) + "\n");
 }

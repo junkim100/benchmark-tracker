@@ -569,6 +569,20 @@
       "starts": [
         "vatex"
       ]
+    },
+    {
+      "id": "aa-briefcase",
+      "name": "AA-Briefcase",
+      "starts": [
+        "aabriefcase"
+      ]
+    },
+    {
+      "id": "cursorbench",
+      "name": "CursorBench",
+      "starts": [
+        "cursorbench"
+      ]
     }
   ]
 }

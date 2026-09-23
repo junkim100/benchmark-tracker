@@ -5583,7 +5583,7 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "aa-briefcase",
     "recent_share": 0
   },
   {
@@ -9357,6 +9357,28 @@
     ],
     "suite": "cruxeval",
     "recent_share": 2
+  },
+  {
+    "id": "cursorbench32",
+    "name": "CursorBench (3.2.0)",
+    "lab_count": 2,
+    "labs": [
+      "anthropic",
+      "xai"
+    ],
+    "first_seen": "2026-08-12",
+    "last_seen": "2026-09-01",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 2
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": "cursorbench",
+    "recent_share": 0
   },
   {
     "id": "cvebench",
@@ -14410,7 +14432,7 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "aa-briefcase",
     "recent_share": 0
   },
   {
@@ -14430,27 +14452,6 @@
     },
     "categories": [
       "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "aaspeechtospeechqualityindex",
-    "name": "AA Speech-to-Speech Quality Index",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2026-07-29",
-    "last_seen": "2026-07-29",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "speech"
     ],
     "suite": null,
     "recent_share": 0
@@ -17015,27 +17016,6 @@
     "recent_share": 0
   },
   {
-    "id": "avspeaker",
-    "name": "AVSpeaker",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-09-22",
-    "last_seen": "2026-09-22",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "avspeakerbench",
     "name": "AV-SpeakerBench",
     "lab_count": 1,
@@ -17043,12 +17023,13 @@
       "qwen"
     ],
     "first_seen": "2026-04-17",
-    "last_seen": "2026-04-17",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q2": 1
+      "2026-Q2": 1,
+      "2026-Q3": 1
     },
     "categories": [
       "other"
@@ -21159,50 +21140,8 @@
     "categories": [
       "other"
     ],
-    "suite": null,
+    "suite": "cursorbench",
     "recent_share": 2
-  },
-  {
-    "id": "cursorbench32",
-    "name": "CursorBench (v3.2)",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2026-08-12",
-    "last_seen": "2026-08-12",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "cursorbench320",
-    "name": "CursorBench (3.2.0)",
-    "lab_count": 1,
-    "labs": [
-      "anthropic"
-    ],
-    "first_seen": "2026-09-01",
-    "last_seen": "2026-09-01",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
   },
   {
     "id": "cursorbench40",
@@ -21223,7 +21162,7 @@
       "coding",
       "agentic"
     ],
-    "suite": null,
+    "suite": "cursorbench",
     "recent_share": 0
   },
   {
@@ -36896,34 +36835,13 @@
     "recent_share": 0
   },
   {
-    "id": "omnilinguamspeaker",
+    "id": "omnilinguamultispeaker",
     "name": "Omnilingua-MSpeaker",
     "lab_count": 1,
     "labs": [
       "qwen"
     ],
     "first_seen": "2026-09-18",
-    "last_seen": "2026-09-18",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "omnilinguamultispeaker",
-    "name": "OmniLingua-MultiSpeaker",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-09-22",
     "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 1

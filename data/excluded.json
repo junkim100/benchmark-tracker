@@ -1,9 +1,25 @@
 {
   "_comment": "Third-party aggregate indices and leaderboards. A lab citing one of these is not reporting a benchmark result, it is citing somebody else's composite ranking, which is a different kind of claim and would distort the adoption trend this site measures. Matching is on the normalised key (lowercased, punctuation collapsed to spaces), as a substring.",
   "patterns": [
-    { "match": "artificial analysis", "reason": "third-party composite index and leaderboards" },
-    { "match": "aa index", "reason": "Artificial Analysis Intelligence Index, abbreviated" },
-    { "match": "aa intelligence index", "reason": "Artificial Analysis Intelligence Index, abbreviated" },
-    { "match": "intelligence index", "reason": "Artificial Analysis Intelligence Index, shortened" }
+    {
+      "match": "artificial analysis",
+      "reason": "third-party composite index and leaderboards"
+    },
+    {
+      "match": "aa index",
+      "reason": "Artificial Analysis Intelligence Index, abbreviated"
+    },
+    {
+      "match": "aa intelligence index",
+      "reason": "Artificial Analysis Intelligence Index, abbreviated"
+    },
+    {
+      "match": "intelligence index",
+      "reason": "Artificial Analysis Intelligence Index, shortened"
+    },
+    {
+      "match": "speech to speech quality index",
+      "reason": "Artificial Analysis composite of three speech-to-speech evaluations. Its long spellings were already dropped by \"artificial analysis\"; the abbreviated AA form slipped past every pattern and was being tracked as a benchmark."
+    }
   ]
 }

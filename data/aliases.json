@@ -234,5 +234,8 @@
   "therapeuticsdatacommons": "therapeuticdatacommons",
   "wildspeech": "wildspeechbench",
   "mjhqfid30k": "mjhq30k",
-  "Harvey Legal Agent Benchmark": "harveyslegalagentbenchmark"
+  "Harvey Legal Agent Benchmark": "harveyslegalagentbenchmark",
+  "omnilinguamspeaker": "omnilinguamultispeaker",
+  "avspeaker": "avspeakerbench",
+  "cursorbench320": "cursorbench32"
 }

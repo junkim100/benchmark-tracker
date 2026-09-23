@@ -39,12 +39,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "aaspeechtospeechqualityindex": {
-    "text": "An equally weighted composite of three speech-to-speech evaluations: Big Bench Audio for spoken reasoning, a Full Duplex Bench subset for conversational dynamics, and tau-Voice for agentic customer service tasks.",
-    "source_url": "https://artificialanalysis.ai/articles/announcing-the-artificial-analysis-speech-to-speech-index",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "aavcapsidpackagingprediction": {
     "source": "none",
     "checked": "2026-09-22"
@@ -962,10 +956,6 @@
   "automationbenchpublic": {
     "source": "none",
     "checked": "2026-09-22"
-  },
-  "avspeaker": {
-    "source": "none",
-    "checked": "2026-09-23"
   },
   "avspeakerbench": {
     "text": "3,212 multiple-choice questions on speaker-centric reasoning in real videos, where a cue given in one modality anchors a moment and the answer has to be read off the other modality.",
@@ -2380,12 +2370,6 @@
   "cursorbench32": {
     "text": "Coding agents are run on realistic IDE-style tasks from production Cursor workflows: multi-file edits, natural language instructions, tools, APIs and MCPs, and iterative fixing.",
     "source_url": "https://media.x.ai/v1/website/card-4p6-4cd2dc57.pdf",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "cursorbench320": {
-    "text": "Cursor's internal coding-agent suite, built from real Cursor sessions traced back to the request that produced the committed code. Task prompts are short and underspecified, span multiple files, and are scored by agentic graders.",
-    "source_url": "https://cursor.com/blog/cursorbench",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -7742,10 +7726,6 @@
     "source_url": "https://github.com/QwenLM/Omnilingua-Bench",
     "source": "researched",
     "checked": "2026-09-23"
-  },
-  "omnilinguamspeaker": {
-    "source": "none",
-    "checked": "2026-09-22"
   },
   "omnilinguamultispeaker": {
     "text": "Multilingual multi-speaker audio benchmark built from public social-media videos (297 clips, ~26 hours), evaluating speaker-attributed transcription and diarization via metrics such as cpWER, tcpWER and DER.",
