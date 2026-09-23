@@ -143,6 +143,9 @@
     "omniechobench": [
       "vision",
       "speech"
+    ],
+    "automationbench106": [
+      "agentic"
     ]
   }
 }

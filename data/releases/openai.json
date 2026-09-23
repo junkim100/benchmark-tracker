@@ -2748,5 +2748,23 @@
       ],
       "source": "inferred"
     }
+  },
+  {
+    "id": "openai-gpt-6-sol-and-gpt-6-luna-2026-09-22",
+    "lab": "openai",
+    "model": "GPT-6 Sol and GPT-6 Luna",
+    "date": "2026-09-22",
+    "kind": "model_release",
+    "title": "Introducing GPT-6 Sol and Luna",
+    "source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+    "benchmarks_raw": [
+      "AutomationBench 1.0.6"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

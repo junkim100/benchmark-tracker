@@ -16995,6 +16995,27 @@
     "recent_share": 0
   },
   {
+    "id": "automationbench106",
+    "name": "AutomationBench 1.0.6",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-09-22",
+    "last_seen": "2026-09-22",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "automationbenchpublic",
     "name": "AutomationBench (Public)",
     "lab_count": 1,
