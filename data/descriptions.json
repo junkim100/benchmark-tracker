@@ -207,6 +207,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "agentslastexam1": {
+    "text": "ALE-V1 evaluates AI agents on long-horizon professional workflows: 960 expert-authored tasks (1,490 instances) across 55 digital sub-fields anchored in the O*NET/SOC taxonomy, sourced from work experts actually shipped and scored on delivered artifacts via deterministic checks and rubric grading.",
+    "source_url": "https://arxiv.org/abs/2606.05405",
+    "source": "researched",
+    "checked": "2026-09-23"
+  },
   "agentworldbench": {
     "text": "2,170 samples across seven agent domains in which a language world model must predict the next environment observation; each is paired with the observation captured from real execution and scored on format, factuality, consistency, realism and quality.",
     "source_url": "https://huggingface.co/datasets/Qwen/AgentWorldBench",
@@ -952,6 +958,12 @@
     "source_url": "https://arxiv.org/abs/2604.18934",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "automationbench106": {
+    "text": "Zapier's benchmark for AI agents on cross-application business workflows: each task seeds a simulated company (CRM, inbox, calendar, spreadsheets) with distractors, gives one trigger prompt and REST API tools, and grades the final world state with deterministic assertions across six domains.",
+    "source_url": "https://zapier.com/blog/introducing-automationbench/",
+    "source": "researched",
+    "checked": "2026-09-23"
   },
   "automationbenchpublic": {
     "source": "none",
@@ -3438,6 +3450,16 @@
   "fncall": {
     "source": "none",
     "checked": "2026-09-22"
+  },
+  "foldbench": {
+    "text": "A benchmark for all-atom biomolecular structure prediction, built from 1,522 low-homology biological assemblies grouped into nine tasks spanning proteins, nucleic acids, ligands and their interfaces, scored with unified structural accuracy metrics.",
+    "source_url": "https://www.nature.com/articles/s41467-025-67127-3",
+    "source": "researched",
+    "checked": "2026-09-23"
+  },
+  "foldbenchlite": {
+    "source": "none",
+    "checked": "2026-09-23"
   },
   "followir": {
     "text": "Built from three deeply judged TREC collections by turning the assessors' narrative guidelines into retrieval instructions and re-annotating relevance, with a pairwise framework that measures how a retriever's ranking shifts when the instruction changes.",
