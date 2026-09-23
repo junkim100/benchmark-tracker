@@ -170,8 +170,10 @@ const RECORD_SCHEMA = {
 // order that works.
 assertSupported(RECORD_SCHEMA, "research RECORD_SCHEMA");
 
-async function researchLab(lab) {
+async function researchLab(lab, onFile) {
   const allowed = domainsFor(lab);
+  // This lab's releases already on file inside the window. The prompt used to give only benchmark names, so a search that found last week's GPT-6 Astra again looked like a finished job, and the model had no reason to keep looking for what came after it.
+  const alreadyOnFile = onFile.filter((r) => r.date >= since).map((r) => `${r.date} ${r.model} (${r.kind}) ${r.source_url}`);
   const response = await client.messages.create({
     model: "claude-opus-5",
     max_tokens: MAX_TOKENS,
@@ -196,7 +198,10 @@ async function researchLab(lab) {
         `For each one, record which benchmarks the lab cited, using the exact wording on the page ` +
         `("SWE-bench Verified", not a normalised slug). Search is restricted to ${allowed.join(", ")}, which is deliberate: ` +
         `only the lab's own publications count.\n\n` +
-        `Return an empty releases array if there is nothing in that window. That is the normal result on most days.\n\n` +
+        (alreadyOnFile.length
+          ? `Already on file for this window, so do not return these again, and do not stop because you found them: look for anything else published in the window.\n${alreadyOnFile.join("\n")}\n\n`
+          : "") +
+        `Search more than once before concluding there is nothing: search the lab's announcements for the window, then search each model family you know or find by name. An empty releases array is a correct answer only after that.\n\n` +
         `Benchmarks already tracked, for the alias check (all ${known.length}):\n${known.join(", ")}`,
     }],
   });
@@ -222,7 +227,10 @@ async function researchLab(lab) {
     throw new Error(`reply was not JSON (${e.message}); first 200 chars: ${text.slice(0, 200)}`);
   }
   if (!Array.isArray(parsed.releases)) throw new Error("reply had no releases array");
-  return parsed.releases;
+  // What the search actually did, kept for the log. A lab that found nothing used to print nothing at all, so a run that missed GPT-6 Sol and Luna a day after OpenAI published them could not say whether the page was not yet indexed, the queries never reached it, or the model saw it and returned an empty list. Those need three different fixes.
+  const queries = response.content.filter((b) => b.type === "server_tool_use" && b.name === "web_search").map((b) => b.input?.query ?? "");
+  const urls = response.content.filter((b) => b.type === "web_search_tool_result").flatMap((b) => (Array.isArray(b.content) ? b.content : []).map((r) => r?.url).filter(Boolean));
+  return { releases: parsed.releases, queries, urls };
 }
 
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -239,10 +247,12 @@ const refused = [];
 const aliasSuggestions = [];
 const catSuggestions = [];
 
+// One line per lab whatever it found, printed to the run log rather than the commit message.
+const perLab = [];
 const results = await Promise.allSettled(labs.map(async (lab) => {
-  const found = await researchLab(lab);
   const path = join(DATA, "releases", `${lab.id}.json`);
   const existing = existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : [];
+  const { releases: found, queries, urls } = await researchLab(lab, existing);
   const seen = new Set(existing.map((r) => r.source_url));
 
   // Provenance is decided once, before anything is read off the record. A
@@ -286,6 +296,8 @@ const results = await Promise.allSettled(labs.map(async (lab) => {
     }
   }
 
+  perLab.push({ lab: lab.name, searches: queries.length, results: urls.length, returned: found.length,
+    unofficial: found.length - official.length, onFile: official.length - fresh.length, fresh: fresh.length, queries });
   if (fresh.length) {
     const merged = [...existing, ...fresh].sort((a, b) => a.date.localeCompare(b.date));
     writeFileSync(path, JSON.stringify(merged, null, 2) + "\n");
@@ -293,6 +305,13 @@ const results = await Promise.allSettled(labs.map(async (lab) => {
     summary.push(`${lab.name}: +${fresh.length} (${fresh.map((f) => f.model).join(", ")})`);
   }
 }));
+
+// Printed for every lab, including the ones that found nothing. A zero is the result that most needs explaining and was the one never printed.
+console.log("Per lab: searches, results seen, returned, dropped as unofficial, already on file, new");
+for (const x of perLab.sort((a, b) => a.lab.localeCompare(b.lab))) {
+  console.log(`  ${x.lab.padEnd(16)} ${String(x.searches).padStart(2)} searches  ${String(x.results).padStart(3)} results  returned ${x.returned}  unofficial ${x.unofficial}  on file ${x.onFile}  new ${x.fresh}`);
+  if (!x.fresh) for (const q of x.queries) console.log(`      searched: ${q}`);
+}
 
 const failures = [];
 for (const [i, r] of results.entries()) {
