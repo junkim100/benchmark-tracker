@@ -583,6 +583,20 @@
       "starts": [
         "cursorbench"
       ]
+    },
+    {
+      "id": "automationbench",
+      "name": "AutomationBench",
+      "starts": [
+        "automationbench"
+      ]
+    },
+    {
+      "id": "agentslastexam",
+      "name": "Agents' Last Exam",
+      "starts": [
+        "agentslastexam"
+      ]
     }
   ]
 }

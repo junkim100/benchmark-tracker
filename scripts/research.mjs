@@ -174,11 +174,32 @@ async function researchLab(lab, onFile) {
   const allowed = domainsFor(lab);
   // This lab's releases already on file inside the window. The prompt used to give only benchmark names, so a search that found last week's GPT-6 Astra again looked like a finished job, and the model had no reason to keep looking for what came after it.
   const alreadyOnFile = onFile.filter((r) => r.date >= since).map((r) => `${r.date} ${r.model} (${r.kind}) ${r.source_url}`);
-  const response = await client.messages.create({
+  // One conversation, resumed if the server pauses it. Search and fetch both run server side, and a turn that uses many of them can stop at the server loop's iteration limit with stop_reason "pause_turn" and no final message. That used to throw and turn the lab into a FAILED line; describe.mjs has resumed the same stop for a while, and re-sending what came back is all it takes.
+  const firstPrompt =
+        `Find everything ${lab.name} published between ${since} and ${today} that announces a model or reports its evaluation: ` +
+        `model releases, technical reports, system cards, or model-announcement blog posts.\n\n` +
+        `For each one, record which benchmarks the lab cited, using the exact wording on the page ` +
+        `("SWE-bench Verified", not a normalised slug). Search is restricted to ${allowed.join(", ")}, which is deliberate: ` +
+        `only the lab's own publications count.\n\n` +
+        (alreadyOnFile.length
+          ? `Already on file for this window, so do not return these again, and do not stop because you found them: look for anything else published in the window.\n${alreadyOnFile.join("\n")}\n\n`
+          : "") +
+        `Search more than once before concluding there is nothing: search the lab's announcements for the window, then search each model family you know or find by name. An empty releases array is a correct answer only after that.\n\n` +
+        `Search finds pages; web_fetch reads them. Before recording any release, fetch its page and read the whole of it, and fetch its system card or technical report if it links one. Record every benchmark the page names, including those in later sections, chart captions and tables. A search snippet shows only part of a page, so a list built from snippets alone is incomplete.\n\n` +
+        `Benchmarks already tracked, for the alias check (all ${known.length}):\n${known.join(", ")}`;
+  const messages = [];
+  let response;
+  const toolBlocks = [];
+  for (let turn = 0; turn < 4; turn++) {
+  response = await client.messages.create({
     model: "claude-opus-5",
     max_tokens: MAX_TOKENS,
     output_config: { effort: "high", format: { type: "json_schema", schema: RECORD_SCHEMA } },
-    tools: [{ type: "web_search_20260209", name: "web_search", max_uses: 12, allowed_domains: allowed }],
+    tools: [
+      { type: "web_search_20260209", name: "web_search", max_uses: 12, allowed_domains: allowed },
+      // Search alone reads snippets, never pages. The GPT-6 Sol and Luna announcement cites five benchmarks and the run recorded one, AutomationBench, because that was the section the search snippet happened to show; Agents' Last Exam, FrontierCode, DeepSWE and OSWorld were further down a page nothing ever read. Fetch is held to the same lab-only domains as search, so it cannot widen what counts as a source.
+      { type: "web_fetch_20260209", name: "web_fetch", max_uses: 8, allowed_domains: allowed, max_content_tokens: 30000 },
+    ],
     system:
       "You catalogue which benchmarks AI labs cite when they ship a model. You record the citation and never the score. " +
       "A number anywhere in your output is an error. If a release cites no benchmark, that is a real and useful finding: " +
@@ -190,21 +211,13 @@ async function researchLab(lab, onFile) {
       "so are IFEval and C-Eval, despite looking alike. A language or difficulty split is its own benchmark: IFEval " +
       "(Japanese) is not IFEval, and Leetcode (hard) is not Leetcode. Spelling, punctuation and capitalisation differences " +
       "are handled downstream, so do not pair names that differ only that way.",
-    messages: [{
-      role: "user",
-      content:
-        `Find everything ${lab.name} published between ${since} and ${today} that announces a model or reports its evaluation: ` +
-        `model releases, technical reports, system cards, or model-announcement blog posts.\n\n` +
-        `For each one, record which benchmarks the lab cited, using the exact wording on the page ` +
-        `("SWE-bench Verified", not a normalised slug). Search is restricted to ${allowed.join(", ")}, which is deliberate: ` +
-        `only the lab's own publications count.\n\n` +
-        (alreadyOnFile.length
-          ? `Already on file for this window, so do not return these again, and do not stop because you found them: look for anything else published in the window.\n${alreadyOnFile.join("\n")}\n\n`
-          : "") +
-        `Search more than once before concluding there is nothing: search the lab's announcements for the window, then search each model family you know or find by name. An empty releases array is a correct answer only after that.\n\n` +
-        `Benchmarks already tracked, for the alias check (all ${known.length}):\n${known.join(", ")}`,
-    }],
+    messages: messages.length ? messages : [{ role: "user", content: firstPrompt }],
   });
+    toolBlocks.push(...response.content);
+    if (response.stop_reason !== "pause_turn") break;
+    if (!messages.length) messages.push({ role: "user", content: firstPrompt });
+    messages.push({ role: "assistant", content: response.content });
+  }
 
   // Refusal was the only stop reason handled, and it is not the only one that
   // arrives without usable text. A paused turn carries tool blocks and no final
@@ -212,7 +225,7 @@ async function researchLab(lab, onFile) {
   // JSON.parse with a syntax error that says nothing about what happened, and
   // allSettled turned that into one unexplained FAILED line.
   if (response.stop_reason === "refusal") throw new Error(`refused: ${response.stop_details?.category}`);
-  if (response.stop_reason === "pause_turn") throw new Error("paused mid-turn: no final message to read");
+  if (response.stop_reason === "pause_turn") throw new Error("still paused after three continuations");
   if (response.stop_reason === "max_tokens") throw new Error(`hit max_tokens (${MAX_TOKENS}): the answer is truncated`);
 
   const text = response.content.filter((b) => b.type === "text").map((b) => b.text).join("").trim();
@@ -228,9 +241,10 @@ async function researchLab(lab, onFile) {
   }
   if (!Array.isArray(parsed.releases)) throw new Error("reply had no releases array");
   // What the search actually did, kept for the log. A lab that found nothing used to print nothing at all, so a run that missed GPT-6 Sol and Luna a day after OpenAI published them could not say whether the page was not yet indexed, the queries never reached it, or the model saw it and returned an empty list. Those need three different fixes.
-  const queries = response.content.filter((b) => b.type === "server_tool_use" && b.name === "web_search").map((b) => b.input?.query ?? "");
-  const urls = response.content.filter((b) => b.type === "web_search_tool_result").flatMap((b) => (Array.isArray(b.content) ? b.content : []).map((r) => r?.url).filter(Boolean));
-  return { releases: parsed.releases, queries, urls };
+  const queries = toolBlocks.filter((b) => b.type === "server_tool_use" && b.name === "web_search").map((b) => b.input?.query ?? "");
+  const urls = toolBlocks.filter((b) => b.type === "web_search_tool_result").flatMap((b) => (Array.isArray(b.content) ? b.content : []).map((r) => r?.url).filter(Boolean));
+  const fetched = toolBlocks.filter((b) => b.type === "server_tool_use" && b.name === "web_fetch").map((b) => b.input?.url ?? "");
+  return { releases: parsed.releases, queries, urls, fetched };
 }
 
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -252,7 +266,7 @@ const perLab = [];
 const results = await Promise.allSettled(labs.map(async (lab) => {
   const path = join(DATA, "releases", `${lab.id}.json`);
   const existing = existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : [];
-  const { releases: found, queries, urls } = await researchLab(lab, existing);
+  const { releases: found, queries, urls, fetched } = await researchLab(lab, existing);
   const seen = new Set(existing.map((r) => r.source_url));
 
   // Provenance is decided once, before anything is read off the record. A
@@ -296,7 +310,7 @@ const results = await Promise.allSettled(labs.map(async (lab) => {
     }
   }
 
-  perLab.push({ lab: lab.name, searches: queries.length, results: urls.length, returned: found.length,
+  perLab.push({ lab: lab.name, searches: queries.length, results: urls.length, fetches: fetched.length, returned: found.length,
     unofficial: found.length - official.length, onFile: official.length - fresh.length, fresh: fresh.length, queries });
   if (fresh.length) {
     const merged = [...existing, ...fresh].sort((a, b) => a.date.localeCompare(b.date));
@@ -307,9 +321,9 @@ const results = await Promise.allSettled(labs.map(async (lab) => {
 }));
 
 // Printed for every lab, including the ones that found nothing. A zero is the result that most needs explaining and was the one never printed.
-console.log("Per lab: searches, results seen, returned, dropped as unofficial, already on file, new");
+console.log("Per lab: searches, results seen, pages fetched, returned, dropped as unofficial, already on file, new");
 for (const x of perLab.sort((a, b) => a.lab.localeCompare(b.lab))) {
-  console.log(`  ${x.lab.padEnd(16)} ${String(x.searches).padStart(2)} searches  ${String(x.results).padStart(3)} results  returned ${x.returned}  unofficial ${x.unofficial}  on file ${x.onFile}  new ${x.fresh}`);
+  console.log(`  ${x.lab.padEnd(16)} ${String(x.searches).padStart(2)} searches  ${String(x.results).padStart(3)} results  ${String(x.fetches).padStart(2)} fetched  returned ${x.returned}  unofficial ${x.unofficial}  on file ${x.onFile}  new ${x.fresh}`);
   if (!x.fresh) for (const q of x.queries) console.log(`      searched: ${q}`);
 }
 

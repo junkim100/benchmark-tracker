@@ -2758,7 +2758,11 @@
     "title": "Introducing GPT-6 Sol and Luna",
     "source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
     "benchmarks_raw": [
-      "AutomationBench 1.0.6"
+      "AutomationBench 1.0.6",
+      "Agents' Last Exam V1",
+      "FrontierCode 1.1 Main",
+      "DeepSWE 1.1",
+      "OSWorld 2.0"
     ],
     "modality": {
       "classes": [

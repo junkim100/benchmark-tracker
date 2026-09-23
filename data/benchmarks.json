@@ -1822,7 +1822,7 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "automationbench",
     "recent_share": 2
   },
   {
@@ -2203,7 +2203,7 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "agentslastexam",
     "recent_share": 0
   },
   {
@@ -2620,7 +2620,7 @@
       "zai"
     ],
     "first_seen": "2026-07-09",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 6
     },
@@ -9827,7 +9827,7 @@
       "openai"
     ],
     "first_seen": "2026-08-13",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 2
     },
@@ -14993,6 +14993,27 @@
     "recent_share": 0
   },
   {
+    "id": "agentslastexam1",
+    "name": "Agents' Last Exam V1",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-09-22",
+    "last_seen": "2026-09-22",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "agentslastexam",
+    "recent_share": 0
+  },
+  {
     "id": "agentworldbench",
     "name": "AgentWorldBench",
     "lab_count": 1,
@@ -17012,7 +17033,7 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "automationbench",
     "recent_share": 0
   },
   {
@@ -17033,7 +17054,7 @@
     "categories": [
       "agentic"
     ],
-    "suite": null,
+    "suite": "automationbench",
     "recent_share": 0
   },
   {
