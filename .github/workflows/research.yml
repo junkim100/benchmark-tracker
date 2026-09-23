@@ -121,11 +121,16 @@ jobs:
 
           Proposals from a run that found no new releases. Nothing is applied; both files are for a person to read."
               PUSH_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}"
+              # A flag, because the loop cannot fail on its own: the rebase after the
+              # third rejected push succeeds, the loop ends, and the step went green
+              # having pushed nothing.
+              pushed=false
               for attempt in 1 2 3; do
-                git push "$PUSH_URL" HEAD:main && break
+                if git push "$PUSH_URL" HEAD:main; then pushed=true; break; fi
                 echo "push rejected, rebasing (attempt $attempt)"
                 git pull --rebase --autostash origin main || exit 1
               done
+              $pushed || { echo "push failed after 3 attempts"; exit 1; }
             else
               echo "Queues unchanged."
             fi
@@ -143,11 +148,16 @@ jobs:
           # The repo takes human commits too, and a rejected push under `bash -e`
           # would abort the step, leave `changed` unset and skip the deploy,
           # discarding the run's alias and category work with it.
+          # A flag, because the loop cannot fail on its own: the rebase after the
+          # third rejected push succeeds, the loop ends, and the step went green
+          # having pushed nothing.
+          pushed=false
           for attempt in 1 2 3; do
-            git push "$PUSH_URL" HEAD:main && break
+            if git push "$PUSH_URL" HEAD:main; then pushed=true; break; fi
             echo "push rejected, rebasing (attempt $attempt)"
             git pull --rebase --autostash origin main || exit 1
           done
+          $pushed || { echo "push failed after 3 attempts"; exit 1; }
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
   # Only when something landed, and only as an explicit call: the bot's own push

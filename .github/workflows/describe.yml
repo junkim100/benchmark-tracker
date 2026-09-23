@@ -17,6 +17,8 @@ permissions:
 jobs:
   describe:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
     # A full pass is 2,176 web-search turns at eight-way concurrency, which lands near four hours. Stated rather than left to the six-hour default, so a run that has stopped making progress is cut off with time left to notice: the script writes after every batch, so whatever it had bought is on disk and the next run resumes from there.
     timeout-minutes: 350
     permissions:
@@ -65,6 +67,7 @@ jobs:
       #
       # Still not success(), for the reason below: a run cut off partway has real work on disk and should land it. What is being excluded is the specific case of a completed pass whose own result is suspect.
       - name: Commit
+        id: commit
         if: ${{ always() && steps.verify.outcome == 'success' && steps.describe.outcome != 'failure' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -74,6 +77,7 @@ jobs:
           # Asked of descriptions.json alone. normalize.mjs stamps a fresh generated_at into timeline.json on every run, so data/ is never clean and a check over the whole directory could never take this branch.
           if git diff --quiet -- data/descriptions.json; then
             echo "Nothing to commit."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git add data/descriptions.json data/descriptions-site.json data/timeline.json
@@ -88,8 +92,27 @@ jobs:
           # The loop's last command used to be sleep, so three failed pushes
           # still left the step green and the workflow published nothing while
           # reporting success. research.yml gets this right; these two did not.
+          # A flag, because the loop cannot fail on its own: the rebase after the
+          # third rejected push succeeds, the loop ends, and the step went green
+          # having pushed nothing.
+          pushed=false
           for attempt in 1 2 3; do
-            git push "$PUSH_URL" HEAD:main && break
+            if git push "$PUSH_URL" HEAD:main; then pushed=true; break; fi
             echo "push rejected, rebasing (attempt $attempt)"
             git pull --rebase --autostash origin main || exit 1
           done
+          $pushed || { echo "push failed after 3 attempts"; exit 1; }
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+  # Its own deploy, because nothing else will start one. The commit above is pushed with the job's GITHUB_TOKEN, and GitHub does not let a push made with that token trigger another workflow, so deploy.yml's push trigger never fires for it. The first run on new benchmarks committed fifteen descriptions that the live site then did not have. research.yml has carried this job since it was written; this workflow never did.
+  deploy:
+    needs: describe
+    if: needs.describe.outputs.changed == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy.yml
+    # main, not the caller's SHA: the commit landed after this run started.
+    with:
+      ref: main
