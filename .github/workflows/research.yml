@@ -65,6 +65,34 @@ jobs:
           LOOKBACK_DAYS: ${{ inputs.lookback_days || '7' }}
         run: node scripts/research.mjs
 
+      # The rest of the pipeline, in the same run. Research was the only automatic step, so new benchmarks reached the site with no description and the modality of a release depended on the research agent remembering to record it; Describe and Backfill each waited for somebody to press a button. Both only touch what is missing, so on a quiet day each is a no-op that costs nothing.
+      #
+      # The registry first, because describe.mjs describes data/benchmarks.json as it sits on disk and would not know about a benchmark research added a minute ago.
+      - name: Rebuild the registry
+        run: npm run normalize
+
+      - name: Classify modality of anything unclassified
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/backfill-modality.mjs
+
+      # Bounded, so a backlog cannot turn a three-day routine into a six-hour pass. Whatever is left is picked up next run, or by the manual Describe workflow.
+      - name: Describe new benchmarks
+        id: describe
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/describe.mjs --limit 200
+
+      # describe.mjs exits non-zero when its own result is suspect, most often a refusal rate too low to be believable. describe.yml blocks its commit on that; here the rest of the run is still good, so only the descriptions are thrown away, and the next pass tries those ids again.
+      - name: Discard a suspect description pass
+        if: steps.describe.outcome == 'failure'
+        run: |
+          git checkout -- data/descriptions.json 2>/dev/null || true
+          rm -f descriptions-summary.txt
+          npm run normalize
+
       # Sweep for duplicates the name rules cannot see.
       #
       # The step above catches a new name that a research agent noticed resembled a tracked one. This catches the other direction: two rows already in the registry that turn out to cite the same page, which is the signal the descriptions added and the name rules never had. It runs after the research so a release ingested this pass is included.
@@ -93,7 +121,8 @@ jobs:
           ADDED=$(cat research-added.txt 2>/dev/null || echo 0)
           git config user.name "benchmark-tracker bot"
           git config user.email "noreply@github.com"
-          if [ "$ADDED" -eq 0 ]; then
+          # Releases are not the only thing a run adds now. A description, or a modality written into an older release, is worth committing on a day research found nothing.
+          if [ "$ADDED" -eq 0 ] && git diff --quiet -- data/releases data/descriptions.json; then
             echo "No new releases."
             # The two queues survive a quiet run. Everything else in data/ is
             # reverted, because normalize.mjs stamps a fresh generated_at into
@@ -142,7 +171,9 @@ jobs:
           git add data
           git commit -m "Research: $(date -u +%Y-%m-%d)
 
-          $(cat research-summary.txt)"
+          $(cat research-summary.txt 2>/dev/null)
+
+          $(cat descriptions-summary.txt 2>/dev/null)"
           # The credential is supplied here rather than persisted by checkout, so it is never sitting in .git/config while third-party install scripts run. Actions masks the token in the log, and the rebase below stays anonymous because it only reads a public repository.
           PUSH_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}"
           # The repo takes human commits too, and a rejected push under `bash -e`

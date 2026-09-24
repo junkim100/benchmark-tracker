@@ -34,7 +34,16 @@ Labs spell the same benchmark many ways, and a wrong merge is invisible: it chan
 
 ## Keeping it current
 
-A scheduled workflow researches every third day, searching a seven-day window so that a delayed or dropped run never leaves a permanent hole. Findings are validated against the data contract and committed straight to `main`, which then deploys. Nothing lands unvalidated, records are only ever appended, and a bad entry is one revert away.
+One scheduled workflow, **Research**, keeps everything current. Every third day it:
+
+1. Searches each lab's own site for releases in the last seven days, and reads each release page in full, so a delayed or dropped run never leaves a permanent hole.
+2. Rebuilds the registry, then classifies the modality of any release that lacks one and describes any benchmark that has no description yet. Both touch only what is missing, so on a quiet day they cost nothing.
+3. Scans for duplicates and validates everything against the data contract.
+4. Commits once to `main` and deploys once.
+
+Nothing lands unvalidated, records are only ever appended, and a bad entry is one revert away. The other two workflows, **Describe benchmarks** and **Backfill modality**, are manual fallbacks for a large backlog; the schedule does not need them.
+
+Two things still need a person: proposed merges the gate was not confident about wait in `data/alias-queue.json` and `data/dedupe-queue.json`, because a wrong merge silently corrupts every count it touches.
 
 It needs an `ANTHROPIC_API_KEY` repository secret. Without it the run fails rather than silently recording nothing. Check the whole path by hand before trusting the schedule:
 
