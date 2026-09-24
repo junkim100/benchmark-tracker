@@ -238,5 +238,6 @@
   "omnilinguamspeaker": "omnilinguamultispeaker",
   "avspeaker": "avspeakerbench",
   "cursorbench320": "cursorbench32",
-  "Vals AI's Legal Research Bench": "legalresearchbench"
+  "Vals AI's Legal Research Bench": "legalresearchbench",
+  "FDB V3": "fullduplexbench3"
 }

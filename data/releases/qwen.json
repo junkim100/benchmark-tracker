@@ -4800,6 +4800,24 @@
     }
   },
   {
+    "id": "qwen-qwen-audio-agent-2026-09-21",
+    "lab": "qwen",
+    "model": "Qwen-Audio-Agent",
+    "date": "2026-09-21",
+    "kind": "technical_report",
+    "title": "Qwen-Audio-Agent Technical Report",
+    "source_url": "https://arxiv.org/abs/2609.25195",
+    "benchmarks_raw": [
+      "FDB V3"
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "reported"
+    }
+  },
+  {
     "id": "qwen-qwen3-8-omni-flash-2026-09-22",
     "lab": "qwen",
     "model": "Qwen3.8-Omni-Flash",

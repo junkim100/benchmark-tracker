@@ -152,6 +152,22 @@
     ],
     "foldbench": [
       "science"
+    ],
+    "fixedinputbenchmark": [
+      "science",
+      "agentic"
+    ],
+    "humeaisvoicedesignbenchmark": [
+      "speech"
+    ],
+    "humeaisoverallqualityindex": [
+      "speech"
+    ],
+    "voicearena": [
+      "speech"
+    ],
+    "mentalhealthbench": [
+      "safety"
     ]
   }
 }

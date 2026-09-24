@@ -3291,6 +3291,10 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "fixedinputbenchmark": {
+    "source": "none",
+    "checked": "2026-09-24"
+  },
   "flamereacteval": {
     "text": "80 manually written front-end tasks, each pairing a UI screenshot with a layout description, functional requirements and a reference React component, used to test generation of React code from a design mockup.",
     "source_url": "https://huggingface.co/datasets/Flame-Code-VLM/Flame-Eval-React",
@@ -4496,6 +4500,14 @@
   "humansourcedjailbreaks": {
     "source": "none",
     "checked": "2026-09-22"
+  },
+  "humeaisoverallqualityindex": {
+    "source": "none",
+    "checked": "2026-09-24"
+  },
+  "humeaisvoicedesignbenchmark": {
+    "source": "none",
+    "checked": "2026-09-24"
   },
   "hummusqa": {
     "text": "320 hand-written questions about music audio, curated and validated by annotators with musical training, paired with checks for whether a model can answer from text alone without listening.",
@@ -6156,6 +6168,12 @@
     "source_url": "https://cdn.openai.com/pdf/3a4153c8-c748-4b71-8e31-aecbde944f8d/oai_5_2_system-card.pdf",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "mentalhealthbench": {
+    "text": "OpenAI benchmark of realistic mental health conversations, co-created with 80+ licensed clinicians from 22 countries; model replies are graded on expert-defined behaviors such as safety, seeking context, preserving user agency and actionable guidance.",
+    "source_url": "https://openai.com/index/introducing-mentalhealthbench/",
+    "source": "researched",
+    "checked": "2026-09-24"
   },
   "met": {
     "text": "Around 224,000 classes, one per museum exhibit, trained on studio photographs from the Metropolitan Museum's open access collection and tested on visitor snapshots plus unrelated images, as instance-level recognition.",
@@ -10918,6 +10936,10 @@
     "source_url": "https://arxiv.org/abs/2205.03433",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "voicearena": {
+    "source": "none",
+    "checked": "2026-09-24"
   },
   "voicebench": {
     "text": "A multi-faceted benchmark for LLM-based voice assistants using real and synthetic spoken instructions that vary speaker characteristics, environment and content, rather than clean read speech.",

@@ -1612,5 +1612,39 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "anthropic-claude-2026-09-23",
+    "lab": "anthropic",
+    "model": "Claude",
+    "date": "2026-09-23",
+    "kind": "blog_post",
+    "title": "Claude discovers a novel enzyme system with CRISPR-like repeats",
+    "source_url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "anthropic-claude-opus-5-5-mythos-5-1-mythos-5-opus-5-opus-4-8-opus-4-6-sonnet-5-2026-09-23",
+    "lab": "anthropic",
+    "model": "Claude (Opus 5.5, Mythos 5.1, Mythos 5, Opus 5, Opus 4.8, Opus 4.6, Sonnet 5)",
+    "date": "2026-09-23",
+    "kind": "technical_report",
+    "title": "Autonomous AI agents discover reverse transcriptases with tandem repeat arrays",
+    "source_url": "https://www-cdn.anthropic.com/22573675ada52a8ca8a97a1a4b4326b2f208a071.pdf",
+    "benchmarks_raw": [
+      "fixed-input benchmark"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

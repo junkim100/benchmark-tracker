@@ -4664,7 +4664,7 @@
       "qwen"
     ],
     "first_seen": "2025-08-05",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-23",
     "labs_by_year": {
       "2025": 2,
       "2026": 3
@@ -6459,7 +6459,7 @@
       "xai"
     ],
     "first_seen": "2026-04-23",
-    "last_seen": "2026-09-21",
+    "last_seen": "2026-09-23",
     "labs_by_year": {
       "2026": 3
     },
@@ -9873,6 +9873,28 @@
     ],
     "first_seen": "2026-07-29",
     "last_seen": "2026-09-10",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 2
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "fullduplexbench3",
+    "name": "FDB V3",
+    "lab_count": 2,
+    "labs": [
+      "openai",
+      "qwen"
+    ],
+    "first_seen": "2026-09-10",
+    "last_seen": "2026-09-21",
     "labs_by_year": {
       "2026": 2
     },
@@ -24094,6 +24116,28 @@
     "recent_share": 1
   },
   {
+    "id": "fixedinputbenchmark",
+    "name": "fixed-input benchmark",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-09-23",
+    "last_seen": "2026-09-23",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "science",
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "flamereacteval",
     "name": "Flame-React-Eval",
     "lab_count": 1,
@@ -25065,27 +25109,6 @@
   {
     "id": "fullduplexbench15",
     "name": "Full Duplex Bench (v1.5)",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2026-09-10",
-    "last_seen": "2026-09-10",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "fullduplexbench3",
-    "name": "Full Duplex Bench v3",
     "lab_count": 1,
     "labs": [
       "openai"
@@ -27612,6 +27635,48 @@
     },
     "categories": [
       "safety"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "humeaisoverallqualityindex",
+    "name": "Hume AI's Overall Quality Index",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-09-23",
+    "last_seen": "2026-09-23",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "speech"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "humeaisvoicedesignbenchmark",
+    "name": "Hume AI's Voice Design Benchmark",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-09-23",
+    "last_seen": "2026-09-23",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "speech"
     ],
     "suite": null,
     "recent_share": 0
@@ -32639,6 +32704,27 @@
     },
     "categories": [
       "science"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "mentalhealthbench",
+    "name": "MentalHealthBench",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-09-23",
+    "last_seen": "2026-09-23",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "safety"
     ],
     "suite": null,
     "recent_share": 0
@@ -46269,6 +46355,27 @@
     },
     "categories": [
       "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "voicearena",
+    "name": "Voice Arena",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-09-23",
+    "last_seen": "2026-09-23",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "speech"
     ],
     "suite": null,
     "recent_share": 0
