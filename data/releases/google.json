@@ -4908,5 +4908,22 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "google-gemini-3-8-live-with-live-avatar-2026-09-24",
+    "lab": "google",
+    "model": "Gemini 3.8 Live with Live Avatar",
+    "date": "2026-09-24",
+    "kind": "model_release",
+    "title": "Introducing Gemini 3.8 Live with Live Avatar",
+    "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-with-live-avatar/",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "speech",
+        "video"
+      ],
+      "source": "reported"
+    }
   }
 ]
