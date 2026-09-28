@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "raw": "Binary Exploitation Benchmark (formerly OSS-Fuzz)",
+    "tracked": "OSS-Fuzz",
+    "reason": "the card states it is the renamed OSS-Fuzz evaluation The tracked benchmark \"OSS-Fuzz\" is described as: Models are run against roughly a thousand open source repositories from the OSS-Fuzz corpus, across about 7,000 entry points, and the worst crash each one produces is graded on a five-tier ladder running from a plain crash up to full control-flow hijack.",
+    "lab": "Anthropic",
+    "decision": "REVIEW",
+    "relation": "renamed",
+    "probabilities": {
+      "renamed": 0.99,
+      "version": 0,
+      "same_name": 0.01,
+      "different": 0
+    },
+    "merge_is_safe": 0.65,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-09-28T20:28:37.147Z"
+  }
+]

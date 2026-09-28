@@ -159,6 +159,47 @@
     "outofscopesupplychainattack": [
       "safety",
       "agentic"
+    ],
+    "osworld21": [
+      "agentic",
+      "vision"
+    ],
+    "blackboxrnasequencedesign": [
+      "science"
+    ],
+    "aavpackagingrateautoresearchevaluation": [
+      "science",
+      "agentic"
+    ],
+    "physicianbench": [
+      "agentic",
+      "science"
+    ],
+    "milu": [
+      "multilingual",
+      "knowledge"
+    ],
+    "spatialbenchverified": [
+      "science",
+      "coding"
+    ],
+    "singlecellbench": [
+      "science",
+      "coding"
+    ],
+    "morphologytomoleculematching": [
+      "science",
+      "vision"
+    ],
+    "medicinalchemistry": [
+      "science"
+    ],
+    "denovoproteinbinderdesign": [
+      "science"
+    ],
+    "biomedicalimageanalysis": [
+      "science",
+      "vision"
     ]
   }
 }

@@ -1577,5 +1577,101 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "anthropic-claude-sonnet-5-5-2026-09-28",
+    "lab": "anthropic",
+    "model": "Claude Sonnet 5.5",
+    "date": "2026-09-28",
+    "kind": "model_release",
+    "title": "Introducing Claude Sonnet 5.5",
+    "source_url": "https://www.anthropic.com/claude-sonnet-5-5",
+    "benchmarks_raw": [
+      "Terminal-Bench 4.0",
+      "FrontierCode 1.1 (Main)",
+      "CursorBench 4.0",
+      "GDPval-AA v2.1",
+      "AA-Briefcase v1.1",
+      "Humanity's Last Exam",
+      "OSWorld 2.1",
+      "Chartography"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "anthropic-claude-sonnet-5-5-2026-09-28",
+    "lab": "anthropic",
+    "model": "Claude Sonnet 5.5",
+    "date": "2026-09-28",
+    "kind": "system_card",
+    "title": "System Card: Claude Sonnet 5.5",
+    "source_url": "https://www.anthropic.com/claude-sonnet-5-5-system-card",
+    "benchmarks_raw": [
+      "VCT",
+      "BioMysteryBench",
+      "Protocols",
+      "Black-box RNA sequence design",
+      "AAV capsid packaging prediction",
+      "AAV packaging rate auto-research evaluation",
+      "ExploitBench",
+      "CyScenarioBench",
+      "Binary Exploitation Benchmark (formerly OSS-Fuzz)",
+      "ExploitGym",
+      "Bias Benchmark for Question Answering (BBQ)",
+      "Gray Swan IPI benchmark",
+      "MASK",
+      "SHADE-Arena",
+      "LinuxArena",
+      "Chain-of-thought controllability",
+      "SWE-Bench Pro",
+      "SWE-Bench Multilingual",
+      "SWE-Bench Multimodal",
+      "DeepSWE v1.1",
+      "FrontierCode v1.1 (Main)",
+      "FrontierCode v1.1 Extended",
+      "Terminal-Bench 4.0",
+      "Terminal-Bench-Science 0.1",
+      "FrontierSWE v2",
+      "CursorBench 4.0",
+      "ArXivMath",
+      "ProgramBench",
+      "Humanity's Last Exam",
+      "DRACO",
+      "WANDR",
+      "Chartography",
+      "BenchCAD",
+      "OSWorld 2.1",
+      "OfficeQA",
+      "OfficeQA Pro",
+      "Legal Agent Benchmark",
+      "GDPval-AA v2.1",
+      "AA-Briefcase v1.1",
+      "Toolathlon-Verified",
+      "AutomationBench",
+      "HealthBench",
+      "HealthBench Professional",
+      "PhysicianBench",
+      "GMMLU",
+      "MILU",
+      "SpatialBench Verified",
+      "SingleCellBench",
+      "LatchBio Bioinformatics",
+      "Morphology-to-molecule matching",
+      "Medicinal Chemistry",
+      "Protein Design",
+      "De novo protein binder design",
+      "Biomedical image analysis"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

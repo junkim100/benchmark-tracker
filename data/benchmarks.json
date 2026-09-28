@@ -152,7 +152,7 @@
       "zai"
     ],
     "first_seen": "2025-02-02",
-    "last_seen": "2026-09-22",
+    "last_seen": "2026-09-28",
     "labs_by_year": {
       "2025": 10,
       "2026": 11
@@ -4079,7 +4079,7 @@
       "xai"
     ],
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-22",
+    "last_seen": "2026-09-28",
     "labs_by_year": {
       "2026": 5
     },
@@ -5760,7 +5760,7 @@
       "zai"
     ],
     "first_seen": "2026-07-24",
-    "last_seen": "2026-09-01",
+    "last_seen": "2026-09-28",
     "labs_by_year": {
       "2026": 3
     },
@@ -6282,6 +6282,29 @@
     ],
     "suite": null,
     "recent_share": 3
+  },
+  {
+    "id": "frontiercode11main",
+    "name": "FrontierCode 1.1 Main",
+    "lab_count": 3,
+    "labs": [
+      "anthropic",
+      "google",
+      "openai"
+    ],
+    "first_seen": "2026-08-13",
+    "last_seen": "2026-09-28",
+    "labs_by_year": {
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 3
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": "frontiercode",
+    "recent_share": 0
   },
   {
     "id": "gdppdf",
@@ -7974,6 +7997,28 @@
     "recent_share": 2
   },
   {
+    "id": "aabriefcase11",
+    "name": "AA-Briefcase v1.1",
+    "lab_count": 2,
+    "labs": [
+      "anthropic",
+      "xai"
+    ],
+    "first_seen": "2026-09-21",
+    "last_seen": "2026-09-28",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 2
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "aa-briefcase",
+    "recent_share": 0
+  },
+  {
     "id": "activitynetqa",
     "name": "ActivityNet-QA",
     "lab_count": 2,
@@ -9327,6 +9372,29 @@
     "recent_share": 0
   },
   {
+    "id": "cursorbench40",
+    "name": "CursorBench 4.0",
+    "lab_count": 2,
+    "labs": [
+      "anthropic",
+      "xai"
+    ],
+    "first_seen": "2026-09-21",
+    "last_seen": "2026-09-28",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 2
+    },
+    "categories": [
+      "coding",
+      "agentic"
+    ],
+    "suite": "cursorbench",
+    "recent_share": 0
+  },
+  {
     "id": "cvebench",
     "name": "CVE-Bench",
     "lab_count": 2,
@@ -9752,28 +9820,6 @@
     ],
     "first_seen": "2026-08-12",
     "last_seen": "2026-09-03",
-    "labs_by_year": {
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 2
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": "frontiercode",
-    "recent_share": 0
-  },
-  {
-    "id": "frontiercode11main",
-    "name": "FrontierCode 1.1 Main",
-    "lab_count": 2,
-    "labs": [
-      "google",
-      "openai"
-    ],
-    "first_seen": "2026-08-13",
-    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 2
     },
@@ -14431,27 +14477,6 @@
     "recent_share": 0
   },
   {
-    "id": "aabriefcase11",
-    "name": "AA Briefcase v1.1",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2026-09-21",
-    "last_seen": "2026-09-21",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": "aa-briefcase",
-    "recent_share": 0
-  },
-  {
     "id": "aaomniscienceindex",
     "name": "AA-Omniscience Index",
     "lab_count": 1,
@@ -14474,7 +14499,7 @@
   },
   {
     "id": "aavcapsidpackagingprediction",
-    "name": "AAV Capsid Packaging Prediction",
+    "name": "AAV capsid packaging prediction",
     "lab_count": 1,
     "labs": [
       "openai"
@@ -21202,28 +21227,6 @@
     "recent_share": 2
   },
   {
-    "id": "cursorbench40",
-    "name": "CursorBench 4.0",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2026-09-21",
-    "last_seen": "2026-09-21",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": "cursorbench",
-    "recent_share": 0
-  },
-  {
     "id": "cute",
     "name": "CUTE",
     "lab_count": 1,
@@ -25234,7 +25237,7 @@
       "anthropic"
     ],
     "first_seen": "2026-09-22",
-    "last_seen": "2026-09-22",
+    "last_seen": "2026-09-28",
     "labs_by_year": {
       "2026": 1
     },
@@ -32739,7 +32742,8 @@
       "2026-Q3": 1
     },
     "categories": [
-      "other"
+      "multilingual",
+      "knowledge"
     ],
     "suite": null,
     "recent_share": 2
@@ -37460,6 +37464,28 @@
     ],
     "first_seen": "2026-07-30",
     "last_seen": "2026-07-30",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "agentic",
+      "vision"
+    ],
+    "suite": "osworld",
+    "recent_share": 0
+  },
+  {
+    "id": "osworld21",
+    "name": "OSWorld 2.1",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-09-28",
+    "last_seen": "2026-09-28",
     "labs_by_year": {
       "2026": 1
     },

@@ -7945,6 +7945,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "osworld21": {
+    "text": "OSWorld 2.1 is a bug-fix release of the OSWorld 2.0 computer-use benchmark: 108 long-horizon desktop and web workflows in real OS environments, with pinned task, asset, self-hosted website and provider image versions, graded by weighted per-task checkpoints instead of a single pass/fail check.",
+    "source_url": "https://github.com/xlang-ai/OSWorld-V2",
+    "source": "researched",
+    "checked": "2026-09-28"
+  },
   "osworldg": {
     "text": "A GUI grounding benchmark of 564 finely annotated samples spanning text matching, element recognition, layout understanding and precise manipulation, mapping natural language instructions to actions on a screen.",
     "source_url": "https://arxiv.org/abs/2505.13227",

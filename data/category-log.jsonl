@@ -25,3 +25,14 @@
 {"at":"2026-09-24T03:03:05.646Z","raw":"Voice Arena","cats":["speech"],"lab":"Google DeepMind"}
 {"at":"2026-09-24T03:03:05.646Z","raw":"MentalHealthBench","cats":["safety"],"lab":"OpenAI"}
 {"at":"2026-09-28T00:55:09.167Z","raw":"Out of Scope Supply Chain Attack","cats":["safety","agentic"],"lab":"OpenAI"}
+{"at":"2026-09-28T20:28:37.147Z","raw":"OSWorld 2.1","cats":["agentic","vision"],"lab":"Anthropic"}
+{"at":"2026-09-28T20:28:37.148Z","raw":"Black-box RNA sequence design","cats":["science"],"lab":"Anthropic"}
+{"at":"2026-09-28T20:28:37.148Z","raw":"AAV packaging rate auto-research evaluation","cats":["science","agentic"],"lab":"Anthropic"}
+{"at":"2026-09-28T20:28:37.148Z","raw":"PhysicianBench","cats":["agentic","science"],"lab":"Anthropic"}
+{"at":"2026-09-28T20:28:37.148Z","raw":"MILU","cats":["multilingual","knowledge"],"lab":"Anthropic"}
+{"at":"2026-09-28T20:28:37.148Z","raw":"SpatialBench Verified","cats":["science","coding"],"lab":"Anthropic"}
+{"at":"2026-09-28T20:28:37.148Z","raw":"SingleCellBench","cats":["science","coding"],"lab":"Anthropic"}
+{"at":"2026-09-28T20:28:37.148Z","raw":"Morphology-to-molecule matching","cats":["science","vision"],"lab":"Anthropic"}
+{"at":"2026-09-28T20:28:37.148Z","raw":"Medicinal Chemistry","cats":["science"],"lab":"Anthropic"}
+{"at":"2026-09-28T20:28:37.148Z","raw":"De novo protein binder design","cats":["science"],"lab":"Anthropic"}
+{"at":"2026-09-28T20:28:37.148Z","raw":"Biomedical image analysis","cats":["science","vision"],"lab":"Anthropic"}
