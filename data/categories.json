@@ -155,6 +155,10 @@
     ],
     "voicearena": [
       "speech"
+    ],
+    "outofscopesupplychainattack": [
+      "safety",
+      "agentic"
     ]
   }
 }

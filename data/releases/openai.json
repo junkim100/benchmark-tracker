@@ -2788,5 +2788,37 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "openai-gpt-6-sol-gpt-6-luna-2026-09-22",
+    "lab": "openai",
+    "model": "GPT-6 Sol, GPT-6 Luna",
+    "date": "2026-09-22",
+    "kind": "system_card",
+    "title": "GPT-6 Astra System Card — Appendix with information about GPT-6 Sol and GPT-6 Luna",
+    "source_url": "https://deploymentsafety.openai.com/gpt-6-astra/sec:appendix-sol-luna",
+    "benchmarks_raw": [
+      "Production Benchmarks with Challenging Prompts",
+      "U18 evaluations",
+      "Agentic Safe Completion Evaluations",
+      "Image input evaluations",
+      "Static Jailbreak Evaluations",
+      "Multiturn Jailbreak Evaluations",
+      "Gray Swan IPI Arena",
+      "HealthBench",
+      "HealthBench Hard",
+      "HealthBench Consensus",
+      "HealthBench Professional",
+      "Dynamic Benchmarks with Adversarial User Simulations",
+      "ExploitGym",
+      "Misaligned outcomes in realistic work environments",
+      "Out of Scope Supply Chain Attack"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

@@ -755,5 +755,37 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "xiaomi-mimo-v2-6-pro-mopd-2026-09-26",
+    "lab": "xiaomi",
+    "model": "MiMo-V2.6-Pro-MOPD",
+    "date": "2026-09-26",
+    "kind": "model_release",
+    "title": "XiaomiMiMo/MiMo-V2.6-Pro-MOPD",
+    "source_url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-MOPD",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "xiaomi-mimo-v2-6-flash-mopd-2026-09-26",
+    "lab": "xiaomi",
+    "model": "MiMo-V2.6-Flash-MOPD",
+    "date": "2026-09-26",
+    "kind": "model_release",
+    "title": "XiaomiMiMo/MiMo-V2.6-Flash-MOPD",
+    "source_url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-MOPD",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

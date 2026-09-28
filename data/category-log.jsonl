@@ -24,3 +24,4 @@
 {"at":"2026-09-24T03:03:05.646Z","raw":"Hume AI's Overall Quality Index","cats":["speech"],"lab":"Google DeepMind"}
 {"at":"2026-09-24T03:03:05.646Z","raw":"Voice Arena","cats":["speech"],"lab":"Google DeepMind"}
 {"at":"2026-09-24T03:03:05.646Z","raw":"MentalHealthBench","cats":["safety"],"lab":"OpenAI"}
+{"at":"2026-09-28T00:55:09.167Z","raw":"Out of Scope Supply Chain Attack","cats":["safety","agentic"],"lab":"OpenAI"}

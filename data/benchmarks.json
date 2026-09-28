@@ -4580,7 +4580,7 @@
       "zai"
     ],
     "first_seen": "2026-06-26",
-    "last_seen": "2026-09-17",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 4
     },
@@ -4663,7 +4663,7 @@
       "qwen"
     ],
     "first_seen": "2025-08-05",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2025": 2,
       "2026": 3
@@ -6458,7 +6458,7 @@
       "xai"
     ],
     "first_seen": "2026-04-23",
-    "last_seen": "2026-09-21",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 3
     },
@@ -14930,7 +14930,7 @@
       "openai"
     ],
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 1
     },
@@ -22599,7 +22599,7 @@
       "openai"
     ],
     "first_seen": "2026-03-05",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 1
     },
@@ -25835,7 +25835,7 @@
       "openai"
     ],
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 1
     },
@@ -26561,7 +26561,7 @@
       "openai"
     ],
     "first_seen": "2025-08-05",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2025": 1,
       "2026": 1
@@ -26586,7 +26586,7 @@
       "openai"
     ],
     "first_seen": "2025-08-05",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2025": 1,
       "2026": 1
@@ -27893,7 +27893,7 @@
       "openai"
     ],
     "first_seen": "2025-07-17",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2025": 1,
       "2026": 1
@@ -33090,7 +33090,7 @@
       "openai"
     ],
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 1
     },
@@ -35486,7 +35486,7 @@
       "openai"
     ],
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 1
     },
@@ -37474,6 +37474,28 @@
     "recent_share": 0
   },
   {
+    "id": "outofscopesupplychainattack",
+    "name": "Out of Scope Supply Chain Attack",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-09-22",
+    "last_seen": "2026-09-22",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "safety",
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "ovis",
     "name": "OVIS",
     "lab_count": 1,
@@ -39048,7 +39070,7 @@
       "openai"
     ],
     "first_seen": "2026-03-05",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 1
     },
@@ -42961,7 +42983,7 @@
       "openai"
     ],
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 1
     },
@@ -45016,7 +45038,7 @@
       "openai"
     ],
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-09-22",
     "labs_by_year": {
       "2026": 1
     },

@@ -7957,6 +7957,10 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "outofscopesupplychainattack": {
+    "source": "none",
+    "checked": "2026-09-28"
+  },
   "ovis": {
     "text": "A video instance segmentation benchmark for heavily occluded scenes, with 296,000 instance masks over 25 semantic categories that a model must detect, segment and track through the occlusions.",
     "source_url": "https://arxiv.org/abs/2102.01558",
