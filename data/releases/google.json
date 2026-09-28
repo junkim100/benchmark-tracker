@@ -2029,23 +2029,6 @@
     }
   },
   {
-    "id": "google-gemini-2-5-pro-preview-live-api-veo-2-2025-04-09",
-    "lab": "google",
-    "model": "Gemini 2.5 Pro Preview / Gemini 2.0 Flash Live / Veo 2 (Gemini API)",
-    "date": "2025-04-09",
-    "kind": "blog_post",
-    "title": "Gemini 2.5 Flash and Pro, Live API, and Veo 2 in the Gemini API",
-    "source_url": "https://developers.googleblog.com/en/gemini-2-5-flash-pro-live-api-veo-2-gemini-api/",
-    "benchmarks_raw": [],
-    "modality": {
-      "classes": [
-        "language",
-        "video"
-      ],
-      "source": "inferred"
-    }
-  },
-  {
     "id": "google-dolphingemma-2025-04-14",
     "lab": "google",
     "model": "DolphinGemma",
@@ -2433,22 +2416,6 @@
     }
   },
   {
-    "id": "google-imagen-4-gemini-api-2025-06-24",
-    "lab": "google",
-    "model": "Imagen 4 / Imagen 4 Ultra (Gemini API preview)",
-    "date": "2025-06-24",
-    "kind": "blog_post",
-    "title": "Imagen 4 is now available in the Gemini API and Google AI Studio",
-    "source_url": "https://developers.googleblog.com/en/imagen-4-now-available-in-the-gemini-api-and-google-ai-studio/",
-    "benchmarks_raw": [],
-    "modality": {
-      "classes": [
-        "image"
-      ],
-      "source": "inferred"
-    }
-  },
-  {
     "id": "google-gemma-3n-2025-06-26",
     "lab": "google",
     "model": "Gemma 3n",
@@ -2631,58 +2598,6 @@
       "GSM8K",
       "DROP",
       "MMLU"
-    ],
-    "modality": {
-      "classes": [
-        "language"
-      ],
-      "source": "inferred"
-    }
-  },
-  {
-    "id": "google-gemini-embedding-ga-2025-07-14",
-    "lab": "google",
-    "model": "Gemini Embedding (gemini-embedding-001)",
-    "date": "2025-07-14",
-    "kind": "blog_post",
-    "title": "Gemini Embedding now generally available in the Gemini API",
-    "source_url": "https://developers.googleblog.com/en/gemini-embedding-available-gemini-api/",
-    "benchmarks_raw": [
-      "MTEB Multilingual"
-    ],
-    "modality": {
-      "classes": [
-        "embedding"
-      ],
-      "source": "inferred"
-    }
-  },
-  {
-    "id": "google-veo-3-gemini-api-2025-07-17",
-    "lab": "google",
-    "model": "Veo 3 (Gemini API)",
-    "date": "2025-07-17",
-    "kind": "blog_post",
-    "title": "Build with Veo 3, now available in the Gemini API",
-    "source_url": "https://developers.googleblog.com/en/veo-3-now-available-gemini-api/",
-    "benchmarks_raw": [],
-    "modality": {
-      "classes": [
-        "video"
-      ],
-      "source": "inferred"
-    }
-  },
-  {
-    "id": "google-gemini-deep-think-imo-2025-07-21",
-    "lab": "google",
-    "model": "Gemini Deep Think (IMO gold-medal version)",
-    "date": "2025-07-21",
-    "kind": "blog_post",
-    "title": "Advanced version of Gemini with Deep Think officially achieves gold-medal standard at the International Mathematical Olympiad",
-    "source_url": "https://deepmind.google/discover/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/",
-    "benchmarks_raw": [
-      "IMO 2025"
     ],
     "modality": {
       "classes": [
@@ -3051,22 +2966,6 @@
     "modality": {
       "classes": [
         "language"
-      ],
-      "source": "inferred"
-    }
-  },
-  {
-    "id": "google-gemini-2-5-flash-image-ga-2025-10-02",
-    "lab": "google",
-    "model": "Gemini 2.5 Flash Image (GA)",
-    "date": "2025-10-02",
-    "kind": "blog_post",
-    "title": "Gemini 2.5 Flash Image now ready for production with new aspect ratios",
-    "source_url": "https://developers.googleblog.com/en/gemini-2-5-flash-image-now-ready-for-production-with-new-aspect-ratios/",
-    "benchmarks_raw": [],
-    "modality": {
-      "classes": [
-        "image"
       ],
       "source": "inferred"
     }
@@ -3508,22 +3407,6 @@
     }
   },
   {
-    "id": "google-veo-3-1-ingredients-to-video-2026-01-13",
-    "lab": "google",
-    "model": "Veo 3.1",
-    "date": "2026-01-13",
-    "kind": "model_release",
-    "title": "Veo 3.1 Ingredients to Video: More consistency, creativity and control",
-    "source_url": "https://blog.google/innovation-and-ai/technology/ai/veo-3-1-ingredients-to-video/",
-    "benchmarks_raw": [],
-    "modality": {
-      "classes": [
-        "video"
-      ],
-      "source": "inferred"
-    }
-  },
-  {
     "id": "google-translategemma-2026-01-15",
     "lab": "google",
     "model": "TranslateGemma",
@@ -3534,31 +3417,6 @@
     "benchmarks_raw": [
       "WMT24++",
       "Vistra"
-    ],
-    "modality": {
-      "classes": [
-        "language"
-      ],
-      "source": "inferred"
-    }
-  },
-  {
-    "id": "google-gemini-3-flash-agentic-vision-2026-01-27",
-    "lab": "google",
-    "model": "Gemini 3 Flash",
-    "date": "2026-01-27",
-    "kind": "blog_post",
-    "title": "Introducing Agentic Vision in Gemini 3 Flash",
-    "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/agentic-vision-gemini-3-flash/",
-    "benchmarks_raw": [
-      "MMMU Pro",
-      "Visual Probe",
-      "V*",
-      "HRBench 4K",
-      "HRBench 8K",
-      "OfficeQA",
-      "CharXiv",
-      "ERQA"
     ],
     "modality": {
       "classes": [
@@ -3579,25 +3437,6 @@
     "modality": {
       "classes": [
         "video"
-      ],
-      "source": "inferred"
-    }
-  },
-  {
-    "id": "google-gemini-deep-think-scientific-discovery-2026-02-11",
-    "lab": "google",
-    "model": "Gemini Deep Think",
-    "date": "2026-02-11",
-    "kind": "blog_post",
-    "title": "Accelerating Mathematical and Scientific Discovery with Gemini Deep Think",
-    "source_url": "https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/",
-    "benchmarks_raw": [
-      "IMO-ProofBench Advanced",
-      "FutureMath Basic"
-    ],
-    "modality": {
-      "classes": [
-        "language"
       ],
       "source": "inferred"
     }
@@ -4038,22 +3877,6 @@
     }
   },
   {
-    "id": "google-gemini-embedding-2-ga-2026-04-22",
-    "lab": "google",
-    "model": "Gemini Embedding 2",
-    "date": "2026-04-22",
-    "kind": "model_release",
-    "title": "Gemini Embedding 2 is now generally available",
-    "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2-generally-available/",
-    "benchmarks_raw": [],
-    "modality": {
-      "classes": [
-        "embedding"
-      ],
-      "source": "inferred"
-    }
-  },
-  {
     "id": "google-gemma-4-mtp-2026-05-05",
     "lab": "google",
     "model": "Gemma 4 MTP drafters",
@@ -4147,22 +3970,6 @@
     "modality": {
       "classes": [
         "language"
-      ],
-      "source": "inferred"
-    }
-  },
-  {
-    "id": "google-project-genie-street-view-2026-05-19",
-    "lab": "google",
-    "model": "Genie 3 (Project Genie)",
-    "date": "2026-05-19",
-    "kind": "blog_post",
-    "title": "Simulate real-world places with Project Genie and Street View",
-    "source_url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie-expands/",
-    "benchmarks_raw": [],
-    "modality": {
-      "classes": [
-        "video"
       ],
       "source": "inferred"
     }
@@ -4294,24 +4101,6 @@
       "MATH-Vision",
       "MedXPertQA MM",
       "MRCR v2"
-    ],
-    "modality": {
-      "classes": [
-        "language"
-      ],
-      "source": "inferred"
-    }
-  },
-  {
-    "id": "google-gemini-3-5-flash-computer-use-2026-06-24",
-    "lab": "google",
-    "model": "Gemini 3.5 Flash",
-    "date": "2026-06-24",
-    "kind": "blog_post",
-    "title": "Introducing computer use in Gemini 3.5 Flash",
-    "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/",
-    "benchmarks_raw": [
-      "OSWorld-Verified"
     ],
     "modality": {
       "classes": [
@@ -4725,24 +4514,6 @@
     }
   },
   {
-    "id": "google-gemini-agentic-video-understanding-2026-09-01",
-    "lab": "google",
-    "model": "Gemini 3.7 Flash / 3.6 Flash / 3.5 Flash-Lite",
-    "date": "2026-09-01",
-    "kind": "blog_post",
-    "title": "Introducing agentic video understanding with Gemini",
-    "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/",
-    "benchmarks_raw": [
-      "LongVideoBench"
-    ],
-    "modality": {
-      "classes": [
-        "language"
-      ],
-      "source": "inferred"
-    }
-  },
-  {
     "id": "google-gemini-3-8-flash-2026-09-02",
     "lab": "google",
     "model": "Gemini 3.8 Flash / Gemini 3.8 Flash Cyber",
@@ -4824,7 +4595,8 @@
       "τ-Voice-banking",
       "Big Bench Audio",
       "Speech Agent Arena",
-      "EVA-Bench"
+      "EVA-Bench",
+      "Artificial Analysis' Speech to Speech Quality Index"
     ],
     "modality": {
       "classes": [
@@ -4832,27 +4604,6 @@
         "speech"
       ],
       "source": "inferred"
-    }
-  },
-  {
-    "id": "google-gemini-3-8-live-gemini-3-8-live-extended-thinking-2026-09-17",
-    "lab": "google",
-    "model": "Gemini 3.8 Live, Gemini 3.8 Live Extended Thinking",
-    "date": "2026-09-17",
-    "kind": "model_release",
-    "title": "Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking",
-    "source_url": "https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking/",
-    "benchmarks_raw": [
-      "Artificial Analysis' Speech to Speech Quality Index",
-      "τ-Voice",
-      "Speech Agent Arena",
-      "EVA-Bench"
-    ],
-    "modality": {
-      "classes": [
-        "speech"
-      ],
-      "source": "reported"
     }
   },
   {
@@ -4864,24 +4615,6 @@
     "title": "Gemini 3.8 Audio (Live, Live Extended Thinking) - Model Card",
     "source_url": "https://deepmind.google/models/model-cards/gemini-3-8-audio/",
     "benchmarks_raw": [],
-    "modality": {
-      "classes": [
-        "speech"
-      ],
-      "source": "reported"
-    }
-  },
-  {
-    "id": "google-gemini-3-8-live-gemini-3-8-live-extended-thinking-gemini-3-5-transcribe-2026-09-17",
-    "lab": "google",
-    "model": "Gemini 3.8 Live, Gemini 3.8 Live Extended Thinking, Gemini 3.5 Transcribe",
-    "date": "2026-09-17",
-    "kind": "blog_post",
-    "title": "Build real-time voice applications with Gemini 3.8 Live and 3.5 Transcribe",
-    "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-real-time-voice-applications-gemini-audio/",
-    "benchmarks_raw": [
-      "Artificial Analysis' Speech-to-Speech leaderboard"
-    ],
     "modality": {
       "classes": [
         "speech"
@@ -4905,23 +4638,6 @@
     "modality": {
       "classes": [
         "speech"
-      ],
-      "source": "reported"
-    }
-  },
-  {
-    "id": "google-gemini-3-8-live-with-live-avatar-2026-09-24",
-    "lab": "google",
-    "model": "Gemini 3.8 Live with Live Avatar",
-    "date": "2026-09-24",
-    "kind": "model_release",
-    "title": "Introducing Gemini 3.8 Live with Live Avatar",
-    "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-with-live-avatar/",
-    "benchmarks_raw": [],
-    "modality": {
-      "classes": [
-        "speech",
-        "video"
       ],
       "source": "reported"
     }

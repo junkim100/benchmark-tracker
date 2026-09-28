@@ -36,7 +36,7 @@ Labs spell the same benchmark many ways, and a wrong merge is invisible: it chan
 
 One scheduled workflow, **Research**, keeps everything current. Every third day it:
 
-1. Searches each lab's own site for releases in the last seven days, and reads each release page in full, so a delayed or dropped run never leaves a permanent hole.
+1. Searches each lab's own site for releases in the last seven days, and reads each release page in full, so a delayed or dropped run never leaves a permanent hole. Only a new model, a new version of one, or that model's own technical report or system card is recorded. Research studies, benchmark launches, new features, API availability and reposts about a model already out are listed in the commit message and left out.
 2. Rebuilds the registry, then classifies the modality of any release that lacks one and describes any benchmark that has no description yet. Both touch only what is missing, so on a quiet day they cost nothing.
 3. Scans for duplicates and validates everything against the data contract.
 4. Commits once to `main` and deploys once.

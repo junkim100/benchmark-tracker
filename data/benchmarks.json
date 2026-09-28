@@ -219,7 +219,7 @@
       "coding"
     ],
     "suite": "humaneval",
-    "recent_share": 5
+    "recent_share": 6
   },
   {
     "id": "mmlu",
@@ -1559,7 +1559,7 @@
       "zai"
     ],
     "first_seen": "2025-11-24",
-    "last_seen": "2026-09-14",
+    "last_seen": "2026-08-11",
     "labs_by_year": {
       "2025": 2,
       "2026": 8
@@ -2890,37 +2890,6 @@
     "recent_share": 0
   },
   {
-    "id": "v",
-    "name": "V*",
-    "lab_count": 6,
-    "labs": [
-      "google",
-      "moonshot",
-      "openai",
-      "qwen",
-      "xiaomi",
-      "zai"
-    ],
-    "first_seen": "2025-04-16",
-    "last_seen": "2026-04-29",
-    "labs_by_year": {
-      "2025": 3,
-      "2026": 4
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 2,
-      "2025-Q3": 1,
-      "2025-Q4": 1,
-      "2026-Q1": 2,
-      "2026-Q2": 3
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": null,
-    "recent_share": 2
-  },
-  {
     "id": "videommmu",
     "name": "VideoMMMU",
     "lab_count": 6,
@@ -3527,7 +3496,7 @@
       "2025-Q1": 1,
       "2025-Q3": 4,
       "2025-Q4": 3,
-      "2026-Q1": 2,
+      "2026-Q1": 1,
       "2026-Q2": 1,
       "2026-Q3": 2
     },
@@ -4125,6 +4094,36 @@
     "recent_share": 0
   },
   {
+    "id": "v",
+    "name": "V*",
+    "lab_count": 5,
+    "labs": [
+      "moonshot",
+      "openai",
+      "qwen",
+      "xiaomi",
+      "zai"
+    ],
+    "first_seen": "2025-04-16",
+    "last_seen": "2026-04-29",
+    "labs_by_year": {
+      "2025": 3,
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2025-Q2": 2,
+      "2025-Q3": 1,
+      "2025-Q4": 1,
+      "2026-Q1": 1,
+      "2026-Q2": 3
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": null,
+    "recent_share": 2
+  },
+  {
     "id": "virologycapabilitiestest",
     "name": "VCT",
     "lab_count": 5,
@@ -4390,7 +4389,7 @@
       "knowledge"
     ],
     "suite": "arena-hard",
-    "recent_share": 4
+    "recent_share": 5
   },
   {
     "id": "babyvision",
@@ -4664,7 +4663,7 @@
       "qwen"
     ],
     "first_seen": "2025-08-05",
-    "last_seen": "2026-09-23",
+    "last_seen": "2026-09-03",
     "labs_by_year": {
       "2025": 2,
       "2026": 3
@@ -4850,7 +4849,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "lvbench",
@@ -4883,7 +4882,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 3
+    "recent_share": 4
   },
   {
     "id": "mls",
@@ -6142,7 +6141,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "evalplus",
@@ -6459,7 +6458,7 @@
       "xai"
     ],
     "first_seen": "2026-04-23",
-    "last_seen": "2026-09-23",
+    "last_seen": "2026-09-21",
     "labs_by_year": {
       "2026": 3
     },
@@ -6650,34 +6649,6 @@
     ],
     "suite": null,
     "recent_share": 1
-  },
-  {
-    "id": "longvideobench",
-    "name": "LongVideoBench",
-    "lab_count": 3,
-    "labs": [
-      "google",
-      "moonshot",
-      "qwen"
-    ],
-    "first_seen": "2025-02-19",
-    "last_seen": "2026-09-01",
-    "labs_by_year": {
-      "2025": 2,
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2025-Q1": 1,
-      "2025-Q2": 1,
-      "2026-Q1": 1,
-      "2026-Q3": 1
-    },
-    "categories": [
-      "longctx",
-      "vision"
-    ],
-    "suite": null,
-    "recent_share": 2
   },
   {
     "id": "mask",
@@ -7098,31 +7069,6 @@
     ],
     "suite": null,
     "recent_share": 0
-  },
-  {
-    "id": "officeqa",
-    "name": "OfficeQA",
-    "lab_count": 3,
-    "labs": [
-      "anthropic",
-      "google",
-      "openai"
-    ],
-    "first_seen": "2026-01-27",
-    "last_seen": "2026-09-01",
-    "labs_by_year": {
-      "2026": 3
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 3,
-      "2026-Q2": 1,
-      "2026-Q3": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": "officeqa",
-    "recent_share": 2
   },
   {
     "id": "osworldg",
@@ -10199,29 +10145,6 @@
     "recent_share": 1
   },
   {
-    "id": "hrbench4k",
-    "name": "HR-Bench (4k)",
-    "lab_count": 2,
-    "labs": [
-      "google",
-      "xiaomi"
-    ],
-    "first_seen": "2026-01-27",
-    "last_seen": "2026-04-27",
-    "labs_by_year": {
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 1,
-      "2026-Q2": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 1
-  },
-  {
     "id": "huggingfaceopenllmleaderboard",
     "name": "Hugging Face Open LLM Leaderboard",
     "lab_count": 2,
@@ -10474,7 +10397,7 @@
       "deepseek",
       "google"
     ],
-    "first_seen": "2025-07-21",
+    "first_seen": "2025-08-01",
     "last_seen": "2025-12-02",
     "labs_by_year": {
       "2025": 2
@@ -10953,6 +10876,32 @@
     "recent_share": 0
   },
   {
+    "id": "longvideobench",
+    "name": "LongVideoBench",
+    "lab_count": 2,
+    "labs": [
+      "moonshot",
+      "qwen"
+    ],
+    "first_seen": "2025-02-19",
+    "last_seen": "2026-02-02",
+    "labs_by_year": {
+      "2025": 2,
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q1": 1,
+      "2025-Q2": 1,
+      "2026-Q1": 1
+    },
+    "categories": [
+      "longctx",
+      "vision"
+    ],
+    "suite": null,
+    "recent_share": 2
+  },
+  {
     "id": "lsat",
     "name": "LSAT",
     "lab_count": 2,
@@ -11335,7 +11284,7 @@
       "qwen"
     ],
     "first_seen": "2026-06-11",
-    "last_seen": "2026-09-14",
+    "last_seen": "2026-08-03",
     "labs_by_year": {
       "2026": 2
     },
@@ -11915,7 +11864,7 @@
       "longctx"
     ],
     "suite": "mrcr",
-    "recent_share": 2
+    "recent_share": 3
   },
   {
     "id": "mtebcode",
@@ -11983,7 +11932,6 @@
     "labs_by_quarter": {
       "2025-Q1": 1,
       "2025-Q2": 1,
-      "2025-Q3": 1,
       "2026-Q1": 1,
       "2026-Q2": 1
     },
@@ -12279,6 +12227,30 @@
       "other"
     ],
     "suite": null,
+    "recent_share": 2
+  },
+  {
+    "id": "officeqa",
+    "name": "OfficeQA",
+    "lab_count": 2,
+    "labs": [
+      "anthropic",
+      "openai"
+    ],
+    "first_seen": "2026-02-17",
+    "last_seen": "2026-09-01",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q1": 2,
+      "2026-Q2": 1,
+      "2026-Q3": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "officeqa",
     "recent_share": 2
   },
   {
@@ -13376,7 +13348,7 @@
       "xai"
     ],
     "first_seen": "2026-07-29",
-    "last_seen": "2026-09-17",
+    "last_seen": "2026-09-15",
     "labs_by_year": {
       "2026": 2
     },
@@ -23305,7 +23277,7 @@
       "google"
     ],
     "first_seen": "2026-09-15",
-    "last_seen": "2026-09-17",
+    "last_seen": "2026-09-15",
     "labs_by_year": {
       "2026": 1
     },
@@ -24116,28 +24088,6 @@
     "recent_share": 1
   },
   {
-    "id": "fixedinputbenchmark",
-    "name": "fixed-input benchmark",
-    "lab_count": 1,
-    "labs": [
-      "anthropic"
-    ],
-    "first_seen": "2026-09-23",
-    "last_seen": "2026-09-23",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "science",
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "flamereacteval",
     "name": "Flame-React-Eval",
     "lab_count": 1,
@@ -24605,48 +24555,6 @@
     },
     "categories": [
       "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "foldbench",
-    "name": "FoldBench",
-    "lab_count": 1,
-    "labs": [
-      "anthropic"
-    ],
-    "first_seen": "2026-09-17",
-    "last_seen": "2026-09-17",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "science"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "foldbenchlite",
-    "name": "FoldBench-Lite",
-    "lab_count": 1,
-    "labs": [
-      "anthropic"
-    ],
-    "first_seen": "2026-09-17",
-    "last_seen": "2026-09-17",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "science"
     ],
     "suite": null,
     "recent_share": 0
@@ -25186,27 +25094,6 @@
     },
     "categories": [
       "multilingual"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "futuremathbasic",
-    "name": "FutureMath Basic",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2026-02-11",
-    "last_seen": "2026-02-11",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 1
-    },
-    "categories": [
-      "other"
     ],
     "suite": null,
     "recent_share": 0
@@ -27175,25 +27062,25 @@
     "recent_share": 0
   },
   {
-    "id": "hrbench8k",
-    "name": "HRBench 8K",
+    "id": "hrbench4k",
+    "name": "HR-Bench (4k)",
     "lab_count": 1,
     "labs": [
-      "google"
+      "xiaomi"
     ],
-    "first_seen": "2026-01-27",
-    "last_seen": "2026-01-27",
+    "first_seen": "2026-04-22",
+    "last_seen": "2026-04-27",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q1": 1
+      "2026-Q2": 1
     },
     "categories": [
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "hrm8k",
@@ -28235,27 +28122,6 @@
     ],
     "suite": null,
     "recent_share": 1
-  },
-  {
-    "id": "imoproofbenchadvanced",
-    "name": "IMO-ProofBench Advanced",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2026-02-11",
-    "last_seen": "2026-02-11",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 1
-    },
-    "categories": [
-      "math"
-    ],
-    "suite": null,
-    "recent_share": 0
   },
   {
     "id": "impossiblebench",
@@ -29742,13 +29608,12 @@
       "moonshot"
     ],
     "first_seen": "2026-06-11",
-    "last_seen": "2026-09-14",
+    "last_seen": "2026-06-11",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q2": 1,
-      "2026-Q3": 1
+      "2026-Q2": 1
     },
     "categories": [
       "other"
@@ -29787,13 +29652,12 @@
       "moonshot"
     ],
     "first_seen": "2026-06-11",
-    "last_seen": "2026-09-14",
+    "last_seen": "2026-06-11",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q2": 1,
-      "2026-Q3": 1
+      "2026-Q2": 1
     },
     "categories": [
       "coding"
@@ -32276,13 +32140,13 @@
   },
   {
     "id": "mcpmarkverified",
-    "name": "MCP Mark Verified",
+    "name": "MCPMark-Verified",
     "lab_count": 1,
     "labs": [
       "moonshot"
     ],
     "first_seen": "2026-06-11",
-    "last_seen": "2026-09-14",
+    "last_seen": "2026-07-27",
     "labs_by_year": {
       "2026": 1
     },
@@ -32704,27 +32568,6 @@
     },
     "categories": [
       "science"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "mentalhealthbench",
-    "name": "MentalHealthBench",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2026-09-23",
-    "last_seen": "2026-09-23",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "safety"
     ],
     "suite": null,
     "recent_share": 0
@@ -42710,7 +42553,7 @@
       "google"
     ],
     "first_seen": "2026-09-15",
-    "last_seen": "2026-09-17",
+    "last_seen": "2026-09-15",
     "labs_by_year": {
       "2026": 1
     },
@@ -46160,27 +46003,6 @@
     },
     "labs_by_quarter": {
       "2023-Q4": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "visualprobe",
-    "name": "Visual Probe",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2026-01-27",
-    "last_seen": "2026-01-27",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q1": 1
     },
     "categories": [
       "vision"

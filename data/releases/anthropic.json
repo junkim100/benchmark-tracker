@@ -1532,41 +1532,6 @@
     }
   },
   {
-    "id": "anthropic-claude-mythos-5-1-claude-mythos-5-claude-opus-5-2026-09-17",
-    "lab": "anthropic",
-    "model": "Claude Mythos 5.1, Claude Mythos 5, Claude Opus 5",
-    "date": "2026-09-17",
-    "kind": "blog_post",
-    "title": "How Claude is uplifting biomolecular modeling",
-    "source_url": "https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling",
-    "benchmarks_raw": [],
-    "modality": {
-      "classes": [
-        "language"
-      ],
-      "source": "reported"
-    }
-  },
-  {
-    "id": "anthropic-claude-mythos-5-1-mythos-5-opus-5-and-an-internal-general-purpose-research-model-2026-09-17",
-    "lab": "anthropic",
-    "model": "Claude (Mythos 5.1, Mythos 5, Opus 5 and an internal general-purpose research model)",
-    "date": "2026-09-17",
-    "kind": "technical_report",
-    "title": "Accelerating open-source biomolecular models with Claude",
-    "source_url": "https://www-cdn.anthropic.com/e96b5807039a88168733d9687afe41dfbbd5de13.pdf",
-    "benchmarks_raw": [
-      "FoldBench-Lite",
-      "FoldBench"
-    ],
-    "modality": {
-      "classes": [
-        "language"
-      ],
-      "source": "reported"
-    }
-  },
-  {
     "id": "anthropic-claude-opus-5-5-2026-09-22",
     "lab": "anthropic",
     "model": "Claude Opus 5.5",
@@ -1605,40 +1570,6 @@
       "Protocols",
       "AAV capsid packaging prediction",
       "Multimodal virology"
-    ],
-    "modality": {
-      "classes": [
-        "language"
-      ],
-      "source": "reported"
-    }
-  },
-  {
-    "id": "anthropic-claude-2026-09-23",
-    "lab": "anthropic",
-    "model": "Claude",
-    "date": "2026-09-23",
-    "kind": "blog_post",
-    "title": "Claude discovers a novel enzyme system with CRISPR-like repeats",
-    "source_url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
-    "benchmarks_raw": [],
-    "modality": {
-      "classes": [
-        "language"
-      ],
-      "source": "reported"
-    }
-  },
-  {
-    "id": "anthropic-claude-opus-5-5-mythos-5-1-mythos-5-opus-5-opus-4-8-opus-4-6-sonnet-5-2026-09-23",
-    "lab": "anthropic",
-    "model": "Claude (Opus 5.5, Mythos 5.1, Mythos 5, Opus 5, Opus 4.8, Opus 4.6, Sonnet 5)",
-    "date": "2026-09-23",
-    "kind": "technical_report",
-    "title": "Autonomous AI agents discover reverse transcriptases with tandem repeat arrays",
-    "source_url": "https://www-cdn.anthropic.com/22573675ada52a8ca8a97a1a4b4326b2f208a071.pdf",
-    "benchmarks_raw": [
-      "fixed-input benchmark"
     ],
     "modality": {
       "classes": [

@@ -3291,10 +3291,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "fixedinputbenchmark": {
-    "source": "none",
-    "checked": "2026-09-24"
-  },
   "flamereacteval": {
     "text": "80 manually written front-end tasks, each pairing a UI screenshot with a layout description, functional requirements and a reference React component, used to test generation of React code from a design mockup.",
     "source_url": "https://huggingface.co/datasets/Flame-Code-VLM/Flame-Eval-React",
@@ -3454,16 +3450,6 @@
   "fncall": {
     "source": "none",
     "checked": "2026-09-22"
-  },
-  "foldbench": {
-    "text": "A benchmark for all-atom biomolecular structure prediction, built from 1,522 low-homology biological assemblies grouped into nine tasks spanning proteins, nucleic acids, ligands and their interfaces, scored with unified structural accuracy metrics.",
-    "source_url": "https://www.nature.com/articles/s41467-025-67127-3",
-    "source": "researched",
-    "checked": "2026-09-23"
-  },
-  "foldbenchlite": {
-    "source": "none",
-    "checked": "2026-09-23"
   },
   "followir": {
     "text": "Built from three deeply judged TREC collections by turning the assessors' narrative guidelines into retrieval instructions and re-annotating relevance, with a pairwise framework that measures how a retriever's ranking shifts when the instruction changes.",
@@ -3644,12 +3630,6 @@
   "fullstackbenchzh": {
     "text": "The Chinese-language half of FullStack Bench, 1,690 problems whose instructions are written in Chinese, covering full-stack application domains across 16 programming languages and checked by unit tests.",
     "source_url": "https://huggingface.co/datasets/ByteDance/FullStackBench",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "futuremathbasic": {
-    "text": "An internal Google DeepMind set of PhD-level mathematics exercises, used to probe reasoning a step beyond Olympiad-level problems.",
-    "source_url": "https://deepmind.google/blog/accelerating-mathematical-and-scientific-discovery-with-gemini-deep-think/",
     "source": "researched",
     "checked": "2026-09-22"
   },
@@ -4361,12 +4341,6 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
-  "hrbench8k": {
-    "text": "200 images averaging 8K resolution, split evenly between fine-grained single-instance perception (attribute recognition, OCR, visual prompting) and cross-instance perception (map and chart analysis, spatial relations).",
-    "source_url": "https://arxiv.org/abs/2408.15556",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
   "hrm8k": {
     "text": "8,011 math problems presented in parallel Korean and English, built to separate whether a model's drop on non-English input comes from understanding the question or from the reasoning itself.",
     "source_url": "https://arxiv.org/abs/2501.02448",
@@ -4705,12 +4679,6 @@
   },
   "imoproofbench": {
     "text": "Sixty olympiad problems, 30 basic and 30 advanced, across algebra, combinatorics, geometry and number theory, each answered with a full written proof that is graded against detailed problem-specific guidelines by an LLM autograder.",
-    "source_url": "https://arxiv.org/abs/2511.01846",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "imoproofbenchadvanced": {
-    "text": "The harder of IMO-ProofBench's two tiers: 30 olympiad problems spanning algebra, combinatorics, geometry and number theory, answered with a full written proof that an LLM autograder scores against detailed grading guidelines.",
     "source_url": "https://arxiv.org/abs/2511.01846",
     "source": "researched",
     "checked": "2026-09-22"
@@ -6168,12 +6136,6 @@
     "source_url": "https://cdn.openai.com/pdf/3a4153c8-c748-4b71-8e31-aecbde944f8d/oai_5_2_system-card.pdf",
     "source": "researched",
     "checked": "2026-09-22"
-  },
-  "mentalhealthbench": {
-    "text": "OpenAI benchmark of realistic mental health conversations, co-created with 80+ licensed clinicians from 22 countries; model replies are graded on expert-defined behaviors such as safety, seeking context, preserving user agency and actionable guidance.",
-    "source_url": "https://openai.com/index/introducing-mentalhealthbench/",
-    "source": "researched",
-    "checked": "2026-09-24"
   },
   "met": {
     "text": "Around 224,000 classes, one per museum exhibit, trained on studio photographs from the Metropolitan Museum's open access collection and tested on visitor snapshots plus unrelated images, as instance-level recognition.",
@@ -10862,12 +10824,6 @@
   "visual7w": {
     "text": "Grounded visual question answering with multiple-choice what, where, when, who, why, how and which questions, where an answer can be text or a specific image region, linking questions to objects rather than whole images.",
     "source_url": "https://arxiv.org/abs/1511.03416",
-    "source": "researched",
-    "checked": "2026-09-22"
-  },
-  "visualprobe": {
-    "text": "A visual search set of 500 test question-answer pairs (plus 4,000 for training) over high-resolution images with small targets and many distractors, split into easy, medium and hard so that answers usually need repeated zooming.",
-    "source_url": "https://arxiv.org/abs/2509.07969",
     "source": "researched",
     "checked": "2026-09-22"
   },

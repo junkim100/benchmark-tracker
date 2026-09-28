@@ -1731,21 +1731,5 @@
       ],
       "source": "inferred"
     }
-  },
-  {
-    "id": "zai-glm-5-3-flash-2026-09-18",
-    "lab": "zai",
-    "model": "GLM-5.3-Flash",
-    "date": "2026-09-18",
-    "kind": "blog_post",
-    "title": "GLM-5.3-Flash: More Intelligence with Less Compute",
-    "source_url": "https://autoclaw.z.ai/blog/model/glm-5.3-flash/",
-    "benchmarks_raw": [],
-    "modality": {
-      "classes": [
-        "language"
-      ],
-      "source": "inferred"
-    }
   }
 ]

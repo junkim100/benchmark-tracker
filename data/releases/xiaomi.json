@@ -736,22 +736,6 @@
     }
   },
   {
-    "id": "xiaomi-mimo-v2-6-pro-2026-09-22",
-    "lab": "xiaomi",
-    "model": "MiMo-V2.6-Pro",
-    "date": "2026-09-22",
-    "kind": "blog_post",
-    "title": "How Xiaomi MiMo-V2.6-Pro Boosts Productivity in New Materials R&D",
-    "source_url": "https://mimo.xiaomi.com/mimo-v2-6-material-research",
-    "benchmarks_raw": [],
-    "modality": {
-      "classes": [
-        "language"
-      ],
-      "source": "reported"
-    }
-  },
-  {
     "id": "xiaomi-mimo-v2-6-2026-09-22",
     "lab": "xiaomi",
     "model": "MiMo-V2.6",

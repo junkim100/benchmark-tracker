@@ -27,6 +27,7 @@ import { CATEGORIES, flatKey } from "./classify.mjs";
 import { MODALITY_IDS, MODALITIES } from "./modality.mjs";
 import { assertSupported } from "./schema-guard.mjs";
 import { SHARED_HOSTS, isOfficialSource } from "./sources.mjs";
+import { ANNOUNCES, isReleaseType, repeatOf } from "./releases.mjs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -95,6 +96,13 @@ const RECORD_SCHEMA = {
           model: { type: "string" },
           date: { type: "string", description: "YYYY-MM-DD, the publication date of the official source" },
           kind: { type: "string", enum: ["model_release", "technical_report", "system_card", "blog_post"] },
+          announces: {
+            type: "string",
+            enum: ANNOUNCES,
+            description:
+              "What the page announces, read from the page. new_model: a model that did not exist before. new_version: a new version, checkpoint, size or open-weights release of an existing model. model_report: the technical report or system card of a model that is new_model or new_version. " +
+              "research_study: a study, discovery or case study that uses a model already released. benchmark_launch: a new benchmark or evaluation run on models already released. new_feature: a new capability, tool or product feature for a model already released. availability: an existing model reaching a new API, region or general availability with no new version. repost: a later page about a release already announced. Only the first three are recorded.",
+          },
           title: { type: "string" },
           source_url: { type: "string" },
           benchmarks_raw: {
@@ -150,7 +158,7 @@ const RECORD_SCHEMA = {
             },
           },
         },
-        required: ["model", "date", "kind", "title", "source_url", "benchmarks_raw", "modality", "alias_suggestions", "category_suggestions"],
+        required: ["model", "date", "kind", "announces", "title", "source_url", "benchmarks_raw", "modality", "alias_suggestions", "category_suggestions"],
         additionalProperties: false,
       },
     },
@@ -176,8 +184,11 @@ async function researchLab(lab, onFile) {
   const alreadyOnFile = onFile.filter((r) => r.date >= since).map((r) => `${r.date} ${r.model} (${r.kind}) ${r.source_url}`);
   // One conversation, resumed if the server pauses it. Search and fetch both run server side, and a turn that uses many of them can stop at the server loop's iteration limit with stop_reason "pause_turn" and no final message. That used to throw and turn the lab into a FAILED line; describe.mjs has resumed the same stop for a while, and re-sending what came back is all it takes.
   const firstPrompt =
-        `Find everything ${lab.name} published between ${since} and ${today} that announces a model or reports its evaluation: ` +
-        `model releases, technical reports, system cards, or model-announcement blog posts.\n\n` +
+        `Find every new model or new model version ${lab.name} released between ${since} and ${today}, and that model's own technical report or system card.\n\n` +
+        `A page counts only if it announces a model that did not exist before, or a new version, checkpoint, size or open-weights release of one. ` +
+        `These do not count, even when they cite benchmarks: research studies and case studies that use an existing model, a new benchmark or evaluation run on existing models, ` +
+        `a new feature or tool for an existing model, an existing model reaching a new API or general availability, and later posts about a release already announced. ` +
+        `Set announces to say which one each page is. Record the others too with their announces value, so the filter can see what you rejected.\n\n` +
         `For each one, record which benchmarks the lab cited, using the exact wording on the page ` +
         `("SWE-bench Verified", not a normalised slug). Search is restricted to ${allowed.join(", ")}, which is deliberate: ` +
         `only the lab's own publications count.\n\n` +
@@ -258,6 +269,9 @@ const summary = [];
 // that has genuinely started publishing somewhere new looks exactly like this
 // and the fix is one line in labs.json.
 const refused = [];
+// Pages the agent read and said were not a release, and new releases whose model name was already announced. Both go to the run log for a person to check.
+const notRelease = [];
+const repeats = [];
 const aliasSuggestions = [];
 const catSuggestions = [];
 
@@ -282,7 +296,14 @@ const results = await Promise.allSettled(labs.map(async (lab) => {
     return false;
   });
 
-  const fresh = official
+  // Only a new model, a new version or that model's own report is written. The rest are counted, and listed in the run log, so a release wrongly called something else can be found and added by hand.
+  const releases = official.filter((r) => {
+    if (isReleaseType(r.announces)) return true;
+    notRelease.push(`  ${lab.name}: ${r.announces} ${r.model}, ${r.source_url}`);
+    return false;
+  });
+
+  const fresh = releases
     .filter((r) => !seen.has(r.source_url))
     .map((r) => ({
       id: `${lab.id}-${slug(r.model)}-${r.date}`,
@@ -301,7 +322,12 @@ const results = await Promise.allSettled(labs.map(async (lab) => {
       ...(r.modality?.classes?.length ? { modality: { classes: r.modality.classes, source: "reported" } } : {}),
     }));
 
-  for (const r of official) {
+  for (const f of fresh) {
+    const earlier = repeatOf(f, existing);
+    if (earlier) repeats.push(`  ${lab.name}: ${f.date} ${f.model}, ${f.source_url} (announced ${earlier.date} at ${earlier.source_url})`);
+  }
+
+  for (const r of releases) {
     for (const sug of r.alias_suggestions ?? []) {
       aliasSuggestions.push({ raw: sug.raw, tracked: sug.tracked, reason: sug.reason, lab: lab.name });
     }
@@ -311,7 +337,7 @@ const results = await Promise.allSettled(labs.map(async (lab) => {
   }
 
   perLab.push({ lab: lab.name, searches: queries.length, results: urls.length, fetches: fetched.length, returned: found.length,
-    unofficial: found.length - official.length, onFile: official.length - fresh.length, fresh: fresh.length, queries });
+    unofficial: found.length - official.length, notRelease: official.length - releases.length, onFile: releases.length - fresh.length, fresh: fresh.length, queries });
   if (fresh.length) {
     const merged = [...existing, ...fresh].sort((a, b) => a.date.localeCompare(b.date));
     writeFileSync(path, JSON.stringify(merged, null, 2) + "\n");
@@ -321,9 +347,9 @@ const results = await Promise.allSettled(labs.map(async (lab) => {
 }));
 
 // Printed for every lab, including the ones that found nothing. A zero is the result that most needs explaining and was the one never printed.
-console.log("Per lab: searches, results seen, pages fetched, returned, dropped as unofficial, already on file, new");
+console.log("Per lab: searches, results seen, pages fetched, returned, dropped as unofficial, dropped as not a release, already on file, new");
 for (const x of perLab.sort((a, b) => a.lab.localeCompare(b.lab))) {
-  console.log(`  ${x.lab.padEnd(16)} ${String(x.searches).padStart(2)} searches  ${String(x.results).padStart(3)} results  ${String(x.fetches).padStart(2)} fetched  returned ${x.returned}  unofficial ${x.unofficial}  on file ${x.onFile}  new ${x.fresh}`);
+  console.log(`  ${x.lab.padEnd(16)} ${String(x.searches).padStart(2)} searches  ${String(x.results).padStart(3)} results  ${String(x.fetches).padStart(2)} fetched  returned ${x.returned}  unofficial ${x.unofficial}  not a release ${x.notRelease}  on file ${x.onFile}  new ${x.fresh}`);
   if (!x.fresh) for (const q of x.queries) console.log(`      searched: ${q}`);
 }
 
@@ -511,6 +537,12 @@ if (skipped.length) {
 if (refused.length) {
   lines.push("", `Refused ${refused.length} record(s) whose source is not the lab's own domain:`, ...refused,
     "Either a page the agent read tried to redirect the citation, or the lab now publishes somewhere new. Add the host to data/labs.json if it is genuinely theirs.");
+}
+if (notRelease.length) {
+  lines.push("", `Not recorded, ${notRelease.length} page(s) the agent read as something other than a new model or version:`, ...notRelease);
+}
+if (repeats.length) {
+  lines.push("", `Recorded, but the model name was announced before (${repeats.length}). Remove any that only repeat the earlier release:`, ...repeats);
 }
 // Scrubbed once more at the end, because this string becomes a commit message
 // and a lab failure line carries whatever the SDK put in its error.

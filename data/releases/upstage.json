@@ -360,24 +360,6 @@
     }
   },
   {
-    "id": "upstage-solar-pro-2-frontier-2025-07-21",
-    "lab": "upstage",
-    "model": "Solar Pro 2",
-    "date": "2025-07-21",
-    "kind": "blog_post",
-    "title": "Solar Pro 2 Breaks Into Global Frontier AI",
-    "source_url": "https://www.upstage.ai/news/solar-pro-2-frontier",
-    "benchmarks_raw": [
-      "Artificial Analysis' Intelligence Index"
-    ],
-    "modality": {
-      "classes": [
-        "language"
-      ],
-      "source": "inferred"
-    }
-  },
-  {
     "id": "upstage-syn-pro-2025-10-23",
     "lab": "upstage",
     "model": "Syn Pro",
