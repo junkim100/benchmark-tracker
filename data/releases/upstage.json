@@ -578,5 +578,28 @@
       ],
       "source": "inferred"
     }
+  },
+  {
+    "id": "upstage-solar-mini-4-2026-10-01",
+    "lab": "upstage",
+    "model": "Solar Mini 4",
+    "date": "2026-10-01",
+    "kind": "model_release",
+    "title": "Solar Mini 4: Built for High-Volume Agent Workloads",
+    "source_url": "https://www.upstage.ai/blog/en/solar-mini-4",
+    "benchmarks_raw": [
+      "Artificial Analysis Intelligence Index v4.3.2",
+      "AutomationBench-AA",
+      "τ³-Banking",
+      "AA-LCR",
+      "SciCode",
+      "Humanity's Last Exam"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

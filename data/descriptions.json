@@ -965,6 +965,10 @@
     "source": "researched",
     "checked": "2026-09-23"
   },
+  "automationbenchaa": {
+    "source": "none",
+    "checked": "2026-10-01"
+  },
   "automationbenchpublic": {
     "source": "none",
     "checked": "2026-09-22"
@@ -1348,6 +1352,10 @@
     "source_url": "https://arxiv.org/abs/1905.10044",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "brokensearchtool": {
+    "source": "none",
+    "checked": "2026-10-01"
   },
   "browsecomp": {
     "text": "A set of 1,266 questions that require an agent to persistently navigate the web for hard-to-find, entangled information. Predicted answers are short and easily verified against a reference answer.",
@@ -2159,6 +2167,10 @@
     "source": "none",
     "checked": "2026-09-22"
   },
+  "computerusesafety": {
+    "source": "none",
+    "checked": "2026-10-01"
+  },
   "contextasrbench": {
     "text": "Up to 40,000 speech samples carrying more than 300,000 named entities across over ten domains, each supplied with a list of context entities, testing whether a recognizer can use that context and world knowledge to transcribe rare names.",
     "source_url": "https://arxiv.org/abs/2507.05727",
@@ -2450,6 +2462,12 @@
     "source_url": "https://blog.collinear.ai/p/cwe-bench",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "cwebench1": {
+    "text": "A held-out set of 120 agentic audit-and-patch tasks over real repositories spanning 73 CWE classes and eight languages, where an agent must locate and fix an injected vulnerability; scored by programmatic verifiers plus a multi-model judge panel.",
+    "source_url": "https://blog.collinear.ai/p/cwe-bench-v1",
+    "source": "researched",
+    "checked": "2026-10-01"
   },
   "cweval": {
     "text": "Outcome-driven evaluation of generated code for functionality and security at once, pairing detailed task specifications with test oracles that exercise the vulnerability, over the multilingual security-critical CWEval-bench tasks.",
@@ -8833,6 +8851,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "reviewerbypass": {
+    "text": "OpenAI agentic-safety evaluation of how a coding model reacts when Codex's auto-review monitor (a second model) blocks a command as unsafe and instructs it to avoid similar actions; rollouts are scored on whether the model respects the denial, retries it, or circumvents the reviewer.",
+    "source_url": "https://deploymentsafety.openai.com/gpt-6-astra/evaluating-auto-review",
+    "source": "researched",
+    "checked": "2026-10-01"
+  },
   "rewardbench": {
     "text": "A dataset and codebase of prompt, chosen and rejected response trios across chat, reasoning and safety, used to test whether a reward model prefers the better answer when the difference is subtle but verifiable.",
     "source_url": "https://arxiv.org/abs/2403.13787",
@@ -10976,6 +11000,10 @@
     "source_url": "https://arxiv.org/abs/2205.00363",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "warningcircumvention": {
+    "source": "none",
+    "checked": "2026-10-01"
   },
   "waymoqa": {
     "text": "Multi-view driving questions built on Waymo Open Dataset clips, with eight synchronised camera views per scene. Multiple-choice items test safety-critical reasoning in two stages: resolving the immediate risk, then handling the secondary risk it induces.",

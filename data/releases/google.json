@@ -4641,5 +4641,31 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "google-gemini-4-argon-2026-09-30",
+    "lab": "google",
+    "model": "Gemini 4 Argon",
+    "date": "2026-09-30",
+    "kind": "model_release",
+    "title": "Gemini 4 Argon: our next era of frontier intelligence",
+    "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+    "benchmarks_raw": [
+      "DeepSWE v1.1",
+      "Vals Index",
+      "Vals Finance Agent v2",
+      "Harvey's Legal Agent Benchmark",
+      "AutomationBench",
+      "LVBench",
+      "CWE-bench v1",
+      "CWE-bench v0",
+      "Gray Swan's Indirect Prompt Injection (IPI) benchmark"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

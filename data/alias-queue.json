@@ -19,5 +19,26 @@
       "version_confident": false
     },
     "seen": "2026-09-28T20:28:37.147Z"
+  },
+  {
+    "raw": "Coding Deception",
+    "tracked": "Coding Deception Eval",
+    "reason": "same internal coding deception evaluation",
+    "lab": "OpenAI",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "renamed": 0.03,
+      "version": 0.06,
+      "same_name": 0.87,
+      "different": 0.04
+    },
+    "merge_is_safe": 0.48,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-10-01T19:15:59.140Z"
   }
 ]

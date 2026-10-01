@@ -240,5 +240,7 @@
   "cursorbench320": "cursorbench32",
   "Vals AI's Legal Research Bench": "legalresearchbench",
   "FDB V3": "fullduplexbench3",
-  "Chain-of-thought controllability": "cotcontrollability"
+  "Chain-of-thought controllability": "cotcontrollability",
+  "Gray Swan's Indirect Prompt Injection (IPI) benchmark": "grayswanipibenchmark",
+  "Agentic Safe Completions": "agenticsafecompletionevaluations"
 }

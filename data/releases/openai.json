@@ -2820,5 +2820,82 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "openai-gpt-6-1-sol-2026-09-29",
+    "lab": "openai",
+    "model": "GPT-6.1 Sol",
+    "date": "2026-09-29",
+    "kind": "model_release",
+    "title": "Introducing GPT-6.1 Sol",
+    "source_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+    "benchmarks_raw": [
+      "DeepSWE v1.1",
+      "GDP.pdf",
+      "AutomationBench",
+      "AutomationBench 1.0.6",
+      "OSWorld 2.0",
+      "Terminal-Bench Science 0.1",
+      "Broken search tool",
+      "Reviewer bypass",
+      "Warning circumvention",
+      "Computer-use safety"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "openai-gpt-6-1-sol-2026-09-29",
+    "lab": "openai",
+    "model": "GPT-6.1 Sol",
+    "date": "2026-09-29",
+    "kind": "system_card",
+    "title": "Addendum to GPT-6 Astra System Card: GPT-6.1 Sol",
+    "source_url": "https://deploymentsafety.openai.com/gpt-6-1-sol",
+    "benchmarks_raw": [
+      "Production Benchmarks with Challenging Prompts",
+      "U18 evaluations",
+      "Agentic Safe Completions",
+      "Image input evaluations",
+      "Static Jailbreak Evaluations",
+      "Multiturn Jailbreak Evaluations",
+      "HealthBench Professional",
+      "HealthBench",
+      "HealthBench Hard",
+      "HealthBench Consensus",
+      "Dynamic Benchmarks with Adversarial User Simulations",
+      "MentalHealthBench",
+      "Coding Deception",
+      "Broken Search Tool",
+      "CoT-Control",
+      "OAI-repo Sabotage v2",
+      "Expert-SWE",
+      "Multimodal Troubleshooting Virology",
+      "ProtocolQA Open-Ended",
+      "Tacit Knowledge and Troubleshooting",
+      "TroubleshootingBench",
+      "AAV Capsid Packaging Prediction",
+      "SHP2 Protein Function Prediction",
+      "Coronavirus–ACE2 Cell-Entry Screen",
+      "Phage–plasmid Co-evolution",
+      "ExploitBench",
+      "ExploitBench - Internal Port (June–August 2026)",
+      "SEC-Bench Pro",
+      "ExploitGym",
+      "Internal Research Debugging Evaluation",
+      "KernelGen 1P",
+      "Biology Model Refusal Evaluation",
+      "Cybersecurity Safety Evaluation"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

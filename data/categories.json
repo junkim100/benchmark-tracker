@@ -200,6 +200,56 @@
     "biomedicalimageanalysis": [
       "science",
       "vision"
+    ],
+    "artificialanalysisintelligenceindex432": [
+      "other",
+      "reasoning"
+    ],
+    "automationbenchaa": [
+      "agentic"
+    ],
+    "cwebench1": [
+      "coding",
+      "safety"
+    ],
+    "cwebench0": [
+      "coding",
+      "safety"
+    ],
+    "brokensearchtool": [
+      "safety",
+      "agentic"
+    ],
+    "reviewerbypass": [
+      "safety",
+      "agentic"
+    ],
+    "warningcircumvention": [
+      "safety",
+      "agentic"
+    ],
+    "computerusesafety": [
+      "safety",
+      "agentic"
+    ],
+    "mentalhealthbench": [
+      "safety"
+    ],
+    "oaireposabotage2": [
+      "safety",
+      "coding"
+    ],
+    "shp2proteinfunctionprediction": [
+      "science"
+    ],
+    "coronavirusace2cellentryscreen": [
+      "science"
+    ],
+    "phageplasmidcoevolution": [
+      "science"
+    ],
+    "cybersecuritysafetyevaluation": [
+      "safety"
     ]
   }
 }

@@ -38,7 +38,7 @@
       "math"
     ],
     "suite": "aime",
-    "recent_share": 8
+    "recent_share": 2
   },
   {
     "id": "gpqa-diamond",
@@ -82,7 +82,7 @@
       "science"
     ],
     "suite": "gpqa",
-    "recent_share": 29
+    "recent_share": 26
   },
   {
     "id": "gsm8k",
@@ -131,7 +131,7 @@
       "math"
     ],
     "suite": null,
-    "recent_share": 7
+    "recent_share": 4
   },
   {
     "id": "hle",
@@ -152,7 +152,7 @@
       "zai"
     ],
     "first_seen": "2025-02-02",
-    "last_seen": "2026-09-28",
+    "last_seen": "2026-10-01",
     "labs_by_year": {
       "2025": 10,
       "2026": 11
@@ -164,13 +164,14 @@
       "2025-Q4": 7,
       "2026-Q1": 8,
       "2026-Q2": 10,
-      "2026-Q3": 8
+      "2026-Q3": 8,
+      "2026-Q4": 1
     },
     "categories": [
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 29
+    "recent_share": 27
   },
   {
     "id": "humaneval",
@@ -219,7 +220,7 @@
       "coding"
     ],
     "suite": "humaneval",
-    "recent_share": 6
+    "recent_share": 5
   },
   {
     "id": "mmlu",
@@ -268,7 +269,7 @@
       "knowledge"
     ],
     "suite": "mmlu",
-    "recent_share": 11
+    "recent_share": 7
   },
   {
     "id": "swe-bench-verified",
@@ -311,7 +312,7 @@
       "agentic"
     ],
     "suite": "swe-bench",
-    "recent_share": 33
+    "recent_share": 21
   },
   {
     "id": "ai2d",
@@ -354,7 +355,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "aime-2025",
@@ -391,7 +392,7 @@
       "math"
     ],
     "suite": "aime",
-    "recent_share": 22
+    "recent_share": 11
   },
   {
     "id": "browsecomp",
@@ -428,7 +429,7 @@
       "agentic"
     ],
     "suite": "browsecomp",
-    "recent_share": 19
+    "recent_share": 18
   },
   {
     "id": "hellaswag",
@@ -519,7 +520,7 @@
       "reasoning"
     ],
     "suite": null,
-    "recent_share": 5
+    "recent_share": 2
   },
   {
     "id": "math",
@@ -606,7 +607,7 @@
       "math"
     ],
     "suite": "math",
-    "recent_share": 6
+    "recent_share": 2
   },
   {
     "id": "mathvista",
@@ -650,7 +651,7 @@
       "vision"
     ],
     "suite": "mathvista",
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "mmlu-pro",
@@ -692,7 +693,7 @@
       "knowledge"
     ],
     "suite": "mmlu-pro",
-    "recent_share": 18
+    "recent_share": 14
   },
   {
     "id": "mmmu",
@@ -737,7 +738,7 @@
       "vision"
     ],
     "suite": "mmmu",
-    "recent_share": 7
+    "recent_share": 4
   },
   {
     "id": "terminalbench21",
@@ -770,7 +771,7 @@
       "agentic"
     ],
     "suite": "terminal-bench",
-    "recent_share": 3
+    "recent_share": 13
   },
   {
     "id": "bbh",
@@ -858,7 +859,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "docvqa",
@@ -903,7 +904,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "livecodebench",
@@ -944,7 +945,7 @@
       "coding"
     ],
     "suite": "livecodebench",
-    "recent_share": 14
+    "recent_share": 9
   },
   {
     "id": "mbpp",
@@ -991,7 +992,7 @@
       "coding"
     ],
     "suite": "mbpp",
-    "recent_share": 4
+    "recent_share": 3
   },
   {
     "id": "mmmupro",
@@ -1030,7 +1031,7 @@
       "vision"
     ],
     "suite": "mmmu",
-    "recent_share": 13
+    "recent_share": 14
   },
   {
     "id": "simpleqa",
@@ -1069,7 +1070,7 @@
       "knowledge"
     ],
     "suite": "simpleqa",
-    "recent_share": 12
+    "recent_share": 5
   },
   {
     "id": "swebenchpro",
@@ -1104,7 +1105,7 @@
       "agentic"
     ],
     "suite": "swe-bench",
-    "recent_share": 13
+    "recent_share": 18
   },
   {
     "id": "winogrande",
@@ -1150,7 +1151,7 @@
       "reasoning"
     ],
     "suite": null,
-    "recent_share": 4
+    "recent_share": 3
   },
   {
     "id": "arc-challenge",
@@ -1195,7 +1196,7 @@
       "reasoning"
     ],
     "suite": "arc",
-    "recent_share": 4
+    "recent_share": 3
   },
   {
     "id": "gpqa",
@@ -1236,7 +1237,7 @@
       "science"
     ],
     "suite": "gpqa",
-    "recent_share": 5
+    "recent_share": 2
   },
   {
     "id": "terminalbench20",
@@ -1315,7 +1316,7 @@
       "knowledge"
     ],
     "suite": "triviaqa",
-    "recent_share": 8
+    "recent_share": 5
   },
   {
     "id": "agieval",
@@ -1392,7 +1393,7 @@
       "vision"
     ],
     "suite": "charxiv",
-    "recent_share": 9
+    "recent_share": 13
   },
   {
     "id": "cybergym",
@@ -1426,7 +1427,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 8
+    "recent_share": 14
   },
   {
     "id": "drop",
@@ -1470,7 +1471,7 @@
       "reasoning"
     ],
     "suite": null,
-    "recent_share": 4
+    "recent_share": 3
   },
   {
     "id": "gdpvalaa",
@@ -1542,7 +1543,7 @@
       "vision"
     ],
     "suite": "infovqa",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "mcpatlas",
@@ -1574,7 +1575,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 8
+    "recent_share": 13
   },
   {
     "id": "mgsm",
@@ -1617,7 +1618,7 @@
       "multilingual"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "tau2bench",
@@ -1649,7 +1650,7 @@
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 9
+    "recent_share": 7
   },
   {
     "id": "truthfulqa",
@@ -1720,7 +1721,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 6
+    "recent_share": 1
   },
   {
     "id": "aime",
@@ -1755,7 +1756,7 @@
       "math"
     ],
     "suite": "aime",
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "arceasy",
@@ -1811,7 +1812,7 @@
       "zai"
     ],
     "first_seen": "2026-05-28",
-    "last_seen": "2026-09-22",
+    "last_seen": "2026-09-30",
     "labs_by_year": {
       "2026": 7
     },
@@ -1823,7 +1824,7 @@
       "agentic"
     ],
     "suite": "automationbench",
-    "recent_share": 2
+    "recent_share": 8
   },
   {
     "id": "deepswe11",
@@ -1839,7 +1840,7 @@
       "xai"
     ],
     "first_seen": "2026-07-09",
-    "last_seen": "2026-09-22",
+    "last_seen": "2026-09-30",
     "labs_by_year": {
       "2026": 7
     },
@@ -1851,7 +1852,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 8
   },
   {
     "id": "gdpvalaa2",
@@ -1879,7 +1880,7 @@
       "agentic"
     ],
     "suite": "gdpval",
-    "recent_share": 1
+    "recent_share": 9
   },
   {
     "id": "hmmtfeb25",
@@ -1946,7 +1947,7 @@
       "multilingual"
     ],
     "suite": "mmmlu",
-    "recent_share": 8
+    "recent_share": 7
   },
   {
     "id": "naturalquestions",
@@ -2063,7 +2064,7 @@
       "agentic"
     ],
     "suite": "swe-bench",
-    "recent_share": 20
+    "recent_share": 14
   },
   {
     "id": "textvqa",
@@ -2204,7 +2205,7 @@
       "agentic"
     ],
     "suite": "agentslastexam",
-    "recent_share": 0
+    "recent_share": 7
   },
   {
     "id": "blink",
@@ -2305,7 +2306,7 @@
       "speech"
     ],
     "suite": "fleurs",
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "hmmt25",
@@ -2335,7 +2336,7 @@
       "math"
     ],
     "suite": "hmmt",
-    "recent_share": 8
+    "recent_share": 2
   },
   {
     "id": "livecodebench6",
@@ -2367,7 +2368,7 @@
       "coding"
     ],
     "suite": "livecodebench",
-    "recent_share": 10
+    "recent_share": 8
   },
   {
     "id": "longbench2",
@@ -2436,7 +2437,7 @@
       "longctx"
     ],
     "suite": "mrcr",
-    "recent_share": 4
+    "recent_share": 3
   },
   {
     "id": "ocrbench",
@@ -2474,7 +2475,7 @@
       "vision"
     ],
     "suite": "ocrbench",
-    "recent_share": 5
+    "recent_share": 4
   },
   {
     "id": "omnidocbench",
@@ -2505,7 +2506,7 @@
       "vision"
     ],
     "suite": "omnidocbench",
-    "recent_share": 3
+    "recent_share": 4
   },
   {
     "id": "omnidocbench15",
@@ -2569,7 +2570,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "osworld",
@@ -2605,7 +2606,7 @@
       "vision"
     ],
     "suite": "osworld",
-    "recent_share": 5
+    "recent_share": 4
   },
   {
     "id": "osworld20",
@@ -2620,7 +2621,7 @@
       "zai"
     ],
     "first_seen": "2026-07-09",
-    "last_seen": "2026-09-22",
+    "last_seen": "2026-09-29",
     "labs_by_year": {
       "2026": 6
     },
@@ -2632,7 +2633,7 @@
       "vision"
     ],
     "suite": "osworld",
-    "recent_share": 0
+    "recent_share": 5
   },
   {
     "id": "osworldverified",
@@ -2661,7 +2662,7 @@
       "vision"
     ],
     "suite": "osworld",
-    "recent_share": 7
+    "recent_share": 10
   },
   {
     "id": "realworldqa",
@@ -2698,7 +2699,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "refcoco",
@@ -2735,7 +2736,7 @@
       "vision"
     ],
     "suite": "refcoco",
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "screenspotpro",
@@ -2801,7 +2802,7 @@
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "tau2benchtelecom",
@@ -2831,7 +2832,7 @@
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 6
+    "recent_share": 3
   },
   {
     "id": "toolathlon",
@@ -2887,7 +2888,7 @@
       "agentic"
     ],
     "suite": "toolathlon",
-    "recent_share": 0
+    "recent_share": 7
   },
   {
     "id": "videommmu",
@@ -2920,7 +2921,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 6
+    "recent_share": 4
   },
   {
     "id": "xstest",
@@ -2954,7 +2955,7 @@
       "safety"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "zerobench",
@@ -2985,7 +2986,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 3
+    "recent_share": 5
   },
   {
     "id": "aime26",
@@ -3012,7 +3013,7 @@
       "math"
     ],
     "suite": "aime",
-    "recent_share": 2
+    "recent_share": 6
   },
   {
     "id": "arc",
@@ -3074,7 +3075,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "boolq",
@@ -3139,7 +3140,7 @@
       "agentic"
     ],
     "suite": "browsecomp",
-    "recent_share": 7
+    "recent_share": 3
   },
   {
     "id": "c-eval",
@@ -3210,7 +3211,7 @@
       "vision"
     ],
     "suite": "charxiv",
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "cmmlu",
@@ -3286,7 +3287,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "codeforces",
@@ -3323,7 +3324,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 5
+    "recent_share": 3
   },
   {
     "id": "commonsenseqa",
@@ -3385,7 +3386,7 @@
       "coding"
     ],
     "suite": "cruxeval",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "csimpleqa",
@@ -3417,7 +3418,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 5
+    "recent_share": 3
   },
   {
     "id": "cvbench",
@@ -3473,7 +3474,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 5
+    "recent_share": 9
   },
   {
     "id": "erqa",
@@ -3531,7 +3532,7 @@
       "agentic"
     ],
     "suite": "frontierswe",
-    "recent_share": 1
+    "recent_share": 4
   },
   {
     "id": "hmmt2026feb",
@@ -3557,7 +3558,7 @@
       "math"
     ],
     "suite": "hmmt",
-    "recent_share": 3
+    "recent_share": 4
   },
   {
     "id": "hmmtnov25",
@@ -3585,7 +3586,7 @@
       "math"
     ],
     "suite": "hmmt",
-    "recent_share": 5
+    "recent_share": 6
   },
   {
     "id": "librispeech",
@@ -3656,7 +3657,7 @@
       "vision"
     ],
     "suite": "mathvision",
-    "recent_share": 4
+    "recent_share": 7
   },
   {
     "id": "mmlu-redux",
@@ -3691,7 +3692,7 @@
       "knowledge"
     ],
     "suite": "mmlu",
-    "recent_share": 9
+    "recent_share": 6
   },
   {
     "id": "mt-bench",
@@ -3756,7 +3757,7 @@
       "reasoning"
     ],
     "suite": "multichallenge",
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "multipl-e",
@@ -3794,7 +3795,7 @@
       "coding"
     ],
     "suite": "multipl-e",
-    "recent_share": 3
+    "recent_share": 1
   },
   {
     "id": "needleinahaystack",
@@ -3847,7 +3848,7 @@
       "agentic"
     ],
     "suite": "officeqa",
-    "recent_share": 1
+    "recent_share": 3
   },
   {
     "id": "openai-moderation",
@@ -3879,7 +3880,7 @@
       "safety"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "programbench",
@@ -3905,7 +3906,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 7
   },
   {
     "id": "raceh",
@@ -3939,7 +3940,7 @@
       "reasoning"
     ],
     "suite": "race",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "refcocog",
@@ -4006,7 +4007,38 @@
       "longctx"
     ],
     "suite": "ruler",
-    "recent_share": 3
+    "recent_share": 2
+  },
+  {
+    "id": "scicode",
+    "name": "SciCode",
+    "lab_count": 5,
+    "labs": [
+      "google",
+      "moonshot",
+      "qwen",
+      "upstage",
+      "zai"
+    ],
+    "first_seen": "2025-07-28",
+    "last_seen": "2026-10-01",
+    "labs_by_year": {
+      "2025": 2,
+      "2026": 4
+    },
+    "labs_by_quarter": {
+      "2025-Q3": 1,
+      "2025-Q4": 1,
+      "2026-Q1": 2,
+      "2026-Q2": 2,
+      "2026-Q3": 2,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding"
+    ],
+    "suite": null,
+    "recent_share": 6
   },
   {
     "id": "supergpqa",
@@ -4037,7 +4069,7 @@
       "science"
     ],
     "suite": null,
-    "recent_share": 6
+    "recent_share": 4
   },
   {
     "id": "terminal-bench",
@@ -4065,7 +4097,7 @@
       "agentic"
     ],
     "suite": "terminal-bench",
-    "recent_share": 9
+    "recent_share": 1
   },
   {
     "id": "terminalbench40",
@@ -4091,7 +4123,7 @@
       "agentic"
     ],
     "suite": "terminal-bench",
-    "recent_share": 0
+    "recent_share": 3
   },
   {
     "id": "v",
@@ -4153,7 +4185,7 @@
       "science"
     ],
     "suite": null,
-    "recent_share": 8
+    "recent_share": 7
   },
   {
     "id": "webarena",
@@ -4187,7 +4219,7 @@
       "vision"
     ],
     "suite": "webarena",
-    "recent_share": 3
+    "recent_share": 2
   },
   {
     "id": "aalcr",
@@ -4200,20 +4232,21 @@
       "upstage"
     ],
     "first_seen": "2026-01-11",
-    "last_seen": "2026-08-11",
+    "last_seen": "2026-10-01",
     "labs_by_year": {
       "2026": 4
     },
     "labs_by_quarter": {
       "2026-Q1": 4,
       "2026-Q2": 1,
-      "2026-Q3": 2
+      "2026-Q3": 2,
+      "2026-Q4": 1
     },
     "categories": [
       "longctx"
     ],
     "suite": null,
-    "recent_share": 3
+    "recent_share": 7
   },
   {
     "id": "aishell1",
@@ -4271,7 +4304,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 6
   },
   {
     "id": "apps",
@@ -4389,7 +4422,7 @@
       "knowledge"
     ],
     "suite": "arena-hard",
-    "recent_share": 5
+    "recent_share": 2
   },
   {
     "id": "babyvision",
@@ -4415,7 +4448,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 6
   },
   {
     "id": "bbq",
@@ -4453,7 +4486,7 @@
       "safety"
     ],
     "suite": "bbq",
-    "recent_share": 5
+    "recent_share": 4
   },
   {
     "id": "bigbenchaudio",
@@ -4507,7 +4540,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 4
+    "recent_share": 3
   },
   {
     "id": "covost2",
@@ -4567,7 +4600,7 @@
       "science"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 3
   },
   {
     "id": "exploitgym",
@@ -4593,7 +4626,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 3
   },
   {
     "id": "financeagent2",
@@ -4618,7 +4651,7 @@
       "agentic"
     ],
     "suite": "finance-agent",
-    "recent_share": 1
+    "recent_share": 4
   },
   {
     "id": "gqa",
@@ -4679,7 +4712,7 @@
       "science"
     ],
     "suite": "healthbench",
-    "recent_share": 3
+    "recent_share": 4
   },
   {
     "id": "ifbench",
@@ -4705,7 +4738,7 @@
       "reasoning"
     ],
     "suite": null,
-    "recent_share": 4
+    "recent_share": 6
   },
   {
     "id": "imoanswerbench",
@@ -4762,7 +4795,7 @@
       "multilingual"
     ],
     "suite": null,
-    "recent_share": 4
+    "recent_share": 3
   },
   {
     "id": "labbench",
@@ -4819,7 +4852,7 @@
       "coding"
     ],
     "suite": "livecodebench",
-    "recent_share": 2
+    "recent_share": 0
   },
   {
     "id": "lmarena",
@@ -4849,7 +4882,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "lvbench",
@@ -4862,7 +4895,7 @@
       "zai"
     ],
     "first_seen": "2024-08-29",
-    "last_seen": "2026-09-14",
+    "last_seen": "2026-09-30",
     "labs_by_year": {
       "2024": 1,
       "2025": 3,
@@ -4913,7 +4946,7 @@
       "speech"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "mmau",
@@ -4942,7 +4975,7 @@
       "speech"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "mmbench",
@@ -4977,7 +5010,7 @@
       "vision"
     ],
     "suite": "mmbench",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "mme",
@@ -5043,7 +5076,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "mmvet",
@@ -5203,35 +5236,6 @@
     "recent_share": 0
   },
   {
-    "id": "scicode",
-    "name": "SciCode",
-    "lab_count": 4,
-    "labs": [
-      "google",
-      "moonshot",
-      "qwen",
-      "zai"
-    ],
-    "first_seen": "2025-07-28",
-    "last_seen": "2026-07-27",
-    "labs_by_year": {
-      "2025": 2,
-      "2026": 3
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1,
-      "2025-Q4": 1,
-      "2026-Q1": 2,
-      "2026-Q2": 2,
-      "2026-Q3": 2
-    },
-    "categories": [
-      "coding"
-    ],
-    "suite": null,
-    "recent_share": 4
-  },
-  {
     "id": "seed",
     "name": "SEED",
     "lab_count": 4,
@@ -5293,7 +5297,7 @@
       "knowledge"
     ],
     "suite": "simpleqa",
-    "recent_share": 3
+    "recent_share": 4
   },
   {
     "id": "siqa",
@@ -5358,7 +5362,7 @@
       "agentic"
     ],
     "suite": "swe-bench",
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "terminalbench30",
@@ -5383,7 +5387,7 @@
       "agentic"
     ],
     "suite": "terminal-bench",
-    "recent_share": 0
+    "recent_share": 2
   },
   {
     "id": "terminalbenchhard",
@@ -5411,7 +5415,7 @@
       "agentic"
     ],
     "suite": "terminal-bench",
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "toxicchat",
@@ -5441,7 +5445,7 @@
       "safety"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "vizwiz",
@@ -5502,7 +5506,7 @@
       "speech"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "vsibench",
@@ -5528,7 +5532,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "webvoyager",
@@ -5559,7 +5563,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "aabriefcase",
@@ -5583,7 +5587,7 @@
       "agentic"
     ],
     "suite": "aa-briefcase",
-    "recent_share": 0
+    "recent_share": 4
   },
   {
     "id": "alignbench",
@@ -5638,7 +5642,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 3
+    "recent_share": 2
   },
   {
     "id": "art",
@@ -5771,7 +5775,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 2
   },
   {
     "id": "chatbotarena",
@@ -5831,7 +5835,7 @@
       "multilingual"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "cmath",
@@ -5952,7 +5956,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 7
+    "recent_share": 4
   },
   {
     "id": "cyscenariobench",
@@ -5977,7 +5981,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "deepswe",
@@ -6002,7 +6006,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 6
   },
   {
     "id": "dpgbench",
@@ -6030,7 +6034,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "drawbench",
@@ -6141,7 +6145,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "evalplus",
@@ -6173,7 +6177,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 3
+    "recent_share": 2
   },
   {
     "id": "exploitbench",
@@ -6198,7 +6202,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 4
   },
   {
     "id": "flickr30k",
@@ -6281,7 +6285,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 3
+    "recent_share": 1
   },
   {
     "id": "frontiercode11main",
@@ -6304,7 +6308,7 @@
       "other"
     ],
     "suite": "frontiercode",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "gdppdf",
@@ -6316,7 +6320,7 @@
       "openai"
     ],
     "first_seen": "2026-06-09",
-    "last_seen": "2026-09-02",
+    "last_seen": "2026-09-29",
     "labs_by_year": {
       "2026": 3
     },
@@ -6328,7 +6332,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "gdpval",
@@ -6355,7 +6359,7 @@
       "agentic"
     ],
     "suite": "gdpval",
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "geneval",
@@ -6469,7 +6473,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "healthbenchprofessional",
@@ -6493,7 +6497,7 @@
       "science"
     ],
     "suite": "healthbench",
-    "recent_share": 2
+    "recent_share": 5
   },
   {
     "id": "hlewithtools",
@@ -6518,7 +6522,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 3
   },
   {
     "id": "humanevalfim",
@@ -6569,7 +6573,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 3
   },
   {
     "id": "labbench2",
@@ -6671,7 +6675,7 @@
       "reasoning"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "mask",
@@ -6698,7 +6702,7 @@
       "safety"
     ],
     "suite": null,
-    "recent_share": 6
+    "recent_share": 4
   },
   {
     "id": "mathverse",
@@ -6727,7 +6731,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "mcpmark",
@@ -6840,7 +6844,7 @@
       "vision"
     ],
     "suite": "mmbench",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "mmlongbenchdoc",
@@ -6869,7 +6873,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "mmmuprovision",
@@ -6923,7 +6927,7 @@
       "speech"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "mmvu",
@@ -6953,7 +6957,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 3
+    "recent_share": 5
   },
   {
     "id": "motionbench",
@@ -7007,7 +7011,7 @@
       "multilingual"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "mvbench",
@@ -7063,7 +7067,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 6
   },
   {
     "id": "ocrvqa",
@@ -7226,7 +7230,7 @@
       "science"
     ],
     "suite": "protocolqa",
-    "recent_share": 4
+    "recent_share": 3
   },
   {
     "id": "quality",
@@ -7445,7 +7449,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 3
+    "recent_share": 4
   },
   {
     "id": "sunrgbd",
@@ -7501,7 +7505,7 @@
       "agentic"
     ],
     "suite": "swe-bench",
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "swemarathon",
@@ -7526,7 +7530,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 3
   },
   {
     "id": "tau2airline",
@@ -7551,7 +7555,7 @@
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 4
+    "recent_share": 1
   },
   {
     "id": "tau2retail",
@@ -7576,7 +7580,7 @@
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 4
+    "recent_share": 1
   },
   {
     "id": "tau3banking",
@@ -7588,19 +7592,20 @@
       "upstage"
     ],
     "first_seen": "2026-05-22",
-    "last_seen": "2026-08-11",
+    "last_seen": "2026-10-01",
     "labs_by_year": {
       "2026": 3
     },
     "labs_by_quarter": {
       "2026-Q2": 1,
-      "2026-Q3": 2
+      "2026-Q3": 2,
+      "2026-Q4": 1
     },
     "categories": [
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 0
+    "recent_share": 4
   },
   {
     "id": "tau3bench",
@@ -7623,7 +7628,7 @@
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "taubenchairline",
@@ -7649,7 +7654,7 @@
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "taubenchretail",
@@ -7675,7 +7680,7 @@
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 2
+    "recent_share": 0
   },
   {
     "id": "textarena",
@@ -7752,7 +7757,7 @@
       "agentic"
     ],
     "suite": "vending-bench",
-    "recent_share": 5
+    "recent_share": 4
   },
   {
     "id": "vlmsareblind",
@@ -7883,7 +7888,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 3
+    "recent_share": 5
   },
   {
     "id": "wmdpbio",
@@ -7913,7 +7918,7 @@
       "safety"
     ],
     "suite": "wmdp",
-    "recent_share": 4
+    "recent_share": 3
   },
   {
     "id": "wmdpchem",
@@ -7941,7 +7946,7 @@
       "safety"
     ],
     "suite": "wmdp",
-    "recent_share": 4
+    "recent_share": 3
   },
   {
     "id": "xcopa",
@@ -7994,7 +7999,7 @@
       "reasoning"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 0
   },
   {
     "id": "aabriefcase11",
@@ -8016,7 +8021,7 @@
       "agentic"
     ],
     "suite": "aa-briefcase",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "activitynetqa",
@@ -8094,7 +8099,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "agentdojo",
@@ -8119,7 +8124,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 4
+    "recent_share": 2
   },
   {
     "id": "agentharm",
@@ -8144,7 +8149,7 @@
       "safety"
     ],
     "suite": null,
-    "recent_share": 4
+    "recent_share": 2
   },
   {
     "id": "aider",
@@ -8368,7 +8373,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "apex",
@@ -8462,7 +8467,7 @@
       "reasoning"
     ],
     "suite": "arc-agi",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "arena",
@@ -8487,7 +8492,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "arkitscenes",
@@ -8557,7 +8562,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 0
   },
   {
     "id": "bbeh",
@@ -8585,7 +8590,7 @@
       "reasoning"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "beavertails",
@@ -8609,7 +8614,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "benchcad",
@@ -8632,7 +8637,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "bfcl3",
@@ -8655,7 +8660,7 @@
       "agentic"
     ],
     "suite": "bfcl",
-    "recent_share": 2
+    "recent_share": 0
   },
   {
     "id": "biolpbench",
@@ -8681,7 +8686,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 0
   },
   {
     "id": "biomysterybench",
@@ -8705,7 +8710,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 3
   },
   {
     "id": "birdsql",
@@ -8756,7 +8761,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "blueprintbench2",
@@ -8806,7 +8811,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "chartmuseum",
@@ -8831,7 +8836,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "chartqapro",
@@ -8856,7 +8861,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "clawevalmultimodal",
@@ -8928,7 +8933,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "clothoaqa",
@@ -8978,7 +8983,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 0
   },
   {
     "id": "codecontests",
@@ -9001,7 +9006,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "codexglue",
@@ -9198,7 +9203,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 0
   },
   {
     "id": "crosscodeeval",
@@ -9271,7 +9276,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "cruxeval",
@@ -9347,7 +9352,7 @@
       "coding"
     ],
     "suite": "cruxeval",
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "cursorbench32",
@@ -9369,7 +9374,7 @@
       "other"
     ],
     "suite": "cursorbench",
-    "recent_share": 0
+    "recent_share": 2
   },
   {
     "id": "cursorbench40",
@@ -9392,7 +9397,7 @@
       "agentic"
     ],
     "suite": "cursorbench",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "cvebench",
@@ -9419,7 +9424,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "cvtg2k",
@@ -9516,7 +9521,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "design2code",
@@ -9541,7 +9546,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "eclektic",
@@ -9592,7 +9597,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "factscore",
@@ -9615,7 +9620,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "factsgrounding",
@@ -9641,7 +9646,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "figqa",
@@ -9669,7 +9674,7 @@
       "science"
     ],
     "suite": null,
-    "recent_share": 5
+    "recent_share": 4
   },
   {
     "id": "financeagent11",
@@ -9808,7 +9813,7 @@
       "other"
     ],
     "suite": "frontiercode",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "frontiercode11extended",
@@ -9830,7 +9835,7 @@
       "other"
     ],
     "suite": "frontiercode",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "frontierscienceresearch",
@@ -9875,7 +9880,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "fullduplexbench3",
@@ -9994,7 +9999,7 @@
       "speech"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "globalpiqa",
@@ -10074,7 +10079,7 @@
       "longctx"
     ],
     "suite": "graphwalks",
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "harveylabaa",
@@ -10096,7 +10101,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 2
   },
   {
     "id": "harveyslegalagentbenchmark",
@@ -10107,7 +10112,7 @@
       "xai"
     ],
     "first_seen": "2026-09-02",
-    "last_seen": "2026-09-21",
+    "last_seen": "2026-09-30",
     "labs_by_year": {
       "2026": 2
     },
@@ -10118,7 +10123,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "hleverified",
@@ -10141,7 +10146,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "hmmt",
@@ -10361,7 +10366,7 @@
       "vision"
     ],
     "suite": "imagenet",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "imagenet2",
@@ -10480,7 +10485,7 @@
       "speech"
     ],
     "suite": "instructttseval",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "instructttsevalzh",
@@ -10504,7 +10509,7 @@
       "speech"
     ],
     "suite": "instructttseval",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "kitti",
@@ -10528,7 +10533,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "kmmlu",
@@ -10601,7 +10606,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 3
   },
   {
     "id": "legalresearchbench",
@@ -10623,7 +10628,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 2
   },
   {
     "id": "librispeechclean",
@@ -10671,7 +10676,7 @@
       "speech"
     ],
     "suite": "librispeech",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "librispeechtestclean",
@@ -10693,7 +10698,7 @@
       "speech"
     ],
     "suite": "librispeech",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "librispeechtestother",
@@ -10717,7 +10722,7 @@
       "speech"
     ],
     "suite": "librispeech",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "lingoqa",
@@ -10768,7 +10773,7 @@
       "other"
     ],
     "suite": "livebench",
-    "recent_share": 3
+    "recent_share": 1
   },
   {
     "id": "livecodebenchbase",
@@ -11069,7 +11074,7 @@
       "math"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "mathodyssey",
@@ -11272,7 +11277,7 @@
       "math"
     ],
     "suite": "minif2f",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "miniwob",
@@ -11342,7 +11347,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 3
   },
   {
     "id": "mmar",
@@ -11367,7 +11372,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "mmbench11en",
@@ -11512,7 +11517,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "mmluanatomy",
@@ -11683,7 +11688,7 @@
       "knowledge"
     ],
     "suite": "mmlu-pro",
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "mmlustem",
@@ -11810,7 +11815,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "mmtbench",
@@ -12031,7 +12036,7 @@
       "speech"
     ],
     "suite": "multichallenge",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "multiif",
@@ -12055,7 +12060,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "multiplehumaneval",
@@ -12079,7 +12084,7 @@
       "coding"
     ],
     "suite": "multipl-e",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "multiplembpp",
@@ -12103,7 +12108,7 @@
       "coding"
     ],
     "suite": "multipl-e",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "musiccaps",
@@ -12199,7 +12204,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "objectnet",
@@ -12222,7 +12227,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "ocrbench2",
@@ -12297,7 +12302,7 @@
       "agentic"
     ],
     "suite": "officeqa",
-    "recent_share": 2
+    "recent_share": 3
   },
   {
     "id": "ojbench",
@@ -12323,7 +12328,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 4
+    "recent_share": 3
   },
   {
     "id": "olympiadbench",
@@ -12351,7 +12356,7 @@
       "math"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "omnigaia",
@@ -12519,7 +12524,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 2
   },
   {
     "id": "posttrainbench",
@@ -12542,7 +12547,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 3
   },
   {
     "id": "protocolqaopenended",
@@ -12573,7 +12578,7 @@
       "other"
     ],
     "suite": "protocolqa",
-    "recent_share": 2
+    "recent_share": 3
   },
   {
     "id": "pubmedqa",
@@ -12651,7 +12656,7 @@
       "math"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "quac",
@@ -12877,7 +12882,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "ruler32k",
@@ -12902,7 +12907,7 @@
       "longctx"
     ],
     "suite": "ruler",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "saferlhf",
@@ -12926,7 +12931,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "scannet",
@@ -12974,7 +12979,7 @@
       "vision"
     ],
     "suite": "screenspot",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "sdqa",
@@ -13020,7 +13025,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 2
   },
   {
     "id": "seedbench2plus",
@@ -13099,7 +13104,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 3
+    "recent_share": 2
   },
   {
     "id": "shadearena",
@@ -13204,7 +13209,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "ss2",
@@ -13405,7 +13410,7 @@
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "tempcompass",
@@ -13439,7 +13444,7 @@
       "openai"
     ],
     "first_seen": "2026-09-01",
-    "last_seen": "2026-09-22",
+    "last_seen": "2026-09-29",
     "labs_by_year": {
       "2026": 2
     },
@@ -13451,7 +13456,7 @@
       "agentic"
     ],
     "suite": "terminal-bench",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "textcaps",
@@ -13674,7 +13679,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "usamo25",
@@ -13692,6 +13697,28 @@
     "labs_by_quarter": {
       "2025-Q2": 1,
       "2025-Q3": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "valsindex",
+    "name": "Vals Index",
+    "lab_count": 2,
+    "labs": [
+      "google",
+      "moonshot"
+    ],
+    "first_seen": "2026-07-27",
+    "last_seen": "2026-09-30",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 2
     },
     "categories": [
       "other"
@@ -13755,7 +13782,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "vcr",
@@ -13901,7 +13928,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "vocalsound",
@@ -13956,7 +13983,7 @@
       "speech"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "vsr",
@@ -14005,7 +14032,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "wenetspeech",
@@ -14056,7 +14083,7 @@
       "speech"
     ],
     "suite": "wenetspeech",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "where2place",
@@ -14131,7 +14158,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "winogender",
@@ -14206,7 +14233,7 @@
       "safety"
     ],
     "suite": "wmdp",
-    "recent_share": 4
+    "recent_share": 2
   },
   {
     "id": "wmt24",
@@ -14311,7 +14338,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 3
+    "recent_share": 1
   },
   {
     "id": "xbenchdeepsearch",
@@ -14334,7 +14361,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "xstorycloze",
@@ -14453,7 +14480,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "3dcodebench",
@@ -14474,7 +14501,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "aaomniscienceindex",
@@ -14499,7 +14526,7 @@
   },
   {
     "id": "aavcapsidpackagingprediction",
-    "name": "AAV capsid packaging prediction",
+    "name": "AAV Capsid Packaging Prediction",
     "lab_count": 1,
     "labs": [
       "openai"
@@ -14580,7 +14607,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 0
   },
   {
     "id": "activitynetcap",
@@ -14626,7 +14653,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "ade847",
@@ -14752,7 +14779,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "aegis20",
@@ -14817,7 +14844,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "agentbehaviorbench",
@@ -14838,7 +14865,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "agentbench",
@@ -14945,7 +14972,7 @@
       "safety"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "agenticsafecompletionevaluations",
@@ -15031,7 +15058,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "agentslastexam1",
@@ -15117,7 +15144,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "aiarena",
@@ -15544,7 +15571,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "amc202223",
@@ -15607,7 +15634,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "amiihm",
@@ -15628,7 +15655,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "amisdm",
@@ -15649,7 +15676,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "ammlu",
@@ -16032,7 +16059,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "apexshortlist",
@@ -16074,7 +16101,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "apibank",
@@ -16563,7 +16590,7 @@
       "multilingual"
     ],
     "suite": "arena-hard",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "arenahardcreativewriting",
@@ -16672,7 +16699,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "arxivmath",
@@ -16694,7 +16721,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "asdiv",
@@ -17064,12 +17091,33 @@
       "openai"
     ],
     "first_seen": "2026-09-22",
-    "last_seen": "2026-09-22",
+    "last_seen": "2026-09-29",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
       "2026-Q3": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "automationbench",
+    "recent_share": 0
+  },
+  {
+    "id": "automationbenchaa",
+    "name": "AutomationBench-AA",
+    "lab_count": 1,
+    "labs": [
+      "upstage"
+    ],
+    "first_seen": "2026-10-01",
+    "last_seen": "2026-10-01",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
     },
     "categories": [
       "agentic"
@@ -17096,7 +17144,7 @@
       "agentic"
     ],
     "suite": "automationbench",
-    "recent_share": 0
+    "recent_share": 3
   },
   {
     "id": "avspeakerbench",
@@ -17184,7 +17232,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "barexam",
@@ -17608,7 +17656,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "beavertails30k",
@@ -17671,7 +17719,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "betterchartqa",
@@ -17713,7 +17761,7 @@
       "math"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "bfcl2",
@@ -17930,7 +17978,7 @@
       "safety"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "biomysterybenchverified",
@@ -18144,6 +18192,28 @@
     "recent_share": 0
   },
   {
+    "id": "brokensearchtool",
+    "name": "Broken search tool",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-09-29",
+    "last_seen": "2026-09-29",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "safety",
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "browsecompagentswarm",
     "name": "BrowseComp(Agent Swarm)",
     "lab_count": 1,
@@ -18184,7 +18254,7 @@
       "agentic"
     ],
     "suite": "browsecomp",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "browsecompplus",
@@ -18354,7 +18424,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "cadgenbench",
@@ -18396,7 +18466,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "callhome",
@@ -18417,7 +18487,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "caltech101",
@@ -19046,7 +19116,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "charxivdescriptive",
@@ -19089,7 +19159,7 @@
       "vision"
     ],
     "suite": "charxiv",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "charxivvalreasoning",
@@ -19131,7 +19201,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "chembench",
@@ -19326,7 +19396,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "chinesehighschoolmathematicsleaguetest1",
@@ -19518,7 +19588,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "civilcomments",
@@ -19645,7 +19715,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "clicklinks",
@@ -19687,7 +19757,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "clotho",
@@ -20095,7 +20165,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "codearena",
@@ -20223,7 +20293,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "codeforceselo",
@@ -20656,6 +20726,28 @@
     "recent_share": 0
   },
   {
+    "id": "computerusesafety",
+    "name": "Computer-use safety",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-09-29",
+    "last_seen": "2026-09-29",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "safety",
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "contextasrbench",
     "name": "ContextASR-Bench",
     "lab_count": 1,
@@ -20716,7 +20808,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 2
   },
   {
     "id": "corpusqa1m",
@@ -20758,7 +20850,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "cosmosreason1",
@@ -20802,7 +20894,7 @@
       "reasoning"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "cotcontrollability",
@@ -20923,7 +21015,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "coursera",
@@ -20966,7 +21058,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "cqa",
@@ -21008,7 +21100,7 @@
       "multilingual"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "crc100k",
@@ -21071,7 +21163,7 @@
       "science"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "crosscodefim",
@@ -21135,7 +21227,7 @@
       "coding"
     ],
     "suite": "cruxeval",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "cruxo",
@@ -21418,6 +21510,50 @@
     "recent_share": 0
   },
   {
+    "id": "cwebench0",
+    "name": "CWE-bench v0",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-09-30",
+    "last_seen": "2026-09-30",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "coding",
+      "safety"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "cwebench1",
+    "name": "CWE-bench v1",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-09-30",
+    "last_seen": "2026-09-30",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "coding",
+      "safety"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "cweval",
     "name": "CWEval",
     "lab_count": 1,
@@ -21464,7 +21600,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "cybersafetyevaluations",
@@ -21659,7 +21795,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "deepplanning",
@@ -21702,7 +21838,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "deepsearchqaf1",
@@ -21723,7 +21859,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "deepswe10",
@@ -21745,7 +21881,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "defects4j",
@@ -22063,7 +22199,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "docci",
@@ -22319,7 +22455,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "dram",
@@ -22361,7 +22497,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "dream1k",
@@ -22445,7 +22581,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "drivelm",
@@ -22466,7 +22602,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "dsarenacode",
@@ -22529,7 +22665,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 2
   },
   {
     "id": "dsbenchhard",
@@ -22550,7 +22686,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 3
   },
   {
     "id": "dsfimeval",
@@ -22678,7 +22814,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "earnings22",
@@ -22699,7 +22835,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "ebench",
@@ -22825,7 +22961,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "egdcxr",
@@ -22952,7 +23088,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "egotempo",
@@ -23719,7 +23855,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "falseclaimbench",
@@ -23761,7 +23897,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "fatex",
@@ -23782,7 +23918,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "fevbench",
@@ -23913,7 +24049,7 @@
       "agentic"
     ],
     "suite": "finance-agent",
-    "recent_share": 3
+    "recent_share": 2
   },
   {
     "id": "financebench",
@@ -23934,7 +24070,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "findinfo",
@@ -24061,7 +24197,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 3
   },
   {
     "id": "firstpersonfairness",
@@ -24110,7 +24246,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "flamevlmcode",
@@ -24133,7 +24269,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "fleurs12",
@@ -24391,7 +24527,7 @@
       "speech"
     ],
     "suite": "fleurs",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "fleurszh2xx",
@@ -24497,7 +24633,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "fluerscn",
@@ -24665,7 +24801,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "fox",
@@ -24772,7 +24908,7 @@
       "other"
     ],
     "suite": "terminal-bench",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "frontiercode",
@@ -24794,7 +24930,7 @@
       "other"
     ],
     "suite": "frontiercode",
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "frontierfinance",
@@ -24838,7 +24974,7 @@
       "math"
     ],
     "suite": "frontiermath",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "frontiermathtier13",
@@ -24972,7 +25108,7 @@
       "agentic"
     ],
     "suite": "frontierswe",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "frontiersweimplrank",
@@ -24994,7 +25130,7 @@
       "agentic"
     ],
     "suite": "frontierswe",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "fullduplexbench1",
@@ -25120,7 +25256,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "gaia",
@@ -25206,7 +25342,7 @@
       "longctx"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "gdmstealth",
@@ -25249,7 +25385,7 @@
       "knowledge"
     ],
     "suite": "gdpval",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "geckonum",
@@ -25657,7 +25793,7 @@
       "multilingual"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "gorillaapibench",
@@ -25859,7 +25995,7 @@
       "google"
     ],
     "first_seen": "2026-09-02",
-    "last_seen": "2026-09-02",
+    "last_seen": "2026-09-30",
     "labs_by_year": {
       "2026": 1
     },
@@ -26018,7 +26154,7 @@
       "math"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "gsm8kspeech",
@@ -26081,7 +26217,7 @@
       "math"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "gsminfinitehard",
@@ -26102,7 +26238,7 @@
       "math"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "gso",
@@ -26272,7 +26408,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "hackerbench03",
@@ -26363,7 +26499,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "haerae11",
@@ -26385,7 +26521,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "handwrittenforms",
@@ -26491,7 +26627,7 @@
       "safety"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "harmfulagentictasks",
@@ -26732,7 +26868,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "hiddenmath",
@@ -26891,7 +27027,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 5
   },
   {
     "id": "hlefullwtools",
@@ -27105,7 +27241,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "hsk79",
@@ -27716,7 +27852,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "ifeval8",
@@ -27758,7 +27894,7 @@
       "multilingual"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "ifevalmultilingual",
@@ -27954,7 +28090,7 @@
       "vision"
     ],
     "suite": "imagenet",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "imagenetc",
@@ -28061,7 +28197,7 @@
       "safety"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "imgedit",
@@ -28232,7 +28368,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "indicgenbench",
@@ -28512,7 +28648,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "instructttseval",
@@ -28833,7 +28969,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "internationalchemistryolympiad25",
@@ -29107,7 +29243,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "jailbreakaugmentedexamples",
@@ -29425,7 +29561,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "kbankmmlu",
@@ -29447,7 +29583,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "kbl",
@@ -29471,7 +29607,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 3
   },
   {
     "id": "kernelbench",
@@ -29556,7 +29692,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "kespeech",
@@ -29645,7 +29781,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 3
   },
   {
     "id": "kimicodebench2",
@@ -29687,7 +29823,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "kimidesignbench",
@@ -29755,7 +29891,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 3
   },
   {
     "id": "knowledgegraph",
@@ -29819,7 +29955,7 @@
       "math"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "koarenahard2",
@@ -29861,7 +29997,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "kobalt",
@@ -29945,7 +30081,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 2
   },
   {
     "id": "koifeval",
@@ -29970,7 +30106,7 @@
       "reasoning"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "komiracl",
@@ -30013,7 +30149,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "komtbench",
@@ -30100,7 +30236,7 @@
       "science"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 3
   },
   {
     "id": "kotlinhumaneval",
@@ -30142,7 +30278,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "labworkbench",
@@ -30207,7 +30343,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "lbpp",
@@ -30312,7 +30448,7 @@
       "longctx"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "leetcode",
@@ -30480,7 +30616,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "liberoplus",
@@ -30607,7 +30743,7 @@
       "science"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "linuxarena",
@@ -30629,7 +30765,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "linuxbench",
@@ -30696,7 +30832,7 @@
       "other"
     ],
     "suite": "livebench",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "livebenchcoding",
@@ -30783,7 +30919,7 @@
       "coding"
     ],
     "suite": "livecodebench",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "livecodebenchcodegeneration",
@@ -30913,7 +31049,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "lmarenatextarena",
@@ -30955,7 +31091,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "lmsysvisionleaderboard",
@@ -31170,7 +31306,7 @@
       "safety"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "longformwriting",
@@ -31709,7 +31845,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "maplm",
@@ -31730,7 +31866,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "marcja",
@@ -31795,7 +31931,7 @@
       "safety"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "math401",
@@ -31967,7 +32103,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "mbe",
@@ -32161,7 +32297,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 3
   },
   {
     "id": "mcpuniverse",
@@ -32615,7 +32751,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "metrdatadeduplication",
@@ -32746,7 +32882,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 3
   },
   {
     "id": "mimiccxr",
@@ -32818,7 +32954,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "mindcube",
@@ -33042,7 +33178,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "mir1kvocal",
@@ -33084,7 +33220,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "misalignedoutcomesinrealisticworkenvironments",
@@ -33253,7 +33389,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "mlogiqa",
@@ -33322,7 +33458,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "mlvumcq",
@@ -33388,7 +33524,7 @@
       "speech"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "mmbc",
@@ -33473,7 +33609,7 @@
       "vision"
     ],
     "suite": "mmbench",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "mmbenchentest",
@@ -33578,7 +33714,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "mmc",
@@ -33707,7 +33843,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "mmlongbench128k",
@@ -33750,7 +33886,7 @@
       "multilingual"
     ],
     "suite": "mmlu",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "mmlumed",
@@ -33837,7 +33973,7 @@
       "knowledge"
     ],
     "suite": "mmlu",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "mmluspeech",
@@ -34302,7 +34438,7 @@
       "speech"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "mpdocvqahtml",
@@ -35166,7 +35302,7 @@
       "safety"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "multiloko",
@@ -35188,7 +35324,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "multimathematics",
@@ -35413,7 +35549,7 @@
       "agentic"
     ],
     "suite": "swe-bench",
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "multiswebenchflash",
@@ -35651,7 +35787,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "nanonetskie",
@@ -35744,7 +35880,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "navsim",
@@ -35766,7 +35902,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "navsimbestof6",
@@ -36039,7 +36175,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "nihmultineedle",
@@ -36125,7 +36261,7 @@
       "longctx"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "nonspeech7k",
@@ -36189,7 +36325,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "nsinstrument",
@@ -36252,7 +36388,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "nuscene",
@@ -36294,7 +36430,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "nyud",
@@ -36591,7 +36727,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "omni2web",
@@ -36761,7 +36897,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "omniechobench",
@@ -36914,7 +37050,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "omnivchatbench",
@@ -37153,7 +37289,7 @@
       "speech"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "openaudiobench",
@@ -37432,7 +37568,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 3
   },
   {
     "id": "oswgr",
@@ -37714,7 +37850,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "parametriccadbench",
@@ -37777,7 +37913,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "parlaidialoguesafety",
@@ -37819,7 +37955,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "partbench",
@@ -37924,7 +38060,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "passkeyretrieval",
@@ -38126,7 +38262,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "pets",
@@ -38168,7 +38304,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "physicsfinals",
@@ -38210,7 +38346,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "phyx",
@@ -38740,7 +38876,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "polyguardresponse",
@@ -38785,7 +38921,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "polymathen",
@@ -38807,7 +38943,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "popcs",
@@ -38852,7 +38988,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "ppdls",
@@ -39086,7 +39222,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "productionbenchmarkswithchallengingprompts",
@@ -39307,7 +39443,7 @@
       "science"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "protocols",
@@ -39517,7 +39653,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "qwenblenderbench",
@@ -39791,7 +39927,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "qwenwebdev",
@@ -39875,7 +40011,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "radgraphf1",
@@ -40194,7 +40330,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "refspatialbench",
@@ -40240,7 +40376,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "relbench",
@@ -40370,7 +40506,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "researchrubrics",
@@ -40391,7 +40527,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 2
   },
   {
     "id": "reverie",
@@ -40410,6 +40546,28 @@
     },
     "categories": [
       "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "reviewerbypass",
+    "name": "Reviewer bypass",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-09-29",
+    "last_seen": "2026-09-29",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "safety",
+      "agentic"
     ],
     "suite": null,
     "recent_share": 0
@@ -40497,7 +40655,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "rmb",
@@ -40539,7 +40697,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "robocasa365",
@@ -40644,7 +40802,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "robospatialhome",
@@ -40815,7 +40973,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "rose",
@@ -41159,7 +41317,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "sa23",
@@ -41243,7 +41401,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 2
   },
   {
     "id": "saco",
@@ -41542,7 +41700,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "satmath",
@@ -41607,7 +41765,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "scaleaisaudiomultichallenge",
@@ -41843,7 +42001,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "seccodebench",
@@ -41948,7 +42106,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "seedttstesten",
@@ -41969,7 +42127,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "seedttstestzh",
@@ -41990,7 +42148,7 @@
       "multilingual"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "seedzh",
@@ -42011,7 +42169,7 @@
       "multilingual"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "selfproliferationearlywarning",
@@ -42263,7 +42421,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "simpst",
@@ -42327,7 +42485,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "skillsbenchavg5",
@@ -42415,7 +42573,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "somethingsomething2",
@@ -42545,7 +42703,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "spanishmmlu",
@@ -42656,7 +42814,7 @@
       "speech"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "speechrole",
@@ -42698,7 +42856,7 @@
       "speech"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "spi",
@@ -42803,7 +42961,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 2
   },
   {
     "id": "squad",
@@ -42933,7 +43091,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "standardrefusalevaluation",
@@ -43213,7 +43371,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "svamp",
@@ -43255,7 +43413,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "sweatlasqna",
@@ -43298,7 +43456,7 @@
       "agentic"
     ],
     "suite": "swe-bench",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "swebenchlite",
@@ -43365,7 +43523,7 @@
       "agentic"
     ],
     "suite": "swe-bench",
-    "recent_share": 2
+    "recent_share": 3
   },
   {
     "id": "swebenchpretrain",
@@ -43430,7 +43588,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "swelancer",
@@ -43635,7 +43793,7 @@
       "safety"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "sycophancyevaluation",
@@ -43794,7 +43952,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "targetedredteamingforriskyadvice",
@@ -43836,7 +43994,7 @@
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "tau2",
@@ -43923,7 +44081,7 @@
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "tau3airline",
@@ -43944,7 +44102,7 @@
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "tau3retail",
@@ -43965,7 +44123,7 @@
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "tau3telecom",
@@ -43986,7 +44144,7 @@
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "tau3voice",
@@ -44133,7 +44291,7 @@
       "agentic"
     ],
     "suite": "tau-bench",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "tcf",
@@ -44430,7 +44588,7 @@
       "safety"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "tgifqa",
@@ -44687,7 +44845,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "tonguetwister",
@@ -44877,7 +45035,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "trialbench",
@@ -45225,7 +45383,7 @@
       "safety"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "urobenchpro",
@@ -45437,7 +45595,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "vabwebarenalite",
@@ -45469,7 +45627,7 @@
       "google"
     ],
     "first_seen": "2026-09-02",
-    "last_seen": "2026-09-02",
+    "last_seen": "2026-09-30",
     "labs_by_year": {
       "2026": 1
     },
@@ -45478,27 +45636,6 @@
     },
     "categories": [
       "agentic"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "valsindex",
-    "name": "Vals Index",
-    "lab_count": 1,
-    "labs": [
-      "moonshot"
-    ],
-    "first_seen": "2026-07-27",
-    "last_seen": "2026-07-27",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
     ],
     "suite": null,
     "recent_share": 0
@@ -46164,7 +46301,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "vlmsarebiased",
@@ -46404,6 +46541,28 @@
     "recent_share": 0
   },
   {
+    "id": "warningcircumvention",
+    "name": "Warning circumvention",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-09-29",
+    "last_seen": "2026-09-29",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "safety",
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "waymoqa",
     "name": "WaymoQA",
     "lab_count": 1,
@@ -46507,7 +46666,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "weboflies",
@@ -46550,7 +46709,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "webquestsingleqa",
@@ -46572,7 +46731,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "webshop",
@@ -46679,7 +46838,7 @@
       "speech"
     ],
     "suite": "wenetspeech",
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "wenetspeechnetmeeting",
@@ -46855,7 +47014,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "wildbench2",
@@ -47287,7 +47446,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 2
   },
   {
     "id": "wsc",
@@ -47350,7 +47509,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "xbrowse",
@@ -47372,7 +47531,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "xgqa",
@@ -47827,7 +47986,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "zerobenchmainwtools",
@@ -47848,7 +48007,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "zerobenchsub",
@@ -47873,7 +48032,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 0
+    "recent_share": 1
   },
   {
     "id": "zerobenchwtools",

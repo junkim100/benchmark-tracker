@@ -36,3 +36,17 @@
 {"at":"2026-09-28T20:28:37.148Z","raw":"Medicinal Chemistry","cats":["science"],"lab":"Anthropic"}
 {"at":"2026-09-28T20:28:37.148Z","raw":"De novo protein binder design","cats":["science"],"lab":"Anthropic"}
 {"at":"2026-09-28T20:28:37.148Z","raw":"Biomedical image analysis","cats":["science","vision"],"lab":"Anthropic"}
+{"at":"2026-10-01T19:15:59.140Z","raw":"Artificial Analysis Intelligence Index v4.3.2","cats":["other","reasoning"],"lab":"Upstage"}
+{"at":"2026-10-01T19:15:59.140Z","raw":"AutomationBench-AA","cats":["agentic"],"lab":"Upstage"}
+{"at":"2026-10-01T19:15:59.140Z","raw":"CWE-bench v1","cats":["coding","safety"],"lab":"Google DeepMind"}
+{"at":"2026-10-01T19:15:59.140Z","raw":"CWE-bench v0","cats":["coding","safety"],"lab":"Google DeepMind"}
+{"at":"2026-10-01T19:15:59.141Z","raw":"Broken search tool","cats":["safety","agentic"],"lab":"OpenAI"}
+{"at":"2026-10-01T19:15:59.141Z","raw":"Reviewer bypass","cats":["safety","agentic"],"lab":"OpenAI"}
+{"at":"2026-10-01T19:15:59.141Z","raw":"Warning circumvention","cats":["safety","agentic"],"lab":"OpenAI"}
+{"at":"2026-10-01T19:15:59.141Z","raw":"Computer-use safety","cats":["safety","agentic"],"lab":"OpenAI"}
+{"at":"2026-10-01T19:15:59.141Z","raw":"MentalHealthBench","cats":["safety"],"lab":"OpenAI"}
+{"at":"2026-10-01T19:15:59.141Z","raw":"OAI-repo Sabotage v2","cats":["safety","coding"],"lab":"OpenAI"}
+{"at":"2026-10-01T19:15:59.141Z","raw":"SHP2 Protein Function Prediction","cats":["science"],"lab":"OpenAI"}
+{"at":"2026-10-01T19:15:59.141Z","raw":"Coronavirus–ACE2 Cell-Entry Screen","cats":["science"],"lab":"OpenAI"}
+{"at":"2026-10-01T19:15:59.141Z","raw":"Phage–plasmid Co-evolution","cats":["science"],"lab":"OpenAI"}
+{"at":"2026-10-01T19:15:59.141Z","raw":"Cybersecurity Safety Evaluation","cats":["safety"],"lab":"OpenAI"}
