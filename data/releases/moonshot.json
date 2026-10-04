@@ -1035,5 +1035,28 @@
       ],
       "source": "inferred"
     }
+  },
+  {
+    "id": "moonshot-kimi-k2-7-code-2026-09-28",
+    "lab": "moonshot",
+    "model": "Kimi K2.7 Code",
+    "date": "2026-09-28",
+    "kind": "blog_post",
+    "title": "Kimi K2.7 Code: Open-Source Agentic Coding Model",
+    "source_url": "https://www.kimi.ai/resources/kimi-k2-7-code",
+    "benchmarks_raw": [
+      "Kimi Code Bench v2",
+      "Program Bench",
+      "MLS Bench Lite",
+      "Kimi Claw 24/7 Bench",
+      "MCP Atlas",
+      "MCP Mark Verified"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

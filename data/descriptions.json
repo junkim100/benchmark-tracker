@@ -2463,6 +2463,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "cwebench0": {
+    "text": "Held-out set of 100 agentic audit-and-patch tasks built from real open-source repositories pinned to vulnerable commits, spanning 54 CWE types and the OWASP Top 10 categories; the agent is told only to audit and fix, and patches are graded by deterministic tests.",
+    "source_url": "https://blog.collinear.ai/p/cwe-bench",
+    "source": "researched",
+    "checked": "2026-10-04"
+  },
   "cwebench1": {
     "text": "A held-out set of 120 agentic audit-and-patch tasks over real repositories spanning 73 CWE classes and eight languages, where an agent must locate and fix an injected vulnerability; scored by programmatic verifiers plus a multi-model judge panel.",
     "source_url": "https://blog.collinear.ai/p/cwe-bench-v1",

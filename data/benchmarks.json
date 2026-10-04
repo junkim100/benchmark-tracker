@@ -82,7 +82,7 @@
       "science"
     ],
     "suite": "gpqa",
-    "recent_share": 26
+    "recent_share": 25
   },
   {
     "id": "gsm8k",
@@ -171,7 +171,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 27
+    "recent_share": 26
   },
   {
     "id": "humaneval",
@@ -220,7 +220,7 @@
       "coding"
     ],
     "suite": "humaneval",
-    "recent_share": 5
+    "recent_share": 4
   },
   {
     "id": "mmlu",
@@ -269,7 +269,7 @@
       "knowledge"
     ],
     "suite": "mmlu",
-    "recent_share": 7
+    "recent_share": 6
   },
   {
     "id": "swe-bench-verified",
@@ -312,7 +312,7 @@
       "agentic"
     ],
     "suite": "swe-bench",
-    "recent_share": 21
+    "recent_share": 20
   },
   {
     "id": "ai2d",
@@ -429,7 +429,7 @@
       "agentic"
     ],
     "suite": "browsecomp",
-    "recent_share": 18
+    "recent_share": 17
   },
   {
     "id": "hellaswag",
@@ -477,7 +477,7 @@
       "reasoning"
     ],
     "suite": null,
-    "recent_share": 5
+    "recent_share": 4
   },
   {
     "id": "ifeval",
@@ -817,7 +817,7 @@
       "reasoning"
     ],
     "suite": null,
-    "recent_share": 6
+    "recent_share": 5
   },
   {
     "id": "chartqa",
@@ -1105,7 +1105,7 @@
       "agentic"
     ],
     "suite": "swe-bench",
-    "recent_share": 18
+    "recent_share": 17
   },
   {
     "id": "winogrande",
@@ -1196,7 +1196,7 @@
       "reasoning"
     ],
     "suite": "arc",
-    "recent_share": 3
+    "recent_share": 2
   },
   {
     "id": "gpqa",
@@ -1271,7 +1271,7 @@
       "agentic"
     ],
     "suite": "terminal-bench",
-    "recent_share": 17
+    "recent_share": 16
   },
   {
     "id": "triviaqa",
@@ -1316,7 +1316,7 @@
       "knowledge"
     ],
     "suite": "triviaqa",
-    "recent_share": 5
+    "recent_share": 4
   },
   {
     "id": "agieval",
@@ -1393,7 +1393,7 @@
       "vision"
     ],
     "suite": "charxiv",
-    "recent_share": 13
+    "recent_share": 12
   },
   {
     "id": "cybergym",
@@ -1427,7 +1427,7 @@
       "coding"
     ],
     "suite": null,
-    "recent_share": 14
+    "recent_share": 13
   },
   {
     "id": "drop",
@@ -1560,7 +1560,7 @@
       "zai"
     ],
     "first_seen": "2025-11-24",
-    "last_seen": "2026-08-11",
+    "last_seen": "2026-09-28",
     "labs_by_year": {
       "2025": 2,
       "2026": 8
@@ -2140,7 +2140,7 @@
       "vision"
     ],
     "suite": "video-mme",
-    "recent_share": 6
+    "recent_share": 5
   },
   {
     "id": "vqa2",
@@ -2236,7 +2236,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "egoschema",
@@ -2368,7 +2368,7 @@
       "coding"
     ],
     "suite": "livecodebench",
-    "recent_share": 8
+    "recent_share": 7
   },
   {
     "id": "longbench2",
@@ -2986,7 +2986,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 5
+    "recent_share": 4
   },
   {
     "id": "aime26",
@@ -3251,7 +3251,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 4
+    "recent_share": 3
   },
   {
     "id": "coco",
@@ -3418,7 +3418,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 3
+    "recent_share": 2
   },
   {
     "id": "cvbench",
@@ -3657,7 +3657,7 @@
       "vision"
     ],
     "suite": "mathvision",
-    "recent_share": 7
+    "recent_share": 6
   },
   {
     "id": "mmlu-redux",
@@ -3692,7 +3692,7 @@
       "knowledge"
     ],
     "suite": "mmlu",
-    "recent_share": 6
+    "recent_share": 5
   },
   {
     "id": "mt-bench",
@@ -3894,7 +3894,7 @@
       "zai"
     ],
     "first_seen": "2026-05-28",
-    "last_seen": "2026-09-17",
+    "last_seen": "2026-09-28",
     "labs_by_year": {
       "2026": 5
     },
@@ -4448,7 +4448,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 6
+    "recent_share": 5
   },
   {
     "id": "bbq",
@@ -6006,7 +6006,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 6
+    "recent_share": 5
   },
   {
     "id": "dpgbench",
@@ -6957,7 +6957,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 5
+    "recent_share": 4
   },
   {
     "id": "motionbench",
@@ -7337,7 +7337,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "scienceqa",
@@ -7449,7 +7449,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 4
+    "recent_share": 3
   },
   {
     "id": "sunrgbd",
@@ -7888,7 +7888,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 5
+    "recent_share": 4
   },
   {
     "id": "wmdpbio",
@@ -11335,7 +11335,7 @@
       "qwen"
     ],
     "first_seen": "2026-06-11",
-    "last_seen": "2026-08-03",
+    "last_seen": "2026-09-28",
     "labs_by_year": {
       "2026": 2
     },
@@ -12547,7 +12547,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 3
+    "recent_share": 2
   },
   {
     "id": "protocolqaopenended",
@@ -12858,7 +12858,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "rtplx",
@@ -14107,7 +14107,7 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "wildchat",
@@ -27027,7 +27027,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 5
+    "recent_share": 4
   },
   {
     "id": "hlefullwtools",
@@ -29747,18 +29747,19 @@
       "moonshot"
     ],
     "first_seen": "2026-06-11",
-    "last_seen": "2026-06-11",
+    "last_seen": "2026-09-28",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q2": 1
+      "2026-Q2": 1,
+      "2026-Q3": 1
     },
     "categories": [
       "other"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "kimicodebench",
@@ -29791,18 +29792,19 @@
       "moonshot"
     ],
     "first_seen": "2026-06-11",
-    "last_seen": "2026-06-11",
+    "last_seen": "2026-09-28",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q2": 1
+      "2026-Q2": 1,
+      "2026-Q3": 1
     },
     "categories": [
       "coding"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 2
   },
   {
     "id": "kimicodebench20",
@@ -32279,13 +32281,13 @@
   },
   {
     "id": "mcpmarkverified",
-    "name": "MCPMark-Verified",
+    "name": "MCP Mark Verified",
     "lab_count": 1,
     "labs": [
       "moonshot"
     ],
     "first_seen": "2026-06-11",
-    "last_seen": "2026-07-27",
+    "last_seen": "2026-09-28",
     "labs_by_year": {
       "2026": 1
     },

@@ -4667,5 +4667,21 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "google-d4rt-dynamic-4d-reconstruction-and-tracking-2026-09-30",
+    "lab": "google",
+    "model": "D4RT (Dynamic 4D Reconstruction and Tracking)",
+    "date": "2026-09-30",
+    "kind": "model_release",
+    "title": "D4RT: Teaching AI to see the world in four dimensions",
+    "source_url": "https://deepmind.google/blog/d4rt-teaching-ai-to-see-the-world-in-four-dimensions/",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "vision"
+      ],
+      "source": "reported"
+    }
   }
 ]

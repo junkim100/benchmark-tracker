@@ -787,5 +787,21 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "xiaomi-mimo-v2-6-2026-09-27",
+    "lab": "xiaomi",
+    "model": "MiMo-V2.6",
+    "date": "2026-09-27",
+    "kind": "blog_post",
+    "title": "Diagnosing and Mitigating Tool-Call Repetition in MiMo-V2.6",
+    "source_url": "https://mimo.xiaomi.com/blog/mimo-v2-6-tool-call-repetition",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]
