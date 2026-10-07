@@ -250,6 +250,48 @@
     ],
     "cybersecuritysafetyevaluation": [
       "safety"
+    ],
+    "codingagentindex": [
+      "coding",
+      "agentic"
+    ],
+    "aacyberindex": [
+      "coding",
+      "safety"
+    ],
+    "cybergyme2e": [
+      "coding",
+      "safety"
+    ],
+    "scicodeverified": [
+      "coding",
+      "science"
+    ],
+    "finchfinworkbench": [
+      "agentic",
+      "other"
+    ],
+    "b3aisecuritybenchmark": [
+      "safety",
+      "agentic"
+    ],
+    "korabench": [
+      "safety"
+    ],
+    "jailbreakbench": [
+      "safety"
+    ],
+    "artificialanalysisintelligenceindex": [
+      "other",
+      "reasoning"
+    ],
+    "mimovisualcoding": [
+      "coding",
+      "vision"
+    ],
+    "aavcapsidpackagingautoresearch": [
+      "science",
+      "agentic"
     ]
   }
 }

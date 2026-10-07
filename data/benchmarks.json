@@ -152,7 +152,7 @@
       "zai"
     ],
     "first_seen": "2025-02-02",
-    "last_seen": "2026-10-01",
+    "last_seen": "2026-10-07",
     "labs_by_year": {
       "2025": 10,
       "2026": 11
@@ -165,7 +165,7 @@
       "2026-Q1": 8,
       "2026-Q2": 10,
       "2026-Q3": 8,
-      "2026-Q4": 1
+      "2026-Q4": 2
     },
     "categories": [
       "knowledge"
@@ -1199,6 +1199,37 @@
     "recent_share": 2
   },
   {
+    "id": "deepswe11",
+    "name": "DeepSWE (v1.1)",
+    "lab_count": 9,
+    "labs": [
+      "anthropic",
+      "deepseek",
+      "google",
+      "meta",
+      "mistral",
+      "openai",
+      "qwen",
+      "xai",
+      "xiaomi"
+    ],
+    "first_seen": "2026-07-09",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 9
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 8,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding",
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 8
+  },
+  {
     "id": "gpqa",
     "name": "GPQA",
     "lab_count": 9,
@@ -1360,6 +1391,36 @@
     ],
     "suite": "agieval",
     "recent_share": 2
+  },
+  {
+    "id": "automationbench",
+    "name": "AutomationBench",
+    "lab_count": 8,
+    "labs": [
+      "anthropic",
+      "deepseek",
+      "google",
+      "mistral",
+      "moonshot",
+      "openai",
+      "qwen",
+      "zai"
+    ],
+    "first_seen": "2026-05-28",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 8
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 1,
+      "2026-Q3": 7,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "automationbench",
+    "recent_share": 8
   },
   {
     "id": "charxivreasoning",
@@ -1797,62 +1858,6 @@
     ],
     "suite": "arc",
     "recent_share": 0
-  },
-  {
-    "id": "automationbench",
-    "name": "AutomationBench",
-    "lab_count": 7,
-    "labs": [
-      "anthropic",
-      "deepseek",
-      "google",
-      "moonshot",
-      "openai",
-      "qwen",
-      "zai"
-    ],
-    "first_seen": "2026-05-28",
-    "last_seen": "2026-09-30",
-    "labs_by_year": {
-      "2026": 7
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1,
-      "2026-Q3": 7
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": "automationbench",
-    "recent_share": 8
-  },
-  {
-    "id": "deepswe11",
-    "name": "DeepSWE (v1.1)",
-    "lab_count": 7,
-    "labs": [
-      "anthropic",
-      "deepseek",
-      "google",
-      "meta",
-      "openai",
-      "qwen",
-      "xai"
-    ],
-    "first_seen": "2026-07-09",
-    "last_seen": "2026-09-30",
-    "labs_by_year": {
-      "2026": 7
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 7
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 8
   },
   {
     "id": "gdpvalaa2",
@@ -2835,6 +2840,34 @@
     "recent_share": 3
   },
   {
+    "id": "terminalbench40",
+    "name": "Terminal-Bench 4.0",
+    "lab_count": 6,
+    "labs": [
+      "anthropic",
+      "deepseek",
+      "google",
+      "mistral",
+      "openai",
+      "xai"
+    ],
+    "first_seen": "2026-09-01",
+    "last_seen": "2026-10-07",
+    "labs_by_year": {
+      "2026": 6
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 5,
+      "2026-Q4": 2
+    },
+    "categories": [
+      "coding",
+      "agentic"
+    ],
+    "suite": "terminal-bench",
+    "recent_share": 3
+  },
+  {
     "id": "toolathlon",
     "name": "Toolathlon",
     "lab_count": 6,
@@ -3508,6 +3541,33 @@
     "recent_share": 2
   },
   {
+    "id": "financeagent2",
+    "name": "Finance Agent v2",
+    "lab_count": 5,
+    "labs": [
+      "anthropic",
+      "google",
+      "meta",
+      "mistral",
+      "moonshot"
+    ],
+    "first_seen": "2026-05-19",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 5
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 2,
+      "2026-Q3": 2,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "finance-agent",
+    "recent_share": 4
+  },
+  {
     "id": "frontierswe",
     "name": "FrontierSWE",
     "lab_count": 5,
@@ -3728,7 +3788,7 @@
       "knowledge"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "multichallenge",
@@ -4100,32 +4160,6 @@
     "recent_share": 1
   },
   {
-    "id": "terminalbench40",
-    "name": "Terminal-Bench 4.0",
-    "lab_count": 5,
-    "labs": [
-      "anthropic",
-      "deepseek",
-      "google",
-      "openai",
-      "xai"
-    ],
-    "first_seen": "2026-09-01",
-    "last_seen": "2026-09-28",
-    "labs_by_year": {
-      "2026": 5
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 5
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": "terminal-bench",
-    "recent_share": 3
-  },
-  {
     "id": "v",
     "name": "V*",
     "lab_count": 5,
@@ -4220,6 +4254,32 @@
     ],
     "suite": "webarena",
     "recent_share": 2
+  },
+  {
+    "id": "aabriefcase",
+    "name": "AA-Briefcase",
+    "lab_count": 4,
+    "labs": [
+      "anthropic",
+      "mistral",
+      "moonshot",
+      "xai"
+    ],
+    "first_seen": "2026-06-30",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 4
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 1,
+      "2026-Q3": 3,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "aa-briefcase",
+    "recent_share": 4
   },
   {
     "id": "aalcr",
@@ -4603,6 +4663,38 @@
     "recent_share": 3
   },
   {
+    "id": "cybench",
+    "name": "Cybench",
+    "lab_count": 4,
+    "labs": [
+      "anthropic",
+      "meta",
+      "mistral",
+      "xai"
+    ],
+    "first_seen": "2025-02-24",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2025": 2,
+      "2026": 4
+    },
+    "labs_by_quarter": {
+      "2025-Q1": 1,
+      "2025-Q2": 1,
+      "2025-Q3": 2,
+      "2025-Q4": 2,
+      "2026-Q1": 1,
+      "2026-Q2": 3,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "safety",
+      "coding"
+    ],
+    "suite": null,
+    "recent_share": 4
+  },
+  {
     "id": "exploitgym",
     "name": "ExploitGym",
     "lab_count": 4,
@@ -4629,29 +4721,30 @@
     "recent_share": 3
   },
   {
-    "id": "financeagent2",
-    "name": "Finance Agent v2",
+    "id": "gdppdf",
+    "name": "GDP.pdf",
     "lab_count": 4,
     "labs": [
       "anthropic",
       "google",
-      "meta",
-      "moonshot"
+      "mistral",
+      "openai"
     ],
-    "first_seen": "2026-05-19",
-    "last_seen": "2026-07-27",
+    "first_seen": "2026-06-09",
+    "last_seen": "2026-10-06",
     "labs_by_year": {
       "2026": 4
     },
     "labs_by_quarter": {
-      "2026-Q2": 2,
-      "2026-Q3": 2
+      "2026-Q2": 1,
+      "2026-Q3": 3,
+      "2026-Q4": 1
     },
     "categories": [
       "agentic"
     ],
-    "suite": "finance-agent",
-    "recent_share": 4
+    "suite": null,
+    "recent_share": 2
   },
   {
     "id": "gqa",
@@ -5041,7 +5134,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "mmstar",
@@ -5566,28 +5659,31 @@
     "recent_share": 2
   },
   {
-    "id": "aabriefcase",
-    "name": "AA-Briefcase",
+    "id": "agentharm",
+    "name": "AgentHarm",
     "lab_count": 3,
     "labs": [
-      "anthropic",
-      "moonshot",
+      "meta",
+      "mistral",
       "xai"
     ],
-    "first_seen": "2026-06-30",
-    "last_seen": "2026-09-01",
+    "first_seen": "2025-08-20",
+    "last_seen": "2026-10-06",
     "labs_by_year": {
+      "2025": 1,
       "2026": 3
     },
     "labs_by_quarter": {
-      "2026-Q2": 1,
-      "2026-Q3": 3
+      "2025-Q3": 1,
+      "2025-Q4": 1,
+      "2026-Q2": 2,
+      "2026-Q4": 1
     },
     "categories": [
-      "agentic"
+      "safety"
     ],
-    "suite": "aa-briefcase",
-    "recent_share": 4
+    "suite": null,
+    "recent_share": 2
   },
   {
     "id": "alignbench",
@@ -5752,7 +5848,7 @@
       "vision"
     ],
     "suite": null,
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "chartography",
@@ -5764,18 +5860,46 @@
       "zai"
     ],
     "first_seen": "2026-07-24",
-    "last_seen": "2026-09-28",
+    "last_seen": "2026-10-07",
     "labs_by_year": {
       "2026": 3
     },
     "labs_by_quarter": {
-      "2026-Q3": 3
+      "2026-Q3": 3,
+      "2026-Q4": 1
     },
     "categories": [
       "vision"
     ],
     "suite": null,
     "recent_share": 2
+  },
+  {
+    "id": "chartqapro",
+    "name": "ChartQAPro",
+    "lab_count": 3,
+    "labs": [
+      "anthropic",
+      "mistral",
+      "zai"
+    ],
+    "first_seen": "2025-07-01",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2025": 1,
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2025-Q3": 1,
+      "2025-Q4": 1,
+      "2026-Q2": 1,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": null,
+    "recent_share": 1
   },
   {
     "id": "chatbotarena",
@@ -5926,37 +6050,7 @@
       "coding"
     ],
     "suite": "cruxeval",
-    "recent_share": 1
-  },
-  {
-    "id": "cybench",
-    "name": "Cybench",
-    "lab_count": 3,
-    "labs": [
-      "anthropic",
-      "meta",
-      "xai"
-    ],
-    "first_seen": "2025-02-24",
-    "last_seen": "2026-05-14",
-    "labs_by_year": {
-      "2025": 2,
-      "2026": 3
-    },
-    "labs_by_quarter": {
-      "2025-Q1": 1,
-      "2025-Q2": 1,
-      "2025-Q3": 2,
-      "2025-Q4": 2,
-      "2026-Q1": 1,
-      "2026-Q2": 3
-    },
-    "categories": [
-      "safety",
-      "coding"
-    ],
-    "suite": null,
-    "recent_share": 4
+    "recent_share": 0
   },
   {
     "id": "cyscenariobench",
@@ -6297,42 +6391,19 @@
       "openai"
     ],
     "first_seen": "2026-08-13",
-    "last_seen": "2026-09-28",
+    "last_seen": "2026-10-07",
     "labs_by_year": {
       "2026": 3
     },
     "labs_by_quarter": {
-      "2026-Q3": 3
+      "2026-Q3": 3,
+      "2026-Q4": 1
     },
     "categories": [
       "other"
     ],
     "suite": "frontiercode",
     "recent_share": 1
-  },
-  {
-    "id": "gdppdf",
-    "name": "GDP.pdf",
-    "lab_count": 3,
-    "labs": [
-      "anthropic",
-      "google",
-      "openai"
-    ],
-    "first_seen": "2026-06-09",
-    "last_seen": "2026-09-29",
-    "labs_by_year": {
-      "2026": 3
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1,
-      "2026-Q3": 3
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 2
   },
   {
     "id": "gdpval",
@@ -6474,6 +6545,30 @@
     ],
     "suite": null,
     "recent_share": 0
+  },
+  {
+    "id": "harveyslegalagentbenchmark",
+    "name": "Harvey's Legal Agent Benchmark",
+    "lab_count": 3,
+    "labs": [
+      "google",
+      "mistral",
+      "xai"
+    ],
+    "first_seen": "2026-09-02",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 2,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 1
   },
   {
     "id": "healthbenchprofessional",
@@ -7394,7 +7489,7 @@
       "vision"
     ],
     "suite": "screenspot",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "seal0",
@@ -7452,6 +7547,37 @@
     "recent_share": 3
   },
   {
+    "id": "strongreject",
+    "name": "StrongReject",
+    "lab_count": 3,
+    "labs": [
+      "anthropic",
+      "mistral",
+      "openai"
+    ],
+    "first_seen": "2024-09-12",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2024": 1,
+      "2025": 2,
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2024-Q3": 1,
+      "2024-Q4": 1,
+      "2025-Q1": 1,
+      "2025-Q2": 2,
+      "2025-Q3": 1,
+      "2025-Q4": 1,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "safety"
+    ],
+    "suite": null,
+    "recent_share": 1
+  },
+  {
     "id": "sunrgbd",
     "name": "SUNRGBD",
     "lab_count": 3,
@@ -7505,7 +7631,7 @@
       "agentic"
     ],
     "suite": "swe-bench",
-    "recent_share": 1
+    "recent_share": 0
   },
   {
     "id": "swemarathon",
@@ -8010,12 +8136,13 @@
       "xai"
     ],
     "first_seen": "2026-09-21",
-    "last_seen": "2026-09-28",
+    "last_seen": "2026-10-07",
     "labs_by_year": {
       "2026": 2
     },
     "labs_by_quarter": {
-      "2026-Q3": 2
+      "2026-Q3": 2,
+      "2026-Q4": 1
     },
     "categories": [
       "agentic"
@@ -8122,31 +8249,6 @@
     },
     "categories": [
       "agentic"
-    ],
-    "suite": null,
-    "recent_share": 2
-  },
-  {
-    "id": "agentharm",
-    "name": "AgentHarm",
-    "lab_count": 2,
-    "labs": [
-      "meta",
-      "xai"
-    ],
-    "first_seen": "2025-08-20",
-    "last_seen": "2026-05-14",
-    "labs_by_year": {
-      "2025": 1,
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1,
-      "2025-Q4": 1,
-      "2026-Q2": 2
-    },
-    "categories": [
-      "safety"
     ],
     "suite": null,
     "recent_share": 2
@@ -8565,6 +8667,28 @@
     "recent_share": 0
   },
   {
+    "id": "automationbench106",
+    "name": "AutomationBench 1.0.6",
+    "lab_count": 2,
+    "labs": [
+      "openai",
+      "xiaomi"
+    ],
+    "first_seen": "2026-09-22",
+    "last_seen": "2026-09-29",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 2
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "automationbench",
+    "recent_share": 1
+  },
+  {
     "id": "bbeh",
     "name": "BBEH",
     "lab_count": 2,
@@ -8839,31 +8963,6 @@
     "recent_share": 1
   },
   {
-    "id": "chartqapro",
-    "name": "ChartQAPro",
-    "lab_count": 2,
-    "labs": [
-      "anthropic",
-      "zai"
-    ],
-    "first_seen": "2025-07-01",
-    "last_seen": "2026-06-09",
-    "labs_by_year": {
-      "2025": 1,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q3": 1,
-      "2025-Q4": 1,
-      "2026-Q2": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": null,
-    "recent_share": 1
-  },
-  {
     "id": "clawevalmultimodal",
     "name": "ClawEval-MM",
     "lab_count": 2,
@@ -8906,7 +9005,7 @@
       "agentic"
     ],
     "suite": null,
-    "recent_share": 2
+    "recent_share": 1
   },
   {
     "id": "cloningscenarios",
@@ -9524,6 +9623,29 @@
     "recent_share": 0
   },
   {
+    "id": "dense200",
+    "name": "Dense 200",
+    "lab_count": 2,
+    "labs": [
+      "mistral",
+      "qwen"
+    ],
+    "first_seen": "2026-08-03",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "design2code",
     "name": "Design2Code",
     "lab_count": 2,
@@ -10102,28 +10224,6 @@
     ],
     "suite": null,
     "recent_share": 2
-  },
-  {
-    "id": "harveyslegalagentbenchmark",
-    "name": "Harvey's Legal Agent Benchmark",
-    "lab_count": 2,
-    "labs": [
-      "google",
-      "xai"
-    ],
-    "first_seen": "2026-09-02",
-    "last_seen": "2026-09-30",
-    "labs_by_year": {
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 2
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 1
   },
   {
     "id": "hleverified",
@@ -13260,34 +13360,6 @@
     "recent_share": 0
   },
   {
-    "id": "strongreject",
-    "name": "StrongReject",
-    "lab_count": 2,
-    "labs": [
-      "anthropic",
-      "openai"
-    ],
-    "first_seen": "2024-09-12",
-    "last_seen": "2025-12-18",
-    "labs_by_year": {
-      "2024": 1,
-      "2025": 2
-    },
-    "labs_by_quarter": {
-      "2024-Q3": 1,
-      "2024-Q4": 1,
-      "2025-Q1": 1,
-      "2025-Q2": 2,
-      "2025-Q3": 1,
-      "2025-Q4": 1
-    },
-    "categories": [
-      "safety"
-    ],
-    "suite": null,
-    "recent_share": 1
-  },
-  {
     "id": "stvqa",
     "name": "ST-VQA",
     "lab_count": 2,
@@ -13309,6 +13381,29 @@
     },
     "categories": [
       "vision"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "sweatlasqna",
+    "name": "SWE-Atlas-QnA",
+    "lab_count": 2,
+    "labs": [
+      "mistral",
+      "xai"
+    ],
+    "first_seen": "2026-07-14",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "other"
     ],
     "suite": null,
     "recent_share": 0
@@ -14504,6 +14599,28 @@
     "recent_share": 1
   },
   {
+    "id": "aacyberindex",
+    "name": "AA Cyber Index",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-06",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding",
+      "safety"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "aaomniscienceindex",
     "name": "AA-Omniscience Index",
     "lab_count": 1,
@@ -14526,7 +14643,7 @@
   },
   {
     "id": "aavcapsidpackagingprediction",
-    "name": "AAV Capsid Packaging Prediction",
+    "name": "AAV capsid packaging prediction",
     "lab_count": 1,
     "labs": [
       "openai"
@@ -17084,27 +17201,6 @@
     "recent_share": 0
   },
   {
-    "id": "automationbench106",
-    "name": "AutomationBench 1.0.6",
-    "lab_count": 1,
-    "labs": [
-      "openai"
-    ],
-    "first_seen": "2026-09-22",
-    "last_seen": "2026-09-29",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": "automationbench",
-    "recent_share": 0
-  },
-  {
     "id": "automationbenchaa",
     "name": "AutomationBench-AA",
     "lab_count": 1,
@@ -17186,6 +17282,28 @@
     },
     "categories": [
       "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "b3aisecuritybenchmark",
+    "name": "B3 AI Security Benchmark",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-06",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "safety",
+      "agentic"
     ],
     "suite": null,
     "recent_share": 0
@@ -20485,6 +20603,28 @@
     "recent_share": 0
   },
   {
+    "id": "codingagentindex",
+    "name": "Coding Agent Index",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-06",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding",
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "codingdeceptioneval",
     "name": "Coding Deception Eval",
     "lab_count": 1,
@@ -21575,6 +21715,28 @@
     "recent_share": 0
   },
   {
+    "id": "cybergyme2e",
+    "name": "CyberGym-E2E",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-06",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding",
+      "safety"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "cyberrange",
     "name": "Cyber Range",
     "lab_count": 1,
@@ -21918,27 +22080,6 @@
     },
     "labs_by_quarter": {
       "2023-Q2": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "dense200",
-    "name": "Dense200",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-08-03",
-    "last_seen": "2026-08-03",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
     },
     "categories": [
       "other"
@@ -24073,6 +24214,28 @@
     "recent_share": 1
   },
   {
+    "id": "finchfinworkbench",
+    "name": "Finch (FinWorkBench)",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-06",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic",
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "findinfo",
     "name": "Find Info",
     "lab_count": 1,
@@ -25373,12 +25536,13 @@
       "anthropic"
     ],
     "first_seen": "2026-09-22",
-    "last_seen": "2026-09-28",
+    "last_seen": "2026-10-07",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "agentic",
@@ -29269,6 +29433,27 @@
     "recent_share": 0
   },
   {
+    "id": "jailbreakbench",
+    "name": "JailbreakBench",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-06",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "safety"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "jailbreakevaluations",
     "name": "Jailbreak evaluations",
     "lab_count": 1,
@@ -30170,6 +30355,27 @@
     },
     "categories": [
       "knowledge"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "korabench",
+    "name": "KORABench",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-06",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "safety"
     ],
     "suite": null,
     "recent_share": 0
@@ -32957,6 +33163,28 @@
     ],
     "suite": null,
     "recent_share": 1
+  },
+  {
+    "id": "mimovisualcoding",
+    "name": "MiMo Visual Coding",
+    "lab_count": 1,
+    "labs": [
+      "xiaomi"
+    ],
+    "first_seen": "2026-09-22",
+    "last_seen": "2026-09-22",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1
+    },
+    "categories": [
+      "coding",
+      "vision"
+    ],
+    "suite": null,
+    "recent_share": 0
   },
   {
     "id": "mindcube",
@@ -37623,12 +37851,13 @@
       "anthropic"
     ],
     "first_seen": "2026-09-28",
-    "last_seen": "2026-09-28",
+    "last_seen": "2026-10-07",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "agentic",
@@ -41878,6 +42107,28 @@
     "recent_share": 0
   },
   {
+    "id": "scicodeverified",
+    "name": "SciCode-Verified",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-06",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding",
+      "science"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "scienceboard",
     "name": "ScienceBoard",
     "lab_count": 1,
@@ -43416,27 +43667,6 @@
     ],
     "suite": null,
     "recent_share": 1
-  },
-  {
-    "id": "sweatlasqna",
-    "name": "SWE-Atlas-QnA",
-    "lab_count": 1,
-    "labs": [
-      "xai"
-    ],
-    "first_seen": "2026-07-14",
-    "last_seen": "2026-07-14",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
   },
   {
     "id": "swebenchagentlessrepair",

@@ -1364,5 +1364,43 @@
       ],
       "source": "inferred"
     }
+  },
+  {
+    "id": "mistral-mistral-large-4-2026-10-06",
+    "lab": "mistral",
+    "model": "Mistral Large 4",
+    "date": "2026-10-06",
+    "kind": "model_release",
+    "title": "Introducing Mistral Large 4",
+    "source_url": "https://mistral.ai/news/mistral-large-4/",
+    "benchmarks_raw": [
+      "DeepSWE v1.1",
+      "Terminal Bench 4.0",
+      "SWE-Atlas-QnA",
+      "Coding Agent Index",
+      "AA Cyber Index",
+      "CyberGym-E2E",
+      "Cybench",
+      "AutomationBench",
+      "AA-Briefcase",
+      "Dense 200",
+      "ChartQA Pro",
+      "GDP.pdf",
+      "SciCode-Verified",
+      "Finance Agent v2",
+      "Finch (FinWorkBench)",
+      "Harvey's Legal Agent Benchmark",
+      "B3 AI Security Benchmark",
+      "KORABench",
+      "JailbreakBench",
+      "StrongREJECT",
+      "AgentHarm"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

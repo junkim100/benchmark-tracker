@@ -757,6 +757,27 @@
     }
   },
   {
+    "id": "xiaomi-mimo-v2-6-series-mimo-v2-6-pro-mimo-v2-6-flash-mimo-v2-6-pro-ultraspeed-2026-09-22",
+    "lab": "xiaomi",
+    "model": "MiMo-V2.6 series (MiMo-V2.6-Pro, MiMo-V2.6-Flash, MiMo-V2.6-Pro-UltraSpeed)",
+    "date": "2026-09-22",
+    "kind": "model_release",
+    "title": "Introducing MiMo-V2.6 series",
+    "source_url": "https://mimo.xiaomi.com/mimo-v2-6/article",
+    "benchmarks_raw": [
+      "Artificial Analysis Intelligence Index",
+      "DeepSWE v1.1",
+      "AutomationBench v1.0.6",
+      "MiMo Visual Coding"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
     "id": "xiaomi-mimo-v2-6-pro-mopd-2026-09-26",
     "lab": "xiaomi",
     "model": "MiMo-V2.6-Pro-MOPD",

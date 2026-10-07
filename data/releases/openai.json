@@ -2897,5 +2897,21 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "openai-gpt-6-chatgpt-with-intelligent-ui-2026-10-07",
+    "lab": "openai",
+    "model": "GPT-6 (ChatGPT, with Intelligent UI)",
+    "date": "2026-10-07",
+    "kind": "model_release",
+    "title": "GPT‑6 and Intelligent UI for everyone",
+    "source_url": "https://openai.com/index/gpt-6-for-everyone/",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

@@ -40,5 +40,68 @@
       "version_confident": false
     },
     "seen": "2026-10-01T19:15:59.140Z"
+  },
+  {
+    "raw": "Binary Exploitation Benchmark (formerly known as OSS-Fuzz)",
+    "tracked": "OSS-Fuzz",
+    "reason": "the page states it is the renamed OSS-Fuzz benchmark The tracked benchmark \"OSS-Fuzz\" is described as: Models are run against roughly a thousand open source repositories from the OSS-Fuzz corpus, across about 7,000 entry points, and the worst crash each one produces is graded on a five-tier ladder running from a plain crash up to full control-flow hijack.",
+    "lab": "Anthropic",
+    "decision": "REVIEW",
+    "relation": "renamed",
+    "probabilities": {
+      "renamed": 0.99,
+      "version": 0,
+      "same_name": 0.01,
+      "different": 0
+    },
+    "merge_is_safe": 0.68,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-10-07T19:45:47.470Z"
+  },
+  {
+    "raw": "AA-Omniscience",
+    "tracked": "AA-Omniscience Index",
+    "reason": "same Artificial Analysis closed-book factuality benchmark, reported via its index The tracked benchmark \"AA-Omniscience Index\" is described as: A bounded index over 6,000 questions drawn from authoritative academic and industry sources across 42 economically relevant topics in six domains, rewarding correct factual recall, penalising hallucination and leaving abstention unpenalised.",
+    "lab": "Anthropic",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "renamed": 0,
+      "version": 0.01,
+      "same_name": 0.97,
+      "different": 0.02
+    },
+    "merge_is_safe": 0.6,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-10-07T19:45:47.470Z"
+  },
+  {
+    "raw": "FrontierCode Extended",
+    "tracked": "FrontierCode 1.1 Extended",
+    "reason": "same extended split of the FrontierCode 1.1 benchmark used on this page",
+    "lab": "Anthropic",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "different": 0.01,
+      "same_name": 0.51,
+      "version": 0.48,
+      "renamed": 0
+    },
+    "merge_is_safe": 0.63,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-10-07T19:45:47.470Z"
   }
 ]

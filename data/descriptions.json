@@ -27,6 +27,12 @@
     "source": "researched",
     "checked": "2026-09-23"
   },
+  "aacyberindex": {
+    "text": "A composite index of agentic cyber defense capability, combining three evaluations (CWE-Bench-AA, DeepsecBench-AA, CyberGym-E2E-AA) on discovering, reproducing and patching vulnerabilities in real software repositories, each weighted one third.",
+    "source_url": "https://artificialanalysis.ai/methodology/cyber-index",
+    "source": "researched",
+    "checked": "2026-10-07"
+  },
   "aalcr": {
     "text": "100 hard text questions from Artificial Analysis that each require reasoning across a set of real documents totalling roughly 100k tokens, spanning company reports, industry reports, government consultations, academia, legal, marketing and survey documents.",
     "source_url": "https://artificialanalysis.ai/articles/announcing-aa-lcr",
@@ -984,6 +990,12 @@
     "source_url": "https://huggingface.co/datasets/tsinghua-ee/AVUTBenchmark",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "b3aisecuritybenchmark": {
+    "text": "b3 (backbone breaker benchmark), from Lakera and the UK AI Security Institute, tests how LLMs used as agent backbones resist adversarial attacks. It isolates \"threat snapshots\" of agent workflows and scores models on whether crowdsourced human attacks succeed.",
+    "source_url": "https://www.lakera.ai/blog/the-backbone-breaker-benchmark",
+    "source": "researched",
+    "checked": "2026-10-07"
   },
   "babelcode": {
     "text": "An execution-based framework that ports code-generation datasets such as HumanEval, MBPP, P3 and Transcoder into other programming languages, generating language-specific test harnesses and running each prediction in a Docker sandbox.",
@@ -2493,6 +2505,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "cybergyme2e": {
+    "text": "Evaluates AI agents across the vulnerability lifecycle—discovery, proof-of-concept generation, and patching—on 920 historical vulnerabilities from 139 open-source projects, built via an automated pipeline from OSS-Fuzz/ARVO data. Each task runs in a container with the vulnerable code.",
+    "source_url": "https://arxiv.org/abs/2606.04460",
+    "source": "researched",
+    "checked": "2026-10-07"
+  },
   "cyberrange": {
     "text": "Long-form exercises in a realistic emulated network, such as one modelled on a small online retailer, where the model must plan toward an adversary objective, exploit vulnerabilities and misconfigurations, and chain those exploits together.",
     "source_url": "https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf",
@@ -3272,6 +3290,12 @@
     "source_url": "https://arxiv.org/abs/2607.24653",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "finchfinworkbench": {
+    "text": "Finch evaluates AI agents on 172 annotated finance and accounting enterprise workflows built from real spreadsheets, emails and PDFs, covering data import, modeling, validation, visualization and reporting; outputs are judged by human and automated evaluation.",
+    "source_url": "https://huggingface.co/datasets/FinWorkBench/Finch",
+    "source": "researched",
+    "checked": "2026-10-07"
   },
   "findinfo": {
     "text": "One of three Hidden Agenda persuasion tasks: posing as an AI tutor, the model must talk a human study participant into supplying the email address of a given paper's author, checked by looking for that address in the transcript.",
@@ -4969,6 +4993,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "jailbreakbench": {
+    "text": "An open benchmark for jailbreak attacks and defenses on LLMs, built on the JBB-Behaviors dataset of 100 harmful and 100 benign behaviors, with a fixed threat model, chat templates, and LLM-judge scoring of attack success.",
+    "source_url": "https://github.com/JailbreakBench/jailbreakbench",
+    "source": "researched",
+    "checked": "2026-10-07"
+  },
   "jailbreakevaluations": {
     "text": "Adversarial prompts meant to talk a model past its refusals, drawn from OpenAI's human red teaming and from the academic StrongREJECT set, scored on whether the resulting output is unsafe.",
     "source_url": "https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf",
@@ -5212,6 +5242,12 @@
     "source_url": "https://huggingface.co/datasets/LGAI-EXAONE/KoMT-Bench",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "korabench": {
+    "text": "KORA evaluates how models behave with children: multi-turn conversations between a simulated child persona and the target model, spanning a taxonomy of risk categories, age bands and motivations, graded by a judge model on safety and conversation behaviours.",
+    "source_url": "https://github.com/korabench/benchmark",
+    "source": "researched",
+    "checked": "2026-10-07"
   },
   "korbench": {
     "text": "Rule-driven reasoning questions in five categories (operation, logic, cipher, puzzle and counterfactual), written so that answering depends on applying a newly supplied rule description rather than on domain knowledge.",
@@ -6230,6 +6266,10 @@
   "mimocodingbench": {
     "source": "none",
     "checked": "2026-09-22"
+  },
+  "mimovisualcoding": {
+    "source": "none",
+    "checked": "2026-10-07"
   },
   "mind2web": {
     "text": "A web agent dataset of over 2,000 open-ended tasks collected from 137 real websites across 31 domains, where an agent must follow a language instruction through a sequence of actions on the page.",
@@ -9260,6 +9300,12 @@
     "source_url": "https://arxiv.org/abs/2407.13168",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "scicodeverified": {
+    "text": "A re-audited version of SciCode's 65-problem scientific coding test split, with faulty gold answers, tolerances and specifications repaired. Models write Python subproblem functions cumulatively; a main problem counts as solved only if all subproblems pass.",
+    "source_url": "https://arxiv.org/abs/2608.04975",
+    "source": "researched",
+    "checked": "2026-10-07"
   },
   "scienceboard": {
     "text": "169 human-curated tasks in a desktop environment running real scientific software, where an agent must drive the applications through their own interfaces to carry out workflows in areas such as biochemistry, astronomy and geoinformatics.",

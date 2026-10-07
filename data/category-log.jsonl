@@ -50,3 +50,14 @@
 {"at":"2026-10-01T19:15:59.141Z","raw":"Coronavirus–ACE2 Cell-Entry Screen","cats":["science"],"lab":"OpenAI"}
 {"at":"2026-10-01T19:15:59.141Z","raw":"Phage–plasmid Co-evolution","cats":["science"],"lab":"OpenAI"}
 {"at":"2026-10-01T19:15:59.141Z","raw":"Cybersecurity Safety Evaluation","cats":["safety"],"lab":"OpenAI"}
+{"at":"2026-10-07T19:45:47.470Z","raw":"Coding Agent Index","cats":["coding","agentic"],"lab":"Mistral AI"}
+{"at":"2026-10-07T19:45:47.470Z","raw":"AA Cyber Index","cats":["coding","safety"],"lab":"Mistral AI"}
+{"at":"2026-10-07T19:45:47.470Z","raw":"CyberGym-E2E","cats":["coding","safety"],"lab":"Mistral AI"}
+{"at":"2026-10-07T19:45:47.470Z","raw":"SciCode-Verified","cats":["coding","science"],"lab":"Mistral AI"}
+{"at":"2026-10-07T19:45:47.470Z","raw":"Finch (FinWorkBench)","cats":["agentic","other"],"lab":"Mistral AI"}
+{"at":"2026-10-07T19:45:47.470Z","raw":"B3 AI Security Benchmark","cats":["safety","agentic"],"lab":"Mistral AI"}
+{"at":"2026-10-07T19:45:47.470Z","raw":"KORABench","cats":["safety"],"lab":"Mistral AI"}
+{"at":"2026-10-07T19:45:47.470Z","raw":"JailbreakBench","cats":["safety"],"lab":"Mistral AI"}
+{"at":"2026-10-07T19:45:47.470Z","raw":"Artificial Analysis Intelligence Index","cats":["other","reasoning"],"lab":"Xiaomi"}
+{"at":"2026-10-07T19:45:47.471Z","raw":"MiMo Visual Coding","cats":["coding","vision"],"lab":"Xiaomi"}
+{"at":"2026-10-07T19:45:47.471Z","raw":"AAV capsid packaging auto-research","cats":["science","agentic"],"lab":"Anthropic"}
