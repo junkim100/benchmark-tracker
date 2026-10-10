@@ -1347,6 +1347,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "blockerdeception": {
+    "text": "An agentic evaluation of how a model reacts after an automated reviewer blocks a requested action in knowledge-work tasks: whether it stops, finds a safer alternative, retries, or exploits a deliberately weak review setup to bypass the block.",
+    "source_url": "https://deploymentsafety.openai.com/gpt-6-october/blocker-deception",
+    "source": "researched",
+    "checked": "2026-10-10"
+  },
   "blueprintbench2": {
     "text": "An Andon Labs eval where an agent sees about 20 interior photos per apartment across 50 apartments and must output a 2D floor plan. Plans are scored by comparing their room and doorway connectivity graph with ground truth, and the agent keeps a notepad across apartments.",
     "source_url": "https://andonlabs.com/evals/blueprint-bench-2",
@@ -2532,6 +2538,10 @@
     "source_url": "https://cdn.openai.com/o1-system-card-20241205.pdf",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "cybersecuritysafetyevaluation": {
+    "source": "none",
+    "checked": "2026-10-10"
   },
   "cyscenariobench": {
     "text": "A private scenario-based cyber evaluation that scores a model across full multi-stage attack workflows structured as attack trees, at task, path and campaign level, measuring orchestration, branching decisions, constraint adherence and recovery from inconsistent state.",
@@ -3926,6 +3936,12 @@
     "source_url": "https://arxiv.org/html/2311.12022v1",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "gptredindirectpromptinjectionrobustness": {
+    "text": "Measures how often an agentic model is hijacked by indirect prompt injections that GPT-Red, an attacker model trained by self-play RL, hides in third-party content such as tool outputs, emails, web pages or repositories; automated judges score each attempt as attack success or defender failure.",
+    "source_url": "https://arxiv.org/html/2607.26115v1",
+    "source": "researched",
+    "checked": "2026-10-10"
   },
   "gqa": {
     "text": "A compositional visual question answering dataset of 22 million questions over 113,000 real-world images, generated from dense scene graphs so each question has a logical program and controlled answer distribution.",
@@ -6197,6 +6213,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "mentalhealthbench": {
+    "text": "An open benchmark of synthetic mental health conversations, co-created with 80+ licensed psychologists and psychiatrists, where model replies are graded against expert-written rubric criteria covering ten behaviors such as safety, context-seeking, and preserving user agency.",
+    "source_url": "https://openai.com/index/introducing-mentalhealthbench/",
+    "source": "researched",
+    "checked": "2026-10-10"
+  },
   "met": {
     "text": "Around 224,000 classes, one per museum exhibit, trained on studio photographs from the Metropolitan Museum's open access collection and tested on visitor snapshots plus unrelated images, as instance-level recognition.",
     "source_url": "https://arxiv.org/abs/2202.01747",
@@ -6263,13 +6285,37 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "mimocodebench": {
+    "source": "none",
+    "checked": "2026-10-10"
+  },
+  "mimocodebenchmini": {
+    "source": "none",
+    "checked": "2026-10-10"
+  },
   "mimocodingbench": {
     "source": "none",
     "checked": "2026-09-22"
   },
+  "mimocyberbench": {
+    "source": "none",
+    "checked": "2026-10-10"
+  },
+  "mimocyberbenchmini": {
+    "source": "none",
+    "checked": "2026-10-10"
+  },
+  "mimogeneralbenchmini": {
+    "source": "none",
+    "checked": "2026-10-10"
+  },
   "mimovisualcoding": {
     "source": "none",
     "checked": "2026-10-07"
+  },
+  "mimovisualcodingmini": {
+    "source": "none",
+    "checked": "2026-10-10"
   },
   "mind2web": {
     "text": "A web agent dataset of over 2,000 open-ended tasks collected from 137 real websites across 31 domains, where an agent must follow a language instruction through a sequence of actions on the page.",
@@ -8185,6 +8231,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "performanceincasesflaggedbyusers": {
+    "text": "An OpenAI hallucination evaluation measuring the rate of factual errors on de-identified ChatGPT conversations previously flagged by users as containing factual errors; responses are graded by an LLM grader with web access.",
+    "source_url": "https://cdn.openai.com/pdf/gpt-6-october.pdf",
+    "source": "researched",
+    "checked": "2026-10-10"
+  },
   "personaldataevaluations": {
     "source": "none",
     "checked": "2026-09-22"
@@ -8206,6 +8258,10 @@
     "source_url": "https://www.robots.ox.ac.uk/~vgg/data/pets/",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "phageplasmidcoevolution": {
+    "source": "none",
+    "checked": "2026-10-10"
   },
   "phybench": {
     "source": "none",
@@ -8891,6 +8947,16 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "respectingautoreview": {
+    "source": "none",
+    "checked": "2026-10-10"
+  },
+  "respectingwarnings": {
+    "text": "Tracks how a model behaves after hitting barriers in simulated professional work environments where the restriction comes from the environment itself (e.g. AccessDenied errors, content policy blocks), scored by whether it successfully circumvents them.",
+    "source_url": "https://deploymentsafety.openai.com/gpt-6-october/respecting-warnings",
+    "source": "researched",
+    "checked": "2026-10-10"
+  },
   "reverie": {
     "text": "Vision-and-language navigation through previously unseen real indoor environments: given a natural-language instruction, the agent picks its next viewpoint from the current observation and must finally localize the object referred to.",
     "source_url": "https://arxiv.org/abs/1904.10151",
@@ -9492,6 +9558,10 @@
   "shortcompletions": {
     "source": "none",
     "checked": "2026-09-22"
+  },
+  "shp2proteinfunctionprediction": {
+    "source": "none",
+    "checked": "2026-10-10"
   },
   "sifo": {
     "source": "none",

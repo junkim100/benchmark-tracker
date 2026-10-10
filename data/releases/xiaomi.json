@@ -824,5 +824,46 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "xiaomi-mimo-v2-6-2026-10-08",
+    "lab": "xiaomi",
+    "model": "MiMo-V2.6",
+    "date": "2026-10-08",
+    "kind": "technical_report",
+    "title": "MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement",
+    "source_url": "https://arxiv.org/abs/2610.11959",
+    "benchmarks_raw": [
+      "DeepSWE v1.1",
+      "SWE-Bench Pro",
+      "MiMo Code Bench",
+      "AutomationBench v1.0.6",
+      "MiMo Visual Coding",
+      "MiMo Cyber Bench",
+      "ProgramBench",
+      "Toolathlon-Verified",
+      "GDPval-AA 2.1",
+      "Agents' Last Exam",
+      "Terminal Bench 4.0",
+      "Terminal Bench 2.1",
+      "OSWorld-Verified",
+      "JobBench",
+      "CyberGym",
+      "ExploitGym",
+      "ExploitBench",
+      "SEC Bench Pro",
+      "SWE-bench Verified",
+      "OfficeQA Pro",
+      "MiMo Code Bench (mini)",
+      "MiMo Cyber Bench (mini)",
+      "MiMo General Bench (mini)",
+      "MiMo Visual Coding (mini)"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

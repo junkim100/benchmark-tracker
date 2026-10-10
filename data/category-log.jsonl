@@ -61,3 +61,10 @@
 {"at":"2026-10-07T19:45:47.470Z","raw":"Artificial Analysis Intelligence Index","cats":["other","reasoning"],"lab":"Xiaomi"}
 {"at":"2026-10-07T19:45:47.471Z","raw":"MiMo Visual Coding","cats":["coding","vision"],"lab":"Xiaomi"}
 {"at":"2026-10-07T19:45:47.471Z","raw":"AAV capsid packaging auto-research","cats":["science","agentic"],"lab":"Anthropic"}
+{"at":"2026-10-10T18:14:37.536Z","raw":"GPT-RED indirect prompt-injection robustness","cats":["safety","agentic"],"lab":"OpenAI"}
+{"at":"2026-10-10T18:14:37.536Z","raw":"Blocker Deception","cats":["safety","coding"],"lab":"OpenAI"}
+{"at":"2026-10-10T18:14:37.536Z","raw":"MiMo Cyber Bench","cats":["coding","safety"],"lab":"Xiaomi"}
+{"at":"2026-10-10T18:14:37.536Z","raw":"MiMo Code Bench (mini)","cats":["coding"],"lab":"Xiaomi"}
+{"at":"2026-10-10T18:14:37.536Z","raw":"MiMo Cyber Bench (mini)","cats":["coding","safety"],"lab":"Xiaomi"}
+{"at":"2026-10-10T18:14:37.536Z","raw":"MiMo General Bench (mini)","cats":["agentic"],"lab":"Xiaomi"}
+{"at":"2026-10-10T18:14:37.536Z","raw":"MiMo Visual Coding (mini)","cats":["coding","vision"],"lab":"Xiaomi"}

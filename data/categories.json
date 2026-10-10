@@ -292,6 +292,32 @@
     "aavcapsidpackagingautoresearch": [
       "science",
       "agentic"
+    ],
+    "gptredindirectpromptinjectionrobustness": [
+      "safety",
+      "agentic"
+    ],
+    "blockerdeception": [
+      "safety",
+      "coding"
+    ],
+    "mimocyberbench": [
+      "coding",
+      "safety"
+    ],
+    "mimocodebenchmini": [
+      "coding"
+    ],
+    "mimocyberbenchmini": [
+      "coding",
+      "safety"
+    ],
+    "mimogeneralbenchmini": [
+      "agentic"
+    ],
+    "mimovisualcodingmini": [
+      "coding",
+      "vision"
     ]
   }
 }

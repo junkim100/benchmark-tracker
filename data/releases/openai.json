@@ -2913,5 +2913,51 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "openai-gpt-6-sol-october-and-gpt-6-luna-october-2026-10-07",
+    "lab": "openai",
+    "model": "GPT-6 Sol (October) and GPT-6 Luna (October)",
+    "date": "2026-10-07",
+    "kind": "system_card",
+    "title": "GPT-6 Sol and GPT-6 Luna: October 2026 update",
+    "source_url": "https://deploymentsafety.openai.com/gpt-6-october",
+    "benchmarks_raw": [
+      "Production Benchmarks with Challenging Prompts",
+      "U18 evaluations",
+      "Image input evaluations",
+      "Multiturn Jailbreak Evaluations",
+      "GPT-RED indirect prompt-injection robustness",
+      "instruction hierarchy evaluations",
+      "HealthBench Professional",
+      "HealthBench",
+      "HealthBench Hard",
+      "HealthBench Consensus",
+      "MentalHealthBench",
+      "Dynamic Mental Health Benchmarks with Adversarial User Simulations",
+      "Dynamic Benchmarks with Adversarial User Simulations",
+      "Performance in Cases Flagged by Users",
+      "Respecting Auto-Review",
+      "Respecting Warnings",
+      "Blocker Deception",
+      "Broken Search Tool",
+      "Multimodal Troubleshooting Virology",
+      "ProtocolQA Open-Ended",
+      "Tacit Knowledge and Troubleshooting",
+      "TroubleshootingBench",
+      "SHP2 Protein Function Prediction",
+      "Coronavirus–ACE2 Cell-Entry Screen",
+      "Phage–plasmid Co-evolution",
+      "ExploitBench",
+      "SEC-Bench Pro",
+      "Biology Model Refusal Evaluation",
+      "Cybersecurity Safety Evaluation"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

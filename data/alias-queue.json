@@ -103,5 +103,47 @@
       "version_confident": false
     },
     "seen": "2026-10-07T19:45:47.470Z"
+  },
+  {
+    "raw": "Cybersecurity Safety Evaluation",
+    "tracked": "Cyber safety evaluations",
+    "reason": "same cyber refusal/safety training evaluation table, worded differently The tracked benchmark \"Cyber safety evaluations\" is described as: Prompts from production traffic and synthetic data covering cyber abuse topics such as malware creation, credential theft and chained exploitation, scored on whether the model refuses or de-escalates while still supporting educational security questions.",
+    "lab": "OpenAI",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.94,
+      "version": 0,
+      "renamed": 0.01,
+      "different": 0.05
+    },
+    "merge_is_safe": 0.58,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-10-10T18:14:37.535Z"
+  },
+  {
+    "raw": "MiMo Code Bench",
+    "tracked": "MiMo Coding Bench",
+    "reason": "Xiaomi's in-house coding-agent benchmark, same eval under a shortened word",
+    "lab": "Xiaomi",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 1,
+      "version": 0,
+      "renamed": 0,
+      "different": 0
+    },
+    "merge_is_safe": 0.68,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-10-10T18:14:37.535Z"
   }
 ]
