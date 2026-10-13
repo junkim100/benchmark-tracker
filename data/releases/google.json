@@ -4683,5 +4683,25 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "google-embeddinggemma-2-2026-10-06",
+    "lab": "google",
+    "model": "EmbeddingGemma 2",
+    "date": "2026-10-06",
+    "kind": "model_release",
+    "title": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
+    "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/",
+    "benchmarks_raw": [
+      "MTEB (Massive Text Embedding Benchmark) Code",
+      "MAEB (Massive Audio Embedding Benchmark)",
+      "Massive Image Embedding Benchmark (Lite)"
+    ],
+    "modality": {
+      "classes": [
+        "embedding"
+      ],
+      "source": "reported"
+    }
   }
 ]

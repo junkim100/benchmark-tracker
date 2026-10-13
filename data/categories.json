@@ -318,6 +318,16 @@
     "mimovisualcodingmini": [
       "coding",
       "vision"
+    ],
+    "legalbench": [
+      "knowledge",
+      "reasoning"
+    ],
+    "maebmassiveaudioembeddingbenchmark": [
+      "speech"
+    ],
+    "massiveimageembeddingbenchmarklite": [
+      "vision"
     ]
   }
 }

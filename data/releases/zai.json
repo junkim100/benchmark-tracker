@@ -1731,5 +1731,26 @@
       ],
       "source": "inferred"
     }
+  },
+  {
+    "id": "zai-glm-legal-2026-10-13",
+    "lab": "zai",
+    "model": "GLM-Legal",
+    "date": "2026-10-13",
+    "kind": "model_release",
+    "title": "GLM-Legal: Advancing Agentic Legal Intelligence",
+    "source_url": "https://autoclaw.z.ai/blog/model/GLM-Legal/",
+    "benchmarks_raw": [
+      "Harvey LAB",
+      "LegalBench",
+      "PLawBench",
+      "Harvey Legal Agent Benchmark"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

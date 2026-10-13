@@ -4824,6 +4824,31 @@
     "recent_share": 0
   },
   {
+    "id": "harveyslegalagentbenchmark",
+    "name": "Harvey's Legal Agent Benchmark",
+    "lab_count": 4,
+    "labs": [
+      "google",
+      "mistral",
+      "xai",
+      "zai"
+    ],
+    "first_seen": "2026-09-02",
+    "last_seen": "2026-10-13",
+    "labs_by_year": {
+      "2026": 4
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 2,
+      "2026-Q4": 2
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 1
+  },
+  {
     "id": "healthbench",
     "name": "HealthBench",
     "lab_count": 4,
@@ -6591,30 +6616,6 @@
     ],
     "suite": null,
     "recent_share": 0
-  },
-  {
-    "id": "harveyslegalagentbenchmark",
-    "name": "Harvey's Legal Agent Benchmark",
-    "lab_count": 3,
-    "labs": [
-      "google",
-      "mistral",
-      "xai"
-    ],
-    "first_seen": "2026-09-02",
-    "last_seen": "2026-10-06",
-    "labs_by_year": {
-      "2026": 3
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 2,
-      "2026-Q4": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 1
   },
   {
     "id": "healthbenchprofessional",
@@ -12699,6 +12700,29 @@
     ],
     "suite": null,
     "recent_share": 2
+  },
+  {
+    "id": "plawbench",
+    "name": "PLawBench",
+    "lab_count": 2,
+    "labs": [
+      "qwen",
+      "zai"
+    ],
+    "first_seen": "2026-08-03",
+    "last_seen": "2026-10-13",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
   },
   {
     "id": "posttrainbench",
@@ -30909,6 +30933,28 @@
     "recent_share": 0
   },
   {
+    "id": "legalbench",
+    "name": "LegalBench",
+    "lab_count": 1,
+    "labs": [
+      "zai"
+    ],
+    "first_seen": "2026-10-13",
+    "last_seen": "2026-10-13",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "knowledge",
+      "reasoning"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "leval",
     "name": "L-Eval",
     "lab_count": 1,
@@ -32008,6 +32054,27 @@
     "recent_share": 0
   },
   {
+    "id": "maebmassiveaudioembeddingbenchmark",
+    "name": "MAEB (Massive Audio Embedding Benchmark)",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-10-06",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "speech"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "magicdataramc",
     "name": "MagicData-RAMC",
     "lab_count": 1,
@@ -32264,6 +32331,27 @@
     ],
     "suite": null,
     "recent_share": 1
+  },
+  {
+    "id": "massiveimageembeddingbenchmarklite",
+    "name": "Massive Image Embedding Benchmark (Lite)",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-10-06",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": null,
+    "recent_share": 0
   },
   {
     "id": "math401",
@@ -35226,6 +35314,27 @@
     "labs_by_quarter": {
       "2025-Q3": 1,
       "2026-Q2": 1
+    },
+    "categories": [
+      "coding"
+    ],
+    "suite": "mteb",
+    "recent_share": 0
+  },
+  {
+    "id": "mtebmassivetextembeddingbenchmarkcode",
+    "name": "MTEB (Massive Text Embedding Benchmark) Code",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-10-06",
+    "last_seen": "2026-10-06",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
     },
     "categories": [
       "coding"
@@ -39103,27 +39212,6 @@
     },
     "labs_by_quarter": {
       "2023-Q2": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "plawbench",
-    "name": "PLawBench",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-08-03",
-    "last_seen": "2026-08-03",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
     },
     "categories": [
       "other"

@@ -145,5 +145,26 @@
       "version_confident": false
     },
     "seen": "2026-10-10T18:14:37.535Z"
+  },
+  {
+    "raw": "MTEB (Massive Text Embedding Benchmark) Code",
+    "tracked": "MTEB (Code)",
+    "reason": "same code split of the Massive Text Embedding Benchmark The tracked benchmark \"MTEB (Code)\" is described as: The code slice of MTEB: 12 retrieval tasks spanning popular programming languages, covering code search, text-to-SQL and code feedback, used to score text embedding models.",
+    "lab": "Google DeepMind",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "same_name": 0.04,
+      "version": 0.94,
+      "renamed": 0,
+      "different": 0.02
+    },
+    "merge_is_safe": 0.46,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "seen": "2026-10-13T20:06:58.759Z"
   }
 ]

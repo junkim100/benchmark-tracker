@@ -242,5 +242,6 @@
   "FDB V3": "fullduplexbench3",
   "Chain-of-thought controllability": "cotcontrollability",
   "Gray Swan's Indirect Prompt Injection (IPI) benchmark": "grayswanipibenchmark",
-  "Agentic Safe Completions": "agenticsafecompletionevaluations"
+  "Agentic Safe Completions": "agenticsafecompletionevaluations",
+  "Harvey LAB": "harveyslegalagentbenchmark"
 }

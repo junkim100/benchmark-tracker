@@ -68,3 +68,6 @@
 {"at":"2026-10-10T18:14:37.536Z","raw":"MiMo Cyber Bench (mini)","cats":["coding","safety"],"lab":"Xiaomi"}
 {"at":"2026-10-10T18:14:37.536Z","raw":"MiMo General Bench (mini)","cats":["agentic"],"lab":"Xiaomi"}
 {"at":"2026-10-10T18:14:37.536Z","raw":"MiMo Visual Coding (mini)","cats":["coding","vision"],"lab":"Xiaomi"}
+{"at":"2026-10-13T20:06:58.759Z","raw":"LegalBench","cats":["knowledge","reasoning"],"lab":"Z.ai"}
+{"at":"2026-10-13T20:06:58.759Z","raw":"MAEB (Massive Audio Embedding Benchmark)","cats":["speech"],"lab":"Google DeepMind"}
+{"at":"2026-10-13T20:06:58.759Z","raw":"Massive Image Embedding Benchmark (Lite)","cats":["vision"],"lab":"Google DeepMind"}

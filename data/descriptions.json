@@ -5389,6 +5389,12 @@
     "source": "none",
     "checked": "2026-09-22"
   },
+  "legalbench": {
+    "text": "A collaboratively built benchmark of 162 English legal tasks, many contributed by legal professionals, evaluating LLM legal reasoning across six IRAC-based categories: issue spotting, rule recall, rule application, rule conclusion, interpretation, rhetoric.",
+    "source_url": "https://arxiv.org/abs/2308.11462",
+    "source": "researched",
+    "checked": "2026-10-13"
+  },
   "legalresearchbench": {
     "text": "A Vals AI benchmark testing whether agents can carry out realistic US legal research across eight practice areas using case-law search, web search and document retrieval, graded against rubrics written by practising lawyers.",
     "source_url": "https://www.vals.ai/",
@@ -5833,6 +5839,12 @@
     "source": "none",
     "checked": "2026-09-22"
   },
+  "maebmassiveaudioembeddingbenchmark": {
+    "text": "Evaluates audio embedding models on 30 tasks covering speech, music, environmental sound and audio-text cross-modal retrieval in 100+ languages, filtered from a 98-task pool (MAEB+) and scored in the MTEB framework via classification, clustering and retrieval.",
+    "source_url": "https://arxiv.org/abs/2602.16008",
+    "source": "researched",
+    "checked": "2026-10-13"
+  },
   "magicdataramc": {
     "text": "180 hours of Mandarin conversational speech recorded over mobile phones across 15 topic domains, with manual transcriptions and speaker voice-activity timestamps.",
     "source_url": "https://arxiv.org/abs/2203.16844",
@@ -5908,6 +5920,12 @@
   "maskrectified": {
     "source": "none",
     "checked": "2026-09-22"
+  },
+  "massiveimageembeddingbenchmarklite": {
+    "text": "MIEB-lite is a 51-task subset of the Massive Image Embedding Benchmark, which evaluates image and image-text embedding models across 8 categories including classification, clustering, retrieval, compositionality, visual document understanding and visual STS.",
+    "source_url": "https://arxiv.org/abs/2504.10471",
+    "source": "researched",
+    "checked": "2026-10-13"
   },
   "math": {
     "text": "12,500 competition mathematics problems drawn from high school contests such as AMC 10, AMC 12 and AIME, each with a full LaTeX statement, a step-by-step solution and a standardized final answer for automatic checking.",
@@ -7072,6 +7090,10 @@
     "source_url": "https://arxiv.org/html/2502.13595v1",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "mtebmassivetextembeddingbenchmarkcode": {
+    "source": "none",
+    "checked": "2026-10-13"
   },
   "mtebmultilingual": {
     "text": "The highly multilingual benchmark defined in MMTEB: 132 text embedding tasks covering more than 250 languages, selected from over 500 candidates by dropping machine-translated, unlicensed and highly predictable datasets.",
