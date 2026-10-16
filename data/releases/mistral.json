@@ -1402,5 +1402,25 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "mistral-timestral-2026-10-15",
+    "lab": "mistral",
+    "model": "Timestral",
+    "date": "2026-10-15",
+    "kind": "model_release",
+    "title": "Introducing Timestral",
+    "source_url": "https://mistral.ai/news/timestral/",
+    "benchmarks_raw": [
+      "GIFT-Eval",
+      "TIME",
+      "fev-bench"
+    ],
+    "modality": {
+      "classes": [
+        "other"
+      ],
+      "source": "reported"
+    }
   }
 ]

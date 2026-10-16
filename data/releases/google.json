@@ -4703,5 +4703,21 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "google-fine-tuned-gemma-scam-detection-model-govtech-singapore-2026-10-14",
+    "lab": "google",
+    "model": "Fine-tuned Gemma scam detection model (GovTech Singapore)",
+    "date": "2026-10-14",
+    "kind": "blog_post",
+    "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
+    "source_url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

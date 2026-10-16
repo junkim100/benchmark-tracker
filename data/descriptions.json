@@ -45,6 +45,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "aaspeechtospeechindex": {
+    "text": "An aggregate index for native audio (speech-to-speech) models from Artificial Analysis, combining four equally weighted components: speech reasoning (Big Bench Audio), agentic performance (\"\\u03c4-Voice\"), arena preference Elo converted to a score, and task success rate.",
+    "source_url": "https://artificialanalysis.ai/methodology/speech-to-speech-benchmarking",
+    "source": "researched",
+    "checked": "2026-10-16"
+  },
   "aavcapsidpackagingprediction": {
     "source": "none",
     "checked": "2026-09-22"

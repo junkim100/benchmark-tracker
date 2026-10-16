@@ -4603,7 +4603,7 @@
       "xiaomi"
     ],
     "first_seen": "2025-08-28",
-    "last_seen": "2026-09-15",
+    "last_seen": "2026-10-14",
     "labs_by_year": {
       "2025": 3,
       "2026": 4
@@ -4613,7 +4613,8 @@
       "2025-Q4": 1,
       "2026-Q1": 2,
       "2026-Q2": 1,
-      "2026-Q3": 2
+      "2026-Q3": 2,
+      "2026-Q4": 1
     },
     "categories": [
       "speech"
@@ -9773,6 +9774,29 @@
     "recent_share": 0
   },
   {
+    "id": "evabench",
+    "name": "EVA-Bench",
+    "lab_count": 2,
+    "labs": [
+      "google",
+      "xai"
+    ],
+    "first_seen": "2026-09-15",
+    "last_seen": "2026-10-14",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "factscore",
     "name": "FActScore",
     "lab_count": 2,
@@ -9814,6 +9838,29 @@
       "2025-Q1": 1,
       "2025-Q2": 1,
       "2025-Q3": 2
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "fevbench",
+    "name": "fev-bench",
+    "lab_count": 2,
+    "labs": [
+      "google",
+      "mistral"
+    ],
+    "first_seen": "2026-08-31",
+    "last_seen": "2026-10-15",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "other"
@@ -10042,12 +10089,13 @@
       "xai"
     ],
     "first_seen": "2026-07-29",
-    "last_seen": "2026-09-10",
+    "last_seen": "2026-10-14",
     "labs_by_year": {
       "2026": 2
     },
     "labs_by_quarter": {
-      "2026-Q3": 2
+      "2026-Q3": 2,
+      "2026-Q4": 1
     },
     "categories": [
       "other"
@@ -10172,6 +10220,29 @@
     ],
     "suite": "gdpval",
     "recent_share": 1
+  },
+  {
+    "id": "gifteval",
+    "name": "Gift-Eval",
+    "lab_count": 2,
+    "labs": [
+      "google",
+      "mistral"
+    ],
+    "first_seen": "2026-08-31",
+    "last_seen": "2026-10-15",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
   },
   {
     "id": "gigaspeech",
@@ -13336,6 +13407,29 @@
     "recent_share": 0
   },
   {
+    "id": "speechagentarena",
+    "name": "Speech Agent Arena",
+    "lab_count": 2,
+    "labs": [
+      "google",
+      "xai"
+    ],
+    "first_seen": "2026-09-15",
+    "last_seen": "2026-10-14",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "spider",
     "name": "Spider",
     "lab_count": 2,
@@ -13570,12 +13664,13 @@
       "xai"
     ],
     "first_seen": "2026-07-29",
-    "last_seen": "2026-09-15",
+    "last_seen": "2026-10-14",
     "labs_by_year": {
       "2026": 2
     },
     "labs_by_quarter": {
-      "2026-Q3": 2
+      "2026-Q3": 2,
+      "2026-Q4": 1
     },
     "categories": [
       "agentic"
@@ -13651,6 +13746,29 @@
       "2024-Q4": 1,
       "2026-Q1": 1,
       "2026-Q2": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "time",
+    "name": "Time",
+    "lab_count": 2,
+    "labs": [
+      "google",
+      "mistral"
+    ],
+    "first_seen": "2026-08-31",
+    "last_seen": "2026-10-15",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "other"
@@ -14713,6 +14831,27 @@
     },
     "categories": [
       "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "aaspeechtospeechindex",
+    "name": "AA Speech-to-Speech Index",
+    "lab_count": 1,
+    "labs": [
+      "xai"
+    ],
+    "first_seen": "2026-10-14",
+    "last_seen": "2026-10-14",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "speech"
     ],
     "suite": null,
     "recent_share": 0
@@ -23694,27 +23833,6 @@
     "recent_share": 0
   },
   {
-    "id": "evabench",
-    "name": "EVA-Bench",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2026-09-15",
-    "last_seen": "2026-09-15",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "eventhallusion",
     "name": "EventHallusion",
     "lab_count": 1,
@@ -24204,27 +24322,6 @@
     ],
     "suite": null,
     "recent_share": 1
-  },
-  {
-    "id": "fevbench",
-    "name": "FEV-Bench",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2026-08-31",
-    "last_seen": "2026-08-31",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
   },
   {
     "id": "fgvcaircraft",
@@ -26028,27 +26125,6 @@
     },
     "labs_by_quarter": {
       "2025-Q1": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "gifteval",
-    "name": "Gift-Eval",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2026-08-31",
-    "last_seen": "2026-08-31",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
     },
     "categories": [
       "other"
@@ -43476,27 +43552,6 @@
     "recent_share": 0
   },
   {
-    "id": "speechagentarena",
-    "name": "Speech Agent Arena",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2026-09-15",
-    "last_seen": "2026-09-15",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
     "id": "speechio",
     "name": "SpeechIO",
     "lab_count": 1,
@@ -45416,27 +45471,6 @@
     },
     "labs_by_quarter": {
       "2023-Q2": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "time",
-    "name": "Time",
-    "lab_count": 1,
-    "labs": [
-      "google"
-    ],
-    "first_seen": "2026-08-31",
-    "last_seen": "2026-08-31",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
     },
     "categories": [
       "other"

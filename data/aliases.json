@@ -243,5 +243,6 @@
   "Chain-of-thought controllability": "cotcontrollability",
   "Gray Swan's Indirect Prompt Injection (IPI) benchmark": "grayswanipibenchmark",
   "Agentic Safe Completions": "agenticsafecompletionevaluations",
-  "Harvey LAB": "harveyslegalagentbenchmark"
+  "Harvey LAB": "harveyslegalagentbenchmark",
+  "Speech Agent Arena Elo": "speechagentarena"
 }

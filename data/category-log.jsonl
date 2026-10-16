@@ -71,3 +71,4 @@
 {"at":"2026-10-13T20:06:58.759Z","raw":"LegalBench","cats":["knowledge","reasoning"],"lab":"Z.ai"}
 {"at":"2026-10-13T20:06:58.759Z","raw":"MAEB (Massive Audio Embedding Benchmark)","cats":["speech"],"lab":"Google DeepMind"}
 {"at":"2026-10-13T20:06:58.759Z","raw":"Massive Image Embedding Benchmark (Lite)","cats":["vision"],"lab":"Google DeepMind"}
+{"at":"2026-10-16T17:50:50.814Z","raw":"AA Speech-to-Speech Index","cats":["speech"],"lab":"xAI"}

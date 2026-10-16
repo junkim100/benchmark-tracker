@@ -810,5 +810,28 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "xai-grok-voice-3-0-2026-10-14",
+    "lab": "xai",
+    "model": "Grok Voice 3.0",
+    "date": "2026-10-14",
+    "kind": "model_release",
+    "title": "Introducing Grok Voice 3.0",
+    "source_url": "https://x.ai/news/grok-voice-3",
+    "benchmarks_raw": [
+      "AA Speech-to-Speech Index",
+      "Big Bench Audio",
+      "Speech Agent Arena Elo",
+      "Full Duplex Bench",
+      "τ-Voice",
+      "EVA-Bench"
+    ],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "reported"
+    }
   }
 ]

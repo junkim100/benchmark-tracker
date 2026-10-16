@@ -8,11 +8,11 @@
     "relation": "same_name",
     "probabilities": {
       "same_name": 0.87,
-      "version": 0.03,
+      "version": 0.04,
       "renamed": 0.02,
-      "different": 0.08
+      "different": 0.07
     },
-    "merge_is_safe": 0.59,
+    "merge_is_safe": 0.61,
     "gates": {
       "same_name_confident": true,
       "merge_is_safe": false,
@@ -31,12 +31,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.51,
-      "version": 0.43,
+      "same_name": 0.53,
+      "version": 0.41,
       "renamed": 0,
       "different": 0.06
     },
-    "merge_is_safe": 0.53,
+    "merge_is_safe": 0.52,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -52,19 +52,19 @@
     "tracked": "BabyVision",
     "reason": "Both cite the same source page, https://arxiv.org/abs/2601.06521. \"BabyVision w/ tools\" is described as: 388 puzzle-style items in 22 subclasses probing core visual ability with almost no language: fine-grained discrimination, visual tracking through mazes and lines, spatial perception of 3D views and folding, and pattern completion, here run with tool use allowed. \"BabyVision\" is described as: 388 items in 22 subclasses testing foundational visual abilities inspired by infant and early-childhood visual development: fine-grained discrimination, spatial perception, visual pattern recognition and visual tracking. Found by scanning descriptions: same source, one name contains the other.",
     "lab": "deepseek",
-    "decision": "SUITE",
+    "decision": "REVIEW",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.36,
-      "version": 0.61,
+      "same_name": 0.45,
+      "version": 0.51,
       "renamed": 0.01,
-      "different": 0.02
+      "different": 0.03
     },
-    "merge_is_safe": 0.55,
+    "merge_is_safe": 0.58,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
-      "version_confident": true
+      "version_confident": false
     },
     "_ids": [
       "babyvisionwtools",
@@ -80,11 +80,11 @@
     "relation": "version",
     "probabilities": {
       "same_name": 0.03,
-      "version": 0.64,
+      "version": 0.67,
       "renamed": 0,
-      "different": 0.33
+      "different": 0.3
     },
-    "merge_is_safe": 0.22,
+    "merge_is_safe": 0.24,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -108,7 +108,7 @@
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.61,
+    "merge_is_safe": 0.63,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -127,12 +127,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.04,
-      "version": 0.96,
+      "same_name": 0.05,
+      "version": 0.95,
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.65,
+    "merge_is_safe": 0.64,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -152,9 +152,9 @@
     "relation": "version",
     "probabilities": {
       "same_name": 0,
-      "version": 0.55,
+      "version": 0.54,
       "renamed": 0,
-      "different": 0.45
+      "different": 0.46
     },
     "merge_is_safe": 0.05,
     "gates": {
@@ -180,7 +180,7 @@
       "renamed": 0,
       "different": 0.01
     },
-    "merge_is_safe": 0.34,
+    "merge_is_safe": 0.33,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -204,7 +204,7 @@
       "renamed": 0,
       "different": 0.01
     },
-    "merge_is_safe": 0.44,
+    "merge_is_safe": 0.42,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -220,19 +220,19 @@
     "tracked": "CWE-bench v0",
     "reason": "Both cite the same source page, https://blog.collinear.ai/p/cwe-bench. \"CWE-Bench\" is described as: One hundred held-out audit-and-patch tasks on real open-source projects pinned to a commit, covering 54 vulnerability types across six languages. A patch counts only if an executed exploit stops working and the regression tests still pass. \"CWE-bench v0\" is described as: Held-out set of 100 agentic audit-and-patch tasks built from real open-source repositories pinned to vulnerable commits, spanning 54 CWE types and the OWASP Top 10 categories; the agent is told only to audit and fix, and patches are graded by deterministic tests. Found by scanning descriptions: same source, one name contains the other.",
     "lab": "google",
-    "decision": "REVIEW",
+    "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.42,
-      "version": 0.58,
+      "same_name": 0.35,
+      "version": 0.65,
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.69,
+    "merge_is_safe": 0.72,
     "gates": {
       "same_name_confident": false,
-      "merge_is_safe": false,
-      "version_confident": false
+      "merge_is_safe": true,
+      "version_confident": true
     },
     "_ids": [
       "cwebench",
@@ -247,12 +247,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.08,
-      "version": 0.92,
+      "same_name": 0.11,
+      "version": 0.89,
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.65,
+    "merge_is_safe": 0.67,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -271,12 +271,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.56,
+      "same_name": 0.54,
       "version": 0.17,
       "renamed": 0.01,
-      "different": 0.26
+      "different": 0.27
     },
-    "merge_is_safe": 0.41,
+    "merge_is_safe": 0.4,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -295,12 +295,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.9,
+      "same_name": 0.89,
       "version": 0.02,
       "renamed": 0.01,
-      "different": 0.07
+      "different": 0.08
     },
-    "merge_is_safe": 0.65,
+    "merge_is_safe": 0.63,
     "gates": {
       "same_name_confident": true,
       "merge_is_safe": false,
@@ -319,12 +319,12 @@
     "decision": "REVIEW",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.49,
-      "version": 0.5,
+      "same_name": 0.42,
+      "version": 0.57,
       "renamed": 0.01,
       "different": 0
     },
-    "merge_is_safe": 0.81,
+    "merge_is_safe": 0.82,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": true,
@@ -343,12 +343,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.85,
+      "same_name": 0.87,
       "version": 0.01,
       "renamed": 0,
-      "different": 0.14
+      "different": 0.12
     },
-    "merge_is_safe": 0.63,
+    "merge_is_safe": 0.68,
     "gates": {
       "same_name_confident": true,
       "merge_is_safe": false,
@@ -372,10 +372,10 @@
       "renamed": 0.01,
       "different": 0
     },
-    "merge_is_safe": 0.63,
+    "merge_is_safe": 0.7,
     "gates": {
       "same_name_confident": false,
-      "merge_is_safe": false,
+      "merge_is_safe": true,
       "version_confident": true
     },
     "_ids": [
@@ -391,12 +391,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.93,
+      "same_name": 0.95,
       "version": 0,
-      "renamed": 0.01,
-      "different": 0.06
+      "renamed": 0,
+      "different": 0.05
     },
-    "merge_is_safe": 0.59,
+    "merge_is_safe": 0.57,
     "gates": {
       "same_name_confident": true,
       "merge_is_safe": false,
@@ -415,12 +415,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.13,
-      "version": 0.86,
+      "same_name": 0.12,
+      "version": 0.87,
       "renamed": 0,
       "different": 0.01
     },
-    "merge_is_safe": 0.6,
+    "merge_is_safe": 0.59,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -444,7 +444,7 @@
       "renamed": 0,
       "different": 0.02
     },
-    "merge_is_safe": 0.33,
+    "merge_is_safe": 0.32,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -463,12 +463,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.82,
-      "version": 0.04,
-      "renamed": 0.04,
-      "different": 0.1
+      "same_name": 0.81,
+      "version": 0.03,
+      "renamed": 0.03,
+      "different": 0.13
     },
-    "merge_is_safe": 0.62,
+    "merge_is_safe": 0.6,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -492,7 +492,7 @@
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.2,
+    "merge_is_safe": 0.18,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -516,7 +516,7 @@
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.79,
+    "merge_is_safe": 0.78,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": true,
@@ -536,11 +536,11 @@
     "relation": "version",
     "probabilities": {
       "same_name": 0.07,
-      "version": 0.91,
+      "version": 0.92,
       "renamed": 0,
-      "different": 0.02
+      "different": 0.01
     },
-    "merge_is_safe": 0.37,
+    "merge_is_safe": 0.4,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -564,7 +564,7 @@
       "renamed": 0,
       "different": 0.01
     },
-    "merge_is_safe": 0.28,
+    "merge_is_safe": 0.31,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -583,12 +583,12 @@
     "decision": "REVIEW",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.48,
-      "version": 0.52,
+      "same_name": 0.45,
+      "version": 0.55,
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.74,
+    "merge_is_safe": 0.72,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": true,
@@ -607,12 +607,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.05,
-      "version": 0.92,
+      "same_name": 0.08,
+      "version": 0.88,
       "renamed": 0,
-      "different": 0.03
+      "different": 0.04
     },
-    "merge_is_safe": 0.34,
+    "merge_is_safe": 0.33,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -631,8 +631,8 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.4,
-      "version": 0.6,
+      "same_name": 0.39,
+      "version": 0.61,
       "renamed": 0,
       "different": 0
     },
@@ -660,7 +660,7 @@
       "renamed": 0.01,
       "different": 0.12
     },
-    "merge_is_safe": 0.52,
+    "merge_is_safe": 0.53,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -679,10 +679,10 @@
     "decision": "REVIEW",
     "relation": "different",
     "probabilities": {
-      "same_name": 0.18,
+      "same_name": 0.13,
       "version": 0.01,
-      "renamed": 0.06,
-      "different": 0.75
+      "renamed": 0.05,
+      "different": 0.8
     },
     "merge_is_safe": 0.28,
     "gates": {
@@ -703,10 +703,10 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.79,
-      "version": 0.17,
+      "same_name": 0.76,
+      "version": 0.19,
       "renamed": 0,
-      "different": 0.04
+      "different": 0.05
     },
     "merge_is_safe": 0.49,
     "gates": {
@@ -727,8 +727,8 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.02,
-      "version": 0.98,
+      "same_name": 0.03,
+      "version": 0.97,
       "renamed": 0,
       "different": 0
     },
@@ -756,7 +756,7 @@
       "renamed": 0,
       "different": 0.01
     },
-    "merge_is_safe": 0.2,
+    "merge_is_safe": 0.19,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -775,12 +775,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.72,
-      "version": 0.25,
+      "same_name": 0.68,
+      "version": 0.27,
       "renamed": 0,
-      "different": 0.03
+      "different": 0.05
     },
-    "merge_is_safe": 0.5,
+    "merge_is_safe": 0.46,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -804,7 +804,7 @@
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.53,
+    "merge_is_safe": 0.57,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -828,7 +828,7 @@
       "renamed": 0,
       "different": 0.01
     },
-    "merge_is_safe": 0.28,
+    "merge_is_safe": 0.32,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -871,12 +871,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.21,
-      "version": 0.77,
+      "same_name": 0.2,
+      "version": 0.78,
       "renamed": 0.01,
       "different": 0.01
     },
-    "merge_is_safe": 0.6,
+    "merge_is_safe": 0.61,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -895,12 +895,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.3,
-      "version": 0.69,
-      "renamed": 0.01,
+      "same_name": 0.23,
+      "version": 0.77,
+      "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.78,
+    "merge_is_safe": 0.77,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": true,
@@ -919,12 +919,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.47,
-      "version": 0.08,
+      "same_name": 0.52,
+      "version": 0.07,
       "renamed": 0.02,
-      "different": 0.43
+      "different": 0.39
     },
-    "merge_is_safe": 0.31,
+    "merge_is_safe": 0.32,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -943,12 +943,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.81,
-      "version": 0.03,
+      "same_name": 0.77,
+      "version": 0.05,
       "renamed": 0.01,
-      "different": 0.14
+      "different": 0.17
     },
-    "merge_is_safe": 0.48,
+    "merge_is_safe": 0.45,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -967,12 +967,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.02,
-      "version": 0.97,
+      "same_name": 0.03,
+      "version": 0.96,
       "renamed": 0,
       "different": 0.01
     },
-    "merge_is_safe": 0.46,
+    "merge_is_safe": 0.42,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -991,12 +991,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.14,
-      "version": 0.68,
+      "same_name": 0.2,
+      "version": 0.64,
       "renamed": 0,
-      "different": 0.18
+      "different": 0.16
     },
-    "merge_is_safe": 0.25,
+    "merge_is_safe": 0.27,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1015,8 +1015,8 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.65,
-      "version": 0.34,
+      "same_name": 0.62,
+      "version": 0.37,
       "renamed": 0.01,
       "different": 0
     },
@@ -1039,12 +1039,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.1,
-      "version": 0.9,
+      "same_name": 0.12,
+      "version": 0.88,
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.67,
+    "merge_is_safe": 0.64,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1063,12 +1063,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.88,
-      "version": 0.08,
+      "same_name": 0.86,
+      "version": 0.1,
       "renamed": 0,
       "different": 0.04
     },
-    "merge_is_safe": 0.6,
+    "merge_is_safe": 0.59,
     "gates": {
       "same_name_confident": true,
       "merge_is_safe": false,
@@ -1087,12 +1087,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.68,
-      "version": 0.2,
+      "same_name": 0.71,
+      "version": 0.15,
       "renamed": 0.01,
-      "different": 0.11
+      "different": 0.13
     },
-    "merge_is_safe": 0.49,
+    "merge_is_safe": 0.47,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1108,19 +1108,19 @@
     "tracked": "Z.ai Code Bench (v1.0)",
     "reason": "Both cite the same source page, https://docs.z.ai/guides/llm/glm-5.3. \"Z.ai Code Bench\" is described as: A private in-house test of coding agents placed in complex local development environments across diverse task categories, scored on both end-to-end task completion and fine-grained checklist accuracy at several effort levels. \"Z.ai Code Bench (v1.0)\" is described as: An in-house Z.ai benchmark that places coding agents in complex local development environments on realistic user tasks, scored both on end-to-end task completion and on fine-grained checklist accuracy. Found by scanning descriptions: same source, one name contains the other.",
     "lab": "zai",
-    "decision": "REVIEW",
+    "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.41,
-      "version": 0.58,
-      "renamed": 0.01,
+      "same_name": 0.35,
+      "version": 0.65,
+      "renamed": 0,
       "different": 0
     },
     "merge_is_safe": 0.67,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
-      "version_confident": false
+      "version_confident": true
     },
     "_ids": [
       "zaicodebench",
@@ -1140,7 +1140,7 @@
       "renamed": 0,
       "different": 0.09
     },
-    "merge_is_safe": 0.31,
+    "merge_is_safe": 0.33,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
