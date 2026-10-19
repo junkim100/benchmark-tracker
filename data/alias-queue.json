@@ -166,5 +166,26 @@
       "version_confident": true
     },
     "seen": "2026-10-13T20:06:58.759Z"
+  },
+  {
+    "raw": "HLE (w/o tools)",
+    "tracked": "Humanity's Last Exam",
+    "reason": "HLE is the lab's abbreviation for Humanity's Last Exam, no-tools base setting The tracked benchmark \"Humanity's Last Exam\" is described as: A benchmark of 2,500 closed-ended questions across dozens of academic subjects, written by subject-matter experts as multiple-choice and short-answer items with unambiguous, automatically gradable solutions that cannot be found by quick internet retrieval.",
+    "lab": "DeepSeek",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.54,
+      "version": 0.45,
+      "renamed": 0,
+      "different": 0.01
+    },
+    "merge_is_safe": 0.55,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-10-19T19:42:46.816Z"
   }
 ]

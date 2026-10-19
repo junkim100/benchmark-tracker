@@ -72,3 +72,5 @@
 {"at":"2026-10-13T20:06:58.759Z","raw":"MAEB (Massive Audio Embedding Benchmark)","cats":["speech"],"lab":"Google DeepMind"}
 {"at":"2026-10-13T20:06:58.759Z","raw":"Massive Image Embedding Benchmark (Lite)","cats":["vision"],"lab":"Google DeepMind"}
 {"at":"2026-10-16T17:50:50.814Z","raw":"AA Speech-to-Speech Index","cats":["speech"],"lab":"xAI"}
+{"at":"2026-10-19T19:42:46.817Z","raw":"Apex Bench v1.1","cats":["agentic","coding"],"lab":"DeepSeek"}
+{"at":"2026-10-19T19:42:46.817Z","raw":"Vibe Code Bench","cats":["coding","agentic"],"lab":"Google DeepMind"}

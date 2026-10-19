@@ -1181,5 +1181,24 @@
       ],
       "source": "inferred"
     }
+  },
+  {
+    "id": "meta-muse-wonder-2026-10-12",
+    "lab": "meta",
+    "model": "Muse Wonder",
+    "date": "2026-10-12",
+    "kind": "model_release",
+    "title": "Introducing Muse Wonder",
+    "source_url": "https://ai.meta.com/research/",
+    "benchmarks_raw": [
+      "DeepSWE",
+      "SWE-Marathon"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

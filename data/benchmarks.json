@@ -1253,13 +1253,13 @@
       "xiaomi"
     ],
     "first_seen": "2026-07-09",
-    "last_seen": "2026-10-08",
+    "last_seen": "2026-10-17",
     "labs_by_year": {
       "2026": 9
     },
     "labs_by_quarter": {
       "2026-Q3": 8,
-      "2026-Q4": 2
+      "2026-Q4": 4
     },
     "categories": [
       "coding",
@@ -1446,14 +1446,14 @@
       "zai"
     ],
     "first_seen": "2026-05-28",
-    "last_seen": "2026-10-06",
+    "last_seen": "2026-10-13",
     "labs_by_year": {
       "2026": 8
     },
     "labs_by_quarter": {
       "2026-Q2": 1,
       "2026-Q3": 7,
-      "2026-Q4": 1
+      "2026-Q4": 2
     },
     "categories": [
       "agentic"
@@ -1769,13 +1769,13 @@
       "zai"
     ],
     "first_seen": "2026-07-09",
-    "last_seen": "2026-10-08",
+    "last_seen": "2026-10-17",
     "labs_by_year": {
       "2026": 7
     },
     "labs_by_quarter": {
       "2026-Q3": 6,
-      "2026-Q4": 1
+      "2026-Q4": 3
     },
     "categories": [
       "agentic"
@@ -2149,13 +2149,13 @@
       "xiaomi"
     ],
     "first_seen": "2026-09-01",
-    "last_seen": "2026-10-08",
+    "last_seen": "2026-10-17",
     "labs_by_year": {
       "2026": 7
     },
     "labs_by_quarter": {
       "2026-Q3": 5,
-      "2026-Q4": 3
+      "2026-Q4": 5
     },
     "categories": [
       "coding",
@@ -2749,12 +2749,13 @@
       "zai"
     ],
     "first_seen": "2026-07-09",
-    "last_seen": "2026-09-29",
+    "last_seen": "2026-10-13",
     "labs_by_year": {
       "2026": 6
     },
     "labs_by_quarter": {
-      "2026-Q3": 6
+      "2026-Q3": 6,
+      "2026-Q4": 1
     },
     "categories": [
       "agentic",
@@ -2776,14 +2777,14 @@
       "zai"
     ],
     "first_seen": "2026-05-28",
-    "last_seen": "2026-10-08",
+    "last_seen": "2026-10-17",
     "labs_by_year": {
       "2026": 6
     },
     "labs_by_quarter": {
       "2026-Q2": 3,
       "2026-Q3": 5,
-      "2026-Q4": 1
+      "2026-Q4": 2
     },
     "categories": [
       "coding"
@@ -4623,6 +4624,31 @@
     "recent_share": 2
   },
   {
+    "id": "chartography",
+    "name": "Chartography",
+    "lab_count": 4,
+    "labs": [
+      "anthropic",
+      "deepseek",
+      "google",
+      "zai"
+    ],
+    "first_seen": "2026-07-24",
+    "last_seen": "2026-10-13",
+    "labs_by_year": {
+      "2026": 4
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 3,
+      "2026-Q4": 2
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": null,
+    "recent_share": 2
+  },
+  {
     "id": "claweval",
     "name": "ClawEval",
     "lab_count": 4,
@@ -4740,6 +4766,33 @@
     "recent_share": 4
   },
   {
+    "id": "deepswe",
+    "name": "DeepSWE",
+    "lab_count": 4,
+    "labs": [
+      "deepseek",
+      "meta",
+      "moonshot",
+      "zai"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-10-12",
+    "labs_by_year": {
+      "2026": 4
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 1,
+      "2026-Q3": 3,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding",
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 5
+  },
+  {
     "id": "exploitbench",
     "name": "ExploitBench",
     "lab_count": 4,
@@ -4841,7 +4894,7 @@
     },
     "labs_by_quarter": {
       "2026-Q3": 2,
-      "2026-Q4": 2
+      "2026-Q4": 3
     },
     "categories": [
       "agentic"
@@ -5085,7 +5138,7 @@
       "zai"
     ],
     "first_seen": "2024-08-29",
-    "last_seen": "2026-09-30",
+    "last_seen": "2026-10-13",
     "labs_by_year": {
       "2024": 1,
       "2025": 3,
@@ -5098,7 +5151,8 @@
       "2025-Q4": 2,
       "2026-Q1": 2,
       "2026-Q2": 1,
-      "2026-Q3": 2
+      "2026-Q3": 2,
+      "2026-Q4": 1
     },
     "categories": [
       "longctx",
@@ -5555,6 +5609,33 @@
     "recent_share": 1
   },
   {
+    "id": "swemarathon",
+    "name": "SWE-Marathon",
+    "lab_count": 4,
+    "labs": [
+      "meta",
+      "moonshot",
+      "xai",
+      "zai"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-10-12",
+    "labs_by_year": {
+      "2026": 4
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 1,
+      "2026-Q3": 3,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding",
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 3
+  },
+  {
     "id": "terminalbench30",
     "name": "Terminal-bench 3.0",
     "lab_count": 4,
@@ -5864,6 +5945,30 @@
     "recent_share": 2
   },
   {
+    "id": "automationbench106",
+    "name": "AutomationBench 1.0.6",
+    "lab_count": 3,
+    "labs": [
+      "deepseek",
+      "openai",
+      "xiaomi"
+    ],
+    "first_seen": "2026-09-22",
+    "last_seen": "2026-10-17",
+    "labs_by_year": {
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 2,
+      "2026-Q4": 2
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "automationbench",
+    "recent_share": 1
+  },
+  {
     "id": "bfcl",
     "name": "BFCL",
     "lab_count": 3,
@@ -5946,30 +6051,6 @@
     ],
     "suite": null,
     "recent_share": 0
-  },
-  {
-    "id": "chartography",
-    "name": "Chartography",
-    "lab_count": 3,
-    "labs": [
-      "anthropic",
-      "deepseek",
-      "zai"
-    ],
-    "first_seen": "2026-07-24",
-    "last_seen": "2026-10-07",
-    "labs_by_year": {
-      "2026": 3
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 3,
-      "2026-Q4": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": null,
-    "recent_share": 2
   },
   {
     "id": "chartqapro",
@@ -6173,31 +6254,6 @@
     ],
     "suite": null,
     "recent_share": 2
-  },
-  {
-    "id": "deepswe",
-    "name": "DeepSWE",
-    "lab_count": 3,
-    "labs": [
-      "deepseek",
-      "moonshot",
-      "zai"
-    ],
-    "first_seen": "2026-06-16",
-    "last_seen": "2026-08-26",
-    "labs_by_year": {
-      "2026": 3
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1,
-      "2026-Q3": 3
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 5
   },
   {
     "id": "dpgbench",
@@ -6569,7 +6625,7 @@
       "openai"
     ],
     "first_seen": "2025-04-14",
-    "last_seen": "2026-07-02",
+    "last_seen": "2026-10-13",
     "labs_by_year": {
       "2025": 1,
       "2026": 2
@@ -6578,7 +6634,8 @@
       "2025-Q2": 1,
       "2026-Q1": 1,
       "2026-Q2": 1,
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "longctx"
@@ -6706,13 +6763,14 @@
       "openai"
     ],
     "first_seen": "2026-04-16",
-    "last_seen": "2026-09-02",
+    "last_seen": "2026-10-13",
     "labs_by_year": {
       "2026": 3
     },
     "labs_by_quarter": {
       "2026-Q2": 2,
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "science"
@@ -7176,13 +7234,14 @@
       "zai"
     ],
     "first_seen": "2026-04-02",
-    "last_seen": "2026-09-22",
+    "last_seen": "2026-10-17",
     "labs_by_year": {
       "2026": 3
     },
     "labs_by_quarter": {
       "2026-Q2": 2,
-      "2026-Q3": 3
+      "2026-Q3": 3,
+      "2026-Q4": 1
     },
     "categories": [
       "coding"
@@ -7323,6 +7382,31 @@
     ],
     "suite": null,
     "recent_share": 1
+  },
+  {
+    "id": "posttrainbench",
+    "name": "PostTrainBench",
+    "lab_count": 3,
+    "labs": [
+      "google",
+      "moonshot",
+      "zai"
+    ],
+    "first_seen": "2026-06-16",
+    "last_seen": "2026-10-13",
+    "labs_by_year": {
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 1,
+      "2026-Q3": 2,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 2
   },
   {
     "id": "protocolqa",
@@ -7685,31 +7769,6 @@
     "recent_share": 0
   },
   {
-    "id": "swemarathon",
-    "name": "SWE-Marathon",
-    "lab_count": 3,
-    "labs": [
-      "moonshot",
-      "xai",
-      "zai"
-    ],
-    "first_seen": "2026-06-16",
-    "last_seen": "2026-08-14",
-    "labs_by_year": {
-      "2026": 3
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1,
-      "2026-Q3": 3
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 3
-  },
-  {
     "id": "tau2airline",
     "name": "TAU2-Airline",
     "lab_count": 3,
@@ -7858,6 +7917,31 @@
     ],
     "suite": "tau-bench",
     "recent_share": 0
+  },
+  {
+    "id": "terminalbenchscience01",
+    "name": "Terminal-Bench-Science 0.1",
+    "lab_count": 3,
+    "labs": [
+      "anthropic",
+      "google",
+      "openai"
+    ],
+    "first_seen": "2026-09-01",
+    "last_seen": "2026-10-13",
+    "labs_by_year": {
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 2,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding",
+      "agentic"
+    ],
+    "suite": "terminal-bench",
+    "recent_share": 1
   },
   {
     "id": "textarena",
@@ -8716,29 +8800,6 @@
     ],
     "suite": null,
     "recent_share": 0
-  },
-  {
-    "id": "automationbench106",
-    "name": "AutomationBench 1.0.6",
-    "lab_count": 2,
-    "labs": [
-      "openai",
-      "xiaomi"
-    ],
-    "first_seen": "2026-09-22",
-    "last_seen": "2026-10-08",
-    "labs_by_year": {
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 2,
-      "2026-Q4": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": "automationbench",
-    "recent_share": 1
   },
   {
     "id": "bbeh",
@@ -10079,6 +10140,30 @@
     ],
     "suite": null,
     "recent_share": 1
+  },
+  {
+    "id": "frontierswe2",
+    "name": "FrontierSWE v2",
+    "lab_count": 2,
+    "labs": [
+      "anthropic",
+      "google"
+    ],
+    "first_seen": "2026-09-01",
+    "last_seen": "2026-10-13",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding",
+      "agentic"
+    ],
+    "suite": "frontierswe",
+    "recent_share": 0
   },
   {
     "id": "fullduplexbench",
@@ -12796,29 +12881,6 @@
     "recent_share": 0
   },
   {
-    "id": "posttrainbench",
-    "name": "PostTrainBench",
-    "lab_count": 2,
-    "labs": [
-      "moonshot",
-      "zai"
-    ],
-    "first_seen": "2026-06-16",
-    "last_seen": "2026-08-14",
-    "labs_by_year": {
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1,
-      "2026-Q3": 2
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 2
-  },
-  {
     "id": "protocolqaopenended",
     "name": "ProtocolQA Open-Ended",
     "lab_count": 2,
@@ -13107,6 +13169,30 @@
     ],
     "suite": null,
     "recent_share": 0
+  },
+  {
+    "id": "riemannbench",
+    "name": "RiemannBench",
+    "lab_count": 2,
+    "labs": [
+      "anthropic",
+      "google"
+    ],
+    "first_seen": "2026-06-09",
+    "last_seen": "2026-10-13",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 1,
+      "2026-Q3": 1,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 1
   },
   {
     "id": "robospatial",
@@ -13702,29 +13788,6 @@
     "recent_share": 0
   },
   {
-    "id": "terminalbenchscience01",
-    "name": "Terminal-Bench-Science 0.1",
-    "lab_count": 2,
-    "labs": [
-      "anthropic",
-      "openai"
-    ],
-    "first_seen": "2026-09-01",
-    "last_seen": "2026-09-29",
-    "labs_by_year": {
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 2
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": "terminal-bench",
-    "recent_share": 1
-  },
-  {
     "id": "textcaps",
     "name": "TextCaps",
     "lab_count": 2,
@@ -14002,12 +14065,13 @@
       "moonshot"
     ],
     "first_seen": "2026-07-27",
-    "last_seen": "2026-09-30",
+    "last_seen": "2026-10-13",
     "labs_by_year": {
       "2026": 2
     },
     "labs_by_quarter": {
-      "2026-Q3": 2
+      "2026-Q3": 2,
+      "2026-Q4": 1
     },
     "categories": [
       "other"
@@ -16394,6 +16458,28 @@
     "recent_share": 1
   },
   {
+    "id": "apexbench11",
+    "name": "Apex Bench v1.1",
+    "lab_count": 1,
+    "labs": [
+      "deepseek"
+    ],
+    "first_seen": "2026-10-17",
+    "last_seen": "2026-10-17",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic",
+      "coding"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "apexshortlist",
     "name": "Apex Shortlist",
     "lab_count": 1,
@@ -17548,18 +17634,19 @@
   },
   {
     "id": "babyvisionwtools",
-    "name": "BabyVision w/ tools",
+    "name": "BabyVision (w/tools)",
     "lab_count": 1,
     "labs": [
       "deepseek"
     ],
     "first_seen": "2026-09-17",
-    "last_seen": "2026-09-17",
+    "last_seen": "2026-10-17",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "vision"
@@ -19456,18 +19543,19 @@
   },
   {
     "id": "chartographywtools",
-    "name": "Chartography w/ tools",
+    "name": "Chartography (w/tools)",
     "lab_count": 1,
     "labs": [
       "deepseek"
     ],
     "first_seen": "2026-09-17",
-    "last_seen": "2026-09-17",
+    "last_seen": "2026-10-17",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "vision"
@@ -21939,12 +22027,13 @@
       "google"
     ],
     "first_seen": "2026-09-30",
-    "last_seen": "2026-09-30",
+    "last_seen": "2026-10-13",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "coding",
@@ -25471,28 +25560,6 @@
     "recent_share": 0
   },
   {
-    "id": "frontierswe2",
-    "name": "FrontierSWE v2",
-    "lab_count": 1,
-    "labs": [
-      "anthropic"
-    ],
-    "first_seen": "2026-09-01",
-    "last_seen": "2026-09-01",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": "frontierswe",
-    "recent_share": 0
-  },
-  {
     "id": "frontiersweimpl",
     "name": "FrontierSWE (Impl.)",
     "lab_count": 1,
@@ -27479,6 +27546,27 @@
     "recent_share": 0
   },
   {
+    "id": "hlewotools",
+    "name": "HLE (w/o tools)",
+    "lab_count": 1,
+    "labs": [
+      "deepseek"
+    ],
+    "first_seen": "2026-10-17",
+    "last_seen": "2026-10-17",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "knowledge"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "hm3d",
     "name": "HM3D",
     "lab_count": 1,
@@ -28570,14 +28658,15 @@
       "google"
     ],
     "first_seen": "2026-02-19",
-    "last_seen": "2026-09-02",
+    "last_seen": "2026-10-13",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
       "2026-Q1": 1,
       "2026-Q2": 1,
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "safety"
@@ -35979,14 +36068,15 @@
       "google"
     ],
     "first_seen": "2026-02-19",
-    "last_seen": "2026-09-02",
+    "last_seen": "2026-10-13",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
       "2026-Q1": 1,
       "2026-Q2": 1,
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "safety"
@@ -41393,28 +41483,6 @@
     "recent_share": 0
   },
   {
-    "id": "riemannbench",
-    "name": "RiemannBench",
-    "lab_count": 1,
-    "labs": [
-      "anthropic"
-    ],
-    "first_seen": "2026-06-09",
-    "last_seen": "2026-07-24",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1,
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 1
-  },
-  {
     "id": "rmb",
     "name": "RMB",
     "lab_count": 1,
@@ -45334,14 +45402,15 @@
       "google"
     ],
     "first_seen": "2026-02-19",
-    "last_seen": "2026-09-02",
+    "last_seen": "2026-10-13",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
       "2026-Q1": 1,
       "2026-Q2": 1,
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "safety"
@@ -45570,14 +45639,15 @@
       "google"
     ],
     "first_seen": "2026-03-03",
-    "last_seen": "2026-09-02",
+    "last_seen": "2026-10-13",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
       "2026-Q1": 1,
       "2026-Q2": 1,
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "other"
@@ -46110,14 +46180,15 @@
       "google"
     ],
     "first_seen": "2026-03-03",
-    "last_seen": "2026-09-02",
+    "last_seen": "2026-10-13",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
       "2026-Q1": 1,
       "2026-Q2": 1,
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "safety"
@@ -46367,12 +46438,13 @@
       "google"
     ],
     "first_seen": "2026-09-02",
-    "last_seen": "2026-09-30",
+    "last_seen": "2026-10-13",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "agentic"
@@ -46531,6 +46603,28 @@
     ],
     "suite": "vending-bench",
     "recent_share": 1
+  },
+  {
+    "id": "vibecodebench",
+    "name": "Vibe Code Bench",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-10-13",
+    "last_seen": "2026-10-13",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding",
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
   },
   {
     "id": "vibench",
@@ -48730,18 +48824,19 @@
   },
   {
     "id": "zerobenchmainwtools",
-    "name": "ZeroBench-main w/ tools",
+    "name": "ZeroBench-main (w/tools)",
     "lab_count": 1,
     "labs": [
       "deepseek"
     ],
     "first_seen": "2026-09-17",
-    "last_seen": "2026-09-17",
+    "last_seen": "2026-10-17",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "vision"

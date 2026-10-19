@@ -1288,5 +1288,33 @@
       ],
       "source": "inferred"
     }
+  },
+  {
+    "id": "deepseek-deepseek-v4-1-flash-1017-2026-10-17",
+    "lab": "deepseek",
+    "model": "DeepSeek-V4.1-Flash-1017",
+    "date": "2026-10-17",
+    "kind": "model_release",
+    "title": "DeepSeek-V4.1-Flash-1017: Wish-Driven Programming Made Real",
+    "source_url": "https://api-docs.deepseek.com/news/news261017/",
+    "benchmarks_raw": [
+      "DeepSWE v1.1",
+      "HLE (w/o tools)",
+      "Terminal-Bench 4.0",
+      "ProgramBench",
+      "NL2Repo-Bench",
+      "Automation-Bench v1.0.6",
+      "Agents' Last Exam",
+      "Apex Bench v1.1",
+      "Chartography (w/tools)",
+      "BabyVision (w/tools)",
+      "ZeroBench-main (w/tools)"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

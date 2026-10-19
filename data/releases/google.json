@@ -4705,6 +4705,46 @@
     }
   },
   {
+    "id": "google-gemini-4-argon-2026-10-13",
+    "lab": "google",
+    "model": "Gemini 4 Argon",
+    "date": "2026-10-13",
+    "kind": "system_card",
+    "title": "Gemini 4 Argon - Model Card",
+    "source_url": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+    "benchmarks_raw": [
+      "Vals Index",
+      "AutomationBench",
+      "Vals Finance Agent v2",
+      "Harvey's Legal Agent Benchmark",
+      "DeepSWE v1.1",
+      "FrontierSWE v2",
+      "Vibe Code Bench",
+      "Terminal-bench 4.0",
+      "PostTrainBench",
+      "Terminal-Bench Science 0.1",
+      "LABBench 2",
+      "RiemannBench",
+      "GraphWalks",
+      "Agent's Last Exam",
+      "OSWorld-2.0",
+      "Chartography",
+      "LVBench",
+      "CWE-bench v1",
+      "Text to Text Safety",
+      "Multilingual Safety",
+      "Image to Text Safety",
+      "Tone",
+      "Unjustified-refusals"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
     "id": "google-fine-tuned-gemma-scam-detection-model-govtech-singapore-2026-10-14",
     "lab": "google",
     "model": "Fine-tuned Gemma scam detection model (GovTech Singapore)",

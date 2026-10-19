@@ -331,6 +331,14 @@
     ],
     "aaspeechtospeechindex": [
       "speech"
+    ],
+    "apexbench11": [
+      "agentic",
+      "coding"
+    ],
+    "vibecodebench": [
+      "coding",
+      "agentic"
     ]
   }
 }

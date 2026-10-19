@@ -611,6 +611,10 @@
     "source": "none",
     "checked": "2026-09-22"
   },
+  "apexbench11": {
+    "source": "none",
+    "checked": "2026-10-19"
+  },
   "apexshortlist": {
     "source": "none",
     "checked": "2026-09-22"
@@ -4342,6 +4346,12 @@
   "hlewithtools": {
     "source": "none",
     "checked": "2026-09-22"
+  },
+  "hlewotools": {
+    "text": "Humanity's Last Exam is a multi-modal, closed-ended academic exam of expert-written short-answer and multiple-choice questions across many subjects, filtered to ones frontier LLMs answer wrongly; the \"w/o tools\" setting scores answer accuracy with no search or code tools.",
+    "source_url": "https://arxiv.org/abs/2501.14249",
+    "source": "researched",
+    "checked": "2026-10-19"
   },
   "hm3d": {
     "text": "1,000 building-scale textured 3D reconstructions of real interiors, including multi-floor homes and stores, rendered as photo-realistic environments for training and testing embodied navigation agents.",
@@ -10860,6 +10870,10 @@
     "source_url": "https://andonlabs.com/evals/vending-bench-arena",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "vibecodebench": {
+    "source": "none",
+    "checked": "2026-10-19"
   },
   "vibeeval": {
     "text": "269 visual understanding prompts from Reka, including a 100-prompt hard subset, each with an expert-written gold response, scored by a model judge against that reference.",
