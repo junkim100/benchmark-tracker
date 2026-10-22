@@ -2959,5 +2959,21 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "openai-gpt-live-1-1-gpt-live-1-1-quip-2026-10-15",
+    "lab": "openai",
+    "model": "GPT-Live-1.1 / GPT-Live-1.1 Quip",
+    "date": "2026-10-15",
+    "kind": "model_release",
+    "title": "GPT-Live-1.1 and new voices in ChatGPT (ChatGPT release notes)",
+    "source_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "speech"
+      ],
+      "source": "reported"
+    }
   }
 ]

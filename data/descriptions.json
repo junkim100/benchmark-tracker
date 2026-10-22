@@ -225,6 +225,12 @@
     "source": "researched",
     "checked": "2026-09-23"
   },
+  "agenttalk": {
+    "text": "AA-AgentTalk is a held-out proprietary speech dataset of utterances directed at voice agents, used as one component of Artificial Analysis' AA-WER v2.0 speech-to-text benchmark, which scores transcriptions by normalized word error rate.",
+    "source_url": "https://artificialanalysis.ai/articles/aa-wer-v2",
+    "source": "researched",
+    "checked": "2026-10-22"
+  },
   "agentworldbench": {
     "text": "2,170 samples across seven agent domains in which a language world model must predict the next environment observation; each is paired with the observation captured from real execution and scored on format, factuality, consistency, realism and quality.",
     "source_url": "https://huggingface.co/datasets/Qwen/AgentWorldBench",
@@ -3179,6 +3185,10 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "expressiveenglishoneeval": {
+    "source": "none",
+    "checked": "2026-10-22"
+  },
   "extremenoise": {
     "text": "A Mandarin speech test set recorded at extremely low signal-to-noise ratios, part of the in-house robustness suite used to stress test Qwen3-ASR transcription under difficult acoustic conditions.",
     "source_url": "https://arxiv.org/abs/2601.21337",
@@ -3390,6 +3400,16 @@
   "fleurs30": {
     "source": "none",
     "checked": "2026-09-22"
+  },
+  "fleurs35": {
+    "source": "none",
+    "checked": "2026-10-22"
+  },
+  "fleurs45": {
+    "text": "Multilingual speech-recognition evaluation on a 45-language subset of the FLEURS read-speech corpus, scored as a macro-average word error rate across languages (character error rate for Japanese, Korean, Thai and Chinese), reported with the language forced and inferred.",
+    "source_url": "https://mistral.ai/news/voxtral-3/",
+    "source": "researched",
+    "checked": "2026-10-22"
   },
   "fleursasr": {
     "text": "Speech recognition on FLEURS, an n-way parallel spoken dataset in 102 languages built on the FLoRes-101 translation benchmark with roughly 12 hours of supervised speech per language.",
@@ -10087,6 +10107,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "switchboardcallhome": {
+    "text": "The NIST Hub5 2000 English conversational telephone speech evaluation set, divided into a Switchboard subset (conversations between strangers) and a CallHome subset (calls between familiar speakers); ASR output is scored by word error rate per subset.",
+    "source_url": "https://arxiv.org/html/1505.05899",
+    "source": "researched",
+    "checked": "2026-10-22"
+  },
   "sycophancy": {
     "source": "none",
     "checked": "2026-09-22"
@@ -11106,6 +11132,12 @@
     "source_url": "https://github.com/MatthewCYM/VoiceBench",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "voicecodebench": {
+    "text": "Voice Code Bench tests whether ASR systems transcribe structured values such as emails, file paths, URLs and identifiers exactly, using 300 recorded English workplace segments with 1,482 annotated target entities scored by canonical entity match and per-recording task success.",
+    "source_url": "https://besimple.ai/research/voice-code-bench",
+    "source": "researched",
+    "checked": "2026-10-22"
   },
   "voicenativeevaluationsproductionprompts": {
     "source": "none",

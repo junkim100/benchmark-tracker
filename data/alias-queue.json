@@ -187,5 +187,26 @@
       "version_confident": false
     },
     "seen": "2026-10-19T19:42:46.816Z"
+  },
+  {
+    "raw": "Switchboard CallHome",
+    "tracked": "CallHome",
+    "reason": "the CallHome subset of the Switchboard/Hub5 evaluation The tracked benchmark \"CallHome\" is described as: Unscripted telephone conversations between family members and close friends, recorded at 8 kHz in calls of up to 30 minutes and released with transcripts, used for speech recognition and speaker and language identification research.",
+    "lab": "Mistral AI",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "same_name": 0.08,
+      "version": 0.91,
+      "renamed": 0,
+      "different": 0.01
+    },
+    "merge_is_safe": 0.56,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "seen": "2026-10-22T18:24:16.544Z"
   }
 ]

@@ -2842,11 +2842,12 @@
       "zai"
     ],
     "first_seen": "2023-08-18",
-    "last_seen": "2025-11-26",
+    "last_seen": "2026-10-19",
     "labs_by_year": {
       "2023": 2,
       "2024": 4,
-      "2025": 3
+      "2025": 3,
+      "2026": 1
     },
     "labs_by_quarter": {
       "2023-Q3": 1,
@@ -2858,7 +2859,45 @@
       "2025-Q1": 1,
       "2025-Q2": 1,
       "2025-Q3": 2,
-      "2025-Q4": 2
+      "2025-Q4": 2,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": "refcoco",
+    "recent_share": 1
+  },
+  {
+    "id": "refcocog",
+    "name": "RefCOCOg",
+    "lab_count": 6,
+    "labs": [
+      "deepseek",
+      "google",
+      "meta",
+      "qwen",
+      "xiaomi",
+      "zai"
+    ],
+    "first_seen": "2023-08-18",
+    "last_seen": "2026-10-19",
+    "labs_by_year": {
+      "2023": 2,
+      "2024": 4,
+      "2025": 2,
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2023-Q3": 1,
+      "2023-Q4": 1,
+      "2024-Q1": 1,
+      "2024-Q3": 2,
+      "2024-Q4": 2,
+      "2025-Q1": 1,
+      "2025-Q2": 1,
+      "2025-Q4": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "vision"
@@ -4045,40 +4084,6 @@
       "reasoning"
     ],
     "suite": "race",
-    "recent_share": 1
-  },
-  {
-    "id": "refcocog",
-    "name": "RefCOCOg",
-    "lab_count": 5,
-    "labs": [
-      "deepseek",
-      "google",
-      "meta",
-      "qwen",
-      "zai"
-    ],
-    "first_seen": "2023-08-18",
-    "last_seen": "2025-11-20",
-    "labs_by_year": {
-      "2023": 2,
-      "2024": 4,
-      "2025": 2
-    },
-    "labs_by_quarter": {
-      "2023-Q3": 1,
-      "2023-Q4": 1,
-      "2024-Q1": 1,
-      "2024-Q3": 2,
-      "2024-Q4": 2,
-      "2025-Q1": 1,
-      "2025-Q2": 1,
-      "2025-Q4": 1
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": "refcoco",
     "recent_share": 1
   },
   {
@@ -5760,18 +5765,19 @@
       "qwen"
     ],
     "first_seen": "2023-12-19",
-    "last_seen": "2026-01-29",
+    "last_seen": "2026-10-20",
     "labs_by_year": {
       "2023": 1,
       "2024": 1,
       "2025": 1,
-      "2026": 1
+      "2026": 2
     },
     "labs_by_quarter": {
       "2023-Q4": 1,
       "2024-Q3": 1,
       "2025-Q3": 1,
-      "2026-Q1": 1
+      "2026-Q1": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "speech"
@@ -8437,6 +8443,29 @@
       "2024-Q3": 1,
       "2025-Q2": 1,
       "2026-Q3": 1
+    },
+    "categories": [
+      "speech"
+    ],
+    "suite": "aishell",
+    "recent_share": 0
+  },
+  {
+    "id": "aishell4",
+    "name": "AISHELL-4",
+    "lab_count": 2,
+    "labs": [
+      "mistral",
+      "qwen"
+    ],
+    "first_seen": "2026-09-14",
+    "last_seen": "2026-10-20",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "speech"
@@ -13098,6 +13127,31 @@
     "recent_share": 0
   },
   {
+    "id": "reasonseg",
+    "name": "ReasonSeg",
+    "lab_count": 2,
+    "labs": [
+      "meta",
+      "xiaomi"
+    ],
+    "first_seen": "2025-11-20",
+    "last_seen": "2026-10-19",
+    "labs_by_year": {
+      "2025": 1,
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2025-Q4": 1,
+      "2026-Q1": 1,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 2
+  },
+  {
     "id": "rebench",
     "name": "RE-Bench",
     "lab_count": 2,
@@ -15478,6 +15532,28 @@
     "recent_share": 0
   },
   {
+    "id": "agenttalk",
+    "name": "AgentTalk",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-20",
+    "last_seen": "2026-10-20",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "speech",
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "agentworldbench",
     "name": "AgentWorldBench",
     "lab_count": 1,
@@ -15758,27 +15834,6 @@
     "recent_share": 0
   },
   {
-    "id": "aishell4",
-    "name": "AISHELL-4",
-    "lab_count": 1,
-    "labs": [
-      "qwen"
-    ],
-    "first_seen": "2026-09-14",
-    "last_seen": "2026-09-14",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "speech"
-    ],
-    "suite": "aishell",
-    "recent_share": 0
-  },
-  {
     "id": "aitw",
     "name": "AITW",
     "lab_count": 1,
@@ -16040,12 +16095,13 @@
       "mistral"
     ],
     "first_seen": "2026-02-04",
-    "last_seen": "2026-02-04",
+    "last_seen": "2026-10-20",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q1": 1
+      "2026-Q1": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "other"
@@ -16061,12 +16117,13 @@
       "mistral"
     ],
     "first_seen": "2026-02-04",
-    "last_seen": "2026-02-04",
+    "last_seen": "2026-10-20",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q1": 1
+      "2026-Q1": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "other"
@@ -23337,12 +23394,14 @@
       "mistral"
     ],
     "first_seen": "2025-07-15",
-    "last_seen": "2025-07-17",
+    "last_seen": "2026-10-20",
     "labs_by_year": {
-      "2025": 1
+      "2025": 1,
+      "2026": 1
     },
     "labs_by_quarter": {
-      "2025-Q3": 1
+      "2025-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "other"
@@ -24156,6 +24215,27 @@
     "recent_share": 0
   },
   {
+    "id": "expressiveenglishoneeval",
+    "name": "Expressive English (one_eval)",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-20",
+    "last_seen": "2026-10-20",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "speech"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "extremenoise",
     "name": "ExtremeNoise",
     "lab_count": 1,
@@ -24823,6 +24903,50 @@
     },
     "categories": [
       "speech"
+    ],
+    "suite": "fleurs",
+    "recent_share": 0
+  },
+  {
+    "id": "fleurs35",
+    "name": "FLEURS 35",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-20",
+    "last_seen": "2026-10-20",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "speech",
+      "multilingual"
+    ],
+    "suite": "fleurs",
+    "recent_share": 0
+  },
+  {
+    "id": "fleurs45",
+    "name": "FLEURS 45",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-20",
+    "last_seen": "2026-10-20",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "speech",
+      "multilingual"
     ],
     "suite": "fleurs",
     "recent_share": 0
@@ -40967,29 +41091,6 @@
     "recent_share": 0
   },
   {
-    "id": "reasonseg",
-    "name": "ReasonSeg",
-    "lab_count": 1,
-    "labs": [
-      "meta"
-    ],
-    "first_seen": "2025-11-20",
-    "last_seen": "2026-03-27",
-    "labs_by_year": {
-      "2025": 1,
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2025-Q4": 1,
-      "2026-Q1": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 2
-  },
-  {
     "id": "recipe1m",
     "name": "Recipe1M",
     "lab_count": 1,
@@ -41616,12 +41717,14 @@
       "xiaomi"
     ],
     "first_seen": "2025-11-20",
-    "last_seen": "2025-11-20",
+    "last_seen": "2026-10-19",
     "labs_by_year": {
-      "2025": 1
+      "2025": 1,
+      "2026": 1
     },
     "labs_by_quarter": {
-      "2025-Q4": 1
+      "2025-Q4": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "other"
@@ -44582,20 +44685,42 @@
       "mistral"
     ],
     "first_seen": "2025-07-15",
-    "last_seen": "2026-02-04",
+    "last_seen": "2026-10-20",
     "labs_by_year": {
       "2025": 1,
       "2026": 1
     },
     "labs_by_quarter": {
       "2025-Q3": 1,
-      "2026-Q1": 1
+      "2026-Q1": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "other"
     ],
     "suite": null,
     "recent_share": 1
+  },
+  {
+    "id": "switchboardcallhome",
+    "name": "Switchboard CallHome",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-20",
+    "last_seen": "2026-10-20",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
   },
   {
     "id": "sycophancy",
@@ -47236,6 +47361,27 @@
     "labs_by_quarter": {
       "2025-Q3": 1,
       "2025-Q4": 1
+    },
+    "categories": [
+      "speech"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "voicecodebench",
+    "name": "Voice Code Bench",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-20",
+    "last_seen": "2026-10-20",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
     },
     "categories": [
       "speech"

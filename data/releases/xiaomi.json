@@ -865,5 +865,28 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "xiaomi-xiaomi-lens-0-2026-10-19",
+    "lab": "xiaomi",
+    "model": "Xiaomi-Lens-0",
+    "date": "2026-10-19",
+    "kind": "technical_report",
+    "title": "Xiaomi-Lens-0 Technical Report",
+    "source_url": "https://arxiv.org/abs/2610.23279",
+    "benchmarks_raw": [
+      "RefCOCO",
+      "RefCOCO+",
+      "RefCOCOg",
+      "ReasonSeg",
+      "RoboRefIt"
+    ],
+    "modality": {
+      "classes": [
+        "language",
+        "vision"
+      ],
+      "source": "reported"
+    }
   }
 ]

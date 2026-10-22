@@ -74,3 +74,10 @@
 {"at":"2026-10-16T17:50:50.814Z","raw":"AA Speech-to-Speech Index","cats":["speech"],"lab":"xAI"}
 {"at":"2026-10-19T19:42:46.817Z","raw":"Apex Bench v1.1","cats":["agentic","coding"],"lab":"DeepSeek"}
 {"at":"2026-10-19T19:42:46.817Z","raw":"Vibe Code Bench","cats":["coding","agentic"],"lab":"Google DeepMind"}
+{"at":"2026-10-22T18:24:16.545Z","raw":"FLEURS 45","cats":["speech","multilingual"],"lab":"Mistral AI"}
+{"at":"2026-10-22T18:24:16.545Z","raw":"FLEURS 35","cats":["speech","multilingual"],"lab":"Mistral AI"}
+{"at":"2026-10-22T18:24:16.545Z","raw":"Artificial Analysis WER Index","cats":["speech"],"lab":"Mistral AI"}
+{"at":"2026-10-22T18:24:16.545Z","raw":"AgentTalk","cats":["speech","agentic"],"lab":"Mistral AI"}
+{"at":"2026-10-22T18:24:16.545Z","raw":"Voice Code Bench","cats":["speech"],"lab":"Mistral AI"}
+{"at":"2026-10-22T18:24:16.545Z","raw":"Expressive English (one_eval)","cats":["speech"],"lab":"Mistral AI"}
+{"at":"2026-10-22T18:24:16.545Z","raw":"RefCOCO+","cats":["vision"],"lab":"Xiaomi"}

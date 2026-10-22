@@ -339,6 +339,30 @@
     "vibecodebench": [
       "coding",
       "agentic"
+    ],
+    "fleurs45": [
+      "speech",
+      "multilingual"
+    ],
+    "fleurs35": [
+      "speech",
+      "multilingual"
+    ],
+    "artificialanalysiswerindex": [
+      "speech"
+    ],
+    "agenttalk": [
+      "speech",
+      "agentic"
+    ],
+    "voicecodebench": [
+      "speech"
+    ],
+    "expressiveenglishoneeval": [
+      "speech"
+    ],
+    "refcoco": [
+      "vision"
     ]
   }
 }
