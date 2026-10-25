@@ -81,3 +81,19 @@
 {"at":"2026-10-22T18:24:16.545Z","raw":"Voice Code Bench","cats":["speech"],"lab":"Mistral AI"}
 {"at":"2026-10-22T18:24:16.545Z","raw":"Expressive English (one_eval)","cats":["speech"],"lab":"Mistral AI"}
 {"at":"2026-10-22T18:24:16.545Z","raw":"RefCOCO+","cats":["vision"],"lab":"Xiaomi"}
+{"at":"2026-10-25T17:27:39.706Z","raw":"Kimi Code Bench 3.0 Long-horizon","cats":["coding","agentic"],"lab":"Moonshot AI"}
+{"at":"2026-10-25T17:27:39.706Z","raw":"HANDBOOK.md","cats":["agentic"],"lab":"Moonshot AI"}
+{"at":"2026-10-25T17:27:39.706Z","raw":"DECK-Arena","cats":["other","agentic"],"lab":"Moonshot AI"}
+{"at":"2026-10-25T17:27:39.706Z","raw":"HLE-Diamond","cats":["knowledge","reasoning"],"lab":"Moonshot AI"}
+{"at":"2026-10-25T17:27:39.706Z","raw":"Kimi Hallucination Benchmark","cats":["knowledge"],"lab":"Moonshot AI"}
+{"at":"2026-10-25T17:27:39.706Z","raw":"Kimi Hallu Bench Hard","cats":["knowledge"],"lab":"Moonshot AI"}
+{"at":"2026-10-25T17:27:39.706Z","raw":"xdev-bench-hard","cats":["safety","coding"],"lab":"Moonshot AI"}
+{"at":"2026-10-25T17:27:39.707Z","raw":"Financial Modeling","cats":["other"],"lab":"Moonshot AI"}
+{"at":"2026-10-25T17:27:39.707Z","raw":"Financial Research","cats":["other","agentic"],"lab":"Moonshot AI"}
+{"at":"2026-10-25T17:27:39.707Z","raw":"Business Operation","cats":["agentic"],"lab":"Moonshot AI"}
+{"at":"2026-10-25T17:27:39.707Z","raw":"WildClawBench","cats":["agentic","coding"],"lab":"Meta AI"}
+{"at":"2026-10-25T17:27:39.707Z","raw":"GAIA2","cats":["agentic"],"lab":"Meta AI"}
+{"at":"2026-10-25T17:27:39.707Z","raw":"Beam 128K","cats":["longctx"],"lab":"Meta AI"}
+{"at":"2026-10-25T17:27:39.707Z","raw":"Omnilingual Gaia2","cats":["agentic","multilingual"],"lab":"Meta AI"}
+{"at":"2026-10-25T17:27:39.707Z","raw":"Linguini","cats":["multilingual","reasoning"],"lab":"Meta AI"}
+{"at":"2026-10-25T17:27:39.707Z","raw":"Siren AgentDojo","cats":["safety","agentic"],"lab":"Meta AI"}

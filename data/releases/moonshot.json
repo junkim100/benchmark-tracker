@@ -1058,5 +1058,61 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "moonshot-kimi-k3-1-pro-2026-10-24",
+    "lab": "moonshot",
+    "model": "Kimi K3.1 Pro",
+    "date": "2026-10-24",
+    "kind": "model_release",
+    "title": "Introducing Kimi K3.1 Pro",
+    "source_url": "https://www.kimi.ai/blog/kimi-k3-1-pro",
+    "benchmarks_raw": [
+      "Terminal-Bench 4.0",
+      "Terminal-Bench-Science 0.1",
+      "DeepSWE v1.1",
+      "SWE-Marathon v1.1",
+      "PostTrainBench",
+      "ProgramBench",
+      "Kimi Code Bench 2.0",
+      "Kimi Code Bench 3.0 Long-horizon",
+      "BenchCAD",
+      "BioMysteryBench",
+      "Agents' Last Exam",
+      "OfficeQA Pro",
+      "OfficeQA Pro v2",
+      "Frontier Finance",
+      "HANDBOOK.md",
+      "Harvey Legal Agent",
+      "OSWorld V2.1",
+      "DECK-Arena",
+      "Design Bench",
+      "MCP Atlas",
+      "BrowseComp",
+      "GDPval-AA v2.1",
+      "AA-Briefcase v1.1",
+      "AutomationBench-AA",
+      "Apex Agents",
+      "GDP.pdf",
+      "ZeroBench",
+      "ChartoGraphy",
+      "HLE",
+      "HLE-Diamond",
+      "MMMU-Pro",
+      "Kimi Hallucination Benchmark",
+      "Kimi Hallu Bench Hard",
+      "ExploitBench",
+      "ExploitGym",
+      "xdev-bench-hard",
+      "Financial Modeling",
+      "Financial Research",
+      "Business Operation"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

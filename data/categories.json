@@ -363,6 +363,63 @@
     ],
     "refcoco": [
       "vision"
+    ],
+    "kimicodebench30longhorizon": [
+      "coding",
+      "agentic"
+    ],
+    "handbookmd": [
+      "agentic"
+    ],
+    "deckarena": [
+      "other",
+      "agentic"
+    ],
+    "hlediamond": [
+      "knowledge",
+      "reasoning"
+    ],
+    "kimihallucinationbenchmark": [
+      "knowledge"
+    ],
+    "kimihallubenchhard": [
+      "knowledge"
+    ],
+    "xdevbenchhard": [
+      "safety",
+      "coding"
+    ],
+    "financialmodeling": [
+      "other"
+    ],
+    "financialresearch": [
+      "other",
+      "agentic"
+    ],
+    "businessoperation": [
+      "agentic"
+    ],
+    "wildclawbench": [
+      "agentic",
+      "coding"
+    ],
+    "gaia2": [
+      "agentic"
+    ],
+    "beam128k": [
+      "longctx"
+    ],
+    "omnilingualgaia2": [
+      "agentic",
+      "multilingual"
+    ],
+    "linguini": [
+      "multilingual",
+      "reasoning"
+    ],
+    "sirenagentdojo": [
+      "safety",
+      "agentic"
     ]
   }
 }

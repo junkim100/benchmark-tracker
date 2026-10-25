@@ -1200,5 +1200,65 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "meta-muse-glimmer-30b-2026-10-19",
+    "lab": "meta",
+    "model": "Muse Glimmer 30B",
+    "date": "2026-10-19",
+    "kind": "technical_report",
+    "title": "Muse Glimmer 30B: An On-Device Agentic Model",
+    "source_url": "https://ai.meta.com/research/publications/muse-glimmer-30b-an-on-device-agentic-model/",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "meta-muse-glimmer-30b-2026-10-19",
+    "lab": "meta",
+    "model": "Muse Glimmer 30B",
+    "date": "2026-10-19",
+    "kind": "technical_report",
+    "title": "Muse Glimmer 30B: An On-Device Agentic Model (arXiv technical report)",
+    "source_url": "https://arxiv.org/abs/2610.24628",
+    "benchmarks_raw": [
+      "τ³-Banking",
+      "WildClawBench",
+      "GAIA2",
+      "GDPval-AA",
+      "SciCode",
+      "OSWorld-Verified",
+      "SWE-Bench Verified",
+      "SWE-Bench Pro",
+      "TerminalBench 2.1 (Terminus2)",
+      "MCPAtlas",
+      "DeepSearchQA",
+      "AIME 2026",
+      "GPQA Diamond",
+      "HLE",
+      "IFBench",
+      "SkillsBench",
+      "CharXiv Reasoning",
+      "MMMU-Pro",
+      "OmniDocBench v1.5",
+      "Screenspot Pro",
+      "Beam 128K",
+      "AA-LCR",
+      "Omnilingual Gaia2",
+      "Linguini",
+      "CIMemories",
+      "Siren AgentDojo",
+      "RULER"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

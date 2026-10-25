@@ -208,5 +208,68 @@
       "version_confident": true
     },
     "seen": "2026-10-22T18:24:16.544Z"
+  },
+  {
+    "raw": "Harvey Legal Agent",
+    "tracked": "Harvey's Legal Agent Benchmark",
+    "reason": "same Harvey legal agent evaluation The tracked benchmark \"Harvey's Legal Agent Benchmark\" is described as: Open-source agent tasks covering real legal work across 24 practice areas, each supplying agent instructions and documents; an execution harness runs the agent and a model judge scores it against expert-written rubrics under all-pass criteria.",
+    "lab": "Moonshot AI",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.97,
+      "version": 0,
+      "renamed": 0,
+      "different": 0.03
+    },
+    "merge_is_safe": 0.53,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-10-25T17:27:39.706Z"
+  },
+  {
+    "raw": "Design Bench",
+    "tracked": "Kimi Design Bench",
+    "reason": "Moonshot's in-house graphic design benchmark",
+    "lab": "Moonshot AI",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.91,
+      "version": 0.01,
+      "renamed": 0.01,
+      "different": 0.07
+    },
+    "merge_is_safe": 0.67,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-10-25T17:27:39.706Z"
+  },
+  {
+    "raw": "TerminalBench 2.1 (Terminus2)",
+    "tracked": "Terminal-Bench 2.1",
+    "reason": "same benchmark version, Terminus2 names only the agent scaffold used The tracked benchmark \"Terminal-Bench 2.1\" is described as: A verified refresh of Terminal-Bench 2.0 that repairs 28 of its 89 terminal agent tasks, fixing stale external dependencies, too-tight resource budgets, and instructions that did not match the tests.",
+    "lab": "Meta AI",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.91,
+      "version": 0.06,
+      "renamed": 0.01,
+      "different": 0.02
+    },
+    "merge_is_safe": 0.58,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-10-25T17:27:39.706Z"
   }
 ]

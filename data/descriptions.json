@@ -1437,6 +1437,10 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "businessoperation": {
+    "source": "none",
+    "checked": "2026-10-25"
+  },
   "c-eval": {
     "text": "A Chinese-language multiple-choice evaluation suite covering 52 disciplines at four difficulty levels (middle school, high school, college and professional), with a C-Eval Hard subset of reasoning-heavy subjects.",
     "source_url": "https://arxiv.org/abs/2305.08322v1",
@@ -2109,6 +2113,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "codingagentindex": {
+    "text": "Artificial Analysis composite index scoring coding agents as model-plus-harness stacks: several agentic software-engineering, terminal-use and technical Q&A benchmarks are each run with multiple attempts per task and averaged with equal weight.",
+    "source_url": "https://artificialanalysis.ai/agents/coding-agents",
+    "source": "researched",
+    "checked": "2026-10-25"
+  },
   "codingdeceptioneval": {
     "source": "none",
     "checked": "2026-09-22"
@@ -2609,6 +2619,10 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "deckarena": {
+    "source": "none",
+    "checked": "2026-10-25"
+  },
   "deckbench": {
     "text": "An in-house Moonshot evaluation of whether an agent can produce presentation decks from task descriptions drawn from real usage scenarios.",
     "source_url": "https://arxiv.org/abs/2607.24653",
@@ -2682,6 +2696,12 @@
     "source_url": "https://arxiv.org/abs/2403.03163",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "designbench": {
+    "text": "Evaluates multimodal LLMs on front-end code generation, editing, and repairing UI issues across HTML/CSS, React, Vue and Angular, using 900 real webpage samples scored by visual similarity, code metrics and MLLM judging.",
+    "source_url": "https://arxiv.org/abs/2506.06251",
+    "source": "researched",
+    "checked": "2026-10-25"
   },
   "destructiveactionavoidance": {
     "text": "Coding-agent situations where an ordinary instruction such as clean the folder or reset the branch can mask a data-losing command like rm -rf or git reset --hard; it measures whether the model preserves the user's own edits.",
@@ -3320,6 +3340,14 @@
     "source_url": "https://arxiv.org/abs/2607.24653",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "financialmodeling": {
+    "source": "none",
+    "checked": "2026-10-25"
+  },
+  "financialresearch": {
+    "source": "none",
+    "checked": "2026-10-25"
   },
   "finchfinworkbench": {
     "text": "Finch evaluates AI agents on 172 annotated finance and accounting enterprise workflows built from real spreadsheets, emails and PDFs, covering data import, modeling, validation, visualization and reporting; outputs are judged by human and automated evaluation.",
@@ -4183,6 +4211,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "handbookmd": {
+    "text": "65 enterprise-style agentic tasks testing whether an agent follows a long binding policy document over extended tool use. Graded deterministically by 824 programmatic criteria inspecting final workspace and service state for required and forbidden actions.",
+    "source_url": "https://arxiv.org/html/2607.25398",
+    "source": "researched",
+    "checked": "2026-10-25"
+  },
   "handwrittenforms": {
     "source": "none",
     "checked": "2026-09-22"
@@ -4224,6 +4258,12 @@
     "source_url": "https://www.harvey.ai/blog/introducing-harveys-legal-agent-benchmark",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "harveylegalagent": {
+    "text": "Harvey's Legal Agent Benchmark (LAB) tests LLM agents on long-horizon legal work: each task gives an instruction plus a client matter of documents, and the agent must produce a work product. Submissions are graded against per-task rubrics by an LLM judge requiring all criteria to pass.",
+    "source_url": "https://github.com/harveyai/harvey-labs",
+    "source": "researched",
+    "checked": "2026-10-25"
   },
   "harveyslegalagentbenchmark": {
     "text": "Open-source agent tasks covering real legal work across 24 practice areas, each supplying agent instructions and documents; an execution harness runs the agent and a model judge scores it against expert-written rubrics under all-pass criteria.",
@@ -4340,6 +4380,12 @@
     "source_url": "https://lastexam.ai/",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "hlediamond": {
+    "text": "A 1,000-question subset of Humanity's Last Exam, curated and cleaned from the HLE collection, split evenly into 500 reasoning and 500 expert-knowledge questions intended to be answered closed-book.",
+    "source_url": "https://lastexam.ai/blog/hle-diamond",
+    "source": "researched",
+    "checked": "2026-10-25"
   },
   "hlefull": {
     "source": "none",
@@ -5199,9 +5245,27 @@
     "source": "none",
     "checked": "2026-09-22"
   },
+  "kimicodebench30longhorizon": {
+    "text": "Moonshot's internal coding-agent benchmark, which evaluates multi-step execution, tool use, and end-to-end problem solving on long-horizon engineering tasks across varied domains; models are run in agent harnesses such as Claude Code.",
+    "source_url": "https://www.kimi.ai/blog/kimi-k3-1-pro",
+    "source": "researched",
+    "checked": "2026-10-25"
+  },
   "kimidesignbench": {
     "source": "none",
     "checked": "2026-09-22"
+  },
+  "kimihallubenchhard": {
+    "text": "Moonshot's internal benchmark that stress-tests factual accuracy with prompts designed to provoke errors; graded per claim, reporting the claim-level hallucination rate and the share of responses with at least one factual error, with and without tools.",
+    "source_url": "https://www.kimi.ai/blog/kimi-k3-1-pro",
+    "source": "researched",
+    "checked": "2026-10-25"
+  },
+  "kimihallucinationbenchmark": {
+    "text": "An internal Moonshot evaluation of factual accuracy, using de-identified prompts drawn from practical work tasks; responses are assessed by fact-checking agents and scored as a claim-level hallucination rate.",
+    "source_url": "https://www.kimi.ai/blog/kimi-k3-1-pro",
+    "source": "researched",
+    "checked": "2026-10-25"
   },
   "kinetics400": {
     "text": "400 human action classes with at least 400 ten-second YouTube clips each, covering human-object interactions such as playing instruments and human-human interactions such as shaking hands, used for video action recognition.",
