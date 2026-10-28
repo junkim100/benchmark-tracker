@@ -4759,5 +4759,45 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "google-genie-4-2026-10-27",
+    "lab": "google",
+    "model": "Genie 4",
+    "date": "2026-10-27",
+    "kind": "model_release",
+    "title": "Genie 4: A new generation of world simulation",
+    "source_url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "video"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "google-gemini-4-carbon-2026-10-28",
+    "lab": "google",
+    "model": "Gemini 4 Carbon",
+    "date": "2026-10-28",
+    "kind": "model_release",
+    "title": "Gemini 4 Carbon: our next frontier model",
+    "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+    "benchmarks_raw": [
+      "Artificial Analysis Intelligence Index",
+      "SEC-bench Pro",
+      "ExploitGym",
+      "CWE-bench",
+      "WebDev Arena",
+      "Terminal-Bench 4.0",
+      "Gray Swan's Indirect Prompt Injection (IPI) Benchmark"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

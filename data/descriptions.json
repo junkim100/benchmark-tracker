@@ -2227,6 +2227,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "coronavirusace2cellentryscreen": {
+    "text": "An OpenAI biological capability evaluation that asks models to predict and rank held-out cell-entry measurements for existing spike-protein–ACE2 pairings, scored with a composite metric.",
+    "source_url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+    "source": "researched",
+    "checked": "2026-10-28"
+  },
   "corpfin2": {
     "source": "none",
     "checked": "2026-09-22"

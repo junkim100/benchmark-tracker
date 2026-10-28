@@ -1737,7 +1737,7 @@
       "xiaomi"
     ],
     "first_seen": "2026-09-01",
-    "last_seen": "2026-10-24",
+    "last_seen": "2026-10-28",
     "labs_by_year": {
       "2026": 8
     },
@@ -1925,6 +1925,36 @@
     ],
     "suite": "arc",
     "recent_share": 0
+  },
+  {
+    "id": "exploitgym",
+    "name": "ExploitGym",
+    "lab_count": 7,
+    "labs": [
+      "anthropic",
+      "deepseek",
+      "google",
+      "moonshot",
+      "openai",
+      "xiaomi",
+      "zai"
+    ],
+    "first_seen": "2026-06-26",
+    "last_seen": "2026-10-28",
+    "labs_by_year": {
+      "2026": 7
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 1,
+      "2026-Q3": 4,
+      "2026-Q4": 3
+    },
+    "categories": [
+      "safety",
+      "coding"
+    ],
+    "suite": null,
+    "recent_share": 3
   },
   {
     "id": "gdpvalaa2",
@@ -2373,35 +2403,6 @@
     ],
     "suite": null,
     "recent_share": 0
-  },
-  {
-    "id": "exploitgym",
-    "name": "ExploitGym",
-    "lab_count": 6,
-    "labs": [
-      "anthropic",
-      "deepseek",
-      "moonshot",
-      "openai",
-      "xiaomi",
-      "zai"
-    ],
-    "first_seen": "2026-06-26",
-    "last_seen": "2026-10-24",
-    "labs_by_year": {
-      "2026": 6
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1,
-      "2026-Q3": 4,
-      "2026-Q4": 2
-    },
-    "categories": [
-      "safety",
-      "coding"
-    ],
-    "suite": null,
-    "recent_share": 3
   },
   {
     "id": "fleurs",
@@ -5496,6 +5497,32 @@
     "recent_share": 0
   },
   {
+    "id": "secbenchpro",
+    "name": "SEC-Bench Pro",
+    "lab_count": 4,
+    "labs": [
+      "deepseek",
+      "google",
+      "openai",
+      "xiaomi"
+    ],
+    "first_seen": "2026-06-26",
+    "last_seen": "2026-10-28",
+    "labs_by_year": {
+      "2026": 4
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 1,
+      "2026-Q3": 2,
+      "2026-Q4": 3
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 2
+  },
+  {
     "id": "seed",
     "name": "SEED",
     "lab_count": 4,
@@ -7770,31 +7797,6 @@
     ],
     "suite": null,
     "recent_share": 3
-  },
-  {
-    "id": "secbenchpro",
-    "name": "SEC-Bench Pro",
-    "lab_count": 3,
-    "labs": [
-      "deepseek",
-      "openai",
-      "xiaomi"
-    ],
-    "first_seen": "2026-06-26",
-    "last_seen": "2026-10-08",
-    "labs_by_year": {
-      "2026": 3
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1,
-      "2026-Q3": 2,
-      "2026-Q4": 2
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 2
   },
   {
     "id": "simplevqa",
@@ -14558,7 +14560,7 @@
       "moonshot"
     ],
     "first_seen": "2025-05-06",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-10-28",
     "labs_by_year": {
       "2025": 1,
       "2026": 2
@@ -14566,7 +14568,8 @@
     "labs_by_quarter": {
       "2025-Q2": 1,
       "2025-Q4": 1,
-      "2026-Q3": 2
+      "2026-Q3": 2,
+      "2026-Q4": 1
     },
     "categories": [
       "coding"
@@ -22168,18 +22171,19 @@
   },
   {
     "id": "cwebench",
-    "name": "CWE-Bench",
+    "name": "CWE-bench",
     "lab_count": 1,
     "labs": [
       "google"
     ],
     "first_seen": "2026-09-02",
-    "last_seen": "2026-09-02",
+    "last_seen": "2026-10-28",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "other"
@@ -26767,12 +26771,13 @@
       "google"
     ],
     "first_seen": "2026-09-02",
-    "last_seen": "2026-09-30",
+    "last_seen": "2026-10-28",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "other"
