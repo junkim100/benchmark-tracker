@@ -2975,5 +2975,134 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "openai-gpt-6-1-terra-2026-10-26",
+    "lab": "openai",
+    "model": "GPT-6.1 Terra",
+    "date": "2026-10-26",
+    "kind": "blog_post",
+    "title": "Introducing GPT-6.1 Terra",
+    "source_url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+    "benchmarks_raw": [
+      "Agents' Last Exam",
+      "OSWorld 2.1",
+      "MMMU-Pro"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "openai-gpt-6-1-terra-2026-10-26",
+    "lab": "openai",
+    "model": "GPT-6.1 Terra",
+    "date": "2026-10-26",
+    "kind": "system_card",
+    "title": "Addendum to GPT-6 Astra System Card: GPT-6.1 Terra",
+    "source_url": "https://deploymentsafety.openai.com/gpt-6-1-terra",
+    "benchmarks_raw": [
+      "Production Benchmarks with Challenging Prompts",
+      "U18 evaluations",
+      "Agentic Safe Completions",
+      "Image input evaluations",
+      "Multiturn Jailbreak Evaluations",
+      "HealthBench Professional",
+      "HealthBench",
+      "HealthBench Hard",
+      "HealthBench Consensus",
+      "Dynamic Benchmarks with Adversarial User Simulations",
+      "MentalHealthBench",
+      "Performance in Cases Flagged by Users",
+      "Respecting Auto-Review",
+      "Respecting Warnings",
+      "ExploitGym",
+      "Blocker Deception",
+      "Broken Search Tool",
+      "Unintended Engagement with External Agent Messages",
+      "CoT Controllability",
+      "Math Side-tasking Monitor Evasion",
+      "Multimodal Troubleshooting Virology",
+      "AAV Capsid Packaging Prediction",
+      "SHP2 Protein Function Prediction",
+      "Coronavirus–ACE2 Cell-Entry Screen",
+      "Phage–plasmid Co-evolution",
+      "ExploitBench",
+      "ExploitBench - Internal Port (June–August 2026)",
+      "SEC-Bench Pro",
+      "Sandbox Bench",
+      "Internal Research Debugging Evaluation",
+      "KernelGen 1P",
+      "Biology Model Refusal Evaluation",
+      "Cybersecurity Safety Evaluation"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "openai-gpt-6-luna-2026-10-29",
+    "lab": "openai",
+    "model": "GPT-6 Luna",
+    "date": "2026-10-29",
+    "kind": "system_card",
+    "title": "Addendum to GPT-6 Luna System Card: October 29, 2026 Update",
+    "source_url": "https://deploymentsafety.openai.com/gpt-6-luna-october-28-2026-addendum",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "openai-gpt-rosalind-6-2026-10-30",
+    "lab": "openai",
+    "model": "GPT-Rosalind-6",
+    "date": "2026-10-30",
+    "kind": "system_card",
+    "title": "GPT-Rosalind-6 System Card Addendum",
+    "source_url": "https://deploymentsafety.openai.com/gpt-rosalind-6",
+    "benchmarks_raw": [
+      "MedChemBench v7",
+      "GeneBench Pro v13",
+      "LifeSciBench Gold",
+      "ProtocolQA Open-Ended",
+      "TroubleshootingBench",
+      "Biorisk knowledge",
+      "Multi-select Virology Troubleshooting",
+      "AAV Capsid Packaging Prediction",
+      "SHP2 Protein Function Prediction",
+      "Coronavirus-ACE2 Cell-Entry Screen",
+      "Phage-plasmid Co-evolution",
+      "Biosecurity - Severe",
+      "Biosecurity - Benign",
+      "ExploitBench",
+      "Historical Jailbreak Regression",
+      "Blocker Deception",
+      "Broken Search Tool",
+      "ExploitGym Honeypot",
+      "Respecting Warnings",
+      "Respecting Auto-Review",
+      "Agent Replay Auto-Review",
+      "Unintended Engagement with External Agent Messages",
+      "Cowork Misalignment",
+      "OAI-repo Sabotage v2",
+      "Math Side-tasking Monitor Evasion",
+      "Chain-of-thought controllability"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

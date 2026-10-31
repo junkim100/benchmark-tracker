@@ -271,5 +271,26 @@
       "version_confident": false
     },
     "seen": "2026-10-25T17:27:39.706Z"
+  },
+  {
+    "raw": "B3 Agent security benchmark",
+    "tracked": "B3 AI Security Benchmark",
+    "reason": "same B3 agent/AI security attack-resistance benchmark The tracked benchmark \"B3 AI Security Benchmark\" is described as: b3 (backbone breaker benchmark), from Lakera and the UK AI Security Institute, tests how LLMs used as agent backbones resist adversarial attacks. It isolates \"threat snapshots\" of agent workflows and scores models on whether crowdsourced human attacks succeed.",
+    "lab": "Mistral AI",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.97,
+      "version": 0,
+      "renamed": 0,
+      "different": 0.03
+    },
+    "merge_is_safe": 0.58,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-10-31T18:07:26.244Z"
   }
 ]

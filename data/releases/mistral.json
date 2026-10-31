@@ -1453,5 +1453,56 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "mistral-timestral-2026-10-27",
+    "lab": "mistral",
+    "model": "Timestral",
+    "date": "2026-10-27",
+    "kind": "technical_report",
+    "title": "Timestral",
+    "source_url": "https://arxiv.org/abs/2610.37585",
+    "benchmarks_raw": [
+      "GIFT-Eval",
+      "TIME",
+      "fev-bench",
+      "IND-Eval"
+    ],
+    "modality": {
+      "classes": [
+        "other"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "mistral-mistral-large-4-le-chonk-2026-10-29",
+    "lab": "mistral",
+    "model": "Mistral Large 4 (Le Chonk)",
+    "date": "2026-10-29",
+    "kind": "model_release",
+    "title": "Mistral Large 4 (Le Chonk) is now open weight — Built for Coders, Trusted by Defenders.",
+    "source_url": "https://mistral.ai/news/mistral-large-4-oss/",
+    "benchmarks_raw": [
+      "FrontierCode",
+      "Terminal-Bench",
+      "Cognition - FrontierCode 2.0",
+      "Artificial Analysis Coding Agent Index",
+      "Terminal-Bench 4.0",
+      "Surge Code - Human preference on code",
+      "Artificial Analysis Cyber Index",
+      "JailbreakBench",
+      "StrongREJECT",
+      "AgentHarm",
+      "FinWorkBench (Finch)",
+      "BrowseComp",
+      "B3 Agent security benchmark"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

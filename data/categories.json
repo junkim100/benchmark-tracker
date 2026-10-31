@@ -420,6 +420,42 @@
     "sirenagentdojo": [
       "safety",
       "agentic"
+    ],
+    "cognitionfrontiercode20": [
+      "coding",
+      "agentic"
+    ],
+    "surgecodehumanpreferenceoncode": [
+      "coding"
+    ],
+    "indeval": [
+      "other"
+    ],
+    "medchembench7": [
+      "science"
+    ],
+    "genebenchpro13": [
+      "science"
+    ],
+    "lifescibenchgold": [
+      "science"
+    ],
+    "biosecuritysevere": [
+      "safety"
+    ],
+    "biosecuritybenign": [
+      "safety"
+    ],
+    "historicaljailbreakregression": [
+      "safety"
+    ],
+    "agentreplayautoreview": [
+      "safety",
+      "agentic"
+    ],
+    "coworkmisalignment": [
+      "safety",
+      "agentic"
     ]
   }
 }

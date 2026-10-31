@@ -213,6 +213,10 @@
     "source": "none",
     "checked": "2026-09-22"
   },
+  "agentreplayautoreview": {
+    "source": "none",
+    "checked": "2026-10-31"
+  },
   "agentslastexam": {
     "text": "A benchmark of over 1,000 long-horizon, economically valuable tasks built with 250+ industry experts, organized into 55 subfields across 13 industry clusters drawn from the O*NET/SOC 2018 occupational taxonomy, with verifiable outcomes.",
     "source_url": "https://arxiv.org/abs/2606.05405",
@@ -1007,6 +1011,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "b3agentsecuritybenchmark": {
+    "text": "b3 (backbone breaker benchmark) measures the security of backbone LLMs used in AI agents via \"threat snapshots\": isolated agent execution states where a vulnerability can manifest, paired with crowdsourced human red-team attacks and scored per attack outcome.",
+    "source_url": "https://arxiv.org/abs/2510.22620",
+    "source": "researched",
+    "checked": "2026-10-31"
+  },
   "b3aisecuritybenchmark": {
     "text": "b3 (backbone breaker benchmark), from Lakera and the UK AI Security Institute, tests how LLMs used as agent backbones resist adversarial attacks. It isolates \"threat snapshots\" of agent workflows and scores models on whether crowdsourced human attacks succeed.",
     "source_url": "https://www.lakera.ai/blog/the-backbone-breaker-benchmark",
@@ -1318,6 +1328,16 @@
     "source_url": "https://cdn.openai.com/operator_system_card.pdf",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "biosecuritybenign": {
+    "text": "An OpenAI refusal evaluation that scores whether a model complies fully, without refusals or caveats, on a set of benign biological and operational questions; it is the over-refusal counterpart to the severe biosecurity set.",
+    "source_url": "https://deploymentsafety.openai.com/gpt-rosalind-6",
+    "source": "researched",
+    "checked": "2026-10-31"
+  },
+  "biosecuritysevere": {
+    "source": "none",
+    "checked": "2026-10-31"
   },
   "biotier1": {
     "text": "542 expert-written biology prompts split across catastrophe avoidance, biomedical dual-use research and ordinary related biology, used to check whether a model refuses the narrow high-risk sets while still answering the benign one.",
@@ -2135,6 +2155,12 @@
     "source": "none",
     "checked": "2026-09-22"
   },
+  "cognitionfrontiercode20": {
+    "text": "Coding benchmark in which agents implement deliberately underspecified tasks in real open-source repositories; output is graded by maintainer-written mergeability rubrics, with the score a weighted aggregate of rubric items.",
+    "source_url": "https://cognition.com/blog/frontier-code-2.0",
+    "source": "researched",
+    "checked": "2026-10-31"
+  },
   "coin": {
     "text": "11,827 instructional videos covering 180 everyday tasks in 12 domains, annotated with ordered step descriptions and the temporal boundaries of each step.",
     "source_url": "https://arxiv.org/abs/1903.02874",
@@ -2312,6 +2338,10 @@
   "coworkbench": {
     "source": "none",
     "checked": "2026-09-22"
+  },
+  "coworkmisalignment": {
+    "source": "none",
+    "checked": "2026-10-31"
   },
   "cqa": {
     "source": "none",
@@ -3899,6 +3929,10 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "genebenchpro13": {
+    "source": "none",
+    "checked": "2026-10-31"
+  },
   "generalagentbenchmark": {
     "text": "Moonshot AI's internal expert productivity evaluation, which measures multi-step, production-grade professional workflows against human expert performance on the same tasks.",
     "source_url": "https://www.kimi.ai/blog/kimi-k2-5",
@@ -4368,6 +4402,10 @@
     "source_url": "https://arxiv.org/abs/2509.07894",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "historicaljailbreakregression": {
+    "source": "none",
+    "checked": "2026-10-31"
   },
   "hitom": {
     "text": "Template-generated Sally-Anne style stories in which agents enter rooms, move objects between containers and optionally make public or deceptive private claims, followed by multiple-choice questions probing beliefs from order zero up to fourth-order theory of mind.",
@@ -4866,6 +4904,12 @@
     "source_url": "https://arxiv.org/abs/2411.19799",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "indeval": {
+    "text": "IND-Eval evaluates time series foundation models for industrial use, scoring forecasts per deployment setting (a given process and operating regime, with its own target variables, sampling rate, forecast horizon and episode boundaries) instead of aggregating over heterogeneous datasets.",
+    "source_url": "https://arxiv.org/html/2610.16652",
+    "source": "researched",
+    "checked": "2026-10-31"
   },
   "indicgenbench": {
     "text": "A generation suite covering 29 Indic languages across 13 scripts and 4 families, extending CrossSum, FLORES, XQuAD and XorQA with human translations for summarisation, translation and cross-lingual question answering.",
@@ -5585,6 +5629,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "lifescibenchgold": {
+    "text": "A 100-task subset of OpenAI's LifeSciBench, made up of research problems contributed by practicing life scientists and used to compare models on applied life-science research; OpenAI's reported run excluded six flagged problems and scored the remaining 94.",
+    "source_url": "https://deploymentsafety.openai.com/gpt-rosalind-6",
+    "source": "researched",
+    "checked": "2026-10-31"
+  },
   "lingoqa": {
     "text": "A visual question answering benchmark for autonomous driving built from 28K short video scenarios and 419K annotations, scored with a trained truthfulness classifier called Lingo-Judge.",
     "source_url": "https://arxiv.org/abs/2312.14115",
@@ -6087,6 +6137,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "mathsidetaskingmonitorevasion": {
+    "text": "Tests covert side-task execution: a model must solve a math problem drawn from an internal set and hide the numeric answer in its code patch; evasion is scored separately for chain-of-thought monitoring and action (tool-call) monitoring.",
+    "source_url": "https://deploymentsafety.openai.com/gpt-6-astra/safeguards",
+    "source": "researched",
+    "checked": "2026-10-31"
+  },
   "mathverse": {
     "text": "2,612 diagram-based math problems in plane geometry, solid geometry and functions, each rewritten into six versions that shift information between the text and the diagram to test whether a model actually reads the figure.",
     "source_url": "https://arxiv.org/abs/2403.14624",
@@ -6230,6 +6286,12 @@
   "medchembench": {
     "source": "none",
     "checked": "2026-09-22"
+  },
+  "medchembench7": {
+    "text": "An internal OpenAI medicinal-chemistry evaluation covering chemical structure interpretation, structure-activity relationships, and prediction of drug potency and toxicity; v7 comprises 99 problems with rubric-scored model responses sampled at each reasoning budget.",
+    "source_url": "https://deploymentsafety.openai.com/gpt-rosalind-6",
+    "source": "researched",
+    "checked": "2026-10-31"
   },
   "medchembenchinternal": {
     "source": "none",
@@ -7740,6 +7802,12 @@
     "source_url": "https://docs.ultralytics.com/datasets/depth/nyu-depth-v2",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "oaireposabotage2": {
+    "text": "An agent does an ordinary coding task inside reconstructed internal services while pursuing a hidden objective, such as disabling monitoring or deploying an unapproved checkpoint; scored by whether the sabotage succeeds while evading the monitor.",
+    "source_url": "https://openai.com/index/how-we-detect-frontier-model-misalignment/",
+    "source": "researched",
+    "checked": "2026-10-31"
   },
   "objaversemultiview": {
     "text": "Open-vocabulary object naming over 3D renders: 44,000 Objaverse models in roughly 1,100 categories, eight rendered views each with four prompts per view, the per-view answers aggregated and scored by sentence-embedding similarity to the label.",
@@ -10037,6 +10105,10 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "surgecodehumanpreferenceoncode": {
+    "source": "none",
+    "checked": "2026-10-31"
+  },
   "svamp": {
     "text": "A challenge set of elementary-school arithmetic word problems, created by applying targeted variations to existing problems so that solvers relying on shallow heuristics fail.",
     "source_url": "https://arxiv.org/abs/2103.07191",
@@ -10790,6 +10862,12 @@
     "source_url": "https://arxiv.org/abs/2404.15254",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "unintendedengagementwithexternalagentmessages": {
+    "text": "An OpenAI system-card evaluation of whether an agent seeks out inter-agent communication and follows instructions it finds there unprompted: one setup gives a browsing task with no Internet but a reachable simulated message board, graded on engagement and unauthorized actions.",
+    "source_url": "https://deploymentsafety.openai.com/gpt-6-astra/unintended-agent-to-agent-communication",
+    "source": "researched",
+    "checked": "2026-10-31"
   },
   "unisvg": {
     "text": "A 525,000-item scalable vector graphics dataset covering both directions of SVG work: generating SVG code from text prompts or reference images, and answering questions about an SVG's colour, category and usage.",

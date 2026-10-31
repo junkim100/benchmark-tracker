@@ -413,7 +413,7 @@
       "zai"
     ],
     "first_seen": "2025-04-16",
-    "last_seen": "2026-10-24",
+    "last_seen": "2026-10-29",
     "labs_by_year": {
       "2025": 7,
       "2026": 10
@@ -425,7 +425,7 @@
       "2026-Q1": 7,
       "2026-Q2": 7,
       "2026-Q3": 4,
-      "2026-Q4": 1
+      "2026-Q4": 2
     },
     "categories": [
       "agentic"
@@ -1046,7 +1046,7 @@
       "zai"
     ],
     "first_seen": "2024-09-18",
-    "last_seen": "2026-10-24",
+    "last_seen": "2026-10-26",
     "labs_by_year": {
       "2024": 1,
       "2025": 8,
@@ -1061,7 +1061,7 @@
       "2026-Q1": 7,
       "2026-Q2": 6,
       "2026-Q3": 5,
-      "2026-Q4": 1
+      "2026-Q4": 2
     },
     "categories": [
       "vision"
@@ -1737,7 +1737,7 @@
       "xiaomi"
     ],
     "first_seen": "2026-09-01",
-    "last_seen": "2026-10-28",
+    "last_seen": "2026-10-29",
     "labs_by_year": {
       "2026": 8
     },
@@ -1803,13 +1803,13 @@
       "zai"
     ],
     "first_seen": "2026-07-09",
-    "last_seen": "2026-10-24",
+    "last_seen": "2026-10-26",
     "labs_by_year": {
       "2026": 7
     },
     "labs_by_quarter": {
       "2026-Q3": 6,
-      "2026-Q4": 4
+      "2026-Q4": 5
     },
     "categories": [
       "agentic"
@@ -3037,6 +3037,37 @@
     "recent_share": 3
   },
   {
+    "id": "terminal-bench",
+    "name": "Terminal-Bench",
+    "lab_count": 6,
+    "labs": [
+      "anthropic",
+      "deepseek",
+      "mistral",
+      "moonshot",
+      "qwen",
+      "zai"
+    ],
+    "first_seen": "2025-05-22",
+    "last_seen": "2026-10-29",
+    "labs_by_year": {
+      "2025": 5,
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2025-Q2": 1,
+      "2025-Q3": 5,
+      "2025-Q4": 2,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding",
+      "agentic"
+    ],
+    "suite": "terminal-bench",
+    "recent_share": 1
+  },
+  {
     "id": "toolathlon",
     "name": "Toolathlon",
     "lab_count": 6,
@@ -3722,7 +3753,7 @@
       "zai"
     ],
     "first_seen": "2026-05-28",
-    "last_seen": "2026-10-24",
+    "last_seen": "2026-10-30",
     "labs_by_year": {
       "2026": 5
     },
@@ -4269,34 +4300,6 @@
     ],
     "suite": null,
     "recent_share": 4
-  },
-  {
-    "id": "terminal-bench",
-    "name": "Terminal-Bench",
-    "lab_count": 5,
-    "labs": [
-      "anthropic",
-      "deepseek",
-      "moonshot",
-      "qwen",
-      "zai"
-    ],
-    "first_seen": "2025-05-22",
-    "last_seen": "2025-11-06",
-    "labs_by_year": {
-      "2025": 5
-    },
-    "labs_by_quarter": {
-      "2025-Q2": 1,
-      "2025-Q3": 5,
-      "2025-Q4": 2
-    },
-    "categories": [
-      "coding",
-      "agentic"
-    ],
-    "suite": "terminal-bench",
-    "recent_share": 1
   },
   {
     "id": "v",
@@ -5940,7 +5943,7 @@
       "xai"
     ],
     "first_seen": "2025-08-20",
-    "last_seen": "2026-10-06",
+    "last_seen": "2026-10-29",
     "labs_by_year": {
       "2025": 1,
       "2026": 3
@@ -7448,6 +7451,31 @@
     "recent_share": 0
   },
   {
+    "id": "osworld21",
+    "name": "OSWorld 2.1",
+    "lab_count": 3,
+    "labs": [
+      "anthropic",
+      "moonshot",
+      "openai"
+    ],
+    "first_seen": "2026-09-28",
+    "last_seen": "2026-10-26",
+    "labs_by_year": {
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1,
+      "2026-Q4": 3
+    },
+    "categories": [
+      "agentic",
+      "vision"
+    ],
+    "suite": "osworld",
+    "recent_share": 0
+  },
+  {
     "id": "osworldg",
     "name": "OSWorld-G",
     "lab_count": 3,
@@ -7836,7 +7864,7 @@
       "openai"
     ],
     "first_seen": "2024-09-12",
-    "last_seen": "2026-10-06",
+    "last_seen": "2026-10-29",
     "labs_by_year": {
       "2024": 1,
       "2025": 2,
@@ -10010,7 +10038,7 @@
       "mistral"
     ],
     "first_seen": "2026-08-31",
-    "last_seen": "2026-10-15",
+    "last_seen": "2026-10-27",
     "labs_by_year": {
       "2026": 2
     },
@@ -10168,6 +10196,30 @@
     ],
     "suite": null,
     "recent_share": 0
+  },
+  {
+    "id": "frontiercode",
+    "name": "FrontierCode",
+    "lab_count": 2,
+    "labs": [
+      "anthropic",
+      "mistral"
+    ],
+    "first_seen": "2026-06-09",
+    "last_seen": "2026-10-29",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q2": 1,
+      "2026-Q3": 1,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": "frontiercode",
+    "recent_share": 2
   },
   {
     "id": "frontiercode11",
@@ -10402,14 +10454,14 @@
   },
   {
     "id": "gifteval",
-    "name": "Gift-Eval",
+    "name": "GIFT-Eval",
     "lab_count": 2,
     "labs": [
       "google",
       "mistral"
     ],
     "first_seen": "2026-08-31",
-    "last_seen": "2026-10-15",
+    "last_seen": "2026-10-27",
     "labs_by_year": {
       "2026": 2
     },
@@ -12953,30 +13005,6 @@
     "recent_share": 0
   },
   {
-    "id": "osworld21",
-    "name": "OSWorld 2.1",
-    "lab_count": 2,
-    "labs": [
-      "anthropic",
-      "moonshot"
-    ],
-    "first_seen": "2026-09-28",
-    "last_seen": "2026-10-24",
-    "labs_by_year": {
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1,
-      "2026-Q4": 2
-    },
-    "categories": [
-      "agentic",
-      "vision"
-    ],
-    "suite": "osworld",
-    "recent_share": 0
-  },
-  {
     "id": "perceptionbench",
     "name": "PerceptionBench",
     "lab_count": 2,
@@ -13030,7 +13058,7 @@
       "xai"
     ],
     "first_seen": "2024-12-05",
-    "last_seen": "2026-10-07",
+    "last_seen": "2026-10-30",
     "labs_by_year": {
       "2024": 1,
       "2025": 1,
@@ -14007,14 +14035,14 @@
   },
   {
     "id": "time",
-    "name": "Time",
+    "name": "TIME",
     "lab_count": 2,
     "labs": [
       "google",
       "mistral"
     ],
     "first_seen": "2026-08-31",
-    "last_seen": "2026-10-15",
+    "last_seen": "2026-10-27",
     "labs_by_year": {
       "2026": 2
     },
@@ -15112,19 +15140,20 @@
   },
   {
     "id": "aavcapsidpackagingprediction",
-    "name": "AAV capsid packaging prediction",
+    "name": "AAV Capsid Packaging Prediction",
     "lab_count": 1,
     "labs": [
       "openai"
     ],
     "first_seen": "2026-06-26",
-    "last_seen": "2026-07-09",
+    "last_seen": "2026-10-30",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
       "2026-Q2": 1,
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "other"
@@ -15645,6 +15674,28 @@
     ],
     "suite": null,
     "recent_share": 1
+  },
+  {
+    "id": "agentreplayautoreview",
+    "name": "Agent Replay Auto-Review",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-10-30",
+    "last_seen": "2026-10-30",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "safety",
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
   },
   {
     "id": "agentslastexam1",
@@ -17760,6 +17811,27 @@
     "recent_share": 0
   },
   {
+    "id": "b3agentsecuritybenchmark",
+    "name": "B3 Agent security benchmark",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-29",
+    "last_seen": "2026-10-29",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "b3aisecuritybenchmark",
     "name": "B3 AI Security Benchmark",
     "lab_count": 1,
@@ -18644,12 +18716,13 @@
       "openai"
     ],
     "first_seen": "2026-06-03",
-    "last_seen": "2026-06-03",
+    "last_seen": "2026-10-30",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q2": 1
+      "2026-Q2": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "safety"
@@ -18671,6 +18744,48 @@
     },
     "labs_by_quarter": {
       "2025-Q1": 1
+    },
+    "categories": [
+      "safety"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "biosecuritybenign",
+    "name": "Biosecurity - Benign",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-10-30",
+    "last_seen": "2026-10-30",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "safety"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "biosecuritysevere",
+    "name": "Biosecurity - Severe",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-10-30",
+    "last_seen": "2026-10-30",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
     },
     "categories": [
       "safety"
@@ -18792,7 +18907,7 @@
       "openai"
     ],
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-07",
+    "last_seen": "2026-10-30",
     "labs_by_year": {
       "2026": 1
     },
@@ -18814,7 +18929,7 @@
       "openai"
     ],
     "first_seen": "2026-09-29",
-    "last_seen": "2026-10-07",
+    "last_seen": "2026-10-30",
     "labs_by_year": {
       "2026": 1
     },
@@ -21229,6 +21344,28 @@
     "recent_share": 0
   },
   {
+    "id": "cognitionfrontiercode20",
+    "name": "Cognition - FrontierCode 2.0",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-29",
+    "last_seen": "2026-10-29",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding",
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "coin",
     "name": "COIN",
     "lab_count": 1,
@@ -21457,7 +21594,7 @@
       "openai"
     ],
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-07",
+    "last_seen": "2026-10-30",
     "labs_by_year": {
       "2026": 1
     },
@@ -21585,7 +21722,7 @@
       "openai"
     ],
     "first_seen": "2025-04-16",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-10-30",
     "labs_by_year": {
       "2025": 1,
       "2026": 1
@@ -21596,7 +21733,8 @@
       "2025-Q4": 1,
       "2026-Q1": 1,
       "2026-Q2": 1,
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "reasoning"
@@ -21740,6 +21878,28 @@
     ],
     "suite": null,
     "recent_share": 1
+  },
+  {
+    "id": "coworkmisalignment",
+    "name": "Cowork Misalignment",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-10-30",
+    "last_seen": "2026-10-30",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "safety",
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
   },
   {
     "id": "cqa",
@@ -24311,18 +24471,19 @@
   },
   {
     "id": "exploitgymhoneypot",
-    "name": "ExploitGym honeypot",
+    "name": "ExploitGym Honeypot",
     "lab_count": 1,
     "labs": [
       "openai"
     ],
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-10-30",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q3": 1
+      "2026-Q3": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "safety",
@@ -24854,7 +25015,7 @@
       "mistral"
     ],
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-06",
+    "last_seen": "2026-10-29",
     "labs_by_year": {
       "2026": 1
     },
@@ -25751,28 +25912,6 @@
     "recent_share": 1
   },
   {
-    "id": "frontiercode",
-    "name": "FrontierCode",
-    "lab_count": 1,
-    "labs": [
-      "anthropic"
-    ],
-    "first_seen": "2026-06-09",
-    "last_seen": "2026-09-22",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q2": 1,
-      "2026-Q3": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": "frontiercode",
-    "recent_share": 2
-  },
-  {
     "id": "frontiermath",
     "name": "FrontierMath",
     "lab_count": 1,
@@ -26393,6 +26532,27 @@
     },
     "categories": [
       "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "genebenchpro13",
+    "name": "GeneBench Pro v13",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-10-30",
+    "last_seen": "2026-10-30",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "science"
     ],
     "suite": null,
     "recent_share": 0
@@ -27781,6 +27941,27 @@
     },
     "categories": [
       "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "historicaljailbreakregression",
+    "name": "Historical Jailbreak Regression",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-10-30",
+    "last_seen": "2026-10-30",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "safety"
     ],
     "suite": null,
     "recent_share": 0
@@ -29237,6 +29418,27 @@
     "recent_share": 0
   },
   {
+    "id": "indeval",
+    "name": "IND-Eval",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-27",
+    "last_seen": "2026-10-27",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "indicgenbench",
     "name": "IndicGenBench",
     "lab_count": 1,
@@ -30144,7 +30346,7 @@
       "mistral"
     ],
     "first_seen": "2026-10-06",
-    "last_seen": "2026-10-06",
+    "last_seen": "2026-10-29",
     "labs_by_year": {
       "2026": 1
     },
@@ -31745,6 +31947,27 @@
     "recent_share": 1
   },
   {
+    "id": "lifescibenchgold",
+    "name": "LifeSciBench Gold",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-10-30",
+    "last_seen": "2026-10-30",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "science"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "linuxarena",
     "name": "LinuxArena",
     "lab_count": 1,
@@ -33083,6 +33306,27 @@
     "recent_share": 0
   },
   {
+    "id": "mathsidetaskingmonitorevasion",
+    "name": "Math Side-tasking Monitor Evasion",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-10-30",
+    "last_seen": "2026-10-30",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "math"
+    ],
+    "suite": "math",
+    "recent_share": 0
+  },
+  {
     "id": "mathvltest",
     "name": "MathVL-test",
     "lab_count": 1,
@@ -33418,6 +33662,27 @@
     },
     "labs_by_quarter": {
       "2026-Q2": 1
+    },
+    "categories": [
+      "science"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "medchembench7",
+    "name": "MedChemBench v7",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-10-30",
+    "last_seen": "2026-10-30",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
     },
     "categories": [
       "science"
@@ -36752,12 +37017,13 @@
       "openai"
     ],
     "first_seen": "2026-06-03",
-    "last_seen": "2026-06-03",
+    "last_seen": "2026-10-30",
     "labs_by_year": {
       "2026": 1
     },
     "labs_by_quarter": {
-      "2026-Q2": 1
+      "2026-Q2": 1,
+      "2026-Q4": 1
     },
     "categories": [
       "other"
@@ -37687,6 +37953,28 @@
     },
     "categories": [
       "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "oaireposabotage2",
+    "name": "OAI-repo Sabotage v2",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-10-30",
+    "last_seen": "2026-10-30",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "safety",
+      "coding"
     ],
     "suite": null,
     "recent_share": 0
@@ -39509,7 +39797,7 @@
       "openai"
     ],
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-07",
+    "last_seen": "2026-10-30",
     "labs_by_year": {
       "2026": 1
     },
@@ -41731,7 +42019,7 @@
       "openai"
     ],
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-07",
+    "last_seen": "2026-10-30",
     "labs_by_year": {
       "2026": 1
     },
@@ -41752,7 +42040,7 @@
       "openai"
     ],
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-07",
+    "last_seen": "2026-10-30",
     "labs_by_year": {
       "2026": 1
     },
@@ -43543,7 +43831,7 @@
       "openai"
     ],
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-07",
+    "last_seen": "2026-10-30",
     "labs_by_year": {
       "2026": 1
     },
@@ -44610,6 +44898,27 @@
     ],
     "suite": null,
     "recent_share": 1
+  },
+  {
+    "id": "surgecodehumanpreferenceoncode",
+    "name": "Surge Code - Human preference on code",
+    "lab_count": 1,
+    "labs": [
+      "mistral"
+    ],
+    "first_seen": "2026-10-29",
+    "last_seen": "2026-10-29",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding"
+    ],
+    "suite": null,
+    "recent_share": 0
   },
   {
     "id": "svamp",
@@ -46310,7 +46619,7 @@
       "openai"
     ],
     "first_seen": "2025-08-05",
-    "last_seen": "2026-10-07",
+    "last_seen": "2026-10-30",
     "labs_by_year": {
       "2025": 1,
       "2026": 1
@@ -46538,6 +46847,27 @@
     },
     "categories": [
       "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "unintendedengagementwithexternalagentmessages",
+    "name": "Unintended Engagement with External Agent Messages",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-10-30",
+    "last_seen": "2026-10-30",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic"
     ],
     "suite": null,
     "recent_share": 0

@@ -244,5 +244,6 @@
   "Gray Swan's Indirect Prompt Injection (IPI) benchmark": "grayswanipibenchmark",
   "Agentic Safe Completions": "agenticsafecompletionevaluations",
   "Harvey LAB": "harveyslegalagentbenchmark",
-  "Speech Agent Arena Elo": "speechagentarena"
+  "Speech Agent Arena Elo": "speechagentarena",
+  "FinWorkBench (Finch)": "finchfinworkbench"
 }

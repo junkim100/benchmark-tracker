@@ -97,3 +97,14 @@
 {"at":"2026-10-25T17:27:39.707Z","raw":"Omnilingual Gaia2","cats":["agentic","multilingual"],"lab":"Meta AI"}
 {"at":"2026-10-25T17:27:39.707Z","raw":"Linguini","cats":["multilingual","reasoning"],"lab":"Meta AI"}
 {"at":"2026-10-25T17:27:39.707Z","raw":"Siren AgentDojo","cats":["safety","agentic"],"lab":"Meta AI"}
+{"at":"2026-10-31T18:07:26.244Z","raw":"Cognition - FrontierCode 2.0","cats":["coding","agentic"],"lab":"Mistral AI"}
+{"at":"2026-10-31T18:07:26.244Z","raw":"Surge Code - Human preference on code","cats":["coding"],"lab":"Mistral AI"}
+{"at":"2026-10-31T18:07:26.244Z","raw":"IND-Eval","cats":["other"],"lab":"Mistral AI"}
+{"at":"2026-10-31T18:07:26.244Z","raw":"MedChemBench v7","cats":["science"],"lab":"OpenAI"}
+{"at":"2026-10-31T18:07:26.244Z","raw":"GeneBench Pro v13","cats":["science"],"lab":"OpenAI"}
+{"at":"2026-10-31T18:07:26.244Z","raw":"LifeSciBench Gold","cats":["science"],"lab":"OpenAI"}
+{"at":"2026-10-31T18:07:26.244Z","raw":"Biosecurity - Severe","cats":["safety"],"lab":"OpenAI"}
+{"at":"2026-10-31T18:07:26.244Z","raw":"Biosecurity - Benign","cats":["safety"],"lab":"OpenAI"}
+{"at":"2026-10-31T18:07:26.244Z","raw":"Historical Jailbreak Regression","cats":["safety"],"lab":"OpenAI"}
+{"at":"2026-10-31T18:07:26.244Z","raw":"Agent Replay Auto-Review","cats":["safety","agentic"],"lab":"OpenAI"}
+{"at":"2026-10-31T18:07:26.244Z","raw":"Cowork Misalignment","cats":["safety","agentic"],"lab":"OpenAI"}
