@@ -108,3 +108,6 @@
 {"at":"2026-10-31T18:07:26.244Z","raw":"Historical Jailbreak Regression","cats":["safety"],"lab":"OpenAI"}
 {"at":"2026-10-31T18:07:26.244Z","raw":"Agent Replay Auto-Review","cats":["safety","agentic"],"lab":"OpenAI"}
 {"at":"2026-10-31T18:07:26.244Z","raw":"Cowork Misalignment","cats":["safety","agentic"],"lab":"OpenAI"}
+{"at":"2026-11-01T18:47:19.749Z","raw":"GDP.pdf w/ python","cats":["vision","agentic"],"lab":"Moonshot AI"}
+{"at":"2026-11-01T18:47:19.749Z","raw":"ZeroBench w/ python","cats":["vision","reasoning"],"lab":"Moonshot AI"}
+{"at":"2026-11-01T18:47:19.749Z","raw":"ChartoGraphy w/ python","cats":["vision","reasoning"],"lab":"Moonshot AI"}

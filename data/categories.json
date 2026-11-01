@@ -456,6 +456,18 @@
     "coworkmisalignment": [
       "safety",
       "agentic"
+    ],
+    "gdppdfwpython": [
+      "vision",
+      "agentic"
+    ],
+    "zerobenchwpython": [
+      "vision",
+      "reasoning"
+    ],
+    "chartographywpython": [
+      "vision",
+      "reasoning"
     ]
   }
 }

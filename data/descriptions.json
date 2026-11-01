@@ -11749,6 +11749,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "xdevbenchhard": {
+    "text": "Moonshot's internal benchmark of expert-curated, source-code-based vulnerability discovery and exploitation tasks, scored by whether a model solves a problem within a limited number of attempts.",
+    "source_url": "https://www.kimi.ai/blog/kimi-k3-1-pro",
+    "source": "researched",
+    "checked": "2026-11-01"
+  },
   "xgqa": {
     "text": "The English GQA visual question answering set extended to seven typologically diverse languages, for measuring zero-shot cross-lingual transfer on questions about images.",
     "source_url": "https://arxiv.org/abs/2109.06082",
