@@ -111,3 +111,4 @@
 {"at":"2026-11-01T18:47:19.749Z","raw":"GDP.pdf w/ python","cats":["vision","agentic"],"lab":"Moonshot AI"}
 {"at":"2026-11-01T18:47:19.749Z","raw":"ZeroBench w/ python","cats":["vision","reasoning"],"lab":"Moonshot AI"}
 {"at":"2026-11-01T18:47:19.749Z","raw":"ChartoGraphy w/ python","cats":["vision","reasoning"],"lab":"Moonshot AI"}
+{"at":"2026-11-04T20:46:29.455Z","raw":"Forecasting Misaligned Behavior with Deployment Simulation of Internal Codex Traffic","cats":["safety","agentic"],"lab":"OpenAI"}

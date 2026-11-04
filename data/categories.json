@@ -468,6 +468,10 @@
     "chartographywpython": [
       "vision",
       "reasoning"
+    ],
+    "forecastingmisalignedbehaviorwithdeploymentsimulationofinternalcodextraffic": [
+      "safety",
+      "agentic"
     ]
   }
 }

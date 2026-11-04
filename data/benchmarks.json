@@ -15591,7 +15591,7 @@
   },
   {
     "id": "agenticsafecompletionevaluations",
-    "name": "Agentic Safe Completion Evaluations",
+    "name": "Agentic Safe Completions",
     "lab_count": 1,
     "labs": [
       "openai"
@@ -40821,7 +40821,7 @@
   },
   {
     "id": "promptinjection",
-    "name": "prompt injection",
+    "name": "Prompt Injection",
     "lab_count": 1,
     "labs": [
       "openai"

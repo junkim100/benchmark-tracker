@@ -292,5 +292,26 @@
       "version_confident": false
     },
     "seen": "2026-10-31T18:07:26.244Z"
+  },
+  {
+    "raw": "Avoiding Misaligned Behavior in Realistic Work Environments",
+    "tracked": "Misaligned outcomes in realistic work environments",
+    "reason": "same workplace-environment misalignment evaluation worded differently",
+    "lab": "OpenAI",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.93,
+      "version": 0,
+      "renamed": 0.02,
+      "different": 0.05
+    },
+    "merge_is_safe": 0.44,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-11-04T20:46:29.455Z"
   }
 ]
