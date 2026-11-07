@@ -4799,5 +4799,37 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "google-gemini-omni-1-2-flash-2026-11-05",
+    "lab": "google",
+    "model": "Gemini Omni 1.2 Flash",
+    "date": "2026-11-05",
+    "kind": "model_release",
+    "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+    "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "video"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "google-gemini-omni-1-2-flash-2026-11-05",
+    "lab": "google",
+    "model": "Gemini Omni 1.2 Flash",
+    "date": "2026-11-05",
+    "kind": "system_card",
+    "title": "Gemini Omni 1.2 Flash - Model Card",
+    "source_url": "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash/",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "video"
+      ],
+      "source": "reported"
+    }
   }
 ]
