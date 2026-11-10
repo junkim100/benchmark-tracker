@@ -313,5 +313,194 @@
       "version_confident": false
     },
     "seen": "2026-11-04T20:46:29.455Z"
+  },
+  {
+    "raw": "Humanity's Last Exam (with tools)",
+    "tracked": "HLE w/ tools",
+    "reason": "same exam run in the tool-use configuration",
+    "lab": "Anthropic",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.94,
+      "version": 0.06,
+      "renamed": 0,
+      "different": 0
+    },
+    "merge_is_safe": 0.51,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-11-10T20:43:00.458Z"
+  },
+  {
+    "raw": "Chartography (no tools)",
+    "tracked": "Chartography",
+    "reason": "base Chartography benchmark, tool-free run condition The tracked benchmark \"Chartography\" is described as: 100 chart-reading tasks across 12 professional domains using specialist formats such as Kaplan-Meier curves, candlestick charts, contour maps and Sankey diagrams, with questions written by practitioners, verified by other experts, and answered without tools.",
+    "lab": "Anthropic",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.77,
+      "version": 0.22,
+      "renamed": 0,
+      "different": 0.01
+    },
+    "merge_is_safe": 0.8,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": true,
+      "version_confident": false
+    },
+    "seen": "2026-11-10T20:43:00.458Z"
+  },
+  {
+    "raw": "OSWorld 2.1 (offline set, partial)",
+    "tracked": "OSWorld 2.1",
+    "reason": "same OSWorld 2.1 benchmark, scoring/subset note only The tracked benchmark \"OSWorld 2.1\" is described as: OSWorld 2.1 is a bug-fix release of the OSWorld 2.0 computer-use benchmark: 108 long-horizon desktop and web workflows in real OS environments, with pinned task, asset, self-hosted website and provider image versions, graded by weighted per-task checkpoints instead of a single pass/fail check.",
+    "lab": "Anthropic",
+    "decision": "SUITE",
+    "relation": "version",
+    "probabilities": {
+      "same_name": 0.11,
+      "version": 0.89,
+      "renamed": 0,
+      "different": 0
+    },
+    "merge_is_safe": 0.48,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": true
+    },
+    "seen": "2026-11-10T20:43:00.458Z"
+  },
+  {
+    "raw": "FrontierCode 2.0",
+    "tracked": "Cognition - FrontierCode 2.0",
+    "reason": "same FrontierCode 2.0 benchmark, tracked name carries the vendor prefix The tracked benchmark \"Cognition - FrontierCode 2.0\" is described as: Coding benchmark in which agents implement deliberately underspecified tasks in real open-source repositories; output is graded by maintainer-written mergeability rubrics, with the score a weighted aggregate of rubric items.",
+    "lab": "Anthropic",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.97,
+      "version": 0.01,
+      "renamed": 0,
+      "different": 0.02
+    },
+    "merge_is_safe": 0.57,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-11-10T20:43:00.458Z"
+  },
+  {
+    "raw": "Agentic Safe Completion Evaluations",
+    "tracked": "Agentic Safe Completions",
+    "reason": "same agentic safe-completion evaluation suite",
+    "lab": "OpenAI",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.95,
+      "version": 0.03,
+      "renamed": 0.01,
+      "different": 0.01
+    },
+    "merge_is_safe": 0.44,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-11-10T20:43:00.458Z"
+  },
+  {
+    "raw": "Auto-Review evaluation",
+    "tracked": "Respecting Auto-Review",
+    "reason": "same test of whether the model respects Auto-Review rejections",
+    "lab": "OpenAI",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.81,
+      "version": 0.01,
+      "renamed": 0.07,
+      "different": 0.11
+    },
+    "merge_is_safe": 0.34,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-11-10T20:43:00.458Z"
+  },
+  {
+    "raw": "Warnings evaluation",
+    "tracked": "Respecting Warnings",
+    "reason": "same stop/persist test of responses to tool warnings The tracked benchmark \"Respecting Warnings\" is described as: Tracks how a model behaves after hitting barriers in simulated professional work environments where the restriction comes from the environment itself (e.g. AccessDenied errors, content policy blocks), scored by whether it successfully circumvents them.",
+    "lab": "OpenAI",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.5,
+      "version": 0.01,
+      "renamed": 0.16,
+      "different": 0.33
+    },
+    "merge_is_safe": 0.27,
+    "gates": {
+      "same_name_confident": false,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-11-10T20:43:00.458Z"
+  },
+  {
+    "raw": "Blocker Deception evaluation",
+    "tracked": "Blocker Deception",
+    "reason": "same evaluation of honestly reporting blockers The tracked benchmark \"Blocker Deception\" is described as: An agentic evaluation of how a model reacts after an automated reviewer blocks a requested action in knowledge-work tasks: whether it stops, finds a safer alternative, retries, or exploits a deliberately weak review setup to bypass the block.",
+    "lab": "OpenAI",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.92,
+      "version": 0.02,
+      "renamed": 0.01,
+      "different": 0.05
+    },
+    "merge_is_safe": 0.63,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-11-10T20:43:00.458Z"
+  },
+  {
+    "raw": "Broken Search Tool evaluation",
+    "tracked": "Broken Search Tool",
+    "reason": "same evaluation of claims about missing or broken search tools",
+    "lab": "OpenAI",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.87,
+      "version": 0.06,
+      "renamed": 0.02,
+      "different": 0.05
+    },
+    "merge_is_safe": 0.64,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-11-10T20:43:00.458Z"
   }
 ]

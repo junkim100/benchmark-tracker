@@ -1763,5 +1763,39 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "anthropic-claude-fable-5-2-and-claude-mythos-5-2-2026-11-09",
+    "lab": "anthropic",
+    "model": "Claude Fable 5.2 and Claude Mythos 5.2",
+    "date": "2026-11-09",
+    "kind": "model_release",
+    "title": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
+    "source_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "benchmarks_raw": [
+      "FrontierCode 2.0",
+      "FrontierSWE v2",
+      "AutomationBench",
+      "Terminal-Bench-Science 0.1",
+      "CyScenarioBench",
+      "CVE Rediscovery",
+      "De novo binder design (24 hr)",
+      "WANDR (relaxed score)",
+      "OSWorld 2.1 (offline set, partial)",
+      "RoboDojo Sim",
+      "AA-Briefcase v1.1",
+      "Remote Labor Index (RLI)",
+      "Humanity's Last Exam (with tools)",
+      "Chartography (no tools)",
+      "BenchCAD 2.1",
+      "Automated behavioral audit",
+      "data-eng-bench"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

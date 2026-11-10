@@ -472,6 +472,58 @@
     "forecastingmisalignedbehaviorwithdeploymentsimulationofinternalcodextraffic": [
       "safety",
       "agentic"
+    ],
+    "asimovjailbreak": [
+      "safety",
+      "agentic"
+    ],
+    "cverediscovery": [
+      "coding",
+      "safety"
+    ],
+    "denovobinderdesign24hr": [
+      "science"
+    ],
+    "wandrrelaxedscore": [
+      "agentic",
+      "knowledge"
+    ],
+    "robodojosim": [
+      "other",
+      "agentic"
+    ],
+    "remotelaborindexrli": [
+      "agentic"
+    ],
+    "benchcad21": [
+      "science",
+      "other"
+    ],
+    "automatedbehavioralaudit": [
+      "safety"
+    ],
+    "dataengbench": [
+      "coding"
+    ],
+    "workplaceevaluation": [
+      "safety",
+      "agentic"
+    ],
+    "simulateddeploymentevaluation": [
+      "safety",
+      "agentic"
+    ],
+    "exploitgymhardened": [
+      "safety",
+      "coding"
+    ],
+    "frontiercyber": [
+      "safety",
+      "coding"
+    ],
+    "atomicchallenges": [
+      "safety",
+      "coding"
     ]
   }
 }

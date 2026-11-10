@@ -112,3 +112,17 @@
 {"at":"2026-11-01T18:47:19.749Z","raw":"ZeroBench w/ python","cats":["vision","reasoning"],"lab":"Moonshot AI"}
 {"at":"2026-11-01T18:47:19.749Z","raw":"ChartoGraphy w/ python","cats":["vision","reasoning"],"lab":"Moonshot AI"}
 {"at":"2026-11-04T20:46:29.455Z","raw":"Forecasting Misaligned Behavior with Deployment Simulation of Internal Codex Traffic","cats":["safety","agentic"],"lab":"OpenAI"}
+{"at":"2026-11-10T20:43:00.459Z","raw":"ASIMOV-Jailbreak","cats":["safety","agentic"],"lab":"Google DeepMind"}
+{"at":"2026-11-10T20:43:00.459Z","raw":"CVE Rediscovery","cats":["coding","safety"],"lab":"Anthropic"}
+{"at":"2026-11-10T20:43:00.459Z","raw":"De novo binder design (24 hr)","cats":["science"],"lab":"Anthropic"}
+{"at":"2026-11-10T20:43:00.459Z","raw":"WANDR (relaxed score)","cats":["agentic","knowledge"],"lab":"Anthropic"}
+{"at":"2026-11-10T20:43:00.459Z","raw":"RoboDojo Sim","cats":["other","agentic"],"lab":"Anthropic"}
+{"at":"2026-11-10T20:43:00.460Z","raw":"Remote Labor Index (RLI)","cats":["agentic"],"lab":"Anthropic"}
+{"at":"2026-11-10T20:43:00.460Z","raw":"BenchCAD 2.1","cats":["science","other"],"lab":"Anthropic"}
+{"at":"2026-11-10T20:43:00.460Z","raw":"Automated behavioral audit","cats":["safety"],"lab":"Anthropic"}
+{"at":"2026-11-10T20:43:00.460Z","raw":"data-eng-bench","cats":["coding"],"lab":"Anthropic"}
+{"at":"2026-11-10T20:43:00.460Z","raw":"Workplace evaluation","cats":["safety","agentic"],"lab":"OpenAI"}
+{"at":"2026-11-10T20:43:00.460Z","raw":"Simulated deployment evaluation","cats":["safety","agentic"],"lab":"OpenAI"}
+{"at":"2026-11-10T20:43:00.460Z","raw":"ExploitGym Hardened","cats":["safety","coding"],"lab":"OpenAI"}
+{"at":"2026-11-10T20:43:00.460Z","raw":"FrontierCyber","cats":["safety","coding"],"lab":"OpenAI"}
+{"at":"2026-11-10T20:43:00.460Z","raw":"Atomic Challenges","cats":["safety","coding"],"lab":"OpenAI"}

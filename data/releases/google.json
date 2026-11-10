@@ -4831,5 +4831,23 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "google-gemini-robotics-2-5-2026-11-10",
+    "lab": "google",
+    "model": "Gemini Robotics 2.5",
+    "date": "2026-11-10",
+    "kind": "model_release",
+    "title": "Gemini Robotics 2.5 accelerates real-world general dexterity",
+    "source_url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+    "benchmarks_raw": [
+      "ASIMOV-Jailbreak"
+    ],
+    "modality": {
+      "classes": [
+        "robotics"
+      ],
+      "source": "reported"
+    }
   }
 ]

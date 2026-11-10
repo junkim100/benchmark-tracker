@@ -1449,14 +1449,14 @@
       "zai"
     ],
     "first_seen": "2026-05-28",
-    "last_seen": "2026-10-13",
+    "last_seen": "2026-11-09",
     "labs_by_year": {
       "2026": 8
     },
     "labs_by_quarter": {
       "2026-Q2": 1,
       "2026-Q3": 7,
-      "2026-Q4": 2
+      "2026-Q4": 3
     },
     "categories": [
       "agentic"
@@ -1940,14 +1940,14 @@
       "zai"
     ],
     "first_seen": "2026-06-26",
-    "last_seen": "2026-10-28",
+    "last_seen": "2026-11-05",
     "labs_by_year": {
       "2026": 7
     },
     "labs_by_quarter": {
       "2026-Q2": 1,
       "2026-Q3": 4,
-      "2026-Q4": 3
+      "2026-Q4": 4
     },
     "categories": [
       "safety",
@@ -5745,13 +5745,13 @@
       "openai"
     ],
     "first_seen": "2026-09-01",
-    "last_seen": "2026-10-24",
+    "last_seen": "2026-11-09",
     "labs_by_year": {
       "2026": 4
     },
     "labs_by_quarter": {
       "2026-Q3": 2,
-      "2026-Q4": 2
+      "2026-Q4": 3
     },
     "categories": [
       "coding",
@@ -5919,7 +5919,7 @@
       "xai"
     ],
     "first_seen": "2026-09-21",
-    "last_seen": "2026-10-24",
+    "last_seen": "2026-11-09",
     "labs_by_year": {
       "2026": 3
     },
@@ -6388,13 +6388,14 @@
       "openai"
     ],
     "first_seen": "2026-05-14",
-    "last_seen": "2026-09-03",
+    "last_seen": "2026-11-09",
     "labs_by_year": {
       "2026": 3
     },
     "labs_by_quarter": {
       "2026-Q2": 2,
-      "2026-Q3": 2
+      "2026-Q3": 2,
+      "2026-Q4": 1
     },
     "categories": [
       "safety",
@@ -10320,13 +10321,13 @@
       "google"
     ],
     "first_seen": "2026-09-01",
-    "last_seen": "2026-10-13",
+    "last_seen": "2026-11-09",
     "labs_by_year": {
       "2026": 2
     },
     "labs_by_quarter": {
       "2026-Q3": 1,
-      "2026-Q4": 1
+      "2026-Q4": 2
     },
     "categories": [
       "coding",
@@ -15591,7 +15592,7 @@
   },
   {
     "id": "agenticsafecompletionevaluations",
-    "name": "Agentic Safe Completions",
+    "name": "Agentic Safe Completion Evaluations",
     "lab_count": 1,
     "labs": [
       "openai"
@@ -17494,6 +17495,28 @@
     "recent_share": 0
   },
   {
+    "id": "asimovjailbreak",
+    "name": "ASIMOV-Jailbreak",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-11-10",
+    "last_seen": "2026-11-10",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "safety",
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "asimovmultimodal",
     "name": "ASIMOV-Multimodal",
     "lab_count": 1,
@@ -17720,6 +17743,27 @@
     },
     "categories": [
       "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "automatedbehavioralaudit",
+    "name": "Automated behavioral audit",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "safety"
     ],
     "suite": null,
     "recent_share": 0
@@ -18360,6 +18404,28 @@
     },
     "categories": [
       "multilingual"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "benchcad21",
+    "name": "BenchCAD 2.1",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "science",
+      "other"
     ],
     "suite": null,
     "recent_share": 0
@@ -19842,6 +19908,27 @@
     },
     "labs_by_quarter": {
       "2025-Q3": 1
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "chartographynotools",
+    "name": "Chartography (no tools)",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
     },
     "categories": [
       "vision"
@@ -22224,6 +22311,28 @@
     "recent_share": 0
   },
   {
+    "id": "cverediscovery",
+    "name": "CVE Rediscovery",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding",
+      "safety"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "cvja",
     "name": "CV-ja",
     "lab_count": 1,
@@ -22576,6 +22685,27 @@
     "recent_share": 0
   },
   {
+    "id": "dataengbench",
+    "name": "data-eng-bench",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "davis17",
     "name": "DAVIS 2017",
     "lab_count": 1,
@@ -22829,6 +22959,27 @@
     },
     "categories": [
       "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "denovobinderdesign24hr",
+    "name": "De novo binder design (24 hr)",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "science"
     ],
     "suite": null,
     "recent_share": 0
@@ -24477,7 +24628,7 @@
       "openai"
     ],
     "first_seen": "2026-09-03",
-    "last_seen": "2026-10-30",
+    "last_seen": "2026-11-05",
     "labs_by_year": {
       "2026": 1
     },
@@ -25910,6 +26061,27 @@
     ],
     "suite": "terminal-bench",
     "recent_share": 1
+  },
+  {
+    "id": "frontiercode20",
+    "name": "FrontierCode 2.0",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": "frontiercode",
+    "recent_share": 0
   },
   {
     "id": "frontiermath",
@@ -28684,6 +28856,27 @@
       "coding"
     ],
     "suite": "humaneval",
+    "recent_share": 0
+  },
+  {
+    "id": "humanityslastexamwithtools",
+    "name": "Humanity's Last Exam (with tools)",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "knowledge"
+    ],
+    "suite": null,
     "recent_share": 0
   },
   {
@@ -39119,6 +39312,28 @@
     "recent_share": 0
   },
   {
+    "id": "osworld21offlinesetpartial",
+    "name": "OSWorld 2.1 (offline set, partial)",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic",
+      "vision"
+    ],
+    "suite": "osworld",
+    "recent_share": 0
+  },
+  {
     "id": "outofscopesupplychainattack",
     "name": "Out of Scope Supply Chain Attack",
     "lab_count": 1,
@@ -41904,6 +42119,27 @@
     "recent_share": 0
   },
   {
+    "id": "remotelaborindexrli",
+    "name": "Remote Labor Index (RLI)",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "repobench",
     "name": "RepoBench",
     "lab_count": 1,
@@ -42281,6 +42517,28 @@
     },
     "categories": [
       "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "robodojosim",
+    "name": "RoboDojo Sim",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "other",
+      "agentic"
     ],
     "suite": null,
     "recent_share": 0
@@ -48113,6 +48371,28 @@
     },
     "categories": [
       "vision"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "wandrrelaxedscore",
+    "name": "WANDR (relaxed score)",
+    "lab_count": 1,
+    "labs": [
+      "anthropic"
+    ],
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-09",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic",
+      "knowledge"
     ],
     "suite": null,
     "recent_share": 0

@@ -903,6 +903,10 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "asimovjailbreak": {
+    "source": "none",
+    "checked": "2026-11-10"
+  },
   "asimovmultimodal": {
     "text": "Images of everyday scenes, some edited by an image generator to introduce hazards, each paired with candidate robot instructions that a model must judge desirable or undesirable; one dataset of Google DeepMind's ASIMOV semantic safety benchmark.",
     "source_url": "https://arxiv.org/abs/2503.08663",
@@ -972,6 +976,12 @@
     "source_url": "https://arxiv.org/abs/2502.16906",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "automatedbehavioralaudit": {
+    "text": "Anthropic's alignment evaluation in which an auditor model plays out seed scenarios over multi-turn exchanges with the target model, and a judge model grades each transcript on a set of behavioral dimensions such as deception or sycophancy.",
+    "source_url": "https://www.anthropic.com/news/protecting-well-being-of-users",
+    "source": "researched",
+    "checked": "2026-11-10"
   },
   "automatedevaluationforriskyadvice": {
     "text": "Conversations gathered in a targeted red teaming campaign on risky advice, such as attack planning, converted into an automated grader in the style of OpenAI's disallowed content evaluations and scored on whether a response is unsafe.",
@@ -1198,6 +1208,12 @@
     "source_url": "https://arxiv.org/abs/2605.10865",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "benchcad21": {
+    "text": "Release 2.1 of BenchCAD 2, a CAD reconstruction benchmark of six tasks whose inputs are part drawings, four reference views, supplied STEP files or PCB renders; submissions are geometry (or a terminal-net graph) scored by per-task scorers part_v1, asm_v1 and ecad_v2.",
+    "source_url": "https://github.com/BenchCAD-org/benchcad-2-main",
+    "source": "researched",
+    "checked": "2026-11-10"
   },
   "berkeleyfunctioncalling4benchmark": {
     "text": "The fourth version of the Berkeley function-calling evaluation, which adds an agentic block: 100 human-written multihop questions answered with search and URL-fetch tools under injected network failures, a memory read and write section, and a format sensitivity section across languages.",
@@ -1676,6 +1692,12 @@
     "source_url": "https://arxiv.org/abs/2608.10677",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "chartographynotools": {
+    "text": "Tests vision-language models on reading specialized professional charts (Kaplan-Meier curves, candlesticks, Bode plots). 100 expert-authored free-form tasks, each verified by three more experts, graded by an LLM judge against expert-calibrated answer ranges.",
+    "source_url": "https://arxiv.org/html/2608.10677",
+    "source": "researched",
+    "checked": "2026-11-10"
   },
   "chartographywtools": {
     "text": "A Surge AI benchmark of 100 chart-reading tasks on specialist chart types (Kaplan-Meier curves, candlestick charts, contour maps, Sankey diagrams, Bode plots), each graded against an expert-set acceptable range; the tooled variant adds a container and an image-cropping tool.",
@@ -2509,6 +2531,12 @@
     "source": "none",
     "checked": "2026-09-22"
   },
+  "cverediscovery": {
+    "text": "Anthropic's internal cybersecurity evaluation measuring how many of 1,829 published CVEs a model can independently identify when given a snapshot of the affected project's source code taken before the vulnerability was fixed.",
+    "source_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    "source": "researched",
+    "checked": "2026-11-10"
+  },
   "cvja": {
     "source": "none",
     "checked": "2026-09-22"
@@ -2627,6 +2655,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "dataengbench": {
+    "text": "Repository-level data engineering benchmark of 103 dbt tasks (build and fix) over a retail warehouse on DuckDB or Snowflake; an agent edits models from a natural-language ticket and hidden pytest verifiers compare materialized tables to a reference.",
+    "source_url": "https://github.com/Snowflake-Labs/data-eng-bench",
+    "source": "researched",
+    "checked": "2026-11-10"
+  },
   "davis": {
     "text": "The Densely Annotated Video Segmentation dataset and challenge for video object segmentation, with per-pixel object masks across video sequences and a defined evaluation protocol.",
     "source_url": "https://arxiv.org/abs/1704.00675",
@@ -2716,6 +2750,10 @@
     "source_url": "https://arxiv.org/abs/2305.10403",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "denovobinderdesign24hr": {
+    "source": "none",
+    "checked": "2026-11-10"
   },
   "dense200": {
     "source": "none",
@@ -3678,6 +3716,12 @@
   "frontiercode11main": {
     "source": "none",
     "checked": "2026-09-22"
+  },
+  "frontiercode20": {
+    "text": "Cognition's agentic coding benchmark: 132 tasks drawn from real open-source repositories with deliberately underspecified prompts, graded against maintainer-written rubrics on whether the resulting change would be mergeable rather than merely meeting the stated spec.",
+    "source_url": "https://cognition.com/blog/frontier-code-2.0",
+    "source": "researched",
+    "checked": "2026-11-10"
   },
   "frontierfinance": {
     "text": "An open set of 220 expert-written investment research queries, each scored against source-attributed rubric items marked must-have or informational, spanning screening, earnings analysis, company research and macro work.",
@@ -4660,6 +4704,12 @@
     "source_url": "https://arxiv.org/abs/2303.17568",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "humanityslastexamwithtools": {
+    "text": "A set of 2,500 expert-written, closed-ended questions (multiple-choice and short-answer, some with images) across dozens of academic subjects, scored against reference answers; the \"with tools\" setting runs the same set with tool access.",
+    "source_url": "https://github.com/centerforaisafety/hle",
+    "source": "researched",
+    "checked": "2026-11-10"
   },
   "humansourcedjailbreaks": {
     "source": "none",
@@ -8257,6 +8307,12 @@
     "source": "researched",
     "checked": "2026-09-28"
   },
+  "osworld21offlinesetpartial": {
+    "text": "OSWorld 2.1 runs agents on long-horizon desktop computer-use workflows inside a virtual machine; the grader awards partial credit via weighted per-task checkpoints, and the 2.1 release adds an offline task subset run without live web services.",
+    "source_url": "https://epoch.ai/benchmarks/osworld-2-1/review",
+    "source": "researched",
+    "checked": "2026-11-10"
+  },
   "osworldg": {
     "text": "A GUI grounding benchmark of 564 finely annotated samples spanning text matching, element recognition, layout understanding and precise manipulation, mapping natural language instructions to actions on a screen.",
     "source_url": "https://arxiv.org/abs/2505.13227",
@@ -9109,6 +9165,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "remotelaborindexrli": {
+    "text": "RLI tests whether AI agents can complete 240 real paid freelance projects sourced from Upwork across 23 job categories; agent deliverables are manually compared against the human gold-standard work to judge client acceptability.",
+    "source_url": "https://arxiv.org/abs/2510.26787",
+    "source": "researched",
+    "checked": "2026-11-10"
+  },
   "repobench": {
     "text": "A repository-level code completion benchmark over multi-file Python and Java projects with three linked tasks: retrieving relevant cross-file snippets, predicting the next line given in-file and cross-file context, and running both together as a pipeline.",
     "source_url": "https://arxiv.org/abs/2306.03091",
@@ -9228,6 +9290,12 @@
     "source_url": "https://arxiv.org/abs/2510.17950",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "robodojosim": {
+    "text": "RoboDojo's simulation split evaluates generalist robot manipulation policies on 42 Isaac Sim tasks spanning generalization, memory, long-horizon, precision and open categories, run with heterogeneous parallel simulation and scored by task success.",
+    "source_url": "https://arxiv.org/abs/2607.04434",
+    "source": "researched",
+    "checked": "2026-11-10"
   },
   "roborefit": {
     "text": "10,872 real RGB-D images of graspable objects across 187 indoor scenes and 66 categories, paired with 50,758 referring expressions and annotated with boxes and masks, with many images holding look-alike distractors.",
@@ -11344,6 +11412,12 @@
     "source_url": "https://arxiv.org/abs/2205.00363",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "wandrrelaxedscore": {
+    "text": "WANDR (Wide ANd Deep Research) is a set of 500 structured, high-volume web research tasks where an agent must find many qualifying entities and cite evidence per record; grading refetches cited pages and applies task-specific judges rather than fixed answer keys.",
+    "source_url": "https://huggingface.co/datasets/perplexity-ai/wandr",
+    "source": "researched",
+    "checked": "2026-11-10"
   },
   "warningcircumvention": {
     "source": "none",
