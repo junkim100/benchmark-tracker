@@ -126,3 +126,11 @@
 {"at":"2026-11-10T20:43:00.460Z","raw":"ExploitGym Hardened","cats":["safety","coding"],"lab":"OpenAI"}
 {"at":"2026-11-10T20:43:00.460Z","raw":"FrontierCyber","cats":["safety","coding"],"lab":"OpenAI"}
 {"at":"2026-11-10T20:43:00.460Z","raw":"Atomic Challenges","cats":["safety","coding"],"lab":"OpenAI"}
+{"at":"2026-11-13T20:53:34.459Z","raw":"Terminal-Bench 4.1","cats":["agentic","coding"],"lab":"Google DeepMind"}
+{"at":"2026-11-13T20:53:34.459Z","raw":"SWE-sweep","cats":["coding"],"lab":"Google DeepMind"}
+{"at":"2026-11-13T20:53:34.459Z","raw":"Agent Arena","cats":["agentic"],"lab":"Google DeepMind"}
+{"at":"2026-11-13T20:53:34.459Z","raw":"Vals Tax Agent Bench","cats":["agentic","knowledge"],"lab":"Google DeepMind"}
+{"at":"2026-11-13T20:53:34.459Z","raw":"Multimodal Knowledge Agent (MKA)","cats":["agentic","vision"],"lab":"Google DeepMind"}
+{"at":"2026-11-13T20:53:34.459Z","raw":"Agents' Last Exam v1.1","cats":["agentic"],"lab":"Google DeepMind"}
+{"at":"2026-11-13T20:53:34.459Z","raw":"MKA","cats":["agentic","vision"],"lab":"Google DeepMind"}
+{"at":"2026-11-13T20:53:34.459Z","raw":"TenK10K","cats":["science"],"lab":"Google DeepMind"}

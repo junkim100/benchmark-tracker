@@ -245,5 +245,6 @@
   "Agentic Safe Completions": "agenticsafecompletionevaluations",
   "Harvey LAB": "harveyslegalagentbenchmark",
   "Speech Agent Arena Elo": "speechagentarena",
-  "FinWorkBench (Finch)": "finchfinworkbench"
+  "FinWorkBench (Finch)": "finchfinworkbench",
+  "Vals Legal Research Bench": "legalresearchbench"
 }

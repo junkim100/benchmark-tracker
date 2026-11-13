@@ -399,27 +399,6 @@
     "seen": "2026-11-10T20:43:00.458Z"
   },
   {
-    "raw": "Agentic Safe Completion Evaluations",
-    "tracked": "Agentic Safe Completions",
-    "reason": "same agentic safe-completion evaluation suite",
-    "lab": "OpenAI",
-    "decision": "REVIEW",
-    "relation": "same_name",
-    "probabilities": {
-      "same_name": 0.95,
-      "version": 0.03,
-      "renamed": 0.01,
-      "different": 0.01
-    },
-    "merge_is_safe": 0.44,
-    "gates": {
-      "same_name_confident": true,
-      "merge_is_safe": false,
-      "version_confident": false
-    },
-    "seen": "2026-11-10T20:43:00.458Z"
-  },
-  {
     "raw": "Auto-Review evaluation",
     "tracked": "Respecting Auto-Review",
     "reason": "same test of whether the model respects Auto-Review rejections",
@@ -502,5 +481,26 @@
       "version_confident": false
     },
     "seen": "2026-11-10T20:43:00.458Z"
+  },
+  {
+    "raw": "HealthBench Pro",
+    "tracked": "HealthBench Professional",
+    "reason": "same professional split of HealthBench, abbreviated name The tracked benchmark \"HealthBench Professional\" is described as: An OpenAI HealthBench variant of 525 clinical conversations written for clinician users, spanning consultation, writing and research use cases across 28 specialties, with physician-written reference responses and per-conversation rubric criteria.",
+    "lab": "Google DeepMind",
+    "decision": "REVIEW",
+    "relation": "same_name",
+    "probabilities": {
+      "same_name": 0.93,
+      "version": 0.04,
+      "renamed": 0,
+      "different": 0.03
+    },
+    "merge_is_safe": 0.35,
+    "gates": {
+      "same_name_confident": true,
+      "merge_is_safe": false,
+      "version_confident": false
+    },
+    "seen": "2026-11-13T20:53:34.459Z"
   }
 ]

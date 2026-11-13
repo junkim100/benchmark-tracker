@@ -229,6 +229,12 @@
     "source": "researched",
     "checked": "2026-09-23"
   },
+  "agentslastexam11": {
+    "text": "ALE v1.1 tests AI agents on long-horizon, economically valuable professional tasks with verifiable outcomes, using 122 public reference tasks across 55 sub-industries, graded against hidden references plus rotating held-out private tasks.",
+    "source_url": "https://snorkel.ai/leaderboard/agents-last-exam/",
+    "source": "researched",
+    "checked": "2026-11-13"
+  },
   "agenttalk": {
     "text": "AA-AgentTalk is a held-out proprietary speech dataset of utterances directed at voice agents, used as one component of Artificial Analysis' AA-WER v2.0 speech-to-text benchmark, which scores transcriptions by normalized word error rate.",
     "source_url": "https://artificialanalysis.ai/articles/aa-wer-v2",
@@ -4385,6 +4391,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "healthbenchpro": {
+    "text": "OpenAI benchmark of 525 physician-authored conversations with ChatGPT for Clinicians, spanning care consult, writing and documentation, and medical research; responses are scored by a model grader against physician-written, adjudicated rubric criteria with positive and negative point values.",
+    "source_url": "https://arxiv.org/abs/2604.27470",
+    "source": "researched",
+    "checked": "2026-11-13"
+  },
   "healthbenchprofessional": {
     "text": "An OpenAI HealthBench variant of 525 clinical conversations written for clinician users, spanning consultation, writing and research use cases across 28 specialties, with physician-written reference responses and per-conversation rubric criteria.",
     "source_url": "https://huggingface.co/datasets/openai/healthbench-professional",
@@ -7517,6 +7529,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "multimodalknowledgeagentmka": {
+    "text": "MKA measures agents on end-to-end professional knowledge work driven by visually complex input files: 200 expert-written multi-step tasks, each graded by an agentic autorater against a rubric of about 70 yes/no checks.",
+    "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/",
+    "source": "researched",
+    "checked": "2026-11-13"
+  },
   "multimodalrefusalevaluation": {
     "text": "An OpenAI safety set of combined text-and-image prompts covering disallowed content such as sexual or exploitative material and self-harm, scored both on whether the reply was unsafe and on whether benign requests were over-refused.",
     "source_url": "https://arxiv.org/abs/2412.16720",
@@ -10311,6 +10329,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "swesweep": {
+    "text": "SWE-sweep gives an agent a repository snapshot with no issue description and asks it to find and fix as many bugs as it can; each of 4,068 bugs across 100 repos and 22 languages is scored by hidden fail-to-pass tests plus the original suite.",
+    "source_url": "https://swesweep.com/",
+    "source": "researched",
+    "checked": "2026-11-13"
+  },
   "switchboard": {
     "text": "About 260 hours of two-sided English telephone conversation, roughly 2,400 topic-prompted calls among 543 US speakers recorded at 8 kHz and transcribed, long used as a conversational speech recognition test set.",
     "source_url": "https://catalog.ldc.upenn.edu/LDC97S62",
@@ -10561,6 +10585,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "tenk10k": {
+    "text": "Population-scale cohort pairing genome sequencing with single-cell RNA-seq of PBMCs (about 5 million cells, 28 immune cell types, 1,925 Phase 1 donors); its cell-type-specific eQTLs are used to score prediction of causal variants and the direction of their effect on gene expression.",
+    "source_url": "https://www.medrxiv.org/content/medrxiv/early/2025/09/17/2025.08.28.25334614.full.pdf",
+    "source": "researched",
+    "checked": "2026-11-13"
+  },
   "terminal-bench": {
     "text": "80 hand-written, human-verified command-line tasks, each shipped as a Docker environment with an instruction and a test script that checks whether the agent's work in the terminal actually succeeded.",
     "source_url": "https://www.tbench.ai/news/announcement",
@@ -10594,6 +10624,12 @@
     "source_url": "https://www.tbench.ai/news/terminal-bench-4-0",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "terminalbench41": {
+    "text": "Terminal-Bench evaluates whether an agent can complete software engineering and systems tasks in a containerized terminal environment, each task graded by a programmatic verifier. Release 4.1 is a verifier-only update for reward-hack resistance and reproducibility, with no task changes.",
+    "source_url": "https://www.tbench.ai/news/terminal-bench-4-1",
+    "source": "researched",
+    "checked": "2026-11-13"
   },
   "terminalbenchhard": {
     "text": "The hard difficulty tier of Terminal-Bench, an agentic benchmark of terminal tasks spanning software engineering, system administration and data processing, checked by verification scripts run inside Docker containers.",
@@ -11042,6 +11078,12 @@
     "source_url": "https://www.vals.ai/",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "valstaxagentbench": {
+    "text": "An agentic benchmark of 391 expert-written US corporate tax research questions (federal corporate income tax plus partnership, SALT, transfer pricing and employment tax), where agents use a shared set of research tools and answers are graded against practitioner-written rubrics.",
+    "source_url": "https://www.vals.ai/benchmarks/tax_agent_bench",
+    "source": "researched",
+    "checked": "2026-11-13"
   },
   "vatex": {
     "text": "A multilingual video description dataset of more than 41,250 videos and 825,000 English and Chinese captions, supporting multilingual video captioning and video-guided machine translation.",

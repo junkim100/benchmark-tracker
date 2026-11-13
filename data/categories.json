@@ -524,6 +524,34 @@
     "atomicchallenges": [
       "safety",
       "coding"
+    ],
+    "terminalbench41": [
+      "agentic",
+      "coding"
+    ],
+    "swesweep": [
+      "coding"
+    ],
+    "agentarena": [
+      "agentic"
+    ],
+    "valstaxagentbench": [
+      "agentic",
+      "knowledge"
+    ],
+    "multimodalknowledgeagentmka": [
+      "agentic",
+      "vision"
+    ],
+    "agentslastexam11": [
+      "agentic"
+    ],
+    "mka": [
+      "agentic",
+      "vision"
+    ],
+    "tenk10k": [
+      "science"
     ]
   }
 }

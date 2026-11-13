@@ -601,5 +601,37 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "upstage-information-extract-261113-2026-11-13",
+    "lab": "upstage",
+    "model": "information-extract-261113",
+    "date": "2026-11-13",
+    "kind": "model_release",
+    "title": "Information Extract | Upstage Model Specs, Pricing & Versions",
+    "source_url": "https://console.upstage.ai/docs/models/information-extract",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "upstage-document-classify-261113-2026-11-13",
+    "lab": "upstage",
+    "model": "document-classify-261113",
+    "date": "2026-11-13",
+    "kind": "model_release",
+    "title": "Document Classify | Upstage Model Specs, Pricing & Versions",
+    "source_url": "https://console.upstage.ai/docs/models/document-classify",
+    "benchmarks_raw": [],
+    "modality": {
+      "classes": [
+        "vision"
+      ],
+      "source": "reported"
+    }
   }
 ]

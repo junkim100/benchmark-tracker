@@ -1737,7 +1737,7 @@
       "xiaomi"
     ],
     "first_seen": "2026-09-01",
-    "last_seen": "2026-10-29",
+    "last_seen": "2026-11-12",
     "labs_by_year": {
       "2026": 8
     },
@@ -6066,6 +6066,29 @@
     "recent_share": 1
   },
   {
+    "id": "automationbenchaa",
+    "name": "AutomationBench-AA",
+    "lab_count": 3,
+    "labs": [
+      "google",
+      "moonshot",
+      "upstage"
+    ],
+    "first_seen": "2026-10-01",
+    "last_seen": "2026-11-12",
+    "labs_by_year": {
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 3
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "automationbench",
+    "recent_share": 0
+  },
+  {
     "id": "benchcad",
     "name": "BenchCAD",
     "lab_count": 3,
@@ -6979,6 +7002,30 @@
     ],
     "suite": null,
     "recent_share": 0
+  },
+  {
+    "id": "legalresearchbench",
+    "name": "Legal Research Bench",
+    "lab_count": 3,
+    "labs": [
+      "google",
+      "moonshot",
+      "openai"
+    ],
+    "first_seen": "2026-07-16",
+    "last_seen": "2026-11-12",
+    "labs_by_year": {
+      "2026": 3
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 2,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": null,
+    "recent_share": 2
   },
   {
     "id": "lmsysarena",
@@ -8490,6 +8537,29 @@
     "recent_share": 1
   },
   {
+    "id": "agentarena",
+    "name": "Agent Arena",
+    "lab_count": 2,
+    "labs": [
+      "google",
+      "moonshot"
+    ],
+    "first_seen": "2026-07-27",
+    "last_seen": "2026-11-12",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 1,
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 1
+  },
+  {
     "id": "agentdojo",
     "name": "AgentDojo",
     "lab_count": 2,
@@ -8948,28 +9018,6 @@
       "other"
     ],
     "suite": null,
-    "recent_share": 0
-  },
-  {
-    "id": "automationbenchaa",
-    "name": "AutomationBench-AA",
-    "lab_count": 2,
-    "labs": [
-      "moonshot",
-      "upstage"
-    ],
-    "first_seen": "2026-10-01",
-    "last_seen": "2026-10-24",
-    "labs_by_year": {
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2026-Q4": 2
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": "automationbench",
     "recent_share": 0
   },
   {
@@ -10604,6 +10652,29 @@
     "recent_share": 2
   },
   {
+    "id": "hlediamond",
+    "name": "HLE-Diamond",
+    "lab_count": 2,
+    "labs": [
+      "google",
+      "moonshot"
+    ],
+    "first_seen": "2026-10-24",
+    "last_seen": "2026-11-12",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 2
+    },
+    "categories": [
+      "knowledge",
+      "reasoning"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "hleverified",
     "name": "HLE-Verified",
     "lab_count": 2,
@@ -11085,28 +11156,6 @@
     ],
     "suite": null,
     "recent_share": 3
-  },
-  {
-    "id": "legalresearchbench",
-    "name": "Legal Research Bench",
-    "lab_count": 2,
-    "labs": [
-      "moonshot",
-      "openai"
-    ],
-    "first_seen": "2026-07-16",
-    "last_seen": "2026-09-17",
-    "labs_by_year": {
-      "2026": 2
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 2
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": null,
-    "recent_share": 2
   },
   {
     "id": "librispeechclean",
@@ -15442,27 +15491,6 @@
     "recent_share": 0
   },
   {
-    "id": "agentarena",
-    "name": "Agent Arena",
-    "lab_count": 1,
-    "labs": [
-      "moonshot"
-    ],
-    "first_seen": "2026-07-27",
-    "last_seen": "2026-07-27",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 1
-    },
-    "categories": [
-      "agentic"
-    ],
-    "suite": null,
-    "recent_share": 1
-  },
-  {
     "id": "agentbehaviorbench",
     "name": "Agent Behavior Bench",
     "lab_count": 1,
@@ -15712,6 +15740,27 @@
     },
     "labs_by_quarter": {
       "2026-Q3": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": "agentslastexam",
+    "recent_share": 0
+  },
+  {
+    "id": "agentslastexam11",
+    "name": "Agents' Last Exam v1.1",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-11-12",
+    "last_seen": "2026-11-12",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
     },
     "categories": [
       "agentic"
@@ -27103,7 +27152,7 @@
       "google"
     ],
     "first_seen": "2026-09-02",
-    "last_seen": "2026-10-28",
+    "last_seen": "2026-11-12",
     "labs_by_year": {
       "2026": 1
     },
@@ -27917,6 +27966,27 @@
     "recent_share": 0
   },
   {
+    "id": "healthbenchpro",
+    "name": "HealthBench Pro",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-11-12",
+    "last_seen": "2026-11-12",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "science"
+    ],
+    "suite": "healthbench",
+    "recent_share": 0
+  },
+  {
     "id": "healthsearchqa",
     "name": "HealthSearchQA",
     "lab_count": 1,
@@ -28179,28 +28249,6 @@
     ],
     "suite": null,
     "recent_share": 1
-  },
-  {
-    "id": "hlediamond",
-    "name": "HLE-Diamond",
-    "lab_count": 1,
-    "labs": [
-      "moonshot"
-    ],
-    "first_seen": "2026-10-24",
-    "last_seen": "2026-10-24",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q4": 1
-    },
-    "categories": [
-      "knowledge",
-      "reasoning"
-    ],
-    "suite": null,
-    "recent_share": 0
   },
   {
     "id": "hlefull",
@@ -37107,6 +37155,28 @@
     "recent_share": 0
   },
   {
+    "id": "multimodalknowledgeagentmka",
+    "name": "Multimodal Knowledge Agent (MKA)",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-11-12",
+    "last_seen": "2026-11-12",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic",
+      "vision"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "multimodalrefusalevaluation",
     "name": "Multimodal Refusal Evaluation",
     "lab_count": 1,
@@ -45512,6 +45582,27 @@
     "recent_share": 0
   },
   {
+    "id": "swesweep",
+    "name": "SWE-sweep",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-11-12",
+    "last_seen": "2026-11-12",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "switchboard",
     "name": "Switchboard",
     "lab_count": 1,
@@ -46185,6 +46276,27 @@
     "recent_share": 0
   },
   {
+    "id": "tenk10k",
+    "name": "TenK10K",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-11-11",
+    "last_seen": "2026-11-11",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "science"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "terminalbench10",
     "name": "Terminal-Bench 1.0",
     "lab_count": 1,
@@ -46202,6 +46314,28 @@
     "categories": [
       "coding",
       "agentic"
+    ],
+    "suite": "terminal-bench",
+    "recent_share": 0
+  },
+  {
+    "id": "terminalbench41",
+    "name": "Terminal-Bench 4.1",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-11-12",
+    "last_seen": "2026-11-12",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic",
+      "coding"
     ],
     "suite": "terminal-bench",
     "recent_share": 0
@@ -47428,6 +47562,28 @@
     },
     "categories": [
       "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "valstaxagentbench",
+    "name": "Vals Tax Agent Bench",
+    "lab_count": 1,
+    "labs": [
+      "google"
+    ],
+    "first_seen": "2026-11-12",
+    "last_seen": "2026-11-12",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic",
+      "knowledge"
     ],
     "suite": null,
     "recent_share": 0

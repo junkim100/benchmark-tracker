@@ -4849,5 +4849,85 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "google-alphagenome-2-2026-11-11",
+    "lab": "google",
+    "model": "AlphaGenome 2",
+    "date": "2026-11-11",
+    "kind": "model_release",
+    "title": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
+    "source_url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
+    "benchmarks_raw": [
+      "TenK10K"
+    ],
+    "modality": {
+      "classes": [
+        "other"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "google-gemini-4-hydrogen-2026-11-12",
+    "lab": "google",
+    "model": "Gemini 4 Hydrogen",
+    "date": "2026-11-12",
+    "kind": "model_release",
+    "title": "Introducing Gemini 4 Hydrogen",
+    "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+    "benchmarks_raw": [
+      "Artificial Analysis Intelligence Index",
+      "Terminal-Bench 4.0",
+      "Terminal-Bench 4.1",
+      "SWE-sweep",
+      "Agent Arena",
+      "HLE-Diamond",
+      "Vals Tax Agent Bench",
+      "Vals Legal Research Bench",
+      "AutomationBench-AA",
+      "Multimodal Knowledge Agent (MKA)",
+      "Agents' Last Exam v1.1",
+      "Gray Swan IPI benchmark",
+      "HealthBench Pro"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "google-gemini-4-hydrogen-2026-11-12",
+    "lab": "google",
+    "model": "Gemini 4 Hydrogen",
+    "date": "2026-11-12",
+    "kind": "system_card",
+    "title": "Gemini 4 Hydrogen - Model Card",
+    "source_url": "https://deepmind.google/models/model-cards/gemini-4-hydrogen/",
+    "benchmarks_raw": [
+      "SWE-sweep",
+      "Terminal-Bench 4.1",
+      "Agents' Last Exam v1.1",
+      "AutomationBench-AA",
+      "Vending-Bench 2",
+      "OSWorld-2.1",
+      "MKA",
+      "Chartography",
+      "Terminal-Bench-Science 0.1",
+      "HLE-Diamond",
+      "Text to Text Safety",
+      "Multilingual Safety",
+      "Image to Text Safety",
+      "Tone",
+      "Unjustified-refusals"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]
