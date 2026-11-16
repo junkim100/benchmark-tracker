@@ -2374,6 +2374,33 @@
     "recent_share": 1
   },
   {
+    "id": "chartography",
+    "name": "Chartography",
+    "lab_count": 6,
+    "labs": [
+      "anthropic",
+      "deepseek",
+      "google",
+      "moonshot",
+      "qwen",
+      "zai"
+    ],
+    "first_seen": "2026-07-24",
+    "last_seen": "2026-11-16",
+    "labs_by_year": {
+      "2026": 6
+    },
+    "labs_by_quarter": {
+      "2026-Q3": 3,
+      "2026-Q4": 4
+    },
+    "categories": [
+      "vision"
+    ],
+    "suite": null,
+    "recent_share": 2
+  },
+  {
     "id": "egoschema",
     "name": "EgoSchema",
     "lab_count": 6,
@@ -3389,32 +3416,6 @@
     ],
     "suite": null,
     "recent_share": 5
-  },
-  {
-    "id": "chartography",
-    "name": "Chartography",
-    "lab_count": 5,
-    "labs": [
-      "anthropic",
-      "deepseek",
-      "google",
-      "moonshot",
-      "zai"
-    ],
-    "first_seen": "2026-07-24",
-    "last_seen": "2026-10-24",
-    "labs_by_year": {
-      "2026": 5
-    },
-    "labs_by_quarter": {
-      "2026-Q3": 3,
-      "2026-Q4": 3
-    },
-    "categories": [
-      "vision"
-    ],
-    "suite": null,
-    "recent_share": 2
   },
   {
     "id": "charxiv",

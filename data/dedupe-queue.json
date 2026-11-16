@@ -7,12 +7,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.89,
-      "version": 0.04,
+      "same_name": 0.92,
+      "version": 0.03,
       "renamed": 0.01,
-      "different": 0.06
+      "different": 0.04
     },
-    "merge_is_safe": 0.56,
+    "merge_is_safe": 0.58,
     "gates": {
       "same_name_confident": true,
       "merge_is_safe": false,
@@ -31,12 +31,12 @@
     "decision": "REVIEW",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.4,
-      "version": 0.57,
+      "same_name": 0.43,
+      "version": 0.54,
       "renamed": 0,
       "different": 0.03
     },
-    "merge_is_safe": 0.5,
+    "merge_is_safe": 0.47,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -60,7 +60,7 @@
       "renamed": 0,
       "different": 0.01
     },
-    "merge_is_safe": 0.55,
+    "merge_is_safe": 0.59,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -79,12 +79,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.06,
-      "version": 0.82,
+      "same_name": 0.05,
+      "version": 0.84,
       "renamed": 0,
-      "different": 0.12
+      "different": 0.11
     },
-    "merge_is_safe": 0.21,
+    "merge_is_safe": 0.19,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -108,7 +108,7 @@
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.6,
+    "merge_is_safe": 0.61,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -127,12 +127,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.24,
+      "same_name": 0.25,
       "version": 0.74,
-      "renamed": 0.02,
+      "renamed": 0.01,
       "different": 0
     },
-    "merge_is_safe": 0.56,
+    "merge_is_safe": 0.59,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -148,19 +148,19 @@
     "tracked": "CIFAR-100",
     "reason": "Both cite the same source page, https://cave.cs.toronto.edu/kriz/cifar.html. \"CIFAR-10\" is described as: 60,000 colour images of 32 by 32 pixels in ten mutually exclusive object classes, split into 50,000 for training and 10,000 for testing, used as a small-scale image classification task. \"CIFAR-100\" is described as: 60,000 colour images of 32x32 pixels across 100 classes grouped into 20 superclasses, with 500 training and 100 test images per class; each image carries both a fine and a coarse label. Found by scanning descriptions: same source, one name contains the other.",
     "lab": "meta",
-    "decision": "REVIEW",
-    "relation": "different",
+    "decision": "SUITE",
+    "relation": "version",
     "probabilities": {
       "same_name": 0,
-      "version": 0.49,
+      "version": 0.61,
       "renamed": 0,
-      "different": 0.51
+      "different": 0.39
     },
     "merge_is_safe": 0.05,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
-      "version_confident": false
+      "version_confident": true
     },
     "_ids": [
       "cifar10",
@@ -180,7 +180,7 @@
       "renamed": 0,
       "different": 0.01
     },
-    "merge_is_safe": 0.28,
+    "merge_is_safe": 0.27,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -200,11 +200,11 @@
     "relation": "version",
     "probabilities": {
       "same_name": 0.02,
-      "version": 0.97,
+      "version": 0.96,
       "renamed": 0,
-      "different": 0.01
+      "different": 0.02
     },
-    "merge_is_safe": 0.29,
+    "merge_is_safe": 0.27,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -228,7 +228,7 @@
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.81,
+    "merge_is_safe": 0.83,
     "gates": {
       "same_name_confident": true,
       "merge_is_safe": true,
@@ -247,12 +247,12 @@
     "decision": "REVIEW",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.47,
-      "version": 0.53,
+      "same_name": 0.43,
+      "version": 0.57,
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.74,
+    "merge_is_safe": 0.73,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": true,
@@ -268,19 +268,19 @@
     "tracked": "DeepSWE (v1.1)",
     "reason": "Both cite the same source page, https://arxiv.org/abs/2607.07946. \"DeepSWE\" is described as: 113 original long-horizon software engineering tasks written for the benchmark rather than mined from merged GitHub fixes, spanning 91 repositories across TypeScript, Go, Python, JavaScript and Rust. \"DeepSWE (v1.1)\" is described as: A coding agent benchmark whose tasks are written from scratch against active open-source repositories in five languages and never contributed upstream, each graded by a hand-written verifier that accepts any implementation providing the requested functionality. Found by scanning descriptions: same source, one name contains the other.",
     "lab": "deepseek",
-    "decision": "SUITE",
+    "decision": "REVIEW",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.36,
-      "version": 0.64,
+      "same_name": 0.44,
+      "version": 0.56,
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.65,
+    "merge_is_safe": 0.67,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
-      "version_confident": true
+      "version_confident": false
     },
     "_ids": [
       "deepswe",
@@ -295,12 +295,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.64,
-      "version": 0.2,
+      "same_name": 0.61,
+      "version": 0.23,
       "renamed": 0.01,
       "different": 0.15
     },
-    "merge_is_safe": 0.41,
+    "merge_is_safe": 0.42,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -324,7 +324,7 @@
       "renamed": 0.01,
       "different": 0.02
     },
-    "merge_is_safe": 0.68,
+    "merge_is_safe": 0.62,
     "gates": {
       "same_name_confident": true,
       "merge_is_safe": false,
@@ -343,12 +343,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.58,
-      "version": 0.41,
+      "same_name": 0.67,
+      "version": 0.32,
       "renamed": 0.01,
       "different": 0
     },
-    "merge_is_safe": 0.83,
+    "merge_is_safe": 0.85,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": true,
@@ -367,12 +367,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.81,
+      "same_name": 0.82,
       "version": 0.01,
       "renamed": 0,
-      "different": 0.18
+      "different": 0.17
     },
-    "merge_is_safe": 0.49,
+    "merge_is_safe": 0.46,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -391,12 +391,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.72,
-      "version": 0.26,
+      "same_name": 0.75,
+      "version": 0.24,
       "renamed": 0.01,
-      "different": 0.01
+      "different": 0
     },
-    "merge_is_safe": 0.64,
+    "merge_is_safe": 0.68,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -415,12 +415,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.91,
-      "version": 0.01,
+      "same_name": 0.93,
+      "version": 0,
       "renamed": 0.01,
-      "different": 0.07
+      "different": 0.06
     },
-    "merge_is_safe": 0.46,
+    "merge_is_safe": 0.48,
     "gates": {
       "same_name_confident": true,
       "merge_is_safe": false,
@@ -439,12 +439,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.18,
-      "version": 0.81,
+      "same_name": 0.24,
+      "version": 0.75,
       "renamed": 0,
       "different": 0.01
     },
-    "merge_is_safe": 0.62,
+    "merge_is_safe": 0.65,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -468,7 +468,7 @@
       "renamed": 0,
       "different": 0.01
     },
-    "merge_is_safe": 0.22,
+    "merge_is_safe": 0.25,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -487,12 +487,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.9,
-      "version": 0.02,
+      "same_name": 0.85,
+      "version": 0.03,
       "renamed": 0.02,
-      "different": 0.06
+      "different": 0.1
     },
-    "merge_is_safe": 0.64,
+    "merge_is_safe": 0.59,
     "gates": {
       "same_name_confident": true,
       "merge_is_safe": false,
@@ -516,7 +516,7 @@
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.18,
+    "merge_is_safe": 0.17,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -535,12 +535,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.64,
-      "version": 0.36,
+      "same_name": 0.57,
+      "version": 0.43,
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.84,
+    "merge_is_safe": 0.81,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": true,
@@ -559,12 +559,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.1,
-      "version": 0.88,
+      "same_name": 0.11,
+      "version": 0.86,
       "renamed": 0,
-      "different": 0.02
+      "different": 0.03
     },
-    "merge_is_safe": 0.43,
+    "merge_is_safe": 0.4,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -588,7 +588,7 @@
       "renamed": 0,
       "different": 0.01
     },
-    "merge_is_safe": 0.26,
+    "merge_is_safe": 0.25,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -607,8 +607,8 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.56,
-      "version": 0.44,
+      "same_name": 0.53,
+      "version": 0.47,
       "renamed": 0,
       "different": 0
     },
@@ -631,12 +631,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.03,
-      "version": 0.95,
+      "same_name": 0.01,
+      "version": 0.97,
       "renamed": 0,
       "different": 0.02
     },
-    "merge_is_safe": 0.2,
+    "merge_is_safe": 0.22,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -655,8 +655,8 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.63,
-      "version": 0.36,
+      "same_name": 0.68,
+      "version": 0.31,
       "renamed": 0.01,
       "different": 0
     },
@@ -703,12 +703,12 @@
     "decision": "REVIEW",
     "relation": "different",
     "probabilities": {
-      "same_name": 0.24,
-      "version": 0.08,
+      "same_name": 0.28,
+      "version": 0.09,
       "renamed": 0.02,
-      "different": 0.66
+      "different": 0.61
     },
-    "merge_is_safe": 0.24,
+    "merge_is_safe": 0.23,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -727,10 +727,10 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.8,
+      "same_name": 0.79,
       "version": 0.15,
       "renamed": 0.01,
-      "different": 0.04
+      "different": 0.05
     },
     "merge_is_safe": 0.5,
     "gates": {
@@ -799,12 +799,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.77,
-      "version": 0.21,
+      "same_name": 0.8,
+      "version": 0.18,
       "renamed": 0,
       "different": 0.02
     },
-    "merge_is_safe": 0.54,
+    "merge_is_safe": 0.53,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -828,7 +828,7 @@
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.47,
+    "merge_is_safe": 0.45,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -852,7 +852,7 @@
       "renamed": 0,
       "different": 0.01
     },
-    "merge_is_safe": 0.2,
+    "merge_is_safe": 0.23,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -895,9 +895,9 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.33,
-      "version": 0.6,
-      "renamed": 0.06,
+      "same_name": 0.32,
+      "version": 0.63,
+      "renamed": 0.04,
       "different": 0.01
     },
     "merge_is_safe": 0.5,
@@ -917,14 +917,14 @@
     "reason": "Both cite the same source page, https://arxiv.org/abs/2510.17950. \"RoboChallenge Table30\" is described as: 30 tabletop manipulation tasks run on real UR5, Franka Panda, ARX-5 and Cobot Magic Aloha arms hosted online, each rolled out 10 times and graded on task success plus a staged progress score with deductions for retries. \"RoboChallenge Table30 v1\" is described as: 30 tabletop manipulation tasks executed on a fleet of online-hosted real robots, stressing precise 3D placement, occlusion and multi-view perception, memory of progress, and long-horizon sequences, scored by success rate and a partial-progress score. Found by scanning descriptions: same source, one name contains the other.",
     "lab": "qwen",
     "decision": "REVIEW",
-    "relation": "same_name",
+    "relation": "version",
     "probabilities": {
-      "same_name": 0.53,
-      "version": 0.46,
-      "renamed": 0.01,
+      "same_name": 0.44,
+      "version": 0.54,
+      "renamed": 0.02,
       "different": 0
     },
-    "merge_is_safe": 0.76,
+    "merge_is_safe": 0.72,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": true,
@@ -943,12 +943,12 @@
     "decision": "REVIEW",
     "relation": "different",
     "probabilities": {
-      "same_name": 0.31,
-      "version": 0.26,
+      "same_name": 0.25,
+      "version": 0.24,
       "renamed": 0.01,
-      "different": 0.42
+      "different": 0.5
     },
-    "merge_is_safe": 0.25,
+    "merge_is_safe": 0.23,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -967,12 +967,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.6,
-      "version": 0.18,
+      "same_name": 0.57,
+      "version": 0.21,
       "renamed": 0.01,
       "different": 0.21
     },
-    "merge_is_safe": 0.41,
+    "merge_is_safe": 0.38,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -996,7 +996,7 @@
       "renamed": 0,
       "different": 0
     },
-    "merge_is_safe": 0.38,
+    "merge_is_safe": 0.41,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1016,11 +1016,11 @@
     "relation": "version",
     "probabilities": {
       "same_name": 0.09,
-      "version": 0.8,
+      "version": 0.79,
       "renamed": 0,
-      "different": 0.11
+      "different": 0.12
     },
-    "merge_is_safe": 0.22,
+    "merge_is_safe": 0.23,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1039,8 +1039,8 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.75,
-      "version": 0.24,
+      "same_name": 0.8,
+      "version": 0.19,
       "renamed": 0.01,
       "different": 0
     },
@@ -1063,12 +1063,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.27,
-      "version": 0.72,
+      "same_name": 0.31,
+      "version": 0.68,
       "renamed": 0.01,
       "different": 0
     },
-    "merge_is_safe": 0.64,
+    "merge_is_safe": 0.67,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1087,12 +1087,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.91,
-      "version": 0.07,
+      "same_name": 0.92,
+      "version": 0.06,
       "renamed": 0,
       "different": 0.02
     },
-    "merge_is_safe": 0.67,
+    "merge_is_safe": 0.68,
     "gates": {
       "same_name_confident": true,
       "merge_is_safe": false,
@@ -1111,12 +1111,12 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.63,
-      "version": 0.27,
+      "same_name": 0.61,
+      "version": 0.29,
       "renamed": 0.01,
       "different": 0.09
     },
-    "merge_is_safe": 0.6,
+    "merge_is_safe": 0.57,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,
@@ -1135,15 +1135,15 @@
     "decision": "REVIEW",
     "relation": "same_name",
     "probabilities": {
-      "same_name": 0.74,
-      "version": 0.25,
+      "same_name": 0.7,
+      "version": 0.29,
       "renamed": 0.01,
       "different": 0
     },
-    "merge_is_safe": 0.71,
+    "merge_is_safe": 0.69,
     "gates": {
       "same_name_confident": false,
-      "merge_is_safe": true,
+      "merge_is_safe": false,
       "version_confident": false
     },
     "_ids": [
@@ -1159,12 +1159,12 @@
     "decision": "SUITE",
     "relation": "version",
     "probabilities": {
-      "same_name": 0.23,
-      "version": 0.7,
+      "same_name": 0.19,
+      "version": 0.73,
       "renamed": 0,
-      "different": 0.07
+      "different": 0.08
     },
-    "merge_is_safe": 0.38,
+    "merge_is_safe": 0.4,
     "gates": {
       "same_name_confident": false,
       "merge_is_safe": false,

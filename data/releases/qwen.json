@@ -4902,5 +4902,23 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "qwen-qwen4-max-2026-11-16",
+    "lab": "qwen",
+    "model": "Qwen4-Max",
+    "date": "2026-11-16",
+    "kind": "model_release",
+    "title": "Qwen4-Max: Your New Teammate Has Arrived",
+    "source_url": "https://qwen.ai/blog?id=qwen4-max",
+    "benchmarks_raw": [
+      "ChartoGraphy"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]
