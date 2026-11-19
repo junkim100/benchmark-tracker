@@ -134,3 +134,6 @@
 {"at":"2026-11-13T20:53:34.459Z","raw":"Agents' Last Exam v1.1","cats":["agentic"],"lab":"Google DeepMind"}
 {"at":"2026-11-13T20:53:34.459Z","raw":"MKA","cats":["agentic","vision"],"lab":"Google DeepMind"}
 {"at":"2026-11-13T20:53:34.459Z","raw":"TenK10K","cats":["science"],"lab":"Google DeepMind"}
+{"at":"2026-11-19T22:01:28.056Z","raw":"GDPval v2","cats":["agentic","knowledge"],"lab":"OpenAI"}
+{"at":"2026-11-19T22:01:28.056Z","raw":"AA-AnalystAgent","cats":["agentic"],"lab":"OpenAI"}
+{"at":"2026-11-19T22:01:28.056Z","raw":"SecureSWE","cats":["coding","safety"],"lab":"OpenAI"}

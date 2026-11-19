@@ -3246,5 +3246,46 @@
       ],
       "source": "reported"
     }
+  },
+  {
+    "id": "openai-gpt-6-2-astra-gpt-6-2-sol-2026-11-17",
+    "lab": "openai",
+    "model": "GPT-6.2 Astra, GPT-6.2 Sol",
+    "date": "2026-11-17",
+    "kind": "model_release",
+    "title": "Introducing GPT-6.2 Astra and Sol",
+    "source_url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+    "benchmarks_raw": [
+      "Terminal-Bench-Science 0.1",
+      "FrontierCode 2.0",
+      "GDPval v2",
+      "AA-AnalystAgent",
+      "SecureSWE",
+      "Blocker Deception"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
+  },
+  {
+    "id": "openai-gpt-6-2-astra-gpt-6-2-sol-2026-11-17",
+    "lab": "openai",
+    "model": "GPT-6.2 Astra, GPT-6.2 Sol",
+    "date": "2026-11-17",
+    "kind": "system_card",
+    "title": "GPT-6.2 Astra and Sol System Card",
+    "source_url": "https://deploymentsafety.openai.com/gpt-6-2-astra-sol/gpt-6-2-astra-sol.pdf",
+    "benchmarks_raw": [
+      "SEC-Bench Pro"
+    ],
+    "modality": {
+      "classes": [
+        "language"
+      ],
+      "source": "reported"
+    }
   }
 ]

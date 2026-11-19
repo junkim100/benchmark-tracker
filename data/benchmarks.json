@@ -5746,13 +5746,13 @@
       "openai"
     ],
     "first_seen": "2026-09-01",
-    "last_seen": "2026-11-09",
+    "last_seen": "2026-11-17",
     "labs_by_year": {
       "2026": 4
     },
     "labs_by_quarter": {
       "2026-Q3": 2,
-      "2026-Q4": 3
+      "2026-Q4": 4
     },
     "categories": [
       "coding",
@@ -10314,6 +10314,28 @@
     ],
     "suite": "frontiercode",
     "recent_share": 1
+  },
+  {
+    "id": "frontiercode20",
+    "name": "FrontierCode 2.0",
+    "lab_count": 2,
+    "labs": [
+      "anthropic",
+      "openai"
+    ],
+    "first_seen": "2026-11-09",
+    "last_seen": "2026-11-17",
+    "labs_by_year": {
+      "2026": 2
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 2
+    },
+    "categories": [
+      "other"
+    ],
+    "suite": "frontiercode",
+    "recent_share": 0
   },
   {
     "id": "frontierfinance",
@@ -15126,6 +15148,27 @@
     "recent_share": 1
   },
   {
+    "id": "aaanalystagent",
+    "name": "AA-AnalystAgent",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-11-17",
+    "last_seen": "2026-11-17",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
     "id": "aacyberindex",
     "name": "AA Cyber Index",
     "lab_count": 1,
@@ -19023,7 +19066,7 @@
       "openai"
     ],
     "first_seen": "2026-10-07",
-    "last_seen": "2026-10-30",
+    "last_seen": "2026-11-17",
     "labs_by_year": {
       "2026": 1
     },
@@ -26113,27 +26156,6 @@
     "recent_share": 1
   },
   {
-    "id": "frontiercode20",
-    "name": "FrontierCode 2.0",
-    "lab_count": 1,
-    "labs": [
-      "anthropic"
-    ],
-    "first_seen": "2026-11-09",
-    "last_seen": "2026-11-09",
-    "labs_by_year": {
-      "2026": 1
-    },
-    "labs_by_quarter": {
-      "2026-Q4": 1
-    },
-    "categories": [
-      "other"
-    ],
-    "suite": "frontiercode",
-    "recent_share": 0
-  },
-  {
     "id": "frontiermath",
     "name": "FrontierMath",
     "lab_count": 1,
@@ -26522,6 +26544,28 @@
     ],
     "suite": null,
     "recent_share": 1
+  },
+  {
+    "id": "gdpval2",
+    "name": "GDPval v2",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-11-17",
+    "last_seen": "2026-11-17",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "agentic",
+      "knowledge"
+    ],
+    "suite": "gdpval",
+    "recent_share": 0
   },
   {
     "id": "geckonum",
@@ -43917,6 +43961,28 @@
     },
     "categories": [
       "other"
+    ],
+    "suite": null,
+    "recent_share": 0
+  },
+  {
+    "id": "secureswe",
+    "name": "SecureSWE",
+    "lab_count": 1,
+    "labs": [
+      "openai"
+    ],
+    "first_seen": "2026-11-17",
+    "last_seen": "2026-11-17",
+    "labs_by_year": {
+      "2026": 1
+    },
+    "labs_by_quarter": {
+      "2026-Q4": 1
+    },
+    "categories": [
+      "coding",
+      "safety"
     ],
     "suite": null,
     "recent_share": 0

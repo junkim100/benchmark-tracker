@@ -15,6 +15,12 @@
     "source": "researched",
     "checked": "2026-09-22"
   },
+  "aaanalystagent": {
+    "text": "AA-AnalystAgent evaluates agents on end-to-end quantitative analysis tasks drawn from real spreadsheets and documents, spanning business and scientific domains. It uses 80 private questions, each attempted five times, scored by pass^5 (all attempts correct).",
+    "source_url": "https://artificialanalysis.ai/evaluations/aa-analyst-agent",
+    "source": "researched",
+    "checked": "2026-11-19"
+  },
   "aabriefcase": {
     "text": "An agentic knowledge-work benchmark of 91 tasks across four multi-week professional scenarios (data science, product management, banking, corporate strategy), where models produce spreadsheets, decks and memos scored by rubric checks plus pairwise judging of analysis and presentation.",
     "source_url": "https://artificialanalysis.ai/evaluations/aa-briefcase",
@@ -3896,6 +3902,10 @@
     "source_url": "https://openai.com/index/gdpval/",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "gdpval2": {
+    "source": "none",
+    "checked": "2026-11-19"
   },
   "gdpvalaa": {
     "text": "Artificial Analysis's agentic run of OpenAI's GDPval tasks: models get shell access and web browsing to produce real work deliverables (documents, spreadsheets, slides, diagrams) for occupations across nine industries, graded by blind pairwise LLM judging.",
@@ -9750,6 +9760,12 @@
     "source_url": "https://media.x.ai/v1/website/card-4p6-4cd2dc57.pdf",
     "source": "researched",
     "checked": "2026-09-22"
+  },
+  "secureswe": {
+    "text": "SecureSWE is an OpenAI internal benchmark measuring whether a model writes code that is both functional and secure for security-sensitive components such as file serving or database query handling.",
+    "source_url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+    "source": "researched",
+    "checked": "2026-11-19"
   },
   "seed": {
     "text": "SEED-Bench: about 19,000 human-annotated multiple-choice questions spanning 12 evaluation dimensions over both images and video, covering spatial and temporal comprehension for multimodal models.",

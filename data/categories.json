@@ -552,6 +552,17 @@
     ],
     "tenk10k": [
       "science"
+    ],
+    "gdpval2": [
+      "agentic",
+      "knowledge"
+    ],
+    "aaanalystagent": [
+      "agentic"
+    ],
+    "secureswe": [
+      "coding",
+      "safety"
     ]
   }
 }
